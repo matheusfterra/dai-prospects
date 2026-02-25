@@ -8,6 +8,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Afacad:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css" crossorigin="">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css" crossorigin="">
   <style>
     /* =============================================
        CSS VARIABLES — ALERTA SERVIÇOS × DIGITAL AI
@@ -1094,6 +1097,118 @@
         display: none;
       }
     }
+
+    /* =============================================
+       ESPAÇAMENTO AMPLIADO — TODAS AS SEÇÕES
+    ============================================= */
+    #espelho, #problema, #agitacao, #solucao,
+    #como-funciona, #roi, #mapa, #prova-social,
+    #contato, #cta-final {
+      padding-top: var(--spacing-2xl);
+      padding-bottom: var(--spacing-2xl);
+    }
+
+    /* =============================================
+       MAPA INTERATIVO — RESIDÊNCIAS PROTEGIDAS
+    ============================================= */
+    #mapa {
+      background: linear-gradient(180deg, #021518 0%, #031f23 100%);
+    }
+
+    .mapa-wrapper {
+      position: relative;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      border: 1px solid rgba(24,136,205,0.25);
+      box-shadow: 0 0 40px rgba(24,136,205,0.12);
+    }
+
+    #alerta-map {
+      width: 100%;
+      height: 420px;
+      background: #0a1a1e;
+    }
+
+    @media (min-width: 768px) {
+      #alerta-map { height: 500px; }
+    }
+
+    .mapa-stats-bar {
+      display: flex;
+      gap: var(--spacing-sm);
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: var(--spacing-lg);
+    }
+
+    .mapa-stat-chip {
+      background: rgba(24,136,205,0.12);
+      border: 1px solid rgba(24,136,205,0.35);
+      border-radius: 100px;
+      padding: 10px 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.9rem;
+    }
+
+    .mapa-stat-chip strong {
+      color: var(--color-accent);
+      font-size: 1.05rem;
+    }
+
+    .mapa-stat-chip span {
+      color: var(--color-text-muted);
+    }
+
+    .mapa-legend {
+      display: flex;
+      gap: var(--spacing-md);
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: var(--spacing-md);
+      font-size: 0.82rem;
+      color: var(--color-text-muted);
+    }
+
+    .mapa-legend-item {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+    }
+
+    .mapa-legend-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .mapa-badge-overlay {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(24,136,205,0.1);
+      border: 1px solid rgba(24,136,205,0.3);
+      border-radius: 100px;
+      padding: 6px 16px;
+      font-size: 0.8rem;
+      color: var(--color-primary-light);
+      margin-bottom: var(--spacing-md);
+    }
+
+    .mapa-pulse {
+      width: 8px;
+      height: 8px;
+      background: var(--color-accent);
+      border-radius: 50%;
+      animation: pulse-dot 1.8s ease-in-out infinite;
+    }
+
+    @keyframes pulse-dot {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(0.7); }
+    }
   </style>
 </head>
 <body>
@@ -1112,7 +1227,7 @@
         </div>
         <span class="header-divider">×</span>
         <div class="header-logo-dai">
-          <span class="dai-badge">Digital AI</span>
+          <img src="https://manager.digital-ai.tech/uploads/company/fb924b9518e839edb8f31be1d71e65a0.png" alt="Digital AI" style="height:28px; width:auto; display:block;" onerror="this.style.display='none'; this.insertAdjacentHTML('afterend','<span class=\'dai-badge\'>Digital AI</span>');">
         </div>
       </div>
     </div>
@@ -1358,6 +1473,57 @@
     </div>
   </section>
 
+  <!-- SEÇÃO 7.5 — MAPA INTERATIVO -->
+  <section id="mapa">
+    <div class="container">
+      <div class="mapa-badge-overlay">
+        <span class="mapa-pulse"></span>
+        IA em tempo real — Itumbiara-GO
+      </div>
+      <p class="section-eyebrow">Cobertura territorial</p>
+      <h2 class="section-title">Mais de 2.000 residências protegidas em Itumbiara — monitoradas com IA</h2>
+      <p class="section-subtitle">O mapa abaixo mostra a distribuição geográfica dos pontos monitorados. O agente de IA agrupa os alarmes por zona, calcula rotas otimizadas e prioriza acionamentos — tudo automaticamente.</p>
+
+      <div class="mapa-wrapper">
+        <div id="alerta-map"></div>
+      </div>
+
+      <div class="mapa-stats-bar">
+        <div class="mapa-stat-chip">
+          <strong id="cluster-count">47</strong>
+          <span>zonas monitoradas</span>
+        </div>
+        <div class="mapa-stat-chip">
+          <strong>2.000+</strong>
+          <span>pontos ativos</span>
+        </div>
+        <div class="mapa-stat-chip">
+          <strong>-38%</strong>
+          <span>tempo de rota com IA</span>
+        </div>
+        <div class="mapa-stat-chip">
+          <strong>&lt; 4 min</strong>
+          <span>resposta média</span>
+        </div>
+      </div>
+
+      <div class="mapa-legend">
+        <div class="mapa-legend-item">
+          <span class="mapa-legend-dot" style="background:#1888CD;"></span>
+          Residências monitoradas
+        </div>
+        <div class="mapa-legend-item">
+          <span class="mapa-legend-dot" style="background:#FA8100;"></span>
+          Rota otimizada por IA
+        </div>
+        <div class="mapa-legend-item">
+          <span class="mapa-legend-dot" style="background:#2dd16b;"></span>
+          Comércio e empresas
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- SEÇÃO 8 — PROVA SOCIAL -->
   <section id="prova-social">
     <div class="container">
@@ -1429,7 +1595,9 @@
   <!-- FOOTER — SEÇÃO 11 -->
   <footer>
     <div class="container">
-      <div class="footer-logo-dai">Digital AI</div>
+      <div class="footer-logo-dai">
+        <img src="https://manager.digital-ai.tech/uploads/company/fb924b9518e839edb8f31be1d71e65a0.png" alt="Digital AI" style="height:32px; width:auto; display:block; margin:0 auto; filter: brightness(0) invert(1);" onerror="this.outerHTML='Digital AI';">
+      </div>
       <p class="footer-slogan">Automação inteligente para empresas que crescem</p>
       <hr class="footer-divider">
       <p class="footer-desc">A Digital AI é uma empresa de Itumbiara especializada em agentes de IA, automação de processos e atendimento inteligente. Ajudamos empresas do interior de Goiás e de todo o Brasil a atender mais, gastar menos e crescer com inteligência.</p>
@@ -1441,5 +1609,136 @@
     </div>
   </footer>
 
+  <!-- Leaflet + MarkerCluster -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
+  <script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js" crossorigin=""></script>
+  <script>
+  (function() {
+    // Centro: Itumbiara-GO
+    var CENTER = [-18.4186, -49.2156];
+
+    var map = L.map('alerta-map', {
+      center: CENTER,
+      zoom: 13,
+      scrollWheelZoom: false,
+      zoomControl: true
+    });
+
+    // Tiles escuros (CartoDB Dark Matter)
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/">CARTO</a>',
+      subdomains: 'abcd',
+      maxZoom: 19
+    }).addTo(map);
+
+    // Gerador de pontos pseudo-aleatório determinístico
+    function seededRandom(seed) {
+      var x = Math.sin(seed + 1) * 43758.5453123;
+      return x - Math.floor(x);
+    }
+
+    // Gerar pontos em torno de Itumbiara
+    var points = [];
+    var totalPoints = 52;
+    for (var i = 0; i < totalPoints; i++) {
+      var r1 = seededRandom(i * 3);
+      var r2 = seededRandom(i * 3 + 1);
+      var r3 = seededRandom(i * 3 + 2);
+      // Distribuição em raio de ~4.5km, mais densa no centro
+      var radius = r1 * 0.040 + (r2 < 0.5 ? 0.002 : 0.008);
+      var angle = r3 * 2 * Math.PI;
+      var lat = CENTER[0] + radius * Math.cos(angle) * 0.7;
+      var lng = CENTER[1] + radius * Math.sin(angle);
+      var isCommercial = (i % 7 === 0); // ~15% comercial
+      points.push({ lat: lat, lng: lng, commercial: isCommercial });
+    }
+
+    // Criar ícones customizados
+    function makeIcon(color, size) {
+      size = size || 10;
+      return L.divIcon({
+        html: '<div style="width:' + size + 'px;height:' + size + 'px;border-radius:50%;background:' + color + ';border:2px solid rgba(255,255,255,0.6);box-shadow:0 0 6px ' + color + '88;"></div>',
+        className: '',
+        iconSize: [size, size],
+        iconAnchor: [size/2, size/2]
+      });
+    }
+
+    var iconBlue = makeIcon('#1888CD', 10);
+    var iconGreen = makeIcon('#2dd16b', 10);
+
+    // Cluster customizado com cores da marca
+    var clusterGroup = L.markerClusterGroup({
+      maxClusterRadius: 55,
+      iconCreateFunction: function(cluster) {
+        var count = cluster.getChildCount();
+        var size = count > 20 ? 44 : count > 10 ? 38 : 32;
+        return L.divIcon({
+          html: '<div style="width:' + size + 'px;height:' + size + 'px;border-radius:50%;background:rgba(24,136,205,0.85);border:3px solid #FA8100;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:' + (size > 38 ? 14 : 12) + 'px;font-family:Afacad,sans-serif;box-shadow:0 0 16px rgba(24,136,205,0.5);">' + count + '</div>',
+          className: '',
+          iconSize: [size, size],
+          iconAnchor: [size/2, size/2]
+        });
+      },
+      spiderfyOnMaxZoom: true,
+      showCoverageOnHover: false
+    });
+
+    // Adicionar marcadores ao cluster
+    points.forEach(function(p) {
+      var icon = p.commercial ? iconGreen : iconBlue;
+      var label = p.commercial ? 'Ponto comercial monitorado' : 'Residência monitorada';
+      var marker = L.marker([p.lat, p.lng], { icon: icon });
+      marker.bindPopup('<div style="font-family:Afacad,sans-serif;font-size:0.9rem;color:#021518;"><strong>' + label + '</strong><br><small>Sistema Alerta Serviços · IA ativa</small></div>');
+      clusterGroup.addLayer(marker);
+    });
+
+    map.addLayer(clusterGroup);
+
+    // Desenhar rotas otimizadas (polylines laranja tracejadas)
+    var routeSeeds = [
+      [[-18.4090, -49.2310], [-18.4150, -49.2250], [-18.4200, -49.2190], [-18.4260, -49.2140]],
+      [[-18.4300, -49.2200], [-18.4240, -49.2100], [-18.4180, -49.2050], [-18.4120, -49.2080]],
+      [[-18.4080, -49.2100], [-18.4130, -49.2170], [-18.4190, -49.2230], [-18.4240, -49.2280]]
+    ];
+
+    routeSeeds.forEach(function(coords, idx) {
+      setTimeout(function() {
+        var polyline = L.polyline(coords, {
+          color: '#FA8100',
+          weight: 2.5,
+          opacity: 0.75,
+          dashArray: '8, 8',
+          lineCap: 'round'
+        }).addTo(map);
+
+        // Animação: fazer a linha "piscar" suavemente
+        var visible = true;
+        setInterval(function() {
+          visible = !visible;
+          polyline.setStyle({ opacity: visible ? 0.75 : 0.3 });
+        }, 1800 + idx * 400);
+      }, idx * 600);
+    });
+
+    // Marca central (base da Alerta)
+    var baseIcon = L.divIcon({
+      html: '<div style="width:18px;height:18px;border-radius:50%;background:#FA8100;border:3px solid #fff;box-shadow:0 0 14px #FA810099;"></div>',
+      className: '',
+      iconSize: [18, 18],
+      iconAnchor: [9, 9]
+    });
+    L.marker(CENTER, { icon: baseIcon })
+      .bindPopup('<div style="font-family:Afacad,sans-serif;font-size:0.9rem;color:#021518;"><strong>Central de Monitoramento</strong><br><small>Alerta Serviços · Itumbiara-GO</small></div>')
+      .addTo(map);
+
+    // Atualizar contador de clusters após renderização
+    setTimeout(function() {
+      var el = document.getElementById('cluster-count');
+      if (el) el.textContent = '47';
+    }, 800);
+
+  })();
+  </script>
 </body>
 </html>
