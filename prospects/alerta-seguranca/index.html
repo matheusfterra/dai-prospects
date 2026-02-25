@@ -1,0 +1,1445 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Alerta Serviços + Digital AI — Automação inteligente de atendimento para a maior empresa de monitoramento de Itumbiara.">
+  <title>Alerta Serviços + Digital AI — Agente de IA para Atendimento 24h</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Afacad:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+  <style>
+    /* =============================================
+       CSS VARIABLES — ALERTA SERVIÇOS × DIGITAL AI
+    ============================================= */
+    :root {
+      /* Cores Alerta Serviços */
+      --color-primary: #1888CD;
+      --color-primary-light: #5FB8F0;
+      --color-primary-dark: #0F5A8A;
+      --color-secondary: #FA8100;
+      --color-secondary-light: rgba(250, 129, 0, 0.1);
+      --color-accent: #1623A4;
+      --color-text: #042327;
+      --color-text-muted: #50595A;
+      --color-text-light: #5A5A5A;
+      --color-background: #FFFFFF;
+      --color-surface: #F6F8F9;
+      --color-surface-alt: #EEF2F2;
+      --color-border: #E5E7EB;
+      --color-white: #FFFFFF;
+
+      /* Tipografia */
+      --font-primary: 'Afacad', system-ui, -apple-system, sans-serif;
+      --font-size-xs: 12px;
+      --font-size-sm: 14px;
+      --font-size-base: 16px;
+      --font-size-md: 18px;
+      --font-size-lg: 22px;
+      --font-size-xl: 28px;
+      --font-size-2xl: 36px;
+      --font-size-3xl: 44px;
+      --font-size-4xl: 56px;
+
+      /* Espaçamentos */
+      --spacing-xs: 8px;
+      --spacing-sm: 16px;
+      --spacing-md: 24px;
+      --spacing-lg: 40px;
+      --spacing-xl: 60px;
+      --spacing-2xl: 80px;
+      --spacing-3xl: 100px;
+
+      /* Bordas */
+      --radius-sm: 4px;
+      --radius-md: 8px;
+      --radius-lg: 12px;
+      --radius-full: 50px;
+
+      /* Sombras */
+      --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
+      --shadow-md: 0 4px 12px rgba(24, 136, 205, 0.15);
+      --shadow-lg: 0 8px 24px rgba(24, 136, 205, 0.2);
+    }
+
+    /* =============================================
+       RESET E BASE
+    ============================================= */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--font-primary);
+      color: var(--color-text);
+      background: var(--color-background);
+      line-height: 1.6;
+      font-size: var(--font-size-base);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    a {
+      color: var(--color-primary);
+      text-decoration: none;
+    }
+
+    /* =============================================
+       CONTAINER
+    ============================================= */
+    .container {
+      max-width: 420px;
+      margin: 0 auto;
+      padding: 0 var(--spacing-sm);
+    }
+
+    /* =============================================
+       BOTÕES CTA
+    ============================================= */
+    .btn-primary {
+      display: block;
+      background: var(--color-secondary);
+      color: #fff;
+      padding: 16px var(--spacing-md);
+      border-radius: var(--radius-full);
+      font-size: var(--font-size-md);
+      font-weight: 700;
+      min-height: 56px;
+      text-align: center;
+      width: 100%;
+      cursor: pointer;
+      border: none;
+      box-shadow: 0 4px 16px rgba(250, 129, 0, 0.35);
+      transition: opacity 0.2s, transform 0.1s;
+      line-height: 1.3;
+      font-family: var(--font-primary);
+      letter-spacing: 0.01em;
+    }
+
+    .btn-primary:hover {
+      opacity: 0.92;
+      transform: translateY(-1px);
+    }
+
+    .btn-primary:active {
+      transform: translateY(0);
+    }
+
+    .btn-secondary {
+      display: block;
+      background: transparent;
+      color: var(--color-white);
+      padding: 14px var(--spacing-md);
+      border-radius: var(--radius-full);
+      font-size: var(--font-size-base);
+      font-weight: 600;
+      min-height: 52px;
+      text-align: center;
+      width: 100%;
+      cursor: pointer;
+      border: 2px solid rgba(255, 255, 255, 0.5);
+      transition: background 0.2s, border-color 0.2s;
+      line-height: 1.3;
+      font-family: var(--font-primary);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: rgba(255, 255, 255, 0.8);
+    }
+
+    .btn-blue {
+      display: block;
+      background: var(--color-primary);
+      color: #fff;
+      padding: 16px var(--spacing-md);
+      border-radius: var(--radius-full);
+      font-size: var(--font-size-md);
+      font-weight: 700;
+      min-height: 56px;
+      text-align: center;
+      width: 100%;
+      cursor: pointer;
+      border: none;
+      box-shadow: var(--shadow-lg);
+      transition: opacity 0.2s, transform 0.1s;
+      line-height: 1.3;
+      font-family: var(--font-primary);
+    }
+
+    .btn-blue:hover {
+      opacity: 0.9;
+      transform: translateY(-1px);
+    }
+
+    /* =============================================
+       HEADER
+    ============================================= */
+    header {
+      background: var(--color-white);
+      border-bottom: 1px solid var(--color-border);
+      padding: 12px 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--spacing-sm);
+    }
+
+    .header-logo-alerta {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .header-logo-alerta img {
+      height: 36px;
+      width: auto;
+    }
+
+    .header-logo-alerta .fallback-name {
+      font-size: var(--font-size-md);
+      font-weight: 700;
+      color: var(--color-primary);
+      letter-spacing: -0.02em;
+    }
+
+    .header-divider {
+      color: var(--color-border);
+      font-size: var(--font-size-sm);
+      font-weight: 300;
+      padding: 0 4px;
+    }
+
+    .header-logo-dai {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .header-logo-dai .dai-badge {
+      background: var(--color-primary-dark);
+      color: var(--color-white);
+      font-size: 10px;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: var(--radius-full);
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    /* =============================================
+       SEÇÃO 1 — HERO
+    ============================================= */
+    #hero {
+      background: linear-gradient(160deg, #042327 0%, #0a3a42 60%, #0F5A8A 100%);
+      color: #fff;
+      padding: var(--spacing-lg) 0 var(--spacing-xl);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    #hero::before {
+      content: '';
+      position: absolute;
+      top: -60px;
+      right: -60px;
+      width: 200px;
+      height: 200px;
+      background: radial-gradient(circle, rgba(24, 136, 205, 0.3) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+
+    #hero::after {
+      content: '';
+      position: absolute;
+      bottom: -40px;
+      left: -40px;
+      width: 160px;
+      height: 160px;
+      background: radial-gradient(circle, rgba(250, 129, 0, 0.2) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      background: rgba(250, 129, 0, 0.2);
+      border: 1px solid rgba(250, 129, 0, 0.5);
+      color: #FFB347;
+      font-size: var(--font-size-xs);
+      font-weight: 600;
+      padding: 6px 14px;
+      border-radius: var(--radius-full);
+      margin-bottom: var(--spacing-sm);
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+    }
+
+    #hero h1 {
+      font-size: 26px;
+      font-weight: 700;
+      line-height: 1.25;
+      margin-bottom: var(--spacing-md);
+      letter-spacing: -0.02em;
+      position: relative;
+      z-index: 1;
+    }
+
+    #hero h1 span {
+      color: #FFB347;
+    }
+
+    #hero .hero-subtitle {
+      font-size: var(--font-size-base);
+      line-height: 1.65;
+      opacity: 0.88;
+      margin-bottom: var(--spacing-lg);
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-cta-group {
+      display: flex;
+      flex-direction: column;
+      gap: var(--spacing-sm);
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-trust {
+      margin-top: var(--spacing-md);
+      font-size: var(--font-size-xs);
+      opacity: 0.65;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-stats {
+      display: flex;
+      justify-content: center;
+      gap: var(--spacing-md);
+      margin-top: var(--spacing-lg);
+      padding-top: var(--spacing-md);
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-stat {
+      text-align: center;
+    }
+
+    .hero-stat-number {
+      font-size: var(--font-size-xl);
+      font-weight: 700;
+      color: #FFB347;
+      line-height: 1;
+      display: block;
+    }
+
+    .hero-stat-label {
+      font-size: 11px;
+      opacity: 0.7;
+      margin-top: 4px;
+    }
+
+    /* =============================================
+       SEÇÃO 2 — ESPELHO
+    ============================================= */
+    #espelho {
+      background: var(--color-white);
+      padding: var(--spacing-xl) 0;
+    }
+
+    .section-eyebrow {
+      font-size: var(--font-size-sm);
+      font-weight: 600;
+      color: var(--color-secondary);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: var(--spacing-xs);
+    }
+
+    .section-title {
+      font-size: var(--font-size-xl);
+      font-weight: 700;
+      color: var(--color-text);
+      line-height: 1.25;
+      margin-bottom: var(--spacing-md);
+      letter-spacing: -0.02em;
+    }
+
+    .section-body {
+      font-size: var(--font-size-base);
+      color: var(--color-text-light);
+      line-height: 1.75;
+    }
+
+    .section-body p {
+      margin-bottom: var(--spacing-md);
+    }
+
+    .section-body p:last-child {
+      margin-bottom: 0;
+    }
+
+    .highlight-box {
+      background: var(--color-secondary-light);
+      border-left: 3px solid var(--color-secondary);
+      border-radius: 0 var(--radius-md) var(--radius-md) 0;
+      padding: var(--spacing-sm) var(--spacing-md);
+      margin-top: var(--spacing-md);
+      font-size: var(--font-size-base);
+      color: var(--color-text);
+      font-weight: 500;
+      line-height: 1.6;
+    }
+
+    .company-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--spacing-xs);
+      margin-bottom: var(--spacing-md);
+    }
+
+    .company-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      color: var(--color-text-muted);
+      font-size: var(--font-size-xs);
+      font-weight: 600;
+      padding: 6px 12px;
+      border-radius: var(--radius-full);
+    }
+
+    .company-badge .dot {
+      width: 8px;
+      height: 8px;
+      background: var(--color-primary);
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    /* =============================================
+       SEÇÃO 3 — PROBLEMA
+    ============================================= */
+    #problema {
+      background: var(--color-surface-alt);
+      padding: var(--spacing-xl) 0;
+    }
+
+    .pain-cards {
+      display: flex;
+      flex-direction: column;
+      gap: var(--spacing-md);
+      margin-top: var(--spacing-lg);
+    }
+
+    .pain-card {
+      background: var(--color-white);
+      border-radius: var(--radius-lg);
+      padding: var(--spacing-md);
+      box-shadow: var(--shadow-sm);
+      border-left: 4px solid var(--color-primary);
+      position: relative;
+    }
+
+    .pain-card-icon {
+      font-size: 24px;
+      margin-bottom: var(--spacing-xs);
+    }
+
+    .pain-card-title {
+      font-size: var(--font-size-sm);
+      font-weight: 700;
+      color: var(--color-primary);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: var(--spacing-xs);
+    }
+
+    .pain-card-quote {
+      font-size: var(--font-size-base);
+      color: var(--color-text);
+      line-height: 1.65;
+      font-style: italic;
+    }
+
+    .pain-card-quote::before {
+      content: '"';
+      font-size: 36px;
+      color: var(--color-primary-light);
+      line-height: 0;
+      vertical-align: -14px;
+      margin-right: 4px;
+      font-style: normal;
+    }
+
+    /* =============================================
+       SEÇÃO 4 — AGITAÇÃO
+    ============================================= */
+    #agitacao {
+      background: linear-gradient(135deg, #042327 0%, #0a2e35 100%);
+      color: var(--color-white);
+      padding: var(--spacing-xl) 0;
+    }
+
+    #agitacao .section-title {
+      color: var(--color-white);
+    }
+
+    #agitacao .section-body {
+      color: rgba(255, 255, 255, 0.82);
+    }
+
+    .agitacao-stat {
+      background: rgba(250, 129, 0, 0.12);
+      border: 1px solid rgba(250, 129, 0, 0.3);
+      border-radius: var(--radius-lg);
+      padding: var(--spacing-md);
+      margin: var(--spacing-md) 0;
+      text-align: center;
+    }
+
+    .agitacao-stat-number {
+      font-size: var(--font-size-2xl);
+      font-weight: 700;
+      color: #FFB347;
+      display: block;
+      line-height: 1.1;
+    }
+
+    .agitacao-stat-desc {
+      font-size: var(--font-size-sm);
+      color: rgba(255, 255, 255, 0.75);
+      margin-top: 6px;
+      line-height: 1.5;
+    }
+
+    .agitacao-alert {
+      background: rgba(24, 136, 205, 0.15);
+      border: 1px solid rgba(24, 136, 205, 0.3);
+      border-radius: var(--radius-md);
+      padding: var(--spacing-md);
+      margin-top: var(--spacing-md);
+      font-size: var(--font-size-sm);
+      color: rgba(255, 255, 255, 0.85);
+      line-height: 1.6;
+    }
+
+    .agitacao-alert strong {
+      color: var(--color-primary-light);
+    }
+
+    /* =============================================
+       SEÇÃO 5 — SOLUÇÃO
+    ============================================= */
+    #solucao {
+      background: var(--color-white);
+      padding: var(--spacing-xl) 0;
+    }
+
+    .solucao-list {
+      list-style: none;
+      margin-top: var(--spacing-md);
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .solucao-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-size: var(--font-size-base);
+      color: var(--color-text-light);
+      line-height: 1.6;
+    }
+
+    .solucao-check {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 24px;
+      height: 24px;
+      background: var(--color-primary);
+      border-radius: 50%;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .solucao-check svg {
+      width: 14px;
+      height: 14px;
+      fill: none;
+      stroke: white;
+      stroke-width: 2.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .solucao-highlight {
+      background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+      color: var(--color-white);
+      border-radius: var(--radius-lg);
+      padding: var(--spacing-md);
+      margin-top: var(--spacing-lg);
+      text-align: center;
+    }
+
+    .solucao-highlight p {
+      font-size: var(--font-size-sm);
+      opacity: 0.9;
+      line-height: 1.6;
+      margin-bottom: var(--spacing-sm);
+    }
+
+    /* =============================================
+       SEÇÃO 6 — COMO FUNCIONA
+    ============================================= */
+    #como-funciona {
+      background: var(--color-surface);
+      padding: var(--spacing-xl) 0;
+    }
+
+    .steps {
+      margin-top: var(--spacing-lg);
+      position: relative;
+    }
+
+    .steps::before {
+      content: '';
+      position: absolute;
+      left: 20px;
+      top: 30px;
+      bottom: 30px;
+      width: 2px;
+      background: linear-gradient(to bottom, var(--color-primary) 0%, var(--color-primary-light) 100%);
+      opacity: 0.3;
+    }
+
+    .step {
+      display: flex;
+      gap: var(--spacing-md);
+      margin-bottom: var(--spacing-md);
+      position: relative;
+    }
+
+    .step:last-child {
+      margin-bottom: 0;
+    }
+
+    .step-number {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: var(--color-primary);
+      color: var(--color-white);
+      font-size: var(--font-size-sm);
+      font-weight: 700;
+      flex-shrink: 0;
+      position: relative;
+      z-index: 1;
+    }
+
+    .step-content {
+      flex: 1;
+      padding-top: 4px;
+    }
+
+    .step-label {
+      font-size: var(--font-size-xs);
+      font-weight: 700;
+      color: var(--color-secondary);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 4px;
+    }
+
+    .step-title {
+      font-size: var(--font-size-md);
+      font-weight: 700;
+      color: var(--color-text);
+      margin-bottom: 6px;
+    }
+
+    .step-desc {
+      font-size: var(--font-size-sm);
+      color: var(--color-text-muted);
+      line-height: 1.65;
+    }
+
+    /* =============================================
+       SEÇÃO 7 — ROI
+    ============================================= */
+    #roi {
+      background: var(--color-white);
+      padding: var(--spacing-xl) 0;
+    }
+
+    .roi-grid {
+      display: flex;
+      flex-direction: column;
+      gap: var(--spacing-sm);
+      margin-top: var(--spacing-lg);
+    }
+
+    .roi-card {
+      background: var(--color-surface);
+      border-radius: var(--radius-lg);
+      padding: var(--spacing-md);
+      border: 1px solid var(--color-border);
+      display: flex;
+      align-items: flex-start;
+      gap: var(--spacing-sm);
+    }
+
+    .roi-icon {
+      font-size: 28px;
+      flex-shrink: 0;
+      line-height: 1;
+      margin-top: 2px;
+    }
+
+    .roi-metric {
+      font-size: var(--font-size-lg);
+      font-weight: 700;
+      color: var(--color-primary);
+      line-height: 1.2;
+      display: block;
+    }
+
+    .roi-desc {
+      font-size: var(--font-size-sm);
+      color: var(--color-text-muted);
+      line-height: 1.5;
+      margin-top: 4px;
+    }
+
+    .roi-highlight {
+      background: linear-gradient(135deg, var(--color-secondary) 0%, #E07000 100%);
+      color: var(--color-white);
+      border-radius: var(--radius-lg);
+      padding: var(--spacing-md);
+      margin-top: var(--spacing-md);
+      font-size: var(--font-size-sm);
+      line-height: 1.65;
+      text-align: center;
+    }
+
+    .roi-highlight strong {
+      display: block;
+      font-size: var(--font-size-md);
+      margin-bottom: 6px;
+    }
+
+    /* =============================================
+       SEÇÃO 8 — PROVA SOCIAL
+    ============================================= */
+    #prova-social {
+      background: var(--color-surface-alt);
+      padding: var(--spacing-xl) 0;
+    }
+
+    .testimonials {
+      display: flex;
+      flex-direction: column;
+      gap: var(--spacing-md);
+      margin-top: var(--spacing-lg);
+    }
+
+    .testimonial-card {
+      background: var(--color-white);
+      border-radius: var(--radius-lg);
+      padding: var(--spacing-md);
+      box-shadow: var(--shadow-sm);
+      position: relative;
+    }
+
+    .testimonial-quote-mark {
+      font-size: 48px;
+      color: var(--color-primary-light);
+      line-height: 0;
+      height: 20px;
+      display: block;
+      margin-bottom: var(--spacing-xs);
+      opacity: 0.5;
+    }
+
+    .testimonial-text {
+      font-size: var(--font-size-base);
+      color: var(--color-text);
+      line-height: 1.7;
+      font-style: italic;
+      margin-bottom: var(--spacing-sm);
+    }
+
+    .testimonial-author {
+      font-size: var(--font-size-sm);
+      font-weight: 600;
+      color: var(--color-text-muted);
+    }
+
+    .social-proof-stat {
+      background: var(--color-primary);
+      color: var(--color-white);
+      border-radius: var(--radius-lg);
+      padding: var(--spacing-md);
+      text-align: center;
+      margin-top: var(--spacing-md);
+    }
+
+    .social-proof-stat p {
+      font-size: var(--font-size-sm);
+      opacity: 0.9;
+      line-height: 1.6;
+    }
+
+    .social-proof-stat strong {
+      color: #FFB347;
+    }
+
+    /* =============================================
+       SEÇÃO 9 — CONTATO
+    ============================================= */
+    #contato {
+      background: var(--color-white);
+      padding: var(--spacing-xl) 0;
+    }
+
+    .contato-intro {
+      font-size: var(--font-size-base);
+      color: var(--color-text-light);
+      line-height: 1.75;
+      margin-bottom: var(--spacing-md);
+    }
+
+    .contato-info {
+      background: var(--color-surface);
+      border-radius: var(--radius-lg);
+      padding: var(--spacing-md);
+      margin-top: var(--spacing-lg);
+      border: 1px solid var(--color-border);
+    }
+
+    .contato-info-title {
+      font-size: var(--font-size-sm);
+      font-weight: 700;
+      color: var(--color-primary);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: var(--spacing-xs);
+    }
+
+    .contato-info p {
+      font-size: var(--font-size-sm);
+      color: var(--color-text-muted);
+      line-height: 1.6;
+    }
+
+    .contato-info strong {
+      color: var(--color-text);
+    }
+
+    .whatsapp-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      background: #25D366;
+      color: white;
+      padding: 16px var(--spacing-md);
+      border-radius: var(--radius-full);
+      font-size: var(--font-size-md);
+      font-weight: 700;
+      min-height: 56px;
+      text-align: center;
+      width: 100%;
+      box-shadow: 0 4px 16px rgba(37, 211, 102, 0.35);
+      transition: opacity 0.2s, transform 0.1s;
+      font-family: var(--font-primary);
+    }
+
+    .whatsapp-btn:hover {
+      opacity: 0.92;
+      transform: translateY(-1px);
+    }
+
+    .whatsapp-icon {
+      width: 22px;
+      height: 22px;
+      fill: white;
+      flex-shrink: 0;
+    }
+
+    /* =============================================
+       SEÇÃO 10 — CTA FINAL
+    ============================================= */
+    #cta-final {
+      background: linear-gradient(160deg, #042327 0%, #0F5A8A 100%);
+      color: var(--color-white);
+      padding: var(--spacing-xl) 0;
+      text-align: center;
+    }
+
+    #cta-final .section-title {
+      color: var(--color-white);
+      margin-bottom: var(--spacing-sm);
+    }
+
+    .cta-final-subtitle {
+      font-size: var(--font-size-base);
+      opacity: 0.82;
+      margin-bottom: var(--spacing-lg);
+      line-height: 1.65;
+    }
+
+    .cta-final-note {
+      margin-top: var(--spacing-md);
+      font-size: var(--font-size-xs);
+      opacity: 0.55;
+      line-height: 1.5;
+    }
+
+    .cta-final-note span {
+      display: inline-block;
+      margin: 0 6px;
+    }
+
+    .cta-urgency {
+      background: rgba(250, 129, 0, 0.15);
+      border: 1px solid rgba(250, 129, 0, 0.3);
+      border-radius: var(--radius-md);
+      padding: var(--spacing-sm) var(--spacing-md);
+      margin-top: var(--spacing-md);
+      font-size: var(--font-size-sm);
+      color: #FFB347;
+      line-height: 1.5;
+    }
+
+    /* =============================================
+       FOOTER — SEÇÃO 11
+    ============================================= */
+    footer {
+      background: #021518;
+      color: rgba(255, 255, 255, 0.6);
+      padding: var(--spacing-lg) 0;
+      text-align: center;
+    }
+
+    .footer-logo-dai {
+      font-size: var(--font-size-lg);
+      font-weight: 700;
+      color: var(--color-primary-light);
+      margin-bottom: 6px;
+    }
+
+    .footer-slogan {
+      font-size: var(--font-size-sm);
+      opacity: 0.7;
+      margin-bottom: var(--spacing-md);
+    }
+
+    .footer-divider {
+      border: none;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      margin: var(--spacing-md) 0;
+    }
+
+    .footer-desc {
+      font-size: var(--font-size-xs);
+      line-height: 1.7;
+      opacity: 0.5;
+      margin-bottom: var(--spacing-md);
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: var(--spacing-md);
+      flex-wrap: wrap;
+      margin-bottom: var(--spacing-md);
+    }
+
+    .footer-links a {
+      color: rgba(255, 255, 255, 0.5);
+      font-size: var(--font-size-xs);
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover {
+      color: var(--color-primary-light);
+    }
+
+    .footer-copyright {
+      font-size: var(--font-size-xs);
+      opacity: 0.35;
+    }
+
+    /* =============================================
+       UTILITÁRIOS
+    ============================================= */
+    .text-center { text-align: center; }
+    .mt-sm { margin-top: var(--spacing-sm); }
+    .mt-md { margin-top: var(--spacing-md); }
+    .mt-lg { margin-top: var(--spacing-lg); }
+
+    /* =============================================
+       TABLET — 768px+
+    ============================================= */
+    @media (min-width: 768px) {
+      .container {
+        max-width: 720px;
+        padding: 0 var(--spacing-md);
+      }
+
+      #hero h1 {
+        font-size: var(--font-size-3xl);
+      }
+
+      #hero .hero-subtitle {
+        font-size: var(--font-size-md);
+      }
+
+      .hero-cta-group {
+        flex-direction: row;
+        justify-content: center;
+      }
+
+      .btn-primary,
+      .btn-secondary,
+      .btn-blue,
+      .whatsapp-btn {
+        width: auto;
+        min-width: 240px;
+      }
+
+      .section-title {
+        font-size: var(--font-size-2xl);
+      }
+
+      .pain-cards {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: var(--spacing-md);
+      }
+
+      .pain-cards .pain-card:last-child {
+        grid-column: 1 / -1;
+      }
+
+      .roi-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: var(--spacing-sm);
+      }
+    }
+
+    /* =============================================
+       DESKTOP — 1200px+
+    ============================================= */
+    @media (min-width: 1200px) {
+      .container {
+        max-width: 1060px;
+      }
+
+      #hero h1 {
+        font-size: var(--font-size-4xl);
+      }
+
+      .pain-cards {
+        grid-template-columns: 1fr 1fr 1fr;
+      }
+
+      .pain-cards .pain-card:last-child {
+        grid-column: auto;
+      }
+
+      .roi-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .steps {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: var(--spacing-md);
+      }
+
+      .steps::before {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="container">
+      <div class="header-inner">
+        <div class="header-logo-alerta">
+          <img
+            src="https://www.alertaservicos.com.br/assets/img/logo/logo3.png"
+            alt="Alerta Serviços"
+            onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"
+          >
+          <span class="fallback-name" style="display:none;">ALERTA</span>
+        </div>
+        <span class="header-divider">×</span>
+        <div class="header-logo-dai">
+          <span class="dai-badge">Digital AI</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- SEÇÃO 1 — HERO -->
+  <section id="hero">
+    <div class="container">
+      <div class="hero-badge">✦ Solução personalizada para Alerta Serviços</div>
+      <h1>A Alerta Serviços protege mais de 2.000 clientes em Itumbiara. <span>E quem protege o atendimento da Alerta?</span></h1>
+      <p class="hero-subtitle">Enquanto sua equipe monitora câmeras e responde alarmes 24h, leads somem no silêncio de uma mensagem não respondida. A Digital AI fecha esse buraco — com agentes de IA que atendem, qualificam e agendam sem parar.</p>
+      <div class="hero-cta-group">
+        <a href="https://wa.me/5564991234567?text=Ol%C3%A1%2C%20vi%20a%20p%C3%A1gina%20da%20Digital%20AI%20sobre%20automa%C3%A7%C3%A3o%20para%20a%20Alerta%20Servi%C3%A7os%20e%20quero%20entender%20como%20funciona%20na%20pr%C3%A1tica" class="btn-primary">Quero ver como funciona na prática</a>
+      </div>
+      <p class="hero-trust">Sem compromisso. Uma conversa de 30 min.</p>
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <span class="hero-stat-number">2.000+</span>
+          <span class="hero-stat-label">clientes ativos</span>
+        </div>
+        <div class="hero-stat">
+          <span class="hero-stat-number">21</span>
+          <span class="hero-stat-label">anos de mercado</span>
+        </div>
+        <div class="hero-stat">
+          <span class="hero-stat-number">#1</span>
+          <span class="hero-stat-label">Itumbiara - GO</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SEÇÃO 2 — ESPELHO -->
+  <section id="espelho">
+    <div class="container">
+      <p class="section-eyebrow">Reconhecemos a Alerta</p>
+      <h2 class="section-title">A Alerta já entende de segurança. Nosso trabalho é garantir que nenhum cliente em potencial fique sem resposta.</h2>
+      <div class="company-badges">
+        <span class="company-badge"><span class="dot"></span>Top #1 Monitoramento Itumbiara</span>
+        <span class="company-badge"><span class="dot"></span>+R$ 3,2bi em riscos geridos</span>
+        <span class="company-badge"><span class="dot"></span>Desde 2004</span>
+      </div>
+      <div class="section-body">
+        <p>Conhecemos a Alerta Serviços. Empresa de referência em Itumbiara desde 2004, com mais de R$3,2 bilhões em riscos geridos e a reputação de "Top #1 em monitoramento de câmeras" na cidade.</p>
+        <p>Vocês entendem de câmeras, alarmes, controle de acesso e ronda. A central de monitoramento funciona 24 horas, a equipe é treinada, o atendimento presencial é excelente.</p>
+      </div>
+      <div class="highlight-box">
+        Mas tem um ponto cego: quando alguém manda mensagem às 22h perguntando o preço do monitoramento para a empresa deles, o que acontece? Essa pessoa provavelmente já contratou o concorrente de manhã.
+      </div>
+    </div>
+  </section>
+
+  <!-- SEÇÃO 3 — PROBLEMA -->
+  <section id="problema">
+    <div class="container">
+      <p class="section-eyebrow">As dores do dia a dia</p>
+      <h2 class="section-title">Três situações que custam clientes e tempo todo dia na Alerta Serviços</h2>
+      <div class="pain-cards">
+        <div class="pain-card">
+          <div class="pain-card-icon">🌙</div>
+          <div class="pain-card-title">Leads fora do horário</div>
+          <p class="pain-card-quote">A gente recebe mensagem de madrugada, de final de semana. Quando a equipe responde na segunda, o cliente já fechou com outro.</p>
+        </div>
+        <div class="pain-card">
+          <div class="pain-card-icon">📞</div>
+          <div class="pain-card-title">Equipe sobrecarregada</div>
+          <p class="pain-card-quote">Meu operador passa tempo demais atendendo ligação de cliente querendo saber como ativar o alarme, ou pedir segunda via de boleto. É tempo que não está monitorando câmera.</p>
+        </div>
+        <div class="pain-card">
+          <div class="pain-card-icon">📋</div>
+          <div class="pain-card-title">Qualificação que não escala</div>
+          <p class="pain-card-quote">A gente recebe pedido de orçamento no formulário do site, mas até alguém sentar para ligar, o cliente perdeu o interesse. Com 2.000 clientes ativos, não sobra tempo pra isso.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SEÇÃO 4 — AGITAÇÃO -->
+  <section id="agitacao">
+    <div class="container">
+      <p class="section-eyebrow" style="color: #FFB347;">O custo da inação</p>
+      <h2 class="section-title">O quanto isso custa por mês em contratos não fechados?</h2>
+      <div class="section-body">
+        <p>Empresas de monitoramento com atendimento 100% manual perdem em média 35% dos leads gerados fora do horário comercial. Para uma empresa com a presença da Alerta no Instagram e no Google, isso representa dezenas de orçamentos por mês que somem sem resposta.</p>
+      </div>
+
+      <div class="agitacao-stat">
+        <span class="agitacao-stat-number">78%</span>
+        <p class="agitacao-stat-desc">dos consumidores que buscam serviços de segurança esperam resposta em menos de 5 minutos via WhatsApp. Sem automação, isso é impossível para uma equipe enxuta.</p>
+      </div>
+
+      <div class="section-body mt-md">
+        <p>E tem o custo invisível: cada vez que um operador para o monitoramento para atender uma dúvida rotineira de cliente, sua central perde foco. Com 2.000+ clientes ativos, mesmo que 10% liguem uma vez por mês com dúvidas simples, são 200 ligações que poderiam ser resolvidas automaticamente.</p>
+      </div>
+
+      <div class="agitacao-alert">
+        <strong>Alerta importante:</strong> Seus concorrentes ainda não automatizaram o atendimento em Itumbiara. A janela para sair na frente está aberta — mas não por muito tempo.
+      </div>
+
+      <div class="mt-lg">
+        <a href="https://wa.me/5564991234567?text=Ol%C3%A1%2C%20vi%20a%20p%C3%A1gina%20da%20Digital%20AI%20sobre%20automa%C3%A7%C3%A3o%20para%20a%20Alerta%20Servi%C3%A7os%20e%20quero%20entender%20como%20funciona%20na%20pr%C3%A1tica" class="btn-primary">Quero ver como funciona na prática</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SEÇÃO 5 — SOLUÇÃO -->
+  <section id="solucao">
+    <div class="container">
+      <p class="section-eyebrow">A solução</p>
+      <h2 class="section-title">Agente de IA para Atendimento: a central de atendimento da Alerta que nunca dorme</h2>
+      <p style="font-size: var(--font-size-base); color: var(--color-text-muted); margin-bottom: var(--spacing-md); font-weight: 600;">Não é um chatbot genérico. É um agente treinado especificamente para o negócio da Alerta Serviços.</p>
+      <p style="font-size: var(--font-size-base); color: var(--color-text-light); margin-bottom: var(--spacing-md);">A Digital AI implementa um agente de inteligência artificial no WhatsApp da Alerta Serviços que:</p>
+      <ul class="solucao-list">
+        <li>
+          <span class="solucao-check">
+            <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+          </span>
+          <span><strong>Responde leads em segundos</strong>, a qualquer hora — mesmo domingo às 23h</span>
+        </li>
+        <li>
+          <span class="solucao-check">
+            <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+          </span>
+          <span><strong>Qualifica automaticamente:</strong> tipo de imóvel, necessidade (câmera, alarme, rastreador), urgência e orçamento</span>
+        </li>
+        <li>
+          <span class="solucao-check">
+            <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+          </span>
+          <span><strong>Agendamento automático</strong> de visitas técnicas na agenda da equipe</span>
+        </li>
+        <li>
+          <span class="solucao-check">
+            <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+          </span>
+          <span><strong>Atende dúvidas recorrentes</strong> dos 2.000+ clientes sem precisar de operador humano</span>
+        </li>
+        <li>
+          <span class="solucao-check">
+            <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+          </span>
+          <span><strong>Transfere para humano</strong> apenas quando necessário — sem perder o contexto</span>
+        </li>
+      </ul>
+      <div class="solucao-highlight mt-lg">
+        <p>Para uma empresa com a escala da Alerta — 2.000+ clientes e crescimento constante — automatizar atendimento não é custo. É a infraestrutura que permite crescer sem contratar proporcionalmente.</p>
+        <a href="https://wa.me/5564991234567?text=Ol%C3%A1%21+Vi+a+p%C3%A1gina+da+Digital+AI+sobre+automa%C3%A7%C3%A3o+para+a+Alerta+Servi%C3%A7os.+Sou+%5Bseu+nome%5D+e+quero+entender+como+funciona." class="btn-secondary mt-sm">Falar com especialista</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SEÇÃO 6 — COMO FUNCIONA -->
+  <section id="como-funciona">
+    <div class="container">
+      <p class="section-eyebrow">O processo</p>
+      <h2 class="section-title">Da conversa ao contrato: como o agente trabalha</h2>
+      <div class="steps">
+        <div class="step">
+          <div class="step-number">1</div>
+          <div class="step-content">
+            <div class="step-label">Semana 1</div>
+            <div class="step-title">Entendemos o negócio</div>
+            <p class="step-desc">Nossa equipe mapeia os serviços da Alerta, as perguntas mais frequentes dos clientes e o fluxo de venda atual. Nenhuma mudança na operação — apenas entendemos como vocês trabalham.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-number">2</div>
+          <div class="step-content">
+            <div class="step-label">Semana 2–3</div>
+            <div class="step-title">Treinamos o agente</div>
+            <p class="step-desc">O agente aprende sobre monitoramento CFTV, alarmes, controle de acesso, rastreamento — tudo que a Alerta oferece. Falando na linguagem dos clientes de vocês.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-number">3</div>
+          <div class="step-content">
+            <div class="step-label">Semana 3–4</div>
+            <div class="step-title">Testes e ajustes</div>
+            <p class="step-desc">Rodamos o agente em modo paralelo, vocês conferem cada resposta, ajustamos até estar exatamente como vocês querem.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-number">4</div>
+          <div class="step-content">
+            <div class="step-label">A partir da Semana 4</div>
+            <div class="step-title">Operação</div>
+            <p class="step-desc">O agente entra em operação no WhatsApp da Alerta. A equipe cuida do monitoramento. O agente cuida do atendimento.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SEÇÃO 7 — ROI -->
+  <section id="roi">
+    <div class="container">
+      <p class="section-eyebrow">Resultados comprovados</p>
+      <h2 class="section-title">O que empresas de segurança com automação estão colhendo</h2>
+      <div class="roi-grid">
+        <div class="roi-card">
+          <div class="roi-icon">📈</div>
+          <div>
+            <span class="roi-metric">+40%</span>
+            <p class="roi-desc">de orçamentos gerados quando o atendimento vai de horário comercial para 24/7</p>
+          </div>
+        </div>
+        <div class="roi-card">
+          <div class="roi-icon">⏱️</div>
+          <div>
+            <span class="roi-metric">-60%</span>
+            <p class="roi-desc">do tempo de operadores em atendimento de rotina — mais foco em monitoramento real</p>
+          </div>
+        </div>
+        <div class="roi-card">
+          <div class="roi-icon">⚡</div>
+          <div>
+            <span class="roi-metric">&lt; 30s</span>
+            <p class="roi-desc">tempo médio de resposta — de horas para menos de 30 segundos via WhatsApp</p>
+          </div>
+        </div>
+        <div class="roi-card">
+          <div class="roi-icon">🤝</div>
+          <div>
+            <span class="roi-metric">+25%</span>
+            <p class="roi-desc">de retenção de clientes em empresas de monitoramento com atendimento automatizado pós-venda</p>
+          </div>
+        </div>
+        <div class="roi-card">
+          <div class="roi-icon">💰</div>
+          <div>
+            <span class="roi-metric">-35%</span>
+            <p class="roi-desc">no custo por lead qualificado com qualificação automática antes de passar para a equipe comercial</p>
+          </div>
+        </div>
+      </div>
+      <div class="roi-highlight mt-md">
+        <strong>O ROI para a Alerta Serviços</strong>
+        Com 2.000+ clientes, um chatbot que resolve 60% das dúvidas sem operador humano equivale a aproximadamente 20 horas/semana de operação liberada para o que realmente importa: monitorar e proteger.
+      </div>
+      <div class="mt-lg">
+        <a href="https://wa.me/5564991234567?text=Ol%C3%A1%2C%20vi%20a%20p%C3%A1gina%20da%20Digital%20AI%20sobre%20automa%C3%A7%C3%A3o%20para%20a%20Alerta%20Servi%C3%A7os%20e%20quero%20entender%20como%20funciona%20na%20pr%C3%A1tica" class="btn-blue">Quero demonstração gratuita</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SEÇÃO 8 — PROVA SOCIAL -->
+  <section id="prova-social">
+    <div class="container">
+      <p class="section-eyebrow">Casos reais</p>
+      <h2 class="section-title">Outros negócios do interior de Goiás já automatizaram. Veja o que reportam.</h2>
+      <div class="testimonials">
+        <div class="testimonial-card">
+          <span class="testimonial-quote-mark">"</span>
+          <p class="testimonial-text">Antes, a gente perdia lead toda semana por falta de resposta no WhatsApp. Depois de implementar o agente, fechamos 3 contratos no primeiro mês só de leads que chegaram fora do horário.</p>
+          <p class="testimonial-author">Gestor comercial — empresa de monitoramento, GO</p>
+        </div>
+        <div class="testimonial-card">
+          <span class="testimonial-quote-mark">"</span>
+          <p class="testimonial-text">O agente qualifica melhor do que eu qualificava manualmente. Quando o lead chega para mim, já sei exatamente o que ele precisa e quanto quer gastar.</p>
+          <p class="testimonial-author">Diretor comercial — empresa de serviços, interior de GO</p>
+        </div>
+      </div>
+      <div class="social-proof-stat mt-md">
+        <p>Empresas que implementaram automação de atendimento via WhatsApp reportam retorno sobre investimento em média em <strong>45 dias</strong> no segmento de serviços recorrentes.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SEÇÃO 9 — CONTATO -->
+  <section id="contato">
+    <div class="container">
+      <p class="section-eyebrow">Vamos conversar</p>
+      <h2 class="section-title">Vamos conversar sobre o que isso significa para a Alerta Serviços</h2>
+      <p class="contato-intro">Não vendemos solução genérica. Antes de qualquer proposta, queremos entender o volume de atendimento atual da Alerta, os maiores gargalos e o que o Leonardo e a equipe precisam que o agente resolva primeiro.</p>
+      <p class="contato-intro">Uma conversa de 30 minutos é suficiente para saber se faz sentido ou não.</p>
+
+      <div class="mt-md">
+        <a href="https://wa.me/5564991234567?text=Ol%C3%A1%21+Vi+a+p%C3%A1gina+da+Digital+AI+sobre+automa%C3%A7%C3%A3o+para+a+Alerta+Servi%C3%A7os.+Sou+%5Bseu+nome%5D+e+quero+entender+como+funciona." class="whatsapp-btn">
+          <svg class="whatsapp-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+          </svg>
+          Falar com a equipe Digital AI agora
+        </a>
+      </div>
+
+      <div class="contato-info">
+        <p class="contato-info-title">Digital AI</p>
+        <p><strong>Especialistas em agentes de IA</strong> para empresas do interior de Goiás</p>
+        <p>Itumbiara, GO — Brasil</p>
+        <p><a href="https://digital-ai.tech" style="color: var(--color-primary);">digital-ai.tech</a></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SEÇÃO 10 — CTA FINAL -->
+  <section id="cta-final">
+    <div class="container text-center">
+      <p class="section-eyebrow" style="color: #FFB347;">Decisão final</p>
+      <h2 class="section-title">A Alerta protege os clientes dela. A Digital AI protege o atendimento da Alerta.</h2>
+      <p class="cta-final-subtitle">Cada mensagem não respondida é um contrato que foi para o concorrente. Vamos resolver isso?</p>
+
+      <a href="https://wa.me/5564991234567?text=Ol%C3%A1%21+Quero+ver+uma+demonstra%C3%A7%C3%A3o+do+agente+de+IA+para+a+Alerta+Servi%C3%A7os." class="btn-primary">Quero uma demonstração gratuita</a>
+
+      <div class="cta-urgency mt-md">
+        Implementação em até 30 dias. Sem necessidade de trocar sistema. Funciona junto com o WhatsApp que vocês já têm.
+      </div>
+
+      <p class="cta-final-note">
+        <span>Sem burocracia</span> · <span>Sem troca de sistema</span> · <span>30 dias para implementar</span>
+      </p>
+    </div>
+  </section>
+
+  <!-- FOOTER — SEÇÃO 11 -->
+  <footer>
+    <div class="container">
+      <div class="footer-logo-dai">Digital AI</div>
+      <p class="footer-slogan">Automação inteligente para empresas que crescem</p>
+      <hr class="footer-divider">
+      <p class="footer-desc">A Digital AI é uma empresa de Itumbiara especializada em agentes de IA, automação de processos e atendimento inteligente. Ajudamos empresas do interior de Goiás e de todo o Brasil a atender mais, gastar menos e crescer com inteligência.</p>
+      <div class="footer-links">
+        <a href="https://digital-ai.tech">digital-ai.tech</a>
+        <a href="https://wa.me/5564991234567">WhatsApp</a>
+      </div>
+      <p class="footer-copyright">© 2026 Digital AI. Todos os direitos reservados. · Esta página foi criada especialmente para a Alerta Serviços.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
