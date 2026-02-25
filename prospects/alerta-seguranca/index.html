@@ -1099,6 +1099,33 @@
     }
 
     /* =============================================
+       FONTE GLOBAL — TAMANHO AUMENTADO
+    ============================================= */
+    body {
+      font-size: 17px;
+    }
+
+    .section-title {
+      font-size: 30px;
+    }
+
+    .section-body,
+    .section-subtitle {
+      font-size: 17px;
+      line-height: 1.75;
+      color: var(--color-text-light);
+    }
+
+    p {
+      font-size: 17px;
+    }
+
+    @media (min-width: 768px) {
+      body { font-size: 18px; }
+      .section-title { font-size: var(--font-size-2xl); }
+    }
+
+    /* =============================================
        ESPAÇAMENTO AMPLIADO — TODAS AS SEÇÕES
     ============================================= */
     #espelho, #problema, #agitacao, #solucao,
@@ -1115,6 +1142,32 @@
       background: linear-gradient(180deg, #021518 0%, #031f23 100%);
     }
 
+    /* Textos claros dentro da seção escura do mapa */
+    #mapa .section-eyebrow {
+      color: #FA8100;
+    }
+
+    #mapa .section-title {
+      color: #ffffff;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.4);
+    }
+
+    #mapa .section-subtitle {
+      color: rgba(255,255,255,0.75);
+    }
+
+    .mapa-stat-chip strong {
+      color: var(--color-primary-light) !important;
+    }
+
+    .mapa-stat-chip span {
+      color: rgba(255,255,255,0.65) !important;
+    }
+
+    .mapa-legend {
+      color: rgba(255,255,255,0.6) !important;
+    }
+
     .mapa-wrapper {
       position: relative;
       border-radius: var(--radius-lg);
@@ -1125,50 +1178,77 @@
 
     #alerta-map {
       width: 100%;
-      height: 420px;
+      height: 360px;
       background: #0a1a1e;
     }
 
+    @media (min-width: 480px) {
+      #alerta-map { height: 430px; }
+    }
+
     @media (min-width: 768px) {
-      #alerta-map { height: 500px; }
+      #alerta-map { height: 520px; }
     }
 
     .mapa-stats-bar {
-      display: flex;
-      gap: var(--spacing-sm);
-      flex-wrap: wrap;
-      justify-content: center;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
       margin-top: var(--spacing-lg);
+    }
+
+    @media (min-width: 600px) {
+      .mapa-stats-bar {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: var(--spacing-sm);
+      }
     }
 
     .mapa-stat-chip {
       background: rgba(24,136,205,0.12);
       border: 1px solid rgba(24,136,205,0.35);
-      border-radius: 100px;
-      padding: 10px 20px;
+      border-radius: var(--radius-md);
+      padding: 12px 16px;
       display: flex;
+      flex-direction: column;
       align-items: center;
-      gap: 10px;
+      justify-content: center;
+      gap: 3px;
       font-size: 0.9rem;
+      text-align: center;
+    }
+
+    @media (min-width: 600px) {
+      .mapa-stat-chip {
+        border-radius: 100px;
+        flex-direction: row;
+        padding: 10px 20px;
+        gap: 10px;
+        text-align: left;
+      }
     }
 
     .mapa-stat-chip strong {
-      color: var(--color-accent);
-      font-size: 1.05rem;
+      color: var(--color-primary-light);
+      font-size: 1.25rem;
+      line-height: 1;
     }
 
     .mapa-stat-chip span {
-      color: var(--color-text-muted);
+      color: rgba(255,255,255,0.65);
+      font-size: 0.8rem;
     }
 
     .mapa-legend {
       display: flex;
-      gap: var(--spacing-md);
+      gap: var(--spacing-sm);
       flex-wrap: wrap;
       justify-content: center;
       margin-top: var(--spacing-md);
-      font-size: 0.82rem;
-      color: var(--color-text-muted);
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.6);
     }
 
     .mapa-legend-item {
@@ -1617,9 +1697,10 @@
     // Centro: Itumbiara-GO
     var CENTER = [-18.4186, -49.2156];
 
+    var isMobile = window.innerWidth < 600;
     var map = L.map('alerta-map', {
       center: CENTER,
-      zoom: 13,
+      zoom: isMobile ? 12 : 13,
       scrollWheelZoom: false,
       zoomControl: true
     });
@@ -1637,19 +1718,25 @@
       return x - Math.floor(x);
     }
 
-    // Gerar pontos em torno de Itumbiara
+    // Gerar pontos em torno de Itumbiara — alta densidade
     var points = [];
-    var totalPoints = 52;
+    var totalPoints = 140;
     for (var i = 0; i < totalPoints; i++) {
       var r1 = seededRandom(i * 3);
       var r2 = seededRandom(i * 3 + 1);
       var r3 = seededRandom(i * 3 + 2);
-      // Distribuição em raio de ~4.5km, mais densa no centro
-      var radius = r1 * 0.040 + (r2 < 0.5 ? 0.002 : 0.008);
+      var r4 = seededRandom(i * 3 + 100);
+      // Distribuição: 60% próximo ao centro, 40% espalhado até 6km
+      var radius;
+      if (r4 < 0.6) {
+        radius = r1 * 0.022 + 0.003; // zona central ~2km
+      } else {
+        radius = 0.022 + r1 * 0.038; // periferia até ~6km
+      }
       var angle = r3 * 2 * Math.PI;
-      var lat = CENTER[0] + radius * Math.cos(angle) * 0.7;
+      var lat = CENTER[0] + radius * Math.cos(angle) * 0.78;
       var lng = CENTER[1] + radius * Math.sin(angle);
-      var isCommercial = (i % 7 === 0); // ~15% comercial
+      var isCommercial = (i % 8 === 0); // ~12% comercial
       points.push({ lat: lat, lng: lng, commercial: isCommercial });
     }
 
@@ -1695,11 +1782,14 @@
 
     map.addLayer(clusterGroup);
 
-    // Desenhar rotas otimizadas (polylines laranja tracejadas)
+    // Desenhar rotas otimizadas (polylines laranja tracejadas) — 6 rotas cobrindo a cidade
     var routeSeeds = [
       [[-18.4090, -49.2310], [-18.4150, -49.2250], [-18.4200, -49.2190], [-18.4260, -49.2140]],
       [[-18.4300, -49.2200], [-18.4240, -49.2100], [-18.4180, -49.2050], [-18.4120, -49.2080]],
-      [[-18.4080, -49.2100], [-18.4130, -49.2170], [-18.4190, -49.2230], [-18.4240, -49.2280]]
+      [[-18.4080, -49.2100], [-18.4130, -49.2170], [-18.4190, -49.2230], [-18.4240, -49.2280]],
+      [[-18.4050, -49.2180], [-18.4100, -49.2120], [-18.4160, -49.2060], [-18.4220, -49.2000]],
+      [[-18.4350, -49.2150], [-18.4290, -49.2090], [-18.4230, -49.2030], [-18.4170, -49.1980]],
+      [[-18.4000, -49.2250], [-18.4060, -49.2300], [-18.4120, -49.2350], [-18.4180, -49.2320]]
     ];
 
     routeSeeds.forEach(function(coords, idx) {
