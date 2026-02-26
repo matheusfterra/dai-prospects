@@ -1,0 +1,1964 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mobato + Digital AI — Atendimento Inteligente para suas 1.800 Concessionárias</title>
+  <meta name="description" content="Atenda 10x mais clientes das concessionárias da Mobato sem aumentar uma pessoa no seu time de suporte. Agentes de IA integrados à plataforma Mobato.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    /* ============================================================
+       CSS CUSTOM PROPERTIES — MOBATO DESIGN SYSTEM
+       ============================================================ */
+    :root {
+      /* Cores Mobato */
+      --color-primary: #2790A5;
+      --color-primary-light: #A6D1DA;
+      --color-primary-dark: #1E6E80;
+      --color-primary-10: rgba(39, 144, 165, 0.1);
+      --color-primary-15: rgba(39, 144, 165, 0.15);
+      --color-secondary: #8BCCA6;
+      --color-accent: #FFBC7D;
+      --color-accent-dark: #E8A05A;
+      --color-text: #293A3D;
+      --color-text-muted: #838D8E;
+      --color-background: #FFFFFF;
+      --color-surface: #F4F5F5;
+      --color-surface-alt: #EAEBEC;
+      --color-dark: #1A2B2E;
+
+      /* Tipografia */
+      --font-primary: 'Inter', system-ui, -apple-system, sans-serif;
+      --font-size-xs: 0.75rem;
+      --font-size-sm: 0.875rem;
+      --font-size-base: 1rem;
+      --font-size-lg: 1.125rem;
+      --font-size-xl: 1.25rem;
+      --font-size-2xl: 1.5rem;
+      --font-size-3xl: 1.875rem;
+      --font-size-4xl: 2.25rem;
+      --font-size-5xl: 3rem;
+
+      /* Espaçamentos */
+      --spacing-xs: 0.25rem;
+      --spacing-sm: 0.5rem;
+      --spacing-md: 1rem;
+      --spacing-lg: 1.5rem;
+      --spacing-xl: 2rem;
+      --spacing-2xl: 3rem;
+      --spacing-3xl: 4rem;
+      --spacing-4xl: 5rem;
+
+      /* Bordas */
+      --radius-sm: 6px;
+      --radius-md: 12px;
+      --radius-lg: 20px;
+      --radius-xl: 28px;
+      --radius-full: 9999px;
+
+      /* Sombras */
+      --shadow-sm: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
+      --shadow-md: 0 4px 12px rgba(39,144,165,0.12), 0 2px 4px rgba(0,0,0,0.06);
+      --shadow-lg: 0 12px 32px rgba(39,144,165,0.18), 0 4px 8px rgba(0,0,0,0.08);
+      --shadow-card: 0 2px 8px rgba(0,0,0,0.06), 0 0 0 1px rgba(0,0,0,0.04);
+    }
+
+    /* ============================================================
+       RESET & BASE
+       ============================================================ */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--font-primary);
+      color: var(--color-text);
+      background: var(--color-background);
+      line-height: 1.6;
+      font-size: var(--font-size-base);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    a {
+      color: var(--color-primary);
+      text-decoration: none;
+    }
+
+    /* ============================================================
+       LAYOUT — CONTAINER
+       ============================================================ */
+    .container {
+      max-width: 420px;
+      margin: 0 auto;
+      padding: 0 var(--spacing-lg);
+    }
+
+    /* ============================================================
+       COMPONENTES GLOBAIS
+       ============================================================ */
+
+    /* Eyebrow / label de seção */
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--spacing-xs);
+      font-size: var(--font-size-xs);
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--color-primary);
+      background: var(--color-primary-10);
+      padding: 5px 12px;
+      border-radius: var(--radius-full);
+      margin-bottom: var(--spacing-md);
+    }
+
+    /* Títulos de seção */
+    .section-title {
+      font-size: var(--font-size-2xl);
+      font-weight: 700;
+      color: var(--color-text);
+      line-height: 1.25;
+      margin-bottom: var(--spacing-md);
+    }
+
+    .section-subtitle {
+      font-size: var(--font-size-base);
+      color: var(--color-text-muted);
+      line-height: 1.7;
+      margin-bottom: var(--spacing-xl);
+    }
+
+    /* Botão CTA primário */
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--spacing-sm);
+      background: var(--color-primary);
+      color: #fff;
+      padding: 14px 28px;
+      border-radius: var(--radius-full);
+      font-size: var(--font-size-base);
+      font-weight: 600;
+      min-height: 52px;
+      width: 100%;
+      text-align: center;
+      cursor: pointer;
+      border: none;
+      box-shadow: var(--shadow-md);
+      transition: all 0.2s ease;
+      line-height: 1.2;
+    }
+
+    .btn-primary:hover {
+      background: var(--color-primary-dark);
+      box-shadow: var(--shadow-lg);
+      transform: translateY(-1px);
+      color: #fff;
+    }
+
+    /* Botão CTA accent (laranja) */
+    .btn-accent {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--spacing-sm);
+      background: var(--color-accent);
+      color: var(--color-text);
+      padding: 14px 28px;
+      border-radius: var(--radius-full);
+      font-size: var(--font-size-base);
+      font-weight: 700;
+      min-height: 52px;
+      width: 100%;
+      text-align: center;
+      cursor: pointer;
+      border: none;
+      box-shadow: 0 4px 16px rgba(255,188,125,0.4);
+      transition: all 0.2s ease;
+    }
+
+    .btn-accent:hover {
+      background: var(--color-accent-dark);
+      transform: translateY(-1px);
+      color: var(--color-text);
+    }
+
+    /* Botão outline */
+    .btn-outline {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--spacing-sm);
+      background: transparent;
+      color: #fff;
+      padding: 13px 28px;
+      border-radius: var(--radius-full);
+      font-size: var(--font-size-base);
+      font-weight: 600;
+      min-height: 52px;
+      width: 100%;
+      text-align: center;
+      cursor: pointer;
+      border: 2px solid rgba(255,255,255,0.5);
+      transition: all 0.2s ease;
+    }
+
+    .btn-outline:hover {
+      border-color: #fff;
+      background: rgba(255,255,255,0.1);
+      color: #fff;
+    }
+
+    /* Seções */
+    section {
+      padding: var(--spacing-3xl) 0;
+    }
+
+    section:nth-child(even) {
+      background: var(--color-surface);
+    }
+
+    /* Divisor decorativo */
+    .divider {
+      width: 48px;
+      height: 4px;
+      background: var(--color-primary);
+      border-radius: var(--radius-full);
+      margin: var(--spacing-md) 0 var(--spacing-xl);
+    }
+
+    /* ============================================================
+       HEADER
+       ============================================================ */
+    #site-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--color-surface-alt);
+      padding: 12px 0;
+    }
+
+    .header-inner {
+      max-width: 420px;
+      margin: 0 auto;
+      padding: 0 var(--spacing-lg);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--spacing-md);
+    }
+
+    .header-logos {
+      display: flex;
+      align-items: center;
+      gap: var(--spacing-md);
+    }
+
+    .header-logo-mobato {
+      height: 28px;
+      width: auto;
+    }
+
+    .header-divider {
+      width: 1px;
+      height: 24px;
+      background: var(--color-surface-alt);
+    }
+
+    .header-logo-dai {
+      height: 22px;
+      width: auto;
+      opacity: 0.8;
+    }
+
+    .header-badge {
+      font-size: 10px;
+      font-weight: 600;
+      color: var(--color-primary);
+      background: var(--color-primary-10);
+      padding: 4px 10px;
+      border-radius: var(--radius-full);
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    /* ============================================================
+       SEÇÃO 1 — HERO
+       ============================================================ */
+    #hero {
+      background: linear-gradient(135deg, #0D3D4A 0%, var(--color-primary-dark) 40%, var(--color-primary) 100%);
+      color: #fff;
+      padding: var(--spacing-3xl) 0 var(--spacing-2xl);
+      position: relative;
+      overflow: hidden;
+    }
+
+    #hero::before {
+      content: '';
+      position: absolute;
+      top: -80px;
+      right: -80px;
+      width: 280px;
+      height: 280px;
+      background: radial-gradient(circle, rgba(166,209,218,0.2) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+
+    #hero::after {
+      content: '';
+      position: absolute;
+      bottom: -60px;
+      left: -60px;
+      width: 220px;
+      height: 220px;
+      background: radial-gradient(circle, rgba(255,188,125,0.15) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--spacing-xs);
+      font-size: var(--font-size-xs);
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--color-primary-light);
+      background: rgba(166,209,218,0.15);
+      border: 1px solid rgba(166,209,218,0.3);
+      padding: 5px 12px;
+      border-radius: var(--radius-full);
+      margin-bottom: var(--spacing-lg);
+    }
+
+    #hero h1 {
+      font-size: var(--font-size-3xl);
+      font-weight: 800;
+      line-height: 1.15;
+      margin-bottom: var(--spacing-lg);
+      letter-spacing: -0.02em;
+    }
+
+    #hero h1 .highlight {
+      color: var(--color-accent);
+    }
+
+    .hero-subtitle {
+      font-size: var(--font-size-base);
+      line-height: 1.7;
+      opacity: 0.88;
+      margin-bottom: var(--spacing-xl);
+    }
+
+    .hero-cta-group {
+      display: flex;
+      flex-direction: column;
+      gap: var(--spacing-sm);
+      margin-bottom: var(--spacing-2xl);
+    }
+
+    /* Stats no hero */
+    .hero-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--spacing-sm);
+      margin-top: var(--spacing-xl);
+    }
+
+    .hero-stat {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: var(--radius-lg);
+      padding: var(--spacing-md) var(--spacing-sm);
+      text-align: center;
+      backdrop-filter: blur(4px);
+    }
+
+    .hero-stat-number {
+      font-size: var(--font-size-xl);
+      font-weight: 800;
+      color: var(--color-accent);
+      line-height: 1;
+      margin-bottom: 4px;
+      display: block;
+    }
+
+    .hero-stat-label {
+      font-size: 10px;
+      font-weight: 500;
+      color: rgba(255,255,255,0.75);
+      line-height: 1.3;
+    }
+
+    /* ============================================================
+       SEÇÃO 2 — ESPELHO
+       ============================================================ */
+    #espelho {
+      background: var(--color-background);
+    }
+
+    .espelho-quote {
+      background: linear-gradient(135deg, var(--color-primary-10), rgba(139,204,166,0.08));
+      border-left: 4px solid var(--color-primary);
+      border-radius: 0 var(--radius-lg) var(--radius-lg) 0;
+      padding: var(--spacing-lg) var(--spacing-xl);
+      margin-bottom: var(--spacing-xl);
+      position: relative;
+    }
+
+    .espelho-quote::before {
+      content: '"';
+      position: absolute;
+      top: -12px;
+      left: 16px;
+      font-size: 60px;
+      color: var(--color-primary);
+      opacity: 0.2;
+      font-family: Georgia, serif;
+      line-height: 1;
+    }
+
+    .espelho-quote p {
+      font-size: var(--font-size-base);
+      font-style: italic;
+      color: var(--color-text);
+      line-height: 1.7;
+    }
+
+    .espelho-text p {
+      font-size: var(--font-size-base);
+      color: var(--color-text);
+      line-height: 1.7;
+      margin-bottom: var(--spacing-md);
+    }
+
+    .espelho-text p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* Chips de dados */
+    .espelho-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--spacing-sm);
+      margin: var(--spacing-lg) 0;
+    }
+
+    .data-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--color-surface);
+      border: 1px solid var(--color-surface-alt);
+      border-radius: var(--radius-full);
+      padding: 6px 14px;
+      font-size: var(--font-size-sm);
+      font-weight: 600;
+      color: var(--color-text);
+    }
+
+    .data-chip-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--color-primary);
+      flex-shrink: 0;
+    }
+
+    /* ============================================================
+       SEÇÃO 3 — PROBLEMA
+       ============================================================ */
+    #problema {
+      background: var(--color-surface);
+    }
+
+    .problema-cards {
+      display: flex;
+      flex-direction: column;
+      gap: var(--spacing-lg);
+    }
+
+    .problema-card {
+      background: var(--color-background);
+      border-radius: var(--radius-xl);
+      padding: var(--spacing-xl);
+      box-shadow: var(--shadow-card);
+      border: 1px solid var(--color-surface-alt);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .problema-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--color-primary), var(--color-secondary));
+    }
+
+    .problema-card-icon {
+      width: 48px;
+      height: 48px;
+      background: var(--color-primary-10);
+      border-radius: var(--radius-lg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: var(--spacing-md);
+      font-size: 24px;
+    }
+
+    .problema-card-number {
+      font-size: var(--font-size-xs);
+      font-weight: 700;
+      color: var(--color-primary);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: var(--spacing-xs);
+    }
+
+    .problema-card h3 {
+      font-size: var(--font-size-lg);
+      font-weight: 700;
+      color: var(--color-text);
+      line-height: 1.3;
+      margin-bottom: var(--spacing-md);
+    }
+
+    .problema-card p {
+      font-size: var(--font-size-sm);
+      color: var(--color-text-muted);
+      line-height: 1.7;
+    }
+
+    /* ============================================================
+       SEÇÃO 4 — AGITAÇÃO
+       ============================================================ */
+    #agitacao {
+      background: linear-gradient(160deg, #0D3D4A 0%, var(--color-dark) 100%);
+      color: #fff;
+    }
+
+    #agitacao .eyebrow {
+      background: rgba(255,188,125,0.15);
+      color: var(--color-accent);
+    }
+
+    #agitacao .section-title {
+      color: #fff;
+    }
+
+    #agitacao .section-subtitle {
+      color: rgba(255,255,255,0.75);
+    }
+
+    .agitacao-items {
+      display: flex;
+      flex-direction: column;
+      gap: var(--spacing-md);
+      margin-bottom: var(--spacing-xl);
+    }
+
+    .agitacao-item {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: var(--radius-xl);
+      padding: var(--spacing-lg);
+      display: flex;
+      gap: var(--spacing-md);
+      align-items: flex-start;
+    }
+
+    .agitacao-item-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: var(--radius-lg);
+      background: rgba(255,188,125,0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      flex-shrink: 0;
+    }
+
+    .agitacao-item-text strong {
+      display: block;
+      font-size: var(--font-size-base);
+      font-weight: 700;
+      color: var(--color-accent);
+      margin-bottom: var(--spacing-xs);
+    }
+
+    .agitacao-item-text p {
+      font-size: var(--font-size-sm);
+      color: rgba(255,255,255,0.75);
+      line-height: 1.6;
+    }
+
+    .agitacao-alert {
+      background: rgba(255,188,125,0.12);
+      border: 1px solid rgba(255,188,125,0.3);
+      border-radius: var(--radius-xl);
+      padding: var(--spacing-lg);
+      text-align: center;
+      margin-top: var(--spacing-lg);
+    }
+
+    .agitacao-alert p {
+      font-size: var(--font-size-sm);
+      color: rgba(255,255,255,0.85);
+      line-height: 1.6;
+    }
+
+    .agitacao-alert strong {
+      color: var(--color-accent);
+    }
+
+    /* ============================================================
+       SEÇÃO BÔNUS — MONTADORAS
+       ============================================================ */
+    #montadoras {
+      background: var(--color-background);
+      padding: var(--spacing-2xl) 0;
+    }
+
+    .montadoras-header {
+      text-align: center;
+      margin-bottom: var(--spacing-xl);
+    }
+
+    .montadoras-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: var(--spacing-sm);
+    }
+
+    .montadora-badge {
+      background: var(--color-surface);
+      border: 1.5px solid var(--color-surface-alt);
+      border-radius: var(--radius-lg);
+      padding: var(--spacing-md) var(--spacing-sm);
+      text-align: center;
+      transition: all 0.2s ease;
+    }
+
+    .montadora-badge:hover {
+      border-color: var(--color-primary-light);
+      background: var(--color-primary-10);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .montadora-badge-icon {
+      font-size: 20px;
+      margin-bottom: 4px;
+      display: block;
+    }
+
+    .montadora-badge-name {
+      font-size: 10px;
+      font-weight: 700;
+      color: var(--color-text);
+      letter-spacing: 0.04em;
+    }
+
+    .montadoras-cta-strip {
+      margin-top: var(--spacing-xl);
+      background: linear-gradient(135deg, var(--color-primary-10), rgba(139,204,166,0.1));
+      border: 1px solid var(--color-primary-light);
+      border-radius: var(--radius-xl);
+      padding: var(--spacing-lg);
+      text-align: center;
+    }
+
+    .montadoras-cta-strip p {
+      font-size: var(--font-size-sm);
+      color: var(--color-text);
+      line-height: 1.6;
+      margin-bottom: var(--spacing-md);
+    }
+
+    .montadoras-cta-strip strong {
+      color: var(--color-primary);
+    }
+
+    /* ============================================================
+       SEÇÃO 5 — SOLUÇÃO
+       ============================================================ */
+    #solucao {
+      background: var(--color-surface);
+    }
+
+    .solucao-cards {
+      display: flex;
+      flex-direction: column;
+      gap: var(--spacing-md);
+    }
+
+    .solucao-card {
+      background: var(--color-background);
+      border-radius: var(--radius-xl);
+      padding: var(--spacing-lg);
+      box-shadow: var(--shadow-card);
+      border: 1px solid var(--color-surface-alt);
+      display: flex;
+      gap: var(--spacing-md);
+      align-items: flex-start;
+    }
+
+    .solucao-card-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: var(--radius-lg);
+      background: linear-gradient(135deg, var(--color-primary-10), rgba(139,204,166,0.15));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 26px;
+      flex-shrink: 0;
+    }
+
+    .solucao-card-body h3 {
+      font-size: var(--font-size-base);
+      font-weight: 700;
+      color: var(--color-text);
+      margin-bottom: var(--spacing-xs);
+      line-height: 1.3;
+    }
+
+    .solucao-card-body p {
+      font-size: var(--font-size-sm);
+      color: var(--color-text-muted);
+      line-height: 1.6;
+    }
+
+    .solucao-result {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: var(--font-size-xs);
+      font-weight: 700;
+      color: var(--color-primary);
+      background: var(--color-primary-10);
+      padding: 3px 10px;
+      border-radius: var(--radius-full);
+      margin-top: var(--spacing-sm);
+    }
+
+    .solucao-result::before {
+      content: '→';
+    }
+
+    /* ============================================================
+       SEÇÃO 6 — COMO FUNCIONA
+       ============================================================ */
+    #como-funciona {
+      background: var(--color-background);
+    }
+
+    .como-steps {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      position: relative;
+    }
+
+    .como-steps::before {
+      content: '';
+      position: absolute;
+      left: 23px;
+      top: 48px;
+      bottom: 48px;
+      width: 2px;
+      background: linear-gradient(180deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+      opacity: 0.3;
+    }
+
+    .como-step {
+      display: flex;
+      gap: var(--spacing-lg);
+      align-items: flex-start;
+      padding: var(--spacing-lg) 0;
+      position: relative;
+    }
+
+    .como-step-number {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: var(--color-primary);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: var(--font-size-lg);
+      font-weight: 800;
+      flex-shrink: 0;
+      box-shadow: 0 4px 12px rgba(39,144,165,0.3);
+      position: relative;
+      z-index: 2;
+    }
+
+    .como-step-content {
+      padding-top: var(--spacing-xs);
+    }
+
+    .como-step-week {
+      font-size: var(--font-size-xs);
+      font-weight: 700;
+      color: var(--color-primary);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 4px;
+    }
+
+    .como-step-content h3 {
+      font-size: var(--font-size-base);
+      font-weight: 700;
+      color: var(--color-text);
+      margin-bottom: var(--spacing-xs);
+      line-height: 1.3;
+    }
+
+    .como-step-content p {
+      font-size: var(--font-size-sm);
+      color: var(--color-text-muted);
+      line-height: 1.6;
+    }
+
+    .como-step-result {
+      margin-top: var(--spacing-sm);
+      font-size: var(--font-size-sm);
+      color: var(--color-secondary);
+      font-weight: 600;
+    }
+
+    .como-bottom-cta {
+      margin-top: var(--spacing-xl);
+      background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark));
+      border-radius: var(--radius-xl);
+      padding: var(--spacing-xl) var(--spacing-lg);
+      color: #fff;
+      text-align: center;
+    }
+
+    .como-bottom-cta p {
+      font-size: var(--font-size-lg);
+      font-weight: 700;
+      margin-bottom: var(--spacing-lg);
+      line-height: 1.4;
+    }
+
+    /* ============================================================
+       SEÇÃO 7 — ROI
+       ============================================================ */
+    #roi {
+      background: var(--color-surface);
+    }
+
+    .roi-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--spacing-sm);
+      margin-bottom: var(--spacing-xl);
+    }
+
+    .roi-card {
+      background: var(--color-background);
+      border-radius: var(--radius-xl);
+      padding: var(--spacing-lg) var(--spacing-md);
+      box-shadow: var(--shadow-card);
+      border: 1px solid var(--color-surface-alt);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .roi-card::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--color-primary), var(--color-secondary));
+    }
+
+    .roi-card-value {
+      font-size: var(--font-size-2xl);
+      font-weight: 800;
+      color: var(--color-primary);
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+
+    .roi-card-label {
+      font-size: var(--font-size-xs);
+      font-weight: 600;
+      color: var(--color-text);
+      line-height: 1.4;
+      margin-bottom: 4px;
+    }
+
+    .roi-card-period {
+      font-size: 10px;
+      color: var(--color-text-muted);
+    }
+
+    .roi-card-icon {
+      font-size: 24px;
+      margin-bottom: var(--spacing-sm);
+    }
+
+    .roi-footnote {
+      font-size: var(--font-size-xs);
+      color: var(--color-text-muted);
+      text-align: center;
+      font-style: italic;
+      margin-top: var(--spacing-md);
+      padding: 0 var(--spacing-sm);
+      line-height: 1.5;
+    }
+
+    /* ============================================================
+       SEÇÃO 8 — PROVA SOCIAL
+       ============================================================ */
+    #prova-social {
+      background: var(--color-background);
+    }
+
+    .testimonial-card {
+      background: linear-gradient(135deg, var(--color-primary-10), rgba(139,204,166,0.08));
+      border: 1px solid var(--color-primary-light);
+      border-radius: var(--radius-xl);
+      padding: var(--spacing-xl);
+      margin-bottom: var(--spacing-xl);
+      position: relative;
+    }
+
+    .testimonial-card::before {
+      content: '"';
+      position: absolute;
+      top: -8px;
+      left: 20px;
+      font-size: 64px;
+      color: var(--color-primary);
+      opacity: 0.15;
+      font-family: Georgia, serif;
+      line-height: 1;
+    }
+
+    .testimonial-text {
+      font-size: var(--font-size-base);
+      font-style: italic;
+      color: var(--color-text);
+      line-height: 1.7;
+      margin-bottom: var(--spacing-md);
+    }
+
+    .testimonial-author {
+      font-size: var(--font-size-sm);
+      font-weight: 700;
+      color: var(--color-primary);
+    }
+
+    .prova-social-items {
+      display: flex;
+      flex-direction: column;
+      gap: var(--spacing-md);
+    }
+
+    .prova-item {
+      background: var(--color-surface);
+      border-radius: var(--radius-xl);
+      padding: var(--spacing-lg);
+      display: flex;
+      gap: var(--spacing-md);
+      align-items: flex-start;
+    }
+
+    .prova-item-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: var(--radius-md);
+      background: var(--color-primary-10);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      flex-shrink: 0;
+    }
+
+    .prova-item-text strong {
+      display: block;
+      font-size: var(--font-size-sm);
+      font-weight: 700;
+      color: var(--color-text);
+      margin-bottom: 4px;
+    }
+
+    .prova-item-text p {
+      font-size: var(--font-size-sm);
+      color: var(--color-text-muted);
+      line-height: 1.5;
+    }
+
+    /* ============================================================
+       SEÇÃO 9 — CONTATO
+       ============================================================ */
+    #contato {
+      background: linear-gradient(135deg, var(--color-primary-dark) 0%, #0D3D4A 100%);
+      color: #fff;
+    }
+
+    #contato .eyebrow {
+      background: rgba(166,209,218,0.15);
+      color: var(--color-primary-light);
+    }
+
+    #contato .section-title {
+      color: #fff;
+    }
+
+    .contato-card {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: var(--radius-xl);
+      padding: var(--spacing-xl);
+      margin-bottom: var(--spacing-xl);
+    }
+
+    .contato-avatar {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--color-primary-light), var(--color-secondary));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+      margin-bottom: var(--spacing-md);
+    }
+
+    .contato-name {
+      font-size: var(--font-size-lg);
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 4px;
+    }
+
+    .contato-role {
+      font-size: var(--font-size-sm);
+      color: var(--color-primary-light);
+      margin-bottom: var(--spacing-md);
+    }
+
+    .contato-quote {
+      font-size: var(--font-size-sm);
+      color: rgba(255,255,255,0.8);
+      font-style: italic;
+      line-height: 1.6;
+      border-left: 3px solid var(--color-accent);
+      padding-left: var(--spacing-md);
+    }
+
+    .contato-cta-group {
+      display: flex;
+      flex-direction: column;
+      gap: var(--spacing-sm);
+    }
+
+    /* ============================================================
+       SEÇÃO 10 — CTA FINAL
+       ============================================================ */
+    #cta-final {
+      background: var(--color-surface);
+    }
+
+    .cta-final-box {
+      background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark));
+      border-radius: var(--radius-xl);
+      padding: var(--spacing-2xl) var(--spacing-lg);
+      text-align: center;
+      color: #fff;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-final-box::before {
+      content: '';
+      position: absolute;
+      top: -40px;
+      right: -40px;
+      width: 160px;
+      height: 160px;
+      background: radial-gradient(circle, rgba(255,255,255,0.08) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+
+    .cta-final-box::after {
+      content: '';
+      position: absolute;
+      bottom: -30px;
+      left: -30px;
+      width: 120px;
+      height: 120px;
+      background: radial-gradient(circle, rgba(255,188,125,0.15) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+
+    .cta-final-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    .cta-final-box h2 {
+      font-size: var(--font-size-2xl);
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: var(--spacing-md);
+      letter-spacing: -0.02em;
+    }
+
+    .cta-final-box p {
+      font-size: var(--font-size-base);
+      opacity: 0.9;
+      line-height: 1.7;
+      margin-bottom: var(--spacing-xl);
+    }
+
+    .cta-final-btns {
+      display: flex;
+      flex-direction: column;
+      gap: var(--spacing-sm);
+    }
+
+    .cta-final-note {
+      margin-top: var(--spacing-md);
+      font-size: var(--font-size-xs);
+      color: rgba(255,255,255,0.6);
+    }
+
+    /* ============================================================
+       FOOTER
+       ============================================================ */
+    #footer {
+      background: var(--color-dark);
+      color: rgba(255,255,255,0.9);
+      padding: var(--spacing-2xl) 0;
+    }
+
+    .footer-logos {
+      display: flex;
+      align-items: center;
+      gap: var(--spacing-lg);
+      margin-bottom: var(--spacing-xl);
+      padding-bottom: var(--spacing-xl);
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .footer-logo-dai {
+      height: 28px;
+      width: auto;
+      opacity: 0.85;
+    }
+
+    .footer-logo-mobato {
+      height: 24px;
+      width: auto;
+      opacity: 0.7;
+    }
+
+    .footer-info h3 {
+      font-size: var(--font-size-base);
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: var(--spacing-xs);
+    }
+
+    .footer-info p {
+      font-size: var(--font-size-sm);
+      color: rgba(255,255,255,0.55);
+      line-height: 1.6;
+      margin-bottom: var(--spacing-xs);
+    }
+
+    .footer-info a {
+      color: var(--color-primary-light);
+    }
+
+    .footer-links {
+      display: flex;
+      gap: var(--spacing-md);
+      margin-top: var(--spacing-lg);
+    }
+
+    .footer-links a {
+      font-size: var(--font-size-xs);
+      color: rgba(255,255,255,0.4);
+    }
+
+    .footer-disclaimer {
+      margin-top: var(--spacing-xl);
+      padding-top: var(--spacing-lg);
+      border-top: 1px solid rgba(255,255,255,0.06);
+      font-size: var(--font-size-xs);
+      color: rgba(255,255,255,0.3);
+      line-height: 1.5;
+    }
+
+    /* ============================================================
+       ANIMAÇÕES CSS
+       ============================================================ */
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes pulse-ring {
+      0% { box-shadow: 0 0 0 0 rgba(39,144,165,0.3); }
+      100% { box-shadow: 0 0 0 12px rgba(39,144,165,0); }
+    }
+
+    @keyframes shimmer {
+      0% { background-position: -200% 0; }
+      100% { background-position: 200% 0; }
+    }
+
+    .hero-content > * {
+      animation: fadeInUp 0.6s ease both;
+    }
+
+    .hero-content > *:nth-child(1) { animation-delay: 0.1s; }
+    .hero-content > *:nth-child(2) { animation-delay: 0.2s; }
+    .hero-content > *:nth-child(3) { animation-delay: 0.3s; }
+    .hero-content > *:nth-child(4) { animation-delay: 0.4s; }
+    .hero-content > *:nth-child(5) { animation-delay: 0.5s; }
+
+    /* WhatsApp pulse */
+    .btn-whatsapp-pulse {
+      animation: pulse-ring 2s cubic-bezier(0.455, 0.03, 0.515, 0.955) infinite;
+    }
+
+    /* Gradiente animado no botão accent */
+    .btn-shimmer {
+      background: linear-gradient(
+        90deg,
+        var(--color-accent) 0%,
+        #FFD4A0 50%,
+        var(--color-accent) 100%
+      );
+      background-size: 200% 100%;
+      animation: shimmer 3s linear infinite;
+    }
+
+    /* ============================================================
+       MEDIA QUERY — TABLET (768px+)
+       ============================================================ */
+    @media (min-width: 768px) {
+      .container {
+        max-width: 720px;
+        padding: 0 var(--spacing-xl);
+      }
+
+      .header-inner {
+        max-width: 720px;
+        padding: 0 var(--spacing-xl);
+      }
+
+      #hero h1 {
+        font-size: var(--font-size-4xl);
+      }
+
+      .hero-stats {
+        gap: var(--spacing-md);
+      }
+
+      .hero-stat-number {
+        font-size: var(--font-size-2xl);
+      }
+
+      .hero-cta-group {
+        flex-direction: row;
+        flex-wrap: wrap;
+      }
+
+      .hero-cta-group .btn-primary,
+      .hero-cta-group .btn-outline {
+        width: auto;
+        min-width: 220px;
+      }
+
+      .section-title {
+        font-size: var(--font-size-3xl);
+      }
+
+      .btn-primary,
+      .btn-accent,
+      .btn-outline {
+        width: auto;
+        min-width: 260px;
+      }
+
+      .problema-cards {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: var(--spacing-lg);
+      }
+
+      .agitacao-items {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: var(--spacing-md);
+      }
+
+      .montadoras-grid {
+        grid-template-columns: repeat(7, 1fr);
+      }
+
+      .solucao-cards {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: var(--spacing-lg);
+      }
+
+      .roi-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: var(--spacing-md);
+      }
+
+      .contato-cta-group {
+        flex-direction: row;
+        flex-wrap: wrap;
+      }
+
+      .contato-cta-group .btn-accent,
+      .contato-cta-group .btn-outline {
+        flex: 1;
+        min-width: 180px;
+      }
+
+      .cta-final-btns {
+        flex-direction: row;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+
+      .cta-final-btns .btn-accent,
+      .cta-final-btns .btn-outline {
+        width: auto;
+        min-width: 220px;
+      }
+    }
+
+    /* ============================================================
+       MEDIA QUERY — DESKTOP (1200px+)
+       ============================================================ */
+    @media (min-width: 1200px) {
+      .container {
+        max-width: 1100px;
+        padding: 0 var(--spacing-2xl);
+      }
+
+      .header-inner {
+        max-width: 1100px;
+        padding: 0 var(--spacing-2xl);
+      }
+
+      #hero h1 {
+        font-size: var(--font-size-5xl);
+        max-width: 800px;
+      }
+
+      .hero-content {
+        max-width: 700px;
+      }
+
+      .hero-stats {
+        max-width: 600px;
+      }
+
+      .section-title {
+        font-size: var(--font-size-4xl);
+      }
+
+      .problema-cards {
+        gap: var(--spacing-xl);
+      }
+
+      .roi-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .como-steps::before {
+        left: 27px;
+      }
+
+      .como-step-number {
+        width: 56px;
+        height: 56px;
+        font-size: var(--font-size-xl);
+      }
+    }
+
+    /* ============================================================
+       ACESSIBILIDADE
+       ============================================================ */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ============================================================
+       HEADER
+       ============================================================ -->
+  <header id="site-header">
+    <div class="header-inner">
+      <div class="header-logos">
+        <img
+          src="https://digital-ai.tech/wp-content/uploads/2024/07/logo-digital-ai-horizontal-300x66-1-e1720117857977.png"
+          alt="Digital AI"
+          class="header-logo-dai"
+          onerror="this.style.display='none'; this.nextElementSibling.style.display='inline'"
+        >
+        <span style="display:none; font-weight:800; color:var(--color-primary); font-size:var(--font-size-sm);">Digital AI</span>
+        <div class="header-divider"></div>
+        <img
+          src="https://mobato.com.br/wp-content/uploads/2025/06/01_logo_mobato_alta-1.webp"
+          alt="Mobato"
+          class="header-logo-mobato"
+          onerror="this.style.display='none'; this.nextElementSibling.style.display='inline'"
+        >
+        <span style="display:none; font-weight:700; color:var(--color-text); font-size:var(--font-size-sm);">Mobato</span>
+      </div>
+      <span class="header-badge">Proposta Exclusiva</span>
+    </div>
+  </header>
+
+  <!-- ============================================================
+       SEÇÃO 1 — HERO
+       ============================================================ -->
+  <section id="hero">
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-eyebrow">
+          ✦ Criado especialmente para a Mobato
+        </div>
+        <h1>
+          Atenda <span class="highlight">10x mais clientes</span> das concessionárias sem aumentar uma pessoa no suporte
+        </h1>
+        <p class="hero-subtitle">
+          A Mobato já digitalizou 19 milhões de serviços em 1.800 concessionárias. O próximo passo é transformar todo esse volume de dados e interações em atendimento inteligente via WhatsApp — com agentes de IA que respondem, qualificam e encaminham 24 horas por dia.
+        </p>
+        <div class="hero-cta-group">
+          <a href="https://wa.me/5564992337322?text=Ol%C3%A1+Wallace%2C+vi+a+p%C3%A1gina+que+criamos+especialmente+para+a+Mobato.+Gostaria+de+entender+como+agentes+de+IA+podem+reduzir+o+esfor%C3%A7o+de+atendimento+nas+suas+1.800+concession%C3%A1rias." class="btn-accent btn-shimmer btn-whatsapp-pulse">
+            💬 Ver como funciona para a Mobato
+          </a>
+          <a href="#como-funciona" class="btn-outline">
+            Como funciona em 4 semanas →
+          </a>
+        </div>
+        <div class="hero-stats">
+          <div class="hero-stat">
+            <span class="hero-stat-number">1.800</span>
+            <span class="hero-stat-label">concessionárias atendidas</span>
+          </div>
+          <div class="hero-stat">
+            <span class="hero-stat-number">19M</span>
+            <span class="hero-stat-label">serviços processados</span>
+          </div>
+          <div class="hero-stat">
+            <span class="hero-stat-number">7</span>
+            <span class="hero-stat-label">montadoras homologadas</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SEÇÃO 2 — ESPELHO
+       ============================================================ -->
+  <section id="espelho">
+    <div class="container">
+      <span class="eyebrow">✦ Sobre a Mobato</span>
+      <h2 class="section-title">Sabemos o que vocês construíram</h2>
+      <div class="divider"></div>
+
+      <div class="espelho-quote">
+        <p>"A Mobato processa mais de 19 milhões de serviços e 16,7 milhões de checklists anualmente, serve 1.800 concessionárias homologadas por Hyundai, Renault, Fiat, GM e outras montadoras — e ainda mantém suporte e onboarding escaláveis para tudo isso."</p>
+      </div>
+
+      <div class="espelho-chips">
+        <span class="data-chip"><span class="data-chip-dot"></span>11.700 usuários mensais</span>
+        <span class="data-chip"><span class="data-chip-dot"></span>5M+ ordens de serviço</span>
+        <span class="data-chip"><span class="data-chip-dot"></span>16,7M checklists</span>
+        <span class="data-chip"><span class="data-chip-dot"></span>Desde 2018</span>
+        <span class="data-chip"><span class="data-chip-dot"></span>Campinas, SP</span>
+        <span class="data-chip"><span class="data-chip-dot"></span>PVX 360 · D-Check</span>
+      </div>
+
+      <div class="espelho-text">
+        <p>Acompanhamos a trajetória da Mobato de perto. Sabemos que a empresa saiu do zero em 2018 para se tornar a plataforma de referência em pós-venda automotivo no Brasil, com homologações em 7 das maiores montadoras do país e presença nas principais convenções do setor — de Fenabrave a ABRADIT, de Hyundai a Renault.</p>
+        <p>Com 11.700 usuários ativos mensais distribuídos em 1.800 concessionárias, a Mobato gerencia um volume de interações que poucos SaaS B2B brasileiros enfrentam. O desafio agora não é mais digitalizar processos. Esse trabalho já está feito. O desafio é fazer com que todas essas interações aconteçam com o mínimo de fricção possível.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SEÇÃO 3 — PROBLEMA
+       ============================================================ -->
+  <section id="problema">
+    <div class="container">
+      <span class="eyebrow">⚠️ Os desafios reais</span>
+      <h2 class="section-title">3 desafios invisíveis que crescem com a Mobato</h2>
+      <p class="section-subtitle">Identificamos os pontos de fricção que empresas no estágio de crescimento da Mobato inevitavelmente enfrentam.</p>
+
+      <div class="problema-cards">
+        <div class="problema-card">
+          <div class="problema-card-icon">📈</div>
+          <div class="problema-card-number">Problema 01</div>
+          <h3>O atendimento humano não cresce no mesmo ritmo que a base de concessionárias</h3>
+          <p>Quando a Mobato passa de 1.500 para 1.800 concessionárias, o volume de perguntas ao suporte não cresce proporcionalmente — cresce exponencialmente. São perguntas que poderiam ser respondidas automaticamente, mas cada uma exige atenção humana hoje.</p>
+        </div>
+        <div class="problema-card">
+          <div class="problema-card-icon">💬</div>
+          <div class="problema-card-number">Problema 02</div>
+          <h3>O WhatsApp do proprietário do veículo ainda não é explorado de forma inteligente</h3>
+          <p>O brasileiro resolve tudo pelo WhatsApp. Mas o proprietário do carro que quer saber o status da revisão, aprovar um orçamento adicional ou confirmar o horário de retirada ainda depende de uma ligação ou de abrir um app.</p>
+        </div>
+        <div class="problema-card">
+          <div class="problema-card-icon">🔮</div>
+          <div class="problema-card-number">Problema 03</div>
+          <h3>19 milhões de serviços acumulados ainda não geram inteligência automatizada</h3>
+          <p>A Mobato tem um dos maiores datasets de pós-venda automotivo do Brasil. Padrões de falha, sazonalidade de demanda, desvios de qualidade. Esse volume ainda é tratado como histórico — não como motor de decisão em tempo real.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SEÇÃO 4 — AGITAÇÃO
+       ============================================================ -->
+  <section id="agitacao">
+    <div class="container">
+      <span class="eyebrow">⚡ O custo real da inação</span>
+      <h2 class="section-title">O custo de manter tudo como está está crescendo</h2>
+      <p class="section-subtitle">O problema com a operação atual não é que ela não funciona. O problema é o que ela custa para funcionar em escala.</p>
+
+      <div class="agitacao-items">
+        <div class="agitacao-item">
+          <div class="agitacao-item-icon">💸</div>
+          <div class="agitacao-item-text">
+            <strong>R$35–80 por chamado humano</strong>
+            <p>Empresas de SaaS B2B com base similar à Mobato reportam que cada chamado de suporte humano custa entre R$ 35 e R$ 80 para resolver. Com centenas de chamados por semana vindos das 1.800 concessionárias, isso representa centenas de milhares de reais por ano.</p>
+          </div>
+        </div>
+        <div class="agitacao-item">
+          <div class="agitacao-item-icon">🔁</div>
+          <div class="agitacao-item-text">
+            <strong>90% das dúvidas são as mesmas</strong>
+            <p>Até 9 em cada 10 chamados de suporte de concessionárias cobrem as mesmas 15 a 20 perguntas. A equipe humana está sendo utilizada para responder o que um agente de IA poderia resolver em segundos.</p>
+          </div>
+        </div>
+        <div class="agitacao-item">
+          <div class="agitacao-item-icon">🏃</div>
+          <div class="agitacao-item-text">
+            <strong>A concorrência já está se movendo</strong>
+            <p>Players como Intelia (8.000 pontos de venda) e AutoForce já embarcam IA conversacional como diferencial. A janela para a Mobato fazer isso antes de virar requisito de RFP das montadoras está se fechando.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="agitacao-alert">
+        <p>Cada mês sem automação inteligente é um mês onde o time de suporte cresce, o onboarding de novas concessionárias fica mais caro e o dado acumulado <strong>envelhece sem gerar valor.</strong></p>
+      </div>
+
+      <div style="margin-top: var(--spacing-xl);">
+        <a href="https://wa.me/5564992337322?text=Ol%C3%A1+Wallace%2C+vi+a+p%C3%A1gina+que+criamos+especialmente+para+a+Mobato.+Gostaria+de+entender+como+agentes+de+IA+podem+reduzir+o+esfor%C3%A7o+de+atendimento+nas+suas+1.800+concession%C3%A1rias." class="btn-accent btn-shimmer">
+          💬 Quero uma análise gratuita da operação da Mobato
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SEÇÃO BÔNUS — MONTADORAS HOMOLOGADAS
+       ============================================================ -->
+  <section id="montadoras">
+    <div class="container">
+      <div class="montadoras-header">
+        <span class="eyebrow">🏆 Escala validada</span>
+        <h2 class="section-title">7 montadoras homologadas. 1.800 concessionárias. Um ecossistema.</h2>
+        <p class="section-subtitle">A Mobato é a plataforma de referência em pós-venda automotivo no Brasil, com homologação nas maiores montadoras do país.</p>
+      </div>
+
+      <div class="montadoras-grid">
+        <div class="montadora-badge">
+          <span class="montadora-badge-icon">🚗</span>
+          <span class="montadora-badge-name">Hyundai</span>
+        </div>
+        <div class="montadora-badge">
+          <span class="montadora-badge-icon">🚙</span>
+          <span class="montadora-badge-name">Renault</span>
+        </div>
+        <div class="montadora-badge">
+          <span class="montadora-badge-icon">🚘</span>
+          <span class="montadora-badge-name">Nissan</span>
+        </div>
+        <div class="montadora-badge">
+          <span class="montadora-badge-icon">🚗</span>
+          <span class="montadora-badge-name">Fiat</span>
+        </div>
+        <div class="montadora-badge">
+          <span class="montadora-badge-icon">🚙</span>
+          <span class="montadora-badge-name">Citroën</span>
+        </div>
+        <div class="montadora-badge">
+          <span class="montadora-badge-icon">🚘</span>
+          <span class="montadora-badge-name">GM</span>
+        </div>
+        <div class="montadora-badge">
+          <span class="montadora-badge-icon">🚗</span>
+          <span class="montadora-badge-name">Peugeot</span>
+        </div>
+      </div>
+
+      <div class="montadoras-cta-strip">
+        <p>A Mobato já tem a <strong>confiança das montadoras</strong>. A Digital AI traz a camada de inteligência para que esse ecossistema de 1.800 concessionárias atenda melhor, custe menos e cresça mais rápido.</p>
+        <a href="https://wa.me/5564992337322?text=Ol%C3%A1+Wallace%2C+vi+a+p%C3%A1gina+que+criamos+especialmente+para+a+Mobato.+Gostaria+de+entender+como+agentes+de+IA+podem+reduzir+o+esfor%C3%A7o+de+atendimento+nas+suas+1.800+concession%C3%A1rias." class="btn-primary" style="max-width: 320px; margin: 0 auto;">
+          Entender a proposta completa →
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SEÇÃO 5 — SOLUÇÃO
+       ============================================================ -->
+  <section id="solucao">
+    <div class="container">
+      <span class="eyebrow">✅ A solução</span>
+      <h2 class="section-title">Agentes de IA integrados à plataforma Mobato</h2>
+      <p class="section-subtitle">A Digital AI projeta, constrói e implanta agentes de IA que se encaixam no fluxo operacional existente — sem substituir o que funciona, sem exigir migração de sistema.</p>
+
+      <div class="solucao-cards">
+        <div class="solucao-card">
+          <div class="solucao-card-icon">💬</div>
+          <div class="solucao-card-body">
+            <h3>Atendimento ao cliente final (WhatsApp)</h3>
+            <p>O proprietário do veículo pergunta "meu carro já ficou pronto?" e recebe a resposta em segundos, direto pelo WhatsApp, consultando em tempo real o status no sistema da Mobato. Sem ligação. Sem app. Sem espera.</p>
+            <span class="solucao-result">Redução de 60–80% nos chamados manuais</span>
+          </div>
+        </div>
+        <div class="solucao-card">
+          <div class="solucao-card-icon">🛠️</div>
+          <div class="solucao-card-body">
+            <h3>Suporte técnico para concessionárias</h3>
+            <p>A equipe da concessionária tem dúvida sobre como configurar um checklist? O agente responde, orienta o passo a passo e abre ticket apenas quando a dúvida ultrapassa o escopo do conhecimento treinado.</p>
+            <span class="solucao-result">50% de redução no custo de suporte 24/7</span>
+          </div>
+        </div>
+        <div class="solucao-card">
+          <div class="solucao-card-icon">🚀</div>
+          <div class="solucao-card-body">
+            <h3>Onboarding inteligente de novas concessionárias</h3>
+            <p>Novas concessionárias implantando a Mobato são guiadas pelo agente através de cada etapa, com checklist dinâmico, alertas de lacunas e escalonamento humano apenas nas decisões críticas.</p>
+            <span class="solucao-result">40% mais rápido na implantação</span>
+          </div>
+        </div>
+        <div class="solucao-card">
+          <div class="solucao-card-icon">🔮</div>
+          <div class="solucao-card-body">
+            <h3>Inteligência preditiva dos 19M serviços</h3>
+            <p>Os 19 milhões de serviços acumulados passam a alimentar relatórios automáticos para as concessionárias: padrões de demanda, alertas de qualidade, sugestões de up-sell com base em histórico do veículo.</p>
+            <span class="solucao-result">Nova receita = argumento de retenção</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SEÇÃO 6 — COMO FUNCIONA
+       ============================================================ -->
+  <section id="como-funciona">
+    <div class="container">
+      <span class="eyebrow">🗓️ O processo</span>
+      <h2 class="section-title">Em 4 semanas, a Mobato terá o primeiro agente operacional</h2>
+      <p class="section-subtitle">Sem grandes projetos de TI, sem migração de sistema. Piloto validado em concessionárias reais antes de escalar.</p>
+
+      <div class="como-steps">
+        <div class="como-step">
+          <div class="como-step-number">1</div>
+          <div class="como-step-content">
+            <div class="como-step-week">Semana 1</div>
+            <h3>Diagnóstico e Arquitetura</h3>
+            <p>Mapeamos os fluxos de atendimento mais críticos: perguntas frequentes, fluxo de comunicação com o proprietário, APIs e webhooks que a plataforma Mobato já expõe.</p>
+            <div class="como-step-result">✓ Blueprint de arquitetura aprovado com a Mobato</div>
+          </div>
+        </div>
+        <div class="como-step">
+          <div class="como-step-number">2</div>
+          <div class="como-step-content">
+            <div class="como-step-week">Semana 2</div>
+            <h3>Construção e Integração</h3>
+            <p>Desenvolvemos o agente no nosso stack (n8n + Typebot + Claude/GPT-4o-mini + Evolution API), integrado via API com o sistema Mobato. Tudo self-hosted — os dados da Mobato nunca saem da infraestrutura controlada.</p>
+            <div class="como-step-result">✓ Agente integrado com base de conhecimento real</div>
+          </div>
+        </div>
+        <div class="como-step">
+          <div class="como-step-number">3</div>
+          <div class="como-step-content">
+            <div class="como-step-week">Semana 3</div>
+            <h3>Piloto com Concessionárias Selecionadas</h3>
+            <p>Ativamos o agente em 2 a 5 concessionárias parceiras para validação em condições reais. Monitoramos métricas de resolução, satisfação e casos de escalonamento. Ajustes finos.</p>
+            <div class="como-step-result">✓ Dados reais de performance antes de escalar</div>
+          </div>
+        </div>
+        <div class="como-step">
+          <div class="como-step-number">4</div>
+          <div class="como-step-content">
+            <div class="como-step-week">Semana 4+</div>
+            <h3>Escala e Refinamento Contínuo</h3>
+            <p>Com o piloto validado, expandimos o acesso. O agente aprende com cada interação. A Mobato recebe painel de monitoramento com métricas de uso, taxa de resolução e custo evitado.</p>
+            <div class="como-step-result">✓ Ativo que cresce com a base sem crescer o time</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="como-bottom-cta">
+        <p>Pronto para iniciar o piloto com as primeiras concessionárias?</p>
+        <a href="https://wa.me/5564992337322?text=Ol%C3%A1+Wallace%2C+vi+a+p%C3%A1gina+que+criamos+especialmente+para+a+Mobato.+Gostaria+de+entender+como+agentes+de+IA+podem+reduzir+o+esfor%C3%A7o+de+atendimento+nas+suas+1.800+concession%C3%A1rias." class="btn-accent btn-shimmer" style="max-width: 320px; margin: 0 auto; display: flex;">
+          💬 Iniciar piloto em 4 semanas
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SEÇÃO 7 — ROI
+       ============================================================ -->
+  <section id="roi">
+    <div class="container">
+      <span class="eyebrow">📊 Os números</span>
+      <h2 class="section-title">O que operações similares alcançam com automação inteligente</h2>
+      <p class="section-subtitle">Resultados baseados em projetos de SaaS B2B com base comparável e dados de mercado do setor automotivo brasileiro.</p>
+
+      <div class="roi-grid">
+        <div class="roi-card">
+          <div class="roi-card-icon">⚡</div>
+          <div class="roi-card-value">60%</div>
+          <div class="roi-card-label">redução em chamados manuais de suporte</div>
+          <div class="roi-card-period">em 60 dias</div>
+        </div>
+        <div class="roi-card">
+          <div class="roi-card-icon">⏱️</div>
+          <div class="roi-card-value">&lt;30s</div>
+          <div class="roi-card-label">tempo de resposta ao cliente final via WhatsApp</div>
+          <div class="roi-card-period">24/7 (em 30 dias)</div>
+        </div>
+        <div class="roi-card">
+          <div class="roi-card-icon">🚀</div>
+          <div class="roi-card-value">40%</div>
+          <div class="roi-card-label">mais rápido no onboarding de novas concessionárias</div>
+          <div class="roi-card-period">em 90 dias</div>
+        </div>
+        <div class="roi-card">
+          <div class="roi-card-icon">💰</div>
+          <div class="roi-card-value">R$5–12</div>
+          <div class="roi-card-label">custo por chamado resolvido por IA</div>
+          <div class="roi-card-period">vs. R$35–80 humano</div>
+        </div>
+        <div class="roi-card">
+          <div class="roi-card-icon">⭐</div>
+          <div class="roi-card-value">+25pts</div>
+          <div class="roi-card-label">elevação estimada no NPS do cliente final</div>
+          <div class="roi-card-period">em 90 dias</div>
+        </div>
+        <div class="roi-card">
+          <div class="roi-card-icon">📈</div>
+          <div class="roi-card-value">3x</div>
+          <div class="roi-card-label">mais leads qualificados fora do horário comercial</div>
+          <div class="roi-card-period">em 120 dias</div>
+        </div>
+      </div>
+
+      <p class="roi-footnote">Fonte: baseado em projetos similares de SaaS B2B com base de clientes comparável e dados de mercado de automação de atendimento no setor automotivo brasileiro (2024–2025).</p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SEÇÃO 8 — PROVA SOCIAL
+       ============================================================ -->
+  <section id="prova-social">
+    <div class="container">
+      <span class="eyebrow">💡 Prova de conceito</span>
+      <h2 class="section-title">O que o mercado já está alcançando</h2>
+      <p class="section-subtitle">Dados de referência do setor automotivo e de SaaS B2B com perfil similar ao da Mobato.</p>
+
+      <div class="testimonial-card">
+        <p class="testimonial-text">"A vinda das soluções da Mobato evoluiu a forma de interação com nossos clientes, trazendo modernidade no atendimento e mais flexibilidade aos colaboradores."</p>
+        <div class="testimonial-author">— Michele Abatemarco, Diretor de Operações, Grupo Valence</div>
+      </div>
+
+      <div class="prova-social-items">
+        <div class="prova-item">
+          <div class="prova-item-icon">🏆</div>
+          <div class="prova-item-text">
+            <strong>Case Intelia — concorrente direto da Mobato</strong>
+            <p>A Intelia já embarcou IA conversacional para monitorar mais de 10 milhões de ligações de concessionárias. O mercado reconhece automação inteligente como diferencial competitivo — e as montadoras começam a exigir isso em RFPs.</p>
+          </div>
+        </div>
+        <div class="prova-item">
+          <div class="prova-item-icon">📊</div>
+          <div class="prova-item-text">
+            <strong>90% das dúvidas de suporte são automatizáveis</strong>
+            <p>Estudos Gartner / HDI Brasil confirmam que até 9 em cada 10 chamados em plataformas SaaS B2B cobrem as mesmas 15 a 20 perguntas — todas automatizáveis com IA.</p>
+          </div>
+        </div>
+        <div class="prova-item">
+          <div class="prova-item-icon">💬</div>
+          <div class="prova-item-text">
+            <strong>3x mais leads fora do horário comercial</strong>
+            <p>Concessionárias que adotam atendimento automatizado via WhatsApp reportam 3x mais leads qualificados fora do horário comercial (Sinch Engage, 2024).</p>
+          </div>
+        </div>
+        <div class="prova-item">
+          <div class="prova-item-icon">🚗</div>
+          <div class="prova-item-text">
+            <strong>Toyota já usa chatbots para agendamento automatizado</strong>
+            <p>Modelo de notificação com agendamento automático por geolocalização — replicável para toda a rede da Mobato com a arquitetura da Digital AI.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SEÇÃO 9 — CONTATO
+       ============================================================ -->
+  <section id="contato">
+    <div class="container">
+      <span class="eyebrow">👋 Fale com a Digital AI</span>
+      <h2 class="section-title">30 minutos. Sem apresentação genérica.</h2>
+
+      <div class="contato-card">
+        <div class="contato-avatar">👨‍💻</div>
+        <div class="contato-name">Matheus Terra</div>
+        <div class="contato-role">Fundador · Digital AI · Itumbiara, GO</div>
+        <p class="contato-quote">"Estudamos a Mobato, seus números, seus clientes e suas homologações. Se o que você leu aqui fez sentido, vale 30 minutos de conversa para entender se tem fit real."</p>
+      </div>
+
+      <p style="font-size: var(--font-size-sm); color: rgba(255,255,255,0.7); margin-bottom: var(--spacing-lg); line-height: 1.6;">Matheus lidera a Digital AI com projetos entregues para clientes em todo o Brasil. Especialista em arquitetura de agentes de IA para operações B2B de médio e alto volume. Antes de propor qualquer solução, estuda a fundo a operação do cliente — por isso essa página existe.</p>
+
+      <div class="contato-cta-group">
+        <a href="https://wa.me/5564992337322?text=Ol%C3%A1+Wallace%2C+vi+a+p%C3%A1gina+que+criamos+especialmente+para+a+Mobato.+Gostaria+de+entender+como+agentes+de+IA+podem+reduzir+o+esfor%C3%A7o+de+atendimento+nas+suas+1.800+concession%C3%A1rias+e+aproveitar+os+19+milh%C3%B5es+de+servi%C3%A7os+j%C3%A1+processados." class="btn-accent btn-shimmer">
+          💬 Falar pelo WhatsApp agora
+        </a>
+        <a href="mailto:contato@digital-ai.tech" class="btn-outline">
+          ✉️ contato@digital-ai.tech
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SEÇÃO 10 — CTA FINAL
+       ============================================================ -->
+  <section id="cta-final">
+    <div class="container">
+      <div class="cta-final-box">
+        <div class="cta-final-content">
+          <h2>A Mobato já tem a escala. O próximo passo é fazer essa escala trabalhar sozinha.</h2>
+          <p>Você construiu uma operação que processa 5 milhões de ordens de serviço e serve 1.800 concessionárias. O atendimento inteligente via IA é o que permite que essa operação continue crescendo sem que o custo de suporte cresça na mesma proporção.</p>
+          <div class="cta-final-btns">
+            <a href="https://wa.me/5564992337322?text=Ol%C3%A1+Wallace%2C+vi+a+p%C3%A1gina+que+criamos+especialmente+para+a+Mobato.+Gostaria+de+entender+como+agentes+de+IA+podem+reduzir+o+esfor%C3%A7o+de+atendimento+nas+suas+1.800+concession%C3%A1rias+e+aproveitar+os+19+milh%C3%B5es+de+servi%C3%A7os+j%C3%A1+processados." class="btn-accent btn-shimmer">
+              💬 Quero entender o que a IA pode fazer pela Mobato
+            </a>
+            <a href="#como-funciona" class="btn-outline">
+              Ver o processo em 4 semanas
+            </a>
+          </div>
+          <p class="cta-final-note">Resposta em até 2 horas em horário comercial. Sem compromisso.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       FOOTER
+       ============================================================ -->
+  <footer id="footer">
+    <div class="container">
+      <div class="footer-logos">
+        <img
+          src="https://digital-ai.tech/wp-content/uploads/2024/07/logo-digital-ai-horizontal-300x66-1-e1720117857977.png"
+          alt="Digital AI"
+          class="footer-logo-dai"
+          onerror="this.style.display='none'; this.nextElementSibling.style.display='inline'"
+        >
+        <span style="display:none; font-weight:800; color:#fff; font-size:var(--font-size-base);">Digital AI</span>
+        <img
+          src="https://mobato.com.br/wp-content/uploads/2025/02/03_logo_mobato_BRANCO_alta.webp"
+          alt="Mobato"
+          class="footer-logo-mobato"
+          onerror="this.style.display='none'; this.nextElementSibling.style.display='inline'"
+        >
+        <span style="display:none; font-weight:600; color:rgba(255,255,255,0.6); font-size:var(--font-size-sm);">Mobato</span>
+      </div>
+
+      <div class="footer-info">
+        <h3>Digital AI</h3>
+        <p>Automação inteligente e agentes de IA para empresas B2B</p>
+        <p>Itumbiara — GO, Brasil</p>
+        <p>Site: <a href="https://digital-ai.tech" target="_blank" rel="noopener">digital-ai.tech</a></p>
+        <p>WhatsApp: <a href="https://wa.me/5564992337322">(64) 99233-7322</a></p>
+        <p>E-mail: <a href="mailto:contato@digital-ai.tech">contato@digital-ai.tech</a></p>
+      </div>
+
+      <div class="footer-links">
+        <a href="#">Política de Privacidade</a>
+        <a href="#">Termos de Uso</a>
+      </div>
+
+      <div class="footer-disclaimer">
+        Esta página foi criada especialmente para a Mobato Soluções. As informações apresentadas são baseadas em pesquisa pública e estimativas conservadoras de mercado. Digital AI · CNPJ disponível mediante solicitação.
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
