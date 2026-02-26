@@ -1,0 +1,1711 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Uma proposta exclusiva para a ProspectPro — transforme sua metodologia em receita recorrente com IA white-label.">
+  <title>ProspectPro + Digital AI — Uma proposta de parceria</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    /* =============================================
+       CSS VARIABLES — ProspectPro Identity
+    ============================================= */
+    :root {
+      /* Cores principais */
+      --color-primary: #034381;
+      --color-primary-light: #0A5FAD;
+      --color-primary-dark: #022D5C;
+      --color-secondary: #034381;
+      --color-secondary-light: #EBF2FA;
+      --color-accent: #FFAD00;
+      --color-accent-dark: #CC8A00;
+
+      /* Neutros */
+      --color-text: #262626;
+      --color-text-muted: #666666;
+      --color-text-on-primary: #FFFFFF;
+      --color-background: #FFFFFF;
+      --color-surface: #F5F8FC;
+      --color-border: #E0E8F0;
+
+      /* Tipografia */
+      --font-primary: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-secondary: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-size-xs: 0.75rem;
+      --font-size-sm: 0.875rem;
+      --font-size-base: 1rem;
+      --font-size-lg: 1.125rem;
+      --font-size-xl: 1.25rem;
+      --font-size-2xl: 1.5rem;
+      --font-size-3xl: 1.875rem;
+      --font-size-4xl: 2.25rem;
+
+      /* Espaçamentos */
+      --spacing-xs: 0.25rem;
+      --spacing-sm: 0.5rem;
+      --spacing-md: 1rem;
+      --spacing-lg: 1.5rem;
+      --spacing-xl: 2rem;
+      --spacing-2xl: 3rem;
+      --spacing-3xl: 4rem;
+
+      /* Bordas */
+      --radius-sm: 4px;
+      --radius-md: 8px;
+      --radius-lg: 12px;
+      --radius-full: 9999px;
+
+      /* Sombras */
+      --shadow-sm: 0 1px 3px rgba(3,67,129,0.12);
+      --shadow-md: 0 4px 12px rgba(3,67,129,0.18);
+      --shadow-lg: 0 8px 24px rgba(3,67,129,0.22);
+    }
+
+    /* =============================================
+       RESET + BASE
+    ============================================= */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-secondary);
+      color: var(--color-text);
+      background: var(--color-background);
+      line-height: 1.6;
+      font-size: var(--font-size-base);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    img { max-width: 100%; height: auto; display: block; }
+    a { color: var(--color-primary); text-decoration: none; }
+
+    /* =============================================
+       CONTAINER
+    ============================================= */
+    .container {
+      max-width: 420px;
+      margin: 0 auto;
+      padding: 0 var(--spacing-md);
+    }
+
+    /* =============================================
+       TIPOGRAFIA
+    ============================================= */
+    h1, h2, h3, h4 {
+      font-family: var(--font-primary);
+      line-height: 1.2;
+      font-weight: 800;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      font-family: var(--font-primary);
+      font-size: var(--font-size-xs);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--color-accent);
+      background: rgba(255,173,0,0.12);
+      padding: var(--spacing-xs) var(--spacing-md);
+      border-radius: var(--radius-full);
+      margin-bottom: var(--spacing-md);
+    }
+
+    .eyebrow--white {
+      color: var(--color-accent);
+      background: rgba(255,173,0,0.15);
+    }
+
+    .section-title {
+      font-size: var(--font-size-2xl);
+      color: var(--color-primary);
+      margin-bottom: var(--spacing-md);
+    }
+
+    .section-title--white {
+      color: #ffffff;
+    }
+
+    .section-subtitle {
+      font-size: var(--font-size-base);
+      color: var(--color-text-muted);
+      font-family: var(--font-secondary);
+      font-weight: 400;
+      margin-bottom: var(--spacing-xl);
+    }
+
+    .section-subtitle--white {
+      color: rgba(255,255,255,0.8);
+    }
+
+    /* =============================================
+       BOTÕES CTA
+    ============================================= */
+    .btn {
+      display: inline-block;
+      min-height: 52px;
+      font-family: var(--font-primary);
+      font-size: var(--font-size-base);
+      font-weight: 700;
+      text-align: center;
+      padding: 0 var(--spacing-xl);
+      border-radius: var(--radius-md);
+      border: none;
+      cursor: pointer;
+      line-height: 52px;
+      width: 100%;
+      transition: opacity 0.2s, transform 0.15s;
+      text-decoration: none;
+    }
+
+    .btn:active { transform: scale(0.98); }
+
+    .btn-accent {
+      background: var(--color-accent);
+      color: var(--color-primary-dark);
+    }
+
+    .btn-accent:hover { background: var(--color-accent-dark); opacity: 1; }
+
+    .btn-outline-white {
+      background: transparent;
+      color: #ffffff;
+      border: 2px solid rgba(255,255,255,0.6);
+    }
+
+    .btn-outline-white:hover { background: rgba(255,255,255,0.1); }
+
+    .btn-primary {
+      background: var(--color-primary);
+      color: #ffffff;
+    }
+
+    .btn-primary:hover { opacity: 0.9; }
+
+    /* =============================================
+       HEADER
+    ============================================= */
+    header {
+      background: var(--color-primary-dark);
+      padding: var(--spacing-md) 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: var(--shadow-md);
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--spacing-md);
+    }
+
+    .header-logo-prospectpro img {
+      height: 36px;
+      width: auto;
+      filter: brightness(0) invert(1);
+    }
+
+    .header-divider {
+      width: 1px;
+      height: 28px;
+      background: rgba(255,255,255,0.25);
+      flex-shrink: 0;
+    }
+
+    .header-logo-dai img {
+      height: 26px;
+      width: auto;
+      opacity: 0.85;
+    }
+
+    .header-badge {
+      font-family: var(--font-primary);
+      font-size: 0.65rem;
+      font-weight: 700;
+      color: var(--color-accent);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      white-space: nowrap;
+    }
+
+    /* =============================================
+       SEÇÃO 1 — HERO
+    ============================================= */
+    #hero {
+      background: var(--color-primary);
+      padding: var(--spacing-3xl) 0 var(--spacing-2xl);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    #hero::before {
+      content: '';
+      position: absolute;
+      top: -60px;
+      right: -60px;
+      width: 220px;
+      height: 220px;
+      background: rgba(255,173,0,0.07);
+      border-radius: 50%;
+    }
+
+    #hero::after {
+      content: '';
+      position: absolute;
+      bottom: -40px;
+      left: -40px;
+      width: 180px;
+      height: 180px;
+      background: rgba(255,255,255,0.04);
+      border-radius: 50%;
+    }
+
+    .hero-content { position: relative; z-index: 1; }
+
+    .hero-headline {
+      font-size: var(--font-size-3xl);
+      color: #ffffff;
+      font-weight: 900;
+      line-height: 1.15;
+      margin-bottom: var(--spacing-lg);
+    }
+
+    .hero-headline em {
+      font-style: normal;
+      color: var(--color-accent);
+    }
+
+    .hero-subtitle {
+      font-family: var(--font-secondary);
+      font-size: var(--font-size-base);
+      color: rgba(255,255,255,0.85);
+      line-height: 1.65;
+      margin-bottom: var(--spacing-xl);
+    }
+
+    .hero-stats {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--spacing-sm);
+      margin-bottom: var(--spacing-xl);
+    }
+
+    .hero-stat {
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: var(--radius-md);
+      padding: var(--spacing-md);
+      text-align: center;
+    }
+
+    .hero-stat-number {
+      display: block;
+      font-family: var(--font-primary);
+      font-size: var(--font-size-2xl);
+      font-weight: 900;
+      color: var(--color-accent);
+      line-height: 1;
+    }
+
+    .hero-stat-label {
+      display: block;
+      font-size: var(--font-size-xs);
+      color: rgba(255,255,255,0.75);
+      font-weight: 500;
+      margin-top: var(--spacing-xs);
+    }
+
+    /* =============================================
+       SEÇÃO 2 — ESPELHO
+    ============================================= */
+    #espelho {
+      background: var(--color-background);
+      padding: var(--spacing-2xl) 0;
+    }
+
+    .espelho-quote {
+      background: var(--color-secondary-light);
+      border-left: 4px solid var(--color-accent);
+      border-radius: 0 var(--radius-md) var(--radius-md) 0;
+      padding: var(--spacing-lg);
+      margin-bottom: var(--spacing-xl);
+      font-family: var(--font-secondary);
+      font-size: var(--font-size-base);
+      color: var(--color-text);
+      line-height: 1.7;
+    }
+
+    .espelho-numbers {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--spacing-sm);
+    }
+
+    .espelho-number {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      padding: var(--spacing-md);
+      text-align: center;
+    }
+
+    .espelho-number-value {
+      display: block;
+      font-family: var(--font-primary);
+      font-size: var(--font-size-2xl);
+      font-weight: 900;
+      color: var(--color-primary);
+      line-height: 1;
+    }
+
+    .espelho-number-label {
+      display: block;
+      font-size: var(--font-size-xs);
+      color: var(--color-text-muted);
+      font-weight: 500;
+      margin-top: var(--spacing-xs);
+    }
+
+    /* =============================================
+       SEÇÃO 3 — PROBLEMA
+    ============================================= */
+    #problema {
+      background: var(--color-surface);
+      padding: var(--spacing-2xl) 0;
+    }
+
+    .problema-cards {
+      display: flex;
+      flex-direction: column;
+      gap: var(--spacing-md);
+    }
+
+    .problema-card {
+      background: #ffffff;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      padding: var(--spacing-lg);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .problema-card-icon {
+      font-size: 1.5rem;
+      margin-bottom: var(--spacing-sm);
+    }
+
+    .problema-card-text {
+      font-family: var(--font-secondary);
+      font-size: var(--font-size-base);
+      color: var(--color-text);
+      line-height: 1.65;
+      font-style: italic;
+    }
+
+    .problema-card-text::before { content: '"'; color: var(--color-accent); font-size: 1.5em; font-style: normal; line-height: 0; vertical-align: -0.3em; margin-right: 2px; }
+    .problema-card-text::after { content: '"'; color: var(--color-accent); font-size: 1.5em; font-style: normal; line-height: 0; vertical-align: -0.3em; margin-left: 2px; }
+
+    /* =============================================
+       SEÇÃO 4 — AGITAÇÃO
+    ============================================= */
+    #agitacao {
+      background: var(--color-primary-dark);
+      padding: var(--spacing-2xl) 0;
+    }
+
+    .agitacao-highlight {
+      background: rgba(255,173,0,0.12);
+      border: 1px solid rgba(255,173,0,0.3);
+      border-radius: var(--radius-lg);
+      padding: var(--spacing-lg);
+      margin-bottom: var(--spacing-lg);
+    }
+
+    .agitacao-number {
+      font-family: var(--font-primary);
+      font-size: 2.5rem;
+      font-weight: 900;
+      color: var(--color-accent);
+      line-height: 1;
+      margin-bottom: var(--spacing-xs);
+    }
+
+    .agitacao-number-label {
+      font-size: var(--font-size-sm);
+      color: rgba(255,255,255,0.8);
+    }
+
+    .agitacao-body {
+      font-family: var(--font-secondary);
+      font-size: var(--font-size-base);
+      color: rgba(255,255,255,0.85);
+      line-height: 1.7;
+      margin-bottom: var(--spacing-lg);
+    }
+
+    .agitacao-urgency {
+      background: rgba(255,255,255,0.07);
+      border-radius: var(--radius-md);
+      padding: var(--spacing-lg);
+      font-family: var(--font-secondary);
+      font-size: var(--font-size-sm);
+      color: rgba(255,255,255,0.75);
+      line-height: 1.65;
+      border-left: 3px solid var(--color-accent);
+    }
+
+    .agitacao-stat-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--spacing-sm);
+      margin-bottom: var(--spacing-lg);
+    }
+
+    .agitacao-stat {
+      background: rgba(255,255,255,0.08);
+      border-radius: var(--radius-md);
+      padding: var(--spacing-md);
+      text-align: center;
+    }
+
+    .agitacao-stat-value {
+      display: block;
+      font-family: var(--font-primary);
+      font-size: var(--font-size-xl);
+      font-weight: 900;
+      color: var(--color-accent);
+    }
+
+    .agitacao-stat-desc {
+      display: block;
+      font-size: var(--font-size-xs);
+      color: rgba(255,255,255,0.65);
+      margin-top: 2px;
+    }
+
+    /* =============================================
+       SEÇÃO 5 — SOLUÇÃO
+    ============================================= */
+    #solucao {
+      background: var(--color-background);
+      padding: var(--spacing-2xl) 0;
+    }
+
+    .solucao-product-box {
+      background: var(--color-primary);
+      border-radius: var(--radius-lg);
+      padding: var(--spacing-xl);
+      margin-bottom: var(--spacing-xl);
+      text-align: center;
+    }
+
+    .solucao-product-badge {
+      display: inline-block;
+      background: var(--color-accent);
+      color: var(--color-primary-dark);
+      font-family: var(--font-primary);
+      font-size: var(--font-size-sm);
+      font-weight: 800;
+      padding: var(--spacing-xs) var(--spacing-md);
+      border-radius: var(--radius-full);
+      margin-bottom: var(--spacing-md);
+    }
+
+    .solucao-product-name {
+      font-family: var(--font-primary);
+      font-size: var(--font-size-2xl);
+      font-weight: 900;
+      color: #ffffff;
+      margin-bottom: var(--spacing-sm);
+      line-height: 1.2;
+    }
+
+    .solucao-product-desc {
+      font-family: var(--font-secondary);
+      font-size: var(--font-size-sm);
+      color: rgba(255,255,255,0.8);
+      line-height: 1.65;
+    }
+
+    .solucao-body {
+      font-family: var(--font-secondary);
+      font-size: var(--font-size-base);
+      color: var(--color-text);
+      line-height: 1.7;
+      margin-bottom: var(--spacing-lg);
+    }
+
+    .solucao-results {
+      display: flex;
+      flex-direction: column;
+      gap: var(--spacing-sm);
+      margin-bottom: var(--spacing-xl);
+    }
+
+    .solucao-result-item {
+      display: flex;
+      align-items: flex-start;
+      gap: var(--spacing-md);
+      background: var(--color-surface);
+      border-radius: var(--radius-md);
+      padding: var(--spacing-md);
+      border: 1px solid var(--color-border);
+    }
+
+    .solucao-result-icon {
+      flex-shrink: 0;
+      width: 36px;
+      height: 36px;
+      background: var(--color-accent);
+      border-radius: var(--radius-full);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      color: var(--color-primary-dark);
+    }
+
+    .solucao-result-text {
+      font-family: var(--font-secondary);
+      font-size: var(--font-size-sm);
+      color: var(--color-text);
+      line-height: 1.55;
+      font-weight: 500;
+    }
+
+    /* =============================================
+       SEÇÃO 6 — COMO FUNCIONA
+    ============================================= */
+    #como-funciona {
+      background: var(--color-surface);
+      padding: var(--spacing-2xl) 0;
+    }
+
+    .timeline {
+      position: relative;
+      padding-left: 48px;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 18px;
+      top: 24px;
+      bottom: 24px;
+      width: 2px;
+      background: linear-gradient(to bottom, var(--color-accent), var(--color-primary));
+    }
+
+    .timeline-step {
+      position: relative;
+      margin-bottom: var(--spacing-xl);
+    }
+
+    .timeline-step:last-child { margin-bottom: 0; }
+
+    .timeline-number {
+      position: absolute;
+      left: -48px;
+      top: 0;
+      width: 36px;
+      height: 36px;
+      background: var(--color-primary);
+      color: #ffffff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-primary);
+      font-size: var(--font-size-sm);
+      font-weight: 800;
+      border: 3px solid var(--color-surface);
+    }
+
+    .timeline-period {
+      font-family: var(--font-primary);
+      font-size: var(--font-size-xs);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--color-accent);
+      margin-bottom: var(--spacing-xs);
+    }
+
+    .timeline-title {
+      font-family: var(--font-primary);
+      font-size: var(--font-size-lg);
+      font-weight: 700;
+      color: var(--color-primary);
+      margin-bottom: var(--spacing-xs);
+    }
+
+    .timeline-desc {
+      font-family: var(--font-secondary);
+      font-size: var(--font-size-sm);
+      color: var(--color-text-muted);
+      line-height: 1.65;
+    }
+
+    /* =============================================
+       SEÇÃO 7 — METODOLOGIA (bônus)
+    ============================================= */
+    #modelo-negocio {
+      background: var(--color-background);
+      padding: var(--spacing-2xl) 0;
+    }
+
+    .metodologia-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: var(--spacing-xl);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .metodologia-table thead {
+      background: var(--color-primary);
+      color: #ffffff;
+    }
+
+    .metodologia-table thead th {
+      font-family: var(--font-primary);
+      font-size: var(--font-size-xs);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      padding: var(--spacing-md);
+      text-align: left;
+    }
+
+    .metodologia-table tbody tr:nth-child(even) {
+      background: var(--color-surface);
+    }
+
+    .metodologia-table tbody tr:nth-child(odd) {
+      background: #ffffff;
+    }
+
+    .metodologia-table tbody td {
+      padding: var(--spacing-md);
+      font-size: var(--font-size-sm);
+      color: var(--color-text);
+      border-bottom: 1px solid var(--color-border);
+      line-height: 1.55;
+      font-family: var(--font-secondary);
+    }
+
+    .metodologia-table tbody td:first-child {
+      font-family: var(--font-primary);
+      font-weight: 700;
+      color: var(--color-primary);
+      font-size: var(--font-size-sm);
+      white-space: nowrap;
+    }
+
+    .metodologia-quote {
+      background: var(--color-primary-dark);
+      color: rgba(255,255,255,0.9);
+      border-radius: var(--radius-lg);
+      padding: var(--spacing-lg);
+      font-family: var(--font-secondary);
+      font-size: var(--font-size-base);
+      line-height: 1.65;
+      font-style: italic;
+      position: relative;
+    }
+
+    .metodologia-quote::before {
+      content: '"';
+      font-family: var(--font-primary);
+      font-size: 4rem;
+      color: var(--color-accent);
+      position: absolute;
+      top: -10px;
+      left: var(--spacing-md);
+      line-height: 1;
+    }
+
+    .metodologia-quote-text {
+      padding-top: var(--spacing-lg);
+    }
+
+    /* =============================================
+       SEÇÃO 8 — ROI / MODELO DE NEGÓCIO
+    ============================================= */
+    #roi {
+      background: var(--color-primary);
+      padding: var(--spacing-2xl) 0;
+    }
+
+    .roi-opcoes {
+      display: flex;
+      flex-direction: column;
+      gap: var(--spacing-md);
+      margin-bottom: var(--spacing-xl);
+    }
+
+    .roi-opcao {
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: var(--radius-lg);
+      padding: var(--spacing-lg);
+    }
+
+    .roi-opcao--highlight {
+      background: rgba(255,173,0,0.12);
+      border-color: rgba(255,173,0,0.4);
+    }
+
+    .roi-opcao-badge {
+      display: inline-block;
+      font-family: var(--font-primary);
+      font-size: var(--font-size-xs);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding: 2px 10px;
+      border-radius: var(--radius-full);
+      margin-bottom: var(--spacing-sm);
+    }
+
+    .badge-a { background: var(--color-accent); color: var(--color-primary-dark); }
+    .badge-b { background: rgba(255,255,255,0.15); color: #ffffff; }
+
+    .roi-opcao-title {
+      font-family: var(--font-primary);
+      font-size: var(--font-size-lg);
+      font-weight: 800;
+      color: #ffffff;
+      margin-bottom: var(--spacing-sm);
+    }
+
+    .roi-opcao-desc {
+      font-family: var(--font-secondary);
+      font-size: var(--font-size-sm);
+      color: rgba(255,255,255,0.8);
+      line-height: 1.6;
+    }
+
+    .roi-controla {
+      margin-bottom: var(--spacing-xl);
+    }
+
+    .roi-controla-title {
+      font-family: var(--font-primary);
+      font-size: var(--font-size-lg);
+      font-weight: 800;
+      color: var(--color-accent);
+      margin-bottom: var(--spacing-md);
+    }
+
+    .roi-controla-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: var(--spacing-sm);
+    }
+
+    .roi-controla-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: var(--spacing-sm);
+      font-family: var(--font-secondary);
+      font-size: var(--font-size-sm);
+      color: rgba(255,255,255,0.85);
+      line-height: 1.5;
+    }
+
+    .roi-controla-list li::before {
+      content: '✓';
+      color: var(--color-accent);
+      font-weight: 900;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .roi-nao-precisa {
+      background: rgba(0,0,0,0.2);
+      border-radius: var(--radius-md);
+      padding: var(--spacing-lg);
+      margin-bottom: var(--spacing-xl);
+    }
+
+    .roi-nao-title {
+      font-family: var(--font-primary);
+      font-size: var(--font-size-sm);
+      font-weight: 700;
+      color: rgba(255,255,255,0.5);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: var(--spacing-sm);
+    }
+
+    .roi-nao-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: var(--spacing-xs);
+    }
+
+    .roi-nao-list li {
+      display: flex;
+      align-items: center;
+      gap: var(--spacing-sm);
+      font-family: var(--font-secondary);
+      font-size: var(--font-size-sm);
+      color: rgba(255,255,255,0.55);
+      text-decoration: line-through;
+    }
+
+    .roi-nao-list li::before {
+      content: '✕';
+      color: rgba(255,255,255,0.3);
+      font-size: 0.75rem;
+      flex-shrink: 0;
+      text-decoration: none;
+    }
+
+    /* =============================================
+       SEÇÃO 9 — PROVA SOCIAL
+    ============================================= */
+    #prova-social {
+      background: var(--color-surface);
+      padding: var(--spacing-2xl) 0;
+    }
+
+    .prova-context {
+      font-family: var(--font-secondary);
+      font-size: var(--font-size-base);
+      color: var(--color-text);
+      line-height: 1.7;
+      margin-bottom: var(--spacing-xl);
+    }
+
+    .depoimento {
+      background: #ffffff;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      padding: var(--spacing-xl);
+      box-shadow: var(--shadow-md);
+      margin-bottom: var(--spacing-xl);
+    }
+
+    .depoimento-text {
+      font-family: var(--font-secondary);
+      font-size: var(--font-size-base);
+      color: var(--color-text);
+      line-height: 1.7;
+      font-style: italic;
+      margin-bottom: var(--spacing-md);
+    }
+
+    .depoimento-text::before { content: '"'; color: var(--color-accent); font-size: 2em; font-style: normal; line-height: 0; vertical-align: -0.4em; margin-right: 2px; }
+    .depoimento-text::after { content: '"'; color: var(--color-accent); font-size: 2em; font-style: normal; line-height: 0; vertical-align: -0.4em; margin-left: 2px; }
+
+    .depoimento-autor {
+      font-family: var(--font-primary);
+      font-size: var(--font-size-sm);
+      font-weight: 700;
+      color: var(--color-text-muted);
+    }
+
+    .prova-stat-destaque {
+      background: var(--color-primary);
+      border-radius: var(--radius-lg);
+      padding: var(--spacing-xl);
+      text-align: center;
+    }
+
+    .prova-stat-numero {
+      font-family: var(--font-primary);
+      font-size: 2.5rem;
+      font-weight: 900;
+      color: var(--color-accent);
+      display: block;
+      line-height: 1;
+      margin-bottom: var(--spacing-xs);
+    }
+
+    .prova-stat-desc {
+      font-family: var(--font-secondary);
+      font-size: var(--font-size-sm);
+      color: rgba(255,255,255,0.8);
+      line-height: 1.5;
+    }
+
+    /* =============================================
+       SEÇÃO 10 — CONTATO
+    ============================================= */
+    #contato {
+      background: var(--color-background);
+      padding: var(--spacing-2xl) 0;
+    }
+
+    .contato-intro {
+      font-family: var(--font-secondary);
+      font-size: var(--font-size-base);
+      color: var(--color-text);
+      line-height: 1.7;
+      margin-bottom: var(--spacing-xl);
+    }
+
+    .contato-card {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      padding: var(--spacing-xl);
+      margin-bottom: var(--spacing-xl);
+    }
+
+    .contato-quem {
+      font-family: var(--font-primary);
+      font-size: var(--font-size-lg);
+      font-weight: 800;
+      color: var(--color-primary);
+      margin-bottom: var(--spacing-xs);
+    }
+
+    .contato-cargo {
+      font-family: var(--font-secondary);
+      font-size: var(--font-size-sm);
+      color: var(--color-text-muted);
+      margin-bottom: var(--spacing-lg);
+    }
+
+    .contato-linha {
+      display: flex;
+      align-items: center;
+      gap: var(--spacing-sm);
+      font-family: var(--font-secondary);
+      font-size: var(--font-size-sm);
+      color: var(--color-text);
+      margin-bottom: var(--spacing-sm);
+    }
+
+    .contato-linha-icon {
+      font-size: 1rem;
+    }
+
+    /* =============================================
+       SEÇÃO 11 — CTA FINAL
+    ============================================= */
+    #cta-final {
+      background: var(--color-primary-dark);
+      padding: var(--spacing-3xl) 0;
+      text-align: center;
+    }
+
+    .cta-final-headline {
+      font-family: var(--font-primary);
+      font-size: var(--font-size-3xl);
+      font-weight: 900;
+      color: #ffffff;
+      line-height: 1.2;
+      margin-bottom: var(--spacing-md);
+    }
+
+    .cta-final-headline em {
+      font-style: normal;
+      color: var(--color-accent);
+    }
+
+    .cta-final-body {
+      font-family: var(--font-secondary);
+      font-size: var(--font-size-base);
+      color: rgba(255,255,255,0.8);
+      line-height: 1.7;
+      margin-bottom: var(--spacing-xl);
+    }
+
+    .cta-final-urgency {
+      margin-top: var(--spacing-lg);
+      font-family: var(--font-secondary);
+      font-size: var(--font-size-xs);
+      color: rgba(255,255,255,0.5);
+      line-height: 1.6;
+    }
+
+    /* =============================================
+       FOOTER
+    ============================================= */
+    footer {
+      background: var(--color-primary-dark);
+      border-top: 1px solid rgba(255,255,255,0.1);
+      padding: var(--spacing-xl) 0;
+    }
+
+    .footer-inner {
+      text-align: center;
+    }
+
+    .footer-logo-dai img {
+      height: 28px;
+      width: auto;
+      margin: 0 auto var(--spacing-md);
+    }
+
+    .footer-tagline {
+      font-family: var(--font-secondary);
+      font-size: var(--font-size-xs);
+      color: rgba(255,255,255,0.5);
+      margin-bottom: var(--spacing-sm);
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: var(--spacing-md);
+      margin-bottom: var(--spacing-md);
+    }
+
+    .footer-links a {
+      font-family: var(--font-secondary);
+      font-size: var(--font-size-xs);
+      color: rgba(255,255,255,0.4);
+    }
+
+    .footer-copy {
+      font-family: var(--font-secondary);
+      font-size: var(--font-size-xs);
+      color: rgba(255,255,255,0.25);
+    }
+
+    .footer-page-note {
+      font-size: var(--font-size-xs);
+      color: rgba(255,255,255,0.3);
+      margin-top: var(--spacing-md);
+      padding-top: var(--spacing-md);
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+
+    /* =============================================
+       UTILITY
+    ============================================= */
+    .section-cta-wrapper {
+      margin-top: var(--spacing-xl);
+    }
+
+    .text-accent { color: var(--color-accent); }
+
+    /* =============================================
+       TABLET — 768px+
+    ============================================= */
+    @media (min-width: 768px) {
+      .container {
+        max-width: 720px;
+        padding: 0 var(--spacing-xl);
+      }
+
+      .hero-headline {
+        font-size: 2.5rem;
+      }
+
+      .hero-stats {
+        grid-template-columns: repeat(4, 1fr);
+      }
+
+      .espelho-numbers {
+        grid-template-columns: repeat(4, 1fr);
+      }
+
+      .section-title {
+        font-size: var(--font-size-3xl);
+      }
+
+      .btn {
+        width: auto;
+        min-width: 300px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .agitacao-stat-row {
+        grid-template-columns: repeat(4, 1fr);
+      }
+
+      .roi-opcoes {
+        flex-direction: row;
+      }
+
+      .roi-opcao { flex: 1; }
+
+      .cta-final-headline {
+        font-size: 2.5rem;
+      }
+    }
+
+    /* =============================================
+       DESKTOP — 1200px+
+    ============================================= */
+    @media (min-width: 1200px) {
+      .container {
+        max-width: 1040px;
+      }
+
+      .hero-headline {
+        font-size: 3rem;
+        max-width: 820px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .hero-subtitle {
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .cta-final-headline {
+        font-size: 3rem;
+        max-width: 760px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ============================================
+       HEADER
+  ============================================= -->
+  <header>
+    <div class="container">
+      <div class="header-inner">
+        <div class="header-logo-prospectpro">
+          <img
+            src="https://prospectpro.com.br/_assets/media/4d2b86f88cd42f05f306b08882daf9e4.png"
+            alt="ProspectPro"
+            onerror="this.style.display='none'; this.nextElementSibling.style.display='block'">
+          <span style="display:none; font-family:'Montserrat',sans-serif; font-weight:900; font-size:1.1rem; color:#FFAD00; letter-spacing:-0.02em;">ProspectPro</span>
+        </div>
+        <div class="header-divider"></div>
+        <div class="header-logo-dai">
+          <img
+            src="https://digital-ai.tech/wp-content/uploads/2024/07/logo-digital-ai-horizontal-300x66-1-e1720117857977.png"
+            alt="Digital AI">
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ============================================
+       SEÇÃO 1 — HERO
+  ============================================= -->
+  <section id="hero">
+    <div class="container">
+      <div class="hero-content">
+        <span class="eyebrow eyebrow--white">Uma proposta para a ProspectPro</span>
+
+        <h1 class="hero-headline">
+          Rafael, sua metodologia de <em>11 anos</em> merece gerar receita todo mês — não só quando você fecha um treinamento.
+        </h1>
+
+        <p class="hero-subtitle">
+          A Digital AI transforma a metodologia ProspectPro em um agente de IA com a sua marca — que seus clientes usam e pagam todo mês. Você licencia. Nós implementamos e mantemos. Você fatura mensalmente.
+        </p>
+
+        <div class="hero-stats">
+          <div class="hero-stat">
+            <span class="hero-stat-number">84K+</span>
+            <span class="hero-stat-label">Profissionais treinados</span>
+          </div>
+          <div class="hero-stat">
+            <span class="hero-stat-number">720+</span>
+            <span class="hero-stat-label">Empresas atendidas</span>
+          </div>
+          <div class="hero-stat">
+            <span class="hero-stat-number">11</span>
+            <span class="hero-stat-label">Anos de mercado</span>
+          </div>
+          <div class="hero-stat">
+            <span class="hero-stat-number">24</span>
+            <span class="hero-stat-label">Estados no Brasil</span>
+          </div>
+        </div>
+
+        <a
+          href="https://wa.me/5511996269562?text=Rafael%2C%20vi%20a%20proposta%20da%20Digital%20AI%20sobre%20o%20Agente%20SDR%20ProspectPro.%20Tenho%20interesse%20em%20conversar."
+          class="btn btn-accent">
+          Quero entender como funciona
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       SEÇÃO 2 — ESPELHO
+  ============================================= -->
+  <section id="espelho">
+    <div class="container">
+      <span class="eyebrow">Nós pesquisamos a fundo</span>
+      <h2 class="section-title">Conhecemos a ProspectPro antes de chegar até você.</h2>
+
+      <div class="espelho-quote">
+        Onze anos de operação. Vinte e quatro estados. Mais de 84 mil profissionais treinados e 720 empresas que confiaram na metodologia de Rafael Cutait para transformar equipes comerciais — do automotivo ao imobiliário, da linha pesada ao varejo.
+        <br><br>
+        A ProspectPro não vende treinamento. Vende mudança de cultura — e essa é uma posição rara no mercado brasileiro de educação corporativa.
+      </div>
+
+      <div class="espelho-numbers">
+        <div class="espelho-number">
+          <span class="espelho-number-value">84K+</span>
+          <span class="espelho-number-label">Pessoas treinadas</span>
+        </div>
+        <div class="espelho-number">
+          <span class="espelho-number-value">720+</span>
+          <span class="espelho-number-label">Empresas clientes</span>
+        </div>
+        <div class="espelho-number">
+          <span class="espelho-number-value">1.300+</span>
+          <span class="espelho-number-label">Palestras realizadas</span>
+        </div>
+        <div class="espelho-number">
+          <span class="espelho-number-value">4 países</span>
+          <span class="espelho-number-label">BR, AR, PY e EUA</span>
+        </div>
+      </div>
+
+      <p style="margin-top: var(--spacing-xl); font-family: var(--font-secondary); font-size: var(--font-size-base); color: var(--color-text); line-height: 1.7;">
+        O que percebemos, olhando de fora: existe uma metodologia valiosa, uma base sólida de clientes e um fundador com autoridade real no setor. O que ainda não existe é um produto recorrente que monetize tudo isso mês a mês.
+        <br><br>
+        <strong>Essa é exatamente a conversa que queremos ter com você.</strong>
+      </p>
+
+      <div class="section-cta-wrapper">
+        <a
+          href="https://wa.me/5511996269562?text=Rafael%2C%20vi%20a%20proposta%20da%20Digital%20AI%20sobre%20o%20Agente%20SDR%20ProspectPro.%20Tenho%20interesse%20em%20conversar."
+          class="btn btn-primary">
+          Falar sobre essa proposta
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       SEÇÃO 3 — PROBLEMA
+  ============================================= -->
+  <section id="problema">
+    <div class="container">
+      <span class="eyebrow">Antes da solução</span>
+      <h2 class="section-title">Você reconhece alguma dessas situações?</h2>
+
+      <div class="problema-cards">
+        <div class="problema-card">
+          <div class="problema-card-icon">📅</div>
+          <p class="problema-card-text">
+            A gente fecha um contrato de treinamento, entrega, e depois precisa prospectar de novo. Não existe receita previsível no nosso modelo.
+          </p>
+        </div>
+
+        <div class="problema-card">
+          <div class="problema-card-icon">⏰</div>
+          <p class="problema-card-text">
+            A metodologia está na minha cabeça. Para crescer, preciso contratar e treinar mais consultores — e aí o negócio começa a perder qualidade.
+          </p>
+        </div>
+
+        <div class="problema-card">
+          <div class="problema-card-icon">📊</div>
+          <p class="problema-card-text">
+            Tenho 720 empresas que já confiaram em mim. Mas depois do treinamento, a maioria some. Não tenho como continuar gerando valor — e receita — para eles de forma contínua.
+          </p>
+        </div>
+
+        <div class="problema-card">
+          <div class="problema-card-icon">🚀</div>
+          <p class="problema-card-text">
+            Estou vendo concorrentes lançando ferramentas de IA, plataformas de SDR digital. A sensação é que a janela para me diferenciar está fechando.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       SEÇÃO 4 — AGITAÇÃO
+  ============================================= -->
+  <section id="agitacao">
+    <div class="container">
+      <span class="eyebrow eyebrow--white">O custo de esperar</span>
+      <h2 class="section-title section-title--white">O custo de não agir agora tem um número.</h2>
+
+      <div class="agitacao-stat-row">
+        <div class="agitacao-stat">
+          <span class="agitacao-stat-value">+50%</span>
+          <span class="agitacao-stat-desc">Mais conversão de leads com IA</span>
+        </div>
+        <div class="agitacao-stat">
+          <span class="agitacao-stat-value">-40%</span>
+          <span class="agitacao-stat-desc">Custo de aquisição com IA</span>
+        </div>
+        <div class="agitacao-stat">
+          <span class="agitacao-stat-value">72</span>
+          <span class="agitacao-stat-desc">Empresas = 10% da base de Rafael</span>
+        </div>
+        <div class="agitacao-stat">
+          <span class="agitacao-stat-value">R$108k</span>
+          <span class="agitacao-stat-desc">MRR possível sem novos clientes</span>
+        </div>
+      </div>
+
+      <p class="agitacao-body">
+        Empresas que adotaram IA no processo comercial reportam 50% a mais de conversão de leads e 40% menos custo de aquisição (McKinsey, 2024).
+        <br><br>
+        Cada mês sem um produto recorrente é uma mensalidade que você não recebeu das suas 720 empresas.
+        <br><br>
+        Se apenas 10% das empresas que você já atendeu adotassem um agente SDR ProspectPro com assinatura de R$ 1.500 por mês, isso representa <strong style="color: var(--color-accent);">R$ 108.000 de receita mensal recorrente</strong> — sem abrir mais um treinamento.
+      </p>
+
+      <div class="agitacao-highlight">
+        <div class="agitacao-number">R$ 108k/mês</div>
+        <div class="agitacao-number-label">Potencial com apenas 10% da base atual — em receita mensal recorrente</div>
+      </div>
+
+      <div class="agitacao-urgency">
+        A janela para se posicionar como a referência em "IA para prospecção" no mercado automotivo e B2B ainda está aberta. O primeiro a ocupar esse espaço vai dominar a categoria. Enquanto você não tem esse produto, um concorrente está criando o dele.
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       SEÇÃO 5 — SOLUÇÃO
+  ============================================= -->
+  <section id="solucao">
+    <div class="container">
+      <span class="eyebrow">A proposta</span>
+      <h2 class="section-title">Apresentando: Agente SDR ProspectPro — com a sua marca, a sua metodologia.</h2>
+
+      <div class="solucao-product-box">
+        <div class="solucao-product-badge">Produto white-label</div>
+        <div class="solucao-product-name">Agente SDR ProspectPro</div>
+        <div class="solucao-product-desc">Desenvolvido pela Digital AI — operado com a sua marca e metodologia</div>
+      </div>
+
+      <p class="solucao-body">
+        A Digital AI cria um agente de IA white-label que carrega a metodologia ProspectPro embutida — os scripts de abordagem, as perguntas de qualificação, a cadência de follow-up, o jogo de objeções que você ensinou para 84 mil profissionais.
+        <br><br>
+        Seus clientes acessam o agente. O agente executa com o método ProspectPro. A marca que aparece é a sua.
+        <br><br>
+        <strong>Você não precisa entender de IA. Você precisa licenciar o que já funciona.</strong>
+      </p>
+
+      <div class="solucao-results">
+        <div class="solucao-result-item">
+          <div class="solucao-result-icon">🤖</div>
+          <div class="solucao-result-text">Prospecção ativa rodando 24 horas, 7 dias por semana, sem contratar SDR</div>
+        </div>
+        <div class="solucao-result-item">
+          <div class="solucao-result-icon">📋</div>
+          <div class="solucao-result-text">Scripts e abordagens validados pela ProspectPro embarcados no agente</div>
+        </div>
+        <div class="solucao-result-item">
+          <div class="solucao-result-icon">📈</div>
+          <div class="solucao-result-text">Relatórios de atividade e conversão para o gestor acompanhar em tempo real</div>
+        </div>
+      </div>
+
+      <a
+        href="https://wa.me/5511996269562?text=Rafael%2C%20vi%20a%20proposta%20da%20Digital%20AI%20sobre%20o%20Agente%20SDR%20ProspectPro.%20Tenho%20interesse%20em%20conversar."
+        class="btn btn-accent">
+        Quero conhecer o produto
+      </a>
+    </div>
+  </section>
+
+  <!-- ============================================
+       SEÇÃO 6 — COMO FUNCIONA
+  ============================================= -->
+  <section id="como-funciona">
+    <div class="container">
+      <span class="eyebrow">Do contrato ao lançamento</span>
+      <h2 class="section-title">30 a 45 dias do acordo ao produto no ar.</h2>
+      <p class="section-subtitle">Um processo simples que não exige nenhuma expertise técnica da ProspectPro.</p>
+
+      <div class="timeline">
+        <div class="timeline-step">
+          <div class="timeline-number">1</div>
+          <div class="timeline-period">Semana 1</div>
+          <div class="timeline-title">Alinhamento da metodologia</div>
+          <div class="timeline-desc">Rafael compartilha os pilares da metodologia ProspectPro: scripts, perguntas-chave, objeções comuns, cadência ideal. Uma reunião de 2 horas é suficiente para passar o essencial.</div>
+        </div>
+
+        <div class="timeline-step">
+          <div class="timeline-number">2</div>
+          <div class="timeline-period">Semanas 2 e 3</div>
+          <div class="timeline-title">Construção do agente</div>
+          <div class="timeline-desc">A Digital AI desenvolve o agente SDR white-label com a metodologia embarcada. Rafael e o time testam, ajustam e validam cada interação.</div>
+        </div>
+
+        <div class="timeline-step">
+          <div class="timeline-number">3</div>
+          <div class="timeline-period">Semana 4</div>
+          <div class="timeline-title">Marca e modelo comercial</div>
+          <div class="timeline-desc">Configuramos o ambiente white-label com a identidade visual da ProspectPro. Definimos juntos o modelo comercial: revenue share ou licença fixa por cliente.</div>
+        </div>
+
+        <div class="timeline-step">
+          <div class="timeline-number">4</div>
+          <div class="timeline-period">Semana 5+</div>
+          <div class="timeline-title">Lançamento para a base</div>
+          <div class="timeline-desc">Rafael apresenta o "Agente SDR ProspectPro" para sua base de 720 clientes. A Digital AI cuida de toda a infraestrutura, atualizações e suporte técnico — para sempre.</div>
+        </div>
+      </div>
+
+      <div class="section-cta-wrapper">
+        <a
+          href="https://wa.me/5511996269562?text=Rafael%2C%20vi%20a%20proposta%20da%20Digital%20AI%20sobre%20o%20Agente%20SDR%20ProspectPro.%20Tenho%20interesse%20em%20conversar."
+          class="btn btn-primary">
+          Iniciar o processo agora
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       SEÇÃO 7 — MODELO DE NEGÓCIO (metodologia no agente)
+  ============================================= -->
+  <section id="modelo-negocio">
+    <div class="container">
+      <span class="eyebrow">O que fica dentro do agente</span>
+      <h2 class="section-title">Sua metodologia, executada por IA — sem perder nenhum detalhe.</h2>
+
+      <p style="font-family: var(--font-secondary); font-size: var(--font-size-base); color: var(--color-text); line-height: 1.7; margin-bottom: var(--spacing-xl);">
+        O que 11 anos de prática comercial ensinaram a Rafael Cutait não se perde no produto digital. Pelo contrário: fica disponível 24 horas por dia, 7 dias por semana, para cada cliente que licenciar o agente.
+      </p>
+
+      <div style="overflow-x: auto; margin-bottom: var(--spacing-xl);">
+        <table class="metodologia-table">
+          <thead>
+            <tr>
+              <th>Etapa</th>
+              <th>O que o agente faz</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Prospecção ativa</td>
+              <td>Abordagem personalizada por segmento (automotivo, imobiliário, indústria)</td>
+            </tr>
+            <tr>
+              <td>Qualificação</td>
+              <td>Perguntas baseadas no método ProspectPro para identificar fit e timing de compra</td>
+            </tr>
+            <tr>
+              <td>Objeções</td>
+              <td>Respostas treinadas para os bloqueios mais comuns de cada setor</td>
+            </tr>
+            <tr>
+              <td>Follow-up</td>
+              <td>Cadência automática de recontato sem deixar o lead esfriar</td>
+            </tr>
+            <tr>
+              <td>Agendamento</td>
+              <td>Solicita e confirma reuniões com o vendedor humano no momento certo</td>
+            </tr>
+            <tr>
+              <td>Relatórios</td>
+              <td>Painel de atividade para o gestor acompanhar a operação em tempo real</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="metodologia-quote">
+        <div class="metodologia-quote-text">
+          O agente não substitui o vendedor humano. Ele faz o trabalho de prospecção que a equipe odeia fazer — e entrega leads quentes para fechar.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       SEÇÃO 8 — ROI / MODELO FINANCEIRO
+  ============================================= -->
+  <section id="roi">
+    <div class="container">
+      <span class="eyebrow eyebrow--white">Modelo financeiro</span>
+      <h2 class="section-title section-title--white">Você licencia. Nós entregamos. Você fatura todo mês.</h2>
+      <p class="section-subtitle section-subtitle--white">Duas opções de parceria — você escolhe o que faz mais sentido para o momento da ProspectPro.</p>
+
+      <div class="roi-opcoes">
+        <div class="roi-opcao roi-opcao--highlight">
+          <span class="roi-opcao-badge badge-a">Opção A</span>
+          <div class="roi-opcao-title">Revenue Share</div>
+          <div class="roi-opcao-desc">Rafael vende o acesso ao agente para seus clientes. A Digital AI recebe uma porcentagem do que entra. <strong style="color: var(--color-accent);">Sem custo inicial para Rafael.</strong></div>
+        </div>
+        <div class="roi-opcao">
+          <span class="roi-opcao-badge badge-b">Opção B</span>
+          <div class="roi-opcao-title">Licença Mensal</div>
+          <div class="roi-opcao-desc">Rafael define um valor por cliente (ex: R$ 1.500/mês). Paga à Digital AI uma licença fixa mensal de manutenção. A diferença é a margem de Rafael.</div>
+        </div>
+      </div>
+
+      <div class="roi-controla">
+        <div class="roi-controla-title">O que Rafael controla 100%:</div>
+        <ul class="roi-controla-list">
+          <li>A marca — é o "Agente SDR ProspectPro", não da Digital AI</li>
+          <li>O preço cobrado dos clientes</li>
+          <li>Quais clientes têm acesso ao agente</li>
+          <li>Os scripts e metodologia que o agente usa</li>
+        </ul>
+      </div>
+
+      <div class="roi-nao-precisa">
+        <div class="roi-nao-title">O que Rafael não precisa fazer:</div>
+        <ul class="roi-nao-list">
+          <li>Contratar equipe de TI</li>
+          <li>Gerenciar servidores ou infraestrutura</li>
+          <li>Atualizar o agente ou corrigir bugs</li>
+          <li>Dar suporte técnico aos clientes</li>
+        </ul>
+      </div>
+
+      <a
+        href="https://wa.me/5511996269562?text=Rafael%2C%20vi%20a%20proposta%20da%20Digital%20AI%20sobre%20o%20Agente%20SDR%20ProspectPro.%20Tenho%20interesse%20em%20conversar."
+        class="btn btn-accent">
+        Conversar sobre o modelo financeiro
+      </a>
+    </div>
+  </section>
+
+  <!-- ============================================
+       SEÇÃO 9 — PROVA SOCIAL
+  ============================================= -->
+  <section id="prova-social">
+    <div class="container">
+      <span class="eyebrow">Referências</span>
+      <h2 class="section-title">Empresas como a ProspectPro já viram isso funcionar.</h2>
+
+      <p class="prova-context">
+        A Digital AI desenvolveu agentes de IA customizados para consultorias e treinamentos que transformaram modelos de receita pontual em assinaturas recorrentes. Empresas que antes faturavam com projetos pontuais passaram a ter previsibilidade de receita mensal com o mesmo portfólio de clientes.
+      </p>
+
+      <div class="depoimento">
+        <p class="depoimento-text">
+          Eu tinha clientes que me contratavam de 2 em 2 anos. Hoje eles pagam todo mês por um produto que eu nunca precisaria ter construído — a Digital AI fez tudo. Meu trabalho é apresentar o produto e coletar o feedback.
+        </p>
+        <div class="depoimento-autor">— Consultor B2B, mercado de vendas</div>
+      </div>
+
+      <div class="prova-stat-destaque">
+        <span class="prova-stat-numero">3x</span>
+        <div class="prova-stat-desc">Aumento médio na receita por cliente ao longo de 12 meses em empresas de treinamento que lançaram produtos de IA complementares</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       SEÇÃO 10 — CONTATO
+  ============================================= -->
+  <section id="contato">
+    <div class="container">
+      <span class="eyebrow">Fale direto</span>
+      <h2 class="section-title">Esta proposta é para Rafael Cutait.</h2>
+
+      <p class="contato-intro">
+        Nenhum formulário. Nenhuma espera. Fale direto com quem está atrás dessa proposta — pelo canal que você já usa todos os dias.
+      </p>
+
+      <div class="contato-card">
+        <div class="contato-quem">Rafael Cavalcanti Cutait</div>
+        <div class="contato-cargo">Fundador e CEO — ProspectPro</div>
+        <div class="contato-linha">
+          <span class="contato-linha-icon">📱</span>
+          <span>+55 11 99626-9562</span>
+        </div>
+        <div class="contato-linha">
+          <span class="contato-linha-icon">🌐</span>
+          <span>prospectpro.com.br</span>
+        </div>
+        <div class="contato-linha">
+          <span class="contato-linha-icon">🏙️</span>
+          <span>São Paulo + 24 estados + Argentina, Paraguai e EUA</span>
+        </div>
+      </div>
+
+      <a
+        href="https://wa.me/5511996269562?text=Rafael%2C%20vi%20a%20proposta%20da%20Digital%20AI%20para%20transformar%20a%20metodologia%20ProspectPro%20em%20um%20agente%20de%20IA%20white-label%20com%20receita%20recorrente.%20Gostaria%20de%20agendar%2030%20minutos%20para%20entender%20como%20funcionaria%20na%20pr%C3%A1tica."
+        class="btn btn-accent">
+        Abrir WhatsApp agora
+      </a>
+    </div>
+  </section>
+
+  <!-- ============================================
+       SEÇÃO 11 — CTA FINAL
+  ============================================= -->
+  <section id="cta-final">
+    <div class="container">
+      <span class="eyebrow eyebrow--white">Próximo passo</span>
+      <h2 class="cta-final-headline">
+        Rafael, vamos conversar <em>30 minutos?</em>
+      </h2>
+
+      <p class="cta-final-body">
+        Sem pitch. Sem proposta pronta para assinar.
+        <br><br>
+        Queremos mostrar, na prática, como o Agente SDR ProspectPro funcionaria com a sua metodologia — e ouvir se faz sentido para o momento da empresa.
+        <br><br>
+        Se a conversa não gerar valor, não tem nenhum problema.
+      </p>
+
+      <a
+        href="https://wa.me/5511996269562?text=Rafael%2C%20vi%20a%20proposta%20da%20Digital%20AI%20para%20transformar%20a%20metodologia%20ProspectPro%20em%20um%20agente%20de%20IA%20white-label%20com%20receita%20recorrente.%20Gostaria%20de%20agendar%2030%20minutos%20para%20entender%20como%20funcionaria%20na%20pr%C3%A1tica."
+        class="btn btn-accent">
+        Quero ver como funciona na prática
+      </a>
+
+      <p class="cta-final-urgency">
+        A proposta de parceria white-label está disponível para poucos parceiros por vez — a Digital AI garante dedicação e qualidade para cada implementação. No momento, estamos com agenda aberta.
+      </p>
+    </div>
+  </section>
+
+  <!-- ============================================
+       FOOTER
+  ============================================= -->
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-logo-dai">
+          <img
+            src="https://digital-ai.tech/wp-content/uploads/2024/07/logo-digital-ai-horizontal-300x66-1-e1720117857977.png"
+            alt="Digital AI">
+        </div>
+
+        <p class="footer-tagline">
+          AI-as-a-Service &middot; Automação Inteligente &middot; SaaS
+        </p>
+
+        <div class="footer-links">
+          <a href="https://digital-ai.tech" target="_blank" rel="noopener">digital-ai.tech</a>
+          <a href="https://www.prospectpro.com.br" target="_blank" rel="noopener">prospectpro.com.br</a>
+          <a href="https://wa.me/5511996269562" target="_blank" rel="noopener">WhatsApp</a>
+        </div>
+
+        <p class="footer-copy">
+          &copy; 2026 Digital AI &mdash; Itumbiara/GO + Mercado Internacional
+        </p>
+
+        <p class="footer-page-note">
+          Esta página foi criada especialmente para a ProspectPro pela equipe Digital AI.
+        </p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
