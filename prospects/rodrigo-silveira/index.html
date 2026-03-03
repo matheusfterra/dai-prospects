@@ -618,6 +618,219 @@
       color: rgba(160, 160, 176, 0.6);
     }
 
+    /* ===================== ABOUT SECTION ===================== */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1.6fr 1fr;
+      gap: var(--space-8);
+      margin-bottom: var(--space-16);
+      align-items: start;
+    }
+
+    .about-company-card {
+      background: var(--gradient-card);
+      border: var(--border-default);
+      border-radius: var(--radius-card);
+      padding: var(--space-8);
+      transition: all 0.3s ease;
+    }
+
+    .about-company-card:hover {
+      border-color: rgba(67, 97, 238, 0.55);
+      box-shadow: var(--shadow-hover);
+    }
+
+    .about-tag {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #a0b4ff;
+      background: rgba(67, 97, 238, 0.15);
+      border: 1px solid rgba(67, 97, 238, 0.3);
+      padding: 4px 14px;
+      border-radius: var(--radius-pill);
+      margin-bottom: var(--space-4);
+    }
+
+    .about-company-card h3 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: var(--space-4);
+      color: var(--text-primary);
+    }
+
+    .about-company-card p {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      line-height: 1.7;
+      margin-bottom: var(--space-4);
+    }
+
+    .about-highlights {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-top: var(--space-6);
+      padding-top: var(--space-6);
+      border-top: var(--border-subtle);
+    }
+
+    .highlight-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.83rem;
+      color: var(--text-secondary);
+    }
+
+    .highlight-item span {
+      color: var(--text-primary);
+      font-weight: 500;
+    }
+
+    /* CEO Card */
+    .ceo-card {
+      background: var(--gradient-card);
+      border: var(--border-default);
+      border-radius: var(--radius-card);
+      padding: var(--space-8);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .ceo-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: var(--gradient-accent);
+    }
+
+    .ceo-card:hover {
+      border-color: rgba(67, 97, 238, 0.55);
+      box-shadow: var(--shadow-hover);
+    }
+
+    .ceo-avatar {
+      width: 88px;
+      height: 88px;
+      border-radius: 50%;
+      background: var(--gradient-accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.7rem;
+      font-weight: 800;
+      color: #fff;
+      margin: 0 auto var(--space-4);
+      box-shadow: 0 0 30px rgba(67, 97, 238, 0.45);
+    }
+
+    .ceo-name {
+      font-size: 1.18rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 4px;
+    }
+
+    .ceo-title {
+      font-size: 0.76rem;
+      color: #a0b4ff;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.09em;
+      margin-bottom: var(--space-4);
+    }
+
+    .ceo-bio {
+      font-size: 0.86rem;
+      color: var(--text-secondary);
+      line-height: 1.68;
+      margin-bottom: var(--space-6);
+    }
+
+    .ceo-contact a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      font-size: 0.84rem;
+      font-weight: 600;
+      color: #a0b4ff;
+      background: rgba(67, 97, 238, 0.12);
+      border: 1px solid rgba(67, 97, 238, 0.3);
+      padding: 8px 18px;
+      border-radius: var(--radius-pill);
+      text-decoration: none;
+      transition: all 0.25s ease;
+    }
+
+    .ceo-contact a:hover {
+      background: rgba(67, 97, 238, 0.22);
+      color: var(--text-primary);
+    }
+
+    /* Clients Section */
+    .clients-wrapper {
+      text-align: center;
+    }
+
+    .clients-wrapper > p {
+      font-size: 0.84rem;
+      font-weight: 700;
+      color: var(--text-secondary);
+      text-transform: uppercase;
+      letter-spacing: 0.09em;
+      margin-bottom: var(--space-8);
+    }
+
+    .clients-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: var(--space-6);
+    }
+
+    .client-card {
+      background: rgba(255, 255, 255, 0.025);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: var(--radius-card);
+      padding: var(--space-8) var(--space-6);
+      text-align: center;
+      transition: all 0.3s ease;
+    }
+
+    .client-card:hover {
+      background: rgba(67, 97, 238, 0.07);
+      border-color: rgba(67, 97, 238, 0.28);
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-card);
+    }
+
+    .client-icon {
+      font-size: 2rem;
+      margin-bottom: 12px;
+      display: block;
+    }
+
+    .client-label {
+      font-size: 0.98rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 8px;
+    }
+
+    .client-desc {
+      font-size: 0.78rem;
+      color: var(--text-secondary);
+      line-height: 1.55;
+    }
+
     /* ===================== FOOTER ===================== */
     footer {
       background: #08080f;
@@ -684,6 +897,18 @@
       .cta-contacts {
         flex-direction: column;
         gap: var(--space-4);
+      }
+
+      .about-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .clients-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .about-highlights {
+        grid-template-columns: 1fr;
       }
 
       .section { padding: var(--space-12) 0; }
@@ -903,6 +1128,75 @@
         </div>
 
       </div>
+    </div>
+  </section>
+
+  <!-- ===================== SOBRE NÓS ===================== -->
+  <section class="section section-alt" id="sobre">
+    <div class="container">
+      <h2 class="section-title fade-in">Quem Está Por Trás da <span class="gradient-text">Digital AI</span></h2>
+
+      <div class="about-grid fade-in">
+
+        <!-- Sobre a empresa -->
+        <div class="about-company-card">
+          <span class="about-tag">Nossa Empresa</span>
+          <h3>Inteligência artificial aplicada ao negócio real</h3>
+          <p>A Digital AI é uma empresa de tecnologia especializada em AI-as-a-Service — desenvolvemos agentes de IA, automações de processos e sistemas de atendimento inteligente para empresas que precisam crescer sem aumentar o time.</p>
+          <p>Operamos com uma stack proprietária e self-hosted: controle total dos dados, múltiplos modelos de IA integrados e arquitetura de subagentes desenvolvida internamente. Cada solução é construída sob medida para o negócio do cliente — sem templates genéricos, sem terceiros no meio.</p>
+          <div class="about-highlights">
+            <div class="highlight-item">🏙️ <span>Baseados em Itumbiara/GO</span></div>
+            <div class="highlight-item">🌎 <span>Atuação nacional e internacional</span></div>
+            <div class="highlight-item">🔒 <span>Stack self-hosted — seus dados são seus</span></div>
+            <div class="highlight-item">⚡ <span>Entrega full-stack, sem múltiplos fornecedores</span></div>
+          </div>
+        </div>
+
+        <!-- CEO -->
+        <div class="ceo-card">
+          <div class="ceo-avatar">MT</div>
+          <div class="ceo-name">Matheus Terra</div>
+          <div class="ceo-title">CEO &amp; Fundador</div>
+          <p class="ceo-bio">Especialista em inteligência artificial aplicada a negócios, Matheus fundou a Digital AI com a missão de tornar automação de alto nível acessível para empresas reais — não apenas para grandes corporações. Atende pessoalmente cada cliente nos primeiros projetos.</p>
+          <div class="ceo-contact">
+            <a href="https://wa.me/5564981337424?text=Legal%2C%20tenho%20interesse" target="_blank" rel="noopener noreferrer">📱 (64) 98133-7424</a>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Portfólio de Clientes -->
+      <div class="clients-wrapper fade-in">
+        <p>Empresas que já confiam na Digital AI</p>
+        <div class="clients-grid">
+
+          <div class="client-card">
+            <span class="client-icon">🏥</span>
+            <div class="client-label">Segmento Médico</div>
+            <div class="client-desc">Mais de 2 clínicas com automação de agendamento, confirmação anti-no-show e retenção de pacientes</div>
+          </div>
+
+          <div class="client-card">
+            <span class="client-icon">👓</span>
+            <div class="client-label">Redes de Óticas</div>
+            <div class="client-desc">Franquia com mais de 9 lojas integradas com atendimento por IA e automação de vendas e follow-up</div>
+          </div>
+
+          <div class="client-card">
+            <span class="client-icon">🏦</span>
+            <div class="client-label">Setor Bancário</div>
+            <div class="client-desc">Automação de processos internos e atendimento inteligente ao cliente com IA integrada</div>
+          </div>
+
+          <div class="client-card">
+            <span class="client-icon">📱</span>
+            <div class="client-label">Marketing de Influência</div>
+            <div class="client-desc">Personas digitais com IA para figuras públicas e estratégias de engajamento automatizado</div>
+          </div>
+
+        </div>
+      </div>
+
     </div>
   </section>
 
