@@ -1,0 +1,1176 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A Digital AI automatiza o atendimento da Santé Academia — respostas instantâneas no WhatsApp, captação de matrículas e reativação de alunos, 24h por dia.">
+  <title>Santé Academia × Digital AI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: #FAFAFA;
+      color: #1a1a1a;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    :root {
+      /* Santé */
+      --san-orange:   #FB9310;
+      --san-orange-l: #FCA832;
+      --san-orange-d: #E07A00;
+      --san-green:    #809928;
+      --san-green-l:  #90AC2E;
+      --san-green-d:  #6A7F21;
+      --san-brown:    #844E14;
+      --san-text:     #1a1a1a;
+      --san-muted:    #6B7280;
+      --san-subtle:   #9CA3AF;
+      --san-bg:       #FAFAFA;
+      --san-bg-alt:   #F3F4F6;
+      --san-surface:  #FFFFFF;
+      --san-border:   #E5E7EB;
+      --san-border-o: rgba(251,147,16,0.2);
+      /* Digital AI */
+      --dai-blue:     #4361ee;
+      --dai-blue-d:   #3251de;
+    }
+
+    .container { max-width: 1080px; margin: 0 auto; padding: 0 1.25rem; }
+    .text-center { text-align: center; }
+
+    /* ===== ANIMATIONS ===== */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(28px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes pulse-dot {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50%       { opacity: 0.5; transform: scale(0.85); }
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50%       { transform: translateY(-8px); }
+    }
+    @keyframes chat-in {
+      from { opacity: 0; transform: translateX(-12px); }
+      to   { opacity: 1; transform: translateX(0); }
+    }
+    @keyframes chat-in-r {
+      from { opacity: 0; transform: translateX(12px); }
+      to   { opacity: 1; transform: translateX(0); }
+    }
+    .reveal {
+      opacity: 0; transform: translateY(28px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .reveal.visible { opacity: 1; transform: none; }
+    .d1 { transition-delay: .1s; }
+    .d2 { transition-delay: .2s; }
+    .d3 { transition-delay: .3s; }
+    .d4 { transition-delay: .4s; }
+
+    /* ===== NAVBAR ===== */
+    .navbar {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+      padding: .875rem 0;
+      background: rgba(255,255,255,.92);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--san-border);
+      transition: all .3s;
+    }
+    .navbar.scrolled { padding: .6rem 0; background: rgba(255,255,255,.98); box-shadow: 0 2px 16px rgba(0,0,0,.08); }
+    .nav-inner { display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+    .nav-logo {
+      display: flex; align-items: center; gap: .625rem;
+      text-decoration: none;
+    }
+    .nav-logo-text {
+      font-size: .938rem; font-weight: 800; color: var(--san-text);
+      letter-spacing: -.02em;
+    }
+    .nav-logo-text .sep { color: var(--san-muted); margin: 0 .2rem; font-weight: 400; }
+    .nav-logo-text .dai { color: var(--san-muted); }
+    .nav-logo-text .dai-blue { color: var(--dai-blue); }
+    .nav-cta {
+      background: var(--san-orange); color: #fff;
+      font-weight: 700; font-size: .813rem;
+      padding: .5rem 1.125rem; border-radius: 999px;
+      text-decoration: none;
+      box-shadow: 0 4px 18px rgba(251,147,16,.4);
+      transition: all .25s; white-space: nowrap;
+    }
+    .nav-cta:hover { background: var(--san-orange-l); transform: translateY(-1px); }
+
+    /* SANTÉ LOGO TEXT (sem logo URL disponível) */
+    .san-logo-text {
+      font-size: 1.1rem; font-weight: 900; letter-spacing: -.03em;
+      background: linear-gradient(135deg, var(--san-orange-d), var(--san-orange));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* ===== HERO ===== */
+    .hero {
+      min-height: 100svh;
+      background: linear-gradient(135deg, #FFF8EE 0%, #FFF3E0 40%, #FFEDD0 100%);
+      position: relative; overflow: hidden;
+      display: flex; align-items: center;
+      padding: 7rem 0 4rem;
+    }
+    .hero::before {
+      content: '';
+      position: absolute; top: 0; right: 0;
+      width: 60%; height: 100%;
+      background: repeating-linear-gradient(
+        -45deg,
+        transparent 0px,
+        transparent 32px,
+        rgba(251,147,16,.04) 32px,
+        rgba(251,147,16,.04) 34px
+      );
+      pointer-events: none;
+    }
+    .hero-blob {
+      position: absolute; top: -15%; right: -8%;
+      width: 560px; height: 560px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(251,147,16,.18) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-blob2 {
+      position: absolute; bottom: -10%; left: -5%;
+      width: 400px; height: 400px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(128,153,40,.1) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-content { position: relative; z-index: 2; }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: .5rem;
+      background: rgba(251,147,16,.12);
+      border: 1px solid rgba(251,147,16,.3);
+      border-radius: 999px; padding: .35rem .875rem;
+      font-size: .72rem; font-weight: 700; color: var(--san-orange-d);
+      text-transform: uppercase; letter-spacing: .08em;
+      margin-bottom: 1.25rem;
+      animation: fadeUp .7s ease both;
+    }
+    .badge-dot {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: var(--san-orange);
+      animation: pulse-dot 2s infinite;
+    }
+    .hero-h1 {
+      font-size: clamp(1.9rem, 5.5vw, 3.4rem);
+      font-weight: 900; line-height: 1.12;
+      letter-spacing: -.03em;
+      color: var(--san-text); margin-bottom: 1.25rem;
+      animation: fadeUp .8s .1s ease both;
+    }
+    .hero-h1 .orange { color: var(--san-orange); }
+    .hero-h1 .green { color: var(--san-green); }
+    .hero-sub {
+      font-size: clamp(.95rem, 2vw, 1.15rem);
+      color: var(--san-muted); line-height: 1.65;
+      max-width: 600px; margin-bottom: 2rem;
+      animation: fadeUp .8s .2s ease both;
+    }
+    .hero-sub strong { color: var(--san-text); }
+    .hero-btns {
+      display: flex; flex-wrap: wrap; gap: .875rem;
+      animation: fadeUp .8s .3s ease both;
+    }
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: .5rem;
+      background: var(--san-orange); color: #fff;
+      font-weight: 700; font-size: .95rem;
+      padding: .875rem 1.625rem; border-radius: 999px;
+      text-decoration: none;
+      box-shadow: 0 6px 22px rgba(251,147,16,.45);
+      transition: all .25s;
+    }
+    .btn-primary:hover { background: var(--san-orange-l); transform: translateY(-2px); box-shadow: 0 8px 30px rgba(251,147,16,.6); }
+    .btn-ghost {
+      display: inline-flex; align-items: center; gap: .5rem;
+      background: transparent; color: var(--san-muted);
+      font-weight: 600; font-size: .95rem;
+      padding: .875rem 1.625rem; border-radius: 999px;
+      text-decoration: none;
+      border: 1px solid var(--san-border);
+      transition: all .25s;
+    }
+    .btn-ghost:hover { border-color: var(--san-orange); color: var(--san-orange-d); }
+
+    /* CHAT MOCKUP */
+    .hero-visual {
+      display: none;
+      position: absolute; right: 2%; top: 50%;
+      transform: translateY(-50%);
+      width: 40%; max-width: 400px;
+      animation: fadeUp 1s .4s ease both;
+    }
+    @media (min-width: 900px) { .hero-visual { display: block; } }
+    .mockup-wrap {
+      background: #fff;
+      border: 1px solid var(--san-border);
+      border-radius: 20px; padding: 1.375rem;
+      animation: float 5s ease-in-out infinite;
+      box-shadow: 0 20px 60px rgba(0,0,0,.1);
+    }
+    .mockup-header {
+      display: flex; align-items: center; gap: .625rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid var(--san-border);
+      margin-bottom: 1rem;
+    }
+    .mockup-avatar {
+      width: 34px; height: 34px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--san-orange-d), var(--san-orange));
+      display: flex; align-items: center; justify-content: center;
+      font-size: .7rem; font-weight: 900; color: #fff;
+    }
+    .mockup-name { font-size: .813rem; font-weight: 700; color: var(--san-text); }
+    .mockup-status { font-size: .675rem; color: #16a34a; }
+    .chat-row { display: flex; gap: .5rem; margin-bottom: .75rem; align-items: flex-end; }
+    .chat-row.r { flex-direction: row-reverse; }
+    .chat-av {
+      width: 26px; height: 26px; border-radius: 50%; flex-shrink: 0;
+      background: var(--san-bg-alt);
+      display: flex; align-items: center; justify-content: center;
+      font-size: .6rem; font-weight: 800; color: var(--san-muted);
+    }
+    .chat-av.ai { background: linear-gradient(135deg, var(--san-orange-d), var(--san-orange)); color: #fff; }
+    .chat-bubble {
+      background: var(--san-bg-alt);
+      border-radius: 12px 12px 12px 3px;
+      padding: .6rem .875rem;
+      font-size: .72rem; color: var(--san-text);
+      line-height: 1.5; max-width: 80%;
+      animation: chat-in .4s ease both;
+    }
+    .chat-row.r .chat-bubble {
+      background: rgba(251,147,16,.15);
+      border-radius: 12px 12px 3px 12px;
+      animation: chat-in-r .4s ease both;
+    }
+    .chat-time { font-size: .58rem; color: var(--san-subtle); margin-top: 2px; }
+    .chat-badge {
+      margin-top: .875rem; padding: .625rem .875rem;
+      background: rgba(22,163,74,.06);
+      border: 1px solid rgba(22,163,74,.2);
+      border-radius: 8px;
+      font-size: .65rem; color: var(--san-muted); text-align: center;
+    }
+    .chat-badge strong { color: #16a34a; }
+
+    /* ===== STATS ===== */
+    .stats { background: #fff; padding: 1.5rem 0; border-bottom: 1px solid var(--san-border); }
+    .stats-grid {
+      display: grid; grid-template-columns: repeat(3,1fr); gap: 1rem;
+    }
+    .stat { text-align: center; padding: .5rem; }
+    .stat-n {
+      font-size: clamp(1.625rem, 5vw, 2.5rem);
+      font-weight: 900; color: var(--san-orange);
+      letter-spacing: -.03em; line-height: 1;
+    }
+    .stat-l {
+      font-size: .75rem; color: var(--san-muted);
+      margin-top: .25rem; line-height: 1.4;
+    }
+
+    /* ===== SECTIONS ===== */
+    .section { padding: 5rem 0; }
+    .section-alt { background: #fff; }
+
+    .eyebrow {
+      font-size: .72rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: .1em;
+      color: var(--san-orange); margin-bottom: .625rem;
+      display: block;
+    }
+    .section-title {
+      font-size: clamp(1.625rem, 4vw, 2.375rem);
+      font-weight: 900; letter-spacing: -.025em;
+      line-height: 1.15; color: var(--san-text);
+      margin-bottom: .875rem;
+    }
+    .section-sub {
+      font-size: 1rem; color: var(--san-muted);
+      line-height: 1.65; max-width: 560px;
+    }
+    .section-header { margin-bottom: 3rem; }
+
+    /* ESPELHO */
+    .espelho {
+      background: #FFF8EE;
+      border: 1px solid rgba(251,147,16,.2);
+      border-left: 3px solid var(--san-orange);
+      border-radius: 14px; padding: 2rem 1.75rem;
+      margin-bottom: 3rem;
+    }
+    .espelho p {
+      font-size: 1.05rem; line-height: 1.7;
+      color: var(--san-text);
+    }
+    .espelho p strong { color: var(--san-orange-d); }
+
+    /* DONOS */
+    .donos-grid {
+      display: grid; gap: 1.25rem;
+      grid-template-columns: 1fr;
+    }
+    @media (min-width: 600px) { .donos-grid { grid-template-columns: 1fr 1fr; } }
+    .dono-card {
+      background: var(--san-surface);
+      border: 1px solid var(--san-border);
+      border-radius: 14px; padding: 1.5rem;
+      display: flex; gap: 1rem; align-items: flex-start;
+      transition: all .25s;
+      box-shadow: 0 2px 8px rgba(0,0,0,.04);
+    }
+    .dono-card:hover { border-color: var(--san-border-o); transform: translateY(-3px); box-shadow: 0 8px 24px rgba(251,147,16,.1); }
+    .dono-avatar {
+      width: 48px; height: 48px; border-radius: 12px; flex-shrink: 0;
+      background: linear-gradient(135deg, var(--san-orange-d), var(--san-orange));
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.25rem; font-weight: 900; color: #fff;
+    }
+    .dono-name { font-size: .938rem; font-weight: 700; color: var(--san-text); margin-bottom: .2rem; }
+    .dono-role { font-size: .78rem; color: var(--san-orange-d); font-weight: 600; text-transform: uppercase; letter-spacing: .06em; }
+    .dono-note { font-size: .8rem; color: var(--san-muted); margin-top: .375rem; line-height: 1.5; }
+
+    /* PROBLEMA */
+    .prob-list { display: grid; gap: 1rem; }
+    .prob-item {
+      display: flex; gap: .875rem; align-items: flex-start;
+      background: var(--san-surface);
+      border: 1px solid var(--san-border);
+      border-radius: 12px; padding: 1.25rem;
+      transition: all .25s; position: relative; overflow: hidden;
+      box-shadow: 0 2px 6px rgba(0,0,0,.04);
+    }
+    .prob-item::before {
+      content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 3px;
+      background: var(--san-orange); border-radius: 0 2px 2px 0;
+    }
+    .prob-item:hover { border-color: var(--san-border-o); transform: translateX(4px); }
+    .prob-icon {
+      width: 38px; height: 38px; border-radius: 9px; flex-shrink: 0;
+      background: rgba(251,147,16,.1);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .prob-icon svg { color: var(--san-orange); }
+    .prob-item h4 { font-size: .9rem; font-weight: 700; color: var(--san-text); margin-bottom: .25rem; }
+    .prob-item p { font-size: .838rem; color: var(--san-muted); line-height: 1.55; }
+
+    /* AGITAÇÃO */
+    .agit-grid {
+      display: grid; gap: 1.125rem; margin-top: 2.5rem;
+    }
+    @media (min-width: 640px) { .agit-grid { grid-template-columns: 1fr 1fr; } }
+    @media (min-width: 900px) { .agit-grid { grid-template-columns: repeat(3,1fr); } }
+    .agit-card {
+      background: var(--san-surface); border: 1px solid var(--san-border);
+      border-radius: 12px; padding: 1.375rem; transition: all .25s;
+      box-shadow: 0 2px 8px rgba(0,0,0,.04);
+    }
+    .agit-card:hover { border-color: var(--san-border-o); transform: translateY(-4px); box-shadow: 0 10px 28px rgba(251,147,16,.1); }
+    .agit-n {
+      font-size: 2.25rem; font-weight: 900; color: var(--san-orange);
+      letter-spacing: -.03em; line-height: 1; margin-bottom: .5rem;
+    }
+    .agit-card h4 { font-size: .875rem; font-weight: 700; color: var(--san-text); margin-bottom: .3rem; }
+    .agit-card p { font-size: .813rem; color: var(--san-muted); line-height: 1.55; }
+    .agit-highlight {
+      margin-top: 2rem; padding: 1.5rem; text-align: center;
+      background: rgba(251,147,16,.06);
+      border: 1px solid rgba(251,147,16,.2); border-radius: 14px;
+    }
+    .agit-highlight p {
+      font-size: 1.05rem; line-height: 1.65; color: var(--san-text); max-width: 580px; margin: 0 auto;
+    }
+
+    /* SOLUÇÃO */
+    .sol-grid {
+      display: grid; gap: 1.125rem;
+    }
+    @media (min-width: 560px) { .sol-grid { grid-template-columns: 1fr 1fr; } }
+    @media (min-width: 900px) { .sol-grid { grid-template-columns: repeat(3,1fr); } }
+    .sol-card {
+      background: var(--san-surface); border: 1px solid var(--san-border);
+      border-radius: 14px; padding: 1.5rem; transition: all .25s;
+      box-shadow: 0 2px 8px rgba(0,0,0,.04);
+    }
+    .sol-card:hover { border-color: rgba(251,147,16,.35); transform: translateY(-5px); box-shadow: 0 12px 30px rgba(251,147,16,.15); }
+    .sol-icon {
+      width: 44px; height: 44px; border-radius: 11px; margin-bottom: .875rem;
+      background: rgba(251,147,16,.1); border: 1px solid rgba(251,147,16,.2);
+      display: flex; align-items: center; justify-content: center;
+      transition: all .25s;
+    }
+    .sol-card:hover .sol-icon { background: var(--san-orange); border-color: transparent; }
+    .sol-icon svg { color: var(--san-orange); transition: color .25s; }
+    .sol-card:hover .sol-icon svg { color: #fff; }
+    .sol-card h3 { font-size: .938rem; font-weight: 700; color: var(--san-text); margin-bottom: .375rem; }
+    .sol-card p { font-size: .838rem; color: var(--san-muted); line-height: 1.6; }
+
+    /* NÚMEROS */
+    .nums-grid {
+      display: grid; gap: 1.25rem;
+    }
+    @media (min-width: 640px) { .nums-grid { grid-template-columns: repeat(3,1fr); } }
+    .num-card {
+      background: var(--san-surface); border: 1px solid var(--san-border);
+      border-radius: 16px; padding: 1.875rem 1.5rem; text-align: center;
+      position: relative; overflow: hidden; transition: all .25s;
+      box-shadow: 0 4px 12px rgba(0,0,0,.05);
+    }
+    .num-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+      background: linear-gradient(90deg, var(--san-orange-d), var(--san-orange-l));
+    }
+    .num-card:hover { transform: translateY(-5px); border-color: var(--san-border-o); box-shadow: 0 12px 32px rgba(251,147,16,.12); }
+    .num-val {
+      font-size: clamp(2rem, 6vw, 3rem); font-weight: 900; line-height: 1;
+      letter-spacing: -.04em; color: var(--san-orange);
+      margin-bottom: .625rem;
+    }
+    .num-title { font-size: .875rem; font-weight: 700; color: var(--san-text); margin-bottom: .35rem; }
+    .num-desc { font-size: .78rem; color: var(--san-muted); line-height: 1.5; }
+
+    /* DIFERENCIAIS */
+    .dif-grid { display: grid; gap: 1rem; }
+    @media (min-width: 640px) { .dif-grid { grid-template-columns: 1fr 1fr; } }
+    .dif-item {
+      display: flex; gap: .875rem; align-items: flex-start;
+      background: var(--san-bg-alt); border: 1px solid var(--san-border);
+      border-radius: 12px; padding: 1.25rem; transition: all .25s;
+    }
+    .dif-item:hover { border-color: var(--san-border-o); transform: translateY(-3px); }
+    .dif-num {
+      width: 34px; height: 34px; border-radius: 8px; flex-shrink: 0;
+      background: var(--san-orange);
+      display: flex; align-items: center; justify-content: center;
+      font-size: .813rem; font-weight: 800; color: #fff;
+    }
+    .dif-item h4 { font-size: .875rem; font-weight: 700; color: var(--san-text); margin-bottom: .25rem; }
+    .dif-item p { font-size: .813rem; color: var(--san-muted); line-height: 1.55; }
+
+    /* FAQ */
+    .faq-list { display: grid; gap: .75rem; }
+    .faq-item {
+      background: var(--san-surface); border: 1px solid var(--san-border);
+      border-radius: 12px; overflow: hidden; transition: border-color .25s;
+      box-shadow: 0 1px 4px rgba(0,0,0,.04);
+    }
+    .faq-item.open { border-color: rgba(251,147,16,.35); }
+    .faq-q {
+      display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+      padding: 1.125rem 1.375rem; cursor: pointer; user-select: none;
+    }
+    .faq-q h4 { font-size: .9rem; font-weight: 600; color: var(--san-text); line-height: 1.4; }
+    .faq-ico {
+      width: 28px; height: 28px; border-radius: 50%; flex-shrink: 0;
+      background: var(--san-bg-alt);
+      display: flex; align-items: center; justify-content: center;
+      transition: all .25s;
+    }
+    .faq-item.open .faq-ico { background: var(--san-orange); transform: rotate(45deg); }
+    .faq-item.open .faq-ico svg { color: #fff; }
+    .faq-ico svg { color: var(--san-muted); }
+    .faq-ans { max-height: 0; overflow: hidden; transition: max-height .35s ease; }
+    .faq-item.open .faq-ans { max-height: 300px; }
+    .faq-ans-inner {
+      padding: 0 1.375rem 1.25rem;
+      font-size: .838rem; color: var(--san-muted); line-height: 1.65;
+    }
+
+    /* OFERTA */
+    .oferta-grid { display: grid; gap: 1rem; }
+    @media (min-width: 640px) { .oferta-grid { grid-template-columns: 1fr 1fr; } }
+    @media (min-width: 900px) { .oferta-grid { grid-template-columns: repeat(3,1fr); } }
+    .oferta-item {
+      display: flex; gap: .875rem; align-items: flex-start;
+      background: var(--san-surface); border: 1px solid var(--san-border);
+      border-radius: 12px; padding: 1.25rem; transition: all .25s;
+      box-shadow: 0 2px 6px rgba(0,0,0,.04);
+    }
+    .oferta-item:hover { border-color: var(--san-border-o); transform: translateY(-3px); }
+    .oferta-item.bonus {
+      grid-column: 1 / -1;
+      border-color: rgba(251,147,16,.2);
+      background: rgba(251,147,16,.04);
+    }
+    .oferta-check {
+      width: 26px; height: 26px; border-radius: 7px; flex-shrink: 0;
+      background: rgba(22,163,74,.1);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .oferta-item.bonus .oferta-check { background: rgba(251,147,16,.15); }
+    .bonus-tag {
+      display: inline-block; background: var(--san-orange); color: #fff;
+      font-size: .62rem; font-weight: 700; text-transform: uppercase; letter-spacing: .08em;
+      padding: .15rem .45rem; border-radius: 999px; margin-bottom: .35rem;
+    }
+    .oferta-item h4 { font-size: .875rem; font-weight: 700; color: var(--san-text); margin-bottom: .25rem; }
+    .oferta-item p { font-size: .8rem; color: var(--san-muted); line-height: 1.55; }
+
+    /* CTA FINAL */
+    .cta-section {
+      padding: 5.5rem 0; text-align: center;
+      background: linear-gradient(135deg, #FFF8EE 0%, #FFF3E0 100%);
+      position: relative; overflow: hidden;
+    }
+    .cta-section::before {
+      content: ''; position: absolute; top: 50%; left: 50%;
+      transform: translate(-50%,-50%);
+      width: 700px; height: 700px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(251,147,16,.12) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .cta-section > .container { position: relative; }
+    .cta-title {
+      font-size: clamp(1.75rem, 4.5vw, 2.5rem);
+      font-weight: 900; letter-spacing: -.03em; color: var(--san-text);
+      margin-bottom: .75rem; line-height: 1.15;
+    }
+    .cta-sub {
+      font-size: .975rem; color: var(--san-muted); margin-bottom: 2rem;
+      max-width: 460px; margin-left: auto; margin-right: auto; line-height: 1.65;
+    }
+    .cta-btns { display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; }
+    .btn-lg {
+      display: inline-flex; align-items: center; gap: .625rem;
+      background: var(--san-orange); color: #fff;
+      font-weight: 800; font-size: 1.05rem;
+      padding: 1rem 2rem; border-radius: 999px;
+      text-decoration: none;
+      box-shadow: 0 6px 28px rgba(251,147,16,.5);
+      transition: all .25s;
+    }
+    .btn-lg:hover { background: var(--san-orange-l); transform: translateY(-3px); box-shadow: 0 10px 35px rgba(251,147,16,.65); }
+    .cta-note { font-size: .8rem; color: var(--san-subtle); margin-top: 1.5rem; }
+
+    /* GREEN ACCENT STRIP */
+    .green-strip {
+      background: var(--san-green);
+      padding: 1rem 0;
+    }
+    .green-strip-inner {
+      display: flex; align-items: center; justify-content: center; gap: 2rem;
+      flex-wrap: wrap;
+    }
+    .green-strip-item {
+      display: flex; align-items: center; gap: .5rem;
+      font-size: .813rem; font-weight: 600; color: #fff;
+    }
+    .green-strip-dot { width: 5px; height: 5px; border-radius: 50%; background: rgba(255,255,255,.5); }
+
+    /* FOOTER */
+    footer {
+      background: #1a1a1a;
+      padding: 3rem 0 2rem;
+    }
+    .footer-grid {
+      display: grid; gap: 2rem;
+    }
+    @media (min-width: 640px) { .footer-grid { grid-template-columns: 1fr 1fr; } }
+    @media (min-width: 900px) { .footer-grid { grid-template-columns: 2fr 1fr 1fr; } }
+    .footer-brand-logo {
+      display: flex; align-items: center; gap: .5rem; margin-bottom: .875rem;
+    }
+    .footer-brand-logo-icon {
+      width: 30px; height: 30px; border-radius: 7px;
+      background: linear-gradient(135deg, #3251de, var(--dai-blue));
+      display: flex; align-items: center; justify-content: center;
+    }
+    .footer-brand-logo-text {
+      font-size: .938rem; font-weight: 800; color: #fff;
+    }
+    .footer-brand-logo-text .ai { color: var(--dai-blue); }
+    .footer-desc { font-size: .8rem; color: rgba(255,255,255,.38); line-height: 1.65; }
+    .footer-h { font-size: .7rem; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; color: rgba(255,255,255,.3); margin-bottom: .875rem; }
+    .footer-links { list-style: none; }
+    .footer-links li { margin-bottom: .5rem; }
+    .footer-links a { font-size: .8rem; color: rgba(255,255,255,.45); text-decoration: none; transition: color .25s; }
+    .footer-links a:hover { color: #fff; }
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,.08);
+      padding-top: 1.5rem; margin-top: 2.5rem;
+      display: flex; flex-wrap: wrap; gap: .75rem;
+      justify-content: space-between; align-items: center;
+    }
+    .footer-copy { font-size: .72rem; color: rgba(255,255,255,.25); }
+    .footer-disc { font-size: .67rem; color: rgba(255,255,255,.2); }
+
+    /* SCROLLBAR */
+    ::-webkit-scrollbar { width: 4px; }
+    ::-webkit-scrollbar-track { background: var(--san-bg-alt); }
+    ::-webkit-scrollbar-thumb { background: var(--san-orange-d); border-radius: 10px; }
+
+    /* STRIPE ACCENT */
+    .stripe-divider {
+      height: 4px;
+      background: repeating-linear-gradient(
+        90deg,
+        var(--san-orange) 0px, var(--san-orange) 20px,
+        var(--san-green) 20px, var(--san-green) 40px,
+        transparent 40px, transparent 44px
+      );
+      opacity: .35;
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar" id="navbar">
+  <div class="container nav-inner">
+    <a href="#" class="nav-logo">
+      <span class="san-logo-text">Santé</span>
+      <span class="nav-logo-text">
+        <span class="sep">×</span> <span class="dai">Digital <span class="dai-blue">AI</span></span>
+      </span>
+    </a>
+    <a href="https://wa.me/5564981337424?text=Oi%2C+vi+a+p%C3%A1gina+da+Sant%C3%A9+e+quero+saber+mais" target="_blank" rel="noopener" class="nav-cta">Falar agora</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-blob"></div>
+  <div class="hero-blob2"></div>
+  <div class="container hero-content">
+    <div class="hero-badge">
+      <span class="badge-dot"></span>
+      Proposta exclusiva para a Santé Academia
+    </div>
+    <h1 class="hero-h1">
+      A Santé tem <span class="orange">14 anos</span><br>
+      de resultados em Itumbiara.<br>
+      Mas quantas matrículas<br>
+      <span class="green">estão sendo perdidas?</span>
+    </h1>
+    <p class="hero-sub">
+      A Digital AI cria um agente de IA que responde todo aluno em segundos,
+      converte leads em matrículas e reativa quem parou de treinar —
+      <strong>24 horas por dia, sem contratar mais ninguém.</strong>
+    </p>
+    <div class="hero-btns">
+      <a href="https://wa.me/5564981337424?text=Oi+Digital+AI%2C+vi+a+p%C3%A1gina+da+Sant%C3%A9+e+quero+ver+como+funciona" target="_blank" rel="noopener" class="btn-primary">
+        <svg width="17" height="17" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Ver como funciona para a Santé
+      </a>
+      <a href="#problema" class="btn-ghost">
+        <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"/></svg>
+        Entender o problema
+      </a>
+    </div>
+  </div>
+
+  <!-- CHAT MOCKUP -->
+  <div class="hero-visual">
+    <div class="mockup-wrap">
+      <div class="mockup-header">
+        <div class="mockup-avatar">ST</div>
+        <div>
+          <div class="mockup-name">Santé Academia</div>
+          <div class="mockup-status">● Agente ativo 24h</div>
+        </div>
+      </div>
+      <div class="chat-row">
+        <div class="chat-av">P</div>
+        <div>
+          <div class="chat-bubble">Oi, quais são os valores dos planos? Vocês abrem no domingo? 💪</div>
+          <div class="chat-time">22h03</div>
+        </div>
+      </div>
+      <div class="chat-row r" style="margin-top:.5rem">
+        <div class="chat-av ai">AI</div>
+        <div>
+          <div class="chat-bubble">Olá! 👋 Sim, abrimos todos os dias — inclusive domingos! Temos planos a partir de R$89/mês com musculação, cardio e aulas. Quer agendar uma visita gratuita amanhã? 😊</div>
+          <div class="chat-time" style="text-align:right">22h03 ✓✓</div>
+        </div>
+      </div>
+      <div class="chat-row" style="margin-top:.5rem">
+        <div class="chat-av">P</div>
+        <div>
+          <div class="chat-bubble">Que rápido! Sim, quero conhecer! 🏋️</div>
+          <div class="chat-time">22h04</div>
+        </div>
+      </div>
+      <div class="chat-badge">
+        ⚡ Resposta em <strong>3 segundos</strong> · 22h03 da noite · sem humano
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats">
+  <div class="container">
+    <div class="stats-grid">
+      <div class="stat reveal"><div class="stat-n">9×</div><div class="stat-l">mais conversão com resposta em &lt;5 min</div></div>
+      <div class="stat reveal d2"><div class="stat-n">70%</div><div class="stat-l">menos tempo gasto no WhatsApp manual</div></div>
+      <div class="stat reveal d3"><div class="stat-n">+15%</div><div class="stat-l">receita com reativação de alunos inativos</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- GREEN STRIP -->
+<div class="green-strip">
+  <div class="container">
+    <div class="green-strip-inner">
+      <div class="green-strip-item">
+        <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+        Atendimento 24h/7 dias
+      </div>
+      <div class="green-strip-dot"></div>
+      <div class="green-strip-item">
+        <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+        Funciona no WhatsApp atual
+      </div>
+      <div class="green-strip-dot"></div>
+      <div class="green-strip-item">
+        <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+        Implantação em até 2 semanas
+      </div>
+      <div class="green-strip-dot"></div>
+      <div class="green-strip-item">
+        <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+        Somos de Itumbiara
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="stripe-divider"></div>
+
+<!-- QUEM FAZ A DECISÃO -->
+<section class="section section-alt" id="decisores">
+  <div class="container">
+    <div class="section-header">
+      <p class="eyebrow reveal">Pesquisamos a Santé a fundo</p>
+      <h2 class="section-title reveal">Esta página foi criada<br>especialmente para vocês</h2>
+      <p class="section-sub reveal d1">A Digital AI estudou a Santé antes de qualquer contato. Conheça quem está por trás da academia com 14 anos de história em Itumbiara.</p>
+    </div>
+
+    <div class="espelho reveal">
+      <p>A <strong>Santé Academia</strong> — com 14 anos de atuação em Itumbiara/GO e avaliação <strong>9.4/10</strong> — é uma referência consolidada no fitness local. Aberta todos os dias, inclusive domingos, vocês têm uma academia que os alunos confiam. Mas sem website ativo e com atendimento manual no WhatsApp, cada mensagem não respondida à noite ou no fim de semana é uma matrícula que vai para a concorrência. A Santé merece um atendimento tão consistente quanto sua reputação.</p>
+    </div>
+
+    <div class="donos-grid">
+      <div class="dono-card reveal">
+        <div class="dono-avatar">B</div>
+        <div>
+          <div class="dono-name">Bruno Chartier Nascimento</div>
+          <div class="dono-role">Sócio-Administrador</div>
+          <div class="dono-note">Co-fundador e gestor estratégico da Santé Academia. Principal decisor nas parcerias e tecnologia da academia.</div>
+        </div>
+      </div>
+      <div class="dono-card reveal d1">
+        <div class="dono-avatar">R</div>
+        <div>
+          <div class="dono-name">Renata Ramos</div>
+          <div class="dono-role">Sócia-Administradora</div>
+          <div class="dono-note">Co-gestora da Santé. Provavelmente responsável pelo relacionamento com alunos e operação do dia a dia.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROBLEMA -->
+<section class="section" id="problema">
+  <div class="container">
+    <div class="section-header">
+      <p class="eyebrow reveal">O gargalo oculto</p>
+      <h2 class="section-title reveal">Uma academia com 14 anos de história<br>ainda perde matrículas todo dia.</h2>
+      <p class="section-sub reveal d1">Vocês construíram uma das academias mais bem avaliadas de Itumbiara. Mas existe um gargalo silencioso que está custando receita todo mês.</p>
+    </div>
+    <div class="prob-list">
+      <div class="prob-item reveal">
+        <div class="prob-icon"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></div>
+        <div>
+          <h4>Prospects às 22h que não esperam até amanhã</h4>
+          <p>Quando alguém manda mensagem fora do horário de pico perguntando sobre planos, ele não espera. Abre o WhatsApp da próxima academia da lista — mesmo a Santé abrindo todos os dias.</p>
+        </div>
+      </div>
+      <div class="prob-item reveal d1">
+        <div class="prob-icon"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg></div>
+        <div>
+          <h4>Alunos inativos que somem sem que ninguém perceba</h4>
+          <p>Quando um aluno para de vir há 30 dias, ninguém percebe. Sem reativação automática, a receita vai embora silenciosamente — e com ela, anos de fidelidade construída.</p>
+        </div>
+      </div>
+      <div class="prob-item reveal d2">
+        <div class="prob-icon"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg></div>
+        <div>
+          <h4>Renovações esquecidas que viram cancelamentos silenciosos</h4>
+          <p>Plano venceu e o aluno não foi lembrado? Ele some. Na Santé, cada vencimento sem alerta é uma receita perdida que poderia ser facilmente evitada.</p>
+        </div>
+      </div>
+      <div class="prob-item reveal d3">
+        <div class="prob-icon"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg></div>
+        <div>
+          <h4>Horas perdidas respondendo as mesmas perguntas todo dia</h4>
+          <p>"Qual o valor do plano?" "Vocês abrem no domingo?" "Tem musculação?" Respondidas manualmente dezenas de vezes por semana — tempo que a equipe poderia usar na operação.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AGITAÇÃO -->
+<section class="section section-alt">
+  <div class="container">
+    <div class="section-header">
+      <p class="eyebrow reveal">O mercado não espera</p>
+      <h2 class="section-title reveal">Cada mensagem sem resposta rápida<br>é uma matrícula indo para a concorrência</h2>
+      <p class="section-sub reveal d1">Voofit, Ritmo, SkyFit, Body Club — todos disputando os mesmos alunos em Itumbiara. Quem responde mais rápido, fecha mais.</p>
+    </div>
+    <div class="agit-grid">
+      <div class="agit-card reveal">
+        <div class="agit-n">9×</div>
+        <h4>Janela de 5 minutos</h4>
+        <p>Leads respondidos em menos de 5 min têm 9× mais chance de converter do que leads respondidos após 1h. Dados do setor de fitness.</p>
+      </div>
+      <div class="agit-card reveal d2">
+        <div class="agit-n">60d</div>
+        <h4>Prazo crítico de reativação</h4>
+        <p>Após 60 dias sem contato, taxa de reativação cai 80%. Cada aluno inativo não contactado é receita que some — independente dos 14 anos de tradição.</p>
+      </div>
+      <div class="agit-card reveal d3">
+        <div class="agit-n">40%</div>
+        <h4>Evasão no primeiro trimestre</h4>
+        <p>Setor fitness tem 30–40% de evasão nos primeiros 3 meses. A maioria por falta de engajamento — não por insatisfação com a academia.</p>
+      </div>
+    </div>
+    <div class="agit-highlight reveal">
+      <p>
+        <strong style="color:var(--san-text)">Enquanto você lê isso,</strong> um futuro aluno da Santé mandou mensagem no WhatsApp e está esperando resposta. O que acontece nos próximos 5 minutos define se ele vai entrar na Santé ou na próxima academia da lista.
+      </p>
+    </div>
+  </div>
+</section>
+
+<div class="stripe-divider"></div>
+
+<!-- SOLUÇÃO -->
+<section class="section" id="solucao">
+  <div class="container">
+    <div class="section-header text-center">
+      <p class="eyebrow reveal">A solução</p>
+      <h2 class="section-title reveal">Um agente de IA treinado<br>com tudo da Santé</h2>
+      <p class="section-sub reveal d1" style="margin:0 auto">Não é um robô genérico. É um assistente que conhece os planos, modalidades, horários e diferenciais da Santé — e conversa com cada aluno como seu melhor atendente.</p>
+    </div>
+    <div class="sol-grid">
+      <div class="sol-card reveal">
+        <div class="sol-icon"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg></div>
+        <h3>Atendimento Instantâneo</h3>
+        <p>Responde planos, preços, horários e modalidades em segundos — qualquer hora do dia ou da noite, incluindo domingos.</p>
+      </div>
+      <div class="sol-card reveal d1">
+        <div class="sol-icon"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0"/></svg></div>
+        <h3>Captação e Conversão</h3>
+        <p>Qualifica leads interessados, envia proposta e agenda visitas ou matrículas automaticamente — sem intervenção humana.</p>
+      </div>
+      <div class="sol-card reveal d2">
+        <div class="sol-icon"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg></div>
+        <h3>Reativação de Alunos</h3>
+        <p>Identifica inativos e envia sequências de reengajamento na hora certa — preservando os anos de fidelidade construídos.</p>
+      </div>
+      <div class="sol-card reveal">
+        <div class="sol-icon"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"/></svg></div>
+        <h3>Lembretes de Renovação</h3>
+        <p>Avisa automaticamente antes do plano vencer. Mais retenção, menos cancelamento silencioso a cada virada de mês.</p>
+      </div>
+      <div class="sol-card reveal d1">
+        <div class="sol-icon"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg></div>
+        <h3>Campanhas Sazonais</h3>
+        <p>Carnaval, Dia das Mães, verão, início de ano — sequências prontas para disparar nos momentos certos do calendário fitness.</p>
+      </div>
+      <div class="sol-card reveal d2">
+        <div class="sol-icon"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z"/></svg></div>
+        <h3>Integração no WhatsApp</h3>
+        <p>Funciona no número (64) 3431-9040 que a Santé já usa. Nenhuma mudança para os alunos — tudo mais rápido para vocês.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NÚMEROS -->
+<section class="section section-alt">
+  <div class="container">
+    <div class="section-header text-center">
+      <p class="eyebrow reveal">Resultados do setor</p>
+      <h2 class="section-title reveal">O que academias conseguem<br>com atendimento IA</h2>
+    </div>
+    <div class="nums-grid">
+      <div class="num-card reveal">
+        <div class="num-val">9×</div>
+        <div class="num-title">Mais conversão de leads</div>
+        <div class="num-desc">Leads respondidos em menos de 5 minutos convertem 9× mais do que leads respondidos após 1 hora.</div>
+      </div>
+      <div class="num-card reveal d2">
+        <div class="num-val">60–70%</div>
+        <div class="num-title">Menos tempo no WhatsApp</div>
+        <div class="num-desc">Academias com IA reduzem em 60–70% o tempo gasto respondendo mensagens repetitivas.</div>
+      </div>
+      <div class="num-card reveal d3">
+        <div class="num-val">+15%</div>
+        <div class="num-title">Receita adicional/mês</div>
+        <div class="num-desc">Reativação automatizada de alunos inativos gera 10–15% de receita adicional por mês.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DIFERENCIAIS -->
+<section class="section" id="diferenciais">
+  <div class="container">
+    <div class="section-header">
+      <p class="eyebrow reveal">Por que a Digital AI</p>
+      <h2 class="section-title reveal">O que diferencia a Digital AI<br>de qualquer outra solução</h2>
+      <p class="section-sub reveal d1">Não somos uma empresa de tecnologia que nunca entrou numa academia. Somos de Itumbiara — e conhecemos seu mercado.</p>
+    </div>
+    <div class="dif-grid">
+      <div class="dif-item reveal">
+        <div class="dif-num">1</div>
+        <div>
+          <h4>Feito para a Santé, não para qualquer academia</h4>
+          <p>O agente é treinado com os dados da Santé: seus planos, seus preços, seus horários, seus diferenciais. Não é template. É solução que só existe para vocês.</p>
+        </div>
+      </div>
+      <div class="dif-item reveal d1">
+        <div class="dif-num">2</div>
+        <div>
+          <h4>Somos daqui — conhecemos Itumbiara</h4>
+          <p>A Digital AI é de Itumbiara. Você fala com quem conhece sua cidade, seu mercado e seus concorrentes. Suporte presencial quando precisar.</p>
+        </div>
+      </div>
+      <div class="dif-item reveal">
+        <div class="dif-num">3</div>
+        <div>
+          <h4>Sem contrato longo, sem surpresa</h4>
+          <p>Começamos com um projeto claro, escopo definido, preço fechado. Você sabe exatamente o que vai receber antes de assinar.</p>
+        </div>
+      </div>
+      <div class="dif-item reveal d1">
+        <div class="dif-num">4</div>
+        <div>
+          <h4>Funciona no WhatsApp que vocês já têm</h4>
+          <p>O número (64) 3431-9040 continua sendo o número dos alunos — agora com atendimento de 24h, todos os dias da semana.</p>
+        </div>
+      </div>
+      <div class="dif-item reveal">
+        <div class="dif-num">5</div>
+        <div>
+          <h4>Implantação em dias, não meses</h4>
+          <p>Da conversa à entrega: em menos de 2 semanas o agente já está respondendo pelos alunos da Santé — sem precisar parar a operação.</p>
+        </div>
+      </div>
+      <div class="dif-item reveal d1">
+        <div class="dif-num">6</div>
+        <div>
+          <h4>14 anos de tradição merecem tecnologia moderna</h4>
+          <p>Uma academia que tem avaliação 9.4/10 e abre até domingo merece um atendimento tão consistente quanto sua reputação.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section section-alt">
+  <div class="container">
+    <div class="section-header">
+      <p class="eyebrow reveal">Dúvidas frequentes</p>
+      <h2 class="section-title reveal">Perguntas que aparecem<br>antes de tomar a decisão</h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item reveal">
+        <div class="faq-q">
+          <h4>Os alunos vão notar que é um robô?</h4>
+          <div class="faq-ico"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></div>
+        </div>
+        <div class="faq-ans"><div class="faq-ans-inner">O agente é configurado para conversar de forma natural, com o tom e a linguagem que a Santé usa no dia a dia. Alunos percebem velocidade e atenção — não o mecanismo por trás. Em casos que precisam de decisão humana, o agente escala automaticamente para a equipe.</div></div>
+      </div>
+      <div class="faq-item reveal d1">
+        <div class="faq-q">
+          <h4>Vai ser complicado configurar e integrar?</h4>
+          <div class="faq-ico"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></div>
+        </div>
+        <div class="faq-ans"><div class="faq-ans-inner">Nossa equipe cuida de tudo. Vocês respondem algumas perguntas sobre a Santé, revisamos o roteiro juntos, e em dias o agente está no ar. Sem código, sem TI, sem dor de cabeça. A equipe da Santé não precisa saber de tecnologia.</div></div>
+      </div>
+      <div class="faq-item reveal d2">
+        <div class="faq-q">
+          <h4>Vale o investimento para uma academia do nosso porte?</h4>
+          <div class="faq-ico"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></div>
+        </div>
+        <div class="faq-ans"><div class="faq-ans-inner">Uma única matrícula que seria perdida por falta de resposta rápida já pode pagar o investimento do mês. Somado à retenção de alunos e à economia de horas manuais, o retorno tende a aparecer nas primeiras semanas — independente do porte da academia.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OFERTA -->
+<section class="section">
+  <div class="container">
+    <div class="section-header text-center">
+      <p class="eyebrow reveal">O que está incluído</p>
+      <h2 class="section-title reveal">O que a Santé recebe<br>na implantação</h2>
+    </div>
+    <div class="oferta-grid">
+      <div class="oferta-item reveal">
+        <div class="oferta-check">
+          <svg width="14" height="14" fill="none" stroke="#16a34a" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg>
+        </div>
+        <div>
+          <h4>Agente de Atendimento IA</h4>
+          <p>Configurado com todos os dados da Santé, pronto para responder no WhatsApp 24h/7d — incluindo domingos.</p>
+        </div>
+      </div>
+      <div class="oferta-item reveal d1">
+        <div class="oferta-check">
+          <svg width="14" height="14" fill="none" stroke="#16a34a" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg>
+        </div>
+        <div>
+          <h4>Fluxo de Captação</h4>
+          <p>Roteiro completo de qualificação e conversão de novos leads: da pergunta inicial à matrícula agendada.</p>
+        </div>
+      </div>
+      <div class="oferta-item reveal d2">
+        <div class="oferta-check">
+          <svg width="14" height="14" fill="none" stroke="#16a34a" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg>
+        </div>
+        <div>
+          <h4>Fluxo de Reativação</h4>
+          <p>Sequência automática para alunos inativos há 30+ dias, com mensagens no tom certo para fazer eles voltarem.</p>
+        </div>
+      </div>
+      <div class="oferta-item reveal">
+        <div class="oferta-check">
+          <svg width="14" height="14" fill="none" stroke="#16a34a" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg>
+        </div>
+        <div>
+          <h4>Fluxo de Renovação</h4>
+          <p>Alertas automáticos antes do plano vencer, reduzindo cancelamentos silenciosos que ocorrem todo mês.</p>
+        </div>
+      </div>
+      <div class="oferta-item reveal d1">
+        <div class="oferta-check">
+          <svg width="14" height="14" fill="none" stroke="#16a34a" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg>
+        </div>
+        <div>
+          <h4>Treinamento e Passagem de Bastão</h4>
+          <p>1h de treinamento para a equipe saber acompanhar, ajustar e extrair o máximo do agente.</p>
+        </div>
+      </div>
+      <div class="oferta-item bonus reveal d2">
+        <div class="oferta-check">
+          <svg width="14" height="14" fill="none" stroke="var(--san-orange)" stroke-width="2.5" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <div>
+          <div class="bonus-tag">Bônus</div>
+          <h4>Suporte 30 dias pós-implantação</h4>
+          <p>A Digital AI fica junto durante o primeiro mês, ajustando respostas e otimizando fluxos conforme o uso real da Santé.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<section class="cta-section">
+  <div class="container">
+    <p class="eyebrow reveal" style="display:block;margin-bottom:.75rem">Próximo passo</p>
+    <h2 class="cta-title reveal">
+      Cada dia sem automação é<br>
+      <span style="color:var(--san-orange)">um dia perdendo leads</span>
+    </h2>
+    <p class="cta-sub reveal d1">
+      Conversa de 30 minutos. Sem compromisso. Sem pitch de vendas.<br>
+      Mostramos exatamente o que seria implantado na Santé, com simulação ao vivo do agente funcionando.
+    </p>
+    <div class="cta-btns reveal d2">
+      <a href="https://wa.me/5564981337424?text=Oi+Digital+AI%2C+vi+a+landing+page+da+Sant%C3%A9+e+quero+saber+mais" target="_blank" rel="noopener" class="btn-lg">
+        <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Quero ver como funciona para a Santé
+      </a>
+    </div>
+    <p class="cta-note reveal d3">Sem compromisso · Sem contrato · Somos de Itumbiara</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand-logo">
+          <div class="footer-brand-logo-icon">
+            <svg width="16" height="16" fill="none" viewBox="0 0 24 24">
+              <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <span class="footer-brand-logo-text">Digital <span class="ai">AI</span></span>
+        </div>
+        <p class="footer-desc">Automação inteligente para negócios com alto volume de atendimento. Agentes de IA para academias, clínicas, imobiliárias e mais.</p>
+      </div>
+      <div>
+        <p class="footer-h">Serviços</p>
+        <ul class="footer-links">
+          <li><a href="#">Agente de Atendimento IA</a></li>
+          <li><a href="#">Captação de Leads</a></li>
+          <li><a href="#">Reativação de Alunos</a></li>
+          <li><a href="#">Automação de Processos</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer-h">Contato</p>
+        <ul class="footer-links">
+          <li><a href="https://wa.me/5564981337424">WhatsApp</a></li>
+          <li><a href="mailto:contato@digital-ai.tech">contato@digital-ai.tech</a></li>
+          <li><a href="https://digital-ai.tech">digital-ai.tech</a></li>
+          <li><a href="#">Itumbiara/GO</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">© 2026 Digital AI — Todos os direitos reservados</p>
+      <p class="footer-disc">Esta página foi criada especialmente para a Santé Academia. Conteúdo personalizado pela equipe da Digital AI.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Navbar scroll
+  const nav = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 40);
+  });
+
+  // Reveal on scroll
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); } });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  // FAQ accordion
+  document.querySelectorAll('.faq-q').forEach(q => {
+    q.addEventListener('click', () => {
+      const item = q.closest('.faq-item');
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+      if (!isOpen) item.classList.add('open');
+    });
+  });
+</script>
+</body>
+</html>
