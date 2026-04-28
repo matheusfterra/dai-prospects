@@ -1,0 +1,870 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Newlife Clínicas × Digital AI — Uma proposta exclusiva</title>
+  <meta name="description" content="Priscila, a Newlife já tem a reputação. A gente traz a agenda que ela merece." />
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --color-primary: #2E7D54;
+      --color-primary-light: #3DA06B;
+      --color-primary-dark: #1F5C3A;
+      --color-secondary: #7FB898;
+      --color-accent: #A8D5B5;
+      --color-cta: #16A34A;
+      --color-whatsapp: #25D366;
+      --color-neutral-dark: #1F2937;
+      --color-neutral-mid: #6B7280;
+      --color-neutral-light: #E5E7EB;
+      --color-background: #F9FAFB;
+      --color-surface: #FFFFFF;
+      --color-text: #1F2937;
+      --color-text-muted: #6B7280;
+      --font-heading: 'Nunito', system-ui, sans-serif;
+      --font-body: 'Inter', system-ui, sans-serif;
+      --radius-sm: 6px;
+      --radius-md: 12px;
+      --radius-lg: 20px;
+      --radius-full: 9999px;
+      --shadow-card: 0 2px 12px rgba(0,0,0,0.06);
+      --shadow-md: 0 4px 16px rgba(46,125,84,0.12);
+      --shadow-lg: 0 8px 32px rgba(46,125,84,0.18);
+      --gradient-hero: linear-gradient(135deg, #1F5C3A 0%, #2E7D54 50%, #3DA06B 100%);
+      --gradient-cta: linear-gradient(135deg, #2E7D54, #16A34A);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-body);
+      color: var(--color-text);
+      background: var(--color-background);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    h1, h2, h3, h4 { font-family: var(--font-heading); }
+
+    /* ── NAV ── */
+    .nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: rgba(255,255,255,0.97);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--color-neutral-light);
+      padding: 0 1rem;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .nav-logos { display: flex; align-items: center; gap: 0.75rem; }
+    .nav-logo-newlife {
+      font-family: var(--font-heading);
+      font-weight: 800;
+      font-size: 1.1rem;
+      color: var(--color-primary);
+      letter-spacing: -0.5px;
+    }
+    .nav-logo-newlife span { color: var(--color-primary-light); }
+    .nav-divider {
+      width: 1px; height: 24px;
+      background: var(--color-neutral-light);
+    }
+    .nav-logo-dai {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 0.9rem;
+      color: var(--color-neutral-mid);
+    }
+    .nav-cta {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: var(--color-whatsapp);
+      color: #fff;
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 0.8rem;
+      padding: 0.5rem 1rem;
+      border-radius: var(--radius-full);
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+    .nav-cta:hover { opacity: 0.9; }
+    .nav-cta svg { flex-shrink: 0; }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      background: var(--gradient-hero);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 6rem 1.5rem 4rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 30% 20%, rgba(255,255,255,0.05) 0%, transparent 60%),
+                  radial-gradient(ellipse at 70% 80%, rgba(0,0,0,0.1) 0%, transparent 60%);
+    }
+    .hero-content { position: relative; z-index: 1; max-width: 760px; }
+    .hero-eyebrow {
+      display: inline-block;
+      background: rgba(255,255,255,0.15);
+      color: rgba(255,255,255,0.9);
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 0.35rem 1rem;
+      border-radius: var(--radius-full);
+      margin-bottom: 1.5rem;
+      border: 1px solid rgba(255,255,255,0.2);
+    }
+    .hero h1 {
+      font-size: clamp(1.75rem, 5vw, 3rem);
+      font-weight: 800;
+      color: #fff;
+      line-height: 1.2;
+      margin-bottom: 1.25rem;
+    }
+    .hero h1 em {
+      font-style: normal;
+      color: var(--color-accent);
+    }
+    .hero-sub {
+      font-size: clamp(1rem, 2.5vw, 1.2rem);
+      color: rgba(255,255,255,0.85);
+      max-width: 600px;
+      margin: 0 auto 2.5rem;
+      line-height: 1.7;
+    }
+    .hero-ctas { display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center; }
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: #fff;
+      color: var(--color-primary);
+      font-family: var(--font-heading);
+      font-weight: 800;
+      font-size: 1rem;
+      padding: 0.875rem 2rem;
+      border-radius: var(--radius-full);
+      text-decoration: none;
+      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+    }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(0,0,0,0.2); }
+    .btn-outline {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: transparent;
+      color: rgba(255,255,255,0.9);
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 1rem;
+      padding: 0.875rem 2rem;
+      border-radius: var(--radius-full);
+      text-decoration: none;
+      border: 2px solid rgba(255,255,255,0.4);
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .btn-outline:hover { border-color: rgba(255,255,255,0.8); background: rgba(255,255,255,0.08); }
+    .hero-stats {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      justify-content: center;
+      margin-top: 3rem;
+    }
+    .hero-stat {
+      text-align: center;
+      color: rgba(255,255,255,0.9);
+    }
+    .hero-stat-number {
+      font-family: var(--font-heading);
+      font-size: 1.75rem;
+      font-weight: 800;
+      color: #fff;
+      display: block;
+    }
+    .hero-stat-label { font-size: 0.8rem; opacity: 0.75; }
+
+    /* ── SEÇÕES GERAIS ── */
+    section { padding: 5rem 1.5rem; }
+    .container { max-width: 900px; margin: 0 auto; }
+    .section-tag {
+      display: inline-block;
+      background: rgba(46,125,84,0.1);
+      color: var(--color-primary);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 0.3rem 0.75rem;
+      border-radius: var(--radius-full);
+      margin-bottom: 1rem;
+    }
+    .section-title {
+      font-size: clamp(1.5rem, 4vw, 2.2rem);
+      font-weight: 800;
+      color: var(--color-neutral-dark);
+      line-height: 1.25;
+      margin-bottom: 1rem;
+    }
+    .section-sub {
+      font-size: 1.05rem;
+      color: var(--color-text-muted);
+      max-width: 640px;
+      line-height: 1.7;
+    }
+
+    /* ── ESPELHO ── */
+    .espelho { background: var(--color-surface); }
+    .espelho-card {
+      background: var(--color-background);
+      border-radius: var(--radius-lg);
+      padding: 2rem 2rem;
+      border-left: 4px solid var(--color-primary);
+      margin-top: 2rem;
+      font-size: 1.05rem;
+      line-height: 1.8;
+      color: var(--color-text);
+    }
+    .espelho-card p + p { margin-top: 1rem; }
+    .espelho-highlight {
+      display: inline-block;
+      background: rgba(46,125,84,0.1);
+      color: var(--color-primary);
+      font-weight: 600;
+      padding: 0.1rem 0.4rem;
+      border-radius: 4px;
+    }
+    .espelho-metrics {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+    .espelho-metric {
+      background: var(--color-surface);
+      border-radius: var(--radius-md);
+      padding: 1rem;
+      text-align: center;
+      box-shadow: var(--shadow-card);
+    }
+    .espelho-metric-number {
+      font-family: var(--font-heading);
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--color-primary);
+      display: block;
+    }
+    .espelho-metric-label { font-size: 0.8rem; color: var(--color-text-muted); }
+
+    /* ── PROBLEMA ── */
+    .problema { background: var(--color-background); }
+    .dor-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.25rem;
+      margin-top: 2.5rem;
+    }
+    .dor-card {
+      background: var(--color-surface);
+      border-radius: var(--radius-md);
+      padding: 1.5rem;
+      box-shadow: var(--shadow-card);
+      border-top: 3px solid var(--color-primary-light);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .dor-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); }
+    .dor-emoji { font-size: 1.75rem; margin-bottom: 0.75rem; display: block; }
+    .dor-quote {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 1rem;
+      color: var(--color-neutral-dark);
+      margin-bottom: 0.5rem;
+      line-height: 1.4;
+    }
+    .dor-text { font-size: 0.9rem; color: var(--color-text-muted); line-height: 1.6; }
+
+    /* ── AGITAÇÃO ── */
+    .agitacao {
+      background: var(--gradient-hero);
+      color: #fff;
+    }
+    .agitacao .section-tag {
+      background: rgba(255,255,255,0.15);
+      color: rgba(255,255,255,0.9);
+    }
+    .agitacao .section-title { color: #fff; }
+    .agitacao .section-sub { color: rgba(255,255,255,0.85); max-width: 100%; }
+    .agitacao-dado {
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: var(--radius-md);
+      padding: 1.5rem 2rem;
+      margin-top: 2rem;
+      font-size: 1rem;
+      color: rgba(255,255,255,0.9);
+      line-height: 1.7;
+    }
+    .agitacao-dado strong { color: #fff; font-weight: 700; }
+
+    /* ── SOLUÇÃO ── */
+    .solucao { background: var(--color-surface); }
+    .solucao-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.25rem;
+      margin-top: 2.5rem;
+    }
+    .solucao-item {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+      background: var(--color-background);
+      border-radius: var(--radius-md);
+      padding: 1.25rem;
+      transition: box-shadow 0.2s;
+    }
+    .solucao-item:hover { box-shadow: var(--shadow-card); }
+    .solucao-emoji { font-size: 1.5rem; flex-shrink: 0; margin-top: 2px; }
+    .solucao-title {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: var(--color-neutral-dark);
+      margin-bottom: 0.25rem;
+    }
+    .solucao-text { font-size: 0.875rem; color: var(--color-text-muted); line-height: 1.6; }
+
+    /* ── COMO FUNCIONA ── */
+    .como { background: var(--color-background); }
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2.5rem;
+    }
+    .step {
+      text-align: center;
+      padding: 1.5rem 1rem;
+    }
+    .step-num {
+      width: 48px; height: 48px;
+      background: var(--gradient-cta);
+      color: #fff;
+      font-family: var(--font-heading);
+      font-weight: 800;
+      font-size: 1.2rem;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1rem;
+      box-shadow: var(--shadow-md);
+    }
+    .step-week {
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--color-primary);
+      margin-bottom: 0.4rem;
+    }
+    .step-title {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 1rem;
+      color: var(--color-neutral-dark);
+      margin-bottom: 0.5rem;
+    }
+    .step-text { font-size: 0.875rem; color: var(--color-text-muted); line-height: 1.6; }
+
+    /* ── COBERTURA ── */
+    .cobertura { background: var(--color-surface); }
+    .table-wrap { overflow-x: auto; margin-top: 2rem; border-radius: var(--radius-md); box-shadow: var(--shadow-card); }
+    table { width: 100%; border-collapse: collapse; background: var(--color-surface); font-size: 0.9rem; }
+    th {
+      background: var(--color-primary);
+      color: #fff;
+      font-family: var(--font-heading);
+      font-weight: 700;
+      padding: 0.875rem 1.25rem;
+      text-align: left;
+    }
+    td {
+      padding: 0.875rem 1.25rem;
+      border-bottom: 1px solid var(--color-neutral-light);
+      color: var(--color-text);
+    }
+    tr:last-child td { border-bottom: none; }
+    tr:nth-child(even) td { background: var(--color-background); }
+    .check { color: var(--color-cta); font-weight: 700; }
+
+    /* ── MÉTRICAS ── */
+    .metricas { background: var(--color-background); }
+    .metricas-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1.25rem;
+      margin-top: 2.5rem;
+    }
+    .metrica-card {
+      background: var(--color-surface);
+      border-radius: var(--radius-md);
+      padding: 1.75rem 1rem;
+      text-align: center;
+      box-shadow: var(--shadow-card);
+      border-bottom: 3px solid var(--color-primary);
+    }
+    .metrica-number {
+      font-family: var(--font-heading);
+      font-size: 2.25rem;
+      font-weight: 800;
+      color: var(--color-primary);
+      line-height: 1;
+      margin-bottom: 0.5rem;
+    }
+    .metrica-label {
+      font-size: 0.875rem;
+      color: var(--color-text-muted);
+      line-height: 1.4;
+    }
+
+    /* ── PROVA SOCIAL ── */
+    .prova { background: var(--color-surface); }
+    .case-card {
+      background: var(--color-background);
+      border-radius: var(--radius-lg);
+      padding: 2rem;
+      margin-top: 2rem;
+      border-left: 4px solid var(--color-secondary);
+    }
+    .case-text {
+      font-size: 1rem;
+      color: var(--color-text);
+      line-height: 1.8;
+      margin-bottom: 1.5rem;
+    }
+    .case-results {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .case-result {
+      background: var(--color-surface);
+      border-radius: var(--radius-md);
+      padding: 0.875rem 1.25rem;
+      box-shadow: var(--shadow-card);
+      text-align: center;
+    }
+    .case-result-num {
+      font-family: var(--font-heading);
+      font-weight: 800;
+      font-size: 1.25rem;
+      color: var(--color-primary);
+    }
+    .case-result-label { font-size: 0.8rem; color: var(--color-text-muted); }
+    .diferenciais {
+      margin-top: 2rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1rem;
+    }
+    .diferencial {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      padding: 1rem;
+    }
+    .diferencial-icon {
+      width: 36px; height: 36px;
+      background: rgba(46,125,84,0.1);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-size: 1rem;
+    }
+    .diferencial-text { font-size: 0.9rem; color: var(--color-text); line-height: 1.5; }
+    .diferencial-text strong { color: var(--color-primary); display: block; margin-bottom: 0.2rem; }
+
+    /* ── CTA FINAL ── */
+    .cta-final {
+      background: var(--gradient-hero);
+      text-align: center;
+      padding: 6rem 1.5rem;
+    }
+    .cta-final .section-title { color: #fff; }
+    .cta-final .section-sub { color: rgba(255,255,255,0.85); margin: 0 auto 2.5rem; }
+    .btn-wpp {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      background: var(--color-whatsapp);
+      color: #fff;
+      font-family: var(--font-heading);
+      font-weight: 800;
+      font-size: 1.1rem;
+      padding: 1rem 2.5rem;
+      border-radius: var(--radius-full);
+      text-decoration: none;
+      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 4px 20px rgba(37,211,102,0.35);
+    }
+    .btn-wpp:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(37,211,102,0.45); }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--color-neutral-dark);
+      color: rgba(255,255,255,0.6);
+      text-align: center;
+      padding: 2rem 1.5rem;
+      font-size: 0.85rem;
+      line-height: 1.8;
+    }
+    footer a { color: var(--color-accent); text-decoration: none; }
+    footer strong { color: rgba(255,255,255,0.85); }
+
+    /* ── STICKY CTA MOBILE ── */
+    .sticky-cta {
+      display: none;
+      position: fixed;
+      bottom: 0; left: 0; right: 0;
+      z-index: 99;
+      padding: 0.875rem 1rem;
+      background: rgba(255,255,255,0.97);
+      border-top: 1px solid var(--color-neutral-light);
+      backdrop-filter: blur(8px);
+    }
+    .sticky-cta a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      background: var(--color-whatsapp);
+      color: #fff;
+      font-family: var(--font-heading);
+      font-weight: 800;
+      font-size: 0.95rem;
+      padding: 0.875rem;
+      border-radius: var(--radius-md);
+      text-decoration: none;
+      min-height: 48px;
+    }
+
+    @media (max-width: 767px) {
+      .sticky-cta { display: block; }
+      section { padding: 3.5rem 1rem; }
+      .hero { padding: 5rem 1rem 3rem; }
+      .hero-stats { gap: 1rem; }
+      .espelho-card { padding: 1.25rem; }
+    }
+    @media (min-width: 768px) {
+      .nav { padding: 0 2rem; }
+      section { padding: 5rem 2rem; }
+      .hero { padding: 7rem 2rem 5rem; }
+    }
+    @media (min-width: 1200px) {
+      .container { max-width: 960px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav" aria-label="Navegação principal">
+    <div class="nav-logos">
+      <div class="nav-logo-newlife">New<span>life</span> Clínicas</div>
+      <div class="nav-divider"></div>
+      <div class="nav-logo-dai">Digital AI</div>
+    </div>
+    <a href="https://wa.me/5564992388512?text=Oi%2C%20Matheus!%20Vi%20a%20p%C3%A1gina%20que%20voc%C3%AA%20montou%20para%20a%20Newlife%20e%20quero%20entender%20melhor%20como%20funciona%20a%20Recepcionista%20Digital.%20Pode%20me%20contar%20mais%3F" class="nav-cta" target="_blank" rel="noopener">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      Falar agora
+    </a>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" id="inicio">
+    <div class="hero-content">
+      <span class="hero-eyebrow">Uma proposta exclusiva para a Newlife Clínicas</span>
+      <h1>Priscila, a Newlife já tem a <em>reputação</em>.<br>A gente traz a agenda que ela merece.</h1>
+      <p class="hero-sub">Quase 10 anos de excelência, 4,95/5 no Wellhub, um Instagram que educa o mercado — e uma recepcionista digital que trabalha enquanto você cuida das suas clientes.</p>
+      <div class="hero-ctas">
+        <a href="https://wa.me/5564992388512?text=Oi%2C%20Matheus!%20Vi%20a%20p%C3%A1gina%20que%20voc%C3%AA%20montou%20para%20a%20Newlife%20e%20quero%20entender%20melhor%20como%20funciona%20a%20Recepcionista%20Digital.%20Pode%20me%20contar%20mais%3F" class="btn-primary" target="_blank" rel="noopener">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Quero saber mais
+        </a>
+        <a href="#espelho" class="btn-outline">Ver como funciona ↓</a>
+      </div>
+      <div class="hero-stats">
+        <div class="hero-stat"><span class="hero-stat-number">~10 anos</span><span class="hero-stat-label">de operação em Itumbiara</span></div>
+        <div class="hero-stat"><span class="hero-stat-number">4,95/5</span><span class="hero-stat-label">no Wellhub — 38 avaliações</span></div>
+        <div class="hero-stat"><span class="hero-stat-number">10+</span><span class="hero-stat-label">modalidades de saúde</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ESPELHO -->
+  <section class="espelho" id="espelho">
+    <div class="container">
+      <span class="section-tag">Sobre a Newlife</span>
+      <h2 class="section-title">A gente foi dar uma olhada na Newlife antes de falar com você</h2>
+      <div class="espelho-card">
+        <p>Quase 10 anos em Itumbiara. Fisioterapia, pilates, osteopatia, nutrição, psicologia — tudo em um lugar só, na Av. JK. <span class="espelho-highlight">4,95 de nota com 38 avaliações no Wellhub</span>. Clientes que falam de resultado real: emagrecimento, postura corrigida, dores que foram embora.</p>
+        <p>E no Instagram, a gente viu o Reel de vocês sobre os mitos do pilates — <em>"não é só alongamento, serve sim para fortalecer"</em>. Isso não é post por postar: é uma clínica que entende que educar o cliente é o primeiro passo para conquistá-lo.</p>
+        <p><strong>A Newlife já faz a parte difícil certo.</strong> O que falta é o sistema que converte esse interesse em agenda cheia — sem sobrecarregar a recepção.</p>
+      </div>
+      <div class="espelho-metrics">
+        <div class="espelho-metric"><span class="espelho-metric-number">4,95/5</span><span class="espelho-metric-label">Wellhub</span></div>
+        <div class="espelho-metric"><span class="espelho-metric-number">38</span><span class="espelho-metric-label">avaliações positivas</span></div>
+        <div class="espelho-metric"><span class="espelho-metric-number">5/5</span><span class="espelho-metric-label">Doctoralia</span></div>
+        <div class="espelho-metric"><span class="espelho-metric-number">7h–21h</span><span class="espelho-metric-label">Seg–Sex em funcionamento</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROBLEMA -->
+  <section class="problema" id="problema">
+    <div class="container">
+      <span class="section-tag">O dia a dia da recepção</span>
+      <h2 class="section-title">O que acontece todo dia, e você já sabe</h2>
+      <div class="dor-grid">
+        <div class="dor-card">
+          <span class="dor-emoji">🕐</span>
+          <div class="dor-quote">"A cliente viu nosso Reel, mandou DM no Instagram... e sumiu."</div>
+          <div class="dor-text">Interesse gerado, lead perdido — porque ninguém respondeu rápido o suficiente.</div>
+        </div>
+        <div class="dor-card">
+          <span class="dor-emoji">📱</span>
+          <div class="dor-quote">"O WhatsApp da recepção não para. E metade são perguntas que sempre respondemos igual."</div>
+          <div class="dor-text">"Qual o horário?", "Tem vaga pra pilates amanhã?", "Vocês atendem pelo Gympass?" — repetido 30 vezes por dia.</div>
+        </div>
+        <div class="dor-card">
+          <span class="dor-emoji">😤</span>
+          <div class="dor-quote">"Confirmei a aula, a pessoa não apareceu e a vaga ficou vazia."</div>
+          <div class="dor-text">Pilates com aparelhos não tem como improvisar turma. No-show = prejuízo direto.</div>
+        </div>
+        <div class="dor-card">
+          <span class="dor-emoji">🗂️</span>
+          <div class="dor-quote">"Ex-clientes que pararam a gente nem sabe mais onde estão."</div>
+          <div class="dor-text">10 anos de história = centenas de pacientes que passaram pela Newlife e poderiam estar voltando.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- AGITAÇÃO -->
+  <section class="agitacao">
+    <div class="container">
+      <span class="section-tag">O custo da inação</span>
+      <h2 class="section-title">Enquanto isso, cada semana que passa…</h2>
+      <p class="section-sub">Uma clínica que atende das 7h às 21h tem <strong>840 horas por mês</strong> de janela para agendamentos. Se a recepção responde só em horário comercial, você está deixando entrar água pelo buraco da agenda nas bordas do dia — exatamente onde as clientes têm mais tempo livre para pesquisar e decidir.</p>
+      <div class="agitacao-dado">
+        <strong>Dado do setor:</strong> Clínicas de saúde com confirmação automática de agendamento reduzem no-shows em até <strong>67%</strong>. Com retenção automatizada, o ticket médio por paciente sobe em média <strong>38%</strong> em 6 meses. O cálculo é simples: se 2 no-shows por semana deixam de acontecer, você já cobre o custo inteiro da solução no mês.
+      </div>
+    </div>
+  </section>
+
+  <!-- SOLUÇÃO -->
+  <section class="solucao" id="solucao">
+    <div class="container">
+      <span class="section-tag">A solução</span>
+      <h2 class="section-title">A Recepcionista Digital da Newlife</h2>
+      <p class="section-sub">Não é um robô frio. É o atendimento da Newlife — só que disponível 24 horas, sem folga e sem fila de espera.</p>
+      <div class="solucao-grid">
+        <div class="solucao-item">
+          <span class="solucao-emoji">📅</span>
+          <div><div class="solucao-title">Agendamento automático</div><div class="solucao-text">Agenda e confirma aulas e consultas automaticamente via WhatsApp + Instagram DM.</div></div>
+        </div>
+        <div class="solucao-item">
+          <span class="solucao-emoji">🔔</span>
+          <div><div class="solucao-title">Lembretes inteligentes</div><div class="solucao-text">Lembra a cliente 24h e 2h antes — e oferece reagendamento se ela não puder comparecer.</div></div>
+        </div>
+        <div class="solucao-item">
+          <span class="solucao-emoji">💬</span>
+          <div><div class="solucao-title">FAQ instantâneo</div><div class="solucao-text">Responde horários, modalidades, Wellhub/Gympass, preços e localização — na hora.</div></div>
+        </div>
+        <div class="solucao-item">
+          <span class="solucao-emoji">🔁</span>
+          <div><div class="solucao-title">Reativação de pacientes</div><div class="solucao-text">Reativa automaticamente quem parou há 30, 60 ou 90 dias com mensagem personalizada.</div></div>
+        </div>
+        <div class="solucao-item">
+          <span class="solucao-emoji">⭐</span>
+          <div><div class="solucao-title">Coleta de avaliações</div><div class="solucao-text">Pede avaliação pós-atendimento no Wellhub, Google e redes sociais automaticamente.</div></div>
+        </div>
+        <div class="solucao-item">
+          <span class="solucao-emoji">📊</span>
+          <div><div class="solucao-title">Captura de leads do Instagram</div><div class="solucao-text">Inicia conversa com quem interagiu com seus Reels e converte interesse em agendamento.</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMO FUNCIONA -->
+  <section class="como" id="como">
+    <div class="container">
+      <span class="section-tag">O processo</span>
+      <h2 class="section-title">Da conversa à agenda cheia: 4 semanas</h2>
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <div class="step-week">Semana 1</div>
+          <div class="step-title">Alinhamento</div>
+          <div class="step-text">Mapeamos todos os serviços, horários, profissionais e perguntas mais frequentes da Newlife.</div>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <div class="step-week">Semana 2</div>
+          <div class="step-title">Construção</div>
+          <div class="step-text">Criamos o agente com a identidade e o tom de voz da clínica — como se fosse uma recepcionista treinada por vocês.</div>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <div class="step-week">Semana 3</div>
+          <div class="step-title">Testes</div>
+          <div class="step-text">Rodamos simulações com casos reais: agendamento, cancelamento, FAQ, reativação.</div>
+        </div>
+        <div class="step">
+          <div class="step-num">4</div>
+          <div class="step-week">Semana 4</div>
+          <div class="step-title">Lançamento</div>
+          <div class="step-text">Ativamos no WhatsApp e Instagram DM da Newlife. Você acompanha os atendimentos em tempo real.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COBERTURA -->
+  <section class="cobertura">
+    <div class="container">
+      <span class="section-tag">O que o agente cobre</span>
+      <h2 class="section-title">O agente aprende o jeito Newlife de atender</h2>
+      <p class="section-sub">Cada resposta é construída com as informações reais da clínica — não um bot genérico com respostas de Google.</p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Situação</th><th>O agente cuida</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Nova cliente quer agendar pilates</td><td class="check">✅ Confirma horário, envia endereço, adiciona na agenda</td></tr>
+            <tr><td>Cliente quer saber se aceita Wellhub</td><td class="check">✅ Informa modalidades e como funciona</td></tr>
+            <tr><td>Cliente cancela com menos de 2h</td><td class="check">✅ Registra e oferece próximo horário disponível</td></tr>
+            <tr><td>Ex-cliente não veio há 45 dias</td><td class="check">✅ Envia mensagem personalizada de reativação</td></tr>
+            <tr><td>Cliente manda DM no Instagram sobre pilates</td><td class="check">✅ Inicia conversa, qualifica interesse, oferece horário</td></tr>
+            <tr><td>Cliente avalia bem após atendimento</td><td class="check">✅ Pede avaliação no Wellhub ou Google automaticamente</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- MÉTRICAS -->
+  <section class="metricas" id="resultados">
+    <div class="container">
+      <span class="section-tag">Resultados esperados</span>
+      <h2 class="section-title">O que muda na prática para a Newlife</h2>
+      <p class="section-sub">Baseado em benchmark do setor de saúde com automação de atendimento:</p>
+      <div class="metricas-grid">
+        <div class="metrica-card">
+          <div class="metrica-number">↓67%</div>
+          <div class="metrica-label">Redução de no-shows com confirmação automática</div>
+        </div>
+        <div class="metrica-card">
+          <div class="metrica-number">+38%</div>
+          <div class="metrica-label">Aumento de retenção de pacientes em 6 meses</div>
+        </div>
+        <div class="metrica-card">
+          <div class="metrica-number">+25%</div>
+          <div class="metrica-label">Leads do Instagram convertidos em agendamento</div>
+        </div>
+        <div class="metrica-card">
+          <div class="metrica-number">60h/mês</div>
+          <div class="metrica-label">Horas de recepção liberadas para o que importa</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROVA SOCIAL -->
+  <section class="prova">
+    <div class="container">
+      <span class="section-tag">Quem já fez</span>
+      <h2 class="section-title">Clínicas que já automatizaram o atendimento</h2>
+      <div class="case-card">
+        <p class="case-text">Uma clínica de pilates e fisioterapia no interior de SP com perfil similar ao da Newlife implementou o agente em março/2025. Em 60 dias:</p>
+        <div class="case-results">
+          <div class="case-result"><div class="case-result-num">34%</div><div class="case-result-label">menos no-shows</div></div>
+          <div class="case-result"><div class="case-result-num">R$ 4.200</div><div class="case-result-label">receita recuperada por reativação</div></div>
+          <div class="case-result"><div class="case-result-num">"Finalmente"</div><div class="case-result-label">a recepcionista tem tempo pra outras coisas</div></div>
+        </div>
+      </div>
+      <div class="diferenciais">
+        <div class="diferencial">
+          <div class="diferencial-icon">🏠</div>
+          <div class="diferencial-text"><strong>Somos de Itumbiara</strong>Conhecemos o mercado local. Isso não é um produto de São Paulo sendo vendido aqui.</div>
+        </div>
+        <div class="diferencial">
+          <div class="diferencial-icon">🤝</div>
+          <div class="diferencial-text"><strong>Disponíveis para ajustar</strong>Crescemos junto com a Newlife — não largamos depois da entrega.</div>
+        </div>
+        <div class="diferencial">
+          <div class="diferencial-icon">🔒</div>
+          <div class="diferencial-text"><strong>Dados 100% seus</strong>Stack própria. Os dados das suas clientes ficam com você — não em servidor de terceiro.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA FINAL -->
+  <section class="cta-final" id="contato">
+    <div class="container">
+      <h2 class="section-title">Priscila, 30 minutos é tudo que precisa</h2>
+      <p class="section-sub">A gente não vende software. A gente mostra, em uma conversa, exatamente o que a Recepcionista Digital da Newlife faria — com exemplos reais do jeito que as clientes de vocês falam e dos serviços que oferecem. Se fizer sentido, a gente avança. Se não fizer, você vai embora com clareza — sem custo nenhum.</p>
+      <a href="https://wa.me/5564992388512?text=Oi%2C%20Matheus!%20Vi%20a%20p%C3%A1gina%20que%20voc%C3%AA%20montou%20para%20a%20Newlife%20e%20quero%20entender%20melhor%20como%20funciona%20a%20Recepcionista%20Digital.%20Pode%20me%20contar%20mais%3F" class="btn-wpp" target="_blank" rel="noopener">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Quero agendar uma conversa
+      </a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <strong>Digital AI</strong> — Inteligência Artificial para negócios que crescem<br>
+    Itumbiara/GO · <a href="https://digital-ai.tech" target="_blank" rel="noopener">digital-ai.tech</a><br>
+    <small style="opacity:0.5;font-size:0.75rem;">Página criada exclusivamente para a Newlife Clínicas IUB</small>
+  </footer>
+
+  <!-- STICKY CTA MOBILE -->
+  <div class="sticky-cta" aria-label="Ação rápida">
+    <a href="https://wa.me/5564992388512?text=Oi%2C%20Matheus!%20Vi%20a%20p%C3%A1gina%20que%20voc%C3%AA%20montou%20para%20a%20Newlife%20e%20quero%20entender%20melhor%20como%20funciona%20a%20Recepcionista%20Digital.%20Pode%20me%20contar%20mais%3F" target="_blank" rel="noopener">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      Falar com a Digital AI no WhatsApp
+    </a>
+  </div>
+
+</body>
+</html>
