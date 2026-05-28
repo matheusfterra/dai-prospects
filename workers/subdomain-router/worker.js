@@ -31,9 +31,9 @@ async function handleRequest(request) {
     return new Response(`Prospect '${subdomain}' não encontrado`, { status: 404 });
   }
 
-  // Mapear caminho: / → /<slug>/  |  /asset.js → /<slug>/asset.js
+  // Mapear caminho: / → /prospects/<slug>/  |  /asset.js → /prospects/<slug>/asset.js
   const pathSuffix = url.pathname === "/" ? "/" : url.pathname;
-  const newUrl = `${ORIGIN}/${prospectSlug}${pathSuffix}${url.search}`;
+  const newUrl = `${ORIGIN}/prospects/${prospectSlug}${pathSuffix}${url.search}`;
 
   // Proxy da request preservando método e headers
   const proxyRequest = new Request(newUrl, {
