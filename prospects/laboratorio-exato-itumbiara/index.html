@@ -996,8 +996,15 @@
       .hero-content { padding: 48px 16px 60px; }
       .hero-headline { font-size: clamp(28px, 8vw, 40px); }
       .hero-subheadline { font-size: 15px; }
-      .hero-stats { gap: 14px; }
-      .hero-stat .num { font-size: 24px; }
+      .hero-stat .num { font-size: 26px; }
+
+      /* Fix hero stats wrapping on mobile — hide vertical separators, use 2x2 grid */
+      .hero-stat-sep { display: none; }
+      .hero-stats {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px 24px;
+      }
     }
   </style>
 </head>
