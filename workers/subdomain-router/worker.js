@@ -5,6 +5,7 @@
 // Routing map: chave = subdomínio, valor = pasta em dai-prospects
 const ROUTING = {
   "labexato": "laboratorio-exato-itumbiara",
+  "lab-exato": "laboratorio-exato-itumbiara",
   // LeadKit adiciona entradas aqui automaticamente via Fase 4 do pipeline
 };
 

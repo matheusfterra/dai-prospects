@@ -1,7 +1,8 @@
 {
   "version": "1.0",
-  "updated": "2026-05-28",
+  "updated": "2026-05-29",
   "routes": {
-    "labexato": "laboratorio-exato-itumbiara"
+    "labexato": "laboratorio-exato-itumbiara",
+    "lab-exato": "laboratorio-exato-itumbiara"
   }
 }
