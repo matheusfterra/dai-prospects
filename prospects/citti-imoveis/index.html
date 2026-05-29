@@ -438,6 +438,25 @@
     }
     .whatsapp-float:hover { transform: scale(1.08); box-shadow: 0 6px 24px rgba(37,211,102,0.65); }
     .whatsapp-float svg { width: 28px; height: 28px; fill: #fff; }
+    .gallery-grid { display:grid; grid-template-columns:1fr 1fr 1fr; grid-template-rows:auto auto; gap:12px; }
+    .gallery-item { position:relative; border-radius:16px; overflow:hidden; min-height:162px; }
+    .gallery-item img { width:100%; height:100%; object-fit:cover; display:block; transition:transform .4s ease; }
+    .gallery-item:hover img { transform:scale(1.04); }
+    .gallery-item-featured { grid-column:1; grid-row:1/3; min-height:340px; }
+    .gallery-item-c2r1 { grid-column:2; grid-row:1; }
+    .gallery-item-c3r1 { grid-column:3; grid-row:1; }
+    .gallery-item-c2r2 { grid-column:2; grid-row:2; }
+    .gallery-item-c3r2 { grid-column:3; grid-row:2; }
+    .gallery-caption { position:absolute; bottom:0; left:0; right:0; background:linear-gradient(to top,rgba(0,0,0,0.65) 0%,transparent 100%); padding:20px 18px 16px; }
+    .gallery-caption-sm { position:absolute; bottom:0; left:0; right:0; background:linear-gradient(to top,rgba(0,0,0,0.55) 0%,transparent 100%); padding:14px 14px 12px; }
+    @media (max-width: 640px) {
+      .gallery-grid { grid-template-columns: 1fr 1fr; }
+      .gallery-item-featured { grid-column: 1 / 3; grid-row: 1; min-height: 220px; }
+      .gallery-item-c2r1 { grid-column: 1; grid-row: 2; }
+      .gallery-item-c3r1 { grid-column: 2; grid-row: 2; }
+      .gallery-item-c2r2 { grid-column: 1; grid-row: 3; }
+      .gallery-item-c3r2 { grid-column: 2; grid-row: 3; }
+    }
   </style>
 </head>
 <body>
@@ -447,7 +466,7 @@
     <div class="container">
       <div class="navbar-inner">
         <a href="#hero">
-          <img src="./img/logo.jpg" alt="Citti Imóveis" height="40" style="display:block;">
+          <img src="https://prospects.digital-ai.tech/prospects/citti-imoveis/img/logo.jpg" alt="Citti Imóveis" height="40" style="display:block;">
         </a>
         <span class="nav-creci">CRECI CJ 25.707</span>
         <a href="https://wa.me/5564992341009?text=Ol%C3%A1%2C%20vim%20pelo%20site%20e%20gostaria%20de%20encontrar%20um%20im%C3%B3vel." target="_blank" rel="noopener" class="btn btn-primary">
@@ -500,7 +519,7 @@
         <div class="hero-logo-side">
           <div class="hero-logo-box">
             <div class="hero-logo-frame"></div>
-            <img src="./img/logo.jpg" alt="Citti Imóveis" loading="eager">
+            <img src="https://prospects.digital-ai.tech/prospects/citti-imoveis/img/logo.jpg" alt="Citti Imóveis" loading="eager">
             <div class="hero-logo-tagline">Realizando Sonhos em Itumbiara</div>
           </div>
         </div>
@@ -660,6 +679,67 @@
     </div>
   </section>
 
+  <!-- GALERIA -->
+  <section class="section section-alt" id="galeria">
+    <div class="container">
+      <div class="text-center" style="margin-bottom:44px;">
+        <div class="section-label">Conheça a Citti</div>
+        <h2 class="section-title">Imóveis, espaços e <span>momentos reais</span></h2>
+        <p class="section-subtitle" style="margin:0 auto;">Uma amostra do que encontramos para nossos clientes todos os dias em Itumbiara e região.</p>
+      </div>
+      <div class="gallery-grid">
+        <!-- Foto principal (Instagram - destaque) -->
+        <div class="gallery-item gallery-item-featured">
+          <img src="https://prospects.digital-ai.tech/prospects/citti-imoveis/img/ig_01.jpg" alt="Imóvel Citti Imóveis" loading="lazy">
+          <div class="gallery-caption">
+            <span style="color:#fff;font-size:.75rem;font-weight:700;letter-spacing:.08em;opacity:.85;">DESTAQUE</span>
+            <p style="color:#fff;font-size:1rem;font-weight:600;margin:4px 0 0;line-height:1.3;">Imóvel em destaque</p>
+          </div>
+        </div>
+        <!-- Foto 2 -->
+        <div class="gallery-item gallery-item-c2r1">
+          <img src="https://prospects.digital-ai.tech/prospects/citti-imoveis/img/site_06.jpg" alt="Imóvel residencial" loading="lazy">
+          <div class="gallery-caption-sm">
+            <p style="color:#fff;font-size:.875rem;font-weight:600;margin:0;line-height:1.2;">Residencial</p>
+          </div>
+        </div>
+        <!-- Foto 3 -->
+        <div class="gallery-item gallery-item-c3r1">
+          <img src="https://prospects.digital-ai.tech/prospects/citti-imoveis/img/site_07.jpg" alt="Imóvel comercial" loading="lazy">
+          <div class="gallery-caption-sm">
+            <p style="color:#fff;font-size:.875rem;font-weight:600;margin:0;line-height:1.2;">Comercial</p>
+          </div>
+        </div>
+        <!-- Foto 4 -->
+        <div class="gallery-item gallery-item-c2r2">
+          <img src="https://prospects.digital-ai.tech/prospects/citti-imoveis/img/site_08.jpg" alt="Terrenos e lotes" loading="lazy">
+          <div class="gallery-caption-sm">
+            <p style="color:#fff;font-size:.875rem;font-weight:600;margin:0;line-height:1.2;">Terrenos</p>
+          </div>
+        </div>
+        <!-- Foto 5 -->
+        <div class="gallery-item gallery-item-c3r2">
+          <img src="https://prospects.digital-ai.tech/prospects/citti-imoveis/img/site_09.jpg" alt="Citti Imóveis Itumbiara" loading="lazy" style="object-position:center top;">
+          <div class="gallery-caption-sm">
+            <p style="color:#fff;font-size:.875rem;font-weight:600;margin:0;line-height:1.2;">Itumbiara e Região</p>
+          </div>
+        </div>
+      </div>
+      <!-- CTA galeria -->
+      <div style="text-align:center;margin-top:32px;">
+        <a href="https://www.instagram.com/citti_imoveis/" target="_blank" rel="noopener" style="
+          display:inline-flex;align-items:center;gap:8px;
+          color:var(--color-primary);font-weight:600;font-size:.95rem;
+          text-decoration:none;border:1.5px solid var(--color-primary);
+          padding:10px 22px;border-radius:8px;transition:all .2s;
+        ">
+          <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" fill="none" stroke="currentColor" stroke-width="2"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5" stroke="currentColor" stroke-width="2"/></svg>
+          Ver mais no @citti_imoveis
+        </a>
+      </div>
+    </div>
+  </section>
+
   <!-- CTA -->
   <section class="cta-section">
     <div class="container">
@@ -710,7 +790,7 @@
         </div>
 
         <div class="contato-cta-box">
-          <img src="./img/logo.jpg" alt="Citti Imóveis" style="height:46px;width:auto;object-fit:contain;margin:0 auto 18px;display:block;">
+          <img src="https://prospects.digital-ai.tech/prospects/citti-imoveis/img/logo.jpg" alt="Citti Imóveis" style="height:46px;width:auto;object-fit:contain;margin:0 auto 18px;display:block;">
           <h3 class="contato-cta-title">Fale com um Especialista</h3>
           <p class="contato-cta-text">Envie uma mensagem pelo WhatsApp e nosso time vai encontrar as melhores opções de imóvel para você.</p>
           <a href="https://wa.me/5564992341009?text=Ol%C3%A1%2C%20gostaria%20de%20encontrar%20um%20im%C3%B3vel%20com%20a%20Citti%20Im%C3%B3veis." target="_blank" rel="noopener" class="btn btn-wpp btn-lg btn-full">
@@ -729,7 +809,7 @@
       <div class="footer-inner">
         <div>
           <div class="footer-logo">
-            <img src="./img/logo.jpg" alt="Citti Imóveis">
+            <img src="https://prospects.digital-ai.tech/prospects/citti-imoveis/img/logo.jpg" alt="Citti Imóveis">
           </div>
           <p class="footer-tagline">"Aqui na Citti te ajudamos a encontrar o imóvel dos seus sonhos."</p>
           <p class="footer-creci">CRECI CJ 25.707 · Citti Imóveis Eireli</p>
