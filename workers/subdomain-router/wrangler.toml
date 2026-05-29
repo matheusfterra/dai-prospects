@@ -2,8 +2,14 @@ name = "dai-prospects-router"
 main = "worker.js"
 compatibility_date = "2024-01-01"
 
+# IMPORTANTE: NUNCA usar rota wildcard *.digital-ai.tech
+# Isso intercepta TODOS os subdomínios e quebra Pages, Portainer, Traefik, etc.
+# Cada prospect DEVE ter sua rota explícita.
 routes = [
-  { pattern = "*.digital-ai.tech", zone_name = "digital-ai.tech" }
+  { pattern = "labexato.digital-ai.tech/*", zone_name = "digital-ai.tech" },
+  { pattern = "lab-exato.digital-ai.tech/*", zone_name = "digital-ai.tech" },
+  { pattern = "citti.digital-ai.tech/*", zone_name = "digital-ai.tech" },
+  # LeadKit: adicionar rota explícita para cada novo prospect aqui
 ]
 
 [vars]
