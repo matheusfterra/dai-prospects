@@ -171,12 +171,23 @@
       background: linear-gradient(135deg, rgba(37,99,235,.08), rgba(200,146,42,.06));
     }
     .service-icon {
-      width: 48px; height: 48px; border-radius: 12px;
-      background: linear-gradient(135deg, var(--gold), var(--gold2));
-      display: flex; align-items: center; justify-content: center;
-      font-size: 1.3rem; margin-bottom: 1rem;
+      width: 100%; height: 180px; border-radius: 12px;
+      overflow: hidden; margin-bottom: 1rem;
+      position: relative;
     }
-    .service-card.featured .service-icon { background: linear-gradient(135deg, var(--gold), var(--gold3)); }
+    .service-icon img {
+      width: 100%; height: 100%; object-fit: cover; display: block;
+      transition: transform .4s;
+    }
+    .service-card:hover .service-icon img { transform: scale(1.06); }
+    .service-icon::after {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(to bottom, transparent 50%, rgba(13,17,23,.6));
+      pointer-events: none;
+    }
+    .service-card.featured .service-icon::after {
+      background: linear-gradient(to bottom, transparent 50%, rgba(200,146,42,.15));
+    }
     .service-card h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; font-weight: 700; color: var(--white); margin-bottom: .4rem; }
     .service-card p { font-size: .87rem; color: rgba(255,255,255,.55); line-height: 1.6; }
 
@@ -380,32 +391,32 @@
   </div>
   <div class="services-grid">
     <div class="service-card featured">
-      <div class="service-icon">✨</div>
+      <div class="service-icon"><img src="img/icon_resina.jpg" alt="Lente em Resina" loading="lazy"></div>
       <h3>Lente em Resina Composta</h3>
       <p>Nossa especialidade — transformação do sorriso com resinas estratificadas de alta performance e resultado natural.</p>
     </div>
     <div class="service-card">
-      <div class="service-icon">🦷</div>
+      <div class="service-icon"><img src="img/icon_esmalte.jpg" alt="Lentes em Esmalte" loading="lazy"></div>
       <h3>Lentes em Esmalte</h3>
       <p>Facetas ultrafinas sem desgaste dentário. Sorriso perfeito com mínima intervenção.</p>
     </div>
     <div class="service-card">
-      <div class="service-icon">☀️</div>
+      <div class="service-icon"><img src="img/icon_clareamento.jpg" alt="Clareamento Dental" loading="lazy"></div>
       <h3>Clareamento Dental</h3>
       <p>Técnicas modernas para um sorriso mais branco e luminoso, com segurança e resultado garantido.</p>
     </div>
     <div class="service-card">
-      <div class="service-icon">💉</div>
+      <div class="service-icon"><img src="img/icon_botox.jpg" alt="Botox Odontológico" loading="lazy"></div>
       <h3>Botox Odontológico</h3>
       <p>Toxina botulínica para tratar bruxismo, sorriso gengival e harmonização do sorriso.</p>
     </div>
     <div class="service-card">
-      <div class="service-icon">💋</div>
+      <div class="service-icon"><img src="img/icon_labial.jpg" alt="Preenchimento Labial" loading="lazy"></div>
       <h3>Preenchimento Labial</h3>
       <p>Harmonização dos lábios com ácido hialurônico para um resultado natural e equilibrado.</p>
     </div>
     <div class="service-card">
-      <div class="service-icon">🩺</div>
+      <div class="service-icon"><img src="img/icon_gengivoplastia.jpg" alt="Gengivoplastia" loading="lazy"></div>
       <h3>Gengivoplastia</h3>
       <p>Remodelamento do sorriso gengival para expor mais dos dentes e criar proporções ideais.</p>
     </div>
