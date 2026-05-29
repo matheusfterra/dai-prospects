@@ -9,6 +9,7 @@ const ROUTING = {
   "lab-exato": "laboratorio-exato-itumbiara",
   "citti": "citti-imoveis",
   "newlife": "newlife-clinicas",
+  "peb": "peb-groups",
   // LeadKit adiciona entradas aqui automaticamente via Fase 4 do pipeline
 };
 
