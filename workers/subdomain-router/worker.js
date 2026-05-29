@@ -11,6 +11,7 @@ const ROUTING = {
   "newlife": "newlife-clinicas",
   "peb": "peb-groups",
   "dr-thania": "dra-thania-rego",
+  "odonto-mad": "clinica-odonto-mad",
   // LeadKit adiciona entradas aqui automaticamente via Fase 4 do pipeline
 };
 
