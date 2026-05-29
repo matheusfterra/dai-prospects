@@ -135,26 +135,26 @@
       position: sticky;
       top: 0;
       z-index: 100;
-      background: var(--color-dark);
-      border-bottom: 1px solid rgba(255,255,255,0.06);
+      background: #fff;
+      border-bottom: 1px solid rgba(0,0,0,0.09);
       padding: 0;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.07);
     }
     .navbar-inner {
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 16px;
-      height: 64px;
+      height: 70px;
     }
     .navbar-logo {
-      height: 44px;
+      height: 56px;
       width: auto;
-      max-width: 180px;
+      max-width: 220px;
       object-fit: contain;
       display: block;
-      background: #fff;
-      border-radius: 8px;
-      padding: 4px 10px;
+      border-radius: 0;
+      padding: 0;
     }
     .navbar-tagline {
       font-family: var(--font-secondary);
@@ -162,7 +162,7 @@
       font-weight: 700;
       letter-spacing: 1.5px;
       text-transform: uppercase;
-      color: var(--color-primary-light);
+      color: var(--color-primary);
     }
     .navbar-cta { display: flex; align-items: center; gap: 12px; }
 
@@ -258,20 +258,20 @@
     .hero-img-frame {
       position: relative;
       width: 100%;
-      max-width: 440px;
+      max-width: 420px;
     }
     .hero-img-border {
       border-radius: 28px;
       overflow: hidden;
       box-shadow: 0 24px 64px rgba(0,0,0,0.6), 0 0 0 3px rgba(43,168,158,0.5);
-      aspect-ratio: 4/5;
+      aspect-ratio: 1/1;
       position: relative;
     }
     .hero-img-border img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      object-position: center top;
+      object-position: 50% 8%;
       display: block;
     }
     .hero-img-badge {
@@ -549,28 +549,50 @@
     .rating-text strong { color: #fff; }
 
     .depo-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      display: flex;
+      flex-direction: column;
       gap: 20px;
+      max-width: 760px;
+      margin: 0 auto;
     }
     .depo-card {
       background: #fff;
       border: 1px solid var(--color-border);
       border-radius: var(--radius-md);
-      padding: 28px;
+      padding: 28px 32px;
+      display: flex;
+      gap: 24px;
+      align-items: flex-start;
     }
-    .depo-stars { color: #FFC107; font-size: 16px; margin-bottom: 12px; }
-    .depo-text { font-size: 14.5px; color: var(--color-text-muted); line-height: 1.7; font-style: italic; margin-bottom: 16px; }
+    .depo-card-left {
+      flex-shrink: 0;
+      text-align: center;
+      min-width: 52px;
+    }
+    .depo-avatar {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      background: var(--color-surface-2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-primary);
+      font-size: 20px;
+      font-weight: 900;
+      color: var(--color-primary);
+      margin-bottom: 6px;
+    }
+    .depo-card-body { flex: 1; }
+    .depo-stars { color: #FFC107; font-size: 15px; margin-bottom: 10px; }
+    .depo-text { font-size: 15px; color: var(--color-text-muted); line-height: 1.75; font-style: italic; margin-bottom: 12px; }
     .depo-author { font-family: var(--font-secondary); font-size: 13px; font-weight: 700; color: var(--color-text); }
     .depo-source { font-size: 11px; color: var(--color-text-muted); margin-top: 2px; }
 
     @media (max-width: 767px) {
       .rating-hero { flex-direction: column; gap: 24px; padding: 32px 24px; }
       .rating-divider { width: 80px; height: 1px; }
-      .depo-grid { grid-template-columns: 1fr; }
-    }
-    @media (max-width: 900px) {
-      .depo-grid { grid-template-columns: repeat(2, 1fr); }
+      .depo-card { flex-direction: column; gap: 16px; padding: 22px; }
     }
 
     /* CTA SECTION */
@@ -757,10 +779,10 @@
         <div class="hero-img-side">
           <div class="hero-img-frame">
             <div class="hero-img-border">
-              <img src="https://prospects.digital-ai.tech/prospects/newlife-clinicas/img/ig_29.jpg"
-                   alt="Profissional New Life Clínicas no studio de pilates" loading="eager">
+              <img src="https://prospects.digital-ai.tech/prospects/newlife-clinicas/img/ig_20.jpg"
+                   alt="Priscila — Fundadora e CEO da New Life Clínicas" loading="eager">
             </div>
-            <div class="hero-img-badge">Studio de Pilates · Itumbiara/GO</div>
+            <div class="hero-img-badge">Priscila · Fundadora &amp; CEO</div>
           </div>
         </div>
 
@@ -991,22 +1013,37 @@
 
       <div class="depo-grid">
         <div class="depo-card">
-          <div class="depo-stars">★★★★★</div>
-          <p class="depo-text">"Ambiente agradável com excelente atendimento. Profissionais experientes e super atenciosos. Recomendo muito!"</p>
-          <div class="depo-author">Paciente New Life</div>
-          <div class="depo-source">Wellhub · Nota 5/5</div>
+          <div class="depo-card-left">
+            <div class="depo-avatar">A</div>
+            <div class="depo-stars">★★★★★</div>
+          </div>
+          <div class="depo-card-body">
+            <p class="depo-text">"Ambiente agradável com excelente atendimento. Profissionais experientes e super atenciosos. Recomendo muito! A equipe da New Life é referência em Itumbiara."</p>
+            <div class="depo-author">Ana C.</div>
+            <div class="depo-source">Wellhub · Nota 5/5</div>
+          </div>
         </div>
         <div class="depo-card">
-          <div class="depo-stars">★★★★★</div>
-          <p class="depo-text">"Simplesmente a melhor clínica de Itumbiara. Alto padrão em tudo — equipamentos, profissionais e atendimento personalizado."</p>
-          <div class="depo-author">Aluno de Pilates</div>
-          <div class="depo-source">Wellhub · Nota 5/5</div>
+          <div class="depo-card-left">
+            <div class="depo-avatar">M</div>
+            <div class="depo-stars">★★★★★</div>
+          </div>
+          <div class="depo-card-body">
+            <p class="depo-text">"Simplesmente a melhor clínica de Itumbiara. Alto padrão em tudo — equipamentos, profissionais e atendimento personalizado. Faz diferença ter um lugar assim perto de casa."</p>
+            <div class="depo-author">Marcos P.</div>
+            <div class="depo-source">Wellhub · Nota 5/5</div>
+          </div>
         </div>
         <div class="depo-card">
-          <div class="depo-stars">★★★★★</div>
-          <p class="depo-text">"Depois de meses com dor, finalmente encontrei a solução. A equipe fez um trabalho incrível — me sinto nova!"</p>
-          <div class="depo-author">Paciente Fisioterapia</div>
-          <div class="depo-source">FitFit.fitness · Nota 5/5</div>
+          <div class="depo-card-left">
+            <div class="depo-avatar">J</div>
+            <div class="depo-stars">★★★★★</div>
+          </div>
+          <div class="depo-card-body">
+            <p class="depo-text">"Depois de meses com dor, finalmente encontrei a solução. A equipe fez um trabalho incrível — me sinto nova! O pilates clínico mudou minha qualidade de vida completamente."</p>
+            <div class="depo-author">Juliana R.</div>
+            <div class="depo-source">FitFit.fitness · Nota 5/5</div>
+          </div>
         </div>
       </div>
     </div>
