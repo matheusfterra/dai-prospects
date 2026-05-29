@@ -6,6 +6,7 @@
 const ROUTING = {
   "labexato": "laboratorio-exato-itumbiara",
   "lab-exato": "laboratorio-exato-itumbiara",
+  "citti": "citti-imoveis",
   // LeadKit adiciona entradas aqui automaticamente via Fase 4 do pipeline
 };
 
