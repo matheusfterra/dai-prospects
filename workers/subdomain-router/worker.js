@@ -10,6 +10,7 @@ const ROUTING = {
   "citti": "citti-imoveis",
   "newlife": "newlife-clinicas",
   "peb": "peb-groups",
+  "thania": "dra-thania-rego",
   // LeadKit adiciona entradas aqui automaticamente via Fase 4 do pipeline
 };
 
