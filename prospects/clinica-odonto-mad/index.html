@@ -72,9 +72,9 @@
     }
     .hero-bg {
       position: absolute; inset: 0;
-      background-image: url('img/hero.jpg');
-      background-size: cover; background-position: center top;
-      opacity: .55;
+      background-image: url('img/reel_thumb_01.jpg');
+      background-size: cover; background-position: 18% center;
+      opacity: .65;
     }
     .hero-gradient {
       position: absolute; inset: 0;
@@ -432,24 +432,24 @@
   </div>
   <div class="gallery-grid">
     <div class="gallery-item tall">
-      <img src="img/hero.jpg" alt="Dra. Aline e Dr. Juliano na clínica" loading="lazy" />
-      <div class="gallery-item-label">Nossa equipe de especialistas</div>
+      <img src="img/foto_dra_paciente.jpg" alt="Dra. Aline Duarte com paciente" loading="lazy" />
+      <div class="gallery-item-label">Cuidado com cada paciente</div>
     </div>
     <div class="gallery-item">
-      <img src="img/ig_01.jpg" alt="Atendimento pediátrico" loading="lazy" />
-      <div class="gallery-item-label">Atendimento para toda a família</div>
+      <img src="img/foto_resultado_01.jpg" alt="Antes e depois lentes em resina" loading="lazy" />
+      <div class="gallery-item-label">Antes & Depois — Lentes em Resina</div>
     </div>
     <div class="gallery-item">
-      <img src="img/ig_06.jpg" alt="Resultado de clareamento" loading="lazy" />
-      <div class="gallery-item-label">Antes & Depois — Clareamento</div>
-    </div>
-    <div class="gallery-item">
-      <img src="img/ig_05.jpg" alt="Procedimento com tecnologia" loading="lazy" />
+      <img src="img/reel_thumb_hero.jpg" alt="Procedimento odontológico" loading="lazy" />
       <div class="gallery-item-label">Tecnologia a serviço do seu sorriso</div>
     </div>
     <div class="gallery-item">
-      <img src="img/ig_02.jpg" alt="Lentes em resina — resultado" loading="lazy" />
-      <div class="gallery-item-label">Lentes em Resina — resultado real</div>
+      <img src="img/ig_02.jpg" alt="Resultado clareamento" loading="lazy" />
+      <div class="gallery-item-label">Resultados que transformam</div>
+    </div>
+    <div class="gallery-item">
+      <img src="img/ig_01.jpg" alt="Atendimento para toda a família" loading="lazy" />
+      <div class="gallery-item-label">Atendimento para toda a família</div>
     </div>
   </div>
 </section>
@@ -458,7 +458,7 @@
 <section class="about-dark" id="sobre">
   <div class="about-grid">
     <div class="about-img reveal">
-      <img src="img/ig_04.jpg" alt="Dra. Aline Duarte atendendo paciente" />
+      <img src="img/foto_dra_paciente.jpg" alt="Dra. Aline Duarte com paciente" />
       <div class="about-img-badge">📍 Itumbiara/GO · Desde 2013</div>
     </div>
     <div class="about-content reveal">
@@ -468,20 +468,51 @@
       <p>Em mais de 13 anos, nos tornamos referência em Itumbiara em estética dental e harmonização facial, atendendo pacientes de todas as idades com personalização e excelência.</p>
       <div class="doctors-list">
         <div class="doctor-item">
-          <div class="doctor-avatar">👩‍⚕️</div>
+          <div class="doctor-avatar" style="font-size:.9rem;font-weight:700;color:var(--dark)">DA</div>
           <div>
             <h4>Dra. Aline Duarte Costa</h4>
             <span>CRO-GO 10952 · Estética Dental & Harmonização Facial</span>
           </div>
         </div>
         <div class="doctor-item">
-          <div class="doctor-avatar">👨‍⚕️</div>
+          <div class="doctor-avatar" style="font-size:.9rem;font-weight:700;color:var(--dark)">JC</div>
           <div>
             <h4>Dr. Juliano Caldeira de Lima</h4>
             <span>CRO-GO 13301 · Odontologia Geral & Restauradora</span>
           </div>
         </div>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── VÍDEO / REEL ── -->
+<section style="background:var(--dark2); padding:5rem 5%; border-top:1px solid rgba(200,146,42,.15);" id="reels">
+  <div class="centered reveal" style="margin-bottom:3rem;">
+    <span class="section-tag">Em ação</span>
+    <h2 class="section-title light">Veja nosso trabalho <em>de perto</em></h2>
+    <p class="section-sub" style="color:rgba(255,255,255,.55); margin:0 auto 0;">Acompanhe os bastidores, procedimentos e transformações reais no nosso Instagram.</p>
+  </div>
+  <div style="display:grid; grid-template-columns:repeat(auto-fill,minmax(300px,1fr)); gap:1.5rem; max-width:1000px; margin:0 auto;">
+    <div style="border-radius:16px; overflow:hidden; background:var(--dark); border:1px solid rgba(200,146,42,.2);">
+      <iframe
+        src="https://www.instagram.com/reel/DYVDbY0ipCu/embed/"
+        width="100%" height="480"
+        frameborder="0" scrolling="no"
+        allowtransparency="true" allow="encrypted-media"
+        style="display:block;"
+        loading="lazy"
+      ></iframe>
+    </div>
+    <div style="border-radius:16px; overflow:hidden; background:var(--dark); border:1px solid rgba(200,146,42,.2);">
+      <iframe
+        src="https://www.instagram.com/reel/DX-IhFXiKKY/embed/"
+        width="100%" height="480"
+        frameborder="0" scrolling="no"
+        allowtransparency="true" allow="encrypted-media"
+        style="display:block;"
+        loading="lazy"
+      ></iframe>
     </div>
   </div>
 </section>
@@ -495,15 +526,15 @@
   </div>
   <div class="results-grid">
     <div class="result-card">
-      <img src="img/ig_02.jpg" alt="Resultado lentes em resina" loading="lazy" />
-      <div class="result-card-label">✦ Lentes em Resina Composta</div>
+      <img src="img/foto_resultado_01.jpg" alt="Antes e depois lentes em resina" loading="lazy" />
+      <div class="result-card-label">✦ Antes & Depois — Lentes em Resina</div>
     </div>
     <div class="result-card">
-      <img src="img/ig_06.jpg" alt="Antes e depois clareamento" loading="lazy" />
-      <div class="result-card-label">✦ Clareamento Dental — Antes & Depois</div>
+      <img src="img/ig_02.jpg" alt="Resultado estético" loading="lazy" />
+      <div class="result-card-label">✦ Resultado Estético Real</div>
     </div>
     <div class="result-card">
-      <img src="img/patient_01.jpg" alt="Resultado paciente satisfeita" loading="lazy" />
+      <img src="img/foto_dra_paciente.jpg" alt="Dra. Aline com paciente satisfeito" loading="lazy" />
       <div class="result-card-label">✦ Paciente realizada com o resultado</div>
     </div>
   </div>
