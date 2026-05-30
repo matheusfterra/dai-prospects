@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dra. Daniela Serafini — Periodontia & Implantes Dentários</title>
+  <meta name="description" content="Especialista em Periodontia e Implantes Dentários. Sorrisos transformados com precisão técnica e cuidado personalizado." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    /* ── RESET & BASE ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --white:    #FFFFFF;
+      --off:      #FAFAF8;
+      --blush:    #F6F0F8;
+      --lilac:    #8B5E9C;
+      --lilac2:   #A878BB;
+      --lilac-lt: #EDE4F3;
+      --gold:     #C9A96E;
+      --gold-lt:  #F0E6D0;
+      --dark:     #1C1C2E;
+      --mid:      #4A4A62;
+      --soft:     #8888A0;
+      --radius:   16px;
+      --radius-lg:24px;
+      --shadow:   0 4px 32px rgba(139,94,156,.10);
+      --shadow-md:0 8px 48px rgba(139,94,156,.15);
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--white);
+      color: var(--dark);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    img { display: block; width: 100%; height: 100%; object-fit: cover; }
+    a { text-decoration: none; color: inherit; }
+
+    /* ── TYPOGRAPHY ── */
+    .serif { font-family: 'Cormorant Garamond', serif; }
+    .tag {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: .72rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase;
+      color: var(--lilac); padding: 5px 14px; border-radius: 100px;
+      background: var(--lilac-lt);
+    }
+    .tag::before { content: '✦'; font-size: .65rem; }
+
+    /* ── BUTTONS ── */
+    .btn {
+      display: inline-flex; align-items: center; gap: 10px;
+      font-family: 'DM Sans', sans-serif; font-size: .9rem; font-weight: 600;
+      padding: 14px 28px; border-radius: 100px; cursor: pointer;
+      transition: transform .2s, box-shadow .2s, background .2s;
+      border: none;
+    }
+    .btn:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); }
+    .btn-primary {
+      background: var(--lilac); color: #fff;
+    }
+    .btn-primary:hover { background: var(--lilac2); }
+    .btn-whatsapp {
+      background: #25D366; color: #fff;
+    }
+    .btn-whatsapp:hover { background: #1ebe5a; }
+    .btn-outline {
+      background: transparent; color: var(--lilac);
+      border: 1.5px solid var(--lilac);
+    }
+    .btn-outline:hover { background: var(--lilac-lt); }
+    .btn svg { width: 18px; height: 18px; flex-shrink: 0; }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 5%; height: 68px;
+      background: rgba(255,255,255,.9);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(139,94,156,.08);
+    }
+    .nav-logo {
+      display: flex; flex-direction: column; gap: 1px;
+    }
+    .nav-logo-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.15rem; font-weight: 600; color: var(--dark); letter-spacing: .01em;
+    }
+    .nav-logo-sub {
+      font-size: .68rem; font-weight: 500; letter-spacing: .12em;
+      text-transform: uppercase; color: var(--lilac);
+    }
+    .nav-cta { display: flex; gap: 12px; }
+    @media (max-width: 600px) {
+      .nav-cta .btn-outline { display: none; }
+      .btn { padding: 11px 20px; font-size: .82rem; }
+    }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100svh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      padding: 100px 5% 60px;
+      gap: 4rem;
+      background: var(--off);
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute; top: -200px; right: -200px;
+      width: 600px; height: 600px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(139,94,156,.08) 0%, transparent 70%);
+    }
+    .hero::after {
+      content: '';
+      position: absolute; bottom: -100px; left: -100px;
+      width: 400px; height: 400px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(201,169,110,.07) 0%, transparent 70%);
+    }
+    .hero-text { position: relative; z-index: 2; }
+    .hero-headline {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.6rem, 5vw, 4rem);
+      font-weight: 500; line-height: 1.1;
+      color: var(--dark); margin: 20px 0 24px;
+    }
+    .hero-headline em {
+      font-style: italic; color: var(--lilac);
+    }
+    .hero-sub {
+      font-size: 1rem; color: var(--mid); max-width: 440px;
+      line-height: 1.7; margin-bottom: 36px;
+    }
+    .hero-btns { display: flex; gap: 12px; flex-wrap: wrap; }
+    .hero-stats {
+      display: flex; gap: 2rem; margin-top: 48px;
+      padding-top: 32px; border-top: 1px solid rgba(139,94,156,.1);
+    }
+    .hero-stat-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2rem; font-weight: 600; color: var(--lilac); line-height: 1;
+    }
+    .hero-stat-label {
+      font-size: .75rem; color: var(--soft); text-transform: uppercase;
+      letter-spacing: .08em; margin-top: 2px;
+    }
+
+    /* Hero photo */
+    .hero-photo-wrap {
+      position: relative; z-index: 2;
+    }
+    .hero-photo-main {
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      aspect-ratio: 3/4;
+      box-shadow: var(--shadow-md);
+      max-height: 620px;
+    }
+    .hero-badge {
+      position: absolute; bottom: 28px; left: -24px;
+      background: var(--white); border-radius: var(--radius);
+      padding: 16px 20px;
+      box-shadow: 0 8px 32px rgba(28,28,46,.12);
+      display: flex; align-items: center; gap: 12px;
+    }
+    .hero-badge-icon {
+      width: 40px; height: 40px; border-radius: 10px;
+      background: var(--lilac-lt);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.2rem; flex-shrink: 0;
+    }
+    .hero-badge-text { font-size: .78rem; color: var(--mid); line-height: 1.4; }
+    .hero-badge-text strong { font-size: .88rem; color: var(--dark); display: block; }
+
+    .hero-pill {
+      position: absolute; top: 24px; right: -16px;
+      background: var(--lilac); color: #fff;
+      border-radius: 100px; padding: 8px 18px;
+      font-size: .78rem; font-weight: 600; letter-spacing: .05em;
+      box-shadow: 0 4px 20px rgba(139,94,156,.3);
+    }
+
+    @media (max-width: 768px) {
+      .hero {
+        grid-template-columns: 1fr;
+        padding: 90px 5% 48px;
+        gap: 2.5rem;
+        min-height: auto;
+      }
+      .hero-photo-wrap { order: -1; }
+      .hero-badge { left: 0; bottom: 20px; }
+      .hero-pill { right: 0; }
+      .hero-stats { gap: 1.5rem; }
+    }
+
+    /* ── TRUST BAR ── */
+    .trust-bar {
+      background: var(--white);
+      padding: 24px 5%;
+      border-bottom: 1px solid rgba(139,94,156,.07);
+      display: flex; align-items: center; justify-content: center;
+      gap: 8px; flex-wrap: wrap;
+    }
+    .trust-pill {
+      display: inline-flex; align-items: center; gap: 7px;
+      font-size: .8rem; font-weight: 500; color: var(--mid);
+      padding: 7px 16px; border-radius: 100px;
+      border: 1px solid rgba(139,94,156,.15);
+      background: var(--off);
+    }
+    .trust-pill span { font-size: .95rem; }
+
+    /* ── SECTION BASE ── */
+    section { padding: 88px 5%; }
+    .section-header { text-align: center; margin-bottom: 56px; }
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 500; line-height: 1.2;
+      margin: 12px 0 16px;
+    }
+    .section-title em { font-style: italic; color: var(--lilac); }
+    .section-sub {
+      font-size: .95rem; color: var(--mid);
+      max-width: 500px; margin: 0 auto; line-height: 1.7;
+    }
+    .gold-line {
+      width: 40px; height: 2px; background: var(--gold);
+      border-radius: 2px; margin: 16px auto 0;
+    }
+
+    /* ── SOBRE ── */
+    .about-section { background: var(--blush); }
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.1fr;
+      gap: 5rem; align-items: center;
+      max-width: 1100px; margin: 0 auto;
+    }
+    .about-photo {
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      aspect-ratio: 4/5;
+      box-shadow: var(--shadow);
+      position: relative;
+    }
+    .about-photo::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(139,94,156,.12) 0%, transparent 50%);
+    }
+    .about-content .tag { margin-bottom: 20px; }
+    .about-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+      font-weight: 500; line-height: 1.2; margin-bottom: 20px;
+    }
+    .about-bio {
+      font-size: .95rem; color: var(--mid); line-height: 1.8;
+      margin-bottom: 28px;
+    }
+    .about-chips {
+      display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 32px;
+    }
+    .about-chip {
+      font-size: .78rem; font-weight: 500; color: var(--lilac);
+      padding: 6px 14px; border-radius: 100px;
+      background: var(--lilac-lt);
+    }
+    .about-cro {
+      font-size: .8rem; color: var(--soft);
+      display: flex; align-items: center; gap: 6px;
+    }
+    .about-cro::before {
+      content: ''; display: inline-block;
+      width: 20px; height: 1px; background: var(--soft);
+    }
+    @media (max-width: 768px) {
+      .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    }
+
+    /* ── SERVIÇOS ── */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 1.5rem; max-width: 1100px; margin: 0 auto;
+    }
+    .service-card {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      padding: 36px 28px;
+      border: 1px solid rgba(139,94,156,.1);
+      transition: transform .25s, box-shadow .25s, border-color .25s;
+    }
+    .service-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-md);
+      border-color: rgba(139,94,156,.25);
+    }
+    .service-icon {
+      width: 52px; height: 52px; border-radius: 14px;
+      background: var(--lilac-lt);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.5rem; margin-bottom: 20px;
+    }
+    .service-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.3rem; font-weight: 600; margin-bottom: 10px;
+    }
+    .service-desc { font-size: .85rem; color: var(--mid); line-height: 1.7; }
+
+    /* ── RESULTADOS ── */
+    .results-section { background: var(--dark); }
+    .results-section .section-title { color: var(--white); }
+    .results-section .section-sub { color: rgba(255,255,255,.5); }
+    .results-section .tag { background: rgba(139,94,156,.25); color: #C9A3E0; }
+    .results-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 1.25rem; max-width: 1100px; margin: 0 auto;
+    }
+    .result-card {
+      border-radius: var(--radius);
+      overflow: hidden;
+      background: rgba(255,255,255,.04);
+      border: 1px solid rgba(255,255,255,.07);
+      position: relative;
+      transition: transform .25s;
+    }
+    .result-card:hover { transform: scale(1.02); }
+    .result-card img { aspect-ratio: 1; }
+    .result-label {
+      position: absolute; bottom: 0; left: 0; right: 0;
+      padding: 16px;
+      background: linear-gradient(to top, rgba(28,28,46,.9) 0%, transparent 100%);
+      font-size: .78rem; font-weight: 600; color: rgba(255,255,255,.85);
+      letter-spacing: .06em; text-transform: uppercase;
+    }
+
+    /* ── PACIENTE ── */
+    .patient-section { background: var(--blush); }
+    .patient-wrap {
+      max-width: 900px; margin: 0 auto;
+      display: grid; grid-template-columns: 300px 1fr;
+      gap: 4rem; align-items: center;
+    }
+    .patient-photo {
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      aspect-ratio: 3/4;
+      box-shadow: var(--shadow);
+    }
+    .patient-quote {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.5rem, 3vw, 2rem);
+      font-weight: 400; font-style: italic;
+      line-height: 1.4; color: var(--dark); margin-bottom: 20px;
+    }
+    .patient-quote::before {
+      content: '"';
+      font-size: 3rem; line-height: 0; vertical-align: -.5em;
+      color: var(--lilac); margin-right: 4px;
+    }
+    .patient-sub { font-size: .9rem; color: var(--mid); }
+    @media (max-width: 700px) {
+      .patient-wrap { grid-template-columns: 1fr; gap: 2rem; }
+      .patient-photo { aspect-ratio: 4/3; }
+    }
+
+    /* ── INSTAGRAM ── */
+    .reels-section { background: var(--white); }
+    .reels-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.5rem; max-width: 1200px; margin: 0 auto;
+    }
+    .reel-card {
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      border: 1px solid rgba(139,94,156,.12);
+      background: var(--off);
+    }
+    .reel-card iframe { display: block; }
+
+    /* ── CTA FINAL ── */
+    .cta-section {
+      background: linear-gradient(135deg, var(--lilac) 0%, #6B3D8A 100%);
+      text-align: center; padding: 88px 5%;
+      position: relative; overflow: hidden;
+    }
+    .cta-section::before {
+      content: '';
+      position: absolute; top: -150px; right: -150px;
+      width: 400px; height: 400px; border-radius: 50%;
+      background: rgba(255,255,255,.06);
+    }
+    .cta-section::after {
+      content: '';
+      position: absolute; bottom: -100px; left: -100px;
+      width: 300px; height: 300px; border-radius: 50%;
+      background: rgba(255,255,255,.04);
+    }
+    .cta-tag { background: rgba(255,255,255,.15); color: rgba(255,255,255,.9); }
+    .cta-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 400; color: var(--white);
+      margin: 16px 0 12px; position: relative; z-index: 2;
+    }
+    .cta-sub {
+      color: rgba(255,255,255,.7); font-size: .95rem;
+      max-width: 440px; margin: 0 auto 36px;
+      position: relative; z-index: 2;
+    }
+    .cta-btns { display: flex; justify-content: center; gap: 14px; flex-wrap: wrap; position: relative; z-index: 2; }
+    .btn-white {
+      background: var(--white); color: var(--lilac); font-weight: 700;
+    }
+    .btn-white:hover { background: var(--off); }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--dark);
+      padding: 40px 5%;
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 16px;
+    }
+    .footer-logo .nav-logo-name { color: var(--white); font-size: 1rem; }
+    .footer-logo .nav-logo-sub { color: rgba(255,255,255,.4); }
+    .footer-links { display: flex; gap: 20px; }
+    .footer-links a {
+      font-size: .8rem; color: rgba(255,255,255,.4);
+      transition: color .2s;
+    }
+    .footer-links a:hover { color: rgba(255,255,255,.8); }
+    .footer-copy { font-size: .75rem; color: rgba(255,255,255,.25); width: 100%; }
+
+    /* ── FLOAT CTA ── */
+    .float-cta {
+      position: fixed; bottom: 24px; right: 24px; z-index: 200;
+      display: flex; align-items: center; gap: 10px;
+      background: #25D366; color: #fff;
+      border-radius: 100px; padding: 14px 22px;
+      font-weight: 700; font-size: .9rem;
+      box-shadow: 0 6px 28px rgba(37,211,102,.35);
+      transition: transform .2s, box-shadow .2s;
+    }
+    .float-cta:hover { transform: translateY(-3px); box-shadow: 0 10px 36px rgba(37,211,102,.45); }
+    .float-cta svg { width: 20px; height: 20px; }
+
+    /* ── ANIMATIONS ── */
+    .reveal {
+      opacity: 0; transform: translateY(20px);
+      transition: opacity .6s ease, transform .6s ease;
+    }
+    .reveal.visible { opacity: 1; transform: none; }
+  </style>
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav>
+  <div class="nav-logo">
+    <span class="nav-logo-name">Dra. Daniela Serafini</span>
+    <span class="nav-logo-sub">Periodontia · Implantes</span>
+  </div>
+  <div class="nav-cta">
+    <a href="#sobre" class="btn btn-outline">Conheça</a>
+    <a href="https://wa.me/5564984617343?text=Ol%C3%A1%2C%20Dra.%20Daniela!%20Gostaria%20de%20agendar%20uma%20consulta." target="_blank" class="btn btn-whatsapp">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      Agendar consulta
+    </a>
+  </div>
+</nav>
+
+<!-- ── HERO ── -->
+<section class="hero">
+  <div class="hero-text reveal">
+    <span class="tag">Especialista em Periodontia & Implantes</span>
+    <h1 class="hero-headline serif">
+      O sorriso que você merece,<br />
+      com o cuidado que <em>você precisa.</em>
+    </h1>
+    <p class="hero-sub">
+      Tratamentos personalizados em Periodontia e Implantes Dentários, com precisão técnica e uma abordagem humana que transforma não só o sorriso — mas a autoestima.
+    </p>
+    <div class="hero-btns">
+      <a href="https://wa.me/5564984617343?text=Ol%C3%A1%2C%20Dra.%20Daniela!%20Gostaria%20de%20agendar%20uma%20consulta." target="_blank" class="btn btn-whatsapp">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Agendar agora
+      </a>
+      <a href="#resultados" class="btn btn-outline">Ver resultados</a>
+    </div>
+    <div class="hero-stats">
+      <div>
+        <div class="hero-stat-num serif">+230</div>
+        <div class="hero-stat-label">Cases realizados</div>
+      </div>
+      <div>
+        <div class="hero-stat-num serif">2</div>
+        <div class="hero-stat-label">Especialidades</div>
+      </div>
+      <div>
+        <div class="hero-stat-num serif">100%</div>
+        <div class="hero-stat-label">Dedicação</div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-photo-wrap reveal">
+    <div class="hero-photo-main">
+      <img src="img/dra_daniela_hero.jpg" alt="Dra. Daniela Costa Serafini" />
+    </div>
+    <div class="hero-badge">
+      <div class="hero-badge-icon">🦷</div>
+      <div class="hero-badge-text">
+        <strong>Periodontia & Implantes</strong>
+        Especialista dedicada
+      </div>
+    </div>
+    <div class="hero-pill">Atendimento humanizado</div>
+  </div>
+</section>
+
+<!-- ── TRUST BAR ── -->
+<div class="trust-bar">
+  <div class="trust-pill"><span>🦷</span> Periodontia</div>
+  <div class="trust-pill"><span>⚙️</span> Implantes Dentários</div>
+  <div class="trust-pill"><span>✨</span> Facetas e Porcelanas</div>
+  <div class="trust-pill"><span>💎</span> Resinas Compostas</div>
+  <div class="trust-pill"><span>📲</span> (64) 98461-7343</div>
+</div>
+
+<!-- ── SOBRE ── -->
+<section class="about-section" id="sobre">
+  <div class="about-grid">
+    <div class="about-photo reveal">
+      <img src="img/dra_daniela_about.jpg" alt="Dra. Daniela Serafini — Periodontista e Implantologista" />
+    </div>
+    <div class="about-content reveal">
+      <span class="tag">Quem é ela</span>
+      <h2 class="about-title serif">
+        Especialista em transformar sorrisos e restaurar confiança.
+      </h2>
+      <p class="about-bio">
+        A Dra. Daniela Costa Serafini é especialista em Periodontia e Implantes Dentários, com formação dedicada à saúde gengival e reabilitação oral. Seu diferencial está no olhar clínico preciso aliado a um atendimento acolhedor — onde cada paciente é tratado de forma única, respeitando seu tempo, sua história e suas expectativas.
+      </p>
+      <p class="about-bio">
+        Apaixonada por educação em saúde bucal, compartilha conhecimento no Instagram para que mais pessoas entendam a importância de cuidar da gengiva antes que o problema evolua. Porque o melhor implante é aquele planejado da forma certa, desde o início.
+      </p>
+      <div class="about-chips">
+        <span class="about-chip">Periodontia</span>
+        <span class="about-chip">Implantodontia</span>
+        <span class="about-chip">Porcelanas</span>
+        <span class="about-chip">Resinas</span>
+        <span class="about-chip">Educação Bucal</span>
+      </div>
+      <a href="https://wa.me/5564984617343?text=Ol%C3%A1%2C%20Dra.%20Daniela!%20Gostaria%20de%20agendar%20uma%20consulta." target="_blank" class="btn btn-primary">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Falar com a Dra. Daniela
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ── SERVIÇOS ── -->
+<section id="servicos" style="background: var(--white);">
+  <div class="section-header reveal">
+    <span class="tag">Especialidades</span>
+    <h2 class="section-title serif">O que <em>realizamos</em> por você</h2>
+    <p class="section-sub">Tratamentos completos para saúde gengival, reabilitação oral e estética dental — tudo com planejamento personalizado.</p>
+    <div class="gold-line"></div>
+  </div>
+  <div class="services-grid">
+    <div class="service-card reveal">
+      <div class="service-icon">🔬</div>
+      <div class="service-name serif">Periodontia</div>
+      <p class="service-desc">Diagnóstico e tratamento de doenças gengivais — gengivite, periodontite e recessões. A base saudável para um sorriso duradouro.</p>
+    </div>
+    <div class="service-card reveal">
+      <div class="service-icon">⚙️</div>
+      <div class="service-name serif">Implantes Dentários</div>
+      <p class="service-desc">Reabilitação oral com implantes de titânio, planejados individualmente para devolver função e naturalidade ao seu sorriso.</p>
+    </div>
+    <div class="service-card reveal">
+      <div class="service-icon">✨</div>
+      <div class="service-name serif">Facetas & Porcelanas</div>
+      <p class="service-desc">Laminados de porcelana para corrigir forma, cor e alinhamento — resultados estéticos que parecem naturais porque são planejados com cuidado.</p>
+    </div>
+    <div class="service-card reveal">
+      <div class="service-icon">💎</div>
+      <div class="service-name serif">Resinas Compostas</div>
+      <p class="service-desc">Restaurações diretas com material de alta qualidade estética — para corrigir imperfeições em uma única sessão, sem perder naturalidade.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ── RESULTADOS ── -->
+<section class="results-section" id="resultados">
+  <div class="section-header reveal">
+    <span class="tag">Transformações reais</span>
+    <h2 class="section-title serif">Antes &amp; <em>Depois</em></h2>
+    <p class="section-sub">Resultados conquistados com planejamento, técnica e dedicação — cada caso é único.</p>
+    <div class="gold-line"></div>
+  </div>
+  <div class="results-grid">
+    <div class="result-card reveal">
+      <img src="img/resultado_facetas.jpg" alt="Antes e depois — facetas em porcelana" loading="lazy" />
+      <div class="result-label">✦ Facetas em Porcelana</div>
+    </div>
+    <div class="result-card reveal">
+      <img src="img/resultado_implante.jpg" alt="Antes e depois — implante dentário" loading="lazy" />
+      <div class="result-label">✦ Implante Dentário</div>
+    </div>
+    <div class="result-card reveal">
+      <img src="img/resultado_periodontia.jpg" alt="Antes e depois — tratamento periodontal" loading="lazy" />
+      <div class="result-label">✦ Tratamento Periodontal</div>
+    </div>
+    <div class="result-card reveal">
+      <img src="img/resultado_coroa.jpg" alt="Antes e depois — coroa sobre implante" loading="lazy" />
+      <div class="result-label">✦ Coroa sobre Implante</div>
+    </div>
+  </div>
+</section>
+
+<!-- ── PACIENTE ── -->
+<section class="patient-section">
+  <div class="patient-wrap">
+    <div class="patient-photo reveal">
+      <img src="img/paciente_feliz.jpg" alt="Paciente satisfeita — resultado emocional" loading="lazy" />
+    </div>
+    <div class="reveal">
+      <span class="tag">Depoimento real</span>
+      <p class="patient-quote">
+        Ver meu sorriso no espelho e me reconhecer de novo — isso não tem preço.
+      </p>
+      <p class="patient-sub">
+        Essa é a reação que a Dra. Daniela busca em cada paciente. Não apenas um sorriso mais bonito — mas a autoestima restaurada, a confiança de volta, a liberdade de sorrir sem pensar.
+      </p>
+      <a href="https://wa.me/5564984617343?text=Ol%C3%A1%2C%20Dra.%20Daniela!%20Gostaria%20de%20agendar%20uma%20consulta." target="_blank" class="btn btn-primary" style="margin-top:28px;">
+        Quero esse resultado também →
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ── INSTAGRAM ── -->
+<section class="reels-section" id="reels">
+  <div class="section-header reveal">
+    <span class="tag">Em ação</span>
+    <h2 class="section-title serif">Veja o trabalho <em>de perto</em></h2>
+    <p class="section-sub">Acompanhe procedimentos, transformações e educação bucal no Instagram da Dra. Daniela.</p>
+    <div class="gold-line"></div>
+  </div>
+  <div class="reels-grid">
+    <div class="reel-card reveal">
+      <iframe
+        src="https://www.instagram.com/dra_danielacostaserafini/embed/"
+        width="100%" height="480"
+        frameborder="0" scrolling="no"
+        allowtransparency="true" allow="encrypted-media"
+        loading="lazy"
+      ></iframe>
+    </div>
+    <div class="reel-card reveal" style="display:flex; flex-direction:column; align-items:center; justify-content:center; min-height:280px; gap:16px; padding:32px; text-align:center;">
+      <div style="width:56px;height:56px;border-radius:50%;background:linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888);display:flex;align-items:center;justify-content:center;font-size:1.5rem;">📱</div>
+      <p style="font-family:'Cormorant Garamond',serif;font-size:1.2rem;color:var(--dark);">Siga no Instagram</p>
+      <p style="font-size:.85rem;color:var(--soft);">Conteúdo sobre saúde bucal, antes & depois e muito mais.</p>
+      <a href="https://www.instagram.com/dra_danielacostaserafini/" target="_blank" class="btn btn-primary">
+        @dra_danielacostaserafini
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ── CTA FINAL ── -->
+<section class="cta-section">
+  <span class="tag cta-tag">Próximo passo</span>
+  <h2 class="cta-title serif">Seu novo sorriso começa<br />com uma conversa.</h2>
+  <p class="cta-sub">Agende sua avaliação pelo WhatsApp e descubra o melhor tratamento para você — sem compromisso.</p>
+  <div class="cta-btns">
+    <a href="https://wa.me/5564984617343?text=Ol%C3%A1%2C%20Dra.%20Daniela!%20Gostaria%20de%20agendar%20uma%20consulta%20de%20avalia%C3%A7%C3%A3o." target="_blank" class="btn btn-white">
+      <svg viewBox="0 0 24 24" fill="currentColor" style="width:18px;height:18px;color:#25D366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      Agendar pelo WhatsApp
+    </a>
+    <a href="https://www.instagram.com/dra_danielacostaserafini/" target="_blank" class="btn" style="background:rgba(255,255,255,.12);color:#fff;border:1.5px solid rgba(255,255,255,.3);">
+      Ver Instagram
+    </a>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="footer-logo nav-logo">
+    <span class="nav-logo-name" style="color:#fff;">Dra. Daniela Serafini</span>
+    <span class="nav-logo-sub">Periodontia · Implantes · Estética</span>
+  </div>
+  <div class="footer-links">
+    <a href="https://www.instagram.com/dra_danielacostaserafini/" target="_blank">Instagram</a>
+    <a href="https://wa.me/5564984617343" target="_blank">WhatsApp</a>
+  </div>
+  <p class="footer-copy">© 2025 Clínica Dra. Daniela Serafini · Todos os direitos reservados.</p>
+</footer>
+
+<!-- ── FLOAT CTA ── -->
+<a href="https://wa.me/5564984617343?text=Ol%C3%A1%2C%20Dra.%20Daniela!%20Gostaria%20de%20agendar%20uma%20consulta." target="_blank" class="float-cta" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  Agendar consulta
+</a>
+
+<script>
+  // Reveal on scroll
+  const revealEls = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
+  }, { threshold: 0.1 });
+  revealEls.forEach(el => io.observe(el));
+</script>
+</body>
+</html>
