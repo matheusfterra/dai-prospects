@@ -310,42 +310,35 @@
       display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
       gap: 1.5rem; max-width: 1100px; margin: 0 auto;
     }
-    .result-case {
-      border-radius: var(--radius-lg);
-      background: rgba(255,255,255,.04);
-      border: 1px solid rgba(255,255,255,.08);
-      padding: 36px 28px;
-      transition: background .25s, border-color .25s;
-      position: relative; overflow: hidden;
+    /* ── BEFORE/AFTER ── */
+    .ba-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 3rem; max-width: 1000px; margin: 0 auto;
     }
-    .result-case::before {
-      content: '';
-      position: absolute; top: 0; left: 0; width: 4px; height: 100%;
-      background: linear-gradient(to bottom, var(--rose), var(--gold));
-      border-radius: 4px 0 0 4px;
-    }
-    .result-case:hover {
-      background: rgba(255,255,255,.07);
-      border-color: rgba(184,108,108,.25);
-    }
-    .result-case-icon {
-      font-size: 2rem; margin-bottom: 16px; display: block;
-    }
-    .result-case-name {
+    .ba-group { display: flex; flex-direction: column; gap: 12px; }
+    .ba-group-title {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 1.4rem; font-weight: 500; color: var(--white);
-      margin-bottom: 10px; line-height: 1.2;
+      font-size: 1.1rem; font-weight: 500; color: rgba(255,255,255,.7);
+      text-align: center; letter-spacing: .06em;
     }
-    .result-case-desc {
-      font-size: .85rem; color: rgba(255,255,255,.55); line-height: 1.7;
-      margin-bottom: 20px;
+    .ba-pair {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 8px;
     }
-    .result-case-tag {
-      display: inline-flex; align-items: center; gap: 5px;
-      font-size: .7rem; font-weight: 600; letter-spacing: .08em;
-      text-transform: uppercase; color: var(--gold);
-      background: rgba(196,145,90,.12); border: 1px solid rgba(196,145,90,.2);
-      padding: 4px 12px; border-radius: 100px;
+    .ba-card {
+      border-radius: var(--radius); overflow: hidden;
+      position: relative;
+      border: 1px solid rgba(255,255,255,.07);
+    }
+    .ba-card img { aspect-ratio: 3/4; }
+    .ba-label {
+      position: absolute; bottom: 0; left: 0; right: 0;
+      padding: 10px 12px;
+      background: linear-gradient(to top, rgba(28,28,46,.9) 0%, transparent 100%);
+      font-size: .72rem; font-weight: 700; color: rgba(255,255,255,.9);
+      letter-spacing: .1em; text-transform: uppercase;
+    }
+    @media (max-width: 700px) {
+      .ba-grid { grid-template-columns: 1fr; gap: 2rem; }
     }
 
     /* ── DEPOIMENTO ── */
@@ -391,6 +384,22 @@
       border: 1px solid rgba(184,108,108,.12); background: var(--cream);
     }
     .reel-card iframe { display: block; }
+    .reel-video-wrap {
+      position: relative; border-radius: var(--radius-lg); overflow: hidden;
+      background: var(--dark);
+    }
+    .reel-video-wrap video {
+      display: block; width: 100%; height: auto;
+      aspect-ratio: 9/16; object-fit: cover;
+    }
+    .reel-caption {
+      padding: 16px 20px;
+      background: var(--cream);
+    }
+    .reel-caption p {
+      font-size: .82rem; color: var(--mid); font-style: italic; line-height: 1.5;
+    }
+    .reel-caption strong { color: var(--dark); font-style: normal; }
 
     /* ── CTA FINAL ── */
     .cta-section {
@@ -544,7 +553,7 @@
 <section class="about-section" id="sobre">
   <div class="about-grid reveal">
     <div class="about-photo">
-      <img src="img/dra_luana_hero.jpg" alt="Dra. Luana Mariano" />
+      <img src="img/dra_luana_about.jpg" alt="Dra. Luana Mariano" />
     </div>
     <div class="about-content">
       <span class="tag">Sobre a Dra. Luana</span>
@@ -604,30 +613,34 @@
     <p class="section-sub">Cada tratamento é uma história de cuidado, técnica e resultado que transforma a vida do paciente.</p>
     <div class="gold-line"></div>
   </div>
-  <div class="results-grid reveal">
-    <div class="result-case">
-      <span class="result-case-icon">🦷</span>
-      <h3 class="result-case-name">Tratamento de Canal</h3>
-      <p class="result-case-desc">Pacientes que chegaram com dor intensa saíram com o dente salvo, função restaurada e sem nenhuma lembrança ruim do procedimento.</p>
-      <span class="result-case-tag">Endodontia</span>
+  <div class="ba-grid reveal">
+    <!-- Harmonização Labial — DY4Y-hckd7f -->
+    <div class="ba-group">
+      <div class="ba-group-title">💋 Harmonização Labial</div>
+      <div class="ba-pair">
+        <div class="ba-card">
+          <img src="img/resultado_harmonia_antes.jpg" alt="Antes - Harmonização Labial" />
+          <div class="ba-label">Antes</div>
+        </div>
+        <div class="ba-card">
+          <img src="img/resultado_harmonia_depois.jpg" alt="Depois - Harmonização Labial" />
+          <div class="ba-label">Depois</div>
+        </div>
+      </div>
     </div>
-    <div class="result-case">
-      <span class="result-case-icon">💋</span>
-      <h3 class="result-case-name">Harmonização Labial</h3>
-      <p class="result-case-desc">Preenchimento com técnica natural — lábios mais volumosos e definidos mantendo a harmonia dos traços do rosto, sem exageros.</p>
-      <span class="result-case-tag">Harmonização Facial</span>
-    </div>
-    <div class="result-case">
-      <span class="result-case-icon">✨</span>
-      <h3 class="result-case-name">Prótese sobre Implante</h3>
-      <p class="result-case-desc">Reabilitações completas que devolveram a função mastigatória e a confiança no sorriso — resultado indistinguível dos dentes naturais.</p>
-      <span class="result-case-tag">Prótese</span>
-    </div>
-    <div class="result-case">
-      <span class="result-case-icon">🌟</span>
-      <h3 class="result-case-name">Reabilitação Total</h3>
-      <p class="result-case-desc">Casos complexos de reabilitação oral planejados do início ao fim — devolvendo saúde, função e estética em um único plano de tratamento.</p>
-      <span class="result-case-tag">Reabilitação Oral</span>
+    <!-- Preenchimento Labial — DOqsDnnDf0S -->
+    <div class="ba-group">
+      <div class="ba-group-title">✨ Preenchimento Labial</div>
+      <div class="ba-pair">
+        <div class="ba-card">
+          <img src="img/resultado_preenchi2_antes.jpg" alt="Antes - Preenchimento Labial" />
+          <div class="ba-label">Antes</div>
+        </div>
+        <div class="ba-card">
+          <img src="img/resultado_preenchi2_depois.jpg" alt="Depois - Preenchimento Labial" />
+          <div class="ba-label">Depois</div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -662,9 +675,22 @@
     <div class="gold-line"></div>
   </div>
   <div class="reels-grid reveal">
+    <!-- Reel real da Elisa Santos — vídeo local -->
     <div class="reel-card">
-      <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DUTIb-qkXM7/" data-instgrm-version="14" style="background:#FFF; border:0; border-radius:var(--radius-lg); margin:0; max-width:100%; width:100%;"></blockquote>
+      <div class="reel-video-wrap">
+        <video
+          src="img/reel_elisa.mp4"
+          poster="img/reel_elisa_thumbnail.jpg"
+          controls
+          playsinline
+          preload="metadata"
+        ></video>
+      </div>
+      <div class="reel-caption">
+        <p><strong>Elisa Santos:</strong> "Ela deixou minha experiência menos traumática, teve muita paciência e cuidado ❤️"</p>
+      </div>
     </div>
+    <!-- Instagram link card -->
     <div class="reel-card" style="display:flex;align-items:center;justify-content:center;padding:40px 28px;">
       <div style="text-align:center;">
         <div style="font-size:2.5rem;margin-bottom:16px;">📱</div>
@@ -719,9 +745,6 @@
   <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
   Agendar consulta
 </a>
-
-<!-- Instagram Embeds -->
-<script async src="//www.instagram.com/embed.js"></script>
 
 <!-- Scroll Reveal -->
 <script>
