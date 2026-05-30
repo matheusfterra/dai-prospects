@@ -166,7 +166,7 @@
       max-height: 620px;
     }
     .hero-badge {
-      position: absolute; bottom: 28px; left: -24px;
+      position: absolute; bottom: 28px; left: 16px;
       background: var(--white); border-radius: var(--radius);
       padding: 16px 20px;
       box-shadow: 0 8px 32px rgba(28,28,46,.12);
@@ -182,7 +182,7 @@
     .hero-badge-text strong { font-size: .88rem; color: var(--dark); display: block; }
 
     .hero-pill {
-      position: absolute; top: 24px; right: -16px;
+      position: absolute; top: 24px; right: 0;
       background: var(--lilac); color: #fff;
       border-radius: 100px; padding: 8px 18px;
       font-size: .78rem; font-weight: 600; letter-spacing: .05em;
@@ -192,14 +192,21 @@
     @media (max-width: 768px) {
       .hero {
         grid-template-columns: 1fr;
-        padding: 90px 5% 48px;
+        padding: 90px 16px 48px;
         gap: 2.5rem;
         min-height: auto;
+        overflow: hidden;
       }
       .hero-photo-wrap { order: -1; }
       .hero-badge { left: 0; bottom: 20px; }
-      .hero-pill { right: 0; }
-      .hero-stats { gap: 1.5rem; }
+      .hero-pill { right: 0; top: 16px; }
+      .hero-stats {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: .75rem;
+      }
+      .hero-stat-num { font-size: 1.6rem; }
+      .hero-stat-label { letter-spacing: 0; font-size: .68rem; }
     }
 
     /* ── TRUST BAR ── */
