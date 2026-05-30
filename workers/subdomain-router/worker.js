@@ -14,6 +14,7 @@ const ROUTING = {
   "odonto-mad": "clinica-odonto-mad",
   "dra-danielaserafini": "dra-daniela-serafini",
   "dra-luanamariano": "dra-luana-mariano",
+  "dra-anapaulapaludo": "dra-ana-paula-paludo",
   // LeadKit adiciona entradas aqui automaticamente via Fase 4 do pipeline
 };
 

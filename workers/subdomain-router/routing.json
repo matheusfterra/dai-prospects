@@ -1,11 +1,12 @@
 {
   "version": "1.0",
-  "updated": "2026-05-30",
+  "updated": "2026-05-30T15:00",
   "routes": {
     "labexato": "laboratorio-exato-itumbiara",
     "lab-exato": "laboratorio-exato-itumbiara",
     "citti": "citti-imoveis",
     "dra-danielaserafini": "dra-daniela-serafini",
-    "dra-luanamariano": "dra-luana-mariano"
+    "dra-luanamariano": "dra-luana-mariano",
+    "dra-anapaulapaludo": "dra-ana-paula-paludo"
   }
 }
