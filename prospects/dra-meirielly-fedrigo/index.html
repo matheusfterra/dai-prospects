@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dra. Meirielly Fedrigo — Prótese · Implantes · Lentes de Contato | Itumbiara-GO</title>
+  <meta name="description" content="Especialista em Prótese Dentária, Implantes e Lentes de Contato. Transformando sorrisos com precisão e cuidado em Itumbiara-GO. CRO-GO 11645." />
+  <meta property="og:title" content="Dra. Meirielly Fedrigo — Especialista em Prótese e Implantes" />
+  <meta property="og:description" content="Especialista em Prótese Dentária, Implantes e Lentes de Contato em Itumbiara-GO. CRO-GO 11645." />
+  <meta property="og:image" content="https://drameiriellyfedrigo.digital-ai.tech/img/dra_meirielly_hero.jpg" />
+  <meta property="og:url" content="https://drameiriellyfedrigo.digital-ai.tech/" />
+  <meta property="og:type" content="website" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --white: #FFFFFF;
+      --cream: #FBF7F4;
+      --sand: #F0EAE4;
+      --rose: #9E6070;
+      --rose-light: #C48A98;
+      --rose-pale: #F2E0E5;
+      --dark: #111111;
+      --charcoal: #221820;
+      --text: #3A3030;
+      --muted: #7A6A6E;
+      --border: rgba(0,0,0,0.08);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; background: var(--dark); }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 28px; height: 64px;
+      background: rgba(17,17,17,0.93);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid rgba(158,96,112,0.15);
+    }
+    .nav-identity { display: flex; flex-direction: column; gap: 1px; }
+    .nav-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.05rem; font-weight: 500; color: var(--white);
+      letter-spacing: 0.01em; white-space: nowrap;
+    }
+    .nav-spec {
+      font-size: 0.6rem; font-weight: 500; letter-spacing: 0.18em;
+      text-transform: uppercase; color: var(--rose-light);
+    }
+    .nav-cta {
+      display: inline-block;
+      padding: 0.48rem 1.4rem;
+      font-size: 0.72rem; font-weight: 500; letter-spacing: 0.14em;
+      text-transform: uppercase; text-decoration: none;
+      border-radius: 1px; background: var(--rose);
+      color: var(--white); border: 1px solid var(--rose);
+      transition: all 0.2s;
+    }
+    .nav-cta:hover { background: transparent; color: var(--rose-light); border-color: var(--rose-light); }
+    @media (max-width: 600px) { nav { padding: 0 16px; } }
+
+    /* ── FLOAT WA ── */
+    .float-cta {
+      position: fixed; bottom: 24px; right: 24px; z-index: 200;
+      display: flex; align-items: center; justify-content: center;
+      width: 58px; height: 58px;
+      background: #25D366; color: #fff;
+      border-radius: 50%;
+      text-decoration: none;
+      box-shadow: 0 6px 28px rgba(37,211,102,0.45);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .float-cta:hover {
+      transform: translateY(-3px) scale(1.06);
+      box-shadow: 0 10px 36px rgba(37,211,102,0.6);
+    }
+    .float-cta svg { width: 30px; height: 30px; flex-shrink: 0; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      color: var(--text);
+      background: var(--white);
+      line-height: 1.7;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      position: relative;
+      padding-top: 64px;
+      min-height: 100svh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      overflow: hidden;
+    }
+
+    .hero-visual {
+      position: relative;
+      background: #1A1118;
+    }
+
+    .hero-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+    }
+
+    .hero-text-panel {
+      background: var(--charcoal);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 4rem 3.5rem;
+    }
+
+    .hero-eyebrow {
+      font-size: 0.62rem;
+      font-weight: 500;
+      letter-spacing: 0.26em;
+      text-transform: uppercase;
+      color: var(--rose-light);
+      margin-bottom: 1.4rem;
+    }
+
+    .hero-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.6rem, 4.5vw, 4rem);
+      font-weight: 300;
+      color: var(--white);
+      line-height: 1.05;
+      margin-bottom: 0.6rem;
+    }
+    .hero-title em { font-style: italic; color: var(--rose-light); display: block; }
+
+    .hero-divider {
+      width: 36px; height: 1px;
+      background: var(--rose);
+      margin: 1.4rem 0;
+    }
+
+    .hero-desc {
+      font-size: 0.96rem;
+      font-weight: 300;
+      color: rgba(255,255,255,0.55);
+      line-height: 1.75;
+      max-width: 360px;
+      margin-bottom: 2rem;
+    }
+
+    .hero-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 2.4rem;
+    }
+
+    .hero-tag {
+      font-size: 0.62rem;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.5);
+      border: 1px solid rgba(255,255,255,0.12);
+      padding: 0.3rem 0.8rem;
+      border-radius: 1px;
+    }
+
+    .hero-cta {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      align-items: flex-start;
+    }
+
+    /* ── STATS BAR ── */
+    .stats {
+      background: var(--charcoal);
+      padding: 2.8rem 2rem;
+    }
+
+    .stats-grid {
+      max-width: 900px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      text-align: center;
+    }
+
+    .stat-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.8rem;
+      font-weight: 300;
+      color: var(--rose-light);
+      line-height: 1;
+    }
+
+    .stat-label {
+      font-size: 0.7rem;
+      font-weight: 400;
+      color: rgba(255,255,255,0.5);
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      margin-top: 0.3rem;
+    }
+
+    /* ── SECTION BASE ── */
+    .section { padding: 6rem 2rem; }
+    .section-alt { background: var(--cream); }
+    .section-dark { background: var(--dark); }
+
+    .container { max-width: 1080px; margin: 0 auto; }
+    .container-sm { max-width: 800px; margin: 0 auto; }
+
+    .section-label {
+      font-size: 0.66rem;
+      font-weight: 500;
+      letter-spacing: 0.26em;
+      text-transform: uppercase;
+      color: var(--rose);
+      margin-bottom: 0.7rem;
+    }
+    .section-dark .section-label { color: var(--rose-light); }
+
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.9rem, 4vw, 2.8rem);
+      font-weight: 400;
+      line-height: 1.15;
+      color: var(--dark);
+    }
+    .section-dark .section-title { color: var(--white); }
+
+    .section-title em {
+      font-style: italic;
+      color: var(--rose);
+    }
+    .section-dark .section-title em { color: var(--rose-light); }
+
+    .title-rule {
+      width: 36px;
+      height: 1px;
+      background: var(--rose);
+      margin: 1.2rem 0 2rem;
+    }
+
+    /* ── BUTTONS ── */
+    .btn {
+      display: inline-block;
+      padding: 0.85rem 2.2rem;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border-radius: 1px;
+      transition: all 0.22s ease;
+      cursor: pointer;
+    }
+
+    .btn-rose {
+      background: var(--rose);
+      color: var(--white);
+      border: 1px solid var(--rose);
+    }
+    .btn-rose:hover {
+      background: transparent;
+      color: var(--rose-light);
+      border-color: var(--rose-light);
+    }
+
+    .btn-ghost {
+      background: transparent;
+      color: rgba(255,255,255,0.6);
+      border: 1px solid rgba(255,255,255,0.2);
+      margin-top: 0.8rem;
+    }
+    .btn-ghost:hover {
+      color: var(--white);
+      border-color: rgba(255,255,255,0.5);
+    }
+
+    /* ── ESPECIALIDADES ── */
+    .esp-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0;
+      border: 1px solid var(--border);
+    }
+
+    .esp-card {
+      padding: 2.8rem 2.2rem;
+      border-right: 1px solid var(--border);
+    }
+    .esp-card:last-child { border-right: none; }
+
+    .esp-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 3rem;
+      font-weight: 300;
+      color: var(--rose-pale);
+      line-height: 1;
+      margin-bottom: 1rem;
+    }
+
+    .esp-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem;
+      font-weight: 400;
+      color: var(--dark);
+      margin-bottom: 0.8rem;
+    }
+
+    .esp-text {
+      font-size: 0.88rem;
+      font-weight: 300;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    /* ── ABOUT ── */
+    .about-split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+    }
+
+    .about-img-frame {
+      position: relative;
+    }
+    .about-img-frame::after {
+      content: '';
+      position: absolute;
+      bottom: -16px; right: -16px;
+      width: 100%; height: 100%;
+      border: 1px solid var(--rose);
+      z-index: -1;
+    }
+
+    .about-img {
+      width: 100%;
+      aspect-ratio: 4/5;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+    }
+
+    .about-badge {
+      display: inline-block;
+      font-size: 0.6rem;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--rose);
+      border: 1px solid var(--rose);
+      padding: 0.25rem 0.7rem;
+      border-radius: 1px;
+      margin-bottom: 1.2rem;
+    }
+
+    .about-body p {
+      font-size: 0.94rem;
+      font-weight: 300;
+      color: var(--muted);
+      line-height: 1.8;
+      margin-bottom: 1rem;
+    }
+
+    .about-list {
+      list-style: none;
+      margin-top: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .about-list li {
+      font-size: 0.88rem;
+      font-weight: 400;
+      color: var(--text);
+      padding-left: 1.2rem;
+      position: relative;
+    }
+    .about-list li::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 0.55em;
+      width: 5px; height: 1px;
+      background: var(--rose);
+    }
+
+    /* ── RESULTADOS ── */
+    .results-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: start;
+    }
+
+    .result-card { }
+
+    .result-caption {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.3rem;
+      font-weight: 400;
+      color: var(--dark);
+      margin-bottom: 0.5rem;
+    }
+
+    .result-detail {
+      font-size: 0.84rem;
+      font-weight: 300;
+      color: var(--muted);
+      line-height: 1.6;
+      margin-bottom: 1.2rem;
+    }
+
+    .result-img {
+      width: 100%;
+      display: block;
+      border-radius: 2px;
+    }
+
+    /* ── CTA ── */
+    .cta {
+      padding: 7rem 2rem;
+      background: var(--charcoal);
+      text-align: center;
+    }
+
+    .cta-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      font-weight: 300;
+      color: var(--white);
+      margin-bottom: 0.8rem;
+    }
+    .cta-title em { font-style: italic; color: var(--rose-light); }
+
+    .cta-desc {
+      font-size: 0.98rem;
+      font-weight: 300;
+      color: rgba(255,255,255,0.55);
+      max-width: 460px;
+      margin: 0 auto 2.6rem;
+    }
+
+    .cta-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    /* ── FOOTER ── */
+    .footer {
+      background: var(--dark);
+      border-top: 1px solid rgba(255,255,255,0.05);
+    }
+    .footer a, .footer-link {
+      color: rgba(255,255,255,0.45);
+      text-decoration: none;
+      transition: color 0.2s;
+      font-size: 0.85rem;
+      font-weight: 300;
+    }
+    .footer a:hover, .footer-link:hover { color: var(--rose-light); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .footer > div:first-child { grid-template-columns: 1fr !important; }
+      .hero { grid-template-columns: 1fr; min-height: auto; }
+      .hero-visual { height: 70svh; }
+      .hero-text-panel { padding: 3.5rem 2rem; }
+      .hero-title { font-size: 2.6rem; }
+      .about-split { grid-template-columns: 1fr; gap: 2.5rem; }
+      .about-img-frame::after { display: none; }
+      .about-img { aspect-ratio: 3/2; }
+      .esp-grid { grid-template-columns: 1fr; border: none; gap: 1px; }
+      .esp-card { border: 1px solid var(--border); border-right: 1px solid var(--border); }
+      .results-grid { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 600px) {
+      .stats-grid { grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+      .stat-num { font-size: 2rem; }
+      .hero-cta { flex-direction: column; }
+    }
+
+    @media (max-width: 420px) {
+      .stats-grid { grid-template-columns: 1fr; }
+      .cta-buttons { flex-direction: column; align-items: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-identity">
+      <span class="nav-name">Dra. Meirielly Fedrigo</span>
+      <span class="nav-spec">Prótese · Implantes · Lentes de Contato</span>
+    </div>
+    <a href="https://wa.me/5564996668182" target="_blank" rel="noopener" class="nav-cta">Agendar</a>
+  </nav>
+
+  <!-- HERO — split layout -->
+  <section class="hero">
+    <div class="hero-visual">
+      <img class="hero-img" src="img/dra_meirielly_hero.jpg" alt="Dra. Meirielly Fedrigo — Especialista em Prótese Dentária e Implantes, Itumbiara-GO" />
+    </div>
+    <div class="hero-text-panel">
+      <p class="hero-eyebrow">Odontologia de Excelência · Itumbiara-GO</p>
+      <h1 class="hero-title">
+        Dra. Meirielly
+        <em>Fedrigo</em>
+      </h1>
+      <div class="hero-divider"></div>
+      <p class="hero-desc">Especialista em Prótese Dentária, Implantes e Lentes de Contato — devolvendo função, naturalidade e autoestima a cada sorriso, com precisão e cuidado.</p>
+      <div class="hero-tags">
+        <span class="hero-tag">Prótese Dentária</span>
+        <span class="hero-tag">Implantes</span>
+        <span class="hero-tag">Lentes de Contato</span>
+      </div>
+      <div class="hero-cta">
+        <a href="https://wa.me/5564996668182" target="_blank" rel="noopener" class="btn btn-rose">Agendar pelo WhatsApp</a>
+        <a href="https://www.instagram.com/drameiriellyfedrigo" target="_blank" rel="noopener" class="btn btn-ghost">@drameiriellyfedrigo</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <div class="stats">
+    <div class="stats-grid">
+      <div>
+        <div class="stat-num">+200</div>
+        <div class="stat-label">Casos no Instagram</div>
+      </div>
+      <div>
+        <div class="stat-num">4K+</div>
+        <div class="stat-label">Seguidores</div>
+      </div>
+      <div>
+        <div class="stat-num">CRO-GO</div>
+        <div class="stat-label">11645</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ESPECIALIDADES -->
+  <section class="section">
+    <div class="container">
+      <p class="section-label">Especialidades</p>
+      <h2 class="section-title">Tratamentos que <em>transformam</em></h2>
+      <div class="title-rule"></div>
+      <div class="esp-grid">
+        <div class="esp-card">
+          <div class="esp-num">01</div>
+          <div class="esp-title">Prótese Dentária</div>
+          <p class="esp-text">Próteses fixas, removíveis e sobre implante com acabamento em cerâmica de alta resistência. Reabilitação oral completa que devolve função mastigatória e naturalidade com planejamento individualizado.</p>
+        </div>
+        <div class="esp-card">
+          <div class="esp-num">02</div>
+          <div class="esp-title">Implantes</div>
+          <p class="esp-text">Implantes osseointegrados para substituição definitiva de dentes ausentes. Dentes fixos e funcionais de alta performance — do implante à coroa final com precisão e conforto.</p>
+        </div>
+        <div class="esp-card">
+          <div class="esp-num">03</div>
+          <div class="esp-title">Lentes de Contato</div>
+          <p class="esp-text">Preparos minimamente invasivos com lentes em porcelana ou resina de alta estética. Sorriso alinhado, branco e natural — sem desgastar a estrutura dentária original.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="section section-alt">
+    <div class="container">
+      <div class="about-split">
+        <div class="about-img-frame">
+          <img class="about-img" src="img/dra_meirielly_about.jpg" alt="Dra. Meirielly Fedrigo em seu consultório — Itumbiara-GO" loading="lazy" />
+        </div>
+        <div class="about-body">
+          <span class="about-badge">CRO-GO 11645</span>
+          <p class="section-label">Sobre a Dra. Meirielly</p>
+          <h2 class="section-title">Técnica, <em>cuidado</em><br>e resultado real</h2>
+          <div class="title-rule"></div>
+          <p>A Dra. Meirielly Cristian Fedrigo é Cirurgiã-Dentista especialista em Prótese Dentária e Implantodontia, com consultório em Itumbiara-GO. Apaixonada pela profissão desde a graduação, busca constantemente atualização para entregar tratamentos de alta qualidade.</p>
+          <p>Sua abordagem combina rigor técnico com escuta ativa — cada paciente recebe um plano personalizado, pensado para restaurar não apenas o sorriso, mas a qualidade de vida e a autoestima.</p>
+          <ul class="about-list">
+            <li>Especialista em Prótese Dentária e Implantodontia</li>
+            <li>Reabilitação oral completa sobre implantes</li>
+            <li>Lentes de Contato com preparos minimamente invasivos</li>
+            <li>Planejamento digital do sorriso</li>
+            <li>Atendimento humanizado e individualizado</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESULTADOS -->
+  <section class="section">
+    <div class="container">
+      <div style="text-align: center; margin-bottom: 3.5rem;">
+        <p class="section-label">Casos Reais</p>
+        <h2 class="section-title">Resultados que <em>falam por si</em></h2>
+        <div class="title-rule" style="margin: 1.2rem auto 0;"></div>
+      </div>
+      <div class="results-grid">
+        <div class="result-card">
+          <h3 class="result-caption">Laminados Cerâmicos</h3>
+          <p class="result-detail">Clareamento caseiro + plástica gengival + 10 laminados cerâmicos. Planejamento completo que une técnica e capricho para um resultado atemporal.</p>
+          <img class="result-img" src="img/resultado_laminados.jpg" alt="Antes e depois — Laminados Cerâmicos" loading="lazy" />
+        </div>
+        <div class="result-card">
+          <h3 class="result-caption">Lentes de Contato Dental</h3>
+          <p class="result-detail">Preparos minimamente invasivos com lentes de contato em porcelana. Naturalidade, alinhamento e brancor que transformam o sorriso sem agredir a estrutura natural.</p>
+          <img class="result-img" src="img/resultado_lentes.jpg" alt="Resultado — Lentes de Contato Dental" loading="lazy" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta">
+    <div class="container-sm">
+      <p class="section-label" style="margin-bottom: 0.6rem;">Próximo Passo</p>
+      <h2 class="cta-title">Seu sorriso <em>merece</em><br>o melhor cuidado</h2>
+      <p class="cta-desc">Agende uma consulta com a Dra. Meirielly Fedrigo e descubra o tratamento ideal para o seu caso.</p>
+      <div class="cta-buttons">
+        <a href="https://wa.me/5564996668182" target="_blank" rel="noopener" class="btn btn-rose">Agendar pelo WhatsApp</a>
+        <a href="https://www.instagram.com/drameiriellyfedrigo" target="_blank" rel="noopener" class="btn btn-ghost">Ver no Instagram</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- MAPA -->
+  <section style="background:var(--dark);padding:0;">
+    <div style="max-width:1080px;margin:0 auto;padding:0 2rem 3.5rem;">
+      <div style="text-align:center;padding:3.5rem 0 2rem;">
+        <p class="section-label">Como Chegar</p>
+        <h2 style="font-family:'Cormorant Garamond',serif;font-size:clamp(1.6rem,3.5vw,2.2rem);font-weight:300;color:var(--white);margin-bottom:0.5rem;">Itumbiara <em style="font-style:italic;color:var(--rose-light);">· GO</em></h2>
+      </div>
+      <div style="border-radius:4px;overflow:hidden;border:1px solid rgba(255,255,255,0.08);">
+        <iframe
+          src="https://maps.google.com/maps?q=Rua+Rio+Verde+218,+Santos+Dumont,+Itumbiara,+GO&output=embed"
+          width="100%"
+          height="380"
+          style="display:block;border:0;"
+          allowfullscreen
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="Consultório Dra. Meirielly Fedrigo — Rua Rio Verde 218, Itumbiara-GO">
+        </iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div style="max-width:1080px;margin:0 auto;padding:3rem 2rem 2rem;display:grid;grid-template-columns:1fr 1fr 1fr;gap:2.5rem;border-bottom:1px solid rgba(255,255,255,0.06);">
+      <div>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:1.15rem;font-weight:500;color:var(--white);margin-bottom:0.3rem;">Dra. Meirielly Fedrigo</div>
+        <div style="font-size:0.62rem;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:var(--rose-light);margin-bottom:1rem;">CRO-GO 11645</div>
+        <p style="font-size:0.82rem;font-weight:300;color:rgba(255,255,255,0.42);line-height:1.7;">Especialista em Prótese Dentária, Implantes e Lentes de Contato. Consultório em Itumbiara-GO.</p>
+      </div>
+      <div>
+        <div style="font-size:0.62rem;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:var(--rose);margin-bottom:1rem;">Localização</div>
+        <p style="font-size:0.85rem;font-weight:300;color:rgba(255,255,255,0.55);line-height:1.8;">
+          📍 Rua Rio Verde, 218<br>Santos Dumont<br>Itumbiara – GO
+        </p>
+        <p style="font-size:0.85rem;font-weight:300;color:rgba(255,255,255,0.55);line-height:1.8;margin-top:0.6rem;">
+          🕐 Seg–Sex, horário comercial
+        </p>
+      </div>
+      <div>
+        <div style="font-size:0.62rem;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:var(--rose);margin-bottom:1rem;">Contato</div>
+        <div style="display:flex;flex-direction:column;gap:0.7rem;">
+          <a href="https://wa.me/5564996668182" target="_blank" rel="noopener" class="footer-link">💬 (64) 99666-8182</a>
+          <a href="https://www.instagram.com/drameiriellyfedrigo" target="_blank" rel="noopener" class="footer-link">📸 @drameiriellyfedrigo</a>
+        </div>
+      </div>
+    </div>
+    <div style="max-width:1080px;margin:0 auto;padding:1.2rem 2rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:0.5rem;">
+      <p style="font-size:0.75rem;font-weight:300;color:rgba(255,255,255,0.25);">© 2026 Dra. Meirielly Fedrigo · Todos os direitos reservados.</p>
+      <p style="font-size:0.75rem;font-weight:300;color:rgba(255,255,255,0.25);">Página criada por <a href="https://digital-ai.tech" target="_blank" rel="noopener" class="footer-link">Digital AI</a></p>
+    </div>
+  </footer>
+
+  <!-- FLOAT WA -->
+  <a href="https://wa.me/5564996668182" target="_blank" rel="noopener" aria-label="WhatsApp Dra. Meirielly" class="float-cta">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01C17.18 3.03 14.69 2 12.04 2zm0 1.67c2.2 0 4.26.86 5.82 2.42 1.55 1.56 2.41 3.63 2.41 5.83 0 4.54-3.7 8.23-8.24 8.23-1.48 0-2.93-.39-4.19-1.15l-.3-.17-3.12.82.83-3.04-.2-.32C4.34 14.9 3.8 13.42 3.8 11.91c.01-4.54 3.7-8.24 8.24-8.24zm-2.51 4c-.16 0-.43.06-.66.31-.22.25-.87.86-.87 2.08s.89 2.37 1.02 2.54c.14.17 1.76 2.67 4.25 3.73.59.27 1.05.42 1.41.53.59.19 1.13.16 1.56.1.48-.07 1.46-.6 1.67-1.18.21-.58.21-1.08.15-1.18-.07-.1-.23-.17-.48-.29-.25-.12-1.47-.72-1.69-.8-.23-.08-.39-.12-.55.13-.16.25-.65.79-.79.96-.14.17-.28.19-.53.07-.25-.13-1.03-.38-1.96-1.21-.72-.64-1.22-1.44-1.36-1.69-.14-.25-.01-.38.11-.5.11-.11.25-.29.37-.43.13-.14.17-.24.25-.41.09-.17.04-.31-.02-.43-.06-.12-.55-1.34-.76-1.83-.2-.48-.4-.42-.55-.43-.14-.01-.3-.08-.55-.08z"/></svg>
+  </a>
+
+</body>
+</html>
