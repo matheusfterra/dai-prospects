@@ -31,6 +31,55 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
 
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 28px; height: 64px;
+      background: rgba(20,20,20,0.92);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid rgba(184,144,58,0.12);
+    }
+    .nav-identity { display: flex; flex-direction: column; gap: 1px; }
+    .nav-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.05rem; font-weight: 500; color: var(--white);
+      letter-spacing: 0.01em; white-space: nowrap;
+    }
+    .nav-spec {
+      font-size: 0.6rem; font-weight: 500; letter-spacing: 0.18em;
+      text-transform: uppercase; color: var(--gold-light);
+    }
+    .nav-cta {
+      display: inline-block;
+      padding: 0.48rem 1.4rem;
+      font-size: 0.72rem; font-weight: 500; letter-spacing: 0.14em;
+      text-transform: uppercase; text-decoration: none;
+      border-radius: 1px; background: var(--gold);
+      color: var(--white); border: 1px solid var(--gold);
+      transition: all 0.2s;
+    }
+    .nav-cta:hover { background: transparent; color: var(--gold-light); }
+    @media (max-width: 600px) { nav { padding: 0 16px; } }
+
+    /* ── FLOAT CTA ── */
+    .float-cta {
+      position: fixed; bottom: 24px; right: 24px; z-index: 200;
+      display: flex; align-items: center; gap: 10px;
+      background: var(--gold); color: var(--white);
+      border-radius: 100px; padding: 14px 22px;
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 600; font-size: 0.88rem;
+      text-decoration: none;
+      box-shadow: 0 6px 28px rgba(184,144,58,0.4);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .float-cta:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 36px rgba(184,144,58,0.5);
+    }
+    .float-cta svg { width: 18px; height: 18px; flex-shrink: 0; }
+
     body {
       font-family: 'DM Sans', sans-serif;
       color: var(--text);
@@ -41,6 +90,7 @@
     /* ── HERO ── */
     .hero {
       position: relative;
+      padding-top: 64px;
       min-height: 100svh;
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -534,6 +584,7 @@
 
     /* ── RESPONSIVE ── */
     @media (max-width: 900px) {
+      .footer > div:first-child { grid-template-columns: 1fr !important; }
       .hero { grid-template-columns: 1fr; min-height: auto; }
       .hero-visual { height: 70svh; }
       .hero-text-panel { padding: 3.5rem 2rem; }
@@ -560,6 +611,15 @@
   </style>
 </head>
 <body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-identity">
+      <span class="nav-name">Dra. Ana Paula Paludo</span>
+      <span class="nav-spec">Implantes · Próteses · Facetas</span>
+    </div>
+    <a href="https://anapaulapaludo.com.br/" target="_blank" rel="noopener" class="nav-cta">Agendar</a>
+  </nav>
 
   <!-- HERO — split layout -->
   <section class="hero">
@@ -736,8 +796,40 @@
 
   <!-- FOOTER -->
   <footer class="footer">
-    <p>© 2026 Dra. Ana Paula Paludo · <a href="https://digital-ai.tech" target="_blank" rel="noopener">Página criada por Digital AI</a></p>
+    <div style="max-width:1080px;margin:0 auto;padding:3rem 2rem 2rem;display:grid;grid-template-columns:1fr 1fr 1fr;gap:2.5rem;border-bottom:1px solid rgba(255,255,255,0.06);margin-bottom:0;">
+      <div>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:1.15rem;font-weight:500;color:var(--white);margin-bottom:0.3rem;">Dra. Ana Paula Paludo</div>
+        <div style="font-size:0.62rem;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold-light);margin-bottom:1rem;">CRO-GO 14757</div>
+        <p style="font-size:0.82rem;font-weight:300;color:rgba(255,255,255,0.42);line-height:1.7;">Especialista em Implantes, Próteses e Facetas. Há mais de 10 anos transformando sorrisos em Itumbiara-GO.</p>
+      </div>
+      <div>
+        <div style="font-size:0.62rem;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem;">Localização</div>
+        <p style="font-size:0.85rem;font-weight:300;color:rgba(255,255,255,0.55);line-height:1.8;">
+          📍 Itumbiara-GO
+        </p>
+        <p style="font-size:0.85rem;font-weight:300;color:rgba(255,255,255,0.55);line-height:1.8;margin-top:0.4rem;">
+          🕐 Seg–Sex, horário comercial
+        </p>
+      </div>
+      <div>
+        <div style="font-size:0.62rem;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem;">Contato</div>
+        <div style="display:flex;flex-direction:column;gap:0.7rem;">
+          <a href="https://anapaulapaludo.com.br/" target="_blank" rel="noopener" style="font-size:0.85rem;color:rgba(255,255,255,0.55);text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='#D4AA6A'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">🌐 anapaulapaludo.com.br</a>
+          <a href="https://www.instagram.com/dra.anapaulapaludo" target="_blank" rel="noopener" style="font-size:0.85rem;color:rgba(255,255,255,0.55);text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='#D4AA6A'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">📸 @dra.anapaulapaludo</a>
+        </div>
+      </div>
+    </div>
+    <div style="max-width:1080px;margin:0 auto;padding:1.2rem 2rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:0.5rem;">
+      <p style="font-size:0.75rem;font-weight:300;color:rgba(255,255,255,0.25);">© 2026 Dra. Ana Paula Paludo · Todos os direitos reservados.</p>
+      <p style="font-size:0.75rem;font-weight:300;color:rgba(255,255,255,0.25);">Página criada por <a href="https://digital-ai.tech" target="_blank" rel="noopener" style="color:rgba(255,255,255,0.4);text-decoration:none;" onmouseover="this.style.color='#D4AA6A'" onmouseout="this.style.color='rgba(255,255,255,0.4)'">Digital AI</a></p>
+    </div>
   </footer>
+
+  <!-- FLOAT CTA -->
+  <a href="https://anapaulapaludo.com.br/" target="_blank" rel="noopener" class="float-cta">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+    Agendar Consulta
+  </a>
 
 </body>
 </html>
