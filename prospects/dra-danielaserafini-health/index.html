@@ -203,6 +203,8 @@
     .insight-box p{font-size:.82rem;color:var(--muted);line-height:1.65;margin:0;}
     .insight-box strong{color:var(--text);}
   
+    
+  
     /* ── Sentiment Section ── */
     .sentiment-sec{padding:6rem 2rem;background:var(--bg);}
     .sentiment-sec .sub{font-size:.88rem;color:var(--muted);max-width:560px;line-height:1.75;margin-top:.6rem;}
@@ -218,12 +220,17 @@
     .sent-big-label{display:block;font-size:.65rem;text-transform:uppercase;letter-spacing:.16em;color:var(--muted);margin-top:.4rem;}
     .sent-charts{display:grid;grid-template-columns:1fr 1.5fr;gap:2rem;margin-bottom:3.5rem;align-items:start;}
     @media(max-width:700px){.sent-charts{grid-template-columns:1fr;} .sent-overview{flex-direction:column;}}
-    .sent-chart-card{background:var(--surface);border:1px solid var(--border);padding:1.75rem;}
+    .sent-chart-card{background:var(--surface);border:1px solid var(--border);padding:1.75rem;min-width:0;}
+    .sent-chart-card canvas{display:block;max-width:100%;}
     .sent-chart-title{font-size:.75rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:1.25rem;}
-    .sent-donut-wrap{position:relative;width:180px;height:180px;margin:0 auto 1.25rem;}
+    .sent-donut-wrap{position:relative;width:160px;height:160px;margin:0 auto 1.25rem;}
+    @media(max-width:480px){.sent-donut-wrap{width:130px;height:130px;}}
     .sent-donut-center{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;pointer-events:none;}
-    .sent-donut-pct{font-family:'Playfair Display',serif;font-size:2rem;font-weight:700;line-height:1;}
+    .sent-donut-pct{font-family:'Playfair Display',serif;font-size:1.75rem;font-weight:700;line-height:1;}
+    @media(max-width:480px){.sent-donut-pct{font-size:1.4rem;}}
     .sent-donut-sub{font-size:.6rem;color:var(--muted);text-transform:uppercase;letter-spacing:.12em;}
+    .sent-bar-wrap{position:relative;width:100%;height:190px;}
+    @media(max-width:480px){.sent-bar-wrap{height:160px;}}
     .sent-legend{display:flex;flex-direction:column;gap:.45rem;margin-top:1rem;}
     .sent-leg-item{display:flex;align-items:center;gap:.6rem;font-size:.78rem;color:var(--muted);}
     .sent-leg-item span:nth-child(2){flex:1;}
@@ -247,6 +254,59 @@
     .sent-profile-link{display:inline-flex;align-items:center;gap:.5rem;background:rgba(201,169,110,.08);border:1px solid rgba(201,169,110,.25);padding:.6rem 1.25rem;font-size:.75rem;font-weight:600;color:var(--gold);text-decoration:none;letter-spacing:.1em;transition:background .2s;}
     .sent-profile-link:hover{background:rgba(201,169,110,.15);}
     .sent-date{font-size:.68rem;color:var(--muted2);letter-spacing:.1em;}
+  
+  /* SENTIMENT CSS START */
+    /* ── Sentiment Section ── */
+    .sentiment-sec{padding:6rem 2rem;background:var(--bg);}
+    .sentiment-sec .sub{font-size:.88rem;color:var(--muted);max-width:560px;line-height:1.75;margin-top:.6rem;}
+    .sent-intro{margin-bottom:3rem;}
+    .sent-alert{padding:1rem 1.25rem;background:rgba(248,113,113,.07);border-left:3px solid var(--red);font-size:.82rem;color:var(--muted);line-height:1.6;margin-bottom:2rem;}
+    .sent-alert strong{color:var(--text);}
+    .sent-note{display:flex;align-items:flex-start;gap:.6rem;padding:.85rem 1.1rem;background:var(--surface2);border:1px solid var(--border);font-size:.78rem;color:var(--muted);line-height:1.6;margin-top:1rem;margin-bottom:2rem;}
+    .sent-note-ico{flex-shrink:0;}
+    .sent-overview{display:flex;gap:0;margin-bottom:3.5rem;}
+    .sent-overview-stat{flex:1;padding:1.75rem 1.5rem;background:var(--surface);border:1px solid var(--border);text-align:center;}
+    .sent-overview-stat+.sent-overview-stat{border-left:0;}
+    .sent-big-num{display:block;font-family:'Playfair Display',serif;font-size:2.8rem;font-weight:700;line-height:1;}
+    .sent-big-label{display:block;font-size:.65rem;text-transform:uppercase;letter-spacing:.16em;color:var(--muted);margin-top:.4rem;}
+    .sent-charts{display:grid;grid-template-columns:1fr 1.5fr;gap:2rem;margin-bottom:3.5rem;align-items:start;}
+    @media(max-width:700px){.sent-charts{grid-template-columns:1fr;} .sent-overview{flex-direction:column;}}
+    .sent-chart-card{background:var(--surface);border:1px solid var(--border);padding:1.75rem;min-width:0;}
+    .sent-chart-card canvas{display:block;max-width:100%;}
+    .sent-chart-title{font-size:.75rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:1.25rem;}
+    .sent-donut-wrap{position:relative;width:160px;height:160px;margin:0 auto 1.25rem;}
+    @media(max-width:480px){.sent-donut-wrap{width:130px;height:130px;}}
+    .sent-donut-center{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;pointer-events:none;}
+    .sent-donut-pct{font-family:'Playfair Display',serif;font-size:1.75rem;font-weight:700;line-height:1;}
+    @media(max-width:480px){.sent-donut-pct{font-size:1.4rem;}}
+    .sent-donut-sub{font-size:.6rem;color:var(--muted);text-transform:uppercase;letter-spacing:.12em;}
+    .sent-bar-wrap{position:relative;width:100%;height:190px;}
+    @media(max-width:480px){.sent-bar-wrap{height:160px;}}
+    .sent-legend{display:flex;flex-direction:column;gap:.45rem;margin-top:1rem;}
+    .sent-leg-item{display:flex;align-items:center;gap:.6rem;font-size:.78rem;color:var(--muted);}
+    .sent-leg-item span:nth-child(2){flex:1;}
+    .sent-leg-item strong{color:var(--text);font-size:.82rem;}
+    .sent-leg-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0;}
+    .sent-comments-wrap{margin-bottom:2.5rem;}
+    .sent-comments-title{font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:400;margin-bottom:1.5rem;color:var(--text);}
+    .sent-comments-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1.25rem;}
+    @media(max-width:480px){.sent-comments-grid{grid-template-columns:1fr;}}
+    .sent-comment-card{background:var(--surface);border:1px solid var(--border);padding:1.25rem;}
+    .sent-comment-badges{display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:.75rem;}
+    .sent-badge{font-size:.67rem;font-weight:600;letter-spacing:.08em;padding:.25rem .65rem;border-radius:2px;}
+    .sent-positivo{background:rgba(52,211,153,.1);color:var(--green);border:1px solid rgba(52,211,153,.2);}
+    .sent-negativo{background:rgba(248,113,113,.1);color:var(--red);border:1px solid rgba(248,113,113,.2);}
+    .sent-misto{background:rgba(251,191,36,.1);color:var(--yellow);border:1px solid rgba(251,191,36,.2);}
+    .sent-neutro{background:rgba(240,235,227,.07);color:var(--muted);border:1px solid var(--border);}
+    .sent-cat{background:rgba(201,169,110,.08);color:var(--gold);border:1px solid rgba(201,169,110,.2);}
+    .sent-comment-text{font-size:.82rem;color:var(--muted);line-height:1.65;margin-bottom:.75rem;font-style:italic;}
+    .sent-comment-link{font-size:.72rem;color:var(--gold);text-decoration:none;letter-spacing:.06em;}
+    .sent-comment-link:hover{text-decoration:underline;}
+    .sent-footer{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;padding-top:2rem;border-top:1px solid var(--border);}
+    .sent-profile-link{display:inline-flex;align-items:center;gap:.5rem;background:rgba(201,169,110,.08);border:1px solid rgba(201,169,110,.25);padding:.6rem 1.25rem;font-size:.75rem;font-weight:600;color:var(--gold);text-decoration:none;letter-spacing:.1em;transition:background .2s;}
+    .sent-profile-link:hover{background:rgba(201,169,110,.15);}
+    .sent-date{font-size:.68rem;color:var(--muted2);letter-spacing:.1em;}
+/* SENTIMENT CSS END */
   </style>
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
 </head>
@@ -380,7 +440,15 @@
 
 
 
-<!-- SENTIMENT SECTION — gerado por inject_sentiment.py em 2026-06-01 -->
+
+
+
+
+
+
+
+
+<!-- SENTIMENT SECTION — gerado por inject_sentiment.py em 2026-06-01 15:19 UTC -->
 <section class="sentiment-sec">
   <div class="wrap">
     <div class="sent-intro">
@@ -409,7 +477,7 @@
       <div class="sent-chart-card">
         <h3 class="sent-chart-title">Sentimento</h3>
         <div class="sent-donut-wrap">
-          <canvas id="sentDonut_dradanielaserafinihealth" width="180" height="180"></canvas>
+          <canvas id="sentDonut_dradanielaserafinihealth"></canvas>
           <div class="sent-donut-center">
             <span class="sent-donut-pct" style="color:var(--green)">95%</span>
             <span class="sent-donut-sub">positivo</span>
@@ -425,7 +493,7 @@
 
       <div class="sent-chart-card">
         <h3 class="sent-chart-title">Categoria</h3>
-        <canvas id="catBar_dradanielaserafinihealth" width="340" height="220"></canvas>
+        <div class="sent-bar-wrap"><canvas id="catBar_dradanielaserafinihealth"></canvas></div>
         <div class="sent-legend">
           <div class="sent-leg-item"><span class="sent-leg-dot" style="background:var(--gold)"></span><span>Elogio</span><strong>57</strong></div>
           <div class="sent-leg-item"><span class="sent-leg-dot" style="background:rgba(201,169,110,0.45)"></span><span>Dúvida</span><strong>1</strong></div>
@@ -435,10 +503,7 @@
       </div>
     </div>
 
-    <div class="sent-comments-wrap">
-    <h3 class="sent-comments-title reveal d2">Comentários em destaque</h3>
-    <div class="sent-comments-grid">
-      
+    <div class="sent-comments-wrap"><h3 class="sent-comments-title reveal d2">Comentários em destaque</h3><div class="sent-comments-grid">
           <div class="sent-comment-card reveal d2">
             <div class="sent-comment-badges">
               <span class="sent-badge sent-positivo">😊 Positivo</span>
@@ -462,9 +527,7 @@
             </div>
             <p class="sent-comment-text">"Sempre cuidando de cada detalhe❣️😍"</p>
             <a class="sent-comment-link" href="https://www.instagram.com/p/DYnV73vCRZ0/" target="_blank" rel="noopener">Ver publicação ↗</a>
-          </div>
-    </div>
-    </div>
+          </div></div></div>
 
     <div class="sent-footer reveal d3">
       <a class="sent-profile-link" href="https://www.instagram.com/dra_danielacostaserafini/" target="_blank" rel="noopener">
@@ -488,7 +551,7 @@
           labels: ['Positivo', 'Neutro', 'Misto', 'Negativo'],
           datasets: [{ data: [56, 2, 1, 0], backgroundColor: ['#34D399','rgba(240,235,227,0.2)','#FBBF24','#F87171'], borderWidth: 0, hoverOffset: 6 }]
         },
-        options: { cutout: '68%', plugins: { legend: { display: false }, tooltip: { callbacks: { label: function(c) { return ' ' + c.label + ': ' + c.raw; } } } }, animation: { animateRotate: true, duration: 1000 } }
+        options: { responsive: true, maintainAspectRatio: true, cutout: '68%', plugins: { legend: { display: false }, tooltip: { callbacks: { label: function(c) { return ' ' + c.label + ': ' + c.raw; } } } }, animation: { animateRotate: true, duration: 1000 } }
       });
     }
     // Bar — Categoria
@@ -501,6 +564,7 @@
           datasets: [{ data: [57, 1, 1, 0], backgroundColor: ['#C9A96E','rgba(201,169,110,0.45)','rgba(255,255,255,0.3)','#F87171'], borderRadius: 4, borderWidth: 0 }]
         },
         options: {
+          responsive: true, maintainAspectRatio: false,
           indexAxis: 'y',
           plugins: { legend: { display: false }, tooltip: { callbacks: { label: function(c) { return ' ' + c.raw + ' comentários'; } } } },
           scales: {
