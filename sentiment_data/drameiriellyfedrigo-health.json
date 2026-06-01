@@ -1,0 +1,41 @@
+{
+  "slug": "drameiriellyfedrigo-health",
+  "instagram_handle": "drameiriellyfedrigo",
+  "profile_url": "https://www.instagram.com/drameiriellyfedrigo/",
+  "posts_analyzed": 12,
+  "total_comments": 151,
+  "collected_at": "2026-06-01",
+  "sentiment": {
+    "positivo": 94,
+    "neutro": 32,
+    "misto": 15,
+    "negativo": 10
+  },
+  "categories": {
+    "elogio": 68,
+    "duvida": 46,
+    "sugestao": 22,
+    "reclamacao": 15
+  },
+  "sample_comments": [
+    {
+      "text": "Dra. Meirielly é a melhor! Tive resultado incrível com o tratamento. Profissional dedicada e que realmente se importa com o paciente ❤️",
+      "sentiment": "positivo",
+      "category": "elogio",
+      "post_url": "https://www.instagram.com/p/Cy1DWQ3LmrG/"
+    },
+    {
+      "text": "Dra., você atende em qual cidade? Estou em Caldas Novas e gostaria de agendar.",
+      "sentiment": "neutro",
+      "category": "duvida",
+      "post_url": "https://www.instagram.com/p/Cy1DWQ3LmrG/"
+    },
+    {
+      "text": "Conteúdo muito rico! Aprendo tanto aqui. Mas seria ótimo se você falasse mais sobre casos de pacientes da sua região 🙏",
+      "sentiment": "positivo",
+      "category": "sugestao",
+      "post_url": "https://www.instagram.com/p/Cy1DWQ3LmrG/"
+    }
+  ],
+  "google_reviews": null
+}

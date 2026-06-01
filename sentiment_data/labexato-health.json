@@ -1,0 +1,41 @@
+{
+  "slug": "labexato-health",
+  "instagram_handle": "laboratorioexatoitumbiara",
+  "profile_url": "https://www.instagram.com/laboratorioexatoitumbiara/",
+  "posts_analyzed": 12,
+  "total_comments": 33,
+  "collected_at": "2026-06-01",
+  "sentiment": {
+    "positivo": 18,
+    "neutro": 11,
+    "misto": 3,
+    "negativo": 1
+  },
+  "categories": {
+    "elogio": 13,
+    "duvida": 16,
+    "sugestao": 3,
+    "reclamacao": 1
+  },
+  "sample_comments": [
+    {
+      "text": "Ótimo laboratório! Atendimento rápido e resultados entregues no prazo. Recomendo muito! 👏",
+      "sentiment": "positivo",
+      "category": "elogio",
+      "post_url": "https://www.instagram.com/p/DX-KWw8hJkE/"
+    },
+    {
+      "text": "Vocês fazem exame de biologia molecular? Como é o procedimento para agendar?",
+      "sentiment": "neutro",
+      "category": "duvida",
+      "post_url": "https://www.instagram.com/p/DY2HQFjB1NO/"
+    },
+    {
+      "text": "Tem como fazer os exames sem agendamento? Preciso de urgência.",
+      "sentiment": "neutro",
+      "category": "duvida",
+      "post_url": "https://www.instagram.com/p/DYXNDMiRKeE/"
+    }
+  ],
+  "google_reviews": null
+}

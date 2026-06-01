@@ -1,0 +1,41 @@
+{
+  "slug": "dra-luanamariano-health",
+  "instagram_handle": "draluanamariano",
+  "profile_url": "https://www.instagram.com/draluanamariano/",
+  "posts_analyzed": 12,
+  "total_comments": 161,
+  "collected_at": "2026-06-01",
+  "sentiment": {
+    "positivo": 102,
+    "neutro": 34,
+    "misto": 17,
+    "negativo": 8
+  },
+  "categories": {
+    "elogio": 76,
+    "duvida": 48,
+    "sugestao": 22,
+    "reclamacao": 15
+  },
+  "sample_comments": [
+    {
+      "text": "Dra. Luana é incrível! Voltei a ter qualidade de vida depois do tratamento com ela. Profissional excepcional e humana demais 💙",
+      "sentiment": "positivo",
+      "category": "elogio",
+      "post_url": "https://www.instagram.com/p/DPKXeV2icpC/"
+    },
+    {
+      "text": "Dra., esse tratamento funciona para casos mais graves? Tenho 3 anos sem melhora e quero tentar uma nova abordagem.",
+      "sentiment": "neutro",
+      "category": "duvida",
+      "post_url": "https://www.instagram.com/p/DNEjw_ERy-A/"
+    },
+    {
+      "text": "Faço 1 ano de acompanhamento com a Dra. Luana e os resultados são impressionantes. Recomendo demais! ⭐⭐⭐⭐⭐",
+      "sentiment": "positivo",
+      "category": "elogio",
+      "post_url": "https://www.instagram.com/p/DPBy0ikDVBD/"
+    }
+  ],
+  "google_reviews": null
+}

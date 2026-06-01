@@ -1,0 +1,41 @@
+{
+  "slug": "newlifeclinicas-health",
+  "instagram_handle": "newlife_clinicasiub",
+  "profile_url": "https://www.instagram.com/newlife_clinicasiub/",
+  "posts_analyzed": 12,
+  "total_comments": 446,
+  "collected_at": "2026-06-01",
+  "sentiment": {
+    "positivo": 278,
+    "neutro": 104,
+    "misto": 42,
+    "negativo": 22
+  },
+  "categories": {
+    "elogio": 198,
+    "duvida": 138,
+    "sugestao": 68,
+    "reclamacao": 42
+  },
+  "sample_comments": [
+    {
+      "text": "Essa clínica transformou minha vida! Vim com dores crônicas que tinha há 5 anos e em 3 meses de tratamento estou outra pessoa. Obrigada New Life! 🙏❤️",
+      "sentiment": "positivo",
+      "category": "elogio",
+      "post_url": "https://www.instagram.com/p/DT_HXw2gUvY/"
+    },
+    {
+      "text": "Vocês atendem convênio? Qual o valor da consulta de pilates? Moro em Itumbiara",
+      "sentiment": "neutro",
+      "category": "duvida",
+      "post_url": "https://www.instagram.com/p/DX9W7RzRx1E/"
+    },
+    {
+      "text": "Já faz 2 meses que tentei agendar e ninguém me liga de volta. O atendimento online precisa melhorar bastante.",
+      "sentiment": "negativo",
+      "category": "reclamacao",
+      "post_url": "https://www.instagram.com/p/DT_HXw2gUvY/"
+    }
+  ],
+  "google_reviews": null
+}

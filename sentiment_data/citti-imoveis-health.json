@@ -1,0 +1,36 @@
+{
+  "slug": "citti-imoveis-health",
+  "instagram_handle": "cittiimoveis",
+  "profile_url": "https://www.instagram.com/cittiimoveis/",
+  "posts_analyzed": 12,
+  "total_comments": 3,
+  "collected_at": "2026-06-01",
+  "sentiment": {
+    "positivo": 2,
+    "neutro": 1,
+    "misto": 0,
+    "negativo": 0
+  },
+  "categories": {
+    "elogio": 1,
+    "duvida": 2,
+    "sugestao": 0,
+    "reclamacao": 0
+  },
+  "sample_comments": [
+    {
+      "text": "Belíssimo imóvel! Quanto está sendo vendido?",
+      "sentiment": "positivo",
+      "category": "duvida",
+      "post_url": "https://www.instagram.com/p/CDOfgosJEFc/"
+    },
+    {
+      "text": "Vocês têm apartamentos na planta disponíveis?",
+      "sentiment": "neutro",
+      "category": "duvida",
+      "post_url": "https://www.instagram.com/p/CEZJ7ENpOEK/"
+    }
+  ],
+  "google_reviews": null,
+  "note": "Perfil com baixíssima atividade — últimas publicações de 2020/2021. Volume de comentários insuficiente para análise estatística significativa."
+}

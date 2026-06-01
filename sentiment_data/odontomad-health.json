@@ -1,0 +1,41 @@
+{
+  "slug": "odontomad-health",
+  "instagram_handle": "clinicaodontomad",
+  "profile_url": "https://www.instagram.com/clinicaodontomad/",
+  "posts_analyzed": 12,
+  "total_comments": 26,
+  "collected_at": "2026-06-01",
+  "sentiment": {
+    "positivo": 16,
+    "neutro": 7,
+    "misto": 2,
+    "negativo": 1
+  },
+  "categories": {
+    "elogio": 12,
+    "duvida": 9,
+    "sugestao": 3,
+    "reclamacao": 2
+  },
+  "sample_comments": [
+    {
+      "text": "Fiz meu clareamento na OdontoMad e ficou perfeito! Equipe super atenciosa e o resultado superou minhas expectativas 😁✨",
+      "sentiment": "positivo",
+      "category": "elogio",
+      "post_url": "https://www.instagram.com/p/DYmpfSGia5e/"
+    },
+    {
+      "text": "Vocês fazem implante? Qual o valor aproximado? Preciso de orçamento.",
+      "sentiment": "neutro",
+      "category": "duvida",
+      "post_url": "https://www.instagram.com/p/DX-IhFXiKKY/"
+    },
+    {
+      "text": "Que tratamento maravilhoso! Nunca mais tive medo de dentista depois de ir na OdontoMad. Recomendo demais!",
+      "sentiment": "positivo",
+      "category": "elogio",
+      "post_url": "https://www.instagram.com/p/DXPAdWmAt6Y/"
+    }
+  ],
+  "google_reviews": null
+}

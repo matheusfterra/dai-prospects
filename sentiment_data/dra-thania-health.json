@@ -1,0 +1,41 @@
+{
+  "slug": "dra-thania-health",
+  "instagram_handle": "dra.thaniarego",
+  "profile_url": "https://www.instagram.com/dra.thaniarego/",
+  "posts_analyzed": 12,
+  "total_comments": 43,
+  "collected_at": "2026-06-01",
+  "sentiment": {
+    "positivo": 28,
+    "neutro": 9,
+    "misto": 4,
+    "negativo": 2
+  },
+  "categories": {
+    "elogio": 21,
+    "duvida": 14,
+    "sugestao": 5,
+    "reclamacao": 3
+  },
+  "sample_comments": [
+    {
+      "text": "Dra. Thânia é maravilhosa! Finalmente encontrei uma médica que olha para o paciente de forma integral. Meu metabolismo nunca esteve tão bem! 😍",
+      "sentiment": "positivo",
+      "category": "elogio",
+      "post_url": "https://www.instagram.com/p/DY66vtiFiPE/"
+    },
+    {
+      "text": "Dra., tenho uma dúvida: é possível fazer o acompanhamento de forma online? Moro fora de Goiânia.",
+      "sentiment": "neutro",
+      "category": "duvida",
+      "post_url": "https://www.instagram.com/p/DVqmFAAEsME/"
+    },
+    {
+      "text": "Seria ótimo se você fizesse mais conteúdos sobre tireoide! Tem tanta gente precisando dessas informações 🙏",
+      "sentiment": "positivo",
+      "category": "sugestao",
+      "post_url": "https://www.instagram.com/p/DVOYSKFjm0a/"
+    }
+  ],
+  "google_reviews": null
+}
