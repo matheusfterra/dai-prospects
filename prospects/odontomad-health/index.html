@@ -171,19 +171,27 @@
       .scroll-cue{display:none;}
     }
     /* ── Top 3 posts ── */
-    .top3-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:1.5rem;}
+    .top3-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:1.5rem;}
     @media(max-width:700px){.top3-grid{grid-template-columns:1fr;}}
-    .top3-card{display:block;text-decoration:none;color:var(--text);background:var(--surface2);border:1px solid var(--border);padding:1.5rem;transition:transform .25s ease,border-color .25s ease;}
+    .top3-card{display:flex;flex-direction:column;text-decoration:none;color:var(--text);background:var(--surface2);border:1px solid var(--border);overflow:hidden;transition:transform .25s ease,border-color .25s ease;}
     .top3-card:hover{transform:translateY(-4px);border-color:rgba(201,169,110,.45);}
-    .top3-header{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:.75rem;}
-    .top3-badge{font-size:.58rem;letter-spacing:.12em;text-transform:uppercase;background:rgba(201,169,110,.1);color:var(--gold);border:1px solid rgba(201,169,110,.25);padding:.22rem .55rem;border-radius:2px;}
-    .top3-rank{font-family:'Playfair Display',serif;font-size:2rem;font-weight:700;color:rgba(201,169,110,.2);line-height:1;}
-    .top3-caption{font-size:.78rem;color:var(--muted);line-height:1.55;margin-bottom:1rem;min-height:2.6em;}
-    .top3-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:3px;margin-bottom:.65rem;}
-    .top3-stat{background:var(--surface);padding:.55rem .35rem;text-align:center;}
-    .top3-stat strong{display:block;font-family:'Playfair Display',serif;font-size:1rem;font-weight:700;line-height:1.2;}
-    .top3-stat span{font-size:.52rem;color:var(--muted);letter-spacing:.09em;text-transform:uppercase;margin-top:.15rem;display:block;}
-    .top3-date{font-size:.62rem;color:var(--muted2);}
+    .top3-media{position:relative;width:100%;aspect-ratio:1/1;overflow:hidden;background:#0d0d0d;}
+    .top3-media img{width:100%;height:100%;object-fit:cover;display:block;}
+    .top3-media video{width:100%;height:100%;object-fit:cover;display:block;}
+    .top3-play-btn{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,.32);transition:background .2s ease;pointer-events:none;}
+    .top3-carousel-nav{position:absolute;bottom:8px;left:50%;transform:translateX(-50%);display:flex;gap:5px;pointer-events:none;}
+    .top3-carousel-nav span{width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,.4);}
+    .top3-carousel-nav span.active{background:#fff;}
+    .top3-body{padding:1rem 1.1rem;flex:1;display:flex;flex-direction:column;gap:.5rem;}
+    .top3-header{display:flex;justify-content:space-between;align-items:flex-start;}
+    .top3-badge{font-size:.55rem;letter-spacing:.12em;text-transform:uppercase;background:rgba(201,169,110,.1);color:var(--gold);border:1px solid rgba(201,169,110,.25);padding:.2rem .5rem;border-radius:2px;}
+    .top3-rank{font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:700;color:rgba(201,169,110,.2);line-height:1;}
+    .top3-caption{font-size:.75rem;color:var(--muted);line-height:1.55;flex:1;}
+    .top3-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:3px;}
+    .top3-stat{background:var(--surface);padding:.45rem .3rem;text-align:center;}
+    .top3-stat strong{display:block;font-family:'Playfair Display',serif;font-size:.95rem;font-weight:700;line-height:1.2;}
+    .top3-stat span{font-size:.5rem;color:var(--muted);letter-spacing:.09em;text-transform:uppercase;margin-top:.1rem;display:block;}
+    .top3-date{font-size:.6rem;color:var(--muted2);}
     .insight-box{margin-top:1.5rem;padding:1.1rem 1.4rem;background:rgba(201,169,110,.05);border-left:3px solid var(--gold);display:flex;gap:.9rem;align-items:flex-start;}
     .insight-icon{font-size:1.1rem;flex-shrink:0;margin-top:.05rem;}
     .insight-box p{font-size:.82rem;color:var(--muted);line-height:1.65;margin:0;}
@@ -257,52 +265,41 @@
     <div class="reveal" style="margin-top:1.25rem;padding:1.1rem 1.25rem;background:rgba(255,255,255,.02);border-left:3px solid #FBBF24;">
       <p style="font-size:.83rem;color:var(--muted);line-height:1.65">Score Instagram: <strong style="color:#FBBF24">22 / 40 pts</strong> · Média de ~12 likes/post · @clinicaodontomad</p>
     </div>
+
     <div class="reveal" style="margin-top:2.5rem;">
       <div class="sec-label" style="margin-bottom:1.25rem;">Top 3 · Publicações com Maior Engajamento</div>
       <div class="top3-grid">
         <a class="top3-card reveal d1" href="https://www.instagram.com/p/DYmpfSGia5e/" target="_blank" rel="noopener">
-          <div class="top3-header">
-            <span class="top3-badge">🎬 Vídeo</span>
-            <span class="top3-rank">#1</span>
+          <div class="top3-media"><video muted loop playsinline preload="none" poster="img/top1_thumb.jpg" onclick="var v=this;v.paused?v.play():v.pause();this.nextElementSibling.style.opacity=v.paused?1:0" style="cursor:pointer"><source src="img/top1.mp4" type="video/mp4"></video><div class="top3-play-btn"><svg viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="30" cy="30" r="30" fill="rgba(0,0,0,.45)"/><polygon points="24,18 46,30 24,42" fill="white"/></svg></div></div>
+          <div class="top3-body">
+            <div class="top3-header"><span class="top3-badge">🎬 Vídeo</span><span class="top3-rank">#1</span></div>
+            <div class="top3-caption">"Resultado incrível! Transformação completa do sorriso com harmonia facial e naturalidade."</div>
+            <div class="top3-stats"><div class="top3-stat"><strong>81</strong><span>❤ likes</span></div><div class="top3-stat"><strong>13</strong><span>💬 coments</span></div><div class="top3-stat"><strong>5.1%</strong><span>eng.</span></div></div>
+            <div class="top3-date">21 mai 2026</div>
           </div>
-          <div class="top3-caption">"Resultado incrível! Transformação completa do sorriso com harmonia facial e naturalidade."</div>
-          <div class="top3-stats">
-            <div class="top3-stat"><strong>81</strong><span>❤ likes</span></div>
-            <div class="top3-stat"><strong>13</strong><span>💬 coments</span></div>
-            <div class="top3-stat"><strong>5.1%</strong><span>eng.</span></div>
-          </div>
-          <div class="top3-date">21 mai 2026</div>
         </a>
         <a class="top3-card reveal d2" href="https://www.instagram.com/p/DX-IhFXiKKY/" target="_blank" rel="noopener">
-          <div class="top3-header">
-            <span class="top3-badge">🎬 Vídeo</span>
-            <span class="top3-rank">#2</span>
+          <div class="top3-media"><video muted loop playsinline preload="none" poster="img/top2_thumb.jpg" onclick="var v=this;v.paused?v.play():v.pause();this.nextElementSibling.style.opacity=v.paused?1:0" style="cursor:pointer"><source src="img/top2.mp4" type="video/mp4"></video><div class="top3-play-btn"><svg viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="30" cy="30" r="30" fill="rgba(0,0,0,.45)"/><polygon points="24,18 46,30 24,42" fill="white"/></svg></div></div>
+          <div class="top3-body">
+            <div class="top3-header"><span class="top3-badge">🎬 Vídeo</span><span class="top3-rank">#2</span></div>
+            <div class="top3-caption">"Aquele antes e depois de muita beleza e qualidade além de naturalidade! Obrigada pela conf..."</div>
+            <div class="top3-stats"><div class="top3-stat"><strong>12</strong><span>❤ likes</span></div><div class="top3-stat"><strong>2</strong><span>💬 coments</span></div><div class="top3-stat"><strong>0.8%</strong><span>eng.</span></div></div>
+            <div class="top3-date">05 mai 2026</div>
           </div>
-          <div class="top3-caption">"Aquele antes e depois de muita beleza e qualidade além de naturalidade! Obrigada pela conf..."</div>
-          <div class="top3-stats">
-            <div class="top3-stat"><strong>12</strong><span>❤ likes</span></div>
-            <div class="top3-stat"><strong>2</strong><span>💬 coments</span></div>
-            <div class="top3-stat"><strong>0.8%</strong><span>eng.</span></div>
-          </div>
-          <div class="top3-date">05 mai 2026</div>
         </a>
         <a class="top3-card reveal d3" href="https://www.instagram.com/p/DXPAdWmAt6Y/" target="_blank" rel="noopener">
-          <div class="top3-header">
-            <span class="top3-badge">📷 Foto</span>
-            <span class="top3-rank">#3</span>
+          <div class="top3-media"><img src="img/top3_thumb.jpg" loading="lazy"></div>
+          <div class="top3-body">
+            <div class="top3-header"><span class="top3-badge">📷 Foto</span><span class="top3-rank">#3</span></div>
+            <div class="top3-caption">"Ontem foi dia de dar mais 3 janelinhas p Maitê! Ela se comportou como uma princesa durante..."</div>
+            <div class="top3-stats"><div class="top3-stat"><strong>8</strong><span>❤ likes</span></div><div class="top3-stat"><strong>1</strong><span>💬 coments</span></div><div class="top3-stat"><strong>0.5%</strong><span>eng.</span></div></div>
+            <div class="top3-date">17 abr 2026</div>
           </div>
-          <div class="top3-caption">"Ontem foi dia de dar mais 3 janelinhas p Maitê! Ela se comportou como uma princesa durante..."</div>
-          <div class="top3-stats">
-            <div class="top3-stat"><strong>8</strong><span>❤ likes</span></div>
-            <div class="top3-stat"><strong>1</strong><span>💬 coments</span></div>
-            <div class="top3-stat"><strong>0.5%</strong><span>eng.</span></div>
-          </div>
-          <div class="top3-date">17 abr 2026</div>
         </a>
       </div>
       <div class="insight-box reveal d3">
         <div class="insight-icon">💡</div>
-        <p><strong>Padrão identificado:</strong> Vídeos de transformação de sorriso lideram de longe — 5,1% de engajamento no topo. Conteúdo de antes/depois com resultado visual impacta muito mais que posts estáticos. Formato Reel é o caminho.</p>
+        <p><strong>Padrão identificado:</strong> Vídeos de transformação de sorriso lideram de longe — 5,1% de engajamento no topo.</p>
       </div>
     </div>
   </div>
