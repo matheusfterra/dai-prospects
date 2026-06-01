@@ -158,8 +158,11 @@
     .f-sub  { font-size:.72rem; color:var(--muted2); }
     .f-meta { font-size:.62rem; color:rgba(240,235,227,.14); margin-top:.8rem; }
     @media(max-width:768px){
-      .hero-overlay { background:linear-gradient(to bottom, rgba(8,8,8,.5) 0%, rgba(8,8,8,.3) 20%, rgba(8,8,8,.75) 55%, rgba(8,8,8,.98) 100%); }
-      .hero-content { padding:0 1.25rem 3.5rem; }
+      /* Hero mobile: imagem acima sem sobreposição, score abaixo em fundo escuro */
+      .hero{display:flex;flex-direction:column;height:auto;min-height:auto;overflow:visible;}
+      .hero-bg{position:relative!important;inset:auto!important;width:100%;height:62vw;min-height:220px;max-height:380px;transform:none!important;flex-shrink:0;}
+      .hero-overlay{display:none!important;}
+      .hero-content{position:relative!important;background:var(--bg);padding:2rem 1.25rem 3rem;animation:fadeUp .8s ease .1s both;}
       .hero-name  { font-size:clamp(2rem, 8vw, 3rem); }
       .hero-score-row { flex-direction:column; gap:.75rem; align-items:flex-start; }
       .hero-desc  { display:none; }
@@ -262,6 +265,7 @@
     .sent-profile-link{display:inline-flex;align-items:center;gap:.5rem;background:rgba(201,169,110,.08);border:1px solid rgba(201,169,110,.25);padding:.6rem 1.25rem;font-size:.75rem;font-weight:600;color:var(--gold);text-decoration:none;letter-spacing:.1em;transition:background .2s;}
     .sent-profile-link:hover{background:rgba(201,169,110,.15);}
     .sent-date{font-size:.68rem;color:var(--muted2);letter-spacing:.1em;}
+  
   
   
   /* SENTIMENT CSS START */
@@ -462,7 +466,9 @@
 
 
 
-<!-- SENTIMENT SECTION — gerado por inject_sentiment.py em 2026-06-01 19:04 UTC -->
+
+
+<!-- SENTIMENT SECTION — gerado por inject_sentiment.py em 2026-06-01 20:00 UTC -->
 <section class="sentiment-sec">
   <div class="wrap">
     <div class="sent-intro">
