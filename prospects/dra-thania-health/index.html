@@ -164,7 +164,7 @@
     /* ── DESKTOP: Hero split (imagem esq / conteúdo dir) ── */
     @media(min-width:769px){
       .hero{display:grid;grid-template-columns:42% 58%;grid-template-rows:100vh;height:100vh;min-height:680px;}
-      .hero-bg{position:relative!important;inset:auto!important;grid-column:1;grid-row:1;background-size:cover;background-position:center top;transform:none!important;transition:none;overflow:hidden;}
+      .hero-bg{position:relative!important;inset:auto!important;grid-column:1;grid-row:1;background-image:url('img/hero.jpg');background-size:cover;background-position:center top;transform:none!important;transition:none;overflow:hidden;min-height:100%;}
       .hero-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(to right,transparent 55%,var(--bg) 100%);pointer-events:none;}
       .hero-overlay{display:none!important;}
       .hero-content{position:relative!important;grid-column:2;grid-row:1;z-index:2;background:var(--bg);display:flex!important;flex-direction:column;justify-content:flex-end;padding:3rem 4rem 5rem 3rem;max-width:none;margin:0;width:auto;}
@@ -259,6 +259,54 @@
     </div>
   </div>
 </section>
+    <div class="reveal" style="margin-top:2.5rem;">
+      <div class="sec-label" style="margin-bottom:1.25rem;">Top 3 · Publicações com Maior Engajamento</div>
+      <div class="top3-grid">
+        <a class="top3-card reveal d1" href="https://www.instagram.com/p/DYfBQUcFrP0/" target="_blank" rel="noopener">
+          <div class="top3-header">
+            <span class="top3-badge">🖼 Carrossel</span>
+            <span class="top3-rank">#1</span>
+          </div>
+          <div class="top3-caption">"Sair da rotina também faz parte de uma vida saudável. Entre mergulhos, descanso e momentos..."</div>
+          <div class="top3-stats">
+            <div class="top3-stat"><strong>110</strong><span>❤ likes</span></div>
+            <div class="top3-stat"><strong>5</strong><span>💬 coments</span></div>
+            <div class="top3-stat"><strong>1.4%</strong><span>eng.</span></div>
+          </div>
+          <div class="top3-date">18 mai 2026</div>
+        </a>
+        <a class="top3-card reveal d2" href="https://www.instagram.com/p/DVqmFAAEsME/" target="_blank" rel="noopener">
+          <div class="top3-header">
+            <span class="top3-badge">📷 Foto</span>
+            <span class="top3-rank">#2</span>
+          </div>
+          <div class="top3-caption">"É com muita alegria que anunciamos a chegada da Dra. Thânia Rêgo ao ecossistema VIV Concep..."</div>
+          <div class="top3-stats">
+            <div class="top3-stat"><strong>65</strong><span>❤ likes</span></div>
+            <div class="top3-stat"><strong>10</strong><span>💬 coments</span></div>
+            <div class="top3-stat"><strong>0.9%</strong><span>eng.</span></div>
+          </div>
+          <div class="top3-date">09 mar 2026</div>
+        </a>
+        <a class="top3-card reveal d3" href="https://www.instagram.com/p/DVOYSKFjm0a/" target="_blank" rel="noopener">
+          <div class="top3-header">
+            <span class="top3-badge">🖼 Carrossel</span>
+            <span class="top3-rank">#3</span>
+          </div>
+          <div class="top3-caption">"Você quer chegar aos 70 anos com a energia do Bell Marques? Então você precisa entender so..."</div>
+          <div class="top3-stats">
+            <div class="top3-stat"><strong>65</strong><span>❤ likes</span></div>
+            <div class="top3-stat"><strong>6</strong><span>💬 coments</span></div>
+            <div class="top3-stat"><strong>0.8%</strong><span>eng.</span></div>
+          </div>
+          <div class="top3-date">26 fev 2026</div>
+        </a>
+      </div>
+      <div class="insight-box reveal d3">
+        <div class="insight-icon">💡</div>
+        <p><strong>Padrão identificado:</strong> Posts de carrossel educativos sobre medicina metabólica e lifestyle geram o maior engajamento — conteúdo com propósito pessoal (viagem, bem-estar) também performa muito bem.</p>
+      </div>
+    </div>
 
 <section class="google-sec">
   <div class="wrap">
