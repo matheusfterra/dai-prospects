@@ -157,6 +157,8 @@
       .hero-num   { font-size:3.5rem; }
       .hero-grade { width:52px; height:52px; font-size:1.5rem; }
     }
+      .stats-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-top:2rem;}
+    @media(max-width:600px){.stats-grid{grid-template-columns:1fr;}}
   </style>
 </head>
 <body>
@@ -232,7 +234,7 @@
       <h2><em style="font-family:'Playfair Display',serif;font-style:italic">@cittiimoveis</em><br><em style="font-family:'Playfair Display',serif;font-style:italic">Inativa Desde 2021</em>.</h2>
       <p>691 posts no total, mas o último data de 2021 — 4 anos sem conteúdo. A Citti tem audiência no Instagram mas perdeu completamente a conexão com ela. Reativação urgente.</p>
     </div>
-    <div class="reveal" style="display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-top:2rem;">
+    <div class="stats-grid reveal">
       <div style="background:var(--surface2);border:1px solid var(--border);padding:2rem 1.5rem;text-align:center;">
         <div style="font-family:'Playfair Display',serif;font-size:2.2rem;font-weight:700;color:#F87171">1.304</div>
         <div style="font-size:.62rem;color:var(--muted);letter-spacing:.14em;text-transform:uppercase;margin-top:.4rem">Seguidores</div>
