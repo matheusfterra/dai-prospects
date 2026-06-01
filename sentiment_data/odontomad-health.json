@@ -2,22 +2,28 @@
   "slug": "odontomad-health",
   "instagram_handle": "clinicaodontomad",
   "profile_url": "https://www.instagram.com/clinicaodontomad/",
-  "posts_analyzed": 1,
-  "total_comments": 11,
+  "posts_analyzed": 20,
+  "total_comments": 26,
   "collected_at": "2026-06-01",
   "sentiment": {
-    "positivo": 8,
-    "neutro": 2,
-    "misto": 1,
+    "positivo": 23,
+    "neutro": 3,
+    "misto": 0,
     "negativo": 0
   },
   "categories": {
-    "elogio": 7,
-    "duvida": 3,
-    "sugestao": 1,
+    "elogio": 26,
+    "duvida": 0,
+    "sugestao": 0,
     "reclamacao": 0
   },
   "sample_comments": [
+    {
+      "text": "Minha eterna gratidão por todo o cuidado desde o começo do protocolo até a finalização! Eu não poderia estar mais feliz e realizado! Auto estima renovada! Fica um carinho imenso por toda a equipe e principalmente, à Dra. Aline, por ter superado as minhas expectativas",
+      "sentiment": "positivo",
+      "category": "elogio",
+      "post_url": "https://www.instagram.com/p/DW7IQtNlq86/"
+    },
     {
       "text": "Vcs são incríveis! Merecem crescer e ter todo sucesso. Deus abençoe",
       "sentiment": "positivo",
@@ -25,16 +31,22 @@
       "post_url": "https://www.instagram.com/p/DYmpfSGia5e/"
     },
     {
-      "text": "👏👏 Pra mim foi um dos melhores dentistas que consultei hj",
+      "text": "👏👏 Pra mim foi um dos melhores dentistas que consultei hj 😍parabéns vcs merecem 🙌❤️",
       "sentiment": "positivo",
       "category": "elogio",
       "post_url": "https://www.instagram.com/p/DYmpfSGia5e/"
     },
     {
-      "text": "Vocês fazem implante? Qual o valor aproximado? Preciso de orçamento.",
-      "sentiment": "neutro",
-      "category": "duvida",
-      "post_url": "https://www.instagram.com/p/DX-IhFXiKKY/"
+      "text": "amei o resultado vc tem mãos de fada. Obrigado pelo o carinho e paciência ❤️",
+      "sentiment": "positivo",
+      "category": "elogio",
+      "post_url": "https://www.instagram.com/p/DYVDbY0ipCu/"
+    },
+    {
+      "text": "@clinicaodontomad super indico!!! Maravilhosos 👏👏👏👏👏",
+      "sentiment": "positivo",
+      "category": "elogio",
+      "post_url": "https://www.instagram.com/p/DXFmb8KAsc3/"
     }
   ],
   "google_reviews": null
