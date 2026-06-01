@@ -17,6 +17,14 @@ const ROUTING = {
   "dra-anapaulapaludo": "dra-ana-paula-paludo",
   "drameiriellyfedrigo": "dra-meirielly-fedrigo",
   "drameiriellyfedrigo-health": "drameiriellyfedrigo-health",
+  "dra-anapaulapaludo-health": "dra-anapaulapaludo-health",
+  "citti-imoveis-health": "citti-imoveis-health",
+  "dra-danielaserafini-health": "dra-danielaserafini-health",
+  "dra-luanamariano-health": "dra-luanamariano-health",
+  "dra-thania-health": "dra-thania-health",
+  "labexato-health": "labexato-health",
+  "newlifeclinicas-health": "newlifeclinicas-health",
+  "odontomad-health": "odontomad-health",
   // LeadKit adiciona entradas aqui automaticamente via Fase 4 do pipeline
 };
 

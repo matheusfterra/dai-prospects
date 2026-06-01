@@ -14,6 +14,14 @@ routes = [
   { pattern = "dra-anapaulapaludo.digital-ai.tech/*", zone_name = "digital-ai.tech" },
   { pattern = "drameiriellyfedrigo.digital-ai.tech/*", zone_name = "digital-ai.tech" },
   { pattern = "drameiriellyfedrigo-health.digital-ai.tech/*", zone_name = "digital-ai.tech" },
+  { pattern = "dra-anapaulapaludo-health.digital-ai.tech/*", zone_name = "digital-ai.tech" },
+  { pattern = "citti-imoveis-health.digital-ai.tech/*", zone_name = "digital-ai.tech" },
+  { pattern = "dra-danielaserafini-health.digital-ai.tech/*", zone_name = "digital-ai.tech" },
+  { pattern = "dra-luanamariano-health.digital-ai.tech/*", zone_name = "digital-ai.tech" },
+  { pattern = "dra-thania-health.digital-ai.tech/*", zone_name = "digital-ai.tech" },
+  { pattern = "labexato-health.digital-ai.tech/*", zone_name = "digital-ai.tech" },
+  { pattern = "newlifeclinicas-health.digital-ai.tech/*", zone_name = "digital-ai.tech" },
+  { pattern = "odontomad-health.digital-ai.tech/*", zone_name = "digital-ai.tech" },
   # LeadKit: adicionar rota explícita para cada novo prospect aqui
 ]
 
