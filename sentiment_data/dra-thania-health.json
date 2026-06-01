@@ -2,22 +2,34 @@
   "slug": "dra-thania-health",
   "instagram_handle": "dra.thaniarego",
   "profile_url": "https://www.instagram.com/dra.thaniarego/",
-  "posts_analyzed": 3,
-  "total_comments": 16,
+  "posts_analyzed": 20,
+  "total_comments": 42,
   "collected_at": "2026-06-01",
   "sentiment": {
-    "positivo": 14,
-    "neutro": 2,
-    "misto": 0,
+    "positivo": 26,
+    "neutro": 15,
+    "misto": 1,
     "negativo": 0
   },
   "categories": {
-    "elogio": 15,
-    "duvida": 1,
-    "sugestao": 0,
+    "elogio": 38,
+    "duvida": 3,
+    "sugestao": 1,
     "reclamacao": 0
   },
   "sample_comments": [
+    {
+      "text": "Quero parabenizar a @dra.thaniarego e a @vivconceptsaudeintegrada pela parceria e deixar meu depoimento. Agradeço a Deus por ter colocado em meu caminho a Dra Thania — ela norteou minha saga de mudança de vida e me ajudou a eliminar mais de 60kg.",
+      "sentiment": "positivo",
+      "category": "elogio",
+      "post_url": "https://www.instagram.com/p/DVqmFAAEsME/"
+    },
+    {
+      "text": "Que bom!!! Te admiro muito!!! Parabéns!!!👏🏻👏🏻👏🏻💕💕",
+      "sentiment": "positivo",
+      "category": "elogio",
+      "post_url": "https://www.instagram.com/p/DVqmFAAEsME/"
+    },
     {
       "text": "Parabéns pelos seus resultados e sua trajetória ❤️",
       "sentiment": "positivo",
@@ -25,16 +37,16 @@
       "post_url": "https://www.instagram.com/p/DY66vtiFiPE/"
     },
     {
-      "text": "Cada dia mais lindaaa🌸💕",
+      "text": "Ótimo esclarecimento...",
       "sentiment": "positivo",
       "category": "elogio",
-      "post_url": "https://www.instagram.com/p/DY66vtiFiPE/"
+      "post_url": "https://www.instagram.com/p/DYj8UmqFrm-/"
     },
     {
-      "text": "Linda de viver ❤️",
-      "sentiment": "positivo",
-      "category": "elogio",
-      "post_url": "https://www.instagram.com/p/DYfBQUcFrP0/"
+      "text": "Bom dia Dra, sou hipertenso e sinto tontura usando o Mounjaro — ele interfere na pressão arterial?",
+      "sentiment": "misto",
+      "category": "duvida",
+      "post_url": "https://www.instagram.com/p/DTfaavkjo11/"
     }
   ],
   "google_reviews": null
