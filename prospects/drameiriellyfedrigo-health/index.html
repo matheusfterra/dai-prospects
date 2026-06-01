@@ -357,11 +357,81 @@
     .f-sub  { font-size:.72rem; color:var(--muted2); }
     .f-meta { font-size:.62rem; color:rgba(240,235,227,.14); margin-top:.8rem; }
 
-    /* Responsive tweaks */
+    /* ── MOBILE FIXES ── */
+    html { overflow-x:hidden; }
+
+    @media(max-width:768px){
+      /* Hero: overlay mais escuro para legibilidade do texto */
+      .hero-overlay {
+        background:linear-gradient(
+          to bottom,
+          rgba(8,8,8,.5) 0%,
+          rgba(8,8,8,.3) 20%,
+          rgba(8,8,8,.75) 55%,
+          rgba(8,8,8,.98) 100%
+        );
+      }
+      .hero-content { padding:0 1.25rem 3.5rem; }
+      .hero-label { font-size:.58rem; padding:.3rem .8rem; }
+      .hero-name  { font-size:clamp(2rem, 8vw, 3rem); }
+      .hero-spec  { font-size:.72rem; margin-bottom:1.5rem; }
+      /* Score row empilhado verticalmente */
+      .hero-score-row  { flex-direction:column; gap:.75rem; align-items:flex-start; }
+      .hero-desc       { display:none; } /* texto escondido no mobile — já está no corpo */
+
+      /* Galeria: 2 colunas em vez de 3 */
+      .gallery { grid-template-columns:repeat(2,1fr); }
+
+      /* Seções: padding reduzido */
+      .pillars-sec,.insta-sec,.google-sec,.web-sec,.results-sec,.recs-sec,.proj-sec,.cta-sec {
+        padding:3.5rem 1.25rem;
+      }
+      .wrap { padding:0 1.25rem; }
+
+      /* Títulos menores */
+      .pillars-head h2, .insta-intro h2, .google-grid h2, .web-grid h2,
+      .results-sec h2, .recs-sec h2, .proj-sec h2, .cta-sec h2 {
+        font-size:1.75rem;
+      }
+      .cta-sec h2 { font-size:1.75rem; max-width:100%; }
+
+      /* Pillar header */
+      .pillars-head { margin-bottom:2rem; }
+
+      /* Stats: fonte menor */
+      .stat-val  { font-size:1.8rem; }
+      .stat-name { font-size:.6rem; }
+
+      /* Top cards: 1 coluna */
+      .top-grid { grid-template-columns:1fr; }
+
+      /* Timeline: texto compacto */
+      .t-body h3 { font-size:1rem; }
+      .t-body p  { font-size:.8rem; }
+      .t-item    { padding:1.25rem 0; }
+
+      /* Proj bars */
+      .proj-note { padding:1rem 1.1rem; }
+      .proj-note p { font-size:.8rem; }
+
+      /* Google/Website grids */
+      .google-grid, .web-grid { gap:2rem; }
+
+      /* Results grid: 1 col no mobile */
+      .res-grid  { grid-template-columns:1fr; }
+
+      /* Lost row */
+      .lost-row { gap:.75rem; }
+      .lost-val  { font-size:1.5rem; }
+    }
+
     @media(max-width:480px){
-      .hero-score-row { gap:1rem; }
-      .hero-num { font-size:3.5rem; }
+      .hero-num   { font-size:3.5rem; }
       .hero-grade { width:52px; height:52px; font-size:1.5rem; }
+      /* Galeria 1 coluna no mobile muito pequeno */
+      .gallery    { grid-template-columns:1fr; }
+      /* Stats 1 coluna */
+      .stats-row  { grid-template-columns:repeat(2,1fr); }
     }
   </style>
 </head>
@@ -807,13 +877,15 @@ window.addEventListener('load', () => {
   setTimeout(() => animCount(document.getElementById('heroNum'), 42, '', 1800), 700);
 });
 
-// ── Parallax hero
-const hBg = document.getElementById('heroBg');
-const heroH = document.querySelector('.hero').offsetHeight;
-window.addEventListener('scroll', () => {
-  const y = window.scrollY;
-  if (y < heroH) hBg.style.transform = 'scale(1.1) translateY(' + (y * 0.25) + 'px)';
-}, { passive: true });
+// ── Parallax hero (desktop only — mobile causes layout shift)
+if (window.innerWidth > 768) {
+  const hBg = document.getElementById('heroBg');
+  const heroH = document.querySelector('.hero').offsetHeight;
+  window.addEventListener('scroll', () => {
+    const y = window.scrollY;
+    if (y < heroH) hBg.style.transform = 'scale(1.1) translateY(' + (y * 0.25) + 'px)';
+  }, { passive: true });
+}
 </script>
 
 </body>
