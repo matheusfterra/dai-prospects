@@ -294,8 +294,6 @@
     <div class="reveal" style="margin-top:1.25rem;padding:1.1rem 1.25rem;background:rgba(255,255,255,.02);border-left:3px solid #FBBF24;">
       <p style="font-size:.83rem;color:var(--muted);line-height:1.65">Score Instagram: <strong style="color:#FBBF24">29 / 40 pts</strong> · Média de ~61 likes/post · @dra.anapaulapaludo</p>
     </div>
-  </div>
-</section>
     <div class="reveal" style="margin-top:2.5rem;">
       <div class="sec-label" style="margin-bottom:1.25rem;">Top 3 · Publicações com Maior Engajamento</div>
       <div class="top3-grid">
@@ -344,6 +342,8 @@
         <p><strong>Padrão identificado:</strong> Vídeos emocionais com propósito dominam — o primeiro Reel alcançou 5,8% de engajamento com 4.623 seguidores. Conteúdo de bastidores e processo de cuidado ressoa fortemente com a audiência.</p>
       </div>
     </div>
+  </div>
+</section>
 
 <section class="google-sec">
   <div class="wrap">
@@ -555,12 +555,7 @@ window.addEventListener('load', () => {
   setTimeout(() => animCount(document.getElementById('heroNum'), 27, '', 1800), 700);
 });
 if (window.innerWidth > 768) {
-  const hBg = document.getElementById('heroBg');
-  const heroH = document.querySelector('.hero').offsetHeight;
-  window.addEventListener('scroll', () => {
-    const y = window.scrollY;
-    if (y < heroH) hBg.style.transform = 'scale(1.1) translateY(' + (y * 0.25) + 'px)';
-  }, { passive: true });
+/* parallax disabled — desktop usa split layout */, { passive: true });
 }
 </script>
 </body>
