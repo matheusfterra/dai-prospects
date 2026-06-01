@@ -3,1120 +3,818 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Relatório de Saúde Digital — Dra. Meirielly Fedrigo</title>
+  <title>Diagnóstico de Presença Digital — Dra. Meirielly Fedrigo</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
   <style>
     :root {
-      --dark: #0D0D0D;
-      --card: #141414;
-      --card2: #1A1A1A;
-      --border: rgba(255,255,255,0.07);
-      --white: #FFFFFF;
-      --muted: rgba(255,255,255,0.45);
-      --muted2: rgba(255,255,255,0.25);
-      --green: #22C55E;
-      --yellow: #EAB308;
-      --red: #EF4444;
-      --blue: #3B82F6;
-      --rose: #F472B6;
-      --accent: #A855F7;
-      --score-color: #EAB308;
+      --bg: #080808;
+      --surface: #111111;
+      --surface2: #181818;
+      --border: rgba(255,255,255,0.06);
+      --gold: #C9A96E;
+      --gold-light: #E8D4B0;
+      --text: #F0EBE3;
+      --muted: rgba(240,235,227,0.5);
+      --muted2: rgba(240,235,227,0.22);
+      --green: #34D399;
+      --yellow: #FBBF24;
+      --red: #F87171;
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { background: var(--dark); scroll-behavior: smooth; }
+    html { background: var(--bg); scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; overflow-x: hidden; }
 
-    body {
-      font-family: 'DM Sans', sans-serif;
-      background: var(--dark);
-      color: var(--white);
-      line-height: 1.6;
-    }
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp   { from { opacity:0; transform:translateY(40px) } to { opacity:1; transform:translateY(0) } }
+    @keyframes fadeIn   { from { opacity:0 } to { opacity:1 } }
+    @keyframes bounceDown { 0%,100% { transform:rotate(45deg) translateY(0) } 50% { transform:rotate(45deg) translateY(5px) } }
+    @keyframes pulseGold  { 0%,100% { box-shadow:0 0 0 0 rgba(201,169,110,.4) } 60% { box-shadow:0 0 0 10px rgba(201,169,110,0) } }
+    @keyframes shimmer    { from { background-position:-200% center } to { background-position:200% center } }
 
-    /* ── COVER ── */
-    .cover {
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      padding: 4rem 2rem;
-      position: relative;
-      overflow: hidden;
-      border-bottom: 1px solid var(--border);
-    }
+    .reveal { opacity:0; transform:translateY(36px); transition:opacity .7s ease, transform .7s ease; }
+    .reveal.visible { opacity:1; transform:none; }
+    .d1 { transition-delay:.1s } .d2 { transition-delay:.2s } .d3 { transition-delay:.3s } .d4 { transition-delay:.4s }
 
-    .cover::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background:
-        radial-gradient(ellipse 80% 60% at 50% 0%, rgba(168,85,247,0.12) 0%, transparent 60%),
-        radial-gradient(ellipse 60% 40% at 80% 100%, rgba(234,179,8,0.08) 0%, transparent 50%);
-      pointer-events: none;
+    /* ── HERO ── */
+    .hero { position:relative; height:100vh; min-height:680px; overflow:hidden; display:flex; align-items:flex-end; }
+    .hero-bg {
+      position:absolute; inset:0;
+      background: url('img/top3.jpg') center top / cover no-repeat;
+      transform:scale(1.1);
+      will-change:transform;
     }
-
-    .cover-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      background: rgba(168,85,247,0.1);
-      border: 1px solid rgba(168,85,247,0.25);
-      border-radius: 100px;
-      padding: 0.35rem 1rem;
-      font-size: 0.65rem;
-      font-weight: 600;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: #C084FC;
-      margin-bottom: 2.5rem;
+    .hero-overlay {
+      position:absolute; inset:0;
+      background:linear-gradient(to bottom,
+        rgba(8,8,8,.15) 0%,
+        rgba(8,8,8,.05) 25%,
+        rgba(8,8,8,.55) 65%,
+        rgba(8,8,8,.97) 100%);
     }
-
-    .cover-profile {
-      width: 100px;
-      height: 100px;
-      border-radius: 50%;
-      object-fit: cover;
-      object-position: top;
-      border: 2px solid rgba(168,85,247,0.4);
-      margin-bottom: 1.5rem;
+    .hero-content {
+      position:relative; z-index:2;
+      width:100%; max-width:1200px; margin:0 auto;
+      padding:0 2rem 4rem;
+      animation:fadeUp 1s ease .3s both;
     }
-
-    .cover-name {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(2.2rem, 5vw, 3.5rem);
-      font-weight: 300;
-      color: var(--white);
-      margin-bottom: 0.4rem;
+    .hero-label {
+      display:inline-flex; align-items:center; gap:.5rem;
+      background:rgba(201,169,110,.1); border:1px solid rgba(201,169,110,.3);
+      border-radius:100px; padding:.35rem 1rem;
+      font-size:.62rem; font-weight:700; letter-spacing:.22em; text-transform:uppercase;
+      color:var(--gold); margin-bottom:1.5rem;
     }
-    .cover-name em { font-style: italic; color: #C084FC; }
-
-    .cover-sub {
-      font-size: 0.8rem;
-      font-weight: 400;
-      color: var(--muted);
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      margin-bottom: 3rem;
+    .hero-label-dot {
+      width:6px; height:6px; background:var(--gold); border-radius:50%;
+      animation:pulseGold 2s infinite;
     }
-
-    /* ── SCORE CIRCLE ── */
-    .score-wrap {
-      position: relative;
-      width: 180px;
-      height: 180px;
-      margin: 0 auto 1.2rem;
+    .hero-name {
+      font-family:'Playfair Display', serif;
+      font-size:clamp(2.8rem, 7vw, 5.5rem);
+      font-weight:400; line-height:1.05; margin-bottom:.5rem;
     }
-    .score-svg { width: 180px; height: 180px; transform: rotate(-90deg); }
-    .score-bg { fill: none; stroke: rgba(255,255,255,0.06); stroke-width: 10; }
-    .score-arc {
-      fill: none;
-      stroke: var(--score-color);
-      stroke-width: 10;
-      stroke-linecap: round;
-      stroke-dasharray: 502;
-      stroke-dashoffset: 291; /* 502 * (1 - 0.42) = 291 */
-      filter: drop-shadow(0 0 8px var(--score-color));
+    .hero-name em { font-style:italic; color:var(--gold); }
+    .hero-spec {
+      font-size:.8rem; color:var(--muted);
+      letter-spacing:.14em; text-transform:uppercase; margin-bottom:2.5rem;
     }
-    .score-inner {
-      position: absolute;
-      inset: 0;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
+    .hero-score-row { display:flex; align-items:center; gap:2rem; flex-wrap:wrap; }
+    .hero-score-big { display:flex; align-items:baseline; gap:.25rem; }
+    .hero-num {
+      font-family:'Playfair Display', serif;
+      font-size:clamp(4rem, 10vw, 7rem);
+      font-weight:700; line-height:1;
+      color:var(--yellow); font-variant-numeric:tabular-nums;
     }
-    .score-num {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 3rem;
-      font-weight: 300;
-      line-height: 1;
-      color: var(--score-color);
+    .hero-denom { font-size:1.8rem; color:var(--muted2); }
+    .hero-grade {
+      width:68px; height:68px; border-radius:50%;
+      background:rgba(251,191,36,.08); border:2px solid var(--yellow);
+      display:flex; align-items:center; justify-content:center;
+      font-family:'Playfair Display', serif;
+      font-size:2rem; font-weight:700; color:var(--yellow);
     }
-    .score-den {
-      font-size: 0.65rem;
-      color: var(--muted);
-      letter-spacing: 0.1em;
+    .hero-desc { flex:1; min-width:220px; }
+    .hero-desc h3 { font-size:1rem; font-weight:600; margin-bottom:.3rem; }
+    .hero-desc p  { font-size:.8rem; color:var(--muted); line-height:1.6; }
+    .scroll-cue {
+      position:absolute; bottom:2rem; left:50%; transform:translateX(-50%);
+      display:flex; flex-direction:column; align-items:center; gap:.5rem;
+      color:var(--muted2); font-size:.6rem; letter-spacing:.16em; text-transform:uppercase;
+      animation:fadeIn 1s ease 1.8s both;
     }
-    .score-grade {
-      font-size: 2rem;
-      font-family: 'Cormorant Garamond', serif;
-      font-weight: 600;
-      color: var(--score-color);
-      letter-spacing: -0.02em;
+    .scroll-arrow {
+      width:18px; height:18px;
+      border-right:1.5px solid rgba(240,235,227,.3); border-bottom:1.5px solid rgba(240,235,227,.3);
+      transform:rotate(45deg); animation:bounceDown 2s infinite;
     }
 
-    .cover-score-label {
-      font-size: 0.75rem;
-      color: var(--muted);
-      margin-bottom: 0.5rem;
-    }
-    .cover-score-desc {
-      font-size: 0.82rem;
-      color: var(--yellow);
-      font-weight: 500;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
+    /* ── CONTAINER ── */
+    .wrap { max-width:1200px; margin:0 auto; padding:0 2rem; }
 
-    .cover-pillars {
-      display: flex;
-      gap: 2rem;
-      margin-top: 3rem;
-      flex-wrap: wrap;
-      justify-content: center;
+    /* ── SECTION LABEL ── */
+    .sec-label {
+      font-size:.62rem; font-weight:700; letter-spacing:.26em; text-transform:uppercase;
+      color:var(--gold); margin-bottom:1rem;
+      display:flex; align-items:center; gap:.75rem;
     }
-    .pillar-chip {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 0.3rem;
-    }
-    .pillar-chip-label {
-      font-size: 0.6rem;
-      font-weight: 600;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--muted);
-    }
-    .pillar-chip-val {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.6rem;
-      font-weight: 300;
-      line-height: 1;
-    }
-    .pillar-chip-max {
-      font-size: 0.65rem;
-      color: var(--muted2);
-    }
+    .sec-label::before { content:''; width:22px; height:1px; background:var(--gold); opacity:.6; }
 
-    .cover-date {
-      margin-top: 3rem;
-      font-size: 0.7rem;
-      color: var(--muted2);
-      letter-spacing: 0.1em;
+    /* ── PILLAR SCORES ── */
+    .pillars-sec { padding:6rem 2rem; background:var(--surface); }
+    .pillars-head { text-align:center; margin-bottom:4rem; }
+    .pillars-head h2 {
+      font-family:'Playfair Display', serif;
+      font-size:clamp(2rem, 4.5vw, 3rem); font-weight:400; line-height:1.2; margin-bottom:.8rem;
     }
+    .pillars-head p { font-size:.88rem; color:var(--muted); max-width:440px; margin:0 auto; }
+    .pillars-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:2px; max-width:900px; margin:0 auto; }
+    @media(max-width:680px){ .pillars-grid { grid-template-columns:1fr; } }
+    .pillar {
+      background:var(--surface2); padding:3rem 1.5rem;
+      text-align:center; position:relative; overflow:hidden;
+      transition:transform .3s ease;
+    }
+    .pillar:hover { transform:translateY(-5px); }
+    .pillar::after {
+      content:''; position:absolute; bottom:0; left:0; right:0; height:3px;
+      background:var(--pc); transform:scaleX(0);
+      transition:transform .8s cubic-bezier(.4,0,.2,1) .4s;
+    }
+    .pillar.visible::after { transform:scaleX(1); }
+    .pillar-icon  { font-size:1.8rem; margin-bottom:.75rem; opacity:.75; }
+    .pillar-label { font-size:.6rem; font-weight:700; letter-spacing:.2em; text-transform:uppercase; color:var(--muted); margin-bottom:1.5rem; }
+    .ring { position:relative; width:120px; height:120px; margin:0 auto 1.5rem; }
+    .ring svg { width:120px; height:120px; transform:rotate(-90deg); }
+    .ring-bg  { fill:none; stroke:rgba(255,255,255,.05); stroke-width:7; }
+    .ring-arc {
+      fill:none; stroke:var(--pc); stroke-width:7; stroke-linecap:round;
+      stroke-dasharray:339; stroke-dashoffset:339;
+      transition:stroke-dashoffset 1.6s cubic-bezier(.4,0,.2,1);
+    }
+    .ring-num  {
+      position:absolute; inset:0;
+      display:flex; flex-direction:column; align-items:center; justify-content:center;
+    }
+    .ring-val  { font-family:'Playfair Display', serif; font-size:2.2rem; font-weight:700; line-height:1; color:var(--pc); }
+    .ring-max  { font-size:.62rem; color:var(--muted2); }
+    .pillar-foot strong { display:block; font-size:.85rem; font-weight:600; margin-bottom:.15rem; }
+    .pillar-foot span   { font-size:.75rem; color:var(--muted); }
 
-    /* ── LAYOUT ── */
-    .container { max-width: 1000px; margin: 0 auto; padding: 0 2rem; }
+    /* ── INSTAGRAM ── */
+    .insta-sec { padding:6rem 2rem; }
+    .insta-intro { margin-bottom:3rem; }
+    .insta-intro h2 { font-family:'Playfair Display', serif; font-size:clamp(1.9rem,4vw,2.8rem); font-weight:400; line-height:1.2; margin-bottom:.8rem; }
+    .insta-intro p  { font-size:.88rem; color:var(--muted); max-width:540px; line-height:1.75; }
 
-    section { padding: 4rem 0; border-bottom: 1px solid var(--border); }
-    section:last-child { border-bottom: none; }
+    /* Stats row */
+    .stats-row { display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:var(--border); border:1px solid var(--border); margin-bottom:2.5rem; }
+    @media(max-width:580px){ .stats-row { grid-template-columns:repeat(2,1fr); } }
+    .stat { background:var(--surface2); padding:1.75rem 1.25rem; text-align:center; }
+    .stat-val { font-family:'Playfair Display', serif; font-size:2.2rem; font-weight:600; line-height:1; margin-bottom:.3rem; }
+    .stat-name { font-size:.65rem; font-weight:600; color:var(--muted); letter-spacing:.1em; text-transform:uppercase; }
 
-    .section-eyebrow {
-      font-size: 0.62rem;
-      font-weight: 600;
-      letter-spacing: 0.26em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 0.6rem;
+    /* Gallery grid */
+    .gallery { display:grid; grid-template-columns:repeat(3,1fr); gap:4px; margin-bottom:3rem; }
+    @media(max-width:560px){ .gallery { grid-template-columns:repeat(2,1fr); } }
+    .gallery-item { position:relative; aspect-ratio:1; overflow:hidden; cursor:pointer; }
+    .gallery-item img { width:100%; height:100%; object-fit:cover; transition:transform .5s ease; }
+    .gallery-item:hover img { transform:scale(1.08); }
+    .gallery-over {
+      position:absolute; inset:0;
+      background:linear-gradient(to top, rgba(8,8,8,.85) 0%, transparent 55%);
+      opacity:0; transition:opacity .3s;
+      display:flex; align-items:flex-end; padding:.75rem;
     }
+    .gallery-item:hover .gallery-over { opacity:1; }
+    .gallery-stats { font-size:.72rem; font-weight:600; display:flex; gap:.75rem; }
 
-    .section-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(1.6rem, 3vw, 2.4rem);
-      font-weight: 300;
-      color: var(--white);
-      margin-bottom: 1.5rem;
-      line-height: 1.15;
+    /* Top posts */
+    .top-posts-label { font-family:'Playfair Display', serif; font-size:1.3rem; font-weight:400; margin-bottom:1.25rem; }
+    .top-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1rem; }
+    @media(max-width:680px){ .top-grid { grid-template-columns:1fr; } }
+    .top-card {
+      position:relative; background:var(--surface);
+      border:1px solid var(--border); overflow:hidden;
+      transition:border-color .3s, transform .3s;
     }
-    .section-title em { font-style: italic; color: #C084FC; }
+    .top-card:hover { border-color:rgba(201,169,110,.35); transform:translateY(-4px); }
+    .top-rank {
+      position:absolute; top:.65rem; left:.65rem; z-index:2;
+      width:26px; height:26px; border-radius:50%;
+      background:rgba(8,8,8,.8); border:1px solid var(--gold);
+      font-size:.68rem; font-weight:700; color:var(--gold);
+      display:flex; align-items:center; justify-content:center;
+    }
+    .top-img { width:100%; aspect-ratio:1; object-fit:cover; display:block; }
+    .top-info { padding:1rem; }
+    .top-likes { font-family:'Playfair Display', serif; font-size:1.6rem; font-weight:600; line-height:1; }
+    .top-likes-lbl { font-size:.65rem; color:var(--muted); letter-spacing:.1em; text-transform:uppercase; margin-bottom:.6rem; }
+    .top-bar { height:2px; background:var(--border); border-radius:1px; }
+    .top-bar-fill { height:100%; border-radius:1px; background:var(--gold); transform-origin:left; transform:scaleX(0); transition:transform 1.2s cubic-bezier(.4,0,.2,1); }
+    .top-card.run .top-bar-fill { transform:scaleX(1); }
 
-    /* ── EXECUTIVE SUMMARY ── */
-    .summary-text {
-      font-size: 1.05rem;
-      font-weight: 300;
-      color: rgba(255,255,255,0.7);
-      line-height: 1.85;
-      max-width: 720px;
+    /* ── GOOGLE ── */
+    .google-sec { padding:6rem 2rem; background:var(--surface); }
+    .google-grid { display:grid; grid-template-columns:1fr 1fr; gap:4rem; align-items:start; }
+    @media(max-width:780px){ .google-grid { grid-template-columns:1fr; gap:2.5rem; } }
+    .google-grid h2 { font-family:'Playfair Display', serif; font-size:clamp(1.9rem,4vw,2.8rem); font-weight:400; line-height:1.2; margin-bottom:.8rem; }
+    .google-grid p.sub { font-size:.88rem; color:var(--muted); margin-bottom:2rem; line-height:1.7; }
+    .checklist { display:flex; flex-direction:column; gap:.6rem; }
+    .check-row {
+      display:flex; align-items:center; gap:.9rem;
+      padding:.85rem 1.1rem;
+      background:var(--surface2); border:1px solid var(--border);
+      font-size:.83rem;
     }
-    .summary-text strong { color: var(--white); font-weight: 500; }
-    .summary-text + .summary-text { margin-top: 1.2rem; }
+    .check-ico {
+      flex-shrink:0; width:22px; height:22px; border-radius:50%;
+      display:flex; align-items:center; justify-content:center;
+      font-size:.7rem; font-weight:700;
+    }
+    .ok   { background:rgba(52,211,153,.12); color:var(--green); border:1px solid rgba(52,211,153,.25); }
+    .fail { background:rgba(248,113,113,.1);  color:var(--red);   border:1px solid rgba(248,113,113,.22); }
+    .check-row .label strong { display:block; font-weight:500; margin-bottom:.1rem; }
+    .check-row .label span   { font-size:.73rem; color:var(--muted); }
+    .g-score-box { background:var(--surface2); border:1px solid var(--border); padding:2.5rem; text-align:center; }
+    .g-score-num { font-family:'Playfair Display', serif; font-size:4.5rem; font-weight:700; color:var(--red); line-height:1; }
+    .g-score-max { font-size:1.1rem; color:var(--muted); }
+    .g-score-lbl { font-size:.65rem; color:var(--muted); letter-spacing:.14em; text-transform:uppercase; margin-top:.4rem; }
+    .gap-box { margin-top:1.25rem; padding:1.1rem 1.25rem; background:rgba(248,113,113,.05); border-left:3px solid var(--red); }
+    .gap-box p { font-size:.83rem; color:var(--muted); line-height:1.65; }
+    .gap-box strong { color:var(--text); }
 
-    .highlight-box {
-      margin-top: 2rem;
-      padding: 1.5rem 1.8rem;
-      background: rgba(168,85,247,0.06);
-      border: 1px solid rgba(168,85,247,0.15);
-      border-left: 3px solid #A855F7;
-      border-radius: 2px;
-    }
-    .highlight-box p {
-      font-size: 0.95rem;
-      font-weight: 300;
-      color: rgba(255,255,255,0.65);
-      line-height: 1.7;
-    }
-    .highlight-box strong { color: #C084FC; }
+    /* ── WEBSITE ── */
+    .web-sec { padding:6rem 2rem; }
+    .web-grid { display:grid; grid-template-columns:1fr 1fr; gap:4rem; align-items:center; }
+    @media(max-width:780px){ .web-grid { grid-template-columns:1fr; gap:2.5rem; } }
+    .web-grid h2 { font-family:'Playfair Display', serif; font-size:clamp(1.9rem,4vw,2.8rem); font-weight:400; line-height:1.2; margin-bottom:.8rem; }
+    .web-grid p.sub { font-size:.88rem; color:var(--muted); margin-bottom:1.5rem; line-height:1.7; }
+    .lost-row { display:flex; gap:1rem; flex-wrap:wrap; }
+    .lost-box { flex:1; min-width:100px; padding:1.1rem; background:var(--surface); border:1px solid var(--border); border-left:3px solid var(--red); text-align:center; }
+    .lost-val { font-family:'Playfair Display', serif; font-size:1.8rem; font-weight:600; color:var(--red); }
+    .lost-lbl { font-size:.65rem; color:var(--muted); letter-spacing:.08em; }
+    .mockup { background:var(--surface); border:1px solid var(--border); border-radius:6px; overflow:hidden; }
+    .mbar { background:var(--surface2); padding:.65rem .9rem; display:flex; align-items:center; gap:.5rem; border-bottom:1px solid var(--border); }
+    .mdot { width:9px; height:9px; border-radius:50%; }
+    .murl { flex:1; background:rgba(255,255,255,.04); border-radius:3px; padding:.28rem .65rem; font-size:.68rem; color:var(--muted); font-family:monospace; }
+    .mbody { padding:3rem 1.5rem; text-align:center; min-height:180px; display:flex; flex-direction:column; align-items:center; justify-content:center; }
+    .m404 { font-family:'Playfair Display', serif; font-size:3.5rem; color:var(--red); opacity:.35; line-height:1; }
+    .m404t { font-size:.78rem; color:var(--muted2); margin-top:.35rem; }
 
-    /* ── CARDS GRID ── */
-    .cards-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 1rem;
-      margin-top: 2rem;
-    }
-
-    .metric-card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 4px;
-      padding: 1.5rem;
-    }
-    .metric-card-label {
-      font-size: 0.62rem;
-      font-weight: 600;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin-bottom: 0.8rem;
-    }
-    .metric-card-value {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 2.2rem;
-      font-weight: 300;
-      line-height: 1;
-      margin-bottom: 0.3rem;
-    }
-    .metric-card-sub {
-      font-size: 0.75rem;
-      font-weight: 300;
-      color: var(--muted);
-    }
-    .value-green { color: var(--green); }
-    .value-yellow { color: var(--yellow); }
-    .value-red { color: var(--red); }
-    .value-blue { color: var(--blue); }
-
-    /* ── PROGRESS BAR ── */
-    .progress-item {
-      margin-bottom: 1.2rem;
-    }
-    .progress-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      margin-bottom: 0.5rem;
-    }
-    .progress-label {
-      font-size: 0.82rem;
-      font-weight: 400;
-      color: rgba(255,255,255,0.7);
-    }
-    .progress-value {
-      font-size: 0.78rem;
-      font-weight: 600;
-      color: var(--white);
-    }
-    .progress-bar {
-      height: 6px;
-      background: rgba(255,255,255,0.06);
-      border-radius: 100px;
-      overflow: hidden;
-    }
-    .progress-fill {
-      height: 100%;
-      border-radius: 100px;
-      transition: width 0.8s ease;
-    }
-
-    /* ── PILLAR SECTION ── */
-    .pillar-header {
-      display: flex;
-      align-items: flex-start;
-      gap: 1.5rem;
-      margin-bottom: 2rem;
-      flex-wrap: wrap;
-    }
-    .pillar-score-badge {
-      flex-shrink: 0;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      width: 90px;
-      height: 90px;
-      border-radius: 50%;
-      border: 2px solid var(--border);
-    }
-    .pillar-score-num {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.8rem;
-      font-weight: 300;
-      line-height: 1;
-    }
-    .pillar-score-max {
-      font-size: 0.6rem;
-      color: var(--muted);
-      letter-spacing: 0.1em;
-    }
-    .pillar-info { flex: 1; min-width: 200px; }
-    .pillar-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.8rem;
-      font-weight: 400;
-      margin-bottom: 0.4rem;
-    }
-    .pillar-desc {
-      font-size: 0.88rem;
-      color: var(--muted);
-      line-height: 1.6;
-    }
-
-    /* ── TAGS ── */
-    .tag {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.35rem;
-      padding: 0.25rem 0.75rem;
-      border-radius: 100px;
-      font-size: 0.72rem;
-      font-weight: 500;
-    }
-    .tag-green { background: rgba(34,197,94,0.1); color: var(--green); border: 1px solid rgba(34,197,94,0.2); }
-    .tag-red { background: rgba(239,68,68,0.1); color: var(--red); border: 1px solid rgba(239,68,68,0.2); }
-    .tag-yellow { background: rgba(234,179,8,0.1); color: var(--yellow); border: 1px solid rgba(234,179,8,0.2); }
-
-    /* ── TOP POSTS ── */
-    .posts-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1rem;
-      margin-top: 2rem;
-    }
-    .post-card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 4px;
-      overflow: hidden;
-    }
-    .post-img {
-      width: 100%;
-      aspect-ratio: 1;
-      object-fit: cover;
-      display: block;
-    }
-    .post-body { padding: 1rem; }
-    .post-rank {
-      font-size: 0.6rem;
-      font-weight: 600;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 0.4rem;
-    }
-    .post-stat {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.6rem;
-      font-weight: 300;
-      color: var(--white);
-      line-height: 1;
-    }
-    .post-stat-label { font-size: 0.68rem; color: var(--muted); margin-top: 0.2rem; }
-    .post-caption {
-      font-size: 0.76rem;
-      color: var(--muted);
-      margin-top: 0.6rem;
-      line-height: 1.5;
-      display: -webkit-box;
-      -webkit-line-clamp: 2;
-      -webkit-box-orient: vertical;
-      overflow: hidden;
-    }
-
-    /* ── SENTIMENT ── */
-    .sentiment-bar {
-      display: flex;
-      height: 28px;
-      border-radius: 4px;
-      overflow: hidden;
-      margin: 1.5rem 0 0.5rem;
-    }
-    .sentiment-seg { display: flex; align-items: center; justify-content: center; font-size: 0.7rem; font-weight: 600; transition: flex 0.6s ease; }
-    .sentiment-positive { background: rgba(34,197,94,0.3); color: var(--green); }
-    .sentiment-neutral { background: rgba(234,179,8,0.2); color: var(--yellow); }
-    .sentiment-negative { background: rgba(239,68,68,0.25); color: var(--red); }
-
-    .sentiment-legend {
-      display: flex;
-      gap: 1.5rem;
-      flex-wrap: wrap;
-    }
-    .legend-item {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      font-size: 0.78rem;
-      color: var(--muted);
-    }
-    .legend-dot {
-      width: 8px; height: 8px;
-      border-radius: 50%;
-      flex-shrink: 0;
-    }
-
-    /* ── CHECKLIST ── */
-    .checklist { margin-top: 1.5rem; }
-    .check-item {
-      display: flex;
-      align-items: flex-start;
-      gap: 1rem;
-      padding: 0.9rem 0;
-      border-bottom: 1px solid var(--border);
-    }
-    .check-item:last-child { border-bottom: none; }
-    .check-icon {
-      flex-shrink: 0;
-      width: 22px; height: 22px;
-      border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 0.7rem;
-      font-weight: 700;
-      margin-top: 0.1rem;
-    }
-    .check-ok { background: rgba(34,197,94,0.15); color: var(--green); }
-    .check-warn { background: rgba(234,179,8,0.15); color: var(--yellow); }
-    .check-fail { background: rgba(239,68,68,0.12); color: var(--red); }
-    .check-text {}
-    .check-title {
-      font-size: 0.88rem;
-      font-weight: 500;
-      color: var(--white);
-      margin-bottom: 0.15rem;
-    }
-    .check-desc {
-      font-size: 0.78rem;
-      color: var(--muted);
-      line-height: 1.5;
-    }
+    /* ── RESULTS ── */
+    .results-sec { padding:6rem 2rem; background:var(--surface); }
+    .results-sec h2 { font-family:'Playfair Display', serif; font-size:clamp(1.9rem,4vw,2.8rem); font-weight:400; line-height:1.2; margin-bottom:.8rem; }
+    .results-sec p.sub { font-size:.88rem; color:var(--muted); max-width:520px; margin-bottom:2.5rem; line-height:1.7; }
+    .res-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:1.25rem; }
+    @media(max-width:680px){ .res-grid { grid-template-columns:1fr; } }
+    .res-card { background:var(--surface2); border:1px solid var(--border); overflow:hidden; transition:border-color .3s, transform .3s; }
+    .res-card:hover { border-color:rgba(201,169,110,.3); transform:translateY(-4px); }
+    .res-img { width:100%; aspect-ratio:4/3; object-fit:cover; display:block; }
+    .res-info { padding:1.1rem 1.25rem; }
+    .res-tag { font-size:.6rem; font-weight:700; letter-spacing:.2em; text-transform:uppercase; color:var(--gold); margin-bottom:.3rem; }
+    .res-title { font-family:'Playfair Display', serif; font-size:1rem; font-weight:400; margin-bottom:.3rem; }
+    .res-meta  { font-size:.72rem; color:var(--muted); }
+    .res-meta strong { color:var(--green); }
 
     /* ── RECOMMENDATIONS ── */
-    .rec-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1rem;
-      margin-top: 1.5rem;
+    .recs-sec { padding:6rem 2rem; }
+    .recs-sec h2 { font-family:'Playfair Display', serif; font-size:clamp(1.9rem,4vw,2.8rem); font-weight:400; line-height:1.2; margin-bottom:.8rem; }
+    .recs-sec p.sub { font-size:.88rem; color:var(--muted); max-width:440px; margin-bottom:3rem; }
+    .timeline { position:relative; display:flex; flex-direction:column; }
+    .timeline::before { content:''; position:absolute; left:1.75rem; top:2.5rem; bottom:2.5rem; width:1px; background:var(--border); }
+    @media(max-width:560px){ .timeline::before { left:1.25rem; } }
+    .t-item { display:flex; gap:2rem; padding:1.75rem 0; }
+    @media(max-width:560px){ .t-item { gap:1.25rem; } }
+    .t-num {
+      flex-shrink:0; width:3.5rem; height:3.5rem; border-radius:50%;
+      display:flex; align-items:center; justify-content:center;
+      font-family:'Playfair Display', serif; font-size:.95rem; font-weight:600;
+      position:relative; z-index:1;
     }
-    .rec-card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 4px;
-      padding: 1.4rem;
-      position: relative;
+    @media(max-width:560px){ .t-num { width:2.5rem; height:2.5rem; font-size:.8rem; } }
+    .t-body { flex:1; padding-top:.5rem; }
+    .t-impact {
+      display:inline-block; font-size:.58rem; font-weight:700; letter-spacing:.15em;
+      text-transform:uppercase; padding:.18rem .55rem; border-radius:2px; margin-bottom:.5rem;
     }
-    .rec-num {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 3rem;
-      font-weight: 300;
-      color: rgba(168,85,247,0.15);
-      line-height: 1;
-      position: absolute;
-      top: 0.8rem;
-      right: 1.2rem;
+    .t-body h3 { font-family:'Playfair Display', serif; font-size:1.15rem; font-weight:400; margin-bottom:.35rem; }
+    .t-body p  { font-size:.82rem; color:var(--muted); line-height:1.7; margin-bottom:.4rem; }
+    .t-gain    { font-size:.78rem; font-weight:600; }
+
+    /* ── PROJECTION ── */
+    .proj-sec { padding:6rem 2rem; background:var(--surface); }
+    .proj-sec h2 { font-family:'Playfair Display', serif; font-size:clamp(1.9rem,4vw,2.8rem); font-weight:400; line-height:1.2; margin-bottom:.8rem; }
+    .proj-sec p.sub { font-size:.88rem; color:var(--muted); max-width:440px; margin-bottom:3rem; }
+    .bar-group { display:flex; flex-direction:column; gap:1.75rem; }
+    .bar-row {}
+    .bar-head { display:flex; justify-content:space-between; margin-bottom:.5rem; }
+    .bar-label { font-size:.8rem; font-weight:500; }
+    .bar-val   { font-family:'Playfair Display', serif; font-size:.95rem; font-weight:600; }
+    .bar-track { height:8px; background:rgba(255,255,255,.05); border-radius:4px; overflow:hidden; }
+    .bar-fill  { height:100%; border-radius:4px; transform-origin:left; transform:scaleX(0); transition:transform 1.3s cubic-bezier(.4,0,.2,1); }
+    .bar-row.run .bar-fill { transform:scaleX(1); }
+    .proj-note {
+      margin-top:2rem; padding:1.4rem 1.75rem;
+      background:rgba(52,211,153,.04); border:1px solid rgba(52,211,153,.14);
     }
-    .rec-impact {
-      display: inline-block;
-      font-size: 0.58rem;
-      font-weight: 700;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      padding: 0.18rem 0.6rem;
-      border-radius: 100px;
-      margin-bottom: 0.8rem;
+    .proj-note p { font-size:.83rem; color:var(--muted); line-height:1.7; }
+    .proj-note strong { color:var(--text); }
+
+    /* ── CTA ── */
+    .cta-sec {
+      padding:6rem 2rem; text-align:center; position:relative; overflow:hidden;
     }
-    .impact-high { background: rgba(239,68,68,0.1); color: var(--red); border: 1px solid rgba(239,68,68,0.2); }
-    .impact-med { background: rgba(234,179,8,0.1); color: var(--yellow); border: 1px solid rgba(234,179,8,0.2); }
-    .impact-low { background: rgba(34,197,94,0.1); color: var(--green); border: 1px solid rgba(34,197,94,0.2); }
-    .rec-title {
-      font-size: 0.95rem;
-      font-weight: 600;
-      color: var(--white);
-      margin-bottom: 0.4rem;
+    .cta-sec::before {
+      content:''; position:absolute; inset:0;
+      background:radial-gradient(ellipse 80% 70% at 50% 110%, rgba(201,169,110,.07) 0%, transparent 60%);
+      pointer-events:none;
     }
-    .rec-desc {
-      font-size: 0.8rem;
-      color: var(--muted);
-      line-height: 1.6;
+    .cta-sec .eyebrow { font-size:.62rem; font-weight:700; letter-spacing:.26em; text-transform:uppercase; color:var(--gold); margin-bottom:1.25rem; }
+    .cta-sec h2 {
+      font-family:'Playfair Display', serif;
+      font-size:clamp(2.2rem, 6vw, 4rem); font-weight:400; line-height:1.15;
+      max-width:680px; margin:0 auto 1.25rem;
     }
-    .rec-gain {
-      margin-top: 0.8rem;
-      font-size: 0.72rem;
-      font-weight: 500;
-      color: #A855F7;
+    .cta-sec h2 em { font-style:italic; color:var(--gold); }
+    .cta-sec p { font-size:.9rem; color:var(--muted); max-width:460px; margin:0 auto 2.5rem; line-height:1.75; }
+    .cta-btn {
+      display:inline-flex; align-items:center; gap:.7rem;
+      background:#25D366; color:#fff;
+      font-weight:600; font-size:.92rem;
+      padding:1.05rem 2.25rem; border-radius:4px;
+      text-decoration:none; letter-spacing:.02em;
+      transition:transform .2s ease, box-shadow .2s ease;
     }
+    .cta-btn:hover { transform:translateY(-2px); box-shadow:0 12px 36px rgba(37,211,102,.3); }
 
     /* ── FOOTER ── */
-    .report-footer {
-      padding: 3rem 0;
-      text-align: center;
-    }
-    .report-footer-logo {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.4rem;
-      font-weight: 300;
-      color: rgba(255,255,255,0.3);
-      margin-bottom: 0.5rem;
-    }
-    .report-footer-sub {
-      font-size: 0.72rem;
-      color: rgba(255,255,255,0.2);
-      letter-spacing: 0.1em;
-    }
+    .site-footer { padding:2.5rem 2rem; border-top:1px solid var(--border); text-align:center; }
+    .f-logo { font-family:'Playfair Display', serif; font-size:1.4rem; font-weight:400; margin-bottom:.25rem; }
+    .f-sub  { font-size:.72rem; color:var(--muted2); }
+    .f-meta { font-size:.62rem; color:rgba(240,235,227,.14); margin-top:.8rem; }
 
-    /* ── DIVIDER ── */
-    .rule {
-      width: 36px; height: 1px;
-      background: #A855F7;
-      margin: 1rem 0 1.8rem;
-    }
-
-    /* ── 2-COL LAYOUT ── */
-    .two-col {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 3rem;
-      align-items: start;
-    }
-
-    /* ── RESPONSIVE ── */
-    @media (max-width: 768px) {
-      .two-col { grid-template-columns: 1fr; gap: 2rem; }
-      .posts-grid { grid-template-columns: 1fr; }
-      .pillar-header { flex-direction: column; }
-      .cards-grid { grid-template-columns: 1fr 1fr; }
-    }
-    @media (max-width: 480px) {
-      .cards-grid { grid-template-columns: 1fr; }
+    /* Responsive tweaks */
+    @media(max-width:480px){
+      .hero-score-row { gap:1rem; }
+      .hero-num { font-size:3.5rem; }
+      .hero-grade { width:52px; height:52px; font-size:1.5rem; }
     }
   </style>
 </head>
 <body>
 
-<!-- ═══════════════════════════════════════════════
-     CAPA
-════════════════════════════════════════════════ -->
-<div class="cover">
-  <div class="cover-badge">
-    <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-    Relatório de Saúde Digital · Digital AI
-  </div>
-
-  <img class="cover-profile" src="img/profile.jpg" alt="Dra. Meirielly Fedrigo" />
-
-  <h1 class="cover-name">Dra. Meirielly <em>Fedrigo</em></h1>
-  <p class="cover-sub">Cirurgiã Dentista · CRO-GO 11645 · Itumbiara-GO</p>
-
-  <p class="cover-score-label">Score de Saúde Digital</p>
-  <div class="score-wrap">
-    <svg class="score-svg" viewBox="0 0 180 180">
-      <circle class="score-bg" cx="90" cy="90" r="80"/>
-      <circle class="score-arc" cx="90" cy="90" r="80"/>
-    </svg>
-    <div class="score-inner">
-      <span class="score-grade">C</span>
-      <span class="score-num">42</span>
-      <span class="score-den">/ 100 pts</span>
+<!-- ════════════ HERO ════════════ -->
+<section class="hero">
+  <div class="hero-bg" id="heroBg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-label">
+      <div class="hero-label-dot"></div>
+      Diagnóstico · Digital Health Score v1.0
+    </div>
+    <h1 class="hero-name"><em>Dra.</em> Meirielly Fedrigo</h1>
+    <p class="hero-spec">Odontologia · Próteses &amp; Implantes · Itumbiara — GO</p>
+    <div class="hero-score-row">
+      <div class="hero-score-big">
+        <span class="hero-num" id="heroNum">0</span>
+        <span class="hero-denom">/100</span>
+      </div>
+      <div class="hero-grade">C</div>
+      <div class="hero-desc">
+        <h3>Presença Digital Regular</h3>
+        <p>Forte no Instagram. Invisível no Google.<br>Sem site. Oportunidade real de crescimento.</p>
+      </div>
     </div>
   </div>
-  <p class="cover-score-desc">Regular — Presença em Construção</p>
-
-  <div class="cover-pillars">
-    <div class="pillar-chip">
-      <span class="pillar-chip-label">Instagram</span>
-      <span class="pillar-chip-val" style="color:#22C55E;">34</span>
-      <span class="pillar-chip-max">/ 40 pts</span>
-    </div>
-    <div class="pillar-chip">
-      <span class="pillar-chip-label">Google</span>
-      <span class="pillar-chip-val" style="color:#EF4444;">8</span>
-      <span class="pillar-chip-max">/ 35 pts</span>
-    </div>
-    <div class="pillar-chip">
-      <span class="pillar-chip-label">Website</span>
-      <span class="pillar-chip-val" style="color:#EF4444;">0</span>
-      <span class="pillar-chip-max">/ 25 pts</span>
-    </div>
+  <div class="scroll-cue">
+    <span>Scroll</span>
+    <div class="scroll-arrow"></div>
   </div>
+</section>
 
-  <p class="cover-date">Diagnóstico realizado em 31 de maio de 2026 · @drameiriellyfedrigo · 4.267 seguidores</p>
-</div>
+<!-- ════════════ PILLARS ════════════ -->
+<section class="pillars-sec">
+  <div class="wrap">
+    <div class="pillars-head reveal">
+      <div class="sec-label">Diagnóstico por Pilar</div>
+      <h2>Três pilares.<br><em style="font-style:italic">Apenas um</em> em pé.</h2>
+      <p>Instagram, Google e Website — cada um com peso diferente no score total de presença digital.</p>
+    </div>
+    <div class="pillars-grid">
 
-<!-- ═══════════════════════════════════════════════
-     SUMÁRIO EXECUTIVO
-════════════════════════════════════════════════ -->
-<section>
-  <div class="container">
-    <p class="section-eyebrow">Sumário Executivo</p>
-    <h2 class="section-title">O que este diagnóstico <em>revela</em></h2>
-    <div class="rule"></div>
+      <div class="pillar reveal d1" style="--pc:#34D399">
+        <div class="pillar-icon">📱</div>
+        <p class="pillar-label">Instagram</p>
+        <div class="ring">
+          <svg viewBox="0 0 120 120"><circle class="ring-bg" cx="60" cy="60" r="54"/><circle class="ring-arc" cx="60" cy="60" r="54" data-s="34" data-m="40"/></svg>
+          <div class="ring-num"><span class="ring-val" style="color:#34D399" data-t="34">0</span><span class="ring-max">/ 40</span></div>
+        </div>
+        <div class="pillar-foot"><strong>Bom</strong><span>Engajamento acima da média</span></div>
+      </div>
 
-    <p class="summary-text">
-      A Dra. Meirielly construiu algo raro: uma comunidade Instagram que <strong>genuinamente a ama.</strong> Com <strong>4,78% de engajamento médio</strong> — mais do que o dobro do benchmark de 3% para contas do seu porte — seus seguidores não apenas assistem, eles participam ativamente. Curtidas, comentários, elogios espontâneos. Essa é a base de uma presença digital de alto valor.
-    </p>
+      <div class="pillar reveal d2" style="--pc:#F87171">
+        <div class="pillar-icon">🔍</div>
+        <p class="pillar-label">Google</p>
+        <div class="ring">
+          <svg viewBox="0 0 120 120"><circle class="ring-bg" cx="60" cy="60" r="54"/><circle class="ring-arc" cx="60" cy="60" r="54" data-s="8" data-m="35" style="stroke:#F87171"/></svg>
+          <div class="ring-num"><span class="ring-val" style="color:#F87171" data-t="8">0</span><span class="ring-max">/ 35</span></div>
+        </div>
+        <div class="pillar-foot"><strong>Crítico</strong><span>Invisível nas buscas locais</span></div>
+      </div>
 
-    <p class="summary-text" style="margin-top:1.2rem;">
-      Mas toda essa energia existe em <strong>uma bolha.</strong> Cem por cento de sua presença digital está concentrada em uma única plataforma. Quem já a conhece, a encontra facilmente. Quem ainda não a conhece — e busca por "dentista em Itumbiara" no Google — <strong>simplesmente não a encontra.</strong> Não há ficha no Google Meu Negócio, não há site, não há presença em diretórios médicos. A clínica existe, o talento existe, a fidelidade dos pacientes existe. Falta apenas ampliar o palco.
-    </p>
+      <div class="pillar reveal d3" style="--pc:#F87171">
+        <div class="pillar-icon">🌐</div>
+        <p class="pillar-label">Website</p>
+        <div class="ring">
+          <svg viewBox="0 0 120 120"><circle class="ring-bg" cx="60" cy="60" r="54"/><circle class="ring-arc" cx="60" cy="60" r="54" data-s="0" data-m="25" style="stroke:#F87171"/></svg>
+          <div class="ring-num"><span class="ring-val" style="color:#F87171" data-t="0">0</span><span class="ring-max">/ 25</span></div>
+        </div>
+        <div class="pillar-foot"><strong>Inexistente</strong><span>Site não foi encontrado</span></div>
+      </div>
 
-    <div class="highlight-box">
-      <p>
-        <strong>A grande oportunidade:</strong> Com um score de <strong>42/100</strong>, cada ponto de melhoria representa ganho real de novos pacientes. Cadastrar o Google Meu Negócio, por exemplo, colocaria a Dra. Meirielly no mapa literalmente — visível para qualquer pessoa em Itumbiara buscando um especialista em implantes ou lentes de contato. <strong>O potencial de crescimento aqui é enorme e as barreiras são baixas.</strong>
-      </p>
     </div>
   </div>
 </section>
 
-<!-- ═══════════════════════════════════════════════
-     PILAR 1 — INSTAGRAM
-════════════════════════════════════════════════ -->
-<section>
-  <div class="container">
-    <p class="section-eyebrow">Pilar 1 — Instagram</p>
-    <div class="pillar-header">
-      <div class="pillar-score-badge" style="border-color:rgba(34,197,94,0.3);">
-        <span class="pillar-score-num value-green">34</span>
-        <span class="pillar-score-max">/ 40 pts</span>
+<!-- ════════════ INSTAGRAM ════════════ -->
+<section class="insta-sec">
+  <div class="wrap">
+    <div class="insta-intro reveal">
+      <div class="sec-label">Pilar 1 · Instagram</div>
+      <h2>Seu ponto forte.<br>Conteúdo que <em style="font-family:'Playfair Display',serif;font-style:italic">conecta</em>.</h2>
+      <p>Com 4,78% de engajamento médio, a Dra. Meirielly está acima da média do setor. O problema não é qualidade — é frequência e ausência nos outros canais.</p>
+    </div>
+
+    <div class="stats-row reveal" id="statsRow">
+      <div class="stat">
+        <div class="stat-val" style="color:var(--green)" data-t="4.78" data-sfx="%">0%</div>
+        <div class="stat-name">Engajamento</div>
       </div>
-      <div class="pillar-info">
-        <h2 class="pillar-title" style="color:var(--green);">Bom — 85% do potencial</h2>
-        <p class="pillar-desc">Comunidade fiel, engajamento acima da média e sentimento extremamente positivo. O ponto crítico é a <strong style="color:var(--white);">frequência de publicação</strong> — praticamente inativa nos últimos 30 dias.</p>
+      <div class="stat">
+        <div class="stat-val" data-t="60">0</div>
+        <div class="stat-name">Posts analisados</div>
+      </div>
+      <div class="stat">
+        <div class="stat-val" style="color:var(--yellow)" data-t="1">0</div>
+        <div class="stat-name">Posts / 30 dias</div>
+      </div>
+      <div class="stat">
+        <div class="stat-val" style="color:var(--green)" data-t="94.7" data-sfx="%">0%</div>
+        <div class="stat-name">Comentários positivos</div>
       </div>
     </div>
 
-    <!-- Métricas principais -->
-    <div class="cards-grid">
-      <div class="metric-card">
-        <p class="metric-card-label">Engajamento Médio</p>
-        <p class="metric-card-value value-green">4,78%</p>
-        <p class="metric-card-sub">Benchmark: 3% · <span style="color:var(--green);">+59% acima da média</span></p>
-      </div>
-      <div class="metric-card">
-        <p class="metric-card-label">Seguidores</p>
-        <p class="metric-card-value value-blue">4.267</p>
-        <p class="metric-card-sub">Média: 191 curtidas · 13 comentários por post</p>
-      </div>
-      <div class="metric-card">
-        <p class="metric-card-label">Posts (30 dias)</p>
-        <p class="metric-card-value value-red">1</p>
-        <p class="metric-card-sub">Meta recomendada: 8–12 posts/mês</p>
-      </div>
-      <div class="metric-card">
-        <p class="metric-card-label">Sentimento</p>
-        <p class="metric-card-value value-green">94,7%</p>
-        <p class="metric-card-sub">Positivo · 0% comentários negativos</p>
-      </div>
+    <div class="gallery reveal">
+      <div class="gallery-item"><img src="img/top3.jpg" alt="" loading="lazy"><div class="gallery-over"><div class="gallery-stats"><span>♥ 479</span><span>💬 43</span></div></div></div>
+      <div class="gallery-item"><img src="img/result_laminados.jpg" alt="" loading="lazy"><div class="gallery-over"><div class="gallery-stats"><span>♥ 134</span><span>💬 18</span></div></div></div>
+      <div class="gallery-item"><img src="img/result_lentes.jpg" alt="" loading="lazy"><div class="gallery-over"><div class="gallery-stats"><span>♥ 154</span><span>💬 19</span></div></div></div>
+      <div class="gallery-item"><img src="img/gallery1.jpg" alt="" loading="lazy"><div class="gallery-over"><div class="gallery-stats"><span>♥ 262</span><span>💬 29</span></div></div></div>
+      <div class="gallery-item"><img src="img/gallery2.jpg" alt="" loading="lazy"><div class="gallery-over"><div class="gallery-stats"><span>♥ 14</span><span>💬 4</span></div></div></div>
+      <div class="gallery-item"><img src="img/gallery3.jpg" alt="" loading="lazy"><div class="gallery-over"><div class="gallery-stats"><span>♥ 97</span><span>💬 12</span></div></div></div>
     </div>
 
-    <!-- Score breakdown -->
-    <div style="margin-top:2.5rem; margin-bottom:2rem;">
-      <p style="font-size:0.72rem;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:var(--muted);margin-bottom:1.2rem;">Breakdown do Score Instagram</p>
-      <div class="progress-item">
-        <div class="progress-header"><span class="progress-label">Engajamento (4,78% → excelente)</span><span class="progress-value">10/10 pts</span></div>
-        <div class="progress-bar"><div class="progress-fill" style="width:100%;background:var(--green);"></div></div>
-      </div>
-      <div class="progress-item">
-        <div class="progress-header"><span class="progress-label">Frequência (1 post/30 dias → crítico)</span><span class="progress-value">4/10 pts</span></div>
-        <div class="progress-bar"><div class="progress-fill" style="width:40%;background:var(--red);"></div></div>
-      </div>
-      <div class="progress-item">
-        <div class="progress-header"><span class="progress-label">Sentimento (94,7% positivo → excelente)</span><span class="progress-value">10/10 pts</span></div>
-        <div class="progress-bar"><div class="progress-fill" style="width:100%;background:var(--green);"></div></div>
-      </div>
-      <div class="progress-item">
-        <div class="progress-header"><span class="progress-label">Comentários sem resposta (0% → excelente)</span><span class="progress-value">10/10 pts</span></div>
-        <div class="progress-bar"><div class="progress-fill" style="width:100%;background:var(--green);"></div></div>
-      </div>
-    </div>
-
-    <!-- Análise de sentimento -->
-    <p style="font-size:0.72rem;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:var(--muted);margin-bottom:0.8rem;">Análise de Sentimento · 75 comentários analisados</p>
-    <div class="sentiment-bar">
-      <div class="sentiment-seg sentiment-positive" style="flex:94.7">94,7%</div>
-      <div class="sentiment-seg sentiment-neutral" style="flex:5.3">5,3%</div>
-      <div class="sentiment-seg sentiment-negative" style="flex:0.1"></div>
-    </div>
-    <div class="sentiment-legend">
-      <div class="legend-item"><div class="legend-dot" style="background:var(--green)"></div>Positivo: 71 comentários</div>
-      <div class="legend-item"><div class="legend-dot" style="background:var(--yellow)"></div>Neutro: 4 comentários</div>
-      <div class="legend-item"><div class="legend-dot" style="background:var(--red)"></div>Negativo: 0 comentários</div>
-    </div>
-
-    <!-- Top 3 posts -->
-    <div style="margin-top:3rem;">
-      <p style="font-size:0.72rem;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:var(--muted);margin-bottom:0.4rem;">Top 3 Posts por Engajamento</p>
-      <p style="font-size:0.8rem;color:var(--muted);margin-bottom:1.5rem;">Conteúdos com melhor desempenho na análise de 60 posts</p>
-      <div class="posts-grid">
-        <div class="post-card">
-          <img class="post-img" src="img/top1.jpg" alt="Top post 1" loading="lazy" />
-          <div class="post-body">
-            <p class="post-rank">#1 Maior Engajamento</p>
-            <p class="post-stat">593 <span style="font-size:0.9rem">❤️</span></p>
-            <p class="post-stat-label">curtidas · 20 comentários</p>
-            <p class="post-caption">Resultado de planejamento + técnica + capricho — Clareamento + Laminados Cerâmicos</p>
-          </div>
-        </div>
-        <div class="post-card">
-          <img class="post-img" src="img/top2.jpg" alt="Top post 2" loading="lazy" />
-          <div class="post-body">
-            <p class="post-rank">#2 Maior Engajamento</p>
-            <p class="post-stat">591 <span style="font-size:0.9rem">❤️</span></p>
-            <p class="post-stat-label">curtidas · 24 comentários</p>
-            <p class="post-caption">Naturalidade 💎 — Lentes de Contato Dentais com preparos minimamente invasivos</p>
-          </div>
-        </div>
-        <div class="post-card">
-          <img class="post-img" src="img/top3.jpg" alt="Top post 3" loading="lazy" />
-          <div class="post-body">
-            <p class="post-rank">#3 Maior Engajamento</p>
-            <p class="post-stat">479 <span style="font-size:0.9rem">❤️</span></p>
-            <p class="post-stat-label">curtidas · 43 comentários</p>
-            <p class="post-caption">25/10 Dia do Dentista — sou extremamente feliz pela minha profissão ❤️</p>
-          </div>
+    <p class="top-posts-label reveal">Top 3 posts por engajamento</p>
+    <div class="top-grid">
+      <div class="top-card reveal d1" data-scale="1.00">
+        <div class="top-rank">#1</div>
+        <img src="img/top1.jpg" class="top-img" alt="">
+        <div class="top-info">
+          <div class="top-likes">593</div>
+          <div class="top-likes-lbl">curtidas</div>
+          <div class="top-bar"><div class="top-bar-fill" style="width:100%"></div></div>
         </div>
       </div>
-    </div>
-
-    <!-- Insight de formato -->
-    <div class="highlight-box" style="margin-top:2rem;border-left-color:#3B82F6;background:rgba(59,130,246,0.05);border-color:rgba(59,130,246,0.15);">
-      <p><strong style="color:#60A5FA;">Insight de formato:</strong> Dos 60 posts analisados, <strong style="color:var(--white);">80% são imagens estáticas</strong> — apenas 3,3% são vídeos (Reels). O algoritmo do Instagram em 2026 prioriza fortemente Reels na distribuição orgânica. A Dra. Meirielly tem potencial de alcançar 3–5× mais pessoas simplesmente migrando parte do conteúdo para o formato de vídeo curto.</p>
+      <div class="top-card reveal d2" data-scale="0.997">
+        <div class="top-rank">#2</div>
+        <img src="img/top2.jpg" class="top-img" alt="">
+        <div class="top-info">
+          <div class="top-likes">591</div>
+          <div class="top-likes-lbl">curtidas</div>
+          <div class="top-bar"><div class="top-bar-fill" style="width:99.7%"></div></div>
+        </div>
+      </div>
+      <div class="top-card reveal d3" data-scale="0.808">
+        <div class="top-rank">#3</div>
+        <img src="img/top3.jpg" class="top-img" alt="">
+        <div class="top-info">
+          <div class="top-likes">479</div>
+          <div class="top-likes-lbl">curtidas</div>
+          <div class="top-bar"><div class="top-bar-fill" style="width:80.8%"></div></div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- ═══════════════════════════════════════════════
-     PILAR 2 — GOOGLE
-════════════════════════════════════════════════ -->
-<section>
-  <div class="container">
-    <p class="section-eyebrow">Pilar 2 — Google</p>
-    <div class="pillar-header">
-      <div class="pillar-score-badge" style="border-color:rgba(239,68,68,0.3);">
-        <span class="pillar-score-num value-red">8</span>
-        <span class="pillar-score-max">/ 35 pts</span>
-      </div>
-      <div class="pillar-info">
-        <h2 class="pillar-title" style="color:var(--red);">Crítico — 23% do potencial</h2>
-        <p class="pillar-desc">Praticamente invisível para novos pacientes. A única presença indexada pelo Google é o perfil do Instagram. Sem Google Meu Negócio, sem presença em "dentista Itumbiara" — a principal porta de entrada de pacientes passivos está fechada.</p>
-      </div>
-    </div>
-
-    <div class="two-col">
+<!-- ════════════ GOOGLE ════════════ -->
+<section class="google-sec">
+  <div class="wrap">
+    <div class="google-grid">
       <div>
-        <p style="font-size:0.72rem;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:var(--muted);margin-bottom:1.2rem;">Resultados das Buscas</p>
-
-        <div class="check-item">
-          <div class="check-icon check-ok">✓</div>
-          <div class="check-text">
-            <p class="check-title">"Meirielly Fedrigo dentista" → 1ª posição</p>
-            <p class="check-desc">Quando buscada pelo nome, aparece imediatamente — via Instagram. Quem já a conhece a encontra sem dificuldade.</p>
+        <div class="sec-label reveal">Pilar 2 · Google</div>
+        <h2 class="reveal">8 de 35 pontos.<br><em style="font-family:'Playfair Display',serif;font-style:italic">Invisível</em> para novos pacientes.</h2>
+        <p class="sub reveal">Quem busca "dentista em Itumbiara" não encontra a Dra. Meirielly. Esse paciente vai para a concorrência — mesmo que ela seja tecnicamente superior.</p>
+        <div class="checklist reveal">
+          <div class="check-row">
+            <div class="check-ico ok">✓</div>
+            <div class="label"><strong>Aparece pelo nome no Google</strong><span>Resultado via Instagram na 1ª página</span></div>
           </div>
-        </div>
-
-        <div class="check-item">
-          <div class="check-icon check-fail">✗</div>
-          <div class="check-text">
-            <p class="check-title">"Dentista em Itumbiara" → Não aparece</p>
-            <p class="check-desc">Pesquisa com intenção de compra — quando um novo paciente busca um dentista na cidade, ela é invisível. Concorrentes com GMB ocupam o Maps Pack.</p>
+          <div class="check-row">
+            <div class="check-ico fail">✗</div>
+            <div class="label"><strong>Busca "dentista Itumbiara"</strong><span>Não aparece organicamente nem no Maps Pack</span></div>
           </div>
-        </div>
-
-        <div class="check-item">
-          <div class="check-icon check-fail">✗</div>
-          <div class="check-text">
-            <p class="check-title">Google Meu Negócio → Não cadastrado</p>
-            <p class="check-desc">Zero avaliações, sem endereço no Maps, sem horário de funcionamento. Ferramenta gratuita que poderia triplicar sua visibilidade local.</p>
+          <div class="check-row">
+            <div class="check-ico fail">✗</div>
+            <div class="label"><strong>Google Meu Negócio (GMB)</strong><span>Perfil não cadastrado — 10 pontos perdidos</span></div>
           </div>
-        </div>
-
-        <div class="check-item">
-          <div class="check-icon check-fail">✗</div>
-          <div class="check-text">
-            <p class="check-title">Doctoralia / BoaConsulta → Não cadastrada</p>
-            <p class="check-desc">Ausente nos principais diretórios de saúde. 18 dentistas em Itumbiara estão listados — ela não está.</p>
+          <div class="check-row">
+            <div class="check-ico fail">✗</div>
+            <div class="label"><strong>Avaliações Google</strong><span>Sem GMB, sem avaliações visíveis ao público</span></div>
           </div>
         </div>
       </div>
-
       <div>
-        <p style="font-size:0.72rem;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:var(--muted);margin-bottom:1.2rem;">Score Google · Breakdown</p>
-        <div class="progress-item">
-          <div class="progress-header"><span class="progress-label">Busca por nome (aparece via Instagram)</span><span class="progress-value">8/8 pts</span></div>
-          <div class="progress-bar"><div class="progress-fill" style="width:100%;background:var(--green);"></div></div>
+        <div class="g-score-box reveal d2">
+          <div class="g-score-num">8</div>
+          <div class="g-score-max">/35 pts</div>
+          <div class="g-score-lbl">Google Score · Nível Crítico</div>
         </div>
-        <div class="progress-item">
-          <div class="progress-header"><span class="progress-label">Busca cargo+cidade (não aparece)</span><span class="progress-value">0/12 pts</span></div>
-          <div class="progress-bar"><div class="progress-fill" style="width:0%;background:var(--red);"></div></div>
-        </div>
-        <div class="progress-item">
-          <div class="progress-header"><span class="progress-label">GMB cadastrado (inexistente)</span><span class="progress-value">0/5 pts</span></div>
-          <div class="progress-bar"><div class="progress-fill" style="width:0%;background:var(--red);"></div></div>
-        </div>
-        <div class="progress-item">
-          <div class="progress-header"><span class="progress-label">Nota GMB ≥ 4.5 (sem ficha)</span><span class="progress-value">0/5 pts</span></div>
-          <div class="progress-bar"><div class="progress-fill" style="width:0%;background:var(--red);"></div></div>
-        </div>
-        <div class="progress-item">
-          <div class="progress-header"><span class="progress-label">Respostas às avaliações (sem ficha)</span><span class="progress-value">0/5 pts</span></div>
-          <div class="progress-bar"><div class="progress-fill" style="width:0%;background:var(--red);"></div></div>
-        </div>
-
-        <div class="highlight-box" style="margin-top:1.5rem;border-left-color:var(--yellow);background:rgba(234,179,8,0.05);border-color:rgba(234,179,8,0.15);">
-          <p><strong style="color:var(--yellow);">Potencial imediato:</strong> Cadastrar o GMB hoje pode adicionar <strong style="color:var(--white);">+15 pontos</strong> ao score — levando de 42 para 57/100 (Grau C+) sem nenhum investimento financeiro.</p>
+        <div class="gap-box reveal d2">
+          <p>Com o <strong>Google Meu Negócio gratuito</strong>, o score Google saltaria para 23/35 — melhora de 188%. É a ação de maior ROI de todo o diagnóstico.</p>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ═══════════════════════════════════════════════
-     PILAR 3 — WEBSITE
-════════════════════════════════════════════════ -->
-<section>
-  <div class="container">
-    <p class="section-eyebrow">Pilar 3 — Website</p>
-    <div class="pillar-header">
-      <div class="pillar-score-badge" style="border-color:rgba(239,68,68,0.3);">
-        <span class="pillar-score-num value-red">0</span>
-        <span class="pillar-score-max">/ 25 pts</span>
-      </div>
-      <div class="pillar-info">
-        <h2 class="pillar-title" style="color:var(--red);">Ausente — oportunidade máxima</h2>
-        <p class="pillar-desc">A Dra. Meirielly não possui site próprio. O consultório existe somente enquanto o Instagram existir e enquanto o algoritmo permitir. Um site é o único ativo digital 100% sob seu controle — e funciona 24h por dia, inclusive para o Google.</p>
-      </div>
-    </div>
-
-    <div class="cards-grid" style="grid-template-columns: repeat(3,1fr);">
-      <div class="metric-card" style="text-align:center;">
-        <p class="metric-card-label">Site próprio</p>
-        <p class="metric-card-value" style="color:var(--red);font-size:2.5rem;">✗</p>
-        <p class="metric-card-sub">Não encontrado</p>
-      </div>
-      <div class="metric-card" style="text-align:center;">
-        <p class="metric-card-label">Ranking SEO</p>
-        <p class="metric-card-value" style="color:var(--red);font-size:2.5rem;">✗</p>
-        <p class="metric-card-sub">Não indexado</p>
-      </div>
-      <div class="metric-card" style="text-align:center;">
-        <p class="metric-card-label">Performance</p>
-        <p class="metric-card-value" style="color:var(--muted);font-size:2.5rem;">—</p>
-        <p class="metric-card-sub">N/A</p>
-      </div>
-    </div>
-
-    <div class="highlight-box" style="margin-top:2rem;border-left-color:var(--accent);background:rgba(168,85,247,0.05);border-color:rgba(168,85,247,0.15);">
-      <p><strong style="color:#C084FC;">Por que um site importa em 2026:</strong> O Instagram pode mudar o algoritmo, reduzir o alcance ou até ser descontinuado. Um site próprio é imune a isso. Além de SEO, permite: agendamento online 24h, página de tratamentos com conteúdo educativo, Google Analytics para entender o comportamento dos visitantes, e um ponto de contato profissional independente das redes sociais.</p>
-    </div>
-  </div>
-</section>
-
-<!-- ═══════════════════════════════════════════════
-     CHECKLIST DE DIAGNÓSTICO
-════════════════════════════════════════════════ -->
-<section>
-  <div class="container">
-    <p class="section-eyebrow">Diagnóstico Completo</p>
-    <h2 class="section-title">Checklist de <em>Saúde Digital</em></h2>
-    <div class="rule"></div>
-
-    <div class="checklist">
-      <!-- Instagram -->
-      <p style="font-size:0.7rem;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:var(--muted);padding:1rem 0 0.5rem;">Instagram</p>
-      <div class="check-item">
-        <div class="check-icon check-ok">✓</div>
-        <div class="check-text">
-          <p class="check-title">Engajamento médio acima de 3% <span class="tag tag-green" style="margin-left:0.5rem;font-size:0.65rem;">4,78%</span></p>
-          <p class="check-desc">Excelente. Mais do que o dobro do benchmark para contas de 4K seguidores.</p>
+<!-- ════════════ WEBSITE ════════════ -->
+<section class="web-sec">
+  <div class="wrap">
+    <div class="web-grid">
+      <div>
+        <div class="sec-label reveal">Pilar 3 · Website</div>
+        <h2 class="reveal">Site?<br><em style="font-family:'Playfair Display',serif;font-style:italic">Não existe.</em></h2>
+        <p class="sub reveal">Sem site, a Dra. Meirielly é invisível para 63% das buscas de saúde que começam no Google. O consultório fecha às 18h. Um site trabalha 24h por dia, 7 dias por semana.</p>
+        <div class="lost-row reveal">
+          <div class="lost-box"><div class="lost-val">0</div><div class="lost-lbl">pts Website</div></div>
+          <div class="lost-box"><div class="lost-val">24h</div><div class="lost-lbl">sem captação</div></div>
+          <div class="lost-box"><div class="lost-val">−25</div><div class="lost-lbl">impacto score</div></div>
         </div>
       </div>
-      <div class="check-item">
-        <div class="check-icon check-ok">✓</div>
-        <div class="check-text">
-          <p class="check-title">Sentimento dos comentários predominantemente positivo</p>
-          <p class="check-desc">94,7% positivo em 75 comentários analisados. Audiência extremamente fiel.</p>
-        </div>
-      </div>
-      <div class="check-item">
-        <div class="check-icon check-ok">✓</div>
-        <div class="check-text">
-          <p class="check-title">Sem reclamações públicas sem resposta</p>
-          <p class="check-desc">Nenhuma pergunta ou reclamação identificada nos posts mais comentados.</p>
-        </div>
-      </div>
-      <div class="check-item">
-        <div class="check-icon check-fail">✗</div>
-        <div class="check-text">
-          <p class="check-title">Frequência de publicação adequada <span class="tag tag-red" style="margin-left:0.5rem;font-size:0.65rem;">1 post/30 dias</span></p>
-          <p class="check-desc">Praticamente inativa no último mês. Meta: 8–12 posts + 3 Reels por mês.</p>
-        </div>
-      </div>
-      <div class="check-item">
-        <div class="check-icon check-fail">✗</div>
-        <div class="check-text">
-          <p class="check-title">Uso de Reels/vídeo curto <span class="tag tag-red" style="margin-left:0.5rem;font-size:0.65rem;">3,3% dos posts</span></p>
-          <p class="check-desc">O formato com maior alcance orgânico é quase inexistente no perfil.</p>
-        </div>
-      </div>
-      <div class="check-item">
-        <div class="check-icon check-warn">!</div>
-        <div class="check-text">
-          <p class="check-title">Bio com link de agendamento claro</p>
-          <p class="check-desc">A bio menciona WhatsApp mas não tem link clicável de wa.me. Barreira de conversão.</p>
-        </div>
-      </div>
-
-      <!-- Google -->
-      <p style="font-size:0.7rem;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:var(--muted);padding:1.5rem 0 0.5rem;">Google</p>
-      <div class="check-item">
-        <div class="check-icon check-ok">✓</div>
-        <div class="check-text">
-          <p class="check-title">Aparece ao buscar pelo nome</p>
-          <p class="check-desc">Instagram aparece na 1ª posição quando buscado o nome completo.</p>
-        </div>
-      </div>
-      <div class="check-item">
-        <div class="check-icon check-fail">✗</div>
-        <div class="check-text">
-          <p class="check-title">Visível em "dentista em Itumbiara"</p>
-          <p class="check-desc">Ausente nos resultados. Concorrentes com GMB dominam o Maps Pack de 3 posições.</p>
-        </div>
-      </div>
-      <div class="check-item">
-        <div class="check-icon check-fail">✗</div>
-        <div class="check-text">
-          <p class="check-title">Google Meu Negócio cadastrado</p>
-          <p class="check-desc">Ficha inexistente. Ferramenta gratuita com maior impacto em visibilidade local.</p>
-        </div>
-      </div>
-      <div class="check-item">
-        <div class="check-icon check-fail">✗</div>
-        <div class="check-text">
-          <p class="check-title">Presente em diretórios de saúde (Doctoralia, BoaConsulta)</p>
-          <p class="check-desc">Ausente em todos os diretórios verificados. 18 dentistas de Itumbiara estão listados.</p>
-        </div>
-      </div>
-
-      <!-- Website -->
-      <p style="font-size:0.7rem;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:var(--muted);padding:1.5rem 0 0.5rem;">Website</p>
-      <div class="check-item">
-        <div class="check-icon check-fail">✗</div>
-        <div class="check-text">
-          <p class="check-title">Possui site próprio</p>
-          <p class="check-desc">Nenhum site encontrado. Dependência 100% do Instagram para presença digital.</p>
-        </div>
-      </div>
-      <div class="check-item">
-        <div class="check-icon check-fail">✗</div>
-        <div class="check-text">
-          <p class="check-title">Agendamento online disponível</p>
-          <p class="check-desc">Sem sistema de agendamento fora do WhatsApp manual. Perda de conversões fora do horário comercial.</p>
+      <div class="reveal d2">
+        <div class="mockup">
+          <div class="mbar">
+            <div class="mdot" style="background:#FF5F57"></div>
+            <div class="mdot" style="background:#FFBD2E"></div>
+            <div class="mdot" style="background:#28CA41"></div>
+            <div class="murl">drameiriellyfedrigo.com</div>
+          </div>
+          <div class="mbody">
+            <div class="m404">404</div>
+            <div class="m404t">Página não encontrada.<br>Este domínio não existe.</div>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ═══════════════════════════════════════════════
-     RECOMENDAÇÕES
-════════════════════════════════════════════════ -->
-<section>
-  <div class="container">
-    <p class="section-eyebrow">Próximos Passos</p>
-    <h2 class="section-title">5 ações para <em>transformar</em> a Saúde Digital</h2>
-    <div class="rule"></div>
-    <p style="color:var(--muted);font-size:0.9rem;margin-bottom:1rem;">Ordenadas por impacto no score e facilidade de execução.</p>
-
-    <div class="rec-grid">
-      <div class="rec-card">
-        <span class="rec-num">01</span>
-        <span class="rec-impact impact-high">Impacto Alto · Gratuito</span>
-        <h3 class="rec-title">Cadastrar Google Meu Negócio</h3>
-        <p class="rec-desc">Criar e verificar a ficha no Google Maps com endereço, telefone, horários e fotos do consultório. Passará a aparecer para quem busca "dentista em Itumbiara".</p>
-        <p class="rec-gain">↑ +15 pts no score · Visível para novos pacientes em &lt;7 dias</p>
-      </div>
-      <div class="rec-card">
-        <span class="rec-num">02</span>
-        <span class="rec-impact impact-high">Impacto Alto · Rápido</span>
-        <h3 class="rec-title">Retomar consistência no Instagram</h3>
-        <p class="rec-desc">Voltar a publicar 3–4x por semana com mix de conteúdo clínico + pessoal. Incluir pelo menos 1 Reel por semana para recuperar alcance orgânico.</p>
-        <p class="rec-gain">↑ +6 pts no score · Dobra o alcance em 30 dias</p>
-      </div>
-      <div class="rec-card">
-        <span class="rec-num">03</span>
-        <span class="rec-impact impact-high">Impacto Alto · Médio prazo</span>
-        <h3 class="rec-title">Criar site profissional</h3>
-        <p class="rec-desc">Site com página de especialidades, galeria de resultados, depoimentos e botão de WhatsApp. Indexável no Google e funcionando 24h.</p>
-        <p class="rec-gain">↑ +25 pts no score · Alcance de busca orgânica</p>
-      </div>
-      <div class="rec-card">
-        <span class="rec-num">04</span>
-        <span class="rec-impact impact-med">Impacto Médio · Gratuito</span>
-        <h3 class="rec-title">Cadastrar em Doctoralia e BoaConsulta</h3>
-        <p class="rec-desc">Criar perfis nos principais diretórios de saúde. São gratuitos e aparecem nas primeiras posições do Google para buscas de especialidade.</p>
-        <p class="rec-gain">↑ Visibilidade extra em buscas de especialidade</p>
-      </div>
-      <div class="rec-card">
-        <span class="rec-num">05</span>
-        <span class="rec-impact impact-med">Impacto Médio · Rápido</span>
-        <h3 class="rec-title">Adicionar link wa.me clicável na bio</h3>
-        <p class="rec-desc">Substituir o número de texto na bio por um link wa.me direto. Reduz a fricção no caminho do seguidor ao agendamento — conversão imediata.</p>
-        <p class="rec-gain">↑ Aumento estimado de 20–30% nas conversões via Instagram</p>
-      </div>
-    </div>
-
-    <!-- Projeção de score -->
-    <div style="margin-top:3rem;padding:2rem;background:var(--card);border:1px solid var(--border);border-radius:4px;">
-      <p style="font-size:0.7rem;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:var(--muted);margin-bottom:1.2rem;">Projeção de Score após ações 1 + 2 + 3</p>
-      <div style="display:flex;align-items:center;gap:2rem;flex-wrap:wrap;">
-        <div style="text-align:center;">
-          <p style="font-family:'Cormorant Garamond',serif;font-size:3rem;font-weight:300;color:var(--yellow);">42</p>
-          <p style="font-size:0.7rem;color:var(--muted);">Score atual · Grau C</p>
+<!-- ════════════ RESULTS ════════════ -->
+<section class="results-sec">
+  <div class="wrap">
+    <div class="sec-label reveal">Resultados Clínicos</div>
+    <h2 class="reveal">O trabalho existe.<br>O mundo <em style="font-family:'Playfair Display',serif;font-style:italic">precisa ver.</em></h2>
+    <p class="sub reveal">Os resultados clínicos da Dra. Meirielly são excepcionais — laminados cerâmicos, lentes de contato dental e reabilitações completas com alto índice de aprovação dos pacientes.</p>
+    <div class="res-grid">
+      <div class="res-card reveal d1">
+        <img src="img/result_laminados.jpg" class="res-img" alt="Laminados Cerâmicos">
+        <div class="res-info">
+          <div class="res-tag">Caso Clínico</div>
+          <h3 class="res-title">Laminados Cerâmicos + Plástica Gengival</h3>
+          <p class="res-meta"><strong>134 curtidas</strong> · 18 comentários · Nov 2021</p>
         </div>
-        <div style="font-size:2rem;color:var(--muted);">→</div>
-        <div style="text-align:center;">
-          <p style="font-family:'Cormorant Garamond',serif;font-size:3rem;font-weight:300;color:var(--green);">83</p>
-          <p style="font-size:0.7rem;color:var(--muted);">Score projetado · Grau B</p>
+      </div>
+      <div class="res-card reveal d2">
+        <img src="img/result_lentes.jpg" class="res-img" alt="Lentes de Contato Dental">
+        <div class="res-info">
+          <div class="res-tag">Caso Clínico</div>
+          <h3 class="res-title">Lentes de Contato Dental</h3>
+          <p class="res-meta"><strong>154 curtidas</strong> · 19 comentários · Fev 2022</p>
         </div>
-        <div style="flex:1;min-width:200px;">
-          <p style="font-size:0.85rem;color:rgba(255,255,255,0.6);line-height:1.6;">Com GMB cadastrado (+15), frequência de posts normalizada (+6) e site criado (+20 pts de impacto imediato), o score saltaria para 83/100 — de <strong style="color:var(--white);">Regular para Bom</strong>, com visibilidade real para novos pacientes.</p>
+      </div>
+      <div class="res-card reveal d3">
+        <img src="img/gallery2.jpg" class="res-img" alt="Reabilitação com Implantes">
+        <div class="res-info">
+          <div class="res-tag">Caso Clínico</div>
+          <h3 class="res-title">Reabilitação com Implantes</h3>
+          <p class="res-meta"><strong>14 curtidas</strong> · 4 comentários · Abr 2026</p>
+        </div>
+      </div>
+      <div class="res-card reveal d4">
+        <img src="img/gallery1.jpg" class="res-img" alt="Aniversário">
+        <div class="res-info">
+          <div class="res-tag">Melhor Post Recente</div>
+          <h3 class="res-title">Momento pessoal — maior engajamento recente</h3>
+          <p class="res-meta"><strong>262 curtidas</strong> · 29 comentários · Mai 2026</p>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ═══════════════════════════════════════════════
-     CTA DIGITAL AI
-════════════════════════════════════════════════ -->
-<section style="padding:5rem 2rem;background:var(--card);border-top:1px solid var(--border);text-align:center;">
-  <div class="container" style="max-width:640px;">
-    <p style="font-size:0.7rem;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:var(--muted);margin-bottom:1.2rem;">Próximo Passo</p>
-    <h2 style="font-family:'Cormorant Garamond',serif;font-size:2.4rem;font-weight:300;margin-bottom:1rem;line-height:1.2;">Quer transformar esse diagnóstico em resultados reais?</h2>
-    <p style="color:rgba(255,255,255,0.55);font-size:0.95rem;line-height:1.7;margin-bottom:2rem;">A Digital AI implementa cada uma dessas ações — GMB, site, automação de presença digital — com tecnologia de IA e entrega mensurada. Sem enrolação, com resultado.</p>
-    <a href="https://wa.me/5564981311842?text=Ol%C3%A1%2C%20vi%20o%20Relat%C3%B3rio%20de%20Sa%C3%BAde%20Digital%20e%20quero%20saber%20mais%20sobre%20as%20solu%C3%A7%C3%B5es%20da%20Digital%20AI."
-       target="_blank"
-       style="display:inline-flex;align-items:center;gap:0.6rem;background:#25D366;color:#fff;font-weight:600;font-size:0.95rem;padding:1rem 2rem;border-radius:4px;text-decoration:none;letter-spacing:0.02em;">
+<!-- ════════════ RECOMMENDATIONS ════════════ -->
+<section class="recs-sec">
+  <div class="wrap">
+    <div class="sec-label reveal">Plano de Ação</div>
+    <h2 class="reveal">5 ações.<br>Por ordem de <em style="font-family:'Playfair Display',serif;font-style:italic">impacto</em>.</h2>
+    <p class="sub reveal">Ranqueadas por retorno imediato × esforço de implementação.</p>
+    <div class="timeline">
+
+      <div class="t-item reveal">
+        <div class="t-num" style="background:rgba(52,211,153,.1);border:1.5px solid #34D399;color:#34D399">01</div>
+        <div class="t-body">
+          <span class="t-impact" style="background:rgba(52,211,153,.1);color:#34D399">Crítico · Gratuito · 30 min</span>
+          <h3>Criar Google Meu Negócio</h3>
+          <p>Cadastrar o consultório coloca a Dra. Meirielly no Maps Pack para buscas de "dentista Itumbiara". Gratuito, implementável hoje.</p>
+          <p class="t-gain" style="color:#34D399">↑ +15 pts no score · Visibilidade local imediata</p>
+        </div>
+      </div>
+
+      <div class="t-item reveal d1">
+        <div class="t-num" style="background:rgba(251,191,36,.1);border:1.5px solid #FBBF24;color:#FBBF24">02</div>
+        <div class="t-body">
+          <span class="t-impact" style="background:rgba(251,191,36,.1);color:#FBBF24">Alto impacto · Gratuito</span>
+          <h3>Frequência de posts: 3× por semana</h3>
+          <p>A queda para 1 post/30 dias é o maior gap de Instagram. Com conteúdo sistemático — casos clínicos, bastidores e dicas — o algoritmo amplifica o alcance organicamente.</p>
+          <p class="t-gain" style="color:#FBBF24">↑ +6 pts no score · Alcance orgânico crescente</p>
+        </div>
+      </div>
+
+      <div class="t-item reveal d2">
+        <div class="t-num" style="background:rgba(201,169,110,.1);border:1.5px solid var(--gold);color:var(--gold)">03</div>
+        <div class="t-body">
+          <span class="t-impact" style="background:rgba(201,169,110,.1);color:var(--gold)">Alto impacto · Investimento moderado</span>
+          <h3>Site profissional com captação de pacientes</h3>
+          <p>Página com especialidades, galeria de resultados, depoimentos e WhatsApp. Indexável no Google, disponível 24h por dia.</p>
+          <p class="t-gain" style="color:var(--gold)">↑ +20 pts no score · Captação passiva de pacientes</p>
+        </div>
+      </div>
+
+      <div class="t-item reveal d3">
+        <div class="t-num" style="background:rgba(255,255,255,.04);border:1.5px solid rgba(255,255,255,.15);color:var(--muted)">04</div>
+        <div class="t-body">
+          <span class="t-impact" style="background:rgba(255,255,255,.05);color:var(--muted)">Médio impacto · Gratuito</span>
+          <h3>Cadastrar em Doctoralia e BoaConsulta</h3>
+          <p>Perfis nos principais diretórios de saúde — gratuitos e que aparecem nas primeiras posições do Google para buscas de especialidade.</p>
+          <p class="t-gain" style="color:var(--muted)">↑ Visibilidade extra em buscas de especialidade</p>
+        </div>
+      </div>
+
+      <div class="t-item reveal d4">
+        <div class="t-num" style="background:rgba(255,255,255,.04);border:1.5px solid rgba(255,255,255,.15);color:var(--muted)">05</div>
+        <div class="t-body">
+          <span class="t-impact" style="background:rgba(255,255,255,.05);color:var(--muted)">Médio impacto · Rápido</span>
+          <h3>Link wa.me clicável na bio do Instagram</h3>
+          <p>Substituir o número de texto por link direto reduz a fricção no caminho do seguidor ao agendamento — conversão imediata.</p>
+          <p class="t-gain" style="color:var(--muted)">↑ +20–30% nas conversões via Instagram</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ════════════ PROJECTION ════════════ -->
+<section class="proj-sec">
+  <div class="wrap">
+    <div class="sec-label reveal">Score Projetado</div>
+    <h2 class="reveal">De Regular para<br><em style="font-family:'Playfair Display',serif;font-style:italic;color:var(--green)">Bom.</em></h2>
+    <p class="sub reveal">Com as 3 ações de maior impacto implementadas, o score saltaria de 42 para 83 pontos.</p>
+    <div class="bar-group">
+      <div class="bar-row reveal">
+        <div class="bar-head">
+          <span class="bar-label">Score atual</span>
+          <span class="bar-val" style="color:var(--yellow)">42 / 100 — Grau C</span>
+        </div>
+        <div class="bar-track"><div class="bar-fill" style="width:42%;background:var(--yellow)"></div></div>
+      </div>
+      <div class="bar-row reveal d2">
+        <div class="bar-head">
+          <span class="bar-label">Score projetado</span>
+          <span class="bar-val" style="color:var(--green)">83 / 100 — Grau B</span>
+        </div>
+        <div class="bar-track"><div class="bar-fill" style="width:83%;background:var(--green)"></div></div>
+      </div>
+    </div>
+    <div class="proj-note reveal">
+      <p><strong>GMB cadastrado (+15)</strong> · <strong>Frequência normalizada (+6)</strong> · <strong>Site criado (+20 pts de impacto imediato)</strong><br>
+      Total: 42 + 41 = <span style="color:var(--green);font-weight:600">83 pontos</span> · De Regular para Bom, com visibilidade real para novos pacientes.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════ CTA ════════════ -->
+<section class="cta-sec">
+  <div class="wrap">
+    <p class="eyebrow reveal">Próximo passo</p>
+    <h2 class="reveal">Transformar esse diagnóstico<br>em <em>resultados reais</em>.</h2>
+    <p class="reveal">A Digital AI implementa cada ação — GMB, site, automação de presença digital — com tecnologia de IA e entrega mensurada. Sem enrolação, com resultado.</p>
+    <a href="https://wa.me/5564981311842?text=Ol%C3%A1%2C%20vi%20o%20Diagn%C3%B3stico%20de%20Sa%C3%BAde%20Digital%20e%20quero%20saber%20mais%20sobre%20as%20solu%C3%A7%C3%B5es%20da%20Digital%20AI."
+       target="_blank" class="cta-btn reveal">
       <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
       Falar com a Digital AI
     </a>
-    <p style="margin-top:1rem;font-size:0.75rem;color:rgba(255,255,255,0.2);">digital-ai.tech · Itumbiara-GO</p>
   </div>
 </section>
 
-<!-- ═══════════════════════════════════════════════
-     FOOTER
-════════════════════════════════════════════════ -->
-<div class="report-footer">
-  <div class="container">
-    <p class="report-footer-logo">Digital AI</p>
-    <p class="report-footer-sub">AI-as-a-Service · Automação Inteligente · Itumbiara-GO</p>
-    <p style="font-size:0.7rem;color:rgba(255,255,255,0.15);margin-top:1rem;">
-      Diagnóstico realizado em 31/05/2026 · Metodologia Digital Health Score v1.0 · digital-ai.tech
-    </p>
+<!-- ════════════ FOOTER ════════════ -->
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="f-logo">Digital AI</p>
+    <p class="f-sub">AI-as-a-Service · Automação Inteligente · Itumbiara-GO</p>
+    <p class="f-meta">Diagnóstico realizado em 31/05/2026 · Digital Health Score v1.0 · digital-ai.tech</p>
   </div>
-</div>
+</footer>
+
+<script>
+// ── Animate counter
+function animCount(el, target, sfx, dur) {
+  const isF = String(target).includes('.');
+  const start = performance.now();
+  function tick(now) {
+    const p = Math.min((now - start) / dur, 1);
+    const e = 1 - Math.pow(1 - p, 3);
+    const v = target * e;
+    el.textContent = isF ? v.toFixed(2) + (sfx||'') : Math.round(v) + (sfx||'');
+    if (p < 1) requestAnimationFrame(tick);
+  }
+  requestAnimationFrame(tick);
+}
+
+// ── Animate pillar ring
+function animPillar(card) {
+  const arc = card.querySelector('.ring-arc');
+  const num = card.querySelector('.ring-val');
+  if (!arc || !num) return;
+  const s = +arc.dataset.s, m = +arc.dataset.m;
+  const offset = 339 - (s / m * 339);
+  setTimeout(() => {
+    arc.style.strokeDashoffset = offset;
+    animCount(num, s, '', 1500);
+  }, 200);
+}
+
+// ── Intersection Observer setup
+const io = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (!e.isIntersecting) return;
+    const el = e.target;
+    el.classList.add('visible');
+    io.unobserve(el);
+
+    // Pillar-specific
+    if (el.classList.contains('pillar')) animPillar(el);
+
+    // Bar rows
+    if (el.classList.contains('bar-row')) el.classList.add('run');
+
+    // Top cards
+    if (el.classList.contains('top-card')) el.classList.add('run');
+  });
+}, { threshold: 0.18 });
+
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+// ── Stats row counter
+const statsIo = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (!e.isIntersecting) return;
+    statsIo.unobserve(e.target);
+    e.target.querySelectorAll('.stat-val[data-t]').forEach(v => {
+      animCount(v, parseFloat(v.dataset.t), v.dataset.sfx || '', 1400);
+    });
+  });
+}, { threshold: 0.3 });
+const sr = document.getElementById('statsRow');
+if (sr) statsIo.observe(sr);
+
+// ── Hero counter on load
+window.addEventListener('load', () => {
+  setTimeout(() => animCount(document.getElementById('heroNum'), 42, '', 1800), 700);
+});
+
+// ── Parallax hero
+const hBg = document.getElementById('heroBg');
+const heroH = document.querySelector('.hero').offsetHeight;
+window.addEventListener('scroll', () => {
+  const y = window.scrollY;
+  if (y < heroH) hBg.style.transform = 'scale(1.1) translateY(' + (y * 0.25) + 'px)';
+}, { passive: true });
+</script>
 
 </body>
 </html>
