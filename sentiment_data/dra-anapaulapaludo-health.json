@@ -2,22 +2,28 @@
   "slug": "dra-anapaulapaludo-health",
   "instagram_handle": "dra.anapaulapaludo",
   "profile_url": "https://www.instagram.com/dra.anapaulapaludo/",
-  "posts_analyzed": 3,
-  "total_comments": 26,
+  "posts_analyzed": 4,
+  "total_comments": 40,
   "collected_at": "2026-06-01",
   "sentiment": {
-    "positivo": 24,
-    "neutro": 2,
+    "positivo": 35,
+    "neutro": 5,
     "misto": 0,
     "negativo": 0
   },
   "categories": {
-    "elogio": 24,
+    "elogio": 38,
     "duvida": 2,
     "sugestao": 0,
     "reclamacao": 0
   },
   "sample_comments": [
+    {
+      "text": "Essa sim confio de olhos fechados, excelente profissional 👏🏻👏🏻❤️🌹",
+      "sentiment": "positivo",
+      "category": "elogio",
+      "post_url": "https://www.instagram.com/p/DQCb6N3gX5G/"
+    },
     {
       "text": "Ficou maravilhosa 😍😍😍 que sorriso perfeito!!!!",
       "sentiment": "positivo",
@@ -35,6 +41,12 @@
       "sentiment": "positivo",
       "category": "elogio",
       "post_url": "https://www.instagram.com/p/DYnXMyMER3a/"
+    },
+    {
+      "text": "👏🏻👏🏻👏🏻👏🏻👏🏻👏🏻 você é a melhor!!!",
+      "sentiment": "positivo",
+      "category": "elogio",
+      "post_url": "https://www.instagram.com/p/DQCb6N3gX5G/"
     }
   ],
   "google_reviews": null
