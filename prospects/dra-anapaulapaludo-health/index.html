@@ -162,7 +162,7 @@
       .hero{display:flex;flex-direction:column;height:auto;min-height:auto;overflow:visible;}
       .hero-bg{position:relative!important;inset:auto!important;width:100%;height:62vw;min-height:220px;max-height:380px;transform:none!important;flex-shrink:0;}
       .hero-overlay{display:none!important;}
-      .hero-content{position:relative!important;background:var(--bg);padding:2rem 1.25rem 3rem;animation:fadeUp .8s ease .1s both;}
+      .hero-content{position:relative!important;background:var(--surface);padding:2rem 1.25rem 3rem;animation:fadeUp .8s ease .1s both;}
       .hero-name  { font-size:clamp(2rem, 8vw, 3rem); }
       .hero-score-row { flex-direction:column; gap:.75rem; align-items:flex-start; }
       .hero-desc  { display:none; }
@@ -826,9 +826,7 @@ document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 window.addEventListener('load', () => {
   setTimeout(() => animCount(document.getElementById('heroNum'), 27, '', 1800), 700);
 });
-if (window.innerWidth > 768) {
-/* parallax disabled — desktop usa split layout */, { passive: true });
-}
+/* parallax disabled — desktop usa split layout */
 </script>
 </body>
 </html>
