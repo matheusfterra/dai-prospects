@@ -2,18 +2,18 @@
   "slug": "newlifeclinicas-health",
   "instagram_handle": "newlife_clinicasiub",
   "profile_url": "https://www.instagram.com/newlife_clinicasiub/",
-  "posts_analyzed": 1,
-  "total_comments": 15,
+  "posts_analyzed": 20,
+  "total_comments": 66,
   "collected_at": "2026-06-01",
   "sentiment": {
-    "positivo": 12,
-    "neutro": 1,
-    "misto": 2,
+    "positivo": 56,
+    "neutro": 7,
+    "misto": 3,
     "negativo": 0
   },
   "categories": {
-    "elogio": 11,
-    "duvida": 2,
+    "elogio": 61,
+    "duvida": 3,
     "sugestao": 2,
     "reclamacao": 0
   },
@@ -25,10 +25,22 @@
       "post_url": "https://www.instagram.com/p/DT_HXw2gUvY/"
     },
     {
-      "text": "Se minha professora ver isso tô lascada😢 gente e super difícil esse exercício 😢",
-      "sentiment": "misto",
-      "category": "sugestao",
-      "post_url": "https://www.instagram.com/p/DT_HXw2gUvY/"
+      "text": "Nossa que lindo 😍👏 vocês são maravilhosas 💞",
+      "sentiment": "positivo",
+      "category": "elogio",
+      "post_url": "https://www.instagram.com/p/DW7RJu2Bo1K/"
+    },
+    {
+      "text": "Ela é zero defeitos ❤️",
+      "sentiment": "positivo",
+      "category": "elogio",
+      "post_url": "https://www.instagram.com/p/DX7hEr0BXi7/"
+    },
+    {
+      "text": "Magnífico!",
+      "sentiment": "positivo",
+      "category": "elogio",
+      "post_url": "https://www.instagram.com/p/DWoa3n5jmVx/"
     },
     {
       "text": "Vocês atendem convênio? Qual o valor da mensalidade de pilates?",
@@ -37,6 +49,5 @@
       "post_url": "https://www.instagram.com/p/DT_HXw2gUvY/"
     }
   ],
-  "google_reviews": null,
-  "note": "Coleta realizada do post de maior engajamento do perfil (425 comentários totais). Amostra reduzida — análise dos 15 comentários mais relevantes coletados via MCP."
+  "google_reviews": null
 }
