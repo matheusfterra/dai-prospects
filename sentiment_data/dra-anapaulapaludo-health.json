@@ -2,39 +2,39 @@
   "slug": "dra-anapaulapaludo-health",
   "instagram_handle": "dra.anapaulapaludo",
   "profile_url": "https://www.instagram.com/dra.anapaulapaludo/",
-  "posts_analyzed": 12,
-  "total_comments": 71,
+  "posts_analyzed": 3,
+  "total_comments": 26,
   "collected_at": "2026-06-01",
   "sentiment": {
-    "positivo": 46,
-    "neutro": 14,
-    "misto": 8,
-    "negativo": 3
+    "positivo": 24,
+    "neutro": 2,
+    "misto": 0,
+    "negativo": 0
   },
   "categories": {
-    "elogio": 34,
-    "duvida": 22,
-    "sugestao": 9,
-    "reclamacao": 6
+    "elogio": 24,
+    "duvida": 2,
+    "sugestao": 0,
+    "reclamacao": 0
   },
   "sample_comments": [
     {
-      "text": "Que post incrível! A Dra. Ana Paula explica tudo de um jeito tão didático. Aprendo muito com seu conteúdo! ❤️",
+      "text": "Ficou maravilhosa 😍😍😍 que sorriso perfeito!!!!",
       "sentiment": "positivo",
       "category": "elogio",
-      "post_url": "https://www.instagram.com/p/DQCb6N3gX5G/"
+      "post_url": "https://www.instagram.com/p/DXwzDhkHLWa/"
     },
     {
-      "text": "Dra., você atende pelo plano de saúde? E qual o valor da consulta particular?",
-      "sentiment": "neutro",
-      "category": "duvida",
-      "post_url": "https://www.instagram.com/p/DTdHfKhlX9M/"
-    },
-    {
-      "text": "Melhor médica que já tive! Trata a gente com tanto cuidado e atenção. Indico de olhos fechados 🌟",
+      "text": "Que mudança … parabéns ❤️",
       "sentiment": "positivo",
       "category": "elogio",
-      "post_url": "https://www.instagram.com/p/DT_V3LLkck3/"
+      "post_url": "https://www.instagram.com/p/DXwzDhkHLWa/"
+    },
+    {
+      "text": "Ficou lindo!!! 👏🏼👏🏼👏🏼👏🏼",
+      "sentiment": "positivo",
+      "category": "elogio",
+      "post_url": "https://www.instagram.com/p/DYnXMyMER3a/"
     }
   ],
   "google_reviews": null

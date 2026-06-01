@@ -2,39 +2,39 @@
   "slug": "dra-luanamariano-health",
   "instagram_handle": "draluanamariano",
   "profile_url": "https://www.instagram.com/draluanamariano/",
-  "posts_analyzed": 12,
-  "total_comments": 161,
+  "posts_analyzed": 3,
+  "total_comments": 44,
   "collected_at": "2026-06-01",
   "sentiment": {
-    "positivo": 102,
-    "neutro": 34,
-    "misto": 17,
-    "negativo": 8
+    "positivo": 41,
+    "neutro": 2,
+    "misto": 1,
+    "negativo": 0
   },
   "categories": {
-    "elogio": 76,
-    "duvida": 48,
-    "sugestao": 22,
-    "reclamacao": 15
+    "elogio": 40,
+    "duvida": 2,
+    "sugestao": 2,
+    "reclamacao": 0
   },
   "sample_comments": [
     {
-      "text": "Dra. Luana é incrível! Voltei a ter qualidade de vida depois do tratamento com ela. Profissional excepcional e humana demais 💙",
-      "sentiment": "positivo",
-      "category": "elogio",
-      "post_url": "https://www.instagram.com/p/DPKXeV2icpC/"
-    },
-    {
-      "text": "Dra., esse tratamento funciona para casos mais graves? Tenho 3 anos sem melhora e quero tentar uma nova abordagem.",
-      "sentiment": "neutro",
-      "category": "duvida",
-      "post_url": "https://www.instagram.com/p/DNEjw_ERy-A/"
-    },
-    {
-      "text": "Faço 1 ano de acompanhamento com a Dra. Luana e os resultados são impressionantes. Recomendo demais! ⭐⭐⭐⭐⭐",
+      "text": "Excelente profissional, adorei o seu trabalho. Sempre vou recomendar a Dra Luana",
       "sentiment": "positivo",
       "category": "elogio",
       "post_url": "https://www.instagram.com/p/DPBy0ikDVBD/"
+    },
+    {
+      "text": "Ahh que orgulho de você!! Que você possa seguir firme no seu propósito de levar saúde e dignidade para as pessoas através do sorriso! 😁",
+      "sentiment": "positivo",
+      "category": "elogio",
+      "post_url": "https://www.instagram.com/p/DNEjw_ERy-A/"
+    },
+    {
+      "text": "Gostei, faz mais vídeos explicativos 👏👏👏",
+      "sentiment": "positivo",
+      "category": "sugestao",
+      "post_url": "https://www.instagram.com/p/DNEjw_ERy-A/"
     }
   ],
   "google_reviews": null

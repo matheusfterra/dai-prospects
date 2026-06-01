@@ -2,38 +2,38 @@
   "slug": "dra-danielaserafini-health",
   "instagram_handle": "dra_danielacostaserafini",
   "profile_url": "https://www.instagram.com/dra_danielacostaserafini/",
-  "posts_analyzed": 12,
-  "total_comments": 204,
+  "posts_analyzed": 4,
+  "total_comments": 59,
   "collected_at": "2026-06-01",
   "sentiment": {
-    "positivo": 130,
-    "neutro": 42,
-    "misto": 21,
-    "negativo": 11
+    "positivo": 56,
+    "neutro": 2,
+    "misto": 1,
+    "negativo": 0
   },
   "categories": {
-    "elogio": 92,
-    "duvida": 65,
-    "sugestao": 28,
-    "reclamacao": 19
+    "elogio": 57,
+    "duvida": 1,
+    "sugestao": 1,
+    "reclamacao": 0
   },
   "sample_comments": [
     {
-      "text": "A Dra. Daniela salvou minha vida! Fui ignorada por vários médicos e ela foi a primeira a ouvir meus sintomas com atenção. Gratidão eterna! 🙌",
+      "text": "Linda demais e excelente profissional !!!",
       "sentiment": "positivo",
       "category": "elogio",
       "post_url": "https://www.instagram.com/p/DKUuwzvON9G/"
     },
     {
-      "text": "Gostaria de saber se ela faz segunda opinião para casos de endometriose. Como agendar?",
-      "sentiment": "neutro",
-      "category": "duvida",
+      "text": "Arrasou 👏👏👏 a dra mais linda 👏👏",
+      "sentiment": "positivo",
+      "category": "elogio",
       "post_url": "https://www.instagram.com/p/DMNMO3pOvxU/"
     },
     {
-      "text": "Esperei 3 horas na consulta, foi bem além do horário. A consulta foi ótima mas a organização da agenda precisa melhorar.",
-      "sentiment": "misto",
-      "category": "reclamacao",
+      "text": "Sempre cuidando de cada detalhe❣️😍",
+      "sentiment": "positivo",
+      "category": "elogio",
       "post_url": "https://www.instagram.com/p/DYnV73vCRZ0/"
     }
   ],
