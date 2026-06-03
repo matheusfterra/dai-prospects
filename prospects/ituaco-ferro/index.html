@@ -1,0 +1,1484 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ituaço Ferro — Automatize seu Atendimento com IA | Digital AI</title>
+  <meta name="description" content="A Digital AI transforma a Ituaço Ferro numa distribuidora que responde orçamentos em segundos, 24 horas por dia, sem contratar mais vendedores." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    /* ===== RESET & BASE ===== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #0E1117;
+      color: #E8EAED;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    a { text-decoration: none; color: inherit; }
+    img { max-width: 100%; display: block; }
+
+    /* ===== VARIABLES ===== */
+    :root {
+      --bg: #0E1117;
+      --bg-card: #1A1F2E;
+      --bg-card-alt: #141824;
+      --amber: #F5A623;
+      --amber-dark: #D4891A;
+      --amber-glow: rgba(245, 166, 35, 0.15);
+      --steel: #B8C5D6;
+      --text: #E8EAED;
+      --text-muted: #A0AEC0;
+      --green: #48BB78;
+      --border: rgba(245, 166, 35, 0.2);
+      --border-subtle: rgba(184, 197, 214, 0.1);
+    }
+
+    /* ===== TYPOGRAPHY ===== */
+    h1, h2, h3, h4 { font-family: 'Montserrat', sans-serif; }
+
+    /* ===== LAYOUT HELPERS ===== */
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+    .section { padding: 96px 0; }
+    .section-sm { padding: 64px 0; }
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--amber-glow);
+      border: 1px solid var(--border);
+      color: var(--amber);
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      padding: 6px 14px;
+      border-radius: 100px;
+      margin-bottom: 20px;
+    }
+    .highlight { color: var(--amber); }
+    .highlight-steel { color: var(--steel); }
+
+    /* ===== BUTTONS ===== */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 28px;
+      border-radius: 8px;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 15px;
+      cursor: pointer;
+      border: none;
+      transition: all 0.25s ease;
+      letter-spacing: 0.3px;
+    }
+    .btn-primary {
+      background: var(--amber);
+      color: #0E1117;
+    }
+    .btn-primary:hover {
+      background: var(--amber-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 32px rgba(245, 166, 35, 0.35);
+    }
+    .btn-ghost {
+      background: transparent;
+      color: var(--text);
+      border: 1px solid var(--border-subtle);
+    }
+    .btn-ghost:hover {
+      border-color: var(--amber);
+      color: var(--amber);
+    }
+    .btn-whatsapp {
+      background: #25D366;
+      color: #fff;
+    }
+    .btn-whatsapp:hover {
+      background: #1DAA54;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 32px rgba(37, 211, 102, 0.35);
+    }
+    .btn-lg {
+      padding: 18px 36px;
+      font-size: 17px;
+    }
+
+    /* ===== NAV ===== */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      background: rgba(14, 17, 23, 0.92);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border-subtle);
+      transition: all 0.3s ease;
+    }
+    nav.scrolled {
+      background: rgba(14, 17, 23, 0.98);
+      border-bottom-color: var(--border);
+    }
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 68px;
+    }
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .nav-logo-icon {
+      width: 36px;
+      height: 36px;
+      background: var(--amber);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .nav-logo-text {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 800;
+      font-size: 18px;
+      color: var(--text);
+    }
+    .nav-logo-text span { color: var(--amber); }
+    .nav-badge {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      margin-left: 4px;
+    }
+
+    /* ===== HERO ===== */
+    .hero {
+      padding: 160px 0 100px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -200px;
+      right: -200px;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(245,166,35,0.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--amber), transparent);
+      opacity: 0.4;
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+    }
+    .hero-eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 24px;
+    }
+    .hero-eyebrow-dot {
+      width: 8px;
+      height: 8px;
+      background: var(--green);
+      border-radius: 50%;
+      animation: pulse-dot 2s ease-in-out infinite;
+    }
+    @keyframes pulse-dot {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(72,187,120,0.4); }
+      50% { box-shadow: 0 0 0 8px rgba(72,187,120,0); }
+    }
+    .hero-eyebrow-text {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--steel);
+      letter-spacing: 0.5px;
+    }
+    .hero h1 {
+      font-size: clamp(36px, 4.5vw, 54px);
+      font-weight: 900;
+      line-height: 1.1;
+      margin-bottom: 24px;
+      letter-spacing: -1px;
+    }
+    .hero-sub {
+      font-size: 18px;
+      color: var(--text-muted);
+      line-height: 1.7;
+      margin-bottom: 40px;
+      max-width: 480px;
+    }
+    .hero-ctas {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-bottom: 56px;
+    }
+    .hero-stats {
+      display: flex;
+      gap: 32px;
+      padding-top: 32px;
+      border-top: 1px solid var(--border-subtle);
+    }
+    .hero-stat-num {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 28px;
+      font-weight: 800;
+      color: var(--amber);
+      line-height: 1;
+    }
+    .hero-stat-label {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-top: 4px;
+      font-weight: 500;
+    }
+
+    /* Hero Visual */
+    .hero-visual {
+      position: relative;
+    }
+    .hero-phone-mock {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 20px;
+      position: relative;
+      box-shadow: 0 32px 80px rgba(0,0,0,0.5), 0 0 0 1px rgba(245,166,35,0.1);
+    }
+    .hero-phone-mock::before {
+      content: '';
+      position: absolute;
+      top: -1px;
+      left: 20%;
+      right: 20%;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--amber), transparent);
+      border-radius: 0 0 4px 4px;
+    }
+    .chat-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--border-subtle);
+      margin-bottom: 16px;
+    }
+    .chat-avatar {
+      width: 44px;
+      height: 44px;
+      background: linear-gradient(135deg, var(--amber), var(--amber-dark));
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      flex-shrink: 0;
+    }
+    .chat-name { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 14px; }
+    .chat-status { font-size: 12px; color: var(--green); display: flex; align-items: center; gap: 5px; }
+    .chat-status::before { content: ''; width: 6px; height: 6px; background: var(--green); border-radius: 50%; }
+    .chat-msgs { display: flex; flex-direction: column; gap: 12px; }
+    .msg {
+      max-width: 85%;
+      padding: 10px 14px;
+      border-radius: 12px;
+      font-size: 13px;
+      line-height: 1.5;
+    }
+    .msg-in {
+      background: rgba(245, 166, 35, 0.12);
+      border: 1px solid rgba(245, 166, 35, 0.2);
+      border-bottom-left-radius: 4px;
+      align-self: flex-start;
+    }
+    .msg-out {
+      background: #2D3748;
+      border: 1px solid var(--border-subtle);
+      border-bottom-right-radius: 4px;
+      align-self: flex-end;
+    }
+    .msg-time { font-size: 11px; color: var(--text-muted); margin-top: 4px; }
+    .msg-typing {
+      background: rgba(245, 166, 35, 0.12);
+      border: 1px solid rgba(245, 166, 35, 0.2);
+      border-radius: 12px;
+      border-bottom-left-radius: 4px;
+      padding: 10px 14px;
+      align-self: flex-start;
+      display: flex;
+      gap: 4px;
+      align-items: center;
+    }
+    .typing-dot {
+      width: 6px;
+      height: 6px;
+      background: var(--amber);
+      border-radius: 50%;
+      animation: typing 1.2s ease-in-out infinite;
+    }
+    .typing-dot:nth-child(2) { animation-delay: 0.2s; }
+    .typing-dot:nth-child(3) { animation-delay: 0.4s; }
+    @keyframes typing {
+      0%, 60%, 100% { transform: translateY(0); opacity: 0.5; }
+      30% { transform: translateY(-6px); opacity: 1; }
+    }
+    .chat-response-badge {
+      position: absolute;
+      bottom: -16px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--green);
+      color: #fff;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 12px;
+      padding: 6px 16px;
+      border-radius: 100px;
+      white-space: nowrap;
+      box-shadow: 0 4px 16px rgba(72,187,120,0.4);
+    }
+
+    /* ===== SECTION HEADERS ===== */
+    .section-header { text-align: center; max-width: 640px; margin: 0 auto 64px; }
+    .section-header h2 {
+      font-size: clamp(28px, 3.5vw, 42px);
+      font-weight: 800;
+      line-height: 1.15;
+      letter-spacing: -0.5px;
+      margin-bottom: 16px;
+    }
+    .section-header p {
+      font-size: 17px;
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
+
+    /* ===== DOR SECTION ===== */
+    .dor-section {
+      background: linear-gradient(180deg, #0E1117 0%, #111520 50%, #0E1117 100%);
+    }
+    .dor-cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .dor-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: 16px;
+      padding: 32px 28px;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+    .dor-card:hover {
+      border-color: rgba(245,166,35,0.3);
+      transform: translateY(-4px);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+    }
+    .dor-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, #e53e3e, #fc8181);
+    }
+    .dor-icon {
+      width: 52px;
+      height: 52px;
+      background: rgba(229, 62, 62, 0.1);
+      border: 1px solid rgba(229, 62, 62, 0.2);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+    .dor-card h3 {
+      font-size: 17px;
+      font-weight: 700;
+      margin-bottom: 12px;
+      line-height: 1.3;
+    }
+    .dor-card p { font-size: 14px; color: var(--text-muted); line-height: 1.6; }
+    .dor-loss {
+      display: inline-block;
+      background: rgba(229, 62, 62, 0.1);
+      border: 1px solid rgba(229, 62, 62, 0.2);
+      color: #fc8181;
+      font-size: 12px;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 6px;
+      margin-top: 16px;
+      letter-spacing: 0.3px;
+    }
+
+    /* Pain banner below cards */
+    .dor-banner {
+      margin-top: 48px;
+      background: linear-gradient(135deg, rgba(229,62,62,0.08), rgba(245,166,35,0.05));
+      border: 1px solid rgba(229, 62, 62, 0.2);
+      border-radius: 16px;
+      padding: 32px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+    .dor-banner-left { flex: 1; }
+    .dor-banner-left p {
+      font-size: 18px;
+      font-weight: 600;
+      line-height: 1.5;
+      color: var(--text);
+    }
+    .dor-banner-left p span { color: #fc8181; }
+    .dor-banner-stat {
+      text-align: center;
+      flex-shrink: 0;
+    }
+    .dor-banner-stat .num {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 52px;
+      font-weight: 900;
+      color: #fc8181;
+      line-height: 1;
+    }
+    .dor-banner-stat .label { font-size: 13px; color: var(--text-muted); margin-top: 6px; }
+
+    /* ===== COMPETITOR SECTION ===== */
+    .competitor-section {
+      background: #0a0c11;
+      border-top: 1px solid var(--border-subtle);
+      border-bottom: 1px solid var(--border-subtle);
+    }
+    .competitor-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+    }
+    .competitor-text h2 {
+      font-size: clamp(28px, 3vw, 38px);
+      font-weight: 800;
+      line-height: 1.15;
+      letter-spacing: -0.5px;
+      margin-bottom: 20px;
+    }
+    .competitor-text p {
+      color: var(--text-muted);
+      line-height: 1.7;
+      font-size: 16px;
+      margin-bottom: 16px;
+    }
+    .competitor-checks { display: flex; flex-direction: column; gap: 12px; margin-top: 28px; }
+    .competitor-check {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 15px;
+    }
+    .check-icon {
+      width: 24px;
+      height: 24px;
+      background: rgba(229,62,62,0.12);
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .compare-cards {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .compare-card {
+      background: var(--bg-card);
+      border-radius: 14px;
+      padding: 22px 24px;
+      border: 1px solid var(--border-subtle);
+    }
+    .compare-card.them {
+      border-color: rgba(229,62,62,0.2);
+      opacity: 0.85;
+    }
+    .compare-card.us {
+      border-color: rgba(245,166,35,0.35);
+      background: rgba(245,166,35,0.04);
+    }
+    .compare-card-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 14px;
+    }
+    .compare-card-title {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+    }
+    .compare-badge {
+      font-size: 11px;
+      font-weight: 700;
+      padding: 3px 10px;
+      border-radius: 100px;
+      letter-spacing: 0.5px;
+    }
+    .compare-badge.red { background: rgba(229,62,62,0.15); color: #fc8181; }
+    .compare-badge.amber { background: rgba(245,166,35,0.15); color: var(--amber); }
+    .compare-list { display: flex; flex-direction: column; gap: 8px; }
+    .compare-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    /* ===== SOLUTION SECTION ===== */
+    .solution-cards {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+    .sol-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: 16px;
+      padding: 36px 32px;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+    .sol-card:hover {
+      border-color: var(--amber);
+      transform: translateY(-4px);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.3), 0 0 0 1px rgba(245,166,35,0.1);
+    }
+    .sol-card::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--amber), var(--amber-dark));
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    .sol-card:hover::after { opacity: 1; }
+    .sol-icon {
+      width: 56px;
+      height: 56px;
+      background: var(--amber-glow);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 24px;
+    }
+    .sol-card h3 {
+      font-size: 19px;
+      font-weight: 700;
+      margin-bottom: 12px;
+      line-height: 1.3;
+    }
+    .sol-card p { font-size: 14px; color: var(--text-muted); line-height: 1.6; }
+    .sol-card-benefit {
+      margin-top: 20px;
+      padding: 12px 16px;
+      background: rgba(72,187,120,0.06);
+      border: 1px solid rgba(72,187,120,0.15);
+      border-radius: 8px;
+      font-size: 13px;
+      color: var(--green);
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    /* ===== HOW IT WORKS ===== */
+    .how-section {
+      background: linear-gradient(180deg, #0E1117 0%, #111520 50%, #0E1117 100%);
+    }
+    .timeline {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0;
+      position: relative;
+    }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      top: 40px;
+      left: calc(16.67% + 28px);
+      right: calc(16.67% + 28px);
+      height: 2px;
+      background: linear-gradient(90deg, var(--amber), var(--amber-dark));
+    }
+    .timeline-step {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 0 24px;
+    }
+    .timeline-num {
+      width: 80px;
+      height: 80px;
+      background: var(--amber);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 28px;
+      font-weight: 900;
+      color: #0E1117;
+      margin-bottom: 28px;
+      position: relative;
+      z-index: 1;
+      box-shadow: 0 0 0 8px rgba(245,166,35,0.1), 0 0 0 16px rgba(245,166,35,0.05);
+    }
+    .timeline-step h3 {
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 12px;
+      color: var(--text);
+    }
+    .timeline-step p { font-size: 14px; color: var(--text-muted); line-height: 1.6; }
+    .timeline-duration {
+      margin-top: 16px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--amber-glow);
+      border: 1px solid var(--border);
+      color: var(--amber);
+      font-size: 12px;
+      font-weight: 600;
+      padding: 5px 12px;
+      border-radius: 100px;
+    }
+
+    /* ===== RESULTS ===== */
+    .results-cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .result-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: 16px;
+      padding: 40px 32px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+    .result-card:hover {
+      border-color: var(--amber);
+      transform: translateY(-4px);
+    }
+    .result-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60%;
+      height: 3px;
+      background: linear-gradient(90deg, transparent, var(--amber), transparent);
+    }
+    .result-num {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 60px;
+      font-weight: 900;
+      color: var(--amber);
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+    .result-num-suffix {
+      font-size: 28px;
+      vertical-align: super;
+    }
+    .result-card h3 {
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+    .result-card p { font-size: 14px; color: var(--text-muted); line-height: 1.5; }
+
+    /* ===== CTA FINAL ===== */
+    .cta-section {
+      background: linear-gradient(135deg, #111520 0%, #0E1117 50%, #111520 100%);
+      border-top: 1px solid var(--border-subtle);
+      position: relative;
+      overflow: hidden;
+    }
+    .cta-section::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 800px;
+      height: 400px;
+      background: radial-gradient(ellipse, rgba(245,166,35,0.06) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .cta-inner {
+      max-width: 680px;
+      margin: 0 auto;
+      text-align: center;
+      position: relative;
+    }
+    .cta-inner h2 {
+      font-size: clamp(30px, 4vw, 48px);
+      font-weight: 900;
+      line-height: 1.1;
+      letter-spacing: -0.5px;
+      margin-bottom: 20px;
+    }
+    .cta-inner p {
+      font-size: 17px;
+      color: var(--text-muted);
+      line-height: 1.7;
+      margin-bottom: 40px;
+    }
+    .cta-buttons {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+    }
+    .cta-disclaimer { font-size: 13px; color: var(--text-muted); }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: #080A0F;
+      border-top: 1px solid var(--border-subtle);
+      padding: 48px 0 32px;
+    }
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+    .footer-copy { font-size: 13px; color: var(--text-muted); }
+    .footer-copy span { color: var(--amber); }
+    .footer-tagline {
+      font-size: 13px;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .footer-tagline::before {
+      content: '';
+      display: block;
+      width: 20px;
+      height: 1px;
+      background: var(--amber);
+    }
+
+    /* ===== FLOATING WA BUTTON ===== */
+    .wa-float {
+      position: fixed;
+      bottom: 32px;
+      right: 32px;
+      z-index: 999;
+      width: 60px;
+      height: 60px;
+      background: #25D366;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 8px 32px rgba(37,211,102,0.45);
+      cursor: pointer;
+      transition: all 0.25s ease;
+      animation: wa-bounce 3s ease-in-out infinite;
+    }
+    .wa-float:hover {
+      transform: scale(1.1);
+      box-shadow: 0 12px 40px rgba(37,211,102,0.6);
+    }
+    @keyframes wa-bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-6px); }
+    }
+    .wa-float:hover { animation: none; }
+    .wa-tooltip {
+      position: absolute;
+      right: 72px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      color: var(--text);
+      font-size: 13px;
+      font-weight: 600;
+      padding: 8px 14px;
+      border-radius: 8px;
+      white-space: nowrap;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.25s;
+    }
+    .wa-float:hover .wa-tooltip { opacity: 1; }
+
+    /* ===== DIVIDER ===== */
+    .amber-divider {
+      width: 60px;
+      height: 4px;
+      background: linear-gradient(90deg, var(--amber), var(--amber-dark));
+      border-radius: 2px;
+      margin: 16px auto 0;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 900px) {
+      .hero-grid { grid-template-columns: 1fr; gap: 48px; }
+      .hero-visual { order: -1; }
+      .dor-cards { grid-template-columns: 1fr; }
+      .competitor-inner { grid-template-columns: 1fr; gap: 40px; }
+      .solution-cards { grid-template-columns: 1fr; }
+      .timeline { grid-template-columns: 1fr; gap: 40px; }
+      .timeline::before { display: none; }
+      .timeline-step { flex-direction: row; text-align: left; gap: 24px; }
+      .timeline-num { flex-shrink: 0; width: 60px; height: 60px; font-size: 22px; margin-bottom: 0; }
+      .results-cards { grid-template-columns: 1fr; }
+      .footer-inner { flex-direction: column; text-align: center; }
+      .dor-banner { flex-direction: column; text-align: center; }
+      .hero-stats { flex-wrap: wrap; gap: 24px; }
+    }
+    @media (max-width: 600px) {
+      .section { padding: 64px 0; }
+      .hero { padding: 120px 0 72px; }
+      .hero-ctas { flex-direction: column; }
+      .btn-lg { width: 100%; justify-content: center; }
+      .cta-buttons .btn { width: 100%; justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ===================== FLOATING WA BUTTON ===================== -->
+<a href="https://wa.me/5564981337424?text=Olá! Vi a página da Ituaço Ferro e quero entender como a Digital AI pode automatizar o atendimento da minha distribuidora." target="_blank" class="wa-float" aria-label="Falar no WhatsApp">
+  <span class="wa-tooltip">Falar agora</span>
+  <svg width="30" height="30" viewBox="0 0 30 30" fill="none">
+    <path d="M15 2.5C8.1 2.5 2.5 8.1 2.5 15c0 2.2.6 4.3 1.6 6.1L2.5 27.5l6.6-1.6c1.7.9 3.7 1.4 5.9 1.4 6.9 0 12.5-5.6 12.5-12.5S21.9 2.5 15 2.5z" fill="white"/>
+    <path d="M20.8 17.7c-.3-.15-1.8-.9-2.1-1-.3-.1-.5-.15-.7.15-.2.3-.8 1-.98 1.2-.18.2-.35.22-.65.07-.3-.15-1.27-.47-2.42-1.5-.9-.8-1.5-1.78-1.67-2.08-.18-.3-.02-.46.13-.6.14-.14.3-.35.45-.52.15-.18.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.7-1.68-.96-2.3-.25-.6-.5-.52-.7-.53h-.6c-.2 0-.52.07-.8.37-.27.3-1.05 1.02-1.05 2.5s1.07 2.9 1.22 3.1c.15.2 2.1 3.2 5.1 4.5.72.3 1.28.5 1.72.63.72.23 1.38.2 1.9.12.58-.09 1.8-.73 2.05-1.44.25-.7.25-1.3.18-1.43-.08-.13-.27-.2-.57-.35z" fill="#0E1117"/>
+  </svg>
+</a>
+
+<!-- ===================== NAV ===================== -->
+<nav id="main-nav">
+  <div class="container">
+    <div class="nav-inner">
+      <div class="nav-logo">
+        <div class="nav-logo-icon">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+            <path d="M10 2L18 6.5V13.5L10 18L2 13.5V6.5L10 2Z" fill="#0E1117"/>
+            <path d="M10 6L14 8.25V12.75L10 15L6 12.75V8.25L10 6Z" fill="#F5A623"/>
+          </svg>
+        </div>
+        <div>
+          <div class="nav-logo-text">Digital <span>AI</span></div>
+        </div>
+      </div>
+      <a href="https://wa.me/5564981337424?text=Olá! Vi a página da Ituaço Ferro e quero entender como a Digital AI pode automatizar o atendimento da minha distribuidora." target="_blank" class="btn btn-primary" style="padding: 10px 22px; font-size: 14px;">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Falar com especialista
+      </a>
+    </div>
+  </div>
+</nav>
+
+<!-- ===================== HERO ===================== -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-grid">
+      <!-- LEFT -->
+      <div>
+        <div class="hero-eyebrow">
+          <div class="hero-eyebrow-dot"></div>
+          <span class="hero-eyebrow-text">Diagnóstico gratuito para distribuidoras de aço</span>
+        </div>
+        <h1>
+          A <span class="highlight">Ituaço</span> perde pedidos<br/>
+          todo dia — e não sabe<br/>
+          <span class="highlight">quantos</span>.
+        </h1>
+        <p class="hero-sub">
+          Construtoras precisam de vergalhão às 7h da manhã. Seu vendedor ainda não chegou.
+          O cliente liga para o concorrente. Isso acontece todo dia — e tem solução.
+        </p>
+        <div class="hero-ctas">
+          <a href="https://wa.me/5564981337424?text=Olá! Vi a página da Ituaço Ferro e quero entender como a Digital AI pode automatizar o atendimento da minha distribuidora." target="_blank" class="btn btn-primary btn-lg">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            Quero resolver isso
+          </a>
+          <a href="#solucao" class="btn btn-ghost btn-lg">
+            Ver como funciona
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+        <div class="hero-stats">
+          <div>
+            <div class="hero-stat-num">28</div>
+            <div class="hero-stat-label">anos no mercado</div>
+          </div>
+          <div>
+            <div class="hero-stat-num">2</div>
+            <div class="hero-stat-label">unidades — GO</div>
+          </div>
+          <div>
+            <div class="hero-stat-num" style="color: var(--steel);">0</div>
+            <div class="hero-stat-label">atendimento digital</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT: Chat Mock -->
+      <div class="hero-visual">
+        <div class="hero-phone-mock">
+          <div class="chat-header">
+            <div class="chat-avatar">⚙️</div>
+            <div>
+              <div class="chat-name">Assistente Ituaço · IA</div>
+              <div class="chat-status">Online agora</div>
+            </div>
+          </div>
+          <div class="chat-msgs">
+            <div class="msg msg-out">
+              Boa noite, preciso de 150 barras de vergalhão CA-60 12mm pra segunda-feira. Qual o preço?
+              <div class="msg-time">22:47</div>
+            </div>
+            <div class="msg-typing">
+              <div class="typing-dot"></div>
+              <div class="typing-dot"></div>
+              <div class="typing-dot"></div>
+            </div>
+            <div class="msg msg-in">
+              Olá! 💪 Temos CA-60 12mm em estoque.<br/><br/>
+              <strong>150 barras (12m):</strong><br/>
+              Preço: R$ 87,50/barra<br/>
+              Total: <strong>R$ 13.125,00</strong><br/>
+              Prazo entrega: até 08h segunda<br/><br/>
+              Confirmo o pedido?
+              <div class="msg-time">22:47 · Resposta em 8 segundos</div>
+            </div>
+            <div class="msg msg-out">
+              Sim, pode confirmar!
+              <div class="msg-time">22:48</div>
+            </div>
+            <div class="msg msg-in">
+              ✅ Pedido #2847 confirmado!<br/>
+              Você receberá atualizações da entrega aqui.
+              <div class="msg-time">22:48</div>
+            </div>
+          </div>
+          <div class="chat-response-badge">
+            Pedido fechado às 22h48 · sem vendedor
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== DOR ===================== -->
+<section class="section dor-section">
+  <div class="container">
+    <div class="section-header">
+      <div class="tag">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        O problema real
+      </div>
+      <h2>Você está perdendo pedidos<br/>que <span class="highlight">nem sabe que existem</span></h2>
+      <div class="amber-divider"></div>
+      <p style="margin-top: 20px;">28 anos de reputação no mercado de Itumbiara — mas clientes novos não te encontram, e clientes antigos não conseguem fechar fora do horário comercial.</p>
+    </div>
+    <div class="dor-cards">
+      <div class="dor-card">
+        <div class="dor-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fc8181" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        </div>
+        <h3>Pedidos chegam às 22h — seu vendedor responde amanhã</h3>
+        <p>Construtoras trabalham cedo e pedem materiais à noite. Quando seu vendedor abre o WhatsApp de manhã, o cliente já comprou na concorrência.</p>
+        <span class="dor-loss">PERDA DIÁRIA INVISÍVEL</span>
+      </div>
+      <div class="dor-card">
+        <div class="dor-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fc8181" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+        </div>
+        <h3>Orçamento manual: 2 horas de espera, cliente sumiu</h3>
+        <p>Consultar estoque, calcular preço, formatar resposta — seu vendedor leva horas. Em 2024, cliente de construção espera no máximo 5 minutos antes de buscar outra opção.</p>
+        <span class="dor-loss">CONVERSÃO PERDIDA</span>
+      </div>
+      <div class="dor-card">
+        <div class="dor-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fc8181" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        </div>
+        <h3>Um vendedor respondendo WhatsApp, telefone e Instagram ao mesmo tempo</h3>
+        <p>Multitarefa humana gera atraso, erros e estresse. O mesmo vendedor que deveria fechar pedidos fica preso respondendo "qual o horário de vocês?"</p>
+        <span class="dor-loss">PRODUTIVIDADE DESTRUÍDA</span>
+      </div>
+    </div>
+
+    <div class="dor-banner">
+      <div class="dor-banner-left">
+        <p>Uma distribuidora com <span>2 unidades</span> e <span>28 anos de história</span> não pode perder vendas por falta de tecnologia que hoje custa <span>menos que um funcionário</span>.</p>
+      </div>
+      <div class="dor-banner-stat">
+        <div class="num" id="loss-counter">73</div>
+        <div class="label">% dos compradores B2B<br/>querem resposta imediata</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== COMPETITOR ===================== -->
+<section class="section competitor-section">
+  <div class="container">
+    <div class="competitor-inner">
+      <div class="competitor-text">
+        <div class="tag" style="border-color: rgba(229,62,62,0.3); color: #fc8181; background: rgba(229,62,62,0.08);">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+          O mercado está mudando
+        </div>
+        <h2>Enquanto você lê isso,<br/><span style="color: #fc8181;">seu concorrente</span><br/>já está digital.</h2>
+        <p>
+          Distribuidoras de ferro e aço da região já têm site, WhatsApp integrado,
+          catálogo digital e aparecem no Google quando construtoras pesquisam material.
+        </p>
+        <p>
+          O cliente que busca "vergalhão Itumbiara" hoje não encontra a Ituaço Ferro.
+          Encontra quem investiu em presença digital. E compra de lá.
+        </p>
+        <div class="competitor-checks">
+          <div class="competitor-check">
+            <div class="check-icon">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#fc8181" stroke-width="3"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            </div>
+            <span>Sem site — cliente não encontra a Ituaço no Google</span>
+          </div>
+          <div class="competitor-check">
+            <div class="check-icon">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#fc8181" stroke-width="3"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            </div>
+            <span>Sem Google Meu Negócio — zero avaliações, zero visibilidade</span>
+          </div>
+          <div class="competitor-check">
+            <div class="check-icon">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#fc8181" stroke-width="3"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            </div>
+            <span>Atendimento 100% manual — impossível escalar</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="compare-cards">
+        <div class="compare-card them">
+          <div class="compare-card-header">
+            <span class="compare-card-title" style="color: var(--text-muted);">Distribuidora que não automatizou</span>
+            <span class="compare-badge red">HOJE</span>
+          </div>
+          <div class="compare-list">
+            <div class="compare-item">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fc8181" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
+              Pedidos perdidos fora do horário
+            </div>
+            <div class="compare-item">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fc8181" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
+              Orçamentos em horas
+            </div>
+            <div class="compare-item">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fc8181" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
+              Invisível no Google
+            </div>
+            <div class="compare-item">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fc8181" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
+              Vendedor sobrecarregado
+            </div>
+          </div>
+        </div>
+
+        <div class="compare-card us">
+          <div class="compare-card-header">
+            <span class="compare-card-title">Ituaço Ferro com Digital AI</span>
+            <span class="compare-badge amber">EM 30 DIAS</span>
+          </div>
+          <div class="compare-list">
+            <div class="compare-item" style="color: var(--text);">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#48BB78" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><polyline points="9 12 11 14 15 10"/></svg>
+              Atendimento 24h por IA
+            </div>
+            <div class="compare-item" style="color: var(--text);">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#48BB78" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><polyline points="9 12 11 14 15 10"/></svg>
+              Orçamento em 10 segundos
+            </div>
+            <div class="compare-item" style="color: var(--text);">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#48BB78" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><polyline points="9 12 11 14 15 10"/></svg>
+              Primeiro no Google local
+            </div>
+            <div class="compare-item" style="color: var(--text);">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#48BB78" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><polyline points="9 12 11 14 15 10"/></svg>
+              Vendedor foca em fechar grandes contas
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== SOLUTION ===================== -->
+<section class="section" id="solucao">
+  <div class="container">
+    <div class="section-header">
+      <div class="tag">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+        A solução completa
+      </div>
+      <h2>O que a Digital AI<br/>entrega para a <span class="highlight">Ituaço</span></h2>
+      <div class="amber-divider"></div>
+      <p style="margin-top: 20px;">Não é apenas um chatbot. É uma camada completa de automação comercial pensada para distribuidoras de materiais de construção.</p>
+    </div>
+    <div class="solution-cards">
+      <div class="sol-card">
+        <div class="sol-icon">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#F5A623" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        </div>
+        <h3>Agente de IA no WhatsApp 24/7</h3>
+        <p>
+          Um assistente inteligente que responde pedidos, tira dúvidas sobre produtos
+          (vergalhões, chapas, tubos, perfis, metalons) e agenda entregas —
+          qualquer hora do dia ou da noite, sem fila de espera.
+        </p>
+        <div class="sol-card-benefit">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+          Zero pedido perdido fora do horário
+        </div>
+      </div>
+
+      <div class="sol-card">
+        <div class="sol-icon">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#F5A623" stroke-width="2"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+        </div>
+        <h3>Chatbot de Orçamento Inteligente</h3>
+        <p>
+          Cliente informa tipo de material, bitola e quantidade — a IA consulta a tabela
+          de preços em tempo real e retorna orçamento completo com prazo de entrega
+          em menos de 10 segundos.
+        </p>
+        <div class="sol-card-benefit">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+          De horas para segundos — sem perder o cliente
+        </div>
+      </div>
+
+      <div class="sol-card">
+        <div class="sol-icon">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#F5A623" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.6 3.45 2 2 0 0 1 3.57 1.27h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 9a16 16 0 0 0 6 6l.92-.92a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 21.73 16.92z"/></svg>
+        </div>
+        <h3>Notificação Automática de Entrega</h3>
+        <p>
+          Assim que o pedido sai para entrega, o cliente recebe mensagem no WhatsApp com
+          confirmação e previsão. Zero ligações "cadê meu material?" —
+          o cliente já sabe antes de precisar perguntar.
+        </p>
+        <div class="sol-card-benefit">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+          Retrabalho eliminado — equipe livre para vender
+        </div>
+      </div>
+
+      <div class="sol-card">
+        <div class="sol-icon">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#F5A623" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        </div>
+        <h3>Google Meu Negócio + Presença Digital</h3>
+        <p>
+          Configuramos e otimizamos seu perfil no Google para que construtoras de
+          Itumbiara e região encontrem a Ituaço Ferro quando pesquisarem ferro, aço,
+          vergalhão — e vejam avaliações, fotos e contato direto.
+        </p>
+        <div class="sol-card-benefit">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+          Aparecer antes do concorrente no Google
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== HOW IT WORKS ===================== -->
+<section class="section how-section">
+  <div class="container">
+    <div class="section-header">
+      <div class="tag">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+        Processo simplificado
+      </div>
+      <h2>Da conversa ao resultado<br/>em <span class="highlight">3 etapas</span></h2>
+      <div class="amber-divider"></div>
+    </div>
+    <div class="timeline">
+      <div class="timeline-step">
+        <div class="timeline-num">1</div>
+        <div>
+          <h3>Diagnóstico</h3>
+          <p>Reunião de 45 minutos para mapear os gargalos: volume de mensagens, horários críticos, produtos mais pedidos e como seus vendedores trabalham hoje.</p>
+          <span class="timeline-duration">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            Semana 1 · Gratuito
+          </span>
+        </div>
+      </div>
+      <div class="timeline-step">
+        <div class="timeline-num">2</div>
+        <div>
+          <h3>Implementação</h3>
+          <p>Configuramos o agente de IA treinado com os produtos e preços da Ituaço, integramos ao WhatsApp Business e testamos todos os fluxos de atendimento.</p>
+          <span class="timeline-duration">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            Semanas 2–3 · Suporte total
+          </span>
+        </div>
+      </div>
+      <div class="timeline-step">
+        <div class="timeline-num">3</div>
+        <div>
+          <h3>Resultado</h3>
+          <p>Seu time começa a receber pedidos automáticos, orçamentos confirmados e clientes satisfeitos — enquanto o agente trabalha 24/7 sem férias ou folga.</p>
+          <span class="timeline-duration" style="background: rgba(72,187,120,0.1); border-color: rgba(72,187,120,0.2); color: var(--green);">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 11 12 14 22 4"/></svg>
+            Semana 4 · Ao vivo
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== RESULTS ===================== -->
+<section class="section">
+  <div class="container">
+    <div class="section-header">
+      <div class="tag">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+        Impacto real
+      </div>
+      <h2>O que muda na <span class="highlight">Ituaço Ferro</span><br/>em 30 dias</h2>
+      <div class="amber-divider"></div>
+    </div>
+    <div class="results-cards">
+      <div class="result-card">
+        <div class="result-num">
+          <span class="counter" data-target="10" data-suffix="s">0</span>
+        </div>
+        <h3>Resposta em segundos</h3>
+        <p>Orçamento completo gerado e enviado ao cliente em menos de 10 segundos — 24 horas por dia, 7 dias por semana.</p>
+      </div>
+      <div class="result-card">
+        <div class="result-num">
+          <span class="counter" data-target="24">0</span><span style="font-size: 28px;">h</span>
+        </div>
+        <h3>Pedidos sem limite de horário</h3>
+        <p>Construtoras fecham pedidos às 22h. Empreiteiros confirmam entrega no domingo. O agente nunca descansa.</p>
+      </div>
+      <div class="result-card">
+        <div class="result-num">
+          <span class="counter" data-prefix="+" data-target="0">+</span>
+        </div>
+        <h3>Zero contratação extra</h3>
+        <p>A IA absorve o volume de atendimento que exigiria 1–2 atendentes. Mesma equipe, muito mais resultado.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CTA FINAL ===================== -->
+<section class="section cta-section">
+  <div class="container">
+    <div class="cta-inner">
+      <div class="tag" style="margin: 0 auto 20px;">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        Itumbiara, Goiás
+      </div>
+      <h2>A Ituaço Ferro<br/>merece vender <span class="highlight">mais</span>.</h2>
+      <p>
+        28 anos de tradição, qualidade reconhecida e duas unidades —
+        tudo isso sendo sabotado pela falta de automação.
+        Uma conversa de 30 minutos pode mudar isso.
+      </p>
+      <div class="cta-buttons">
+        <a href="https://wa.me/5564981337424?text=Olá! Vi a página da Ituaço Ferro e quero entender como a Digital AI pode automatizar o atendimento da minha distribuidora." target="_blank" class="btn btn-whatsapp btn-lg">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Quero meu diagnóstico gratuito
+        </a>
+        <span class="cta-disclaimer">Conversa no WhatsApp · Sem compromisso · Diagnóstico em 30 minutos</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FOOTER ===================== -->
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div>
+        <div class="nav-logo" style="margin-bottom: 8px;">
+          <div class="nav-logo-icon">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+              <path d="M10 2L18 6.5V13.5L10 18L2 13.5V6.5L10 2Z" fill="#0E1117"/>
+              <path d="M10 6L14 8.25V12.75L10 15L6 12.75V8.25L10 6Z" fill="#F5A623"/>
+            </svg>
+          </div>
+          <span class="nav-logo-text">Digital <span>AI</span></span>
+        </div>
+        <div class="footer-copy">
+          © 2025 Digital AI · Itumbiara, GO · <span>digital-ai.tech</span>
+        </div>
+      </div>
+      <div class="footer-tagline">
+        AI-as-a-Service para distribuidoras que querem crescer sem contratar mais
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ===================== SCRIPTS ===================== -->
+<script>
+  // Nav scroll effect
+  const nav = document.getElementById('main-nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 40);
+  });
+
+  // Smooth scroll for anchor links
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      e.preventDefault();
+      const target = document.querySelector(a.getAttribute('href'));
+      if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  });
+
+  // Counter animation
+  function animateCounter(el) {
+    const target = parseInt(el.dataset.target) || 0;
+    const prefix = el.dataset.prefix || '';
+    const suffix = el.dataset.suffix || '';
+    const duration = 1800;
+    const start = performance.now();
+
+    // Special case for "zero contratação" card
+    if (target === 0 && prefix === '+') {
+      el.textContent = '+0';
+      return;
+    }
+
+    function update(now) {
+      const elapsed = now - start;
+      const progress = Math.min(elapsed / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      const current = Math.round(eased * target);
+      el.textContent = prefix + current + suffix;
+      if (progress < 1) requestAnimationFrame(update);
+    }
+    requestAnimationFrame(update);
+  }
+
+  // Intersection observer for counters
+  const counters = document.querySelectorAll('.counter');
+  const counterObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting && !entry.target.dataset.animated) {
+        entry.target.dataset.animated = 'true';
+        animateCounter(entry.target);
+      }
+    });
+  }, { threshold: 0.5 });
+  counters.forEach(c => counterObserver.observe(c));
+
+  // Fade-in animation on scroll
+  const fadeEls = document.querySelectorAll('.dor-card, .sol-card, .result-card, .timeline-step, .compare-card');
+  const fadeObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = entry.target.style.transform.replace('translateY(20px)', 'translateY(0)');
+        }, i * 80);
+        fadeObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  fadeEls.forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = (el.style.transform || '') + ' translateY(20px)';
+    el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+    fadeObserver.observe(el);
+  });
+
+  // Chat typing animation — restart on scroll into view
+  const chatMock = document.querySelector('.hero-phone-mock');
+  const typingEl = document.querySelector('.msg-typing');
+  if (chatMock && typingEl) {
+    let chatAnimated = false;
+    const chatObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting && !chatAnimated) {
+          chatAnimated = true;
+          typingEl.style.display = 'flex';
+          setTimeout(() => {
+            typingEl.style.opacity = '0';
+            typingEl.style.transition = 'opacity 0.4s';
+          }, 2000);
+        }
+      });
+    }, { threshold: 0.5 });
+    chatObserver.observe(chatMock);
+  }
+</script>
+</body>
+</html>
