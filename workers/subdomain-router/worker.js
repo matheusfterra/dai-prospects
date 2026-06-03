@@ -26,6 +26,7 @@ const ROUTING = {
   "newlifeclinicas-health": "newlifeclinicas-health",
   "odontomad-health": "odontomad-health",
   "ituaco-ferro": "ituaco-ferro",
+  "dra-arianesantana": "dra-arianesantana",
   "magab-wear": "magab-wear",
   "magabwear": "magab-wear",
   "magabwear-health": "magabwear-health",
