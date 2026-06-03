@@ -3,2205 +3,735 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>MagabWear × Digital AI — Automatize. Venda Mais. Liberte Seu Tempo.</title>
+  <title>MAGAB BEACHWEAR — moda praia que veste além do corpo</title>
+  <meta name="description" content="Biquínis que valorizam, abraçam e fazem você se sentir linda em cada detalhe. Shop MaGab Beachwear." />
+
+  <!-- OG -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://magab-wear.digital-ai.tech/" />
+  <meta property="og:title" content="MAGAB BEACHWEAR — moda praia que veste além do corpo" />
+  <meta property="og:description" content="Biquínis que valorizam, abraçam e fazem você se sentir linda em cada detalhe." />
+  <meta property="og:image" content="https://magab-wear.digital-ai.tech/img/hero_mirage.jpg" />
+  <meta property="og:locale" content="pt_BR" />
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
   <style>
-    /* ============================
-       RESET & BASE
-    ============================ */
-    *, *::before, *::after {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+    /* ── RESET ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --bg: #FAFAF7;
-      --accent: #C96B4A;
-      --accent-light: #E8C5A0;
-      --accent-hover: #B05A3A;
-      --text-dark: #1A1410;
-      --text-mid: #7A6458;
-      --text-light: #A89588;
-      --card-bg: #FFF8F4;
-      --dark-section: #1A1410;
-      --border: #EDE4DC;
-      --shadow: 0 2px 24px rgba(26,20,16,0.08);
-      --shadow-hover: 0 8px 40px rgba(201,107,74,0.18);
+      --bg:         #FAFAF7;
+      --cream:      #F5EDE4;
+      --terra:      #C96B4A;
+      --terra-d:    #A8553A;
+      --terra-l:    #E8C5A0;
+      --sand:       #D4A882;
+      --dark:       #1A1410;
+      --mid:        #6B5344;
+      --muted:      #A89078;
+      --white:      #FFFFFF;
+      --border:     #EDE0D4;
+      --wpp:        #25D366;
     }
 
-    html {
-      scroll-behavior: smooth;
-    }
-
+    html { scroll-behavior: smooth; overflow-x: hidden; background: var(--dark); }
     body {
-      font-family: 'Inter', sans-serif;
+      font-family: 'Inter', system-ui, sans-serif;
       background: var(--bg);
-      color: var(--text-dark);
+      color: var(--dark);
       line-height: 1.6;
-      font-size: 16px;
       overflow-x: hidden;
     }
+    img { display: block; width: 100%; object-fit: cover; }
+    a { text-decoration: none; color: inherit; }
+    .serif { font-family: 'Playfair Display', serif; }
 
-    h1, h2, h3, h4 {
-      font-family: 'Playfair Display', serif;
-      line-height: 1.2;
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
     }
-
-    a {
-      color: inherit;
-      text-decoration: none;
+    @keyframes shimmer {
+      0%   { background-position: -200% center; }
+      100% { background-position:  200% center; }
     }
-
-    img {
-      max-width: 100%;
-      display: block;
+    .reveal {
+      opacity: 0; transform: translateY(20px);
+      transition: opacity .65s ease, transform .65s ease;
     }
+    .reveal.visible { opacity: 1; transform: none; }
+    .d1 { transition-delay: .1s; }
+    .d2 { transition-delay: .2s; }
+    .d3 { transition-delay: .3s; }
+    .d4 { transition-delay: .4s; }
 
-    /* ============================
-       UTILITIES
-    ============================ */
-    .container {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 0 24px;
-    }
-
-    .btn-primary {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: var(--accent);
-      color: #fff;
-      font-family: 'Inter', sans-serif;
-      font-weight: 600;
-      font-size: 15px;
-      padding: 14px 28px;
-      border-radius: 6px;
-      border: none;
-      cursor: pointer;
-      transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
-      letter-spacing: 0.01em;
-    }
-
-    .btn-primary:hover {
-      background: var(--accent-hover);
-      transform: translateY(-1px);
-      box-shadow: 0 6px 24px rgba(201,107,74,0.30);
-    }
-
-    .btn-outline {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: transparent;
-      color: var(--accent);
-      font-family: 'Inter', sans-serif;
-      font-weight: 600;
-      font-size: 15px;
-      padding: 13px 28px;
-      border-radius: 6px;
-      border: 2px solid var(--accent);
-      cursor: pointer;
-      transition: all 0.2s;
-      letter-spacing: 0.01em;
-    }
-
-    .btn-outline:hover {
-      background: var(--accent);
-      color: #fff;
-      transform: translateY(-1px);
-    }
-
-    .tag {
-      display: inline-block;
-      font-family: 'Inter', sans-serif;
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--accent);
-      background: rgba(201,107,74,0.10);
-      padding: 5px 14px;
-      border-radius: 100px;
-      margin-bottom: 16px;
-    }
-
-    section {
-      padding: 96px 0;
-    }
-
-    /* ============================
-       NAV
-    ============================ */
-    nav {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      z-index: 1000;
-      background: rgba(250,250,247,0.92);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
+    /* ── NAV ── */
+    .nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      height: 60px;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 1.5rem;
+      background: rgba(250,250,247,.92);
+      backdrop-filter: blur(14px);
       border-bottom: 1px solid var(--border);
-      transition: box-shadow 0.2s;
+      transition: background .3s, box-shadow .3s;
     }
-
-    nav.scrolled {
-      box-shadow: 0 2px 20px rgba(26,20,16,0.10);
+    .nav.scrolled { box-shadow: 0 2px 20px rgba(26,20,16,.08); }
+    .nav-brand {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.05rem; font-weight: 600;
+      letter-spacing: .05em; color: var(--dark);
+      text-transform: uppercase;
     }
-
-    .nav-inner {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 0 24px;
-      height: 68px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
+    .nav-brand span { color: var(--terra); }
+    .nav-ig {
+      display: flex; align-items: center; gap: 6px;
+      font-size: .78rem; font-weight: 600; color: var(--mid);
+      padding: 8px 14px; border-radius: 100px;
+      border: 1px solid var(--border);
+      transition: background .2s, color .2s;
     }
+    .nav-ig:hover { background: var(--terra); color: #fff; border-color: var(--terra); }
+    .nav-ig svg { width: 15px; height: 15px; }
 
-    .nav-logo {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .nav-logo-icon {
-      width: 36px;
-      height: 36px;
-      background: var(--accent);
-      border-radius: 8px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .nav-logo-text {
-      font-family: 'Inter', sans-serif;
-      font-weight: 700;
-      font-size: 17px;
-      color: var(--text-dark);
-      letter-spacing: -0.02em;
-    }
-
-    .nav-logo-text span {
-      color: var(--accent);
-    }
-
-    .nav-cta {
-      font-size: 14px;
-      padding: 10px 22px;
-    }
-
-    /* ============================
-       HERO
-    ============================ */
+    /* ── HERO ── */
     .hero {
-      padding: 140px 0 96px;
+      min-height: 100svh;
+      display: grid; grid-template-columns: 1fr 1fr;
+      align-items: stretch;
+      padding-top: 60px;
+    }
+    .hero-content {
+      display: flex; flex-direction: column; justify-content: center;
+      padding: 4rem 3rem 4rem 5%;
       background: var(--bg);
-      overflow: hidden;
-      position: relative;
     }
-
-    .hero::before {
-      content: '';
-      position: absolute;
-      top: -200px;
-      right: -200px;
-      width: 600px;
-      height: 600px;
-      background: radial-gradient(circle, rgba(232,197,160,0.25) 0%, transparent 65%);
-      pointer-events: none;
-    }
-
-    .hero::after {
-      content: '';
-      position: absolute;
-      bottom: -100px;
-      left: -100px;
-      width: 400px;
-      height: 400px;
-      background: radial-gradient(circle, rgba(201,107,74,0.10) 0%, transparent 65%);
-      pointer-events: none;
-    }
-
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 64px;
-      align-items: center;
-    }
-
     .hero-eyebrow {
-      font-family: 'Inter', sans-serif;
-      font-size: 12px;
-      font-weight: 700;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 20px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: .72rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase;
+      color: var(--terra); margin-bottom: 1.5rem;
     }
-
     .hero-eyebrow::before {
-      content: '';
-      display: block;
-      width: 32px;
-      height: 2px;
-      background: var(--accent);
+      content: ''; display: block; width: 28px; height: 1px; background: var(--terra);
     }
-
-    .hero h1 {
-      font-size: clamp(36px, 4.5vw, 52px);
-      font-weight: 600;
-      color: var(--text-dark);
-      line-height: 1.15;
-      margin-bottom: 20px;
+    .hero-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.4rem, 4vw, 3.6rem);
+      font-weight: 400; line-height: 1.15;
+      color: var(--dark); margin-bottom: 1.2rem;
     }
-
-    .hero h1 em {
-      color: var(--accent);
-      font-style: italic;
-    }
-
+    .hero-title em { font-style: italic; color: var(--terra); }
     .hero-sub {
-      font-size: 17px;
-      color: var(--text-mid);
-      line-height: 1.7;
-      margin-bottom: 36px;
-      font-weight: 400;
+      font-size: .97rem; color: var(--mid); line-height: 1.75;
+      max-width: 380px; margin-bottom: 2.5rem;
+    }
+    .hero-btns { display: flex; flex-direction: column; gap: 12px; max-width: 280px; }
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+      font-family: 'Inter', sans-serif; font-size: .88rem; font-weight: 600;
+      padding: 15px 28px; border-radius: 100px; cursor: pointer; border: none;
+      transition: transform .2s, box-shadow .2s, background .2s, opacity .2s;
+      letter-spacing: .01em;
+    }
+    .btn:hover { transform: translateY(-2px); }
+    .btn-primary {
+      background: var(--terra); color: #fff;
+      box-shadow: 0 4px 20px rgba(201,107,74,.28);
+    }
+    .btn-primary:hover { background: var(--terra-d); box-shadow: 0 6px 28px rgba(201,107,74,.38); }
+    .btn-wpp {
+      background: var(--wpp); color: #fff;
+      box-shadow: 0 4px 20px rgba(37,211,102,.24);
+    }
+    .btn-wpp:hover { background: #1db954; box-shadow: 0 6px 28px rgba(37,211,102,.34); }
+    .btn-ghost {
+      background: transparent; color: var(--dark);
+      border: 1.5px solid var(--border);
+    }
+    .btn-ghost:hover { background: var(--cream); border-color: var(--sand); }
+    .btn svg { width: 18px; height: 18px; flex-shrink: 0; }
+
+    .hero-img-wrap {
+      position: relative; overflow: hidden;
+    }
+    .hero-img-wrap img {
+      height: 100%; object-position: center 20%;
+    }
+    .hero-likes {
+      position: absolute; bottom: 28px; left: 28px;
+      background: rgba(26,20,16,.72); backdrop-filter: blur(8px);
+      color: #fff; border-radius: 100px;
+      padding: 8px 16px; font-size: .78rem; font-weight: 600;
+      display: flex; align-items: center; gap: 6px;
     }
 
-    .hero-ctas {
-      display: flex;
-      gap: 14px;
-      flex-wrap: wrap;
-      margin-bottom: 48px;
+    /* ── LINKS SECTION ── */
+    .links-section {
+      background: var(--dark);
+      padding: 3rem 5%;
+      text-align: center;
     }
-
-    .hero-stats {
-      display: flex;
-      gap: 32px;
-      padding-top: 32px;
-      border-top: 1px solid var(--border);
+    .links-label {
+      font-size: .72rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase;
+      color: var(--sand); margin-bottom: 1.5rem;
     }
-
-    .hero-stat {
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
+    .links-grid {
+      display: flex; flex-direction: column; gap: 12px;
+      max-width: 480px; margin: 0 auto;
     }
-
-    .hero-stat-num {
-      font-family: 'Playfair Display', serif;
-      font-size: 28px;
-      font-weight: 700;
-      color: var(--accent);
-      line-height: 1;
-    }
-
-    .hero-stat-label {
-      font-size: 12px;
-      color: var(--text-mid);
-      line-height: 1.4;
-      max-width: 140px;
-    }
-
-    /* Hero visual */
-    .hero-visual {
-      position: relative;
-    }
-
-    .hero-mockup {
-      background: var(--card-bg);
-      border: 1px solid var(--border);
-      border-radius: 20px;
-      padding: 28px;
-      box-shadow: var(--shadow);
-      position: relative;
-    }
-
-    .hero-mockup-header {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      margin-bottom: 20px;
-      padding-bottom: 16px;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .mockup-avatar {
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 100%);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: 'Playfair Display', serif;
-      font-weight: 700;
+    .link-btn {
+      display: flex; align-items: center; justify-content: center; gap: 10px;
+      padding: 16px 24px; border-radius: 14px; font-size: .9rem; font-weight: 600;
+      transition: transform .2s, opacity .2s;
+      border: 1px solid rgba(255,255,255,.08);
       color: #fff;
-      font-size: 16px;
     }
+    .link-btn:hover { transform: translateY(-2px); opacity: .9; }
+    .link-btn svg { width: 20px; height: 20px; }
+    .link-btn-shop { background: var(--terra); }
+    .link-btn-wpp  { background: #1da851; }
+    .link-btn-ig   { background: linear-gradient(135deg, #833ab4, #fd1d1d, #fcb045); }
 
-    .mockup-name {
-      font-weight: 600;
-      font-size: 14px;
-      color: var(--text-dark);
+    /* ── COLECAO ── */
+    .section { padding: 88px 5%; }
+    .section-header { text-align: center; margin-bottom: 3.5rem; }
+    .section-tag {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: .7rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase;
+      color: var(--terra); padding: 5px 14px; border-radius: 100px;
+      background: rgba(201,107,74,.1); margin-bottom: 1rem;
     }
-
-    .mockup-status {
-      font-size: 12px;
-      color: #22C55E;
-      display: flex;
-      align-items: center;
-      gap: 4px;
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+      font-weight: 400; color: var(--dark); line-height: 1.25;
+      margin-bottom: .75rem;
     }
+    .section-sub { color: var(--mid); font-size: .95rem; max-width: 480px; margin: 0 auto; }
 
-    .mockup-status::before {
-      content: '';
-      display: block;
-      width: 6px;
-      height: 6px;
-      background: #22C55E;
-      border-radius: 50%;
+    .products-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem; max-width: 1100px; margin: 0 auto;
     }
-
-    .chat-bubble {
-      padding: 10px 14px;
-      border-radius: 12px;
-      font-size: 13px;
-      line-height: 1.5;
-      margin-bottom: 8px;
-      max-width: 85%;
+    .product-card {
+      border-radius: 20px; overflow: hidden;
+      background: var(--white);
+      box-shadow: 0 2px 20px rgba(26,20,16,.06);
+      transition: transform .3s, box-shadow .3s;
+      cursor: pointer;
     }
-
-    .chat-bubble.received {
-      background: #fff;
-      border: 1px solid var(--border);
-      color: var(--text-dark);
-      border-bottom-left-radius: 4px;
+    .product-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 40px rgba(26,20,16,.12);
     }
-
-    .chat-bubble.sent {
-      background: var(--accent);
-      color: #fff;
-      margin-left: auto;
-      border-bottom-right-radius: 4px;
+    .product-img {
+      position: relative; overflow: hidden;
     }
-
-    .chat-bubble.ai-tag {
-      background: rgba(201,107,74,0.08);
-      border: 1px solid rgba(201,107,74,0.20);
-      color: var(--text-dark);
-      margin-left: auto;
-      border-bottom-right-radius: 4px;
+    .product-img img { aspect-ratio: 3/4; transition: transform .5s; }
+    .product-card:hover .product-img img { transform: scale(1.04); }
+    .product-badge {
+      position: absolute; top: 14px; right: 14px;
+      background: var(--terra); color: #fff;
+      font-size: .65rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase;
+      padding: 4px 10px; border-radius: 100px;
     }
-
-    .ai-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 4px;
-      font-size: 10px;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--accent);
-      background: rgba(201,107,74,0.10);
-      padding: 3px 8px;
-      border-radius: 100px;
+    .product-info { padding: 18px 20px 22px; }
+    .product-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.15rem; font-weight: 500; color: var(--dark);
       margin-bottom: 6px;
     }
+    .product-desc { font-size: .82rem; color: var(--mid); line-height: 1.6; margin-bottom: 14px; }
+    .product-cta {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: .78rem; font-weight: 600; color: var(--terra);
+      padding: 8px 16px; border-radius: 100px;
+      border: 1.5px solid rgba(201,107,74,.3);
+      transition: background .2s, color .2s;
+    }
+    .product-cta:hover { background: var(--terra); color: #fff; }
 
-    .hero-badge-float {
-      position: absolute;
-      top: -20px;
-      right: -20px;
-      background: #fff;
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 12px 16px;
-      box-shadow: var(--shadow);
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      font-size: 13px;
-      font-weight: 600;
-      color: var(--text-dark);
+    /* ── DESTAQUE ── */
+    .destaque-section { background: var(--cream); }
+    .destaque-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 2rem; max-width: 1100px; margin: 0 auto; align-items: center;
+    }
+    .destaque-img-wrap {
+      position: relative; border-radius: 24px; overflow: hidden;
+      box-shadow: 0 8px 48px rgba(26,20,16,.14);
+    }
+    .destaque-img-wrap img { aspect-ratio: 3/4; }
+    .destaque-img-side {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 12px;
+    }
+    .destaque-img-side .img-box { border-radius: 16px; overflow: hidden; }
+    .destaque-img-side .img-box img { aspect-ratio: 3/4; }
+    .destaque-text { padding: 2rem; }
+    .destaque-likes {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: .8rem; font-weight: 700;
+      color: var(--terra); margin-bottom: 1.2rem;
+    }
+    .destaque-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.6rem, 3vw, 2.4rem);
+      font-weight: 400; color: var(--dark); line-height: 1.2;
+      margin-bottom: 1rem;
+    }
+    .destaque-title em { font-style: italic; color: var(--terra); }
+    .destaque-body { font-size: .92rem; color: var(--mid); line-height: 1.8; margin-bottom: 2rem; }
+    .destaque-quote {
+      border-left: 3px solid var(--terra); padding-left: 1rem;
+      font-family: 'Playfair Display', serif; font-style: italic;
+      font-size: 1.05rem; color: var(--dark); line-height: 1.6;
+      margin-bottom: 2rem;
     }
 
-    .hero-badge-float .icon {
-      width: 32px;
-      height: 32px;
-      background: rgba(34,197,94,0.12);
-      border-radius: 8px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .hero-badge-bottom {
-      position: absolute;
-      bottom: -20px;
-      left: -20px;
-      background: var(--dark-section);
-      border-radius: 12px;
-      padding: 12px 16px;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.25);
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      font-size: 12px;
-      font-weight: 500;
-      color: rgba(255,255,255,0.75);
-    }
-
-    .hero-badge-bottom strong {
-      color: #fff;
-      font-weight: 700;
-    }
-
-    /* ============================
-       DOR
-    ============================ */
-    .dor-section {
-      background: var(--bg);
-      position: relative;
-    }
-
-    .dor-intro {
-      max-width: 680px;
-      margin: 0 auto 64px;
-      text-align: center;
-    }
-
-    .dor-intro h2 {
-      font-size: clamp(28px, 3.5vw, 40px);
-      font-weight: 600;
-      margin-bottom: 16px;
-      line-height: 1.2;
-    }
-
-    .dor-intro h2 em {
-      color: var(--accent);
-      font-style: italic;
-    }
-
-    .dor-intro p {
-      font-size: 17px;
-      color: var(--text-mid);
-      line-height: 1.7;
-    }
-
-    .dor-grid {
+    /* ── GALLERY ── */
+    .gallery-section { background: var(--white); }
+    .gallery-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
+      grid-template-rows: auto auto;
+      gap: 10px; max-width: 1100px; margin: 0 auto;
     }
-
-    .dor-card {
-      background: var(--card-bg);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 32px;
-      transition: transform 0.2s, box-shadow 0.2s;
-      position: relative;
-      overflow: hidden;
+    .gallery-cell {
+      border-radius: 14px; overflow: hidden; position: relative;
+      cursor: pointer;
     }
-
-    .dor-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 3px;
-      background: linear-gradient(90deg, var(--accent) 0%, var(--accent-light) 100%);
+    .gallery-cell img {
+      aspect-ratio: 3/4; transition: transform .4s;
     }
-
-    .dor-card:hover {
-      transform: translateY(-4px);
-      box-shadow: var(--shadow-hover);
+    .gallery-cell:hover img { transform: scale(1.04); }
+    .gallery-cell.tall {
+      grid-row: span 2;
     }
-
-    .dor-icon {
-      width: 48px;
-      height: 48px;
-      background: rgba(201,107,74,0.10);
-      border-radius: 12px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 18px;
-      color: var(--accent);
+    .gallery-cell.tall img { aspect-ratio: unset; height: 100%; }
+    .gallery-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(26,20,16,.6) 0%, transparent 50%);
+      opacity: 0; transition: opacity .3s;
+      display: flex; align-items: flex-end; padding: 16px;
     }
-
-    .dor-card h3 {
-      font-size: 18px;
-      font-weight: 600;
-      margin-bottom: 10px;
-      color: var(--text-dark);
+    .gallery-cell:hover .gallery-overlay { opacity: 1; }
+    .gallery-likes {
+      display: flex; align-items: center; gap: 5px;
+      color: #fff; font-size: .78rem; font-weight: 600;
     }
-
-    .dor-card p {
-      font-size: 14px;
-      color: var(--text-mid);
-      line-height: 1.65;
+    .gallery-ig-btn {
+      display: flex; align-items: center; justify-content: center; gap: 8px;
+      margin: 2rem auto 0;
+      padding: 14px 28px; border-radius: 100px;
+      border: 2px solid var(--border); color: var(--mid);
+      font-size: .85rem; font-weight: 600;
+      transition: all .2s; max-width: 220px;
     }
+    .gallery-ig-btn:hover { background: var(--dark); color: #fff; border-color: var(--dark); }
 
-    /* ============================
-       TRANSFORMAÇÃO
-    ============================ */
-    .transformacao-section {
-      background: var(--dark-section);
-      color: #fff;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .transformacao-section::before {
-      content: '';
-      position: absolute;
-      top: -300px;
-      right: -200px;
-      width: 700px;
-      height: 700px;
-      background: radial-gradient(circle, rgba(201,107,74,0.12) 0%, transparent 65%);
-      pointer-events: none;
-    }
-
-    .transformacao-intro {
+    /* ── FOUNDERS ── */
+    .founders-section {
+      background: var(--dark);
+      padding: 88px 5%;
       text-align: center;
-      margin-bottom: 64px;
     }
-
-    .transformacao-intro .tag {
-      background: rgba(201,107,74,0.20);
-      color: var(--accent-light);
+    .founders-eyebrow {
+      font-size: .7rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase;
+      color: var(--sand); margin-bottom: 1rem;
     }
-
-    .transformacao-intro h2 {
-      font-size: clamp(28px, 3.5vw, 42px);
-      font-weight: 600;
-      color: #fff;
-      margin-bottom: 16px;
-    }
-
-    .transformacao-intro h2 em {
-      color: var(--accent-light);
-      font-style: italic;
-    }
-
-    .transformacao-intro p {
-      font-size: 17px;
-      color: rgba(255,255,255,0.60);
-      max-width: 560px;
-      margin: 0 auto;
-    }
-
-    .transformacao-grid {
-      display: grid;
-      grid-template-columns: 1fr auto 1fr;
-      gap: 32px;
-      align-items: start;
-    }
-
-    .trans-col {
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,255,255,0.10);
-      border-radius: 16px;
-      padding: 32px;
-    }
-
-    .trans-col.after {
-      background: rgba(201,107,74,0.12);
-      border-color: rgba(201,107,74,0.35);
-    }
-
-    .trans-label {
-      font-family: 'Inter', sans-serif;
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      margin-bottom: 24px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .trans-label.before-label {
-      color: rgba(255,255,255,0.40);
-    }
-
-    .trans-label.after-label {
-      color: var(--accent-light);
-    }
-
-    .trans-item {
-      display: flex;
-      align-items: flex-start;
-      gap: 12px;
-      margin-bottom: 16px;
-      font-size: 14px;
-      line-height: 1.55;
-    }
-
-    .trans-item .dot {
-      width: 20px;
-      height: 20px;
-      border-radius: 50%;
-      flex-shrink: 0;
-      margin-top: 2px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .trans-item.before-item .dot {
-      background: rgba(255,255,255,0.08);
-      color: rgba(255,255,255,0.35);
-      font-size: 12px;
-    }
-
-    .trans-item.after-item .dot {
-      background: rgba(201,107,74,0.25);
-      color: var(--accent-light);
-      font-size: 12px;
-    }
-
-    .trans-item.before-item {
-      color: rgba(255,255,255,0.50);
-    }
-
-    .trans-item.after-item {
-      color: rgba(255,255,255,0.85);
-    }
-
-    .trans-divider {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      padding: 16px 0;
-    }
-
-    .trans-arrow {
-      width: 48px;
-      height: 48px;
-      background: var(--accent);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #fff;
-    }
-
-    .trans-divider span {
+    .founders-title {
       font-family: 'Playfair Display', serif;
-      font-style: italic;
-      font-size: 13px;
-      color: rgba(255,255,255,0.35);
-      text-align: center;
-    }
-
-    /* ============================
-       SOLUÇÃO
-    ============================ */
-    .solucao-section {
-      background: var(--bg);
-    }
-
-    .solucao-intro {
-      max-width: 640px;
-      margin: 0 auto 64px;
-      text-align: center;
-    }
-
-    .solucao-intro h2 {
-      font-size: clamp(28px, 3.5vw, 42px);
-      font-weight: 600;
-      margin-bottom: 16px;
-    }
-
-    .solucao-intro h2 em {
-      color: var(--accent);
-      font-style: italic;
-    }
-
-    .solucao-intro p {
-      font-size: 17px;
-      color: var(--text-mid);
-    }
-
-    .solucao-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 24px;
-    }
-
-    .solucao-card {
-      background: var(--card-bg);
-      border: 1px solid var(--border);
-      border-radius: 20px;
-      padding: 36px;
-      display: flex;
-      gap: 24px;
-      transition: transform 0.2s, box-shadow 0.2s;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .solucao-card:hover {
-      transform: translateY(-4px);
-      box-shadow: var(--shadow-hover);
-    }
-
-    .solucao-card.featured {
-      border-color: rgba(201,107,74,0.40);
-      background: linear-gradient(135deg, #FFF8F4 0%, #FFF3EC 100%);
-    }
-
-    .solucao-card.featured::after {
-      content: 'DIFERENCIAL';
-      position: absolute;
-      top: 16px;
-      right: 16px;
-      font-family: 'Inter', sans-serif;
-      font-size: 10px;
-      font-weight: 700;
-      letter-spacing: 0.10em;
-      color: var(--accent);
-      background: rgba(201,107,74,0.12);
-      padding: 4px 10px;
-      border-radius: 100px;
-    }
-
-    .solucao-icon {
-      width: 56px;
-      height: 56px;
-      background: rgba(201,107,74,0.10);
-      border-radius: 14px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-      color: var(--accent);
-    }
-
-    .solucao-content h3 {
-      font-size: 20px;
-      font-weight: 600;
-      margin-bottom: 8px;
-      color: var(--text-dark);
-    }
-
-    .solucao-content p {
-      font-size: 14px;
-      color: var(--text-mid);
-      line-height: 1.65;
-      margin-bottom: 16px;
-    }
-
-    .solucao-bullets {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-    }
-
-    .solucao-bullets li {
-      font-size: 13px;
-      color: var(--text-mid);
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .solucao-bullets li::before {
-      content: '';
-      display: block;
-      width: 5px;
-      height: 5px;
-      background: var(--accent);
-      border-radius: 50%;
-      flex-shrink: 0;
-    }
-
-    /* ============================
-       PERSONA DIGITAL
-    ============================ */
-    .persona-section {
-      background: linear-gradient(135deg, #FFF8F4 0%, #FDF6F0 100%);
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .persona-section::before {
-      content: '';
-      position: absolute;
-      top: -200px;
-      right: -100px;
-      width: 500px;
-      height: 500px;
-      background: radial-gradient(circle, rgba(232,197,160,0.40) 0%, transparent 65%);
-      pointer-events: none;
-    }
-
-    .persona-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 80px;
-      align-items: center;
-    }
-
-    .persona-content .tag {
-      background: rgba(201,107,74,0.12);
-    }
-
-    .persona-content h2 {
-      font-size: clamp(28px, 3.5vw, 42px);
-      font-weight: 600;
-      margin-bottom: 20px;
-      line-height: 1.2;
-    }
-
-    .persona-content h2 em {
-      color: var(--accent);
-      font-style: italic;
-    }
-
-    .persona-content p {
-      font-size: 16px;
-      color: var(--text-mid);
-      line-height: 1.75;
-      margin-bottom: 16px;
-    }
-
-    .persona-features {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 14px;
-      margin-top: 28px;
-    }
-
-    .persona-features li {
-      display: flex;
-      align-items: flex-start;
-      gap: 12px;
-      font-size: 15px;
-      color: var(--text-dark);
-    }
-
-    .persona-feat-icon {
-      width: 28px;
-      height: 28px;
-      background: rgba(201,107,74,0.12);
-      border-radius: 8px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-      margin-top: 1px;
-      color: var(--accent);
-    }
-
-    /* Persona phone mockup */
-    .persona-visual {
-      position: relative;
-    }
-
-    .phone-frame {
-      background: var(--dark-section);
-      border-radius: 36px;
-      padding: 12px;
-      box-shadow: 0 20px 60px rgba(26,20,16,0.30);
-      max-width: 300px;
-      margin: 0 auto;
-      position: relative;
-    }
-
-    .phone-screen {
-      background: #0a0a0a;
-      border-radius: 26px;
-      overflow: hidden;
-    }
-
-    .ig-header {
-      background: #000;
-      padding: 12px 16px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      border-bottom: 1px solid #1a1a1a;
-    }
-
-    .ig-avatar {
-      width: 36px;
-      height: 36px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, #f9ce34, #ee2a7b, #6228d7);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 700;
-      font-size: 14px;
-      color: #fff;
-      flex-shrink: 0;
-    }
-
-    .ig-name {
-      font-size: 13px;
-      font-weight: 600;
-      color: #fff;
-    }
-
-    .ig-handle {
-      font-size: 11px;
-      color: rgba(255,255,255,0.45);
-    }
-
-    .ig-story {
-      background: linear-gradient(180deg, rgba(201,107,74,0.30) 0%, rgba(26,20,16,0.95) 100%);
-      height: 400px;
-      padding: 20px 16px;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-    }
-
-    .ig-story-caption {
-      font-size: 13px;
-      color: #fff;
-      line-height: 1.5;
-      margin-bottom: 12px;
-    }
-
-    .ig-story-caption em {
-      color: var(--accent-light);
-      font-style: italic;
-    }
-
-    .ig-story-progress {
-      display: flex;
-      gap: 4px;
-      margin-bottom: 12px;
-    }
-
-    .ig-progress-bar {
-      height: 2px;
-      background: rgba(255,255,255,0.25);
-      border-radius: 2px;
-      flex: 1;
-    }
-
-    .ig-progress-bar.active {
-      background: #fff;
-    }
-
-    .ig-dm-preview {
-      background: rgba(255,255,255,0.12);
-      border: 1px solid rgba(255,255,255,0.18);
-      border-radius: 24px;
-      padding: 8px 14px;
-      font-size: 12px;
-      color: rgba(255,255,255,0.70);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    .ig-reply-btn {
-      background: var(--accent);
-      color: #fff;
-      font-size: 11px;
-      font-weight: 600;
-      padding: 5px 12px;
-      border-radius: 100px;
-    }
-
-    .ig-tags {
-      display: flex;
-      gap: 6px;
-      margin-top: 10px;
-      flex-wrap: wrap;
-    }
-
-    .ig-tag {
-      font-size: 12px;
-      color: var(--accent-light);
-    }
-
-    .persona-float-badge {
-      position: absolute;
-      top: 30px;
-      right: -30px;
-      background: #fff;
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 14px 18px;
-      box-shadow: var(--shadow);
-      font-size: 13px;
-    }
-
-    .persona-float-badge strong {
-      display: block;
-      font-weight: 700;
-      color: var(--text-dark);
-      margin-bottom: 2px;
-    }
-
-    .persona-float-badge span {
-      color: var(--text-mid);
-      font-size: 12px;
-    }
-
-    /* ============================
-       COMO FUNCIONA
-    ============================ */
-    .como-funciona-section {
-      background: var(--bg);
-    }
-
-    .como-intro {
-      text-align: center;
-      margin-bottom: 64px;
-    }
-
-    .como-intro h2 {
-      font-size: clamp(28px, 3.5vw, 42px);
-      font-weight: 600;
-      margin-bottom: 16px;
-    }
-
-    .como-intro h2 em {
-      color: var(--accent);
-      font-style: italic;
-    }
-
-    .como-intro p {
-      font-size: 17px;
-      color: var(--text-mid);
-      max-width: 520px;
-      margin: 0 auto;
-    }
-
-    .steps-container {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
-      position: relative;
-    }
-
-    .steps-container::before {
-      content: '';
-      position: absolute;
-      top: 44px;
-      left: calc(16.67% + 20px);
-      right: calc(16.67% + 20px);
-      height: 2px;
-      background: linear-gradient(90deg, var(--accent) 0%, var(--accent-light) 100%);
-      z-index: 0;
-    }
-
-    .step-card {
-      background: var(--card-bg);
-      border: 1px solid var(--border);
-      border-radius: 20px;
-      padding: 36px 28px;
-      text-align: center;
-      position: relative;
-      z-index: 1;
-      transition: transform 0.2s, box-shadow 0.2s;
-    }
-
-    .step-card:hover {
-      transform: translateY(-4px);
-      box-shadow: var(--shadow-hover);
-    }
-
-    .step-number {
-      width: 56px;
-      height: 56px;
-      background: var(--accent);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: 'Playfair Display', serif;
-      font-size: 22px;
-      font-weight: 700;
-      color: #fff;
-      margin: 0 auto 20px;
-      box-shadow: 0 4px 16px rgba(201,107,74,0.35);
-    }
-
-    .step-card h3 {
-      font-size: 18px;
-      font-weight: 600;
-      margin-bottom: 10px;
-      color: var(--text-dark);
-    }
-
-    .step-card p {
-      font-size: 14px;
-      color: var(--text-mid);
-      line-height: 1.65;
-    }
-
-    .step-duration {
-      display: inline-block;
-      font-family: 'Inter', sans-serif;
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--accent);
-      background: rgba(201,107,74,0.10);
-      padding: 4px 12px;
-      border-radius: 100px;
-      margin-top: 14px;
-    }
-
-    /* ============================
-       RESULTADOS
-    ============================ */
-    .resultados-section {
-      background: var(--dark-section);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .resultados-section::after {
-      content: '';
-      position: absolute;
-      bottom: -200px;
-      left: -100px;
-      width: 500px;
-      height: 500px;
-      background: radial-gradient(circle, rgba(201,107,74,0.15) 0%, transparent 65%);
-      pointer-events: none;
-    }
-
-    .resultados-intro {
-      text-align: center;
-      margin-bottom: 64px;
-    }
-
-    .resultados-intro .tag {
-      background: rgba(201,107,74,0.20);
-      color: var(--accent-light);
-    }
-
-    .resultados-intro h2 {
-      font-size: clamp(28px, 3.5vw, 42px);
-      font-weight: 600;
-      color: #fff;
-      margin-bottom: 16px;
-    }
-
-    .resultados-intro h2 em {
-      color: var(--accent-light);
-      font-style: italic;
-    }
-
-    .resultados-intro p {
-      font-size: 17px;
-      color: rgba(255,255,255,0.55);
-      max-width: 520px;
-      margin: 0 auto;
-    }
-
-    .resultados-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
-      position: relative;
-      z-index: 1;
-    }
-
-    .resultado-card {
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,255,255,0.10);
-      border-radius: 20px;
-      padding: 40px 32px;
-      text-align: center;
-      transition: transform 0.2s, background 0.2s;
-    }
-
-    .resultado-card:hover {
-      transform: translateY(-4px);
-      background: rgba(201,107,74,0.12);
-      border-color: rgba(201,107,74,0.30);
-    }
-
-    .resultado-icon {
-      width: 64px;
-      height: 64px;
-      background: rgba(201,107,74,0.15);
-      border-radius: 16px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin: 0 auto 20px;
-      color: var(--accent-light);
-    }
-
-    .resultado-num {
-      font-family: 'Playfair Display', serif;
-      font-size: 48px;
-      font-weight: 700;
-      color: #fff;
-      line-height: 1;
-      margin-bottom: 8px;
-    }
-
-    .resultado-num span {
-      color: var(--accent-light);
-    }
-
-    .resultado-title {
-      font-size: 15px;
-      font-weight: 600;
-      color: rgba(255,255,255,0.85);
-      margin-bottom: 8px;
-    }
-
-    .resultado-desc {
-      font-size: 13px;
-      color: rgba(255,255,255,0.45);
-      line-height: 1.55;
-    }
-
-    /* ============================
-       CTA FINAL
-    ============================ */
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      font-weight: 400; color: var(--white); line-height: 1.2;
+      margin-bottom: 1.2rem;
+    }
+    .founders-title em { font-style: italic; color: var(--terra-l); }
+    .founders-sub {
+      color: rgba(255,255,255,.5); font-size: .95rem;
+      max-width: 500px; margin: 0 auto 3rem;
+    }
+    .founders-handles {
+      display: flex; justify-content: center; gap: 1.5rem; flex-wrap: wrap;
+    }
+    .founder-handle {
+      display: flex; align-items: center; gap: 8px;
+      background: rgba(255,255,255,.07); border-radius: 100px;
+      padding: 10px 20px; color: rgba(255,255,255,.8); font-size: .85rem; font-weight: 600;
+      border: 1px solid rgba(255,255,255,.1);
+      transition: background .2s;
+    }
+    .founder-handle:hover { background: rgba(201,107,74,.25); }
+    .founder-handle svg { width: 16px; height: 16px; color: var(--terra-l); }
+
+    /* ── CTA FINAL ── */
     .cta-section {
-      background: var(--bg);
+      background: var(--terra);
+      padding: 88px 5%;
       text-align: center;
-      position: relative;
-      overflow: hidden;
+      position: relative; overflow: hidden;
     }
-
     .cta-section::before {
-      content: '';
-      position: absolute;
-      top: -200px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 800px;
-      height: 400px;
-      background: radial-gradient(ellipse, rgba(232,197,160,0.30) 0%, transparent 70%);
-      pointer-events: none;
+      content: ''; position: absolute; top: -120px; right: -120px;
+      width: 360px; height: 360px; border-radius: 50%;
+      background: rgba(255,255,255,.07);
     }
-
-    .cta-inner {
-      background: var(--card-bg);
-      border: 1px solid var(--border);
-      border-radius: 24px;
-      padding: 72px 48px;
-      max-width: 720px;
-      margin: 0 auto;
-      position: relative;
-      z-index: 1;
+    .cta-section::after {
+      content: ''; position: absolute; bottom: -80px; left: -80px;
+      width: 280px; height: 280px; border-radius: 50%;
+      background: rgba(26,20,16,.06);
     }
-
-    .cta-inner .tag {
-      margin-bottom: 20px;
+    .cta-eyebrow {
+      font-size: .7rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase;
+      color: rgba(255,255,255,.7); margin-bottom: 1.2rem; position: relative; z-index: 2;
     }
-
-    .cta-inner h2 {
-      font-size: clamp(28px, 3.5vw, 42px);
-      font-weight: 600;
-      margin-bottom: 16px;
-      color: var(--text-dark);
+    .cta-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      font-weight: 400; color: var(--white); line-height: 1.2;
+      margin-bottom: 1rem; position: relative; z-index: 2;
     }
-
-    .cta-inner h2 em {
-      color: var(--accent);
-      font-style: italic;
+    .cta-sub {
+      color: rgba(255,255,255,.75); font-size: .95rem;
+      max-width: 420px; margin: 0 auto 2.5rem; position: relative; z-index: 2;
     }
-
-    .cta-inner p {
-      font-size: 17px;
-      color: var(--text-mid);
-      margin-bottom: 36px;
-      max-width: 520px;
-      margin-left: auto;
-      margin-right: auto;
-      line-height: 1.7;
+    .cta-btns {
+      display: flex; justify-content: center; gap: 14px; flex-wrap: wrap;
+      position: relative; z-index: 2;
     }
+    .btn-white { background: var(--white); color: var(--terra); font-weight: 700; }
+    .btn-white:hover { background: var(--bg); }
+    .btn-dark  { background: var(--dark); color: #fff; }
 
-    .cta-actions {
-      display: flex;
-      gap: 14px;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-
-    .btn-whatsapp {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      background: #22C55E;
-      color: #fff;
-      font-family: 'Inter', sans-serif;
-      font-weight: 700;
-      font-size: 16px;
-      padding: 16px 32px;
-      border-radius: 8px;
-      border: none;
-      cursor: pointer;
-      transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
-      letter-spacing: 0.01em;
-    }
-
-    .btn-whatsapp:hover {
-      background: #16A34A;
-      transform: translateY(-2px);
-      box-shadow: 0 8px 28px rgba(34,197,94,0.35);
-    }
-
-    .cta-disclaimer {
-      margin-top: 24px;
-      font-size: 13px;
-      color: var(--text-light);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 6px;
-    }
-
-    /* ============================
-       FOOTER
-    ============================ */
+    /* ── FOOTER ── */
     footer {
-      background: var(--dark-section);
-      color: rgba(255,255,255,0.55);
-      padding: 48px 0;
-      border-top: 1px solid rgba(255,255,255,0.06);
+      background: var(--dark);
+      padding: 32px 5%;
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 16px;
+      border-top: 1px solid rgba(255,255,255,.06);
     }
-
-    .footer-inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 24px;
-      flex-wrap: wrap;
+    .footer-brand {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem; font-weight: 600; color: var(--white);
+      letter-spacing: .06em; text-transform: uppercase;
     }
-
-    .footer-logo {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .footer-logo-icon {
-      width: 32px;
-      height: 32px;
-      background: var(--accent);
-      border-radius: 7px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .footer-logo-text {
-      font-family: 'Inter', sans-serif;
-      font-weight: 700;
-      font-size: 16px;
-      color: #fff;
-    }
-
-    .footer-logo-text span {
-      color: var(--accent-light);
-    }
-
-    .footer-links {
-      display: flex;
-      gap: 28px;
-      list-style: none;
-    }
-
+    .footer-brand span { color: var(--terra-l); }
+    .footer-links { display: flex; gap: 20px; }
     .footer-links a {
-      font-size: 13px;
-      color: rgba(255,255,255,0.40);
-      transition: color 0.2s;
+      font-size: .78rem; color: rgba(255,255,255,.35);
+      transition: color .2s;
     }
+    .footer-links a:hover { color: rgba(255,255,255,.8); }
+    .footer-copy { font-size: .72rem; color: rgba(255,255,255,.2); width: 100%; }
 
-    .footer-links a:hover {
-      color: rgba(255,255,255,0.75);
+    /* ── FLOAT WPP ── */
+    .float-wpp {
+      position: fixed; bottom: 24px; right: 24px; z-index: 200;
+      width: 58px; height: 58px; border-radius: 50%;
+      background: var(--wpp);
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 6px 28px rgba(37,211,102,.4);
+      transition: transform .2s, box-shadow .2s;
     }
+    .float-wpp:hover { transform: translateY(-3px) scale(1.06); box-shadow: 0 10px 36px rgba(37,211,102,.5); }
+    .float-wpp svg { width: 26px; height: 26px; }
 
-    .footer-copy {
-      font-size: 12px;
-      color: rgba(255,255,255,0.25);
-    }
-
-    /* ============================
-       FLOATING WHATSAPP
-    ============================ */
-    .float-wa {
-      position: fixed;
-      bottom: 28px;
-      right: 28px;
-      z-index: 9999;
-      width: 58px;
-      height: 58px;
-      background: #22C55E;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 4px 20px rgba(34,197,94,0.45);
-      cursor: pointer;
-      transition: transform 0.2s, box-shadow 0.2s;
-      text-decoration: none;
-    }
-
-    .float-wa:hover {
-      transform: scale(1.10);
-      box-shadow: 0 8px 32px rgba(34,197,94,0.55);
-    }
-
-    .float-wa-pulse {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      border-radius: 50%;
-      background: rgba(34,197,94,0.35);
-      animation: pulse-wa 2s infinite;
-    }
-
-    @keyframes pulse-wa {
-      0% { transform: scale(1); opacity: 1; }
-      100% { transform: scale(1.7); opacity: 0; }
-    }
-
-    /* ============================
-       RESPONSIVE
-    ============================ */
+    /* ── RESPONSIVE ── */
     @media (max-width: 900px) {
-      section {
-        padding: 72px 0;
-      }
-
-      .hero {
-        padding: 120px 0 72px;
-      }
-
-      .hero-grid {
-        grid-template-columns: 1fr;
-        gap: 48px;
-      }
-
-      .hero-visual {
-        order: -1;
-      }
-
-      .hero-mockup {
-        max-width: 420px;
-        margin: 0 auto;
-      }
-
-      .hero-badge-float {
-        right: 10px;
-        top: -10px;
-      }
-
-      .hero-badge-bottom {
-        left: 10px;
-        bottom: -10px;
-      }
-
-      .dor-grid {
-        grid-template-columns: 1fr;
-        gap: 16px;
-      }
-
-      .transformacao-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .trans-divider {
-        flex-direction: row;
-        padding: 8px 0;
-      }
-
-      .trans-arrow {
-        transform: rotate(90deg);
-      }
-
-      .solucao-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .persona-grid {
-        grid-template-columns: 1fr;
-        gap: 48px;
-      }
-
-      .persona-float-badge {
-        display: none;
-      }
-
-      .steps-container {
-        grid-template-columns: 1fr;
-      }
-
-      .steps-container::before {
-        display: none;
-      }
-
-      .resultados-grid {
-        grid-template-columns: 1fr;
-        gap: 16px;
-      }
-
-      .cta-inner {
-        padding: 48px 28px;
-      }
-
-      .footer-inner {
-        flex-direction: column;
-        text-align: center;
-      }
-
-      .footer-links {
-        flex-wrap: wrap;
-        justify-content: center;
-      }
+      .hero { grid-template-columns: 1fr; min-height: auto; }
+      .hero-content { padding: 3.5rem 5%; order: 2; }
+      .hero-img-wrap { order: 1; height: 65vw; max-height: 420px; }
+      .hero-btns { max-width: 100%; flex-direction: row; flex-wrap: wrap; }
+      .hero-btns .btn { flex: 1; min-width: 140px; }
+      .products-grid { grid-template-columns: 1fr 1fr; }
+      .destaque-grid { grid-template-columns: 1fr; }
+      .destaque-text { padding: 1rem 0; }
+      .gallery-grid { grid-template-columns: repeat(3, 1fr); }
     }
 
     @media (max-width: 600px) {
-      .hero h1 {
-        font-size: 32px;
-      }
-
-      .hero-stats {
-        gap: 20px;
-      }
-
-      .hero-ctas {
-        flex-direction: column;
-      }
-
-      .btn-primary, .btn-outline {
-        justify-content: center;
-        text-align: center;
-      }
-
-      .solucao-card {
-        flex-direction: column;
-      }
-
-      .cta-actions {
-        flex-direction: column;
-        align-items: center;
-      }
+      .products-grid { grid-template-columns: 1fr; max-width: 340px; margin: 0 auto; }
+      .gallery-grid { grid-template-columns: 1fr 1fr; }
+      .gallery-cell.tall { grid-row: span 1; }
+      .gallery-cell.tall img { aspect-ratio: 3/4; height: auto; }
+      .hero-img-wrap { height: 80vw; }
+      .hero-likes { bottom: 16px; left: 16px; }
     }
   </style>
 </head>
 <body>
 
-  <!-- NAV -->
-  <nav id="main-nav">
-    <div class="nav-inner">
-      <div class="nav-logo">
-        <div class="nav-logo-icon">
-          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M10 2L17.32 6.5V15.5L10 20L2.68 15.5V6.5L10 2Z" fill="white" opacity="0.9"/>
-            <circle cx="10" cy="10" r="3" fill="white"/>
-          </svg>
-        </div>
-        <div class="nav-logo-text">Digital<span> AI</span></div>
-      </div>
-      <a href="https://wa.me/5564981337424?text=Oi! Vi a página da MagabWear e quero entender como a Digital AI pode automatizar o atendimento da minha marca de moda." class="btn-primary nav-cta" target="_blank" rel="noopener">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
-        Quero automatizar
+<!-- ── NAV ── -->
+<nav class="nav" id="nav">
+  <span class="nav-brand">Magab <span>Beachwear</span></span>
+  <a href="https://www.instagram.com/magabwear/" target="_blank" class="nav-ig">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+    @magabwear
+  </a>
+</nav>
+
+<!-- ── HERO ── -->
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-eyebrow reveal">Nova Coleção</div>
+    <h1 class="hero-title reveal d1 serif">
+      Moda praia que<br><em>veste além do corpo</em>
+    </h1>
+    <p class="hero-sub reveal d2">
+      Biquínis feitos para valorizar, abraçar e fazer você se sentir linda em cada momento — do sol à areia, do look à confiança.
+    </p>
+    <div class="hero-btns reveal d3">
+      <a href="https://magab4.lojavirtualnuvem.com.br/" target="_blank" class="btn btn-primary">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6" stroke="currentColor" stroke-width="2" fill="none"/><path d="M16 10a4 4 0 0 1-8 0" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+        Comprar Agora
+      </a>
+      <a href="https://wa.me/5564999999999?text=Oi%21+Quero+conhecer+a+cole%C3%A7%C3%A3o+MaGab+%F0%9F%91%99" target="_blank" class="btn btn-wpp">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Fale no WhatsApp
       </a>
     </div>
-  </nav>
+  </div>
+  <div class="hero-img-wrap">
+    <img src="img/hero_mirage.jpg" alt="Gabriela usando Biquíni Mirage da MaGab Beachwear" loading="eager" />
+    <div class="hero-likes">
+      <svg viewBox="0 0 24 24" fill="currentColor" style="width:14px;height:14px"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+      229 curtidas
+    </div>
+  </div>
+</section>
 
-  <!-- HERO -->
-  <section class="hero">
-    <div class="container">
-      <div class="hero-grid">
-        <div class="hero-content">
-          <div class="hero-eyebrow">Para marcas de moda com alma</div>
-          <h1>
-            Sua marca merece<br>
-            <em>crescer sem você</em><br>
-            presa no celular.
-          </h1>
-          <p class="hero-sub">
-            Enquanto você cria a próxima coleção da MagabWear, a IA atende, responde, vende e fideliza — no Instagram, no WhatsApp, às 3h da manhã se precisar.
-          </p>
-          <div class="hero-ctas">
-            <a href="https://wa.me/5564981337424?text=Oi! Vi a página da MagabWear e quero entender como a Digital AI pode automatizar o atendimento da minha marca de moda." class="btn-primary" target="_blank" rel="noopener">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
-              Falar com especialista
-            </a>
-            <a href="#solucao" class="btn-outline">
-              Ver como funciona
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-            </a>
-          </div>
-          <div class="hero-stats">
-            <div class="hero-stat">
-              <div class="hero-stat-num">59%</div>
-              <div class="hero-stat-label">das PMEs de moda vendem pelo Instagram</div>
-            </div>
-            <div class="hero-stat">
-              <div class="hero-stat-num">87%</div>
-              <div class="hero-stat-label">dos pedidos de moda chegam via WhatsApp</div>
-            </div>
-            <div class="hero-stat">
-              <div class="hero-stat-num">3×</div>
-              <div class="hero-stat-label">mais vendas com resposta em menos de 1 min</div>
-            </div>
-          </div>
-        </div>
+<!-- ── LINKS RÁPIDOS ── -->
+<section class="links-section">
+  <p class="links-label">Acesse direto</p>
+  <div class="links-grid">
+    <a href="https://magab4.lojavirtualnuvem.com.br/" target="_blank" class="link-btn link-btn-shop reveal">
+      <svg viewBox="0 0 24 24" fill="currentColor" style="width:20px;height:20px"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6" stroke="white" stroke-width="2" fill="none"/><path d="M16 10a4 4 0 0 1-8 0" fill="none" stroke="white" stroke-width="2"/></svg>
+      Loja Online — Shop Now
+    </a>
+    <a href="https://wa.me/5564999999999?text=Oi%21+Quero+conhecer+a+cole%C3%A7%C3%A3o+MaGab+%F0%9F%91%99" target="_blank" class="link-btn link-btn-wpp reveal d1">
+      <svg viewBox="0 0 24 24" fill="currentColor" style="width:20px;height:20px"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      WhatsApp — Fale Comigo
+    </a>
+    <a href="https://www.instagram.com/magabwear/" target="_blank" class="link-btn link-btn-ig reveal d2">
+      <svg viewBox="0 0 24 24" fill="currentColor" style="width:20px;height:20px"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+      Instagram — @magabwear
+    </a>
+  </div>
+</section>
 
-        <!-- Hero mockup visual -->
-        <div class="hero-visual">
-          <div class="hero-badge-float">
-            <div class="icon">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#22C55E" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
-            </div>
-            <div>
-              <div style="font-size:13px;font-weight:700;color:#1A1410;">Venda fechada</div>
-              <div style="font-size:11px;color:#7A6458;">há 2 min — R$ 189,00</div>
-            </div>
-          </div>
-
-          <div class="hero-mockup">
-            <div class="hero-mockup-header">
-              <div class="mockup-avatar">M</div>
-              <div>
-                <div class="mockup-name">MagabWear — Atendimento</div>
-                <div class="mockup-status">Online agora</div>
-              </div>
-            </div>
-
-            <div class="chat-bubble received">
-              Oi! Tem biquíni tomara que caia no rosa coral? 🌸
-            </div>
-
-            <div style="display:flex;flex-direction:column;align-items:flex-end;gap:4px;margin-top:4px;">
-              <div class="ai-badge">
-                <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a2 2 0 012 2c0 .74-.4 1.39-1 1.73V7h1a7 7 0 017 7h1a1 1 0 110 2h-1v1a2 2 0 01-2 2H5a2 2 0 01-2-2v-1H2a1 1 0 110-2h1a7 7 0 017-7h1V5.73A2 2 0 0110 4a2 2 0 012-2z"/></svg>
-                IA MagabWear
-              </div>
-              <div class="chat-bubble sent">
-                Oi, Mariana! 😍 Temos sim! Olha as opções disponíveis agora:
-              </div>
-              <div class="chat-bubble ai-tag">
-                🌺 <strong>Biquíni Tomara Caia Rosa Coral</strong><br>
-                Tamanhos: P, M, G • R$ 189,00<br>
-                <em style="font-size:11px;opacity:0.8;">Frete grátis acima de R$ 250</em>
-              </div>
-              <div class="chat-bubble sent">
-                Quer reservar? Envio o link de pagamento agora! 💳
-              </div>
-            </div>
-
-            <div style="margin-top:12px;padding-top:12px;border-top:1px solid var(--border);font-size:11px;color:var(--text-light);text-align:center;">
-              Respondido em <strong style="color:var(--accent);">4 segundos</strong> • Sem intervenção humana
-            </div>
-          </div>
-
-          <div class="hero-badge-bottom">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.6)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
-            <div>Atende <strong>24/7</strong> — feriados, finais de semana, madrugada</div>
-          </div>
-        </div>
+<!-- ── COLEÇÃO ── -->
+<section class="section" id="colecao">
+  <div class="section-header reveal">
+    <div class="section-tag">✦ Coleção</div>
+    <h2 class="section-title serif">Cada peça, uma história</h2>
+    <p class="section-sub">Modelos pensados para te fazer sentir linda de verdade — com a modelagem que abraça e a elegância que encanta.</p>
+  </div>
+  <div class="products-grid">
+    <!-- Mirage -->
+    <div class="product-card reveal d1">
+      <div class="product-img">
+        <img src="img/mirage_2.jpg" alt="Biquíni Mirage MaGab" loading="lazy" />
+        <span class="product-badge">Destaque</span>
+      </div>
+      <div class="product-info">
+        <div class="product-name serif">Biquíni Mirage</div>
+        <p class="product-desc">O queridinho da coleção. Uma peça que valoriza, abraça e acompanha você em cada momento.</p>
+        <a href="https://magab4.lojavirtualnuvem.com.br/" target="_blank" class="product-cta">
+          Ver na loja →
+        </a>
       </div>
     </div>
-  </section>
-
-  <!-- DOR -->
-  <section class="dor-section">
-    <div class="container">
-      <div class="dor-intro">
-        <div class="tag">Reconhece essa história?</div>
-        <h2>Você criou uma marca incrível.<br><em>Mas está presa respondendo DM</em> o dia todo.</h2>
-        <p>A MagabWear tem tudo pra escalar — produto lindo, comunidade fiel, apelo visual forte. O que está travando não é a coleção. É a operação manual.</p>
+    <!-- Abraço -->
+    <div class="product-card reveal d2">
+      <div class="product-img">
+        <img src="img/abraco_2.jpg" alt="Biquíni MaGab" loading="lazy" />
       </div>
-
-      <div class="dor-grid">
-        <div class="dor-card">
-          <div class="dor-icon">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.01 1.18 2 2 0 012 .01h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.91a16 16 0 006.18 6.18l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
-          </div>
-          <h3>DM sem resposta = venda perdida</h3>
-          <p>Cliente pergunta às 22h30 sobre o biquíni rosa. Você vê na manhã seguinte. Ela já comprou da concorrente. <em style="color:var(--accent)">Isso acontece todo dia.</em></p>
-        </div>
-
-        <div class="dor-card">
-          <div class="dor-icon">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-          </div>
-          <h3>Alta temporada vira caos</h3>
-          <p>Verão e carnaval chegam e de repente são 200 DMs por dia. Você não dorme, não cria, não descansa. <em style="color:var(--accent)">A temporada mais lucrativa vira a mais exaustiva.</em></p>
-        </div>
-
-        <div class="dor-card">
-          <div class="dor-icon">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-          </div>
-          <h3>A marca depende só de você</h3>
-          <p>"Tem no G?" "Envia pro Ceará?" "Tem frete grátis?" — As mesmas perguntas, todo dia, tirando horas que deveriam ir pra criação. <em style="color:var(--accent)">Você fundou uma marca, não uma central de atendimento.</em></p>
-        </div>
+      <div class="product-info">
+        <div class="product-name serif">Coleção Praia</div>
+        <p class="product-desc">Modelos que abraçam o corpo com elegância — feitos pra você brilhar na areia e além.</p>
+        <a href="https://magab4.lojavirtualnuvem.com.br/" target="_blank" class="product-cta">
+          Ver na loja →
+        </a>
       </div>
     </div>
-  </section>
-
-  <!-- TRANSFORMAÇÃO -->
-  <section class="transformacao-section">
-    <div class="container">
-      <div class="transformacao-intro">
-        <div class="tag">A virada</div>
-        <h2>De <em>founder sobrecarregada</em><br>para marca que cresce sozinha</h2>
-        <p>O que muda quando a MagabWear tem IA cuidando do atendimento.</p>
+    <!-- Brasil -->
+    <div class="product-card reveal d3">
+      <div class="product-img">
+        <img src="img/abraco_4.jpg" alt="Biquíni Brasil Copa 2026 MaGab" loading="lazy" />
+        <span class="product-badge" style="background:#2E7D32">Copa 2026</span>
       </div>
-
-      <div class="transformacao-grid">
-        <div class="trans-col before">
-          <div class="trans-label before-label">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
-            Hoje, sem IA
-          </div>
-          <div class="trans-item before-item">
-            <div class="dot">✕</div>
-            <span>Responde 200+ DMs por dia manualmente</span>
-          </div>
-          <div class="trans-item before-item">
-            <div class="dot">✕</div>
-            <span>Venda perdida quando você está criando</span>
-          </div>
-          <div class="trans-item before-item">
-            <div class="dot">✕</div>
-            <span>Alta temporada esgota antes de render</span>
-          </div>
-          <div class="trans-item before-item">
-            <div class="dot">✕</div>
-            <span>Stories dependem da sua energia do dia</span>
-          </div>
-          <div class="trans-item before-item">
-            <div class="dot">✕</div>
-            <span>Pós-venda caótico, trocas travadas</span>
-          </div>
-          <div class="trans-item before-item">
-            <div class="dot">✕</div>
-            <span>Nenhum dado para decisões de estoque</span>
-          </div>
-        </div>
-
-        <div class="trans-divider">
-          <div class="trans-arrow">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </div>
-          <span>Com a<br>Digital AI</span>
-        </div>
-
-        <div class="trans-col after">
-          <div class="trans-label after-label">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
-            Com a Digital AI
-          </div>
-          <div class="trans-item after-item">
-            <div class="dot">✓</div>
-            <span>IA responde DMs em segundos, 24/7</span>
-          </div>
-          <div class="trans-item after-item">
-            <div class="dot">✓</div>
-            <span>Vendas acontecem mesmo quando você dorme</span>
-          </div>
-          <div class="trans-item after-item">
-            <div class="dot">✓</div>
-            <span>Alta temporada = mais receita, menos estresse</span>
-          </div>
-          <div class="trans-item after-item">
-            <div class="dot">✓</div>
-            <span>Persona Digital mantém stories e engajamento</span>
-          </div>
-          <div class="trans-item after-item">
-            <div class="dot">✓</div>
-            <span>Pós-venda automatizado, cliente satisfeito</span>
-          </div>
-          <div class="trans-item after-item">
-            <div class="dot">✓</div>
-            <span>Dados de perguntas mais frequentes por produto</span>
-          </div>
-        </div>
+      <div class="product-info">
+        <div class="product-name serif">Biquíni Brasil</div>
+        <p class="product-desc">Torça com estilo. Convocado pra Copa do Mundo 2026 — entre na torcida mais linda.</p>
+        <a href="https://magab4.lojavirtualnuvem.com.br/" target="_blank" class="product-cta">
+          Ver na loja →
+        </a>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- SOLUÇÃO -->
-  <section class="solucao-section" id="solucao">
-    <div class="container">
-      <div class="solucao-intro">
-        <div class="tag">Nossas soluções</div>
-        <h2>Tudo que a MagabWear precisa<br>para <em>escalar sem contratar</em></h2>
-        <p>Quatro módulos que trabalham juntos para transformar sua operação.</p>
+<!-- ── DESTAQUE — MIRAGE VIRAL ── -->
+<section class="section destaque-section" id="destaque">
+  <div class="destaque-grid">
+    <div class="destaque-img-wrap reveal">
+      <img src="img/mirage_3.jpg" alt="Biquíni Mirage MaGab" loading="lazy" />
+    </div>
+    <div class="destaque-text reveal d2">
+      <div class="destaque-likes">
+        <svg viewBox="0 0 24 24" fill="currentColor" style="width:16px;height:16px"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        229 curtidas · Post mais amado
       </div>
+      <h2 class="destaque-title serif">
+        O Mirage que <em>parou o Instagram</em>
+      </h2>
+      <p class="destaque-body">
+        Um biquíni que virou febre entre as clientes — e não é à toa. O Mirage combina modelagem impecável com um caimento que realmente valoriza cada curva.
+      </p>
+      <blockquote class="destaque-quote">
+        "Uma peça que valoriza, abraça e acompanha você em cada momento. Porque vestir MaGab vai além do biquíni, é sobre se sentir bem, confiante e linda exatamente do seu jeito."
+      </blockquote>
+      <a href="https://magab4.lojavirtualnuvem.com.br/" target="_blank" class="btn btn-primary" style="display:inline-flex">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:17px;height:17px"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+        Garantir o meu Mirage
+      </a>
+    </div>
+  </div>
+</section>
 
-      <div class="solucao-grid">
-
-        <div class="solucao-card featured">
-          <div class="solucao-icon">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
-          </div>
-          <div class="solucao-content">
-            <h3>Chatbot de Vendas no WhatsApp</h3>
-            <p>IA treinada com o catálogo completo da MagabWear. Responde, consulta disponibilidade, envia fotos, fecha pedido e gera link de pagamento — sem você tocar no celular.</p>
-            <ul class="solucao-bullets">
-              <li>Disponível 24h, 7 dias, inclusive feriados</li>
-              <li>Integrado ao catálogo em tempo real</li>
-              <li>Fecha vendas automaticamente</li>
-              <li>Qualifica e prioriza leads quentes</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="solucao-card">
-          <div class="solucao-icon">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
-          </div>
-          <div class="solucao-content">
-            <h3>Persona Digital no Instagram</h3>
-            <p>Uma IA com a voz e personalidade da MagabWear que responde DMs, reage a stories e mantém a presença ativa mesmo quando você está focada na criação.</p>
-            <ul class="solucao-bullets">
-              <li>Responde DMs com a sua voz e tom</li>
-              <li>Mantém engajamento nos stories</li>
-              <li>Escala humano apenas quando necessário</li>
-              <li>Nunca "some" da timeline dos seguidores</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="solucao-card">
-          <div class="solucao-icon">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
-          </div>
-          <div class="solucao-content">
-            <h3>Automação de Pós-Venda</h3>
-            <p>Rastreamento, confirmação de pedido, política de trocas, avaliação de produto — tudo automatizado. O cliente é atendido bem, você não precisa fazer nada.</p>
-            <ul class="solucao-bullets">
-              <li>Atualizações de pedido automáticas</li>
-              <li>Fluxo de troca guiado por IA</li>
-              <li>Coleta de avaliações pós-entrega</li>
-              <li>Recuperação de carrinhos abandonados</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="solucao-card">
-          <div class="solucao-icon">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
-          </div>
-          <div class="solucao-content">
-            <h3>Catálogo Inteligente</h3>
-            <p>A cliente diz "quero biquíni tomara que caia no verde" e recebe exatamente o que está disponível com foto, tamanhos, cores e preço. Sem você digitar nada.</p>
-            <ul class="solucao-bullets">
-              <li>Busca conversacional por produto</li>
-              <li>Fotos e detalhes enviados automaticamente</li>
-              <li>Filtra por tamanho, cor e disponibilidade</li>
-              <li>Sugere produtos complementares</li>
-            </ul>
-          </div>
-        </div>
-
+<!-- ── GALLERY ── -->
+<section class="section gallery-section" id="galeria">
+  <div class="section-header reveal">
+    <div class="section-tag">✦ Galeria</div>
+    <h2 class="section-title serif">Cada look, um sentimento</h2>
+    <p class="section-sub">Fotos reais, clientes reais — mulheres que escolheram se sentir lindas com MaGab.</p>
+  </div>
+  <div class="gallery-grid">
+    <div class="gallery-cell tall reveal">
+      <img src="img/musa_aline_1.jpg" alt="Musa usando MaGab" loading="lazy" />
+      <div class="gallery-overlay">
+        <span class="gallery-likes">
+          <svg viewBox="0 0 24 24" fill="currentColor" style="width:13px;height:13px"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          35
+        </span>
       </div>
     </div>
-  </section>
-
-  <!-- PERSONA DIGITAL -->
-  <section class="persona-section">
-    <div class="container">
-      <div class="persona-grid">
-        <div class="persona-content">
-          <div class="tag">Diferencial exclusivo</div>
-          <h2>A <em>Gabriela digital</em> que nunca para de trabalhar</h2>
-          <p>
-            Você criou a MagabWear com a sua personalidade, o seu estilo, a sua voz. A Persona Digital aprende tudo isso e representa a marca no Instagram quando você está criando, descansando ou curtindo a vida.
-          </p>
-          <p>
-            Não é um bot genérico. É uma presença digital treinada na identidade única da MagabWear — que responde DMs, interage com comentários e mantém o engajamento aquecido <em style="color:var(--accent)">sem que sua audiência perceba a diferença.</em>
-          </p>
-          <ul class="persona-features">
-            <li>
-              <div class="persona-feat-icon">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
-              </div>
-              <span>Responde DMs com o tom e personalidade da Gabriela</span>
-            </li>
-            <li>
-              <div class="persona-feat-icon">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
-              </div>
-              <span>Mantém engajamento nos stories e comentários</span>
-            </li>
-            <li>
-              <div class="persona-feat-icon">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
-              </div>
-              <span>Direciona para vendas quando identifica interesse</span>
-            </li>
-            <li>
-              <div class="persona-feat-icon">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
-              </div>
-              <span>Você supervisa e assume quando quiser — controle total</span>
-            </li>
-          </ul>
-        </div>
-
-        <div class="persona-visual">
-          <div class="persona-float-badge">
-            <strong>🔥 Stories ativo</strong>
-            <span>Última interação há 4 min</span>
-          </div>
-
-          <div class="phone-frame">
-            <div class="phone-screen">
-              <div class="ig-header">
-                <div class="ig-avatar">G</div>
-                <div>
-                  <div class="ig-name">magabwear</div>
-                  <div class="ig-handle">@magabwear</div>
-                </div>
-                <div style="margin-left:auto;">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="2"><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/><circle cx="5" cy="12" r="1"/></svg>
-                </div>
-              </div>
-
-              <div class="ig-story">
-                <div class="ig-story-progress">
-                  <div class="ig-progress-bar active"></div>
-                  <div class="ig-progress-bar active"></div>
-                  <div class="ig-progress-bar" style="background:rgba(255,255,255,0.40);"></div>
-                  <div class="ig-progress-bar"></div>
-                </div>
-
-                <div style="background:rgba(201,107,74,0.20);border-radius:12px;padding:14px;margin-bottom:14px;">
-                  <div style="font-size:11px;color:rgba(255,255,255,0.55);margin-bottom:6px;text-transform:uppercase;letter-spacing:0.08em;">Nova coleção ✨</div>
-                  <div class="ig-story-caption">
-                    <em>Cor que rouba o olhar</em> e caimento que abraça.<br>
-                    Nova coleção Areia Dourada chegando essa semana 🌊
-                  </div>
-                  <div class="ig-tags">
-                    <span class="ig-tag">#magabwear</span>
-                    <span class="ig-tag">#modapraia</span>
-                    <span class="ig-tag">#biquini</span>
-                  </div>
-                </div>
-
-                <div class="ig-dm-preview">
-                  <span>Responder ao story...</span>
-                  <span class="ig-reply-btn">Enviar</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+    <div class="gallery-cell reveal d1">
+      <img src="img/abraco_1.jpg" alt="MaGab Beachwear" loading="lazy" />
+      <div class="gallery-overlay">
+        <span class="gallery-likes">
+          <svg viewBox="0 0 24 24" fill="currentColor" style="width:13px;height:13px"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          31
+        </span>
       </div>
     </div>
-  </section>
-
-  <!-- COMO FUNCIONA -->
-  <section class="como-funciona-section">
-    <div class="container">
-      <div class="como-intro">
-        <div class="tag">Processo simples</div>
-        <h2>Da conversa ao ar<br><em>em 3 semanas</em></h2>
-        <p>Sem complexidade técnica. Você fala com a gente, a gente cuida de tudo.</p>
-      </div>
-
-      <div class="steps-container">
-        <div class="step-card">
-          <div class="step-number">1</div>
-          <h3>Entendemos sua marca</h3>
-          <p>Reunião de 45 min onde entendemos o tom da MagabWear, seu catálogo, principais dúvidas dos clientes e como você quer que a IA represente a marca.</p>
-          <div class="step-duration">Semana 1</div>
-        </div>
-
-        <div class="step-card">
-          <div class="step-number">2</div>
-          <h3>Construímos e treinamos</h3>
-          <p>Desenvolvemos o chatbot, treinamos a IA com seu catálogo e personalidade, e configuramos as integrações com WhatsApp e Instagram.</p>
-          <div class="step-duration">Semana 2</div>
-        </div>
-
-        <div class="step-card">
-          <div class="step-number">3</div>
-          <h3>No ar e gerando vendas</h3>
-          <p>Fase de testes com você, ajustes finos, e ativação. A partir daí, a IA trabalha sozinha enquanto você foca no que ama: criar coleções incríveis.</p>
-          <div class="step-duration">Semana 3</div>
-        </div>
+    <div class="gallery-cell reveal d2">
+      <img src="img/abraco_3.jpg" alt="MaGab Beachwear" loading="lazy" />
+      <div class="gallery-overlay">
+        <span class="gallery-likes">
+          <svg viewBox="0 0 24 24" fill="currentColor" style="width:13px;height:13px"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          31
+        </span>
       </div>
     </div>
-  </section>
-
-  <!-- RESULTADOS -->
-  <section class="resultados-section">
-    <div class="container">
-      <div class="resultados-intro">
-        <div class="tag">O que esperar</div>
-        <h2>Resultados que<br><em>transformam marcas</em></h2>
-        <p>O que nossas clientes de moda e lifestyle experimentam depois de 30 dias com IA.</p>
-      </div>
-
-      <div class="resultados-grid">
-        <div class="resultado-card">
-          <div class="resultado-icon">
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-          </div>
-          <div class="resultado-num"><span>&lt;</span>5<span>s</span></div>
-          <div class="resultado-title">Tempo de resposta</div>
-          <div class="resultado-desc">Toda pergunta respondida em menos de 5 segundos — dia ou noite, feriado ou temporada alta</div>
-        </div>
-
-        <div class="resultado-card">
-          <div class="resultado-icon">
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
-          </div>
-          <div class="resultado-num">24<span>h</span></div>
-          <div class="resultado-title">Vendas acontecendo</div>
-          <div class="resultado-desc">Pedidos fechados de madrugada, nos fins de semana e em todos os momentos em que você não está disponível</div>
-        </div>
-
-        <div class="resultado-card">
-          <div class="resultado-icon">
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
-          </div>
-          <div class="resultado-num">0</div>
-          <div class="resultado-title">Novas contratações</div>
-          <div class="resultado-desc">Escala a operação sem aumentar headcount. A IA faz o trabalho de 3 atendentes sem custo fixo mensal elevado</div>
-        </div>
+    <div class="gallery-cell reveal d1">
+      <img src="img/musa_aline_2.jpg" alt="MaGab Beachwear" loading="lazy" />
+      <div class="gallery-overlay">
+        <span class="gallery-likes">
+          <svg viewBox="0 0 24 24" fill="currentColor" style="width:13px;height:13px"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          35
+        </span>
       </div>
     </div>
-  </section>
-
-  <!-- CTA FINAL -->
-  <section class="cta-section">
-    <div class="container">
-      <div class="cta-inner">
-        <div class="tag">Pronta para escalar?</div>
-        <h2>A MagabWear merece crescer<br><em>sem você se esgotar</em></h2>
-        <p>
-          Conversa de 20 minutos. Sem compromisso. Vamos entender sua operação atual e mostrar exatamente o que é possível para a MagabWear com IA.
-        </p>
-        <div class="cta-actions">
-          <a href="https://wa.me/5564981337424?text=Oi! Vi a página da MagabWear e quero entender como a Digital AI pode automatizar o atendimento da minha marca de moda." class="btn-whatsapp" target="_blank" rel="noopener">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
-            Conversar agora no WhatsApp
-          </a>
-          <a href="tel:+5564981337424" class="btn-outline">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.01 1.18 2 2 0 012 .01h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.91a16 16 0 006.18 6.18l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
-            Ligar agora
-          </a>
-        </div>
-        <div class="cta-disclaimer">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-          Sem contrato longo. Sem setup técnico da sua parte. Cancelamento simples.
-        </div>
+    <div class="gallery-cell reveal d2">
+      <img src="img/mirage_2.jpg" alt="Biquíni Mirage MaGab" loading="lazy" />
+      <div class="gallery-overlay">
+        <span class="gallery-likes">
+          <svg viewBox="0 0 24 24" fill="currentColor" style="width:13px;height:13px"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          229
+        </span>
       </div>
     </div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer>
-    <div class="container">
-      <div class="footer-inner">
-        <div class="footer-logo">
-          <div class="footer-logo-icon">
-            <svg width="18" height="18" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M10 2L17.32 6.5V15.5L10 20L2.68 15.5V6.5L10 2Z" fill="white" opacity="0.85"/>
-              <circle cx="10" cy="10" r="3" fill="white"/>
-            </svg>
-          </div>
-          <div class="footer-logo-text">Digital<span> AI</span></div>
-        </div>
-        <ul class="footer-links">
-          <li><a href="https://digital-ai.tech" target="_blank" rel="noopener">digital-ai.tech</a></li>
-          <li><a href="https://wa.me/5564981337424" target="_blank" rel="noopener">WhatsApp</a></li>
-          <li><a href="https://instagram.com/magabwear" target="_blank" rel="noopener">@magabwear</a></li>
-        </ul>
-        <div class="footer-copy">© 2025 Digital AI · Todos os direitos reservados</div>
-      </div>
-    </div>
-  </footer>
-
-  <!-- FLOATING WHATSAPP BUTTON -->
-  <a href="https://wa.me/5564981337424?text=Oi! Vi a página da MagabWear e quero entender como a Digital AI pode automatizar o atendimento da minha marca de moda." class="float-wa" target="_blank" rel="noopener" aria-label="Falar no WhatsApp">
-    <div class="float-wa-pulse"></div>
-    <svg width="28" height="28" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+  </div>
+  <a href="https://www.instagram.com/magabwear/" target="_blank" class="gallery-ig-btn reveal">
+    <svg viewBox="0 0 24 24" fill="currentColor" style="width:18px;height:18px"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+    Ver mais no Instagram
   </a>
+</section>
 
-  <script>
-    // Nav scroll effect
-    const nav = document.getElementById('main-nav');
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 20) {
-        nav.classList.add('scrolled');
-      } else {
-        nav.classList.remove('scrolled');
-      }
-    });
+<!-- ── FOUNDERS ── -->
+<section class="founders-section">
+  <p class="founders-eyebrow reveal">Por trás da MaGab</p>
+  <h2 class="founders-title reveal d1 serif">
+    Criada com <em>amor e estilo</em><br>por quem ama moda praia
+  </h2>
+  <p class="founders-sub reveal d2">
+    Duas sócias, uma visão: criar biquínis que vão além da moda — que fazem você se sentir linda, confiante e exatamente como você é.
+  </p>
+  <div class="founders-handles reveal d3">
+    <a href="https://www.instagram.com/mmarialsilva/" target="_blank" class="founder-handle">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+      @mmarialsilva
+    </a>
+    <a href="https://www.instagram.com/gabrielabettil/" target="_blank" class="founder-handle">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+      @gabrielabettil
+    </a>
+  </div>
+</section>
 
-    // Smooth scroll for anchor links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function(e) {
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-          e.preventDefault();
-          const offset = 80;
-          const top = target.getBoundingClientRect().top + window.pageYOffset - offset;
-          window.scrollTo({ top, behavior: 'smooth' });
-        }
-      });
-    });
+<!-- ── CTA FINAL ── -->
+<section class="cta-section">
+  <p class="cta-eyebrow reveal">Sua vez de brilhar</p>
+  <h2 class="cta-title reveal d1 serif">
+    Moda praia que<br>veste além do corpo ✨
+  </h2>
+  <p class="cta-sub reveal d2">
+    Frete grátis disponível. Escolha o seu biquíni favorito e receba em casa com carinho.
+  </p>
+  <div class="cta-btns reveal d3">
+    <a href="https://magab4.lojavirtualnuvem.com.br/" target="_blank" class="btn btn-white">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:17px;height:17px"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+      Comprar Agora
+    </a>
+    <a href="https://wa.me/5564999999999?text=Oi%21+Quero+conhecer+a+cole%C3%A7%C3%A3o+MaGab+%F0%9F%91%99" target="_blank" class="btn btn-dark">
+      <svg viewBox="0 0 24 24" fill="currentColor" style="width:17px;height:17px"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      Falar no WhatsApp
+    </a>
+  </div>
+</section>
 
-    // Intersection Observer for fade-in animation
-    const observerOptions = {
-      threshold: 0.12,
-      rootMargin: '0px 0px -40px 0px'
-    };
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="footer-brand">Magab <span>Beachwear</span></div>
+  <div class="footer-links">
+    <a href="https://www.instagram.com/magabwear/" target="_blank">Instagram</a>
+    <a href="https://magab4.lojavirtualnuvem.com.br/" target="_blank">Loja</a>
+    <a href="https://wa.me/5564999999999" target="_blank">WhatsApp</a>
+  </div>
+  <p class="footer-copy">© 2026 MaGab Beachwear · por @mmarialsilva & @gabrielabettil · moda praia que veste além do corpo ✨</p>
+</footer>
 
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.style.opacity = '1';
-          entry.target.style.transform = 'translateY(0)';
-          observer.unobserve(entry.target);
-        }
-      });
-    }, observerOptions);
+<!-- ── FLOAT WPP ── -->
+<a href="https://wa.me/5564999999999?text=Oi%21+Quero+conhecer+a+cole%C3%A7%C3%A3o+MaGab+%F0%9F%91%99" target="_blank" class="float-wpp" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
 
-    // Apply animation to cards and key elements
-    const animatedElements = document.querySelectorAll(
-      '.dor-card, .solucao-card, .step-card, .resultado-card, .trans-col, .hero-stat'
-    );
+<script>
+  // Navbar scroll
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 20);
+  }, { passive: true });
 
-    animatedElements.forEach((el, i) => {
-      el.style.opacity = '0';
-      el.style.transform = 'translateY(20px)';
-      el.style.transition = `opacity 0.5s ease ${i * 0.07}s, transform 0.5s ease ${i * 0.07}s`;
-      observer.observe(el);
-    });
-  </script>
-
+  // Reveal on scroll
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
 </body>
 </html>
