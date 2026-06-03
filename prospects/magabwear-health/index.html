@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Diagnóstico de Presença Digital — MAGAB BEACHWEAR</title>
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Digital Health Score · Digital AI" />
+  <meta property="og:url" content="https://magabwear-health.digital-ai.tech" />
+  <meta property="og:title" content="Diagnóstico de Presença Digital — MAGAB BEACHWEAR" />
+  <meta property="og:description" content="Moda Praia · Itumbiara — GO · Score 42/100 · Grau C — Análise completa de Instagram, Google e Website." />
+  <meta property="og:image" content="https://magabwear-health.digital-ai.tech/img/hero.jpg" />
+  <meta property="og:image:width" content="1200" /><meta property="og:image:height" content="630" />
+  <meta property="og:locale" content="pt_BR" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Diagnóstico de Presença Digital — MAGAB BEACHWEAR" />
+  <meta name="twitter:description" content="Moda Praia · Itumbiara — GO · Score 42/100 · Grau C" />
+  <meta name="twitter:image" content="https://magabwear-health.digital-ai.tech/img/hero.jpg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" /><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root{--bg:#080808;--surface:#111111;--surface2:#181818;--border:rgba(255,255,255,0.06);--gold:#C9A96E;--text:#F0EBE3;--muted:rgba(240,235,227,0.5);--muted2:rgba(240,235,227,0.22);--green:#34D399;--yellow:#FBBF24;--red:#F87171;}
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    html{background:var(--bg);scroll-behavior:smooth;overflow-x:hidden;}
+    body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);line-height:1.6;overflow-x:hidden;}
+    @keyframes fadeUp{from{opacity:0;transform:translateY(40px)}to{opacity:1;transform:translateY(0)}}
+    @keyframes fadeIn{from{opacity:0}to{opacity:1}}
+    @keyframes bounceDown{0%,100%{transform:rotate(45deg) translateY(0)}50%{transform:rotate(45deg) translateY(5px)}}
+    @keyframes pulseGold{0%,100%{box-shadow:0 0 0 0 rgba(201,169,110,.4)}60%{box-shadow:0 0 0 10px rgba(201,169,110,0)}}
+    .reveal{opacity:0;transform:translateY(36px);transition:opacity .7s ease,transform .7s ease;}.reveal.visible{opacity:1;transform:none;}
+    .d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}.d4{transition-delay:.4s}
+
+    /* ── HERO ── */
+    .hero{position:relative;overflow:hidden;}
+    .hero-bg{background:url('img/hero.jpg') center top/cover no-repeat;}
+    .hero-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(8,8,8,.1) 0%,rgba(8,8,8,.05) 30%,rgba(8,8,8,.6) 65%,rgba(8,8,8,.97) 100%);}
+    .hero-content{position:relative;z-index:2;width:100%;max-width:1200px;margin:0 auto;padding:0 2rem 4rem;animation:fadeUp 1s ease .3s both;}
+    .hero-label{display:inline-flex;align-items:center;gap:.5rem;background:rgba(201,169,110,.1);border:1px solid rgba(201,169,110,.3);border-radius:100px;padding:.35rem 1rem;font-size:.62rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:1.5rem;}
+    .hero-label-dot{width:6px;height:6px;background:var(--gold);border-radius:50%;animation:pulseGold 2s infinite;}
+    .hero-name{font-family:'Playfair Display',serif;font-size:clamp(2.8rem,7vw,5.5rem);font-weight:400;line-height:1.05;margin-bottom:.5rem;}
+    .hero-name em{font-style:italic;color:var(--gold);}
+    .hero-spec{font-size:.8rem;color:var(--muted);letter-spacing:.14em;text-transform:uppercase;margin-bottom:2.5rem;}
+    .hero-score-row{display:flex;align-items:center;gap:2rem;flex-wrap:wrap;}
+    .hero-num{font-family:'Playfair Display',serif;font-size:clamp(4rem,10vw,7rem);font-weight:700;line-height:1;color:var(--yellow);font-variant-numeric:tabular-nums;}
+    .hero-denom{font-size:1.8rem;color:var(--muted2);}
+    .hero-grade{width:68px;height:68px;border-radius:50%;background:rgba(251,191,36,.08);border:2px solid var(--yellow);display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:2rem;font-weight:700;color:var(--yellow);}
+    .hero-desc{flex:1;min-width:220px;}
+    .hero-desc h3{font-size:1rem;font-weight:600;margin-bottom:.3rem;}
+    .hero-desc p{font-size:.8rem;color:var(--muted);line-height:1.6;}
+    .scroll-cue{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:.5rem;color:var(--muted2);font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;animation:fadeIn 1s ease 1.8s both;}
+    .scroll-arrow{width:18px;height:18px;border-right:1.5px solid rgba(240,235,227,.3);border-bottom:1.5px solid rgba(240,235,227,.3);transform:rotate(45deg);animation:bounceDown 2s infinite;}
+
+    /* layout utilities */
+    .wrap{max-width:1200px;margin:0 auto;padding:0 2rem;}
+    .sec-label{font-size:.62rem;font-weight:700;letter-spacing:.26em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem;display:flex;align-items:center;gap:.75rem;}
+    .sec-label::before{content:'';width:22px;height:1px;background:var(--gold);opacity:.6;}
+
+    /* ── PILLARS ── */
+    .pillars-sec{padding:6rem 2rem;background:var(--surface);}
+    .pillars-head{text-align:center;margin-bottom:4rem;}
+    .pillars-head h2{font-family:'Playfair Display',serif;font-size:clamp(2rem,4.5vw,3rem);font-weight:400;line-height:1.2;margin-bottom:.8rem;}
+    .pillars-head p{font-size:.88rem;color:var(--muted);max-width:440px;margin:0 auto;}
+    .pillars-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;max-width:900px;margin:0 auto;}
+    @media(max-width:680px){.pillars-grid{grid-template-columns:1fr;}}
+    .pillar{background:var(--surface2);padding:3rem 1.5rem;text-align:center;position:relative;overflow:hidden;transition:transform .3s ease;}
+    .pillar:hover{transform:translateY(-5px);}
+    .pillar::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:var(--pc);transform:scaleX(0);transition:transform .8s cubic-bezier(.4,0,.2,1) .4s;}
+    .pillar.visible::after{transform:scaleX(1);}
+    .pillar-icon{font-size:1.8rem;margin-bottom:.75rem;opacity:.75;}
+    .pillar-label{font-size:.6rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:1.5rem;}
+    .ring{position:relative;width:120px;height:120px;margin:0 auto 1.5rem;}
+    .ring svg{width:120px;height:120px;transform:rotate(-90deg);}
+    .ring-bg{fill:none;stroke:rgba(255,255,255,.05);stroke-width:7;}
+    .ring-arc{fill:none;stroke:var(--pc);stroke-width:7;stroke-linecap:round;stroke-dasharray:339;stroke-dashoffset:339;transition:stroke-dashoffset 1.6s cubic-bezier(.4,0,.2,1);}
+    .ring-num{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;}
+    .ring-val{font-family:'Playfair Display',serif;font-size:2.2rem;font-weight:700;line-height:1;color:var(--pc);}
+    .ring-max{font-size:.62rem;color:var(--muted2);}
+    .pillar-foot strong{display:block;font-size:.85rem;font-weight:600;margin-bottom:.15rem;}
+    .pillar-foot span{font-size:.75rem;color:var(--muted);}
+
+    /* ── INSTAGRAM ── */
+    .insta-sec{padding:6rem 2rem;}
+    .insta-intro h2{font-family:'Playfair Display',serif;font-size:clamp(1.9rem,4vw,2.8rem);font-weight:400;line-height:1.2;margin-bottom:.8rem;}
+    .insta-intro p{font-size:.88rem;color:var(--muted);max-width:540px;line-height:1.75;}
+    .stats-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-top:2rem;}
+    @media(max-width:600px){.stats-grid{grid-template-columns:1fr;}}
+    .stat-box{background:var(--surface);border:1px solid var(--border);padding:1.5rem 1.25rem;text-align:center;}
+    .stat-num{font-family:'Playfair Display',serif;font-size:2.2rem;font-weight:700;line-height:1;margin-bottom:.3rem;}
+    .stat-lbl{font-size:.62rem;color:var(--muted);letter-spacing:.14em;text-transform:uppercase;}
+    .stat-note{font-size:.68rem;color:var(--muted2);margin-top:.2rem;}
+
+    /* top3 */
+    .top3-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:1.5rem;}
+    @media(max-width:700px){.top3-grid{grid-template-columns:1fr;}}
+    .top3-card{display:flex;flex-direction:column;text-decoration:none;color:var(--text);background:var(--surface2);border:1px solid var(--border);overflow:hidden;transition:transform .25s ease,border-color .25s ease;}
+    .top3-card:hover{transform:translateY(-4px);border-color:rgba(201,169,110,.45);}
+    .top3-media{position:relative;width:100%;aspect-ratio:1/1;overflow:hidden;background:#0d0d0d;}
+    .top3-media img{width:100%;height:100%;object-fit:cover;display:block;}
+    .top3-body{padding:1rem 1.1rem;flex:1;display:flex;flex-direction:column;gap:.5rem;}
+    .top3-header{display:flex;justify-content:space-between;align-items:flex-start;}
+    .top3-badge{font-size:.55rem;letter-spacing:.12em;text-transform:uppercase;background:rgba(201,169,110,.1);color:var(--gold);border:1px solid rgba(201,169,110,.25);padding:.2rem .5rem;border-radius:2px;}
+    .top3-rank{font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:700;color:rgba(201,169,110,.2);line-height:1;}
+    .top3-caption{font-size:.75rem;color:var(--muted);line-height:1.55;flex:1;}
+    .top3-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:3px;}
+    .top3-stat{background:var(--surface);padding:.45rem .3rem;text-align:center;}
+    .top3-stat strong{display:block;font-family:'Playfair Display',serif;font-size:.95rem;font-weight:700;line-height:1.2;}
+    .top3-stat span{font-size:.5rem;color:var(--muted);letter-spacing:.09em;text-transform:uppercase;margin-top:.1rem;display:block;}
+    .insight-box{margin-top:1.5rem;padding:1.1rem 1.4rem;background:rgba(201,169,110,.05);border-left:3px solid var(--gold);display:flex;gap:.9rem;align-items:flex-start;}
+    .insight-icon{font-size:1.1rem;flex-shrink:0;margin-top:.05rem;}
+    .insight-box p{font-size:.82rem;color:var(--muted);line-height:1.65;margin:0;}
+    .insight-box strong{color:var(--text);}
+
+    /* sentiment overview */
+    .sent-overview{display:flex;gap:0;margin-top:2rem;}
+    .sent-overview-stat{flex:1;padding:1.4rem 1rem;background:var(--surface);border:1px solid var(--border);text-align:center;}
+    .sent-overview-stat+.sent-overview-stat{border-left:0;}
+    .sent-big-num{display:block;font-family:'Playfair Display',serif;font-size:2.4rem;font-weight:700;line-height:1;}
+    .sent-big-label{display:block;font-size:.62rem;text-transform:uppercase;letter-spacing:.14em;color:var(--muted);margin-top:.35rem;}
+    @media(max-width:600px){.sent-overview{flex-direction:column;}.sent-overview-stat+.sent-overview-stat{border-left:1px solid var(--border);border-top:0;}}
+
+    /* issues */
+    .issues-list{display:flex;flex-direction:column;gap:.5rem;margin-top:1.5rem;}
+    .issue-row{display:flex;align-items:flex-start;gap:.9rem;padding:.85rem 1.1rem;background:var(--surface2);border:1px solid var(--border);}
+    .issue-ico{flex-shrink:0;width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.7rem;font-weight:700;margin-top:.1rem;}
+    .ok{background:rgba(52,211,153,.12);color:var(--green);border:1px solid rgba(52,211,153,.25);}
+    .fail{background:rgba(248,113,113,.1);color:var(--red);border:1px solid rgba(248,113,113,.22);}
+    .warn{background:rgba(251,191,36,.1);color:var(--yellow);border:1px solid rgba(251,191,36,.22);}
+    .issue-row .label strong{display:block;font-weight:500;font-size:.83rem;margin-bottom:.1rem;}
+    .issue-row .label span{font-size:.73rem;color:var(--muted);}
+
+    /* ── GOOGLE ── */
+    .google-sec{padding:6rem 2rem;background:var(--surface);}
+    .google-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start;}
+    @media(max-width:780px){.google-grid{grid-template-columns:1fr;gap:2.5rem;}}
+    .google-grid h2{font-family:'Playfair Display',serif;font-size:clamp(1.9rem,4vw,2.8rem);font-weight:400;line-height:1.2;margin-bottom:.8rem;}
+    .google-grid p.sub{font-size:.88rem;color:var(--muted);margin-bottom:2rem;line-height:1.7;}
+    .checklist{display:flex;flex-direction:column;gap:.6rem;}
+    .check-row{display:flex;align-items:center;gap:.9rem;padding:.85rem 1.1rem;background:var(--surface2);border:1px solid var(--border);font-size:.83rem;}
+    .check-ico{flex-shrink:0;width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.7rem;font-weight:700;}
+    .check-row .label strong{display:block;font-weight:500;margin-bottom:.1rem;}
+    .check-row .label span{font-size:.73rem;color:var(--muted);}
+    .g-score-box{background:var(--surface2);border:1px solid var(--border);padding:2.5rem;text-align:center;}
+    .g-score-num{font-family:'Playfair Display',serif;font-size:4.5rem;font-weight:700;line-height:1;}
+    .g-score-max{font-size:1.1rem;color:var(--muted);}
+    .g-score-lbl{font-size:.65rem;color:var(--muted);letter-spacing:.14em;text-transform:uppercase;margin-top:.4rem;}
+    .gap-box{margin-top:1.25rem;padding:1.1rem 1.25rem;background:rgba(248,113,113,.05);border-left:3px solid var(--red);}
+    .gap-box p{font-size:.83rem;color:var(--muted);line-height:1.65;}
+    .gap-box strong{color:var(--text);}
+
+    /* ── WEBSITE ── */
+    .web-sec{padding:6rem 2rem;}
+    .web-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;}
+    @media(max-width:780px){.web-grid{grid-template-columns:1fr;gap:2.5rem;}}
+    .web-grid h2{font-family:'Playfair Display',serif;font-size:clamp(1.9rem,4vw,2.8rem);font-weight:400;line-height:1.2;margin-bottom:.8rem;}
+    .web-grid p.sub{font-size:.88rem;color:var(--muted);margin-bottom:1.5rem;line-height:1.7;}
+    .mockup{background:var(--surface);border:1px solid var(--border);border-radius:6px;overflow:hidden;}
+    .mbar{background:var(--surface2);padding:.65rem .9rem;display:flex;align-items:center;gap:.5rem;border-bottom:1px solid var(--border);}
+    .mdot{width:9px;height:9px;border-radius:50%;}
+    .murl{flex:1;background:rgba(255,255,255,.04);border-radius:3px;padding:.28rem .65rem;font-size:.68rem;color:var(--muted);font-family:monospace;}
+    .mbody{padding:2.5rem 1.5rem;text-align:center;min-height:150px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.5rem;}
+    .m-url{font-size:.72rem;color:var(--muted);font-family:monospace;}
+    .m-warn{font-size:.72rem;color:var(--yellow);}
+    .lost-row{display:flex;gap:1rem;flex-wrap:wrap;margin-top:1.5rem;}
+    .lost-box{flex:1;min-width:100px;padding:1.1rem;background:var(--surface);border:1px solid var(--border);border-left:3px solid var(--red);text-align:center;}
+    .lost-val{font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:600;color:var(--red);}
+    .lost-lbl{font-size:.65rem;color:var(--muted);letter-spacing:.08em;}
+
+    /* ── RECOMMENDATIONS ── */
+    .recs-sec{padding:6rem 2rem;}
+    .recs-sec h2{font-family:'Playfair Display',serif;font-size:clamp(1.9rem,4vw,2.8rem);font-weight:400;line-height:1.2;margin-bottom:.8rem;}
+    .recs-sec p.sub{font-size:.88rem;color:var(--muted);max-width:440px;margin-bottom:3rem;}
+    .timeline{position:relative;display:flex;flex-direction:column;}
+    .timeline::before{content:'';position:absolute;left:1.75rem;top:2.5rem;bottom:2.5rem;width:1px;background:var(--border);}
+    .t-item{display:flex;gap:2rem;padding:1.75rem 0;}
+    .t-num{flex-shrink:0;width:3.5rem;height:3.5rem;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:.95rem;font-weight:600;position:relative;z-index:1;}
+    .t-body{flex:1;padding-top:.5rem;}
+    .t-impact{display:inline-block;font-size:.58rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;padding:.18rem .55rem;border-radius:2px;margin-bottom:.5rem;}
+    .t-body h3{font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:400;margin-bottom:.35rem;}
+    .t-body p{font-size:.82rem;color:var(--muted);line-height:1.7;margin-bottom:.4rem;}
+    .t-gain{font-size:.78rem;font-weight:600;}
+
+    /* ── PROJECTION ── */
+    .proj-sec{padding:6rem 2rem;background:var(--surface);}
+    .proj-sec h2{font-family:'Playfair Display',serif;font-size:clamp(1.9rem,4vw,2.8rem);font-weight:400;line-height:1.2;margin-bottom:.8rem;}
+    .proj-sec p.sub{font-size:.88rem;color:var(--muted);max-width:440px;margin-bottom:3rem;}
+    .bar-group{display:flex;flex-direction:column;gap:1.75rem;}
+    .bar-head{display:flex;justify-content:space-between;margin-bottom:.5rem;}
+    .bar-label{font-size:.8rem;font-weight:500;}
+    .bar-val{font-family:'Playfair Display',serif;font-size:.95rem;font-weight:600;}
+    .bar-track{height:8px;background:rgba(255,255,255,.05);border-radius:4px;overflow:hidden;}
+    .bar-fill{height:100%;border-radius:4px;transform-origin:left;transform:scaleX(0);transition:transform 1.3s cubic-bezier(.4,0,.2,1);}
+    .bar-row.run .bar-fill{transform:scaleX(1);}
+    .proj-note{margin-top:2rem;padding:1.4rem 1.75rem;background:rgba(52,211,153,.04);border:1px solid rgba(52,211,153,.14);}
+    .proj-note p{font-size:.83rem;color:var(--muted);line-height:1.7;}
+    .proj-note strong{color:var(--text);}
+
+    /* ── CTA ── */
+    .cta-sec{padding:6rem 2rem;text-align:center;position:relative;overflow:hidden;}
+    .cta-sec::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 70% at 50% 110%,rgba(201,169,110,.07) 0%,transparent 60%);pointer-events:none;}
+    .cta-sec .eyebrow{font-size:.62rem;font-weight:700;letter-spacing:.26em;text-transform:uppercase;color:var(--gold);margin-bottom:1.25rem;}
+    .cta-sec h2{font-family:'Playfair Display',serif;font-size:clamp(2.2rem,6vw,4rem);font-weight:400;line-height:1.15;max-width:680px;margin:0 auto 1.25rem;}
+    .cta-sec h2 em{font-style:italic;color:var(--gold);}
+    .cta-sec p{font-size:.9rem;color:var(--muted);max-width:460px;margin:0 auto 2.5rem;line-height:1.75;}
+    .cta-btn{display:inline-flex;align-items:center;gap:.7rem;background:#25D366;color:#fff;font-weight:600;font-size:.92rem;padding:1.05rem 2.25rem;border-radius:4px;text-decoration:none;letter-spacing:.02em;transition:transform .2s ease,box-shadow .2s ease;}
+    .cta-btn:hover{transform:translateY(-2px);box-shadow:0 12px 36px rgba(37,211,102,.3);}
+
+    /* ── FOOTER ── */
+    .site-footer{padding:2.5rem 2rem;border-top:1px solid var(--border);text-align:center;}
+    .f-logo{font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:400;margin-bottom:.25rem;}
+    .f-sub{font-size:.72rem;color:var(--muted2);}
+    .f-meta{font-size:.62rem;color:rgba(240,235,227,.14);margin-top:.8rem;}
+
+    /* ── RESPONSIVE ── */
+    @media(max-width:768px){
+      .hero{display:flex;flex-direction:column;height:auto;min-height:auto;overflow:visible;}
+      .hero-bg{position:relative!important;inset:auto!important;width:100%;height:62vw;min-height:220px;max-height:380px;transform:none!important;flex-shrink:0;}
+      .hero-overlay{display:none!important;}
+      .hero-content{position:relative!important;background:var(--bg);padding:2rem 1.25rem 3rem;animation:fadeUp .8s ease .1s both;}
+      .hero-name{font-size:clamp(2rem,8vw,3rem);}
+      .hero-score-row{flex-direction:column;gap:.75rem;align-items:flex-start;}.hero-desc{display:none;}
+      .pillars-sec,.insta-sec,.google-sec,.web-sec,.recs-sec,.proj-sec,.cta-sec{padding:3.5rem 1.25rem;}
+      .wrap{padding:0 1.25rem;}
+    }
+    @media(max-width:480px){.hero-num{font-size:3.5rem;}.hero-grade{width:52px;height:52px;font-size:1.5rem;}}
+    @media(min-width:769px){
+      .hero{display:grid;grid-template-columns:42% 58%;grid-template-rows:100vh;height:100vh;min-height:680px;}
+      .hero-bg{position:relative!important;inset:auto!important;grid-column:1;grid-row:1;background-image:url('img/hero.jpg');background-size:cover;background-position:center top;transform:none!important;}
+      .hero-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(to right,transparent 55%,var(--bg) 100%);pointer-events:none;}
+      .hero-overlay{display:none!important;}
+      .hero-content{position:relative!important;grid-column:2;grid-row:1;z-index:2;background:var(--bg);display:flex!important;flex-direction:column;justify-content:flex-end;padding:3rem 4rem 5rem 3rem;max-width:none;margin:0;width:auto;}
+      .scroll-cue{display:none;}
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══ HERO ══════════════════════════════════════════════════════════════ -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-label"><span class="hero-label-dot"></span>Digital Health Score · 2026</div>
+    <h1 class="hero-name">MAGAB<br><em>Beachwear</em></h1>
+    <p class="hero-spec">Moda Praia &middot; Itumbiara — GO &middot; @magabwear</p>
+    <div class="hero-score-row">
+      <div>
+        <span class="hero-num">42<span class="hero-denom">/100</span></span>
+      </div>
+      <div class="hero-grade">C</div>
+      <div class="hero-desc">
+        <h3>Produto forte, presença digital fraca</h3>
+        <p>Instagram com ER acima da média do mercado — mas completamente invisível no Google. O potencial está represado por uma infraestrutura digital primitiva.</p>
+      </div>
+    </div>
+  </div>
+  <div class="scroll-cue"><span>rolar</span><span class="scroll-arrow"></span></div>
+</section>
+
+<!-- ══ PILLARS ════════════════════════════════════════════════════════════ -->
+<section class="pillars-sec">
+  <div class="wrap">
+    <div class="pillars-head reveal">
+      <div class="sec-label">Visão Geral</div>
+      <h2>Três pilares, <em>um diagnóstico</em></h2>
+      <p>Cada pilar revela onde a marca está forte e onde está perdendo clientes para a concorrência.</p>
+    </div>
+    <div class="pillars-grid">
+      <div class="pillar reveal d1" style="--pc:#E879F9;">
+        <div class="pillar-icon">📸</div>
+        <div class="pillar-label">Instagram</div>
+        <div class="ring">
+          <svg viewBox="0 0 120 120"><circle class="ring-bg" cx="60" cy="60" r="54"/><circle class="ring-arc" cx="60" cy="60" r="54" style="stroke-dashoffset:calc(339 - 339*(28/40))"/></svg>
+          <div class="ring-num"><span class="ring-val">28</span><span class="ring-max">/40</span></div>
+        </div>
+        <div class="pillar-foot"><strong>Engajamento acima da média</strong><span>ER 7,77% vs benchmark 3–5%</span></div>
+      </div>
+      <div class="pillar reveal d2" style="--pc:#F87171;">
+        <div class="pillar-icon">🔍</div>
+        <div class="pillar-label">Google</div>
+        <div class="ring">
+          <svg viewBox="0 0 120 120"><circle class="ring-bg" cx="60" cy="60" r="54"/><circle class="ring-arc" cx="60" cy="60" r="54" style="stroke-dashoffset:339;stroke:#F87171;"/></svg>
+          <div class="ring-num"><span class="ring-val" style="color:var(--red)">0</span><span class="ring-max">/35</span></div>
+        </div>
+        <div class="pillar-foot"><strong style="color:var(--red)">Invisível no Google</strong><span>Sem GMB, sem indexação, sem presença</span></div>
+      </div>
+      <div class="pillar reveal d3" style="--pc:#FBBF24;">
+        <div class="pillar-icon">🌐</div>
+        <div class="pillar-label">Website</div>
+        <div class="ring">
+          <svg viewBox="0 0 120 120"><circle class="ring-bg" cx="60" cy="60" r="54"/><circle class="ring-arc" cx="60" cy="60" r="54" style="stroke-dashoffset:calc(339 - 339*(14/25))"/></svg>
+          <div class="ring-num"><span class="ring-val">14</span><span class="ring-max">/25</span></div>
+        </div>
+        <div class="pillar-foot"><strong>Loja funcional, sem raízes</strong><span>Nuvemshop sem domínio próprio</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ INSTAGRAM ══════════════════════════════════════════════════════════ -->
+<section class="insta-sec">
+  <div class="wrap">
+    <div class="insta-intro reveal">
+      <div class="sec-label">Instagram · 28/40</div>
+      <h2>A marca que <em>engaja de verdade</em></h2>
+      <p>Com 415 seguidores e ER de 7,77%, a MAGAB performa acima da média esperada para nano-marcas. O problema: o ativo mais poderoso — as fundadoras — apareceu em <strong>apenas 1 post</strong> nos últimos 66 dias.</p>
+    </div>
+
+    <div class="stats-grid reveal">
+      <div class="stat-box">
+        <div class="stat-num" style="color:var(--green)">7,77%</div>
+        <div class="stat-lbl">Engagement Rate</div>
+        <div class="stat-note">Benchmark nano: 3–5%</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-num">415</div>
+        <div class="stat-lbl">Seguidores</div>
+        <div class="stat-note">Audiência qualificada e real</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-num">~2,5x</div>
+        <div class="stat-lbl">Posts por semana</div>
+        <div class="stat-note">Cadência adequada</div>
+      </div>
+    </div>
+
+    <!-- top3 -->
+    <div class="reveal" style="margin-top:3rem;">
+      <div class="sec-label">Top 3 Posts por Engajamento</div>
+      <div class="top3-grid">
+        <div class="top3-card">
+          <div class="top3-media"><img src="img/hero.jpg" alt="Post #1 — Biquíni Mirage" loading="lazy" /></div>
+          <div class="top3-body">
+            <div class="top3-header">
+              <span class="top3-badge">Carrossel</span>
+              <span class="top3-rank">#1</span>
+            </div>
+            <p class="top3-caption">"Uma peça que valoriza, abraça e acompanha você em cada momento" — @gabrielabettil usando o Biquíni Mirage</p>
+            <div class="top3-stats">
+              <div class="top3-stat"><strong style="color:var(--gold)">243</strong><span>Interações</span></div>
+              <div class="top3-stat"><strong>229</strong><span>Likes</span></div>
+              <div class="top3-stat"><strong style="color:var(--green)">58,6%</strong><span>ER</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="top3-card">
+          <div class="top3-media"><img src="img/top2.jpg" alt="Post #2 — @alineaferr" loading="lazy" /></div>
+          <div class="top3-body">
+            <div class="top3-header">
+              <span class="top3-badge">Carrossel</span>
+              <span class="top3-rank">#2</span>
+            </div>
+            <p class="top3-caption">"Nossa musa @alineaferr usando MaGab é de tirar o fôlego." — parceria com embaixadora</p>
+            <div class="top3-stats">
+              <div class="top3-stat"><strong style="color:var(--gold)">41</strong><span>Interações</span></div>
+              <div class="top3-stat"><strong>38</strong><span>Likes</span></div>
+              <div class="top3-stat"><strong style="color:var(--yellow)">9,9%</strong><span>ER</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="top3-card">
+          <div class="top3-media"><img src="img/top3.jpg" alt="Post #3 — Dia do Abraço" loading="lazy" /></div>
+          <div class="top3-body">
+            <div class="top3-header">
+              <span class="top3-badge">Carrossel</span>
+              <span class="top3-rank">#3</span>
+            </div>
+            <p class="top3-caption">"22/05 — Dia Nacional do Abraço. Os modelos da MaGab foram feitos pra te acolher." — conteúdo emocional</p>
+            <div class="top3-stats">
+              <div class="top3-stat"><strong style="color:var(--gold)">37</strong><span>Interações</span></div>
+              <div class="top3-stat"><strong>35</strong><span>Likes</span></div>
+              <div class="top3-stat"><strong style="color:var(--yellow)">8,9%</strong><span>ER</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="insight-box reveal">
+      <span class="insight-icon">💡</span>
+      <p><strong>O gap que define tudo:</strong> o post com a fundadora gerou <strong>243 interações (ER 58,6%)</strong>. A média dos outros posts é 14 interações. Isso é um fator multiplicador de <strong>5,8×</strong> — e o ativo que gera esse resultado aparece em apenas 4% do feed. A maior alavanca de crescimento da MAGAB está completamente subexplorada.</p>
+    </div>
+
+    <!-- Issues Instagram -->
+    <div class="reveal" style="margin-top:3rem;">
+      <div class="sec-label">Gargalos Identificados</div>
+      <div class="issues-list">
+        <div class="issue-row">
+          <div class="issue-ico fail">✕</div>
+          <div class="label"><strong>Conta pessoal, não Business</strong><span>Sem acesso a métricas nativas, sem botão de contato integrado, sem possibilidade de anúncios pagos</span></div>
+        </div>
+        <div class="issue-row">
+          <div class="issue-ico fail">✕</div>
+          <div class="label"><strong>Zero automação de atendimento</strong><span>Agendamento manual via DM — não escala com o crescimento previsto da audiência</span></div>
+        </div>
+        <div class="issue-row">
+          <div class="issue-ico fail">✕</div>
+          <div class="label"><strong>Uso mínimo de hashtags</strong><span>Apenas ~5 hashtags identificadas em todo o feed — potencial de descoberta orgânica desperdiçado</span></div>
+        </div>
+        <div class="issue-row">
+          <div class="issue-ico warn">!</div>
+          <div class="label"><strong>Mix de conteúdo desequilibrado</strong><span>45% do feed é sazonalidade + produto isolado (os formatos de menor retorno). Founder content = 4% do feed</span></div>
+        </div>
+        <div class="issue-row">
+          <div class="issue-ico ok">✓</div>
+          <div class="label"><strong>Cadência consistente</strong><span>2,5 posts/semana — adequada para a fase atual da marca</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sentimento -->
+    <div class="reveal" style="margin-top:3rem;">
+      <div class="sec-label">Sentimento dos Comentários</div>
+      <div class="sent-overview">
+        <div class="sent-overview-stat">
+          <span class="sent-big-num" style="color:var(--green)">~78%</span>
+          <span class="sent-big-label">Positivo</span>
+        </div>
+        <div class="sent-overview-stat">
+          <span class="sent-big-num" style="color:var(--muted)">~15%</span>
+          <span class="sent-big-label">Neutro</span>
+        </div>
+        <div class="sent-overview-stat">
+          <span class="sent-big-num" style="color:var(--yellow)">~7%</span>
+          <span class="sent-big-label">Misto</span>
+        </div>
+      </div>
+      <div class="insight-box" style="margin-top:1rem;">
+        <span class="insight-icon">✨</span>
+        <p>Comentários dominantemente positivos: admiração, intenção de compra ("quero", "preciso") e indicação para amigas. <strong>Nenhum comentário negativo crítico identificado.</strong> Sinal de produto com aprovação real do mercado.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ GOOGLE ══════════════════════════════════════════════════════════════ -->
+<section class="google-sec">
+  <div class="wrap">
+    <div class="google-grid">
+      <div class="reveal">
+        <div class="sec-label">Google · 0/35</div>
+        <h2>Invisível para quem <em>não te segue</em></h2>
+        <p class="sub">Quem digita "moda praia Itumbiara" ou "MAGAB BEACHWEAR" no Google não encontra a marca. Zero Google Meu Negócio, zero indexação, zero presença em diretórios. Cada busca orgânica vai direto para a concorrência.</p>
+        <div class="checklist">
+          <div class="check-row">
+            <div class="check-ico fail">✕</div>
+            <div class="label"><strong>Busca pelo nome da marca</strong><span>Pesquisar "MAGAB BEACHWEAR" no Google não retorna resultado direto da marca</span></div>
+          </div>
+          <div class="check-row">
+            <div class="check-ico fail">✕</div>
+            <div class="label"><strong>Busca por segmento + cidade</strong><span>"Moda praia Itumbiara" — a marca não aparece em nenhuma posição orgânica</span></div>
+          </div>
+          <div class="check-row">
+            <div class="check-ico fail">✕</div>
+            <div class="label"><strong>Google Meu Negócio</strong><span>Não cadastrado — perde o card GMB com avaliações, mapa e contato direto</span></div>
+          </div>
+          <div class="check-row">
+            <div class="check-ico fail">✕</div>
+            <div class="label"><strong>Presença em diretórios locais</strong><span>Não listada em Solutudo, InfoIsInfo, Guia Local ou similares</span></div>
+          </div>
+          <div class="check-row">
+            <div class="check-ico fail">✕</div>
+            <div class="label"><strong>Avaliações online</strong><span>Sem histórico de avaliações públicas — potencial cliente não tem como validar a marca fora do Instagram</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="reveal d2">
+        <div class="g-score-box">
+          <div class="g-score-num" style="color:var(--red)">0<span class="g-score-max">/35</span></div>
+          <div class="g-score-lbl">Score Google</div>
+        </div>
+        <div class="gap-box">
+          <p><strong>O que isso significa:</strong> uma cliente que conheceu a MAGAB pessoalmente ou em eventos, mas não segue o Instagram, <strong>não consegue encontrar a marca no Google</strong>. Cada nova exposição fora do Instagram é um cliente perdido.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ WEBSITE ══════════════════════════════════════════════════════════════ -->
+<section class="web-sec">
+  <div class="wrap">
+    <div class="web-grid">
+      <div class="reveal">
+        <div class="sec-label">Website · 14/25</div>
+        <h2>Loja ativa, sem <em>identidade própria</em></h2>
+        <p class="sub">A loja na Nuvemshop funciona e é mobile-friendly. Mas operar em <code>magab4.lojavirtualnuvem.com.br</code> — sem domínio próprio — comunica improviso, não marca. E sem domínio, não há SEO.</p>
+        <div class="checklist">
+          <div class="check-row">
+            <div class="check-ico ok">✓</div>
+            <div class="label"><strong>Loja online ativa</strong><span>E-commerce funcional na Nuvemshop com catálogo de produtos</span></div>
+          </div>
+          <div class="check-row">
+            <div class="check-ico ok">✓</div>
+            <div class="label"><strong>Mobile-friendly</strong><span>Nuvemshop é plataforma mobile-first por padrão</span></div>
+          </div>
+          <div class="check-row">
+            <div class="check-ico warn">!</div>
+            <div class="label"><strong>Velocidade razoável</strong><span>Plataforma SaaS compartilhada — desempenho dependente de terceiros</span></div>
+          </div>
+          <div class="check-row">
+            <div class="check-ico fail">✕</div>
+            <div class="label"><strong>Domínio próprio</strong><span>URL magab4.lojavirtualnuvem.com.br — sem branding, sem autoridade de domínio</span></div>
+          </div>
+          <div class="check-row">
+            <div class="check-ico fail">✕</div>
+            <div class="label"><strong>SEO básico</strong><span>Sem domínio próprio = zero autoridade de SEO; a marca não aparece em buscas por produto</span></div>
+          </div>
+          <div class="check-row">
+            <div class="check-ico fail">✕</div>
+            <div class="label"><strong>Captura de leads</strong><span>Sem pop-up de e-mail, sem chat de atendimento, sem mecanismo de remarketing visível</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="reveal d2">
+        <div class="mockup">
+          <div class="mbar">
+            <div class="mdot" style="background:#F87171;"></div>
+            <div class="mdot" style="background:#FBBF24;"></div>
+            <div class="mdot" style="background:#34D399;"></div>
+            <div class="murl">magab4.lojavirtualnuvem.com.br</div>
+          </div>
+          <div class="mbody">
+            <div class="m-warn">⚠️ URL sem identidade de marca</div>
+            <div class="m-url">vs. magabwear.com.br</div>
+          </div>
+        </div>
+        <div class="lost-row">
+          <div class="lost-box">
+            <div class="lost-val">0</div>
+            <div class="lost-lbl">Ranking Google</div>
+          </div>
+          <div class="lost-box">
+            <div class="lost-val">0</div>
+            <div class="lost-lbl">Leads capturados</div>
+          </div>
+          <div class="lost-box">
+            <div class="lost-val">0</div>
+            <div class="lost-lbl">Remarketing ativo</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ RECOMMENDATIONS ════════════════════════════════════════════════════ -->
+<section class="recs-sec">
+  <div class="wrap">
+    <div class="reveal">
+      <div class="sec-label">Plano de Ação</div>
+      <h2>5 ações para ir de <em>42 para 76</em></h2>
+      <p class="sub">Priorizadas por impacto no score e facilidade de implementação. Cada ação é independente — você pode começar pela #1 hoje.</p>
+    </div>
+    <div class="timeline reveal">
+      <div class="t-item">
+        <div class="t-num" style="background:rgba(248,113,113,.12);color:var(--red);border:1.5px solid rgba(248,113,113,.3);">1</div>
+        <div class="t-body">
+          <span class="t-impact" style="background:rgba(248,113,113,.1);color:var(--red);">🔴 Crítico · +15 pts</span>
+          <h3>Criar Google Meu Negócio</h3>
+          <p>Cadastrar a MAGAB no Google Meu Negócio é a ação de maior impacto e menor esforço. Em 30 minutos, a marca passa a aparecer no Maps Pack, ter um card com fotos, avaliações e botão direto para o WhatsApp.</p>
+          <span class="t-gain" style="color:var(--green)">↑ +15 pts no pilar Google</span>
+        </div>
+      </div>
+      <div class="t-item">
+        <div class="t-num" style="background:rgba(248,113,113,.12);color:var(--red);border:1.5px solid rgba(248,113,113,.3);">2</div>
+        <div class="t-body">
+          <span class="t-impact" style="background:rgba(248,113,113,.1);color:var(--red);">🔴 Crítico · +5 pts</span>
+          <h3>Migrar para Instagram Business</h3>
+          <p>Converter a conta de pessoal para Business libera métricas nativas, botão de contato (WhatsApp/email), integração com Meta Ads e o catálogo de produtos conectado à Nuvemshop.</p>
+          <span class="t-gain" style="color:var(--green)">↑ +5 pts no pilar Instagram</span>
+        </div>
+      </div>
+      <div class="t-item">
+        <div class="t-num" style="background:rgba(251,191,36,.1);color:var(--yellow);border:1.5px solid rgba(251,191,36,.25);">3</div>
+        <div class="t-body">
+          <span class="t-impact" style="background:rgba(251,191,36,.1);color:var(--yellow);">🟡 Importante · +8 pts</span>
+          <h3>Registrar domínio próprio (magabwear.com.br)</h3>
+          <p>R$40/ano no Registro.br. Um domínio próprio transforma o e-commerce de "lojinha" em marca. Habilita SEO real, e-mail profissional (@magabwear.com.br) e credibilidade para anúncios pagos.</p>
+          <span class="t-gain" style="color:var(--green)">↑ +8 pts no pilar Website</span>
+        </div>
+      </div>
+      <div class="t-item">
+        <div class="t-num" style="background:rgba(251,191,36,.1);color:var(--yellow);border:1.5px solid rgba(251,191,36,.25);">4</div>
+        <div class="t-body">
+          <span class="t-impact" style="background:rgba(251,191,36,.1);color:var(--yellow);">🟡 Importante · +4 pts</span>
+          <h3>Founder Content 2× por semana</h3>
+          <p>O único post com a fundadora gerou 58,6% de ER. Estruturar uma cadência mínima de 2 posts/semana com Gabriela ou Maria usando os produtos é a alavanca mais poderosa de crescimento orgânico disponível hoje.</p>
+          <span class="t-gain" style="color:var(--green)">↑ +4 pts em Consistência de Conteúdo</span>
+        </div>
+      </div>
+      <div class="t-item">
+        <div class="t-num" style="background:rgba(52,211,153,.08);color:var(--green);border:1.5px solid rgba(52,211,153,.2);">5</div>
+        <div class="t-body">
+          <span class="t-impact" style="background:rgba(52,211,153,.08);color:var(--green);">🟢 Rápida Vitória · +2 pts</span>
+          <h3>Estratégia de hashtags (20–30 por post)</h3>
+          <p>Com apenas 5 hashtags em todo o feed, a MAGAB está desperdiçando descoberta orgânica gratuita. Criar uma biblioteca de 50 hashtags segmentadas (beachwear, moda praia, itumbiara, brasília, goiânia) e rodar em blocos por post.</p>
+          <span class="t-gain" style="color:var(--green)">↑ +2 pts em alcance orgânico</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ PROJECTION ═════════════════════════════════════════════════════════ -->
+<section class="proj-sec">
+  <div class="wrap">
+    <div class="reveal">
+      <div class="sec-label">Projeção de Score</div>
+      <h2>De <em>42 para 76</em> em 90 dias</h2>
+      <p class="sub">Implementando as 5 ações acima, o score salta de Grau C para Grau B — sem investimento publicitário, apenas com configurações e mudança de estratégia de conteúdo.</p>
+    </div>
+    <div class="bar-group reveal">
+      <div class="bar-row" data-pct="0.42">
+        <div class="bar-head"><span class="bar-label">Score atual</span><span class="bar-val" style="color:var(--yellow)">42/100 — Grau C</span></div>
+        <div class="bar-track"><div class="bar-fill" style="width:42%;background:var(--yellow);"></div></div>
+      </div>
+      <div class="bar-row" data-pct="0.76">
+        <div class="bar-head"><span class="bar-label">Score após ações</span><span class="bar-val" style="color:var(--green)">76/100 — Grau B</span></div>
+        <div class="bar-track"><div class="bar-fill" style="width:76%;background:var(--green);"></div></div>
+      </div>
+    </div>
+    <div class="proj-note reveal">
+      <p><strong>O que muda de verdade:</strong> com Google Meu Negócio ativo e domínio próprio, clientes que já compraram passam a encontrar a marca organicamente — e não dependem mais de ver um post para lembrar da MAGAB. O crescimento deixa de ser 100% dependente do feed do Instagram.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══ CTA ════════════════════════════════════════════════════════════════ -->
+<section class="cta-sec">
+  <div class="eyebrow">Digital AI · Itumbiara, GO</div>
+  <h2>Quer implementar essas<br><em>melhorias juntos?</em></h2>
+  <p>A Digital AI é a empresa de tecnologia e IA que gerou este diagnóstico. Podemos implementar todas as 5 ações — e ir muito além, com automação de atendimento, persona digital e funil de vendas integrado.</p>
+  <a href="https://wa.me/5564999999999?text=Oi!%20Vi%20o%20diagn%C3%B3stico%20da%20MAGAB%20e%20quero%20entender%20como%20melhorar%20minha%20presen%C3%A7a%20digital." class="cta-btn">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    Conversar sobre o diagnóstico
+  </a>
+</section>
+
+<!-- ══ FOOTER ════════════════════════════════════════════════════════════ -->
+<footer class="site-footer">
+  <div class="f-logo">Digital <em style="font-style:italic;color:var(--gold)">AI</em></div>
+  <div class="f-sub">AI-as-a-Service · Itumbiara, GO · digital-ai.tech</div>
+  <div class="f-meta">Diagnóstico gerado em 03/06/2026 com base em 24 posts analisados (75% do feed @magabwear). Métricas e scores podem variar com atualização dos dados.</div>
+</footer>
+
+<script>
+  // Reveal on scroll
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('visible'); obs.unobserve(e.target); }});
+  }, {threshold:0.12});
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+  // Pillar ring animation + bar animation
+  const ringObs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if(e.isIntersecting){
+        const arcs = e.target.querySelectorAll('.ring-arc');
+        arcs.forEach(arc => {
+          const offset = parseFloat(arc.style.strokeDashoffset);
+          arc.style.transition = 'stroke-dashoffset 1.6s cubic-bezier(.4,0,.2,1)';
+          setTimeout(() => { arc.style.strokeDashoffset = isNaN(offset) ? '0' : offset; }, 200);
+        });
+        e.target.classList.add('visible');
+        ringObs.unobserve(e.target);
+      }
+    });
+  }, {threshold:0.2});
+  document.querySelectorAll('.pillar').forEach(el => {
+    const arc = el.querySelector('.ring-arc');
+    if(arc){ const target = arc.style.strokeDashoffset; arc.style.strokeDashoffset = '339'; arc.dataset.target = target; }
+    ringObs.observe(el);
+  });
+
+  // Bar animation
+  const barObs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if(e.isIntersecting){
+        e.target.querySelectorAll('.bar-row').forEach((row, i) => {
+          setTimeout(() => row.classList.add('run'), i * 200);
+        });
+        barObs.unobserve(e.target);
+      }
+    });
+  }, {threshold:0.2});
+  document.querySelectorAll('.bar-group').forEach(el => barObs.observe(el));
+</script>
+</body>
+</html>

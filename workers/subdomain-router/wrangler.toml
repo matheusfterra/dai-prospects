@@ -24,6 +24,7 @@ routes = [
   { pattern = "odontomad-health.digital-ai.tech/*", zone_name = "digital-ai.tech" },
   { pattern = "ituaco-ferro.digital-ai.tech/*", zone_name = "digital-ai.tech" },
   { pattern = "magab-wear.digital-ai.tech/*", zone_name = "digital-ai.tech" },
+  { pattern = "magabwear-health.digital-ai.tech/*", zone_name = "digital-ai.tech" },
   # LeadKit: adicionar rota explícita para cada novo prospect aqui
 ]
 
