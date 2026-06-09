@@ -31,6 +31,7 @@ const ROUTING = {
   "magabwear": "magab-wear",
   "magabwear-health": "magabwear-health",
   "yooufit-academia-health": "yooufit-academia-health",
+  "odontoclinic-health": "odontoclinic-health",
   // LeadKit adiciona entradas aqui automaticamente via Fase 4 do pipeline
 };
 
