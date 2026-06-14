@@ -6,12 +6,18 @@
   <!-- ▼ BRAND: Alterar título e meta ▼ -->
   <title>{{FULL_NAME}} | {{SPECIALTY}} — {{CITY}}</title>
   <meta name="description" content="{{META_DESC}}" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://{{SLUG}}.digital-ai.tech/" />
   <meta property="og:title" content="{{FULL_NAME}} | {{SPECIALTY}}" />
   <meta property="og:description" content="{{OG_DESC}}" />
   <meta property="og:image" content="https://{{SLUG}}.digital-ai.tech/img/hero.jpg" />
-  <meta property="og:url" content="https://{{SLUG}}.digital-ai.tech/" />
-  <meta property="og:type" content="website" />
+  <meta property="og:image:width" content="1080" />
+  <meta property="og:image:height" content="1350" />
   <meta property="og:locale" content="pt_BR" />
+
+  <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="{{FULL_NAME}} | {{SPECIALTY}}" />
   <meta name="twitter:description" content="{{OG_DESC}}" />
@@ -49,6 +55,8 @@
       --text:         {{COLOR_TEXT}};        /* Geralmente igual ao --dark */
       --text-muted:   {{COLOR_TEXT_MUTED}};  /* Ex: #6B5A44 */
       --text-soft:    {{COLOR_TEXT_SOFT}};   /* Ex: #A8956E */
+      --white:        #FFFFFF;
+      --wpp:          #25D366;
 
       --radius: 14px;
       --font-h: {{FONT_HEADING}};            /* Ex: 'Cormorant Garamond', Georgia, serif */
@@ -56,740 +64,919 @@
     }
     /* ═══════════════════════════════════════════════════ */
 
-    html { scroll-behavior: smooth; }
+    html { scroll-behavior: smooth; background: var(--dark); overflow-x: hidden; }
     body {
+      font-family: var(--font-b);
       background: var(--bg);
       color: var(--text);
-      font-family: var(--font-b);
-      font-size: 16px;
       line-height: 1.65;
       -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
     }
+    img { display: block; width: 100%; object-fit: cover; }
+    a { text-decoration: none; color: inherit; }
 
-    .container { max-width: 1140px; margin: 0 auto; padding: 0 24px; }
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(28px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .reveal {
+      opacity: 0; transform: translateY(22px);
+      transition: opacity .7s ease, transform .7s ease;
+    }
+    .reveal.visible { opacity: 1; transform: none; }
+    .d1 { transition-delay: .1s; }
+    .d2 { transition-delay: .2s; }
+    .d3 { transition-delay: .3s; }
+    .d4 { transition-delay: .4s; }
 
     /* ── PROGRESS BAR ── */
     #progress-bar {
-      position: fixed; top: 0; left: 0; z-index: 200;
-      height: 3px; width: 0%;
+      position: fixed; top: 0; left: 0; z-index: 300;
+      height: 2px; width: 0%;
       background: linear-gradient(90deg, var(--gold), var(--gold-l));
-      transition: width 0.1s linear;
+      transition: width .1s linear;
     }
 
     /* ── NAVBAR ── */
-    .navbar {
+    .nav {
       position: sticky; top: 0; z-index: 100;
-      background: transparent;
-      transition: background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
       border-bottom: 1px solid transparent;
+      transition: background .3s, border-color .3s, box-shadow .3s;
     }
-    .navbar.scrolled {
-      background: rgba(250,246,240,0.94);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
+    .nav.scrolled {
+      background: rgba(248, 245, 240, 0.95);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
       border-bottom-color: var(--border);
-      box-shadow: 0 2px 12px rgba(28,25,20,0.06);
+      box-shadow: 0 2px 16px rgba(26,23,20,.06);
     }
-    .navbar-inner {
+    .nav-inner {
+      max-width: 1100px; margin: 0 auto; padding: 0 24px;
       display: flex; align-items: center; justify-content: space-between;
-      height: 68px; gap: 20px;
+      height: 64px;
     }
-    .navbar-logo {
+    .nav-brand {
       font-family: var(--font-h);
-      font-size: 22px; font-weight: 600;
-      letter-spacing: 2px; color: var(--dark);
-      text-decoration: none;
-      display: flex; flex-direction: column; align-items: flex-start;
+      font-size: 1.15rem; font-weight: 600;
+      letter-spacing: .06em; color: var(--dark);
     }
-    .navbar-logo span {
-      font-size: 9px; font-weight: 400; letter-spacing: 3px;
-      text-transform: uppercase; color: var(--gold); margin-top: -2px;
-      font-family: var(--font-b);
+    .nav-brand span { color: var(--gold); }
+    .nav-ig {
+      display: flex; align-items: center; gap: 7px;
+      font-size: .78rem; font-weight: 600; color: var(--text-muted);
+      padding: 9px 16px; border-radius: 100px;
+      border: 1px solid var(--border);
+      transition: all .2s;
     }
-    .navbar-cta {
-      background: var(--dark);
-      color: var(--gold-l); font-family: var(--font-b);
-      font-size: 13px; font-weight: 600;
-      padding: 10px 24px; border-radius: 9999px;
-      text-decoration: none;
-      transition: background 0.2s;
-    }
-    .navbar-cta:hover { background: var(--dark-2); }
+    .nav-ig:hover { background: var(--dark); color: #fff; border-color: var(--dark); }
+    .nav-ig svg { width: 15px; height: 15px; }
 
-    /* ── HERO ── */
-    .hero { padding: 80px 0; position: relative; overflow: hidden; }
-    .hero-inner {
-      display: grid;
-      grid-template-columns: 55fr 45fr;
-      gap: 60px; align-items: center;
+    /* ── HERO (fullscreen com bg-image) ── */
+    .hero {
+      position: relative; overflow: hidden;
+      min-height: 100svh;
+      display: flex; align-items: flex-end;
+      padding-top: 0;
     }
-    .hero-overline {
+    /* Desktop: centraliza conteúdo do hero */
+    @media (min-width: 769px) {
+      .hero { align-items: center; justify-content: center; }
+      .hero-content { text-align: center; max-width: 700px; padding: 120px 40px 80px; margin: 0 auto; }
+      .hero-eyebrow { justify-content: center; }
+      .hero-btns { justify-content: center; }
+      .hero-sub { margin-left: auto; margin-right: auto; }
+    }
+    .hero-bg {
+      position: absolute; inset: 0; z-index: 0;
+    }
+    .hero-bg img {
+      height: 100%; object-position: center center;
+      opacity: {{HERO_IMG_OPACITY}};   /* Ex: 0.72 */
+    }
+    .hero-overlay {
+      position: absolute; inset: 0; z-index: 1;
+      background: linear-gradient(
+        to top,
+        rgba(26,23,20,.88) 0%,
+        rgba(26,23,20,.30) 50%,
+        rgba(26,23,20,.10) 100%
+      );
+    }
+    .hero-content {
+      position: relative; z-index: 2;
+      padding: 0 24px 60px;
+      max-width: 600px;
+      animation: fadeUp .9s ease both;
+    }
+    .hero-eyebrow {
       display: inline-flex; align-items: center; gap: 10px;
-      font-family: var(--font-b); font-size: 11px; font-weight: 600;
-      letter-spacing: 2.5px; text-transform: uppercase;
-      color: var(--gold); margin-bottom: 20px;
+      font-size: .7rem; font-weight: 600; letter-spacing: .16em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 1.4rem;
     }
-    .hero-overline::before {
-      content: ''; display: block;
-      width: 28px; height: 1px; background: var(--gold);
+    .hero-eyebrow::before {
+      content: ''; display: block; width: 32px; height: 1px; background: var(--gold);
     }
     .hero-title {
       font-family: var(--font-h);
-      font-size: clamp(2.4rem, 5vw, 4rem);
-      font-weight: 600; line-height: 1.15;
-      color: var(--dark); margin-bottom: 20px;
+      font-size: clamp(2.6rem, 6vw, 4.2rem);
+      font-weight: 400; line-height: 1.1;
+      color: #fff; margin-bottom: 1rem;
     }
-    .hero-title em { font-style: italic; color: var(--gold-d); }
-    .hero-subtitle {
-      font-size: 17px; color: var(--text-muted);
-      max-width: 500px; margin-bottom: 36px; line-height: 1.7;
+    .hero-title em { font-style: italic; color: var(--gold-l); }
+    .hero-sub {
+      font-size: .95rem; color: rgba(255,255,255,.75);
+      line-height: 1.75; margin-bottom: 2.2rem; max-width: 420px;
     }
-    .hero-badge-row {
-      display: flex; align-items: center; gap: 16px;
-      flex-wrap: wrap; margin-bottom: 36px;
-    }
-    .hero-badge {
-      display: inline-flex; align-items: center; gap: 6px;
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 9999px;
-      padding: 6px 16px;
-      font-size: 12px; font-weight: 600; color: var(--text-muted);
-      letter-spacing: 0.5px;
-    }
-    .hero-badge svg { color: var(--gold); flex-shrink: 0; }
-    .hero-actions { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
-    .btn-primary {
-      display: inline-flex; align-items: center; gap: 10px;
-      background: var(--dark); color: var(--gold-l);
-      font-family: var(--font-b); font-size: 15px; font-weight: 600;
-      padding: 14px 32px; border-radius: 9999px; text-decoration: none;
-      animation: pulse-cta 3s infinite;
-    }
-    @keyframes pulse-cta {
-      0%,100% { box-shadow: 0 4px 20px rgba(28,25,20,0.25); }
-      50%      { box-shadow: 0 4px 36px rgba(28,25,20,0.08); }
-    }
-    .btn-secondary {
-      font-size: 14px; color: var(--text-muted); font-weight: 500;
-      text-decoration: none; transition: color 0.2s;
-    }
-    .btn-secondary:hover { color: var(--gold); }
+    .hero-btns { display: flex; gap: 12px; flex-wrap: wrap; }
 
-    .hero-img-side { display: flex; justify-content: center; align-items: flex-end; }
-    .hero-img-frame { position: relative; width: 100%; max-width: 420px; }
-    .hero-img-border {
-      border-radius: 32px 0 0 32px;
-      overflow: hidden;
-      box-shadow: 0 32px 72px rgba(28,25,20,0.18), 0 0 0 1px rgba(183,148,88,0.25);
-      aspect-ratio: 3/4;
+    /* ── BUTTONS ── */
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 9px;
+      font-family: var(--font-b); font-size: .88rem; font-weight: 600;
+      padding: 14px 26px; border-radius: 100px; cursor: pointer; border: none;
+      transition: transform .2s, box-shadow .2s, background .2s, opacity .2s;
+      letter-spacing: .01em;
     }
-    .hero-img-border img {
-      width: 100%; height: 100%;
-      object-fit: cover; object-position: 50% 15%;
-      display: block;
+    .btn:hover { transform: translateY(-2px); }
+    .btn svg { width: 18px; height: 18px; flex-shrink: 0; }
+    .btn-gold {
+      background: var(--gold); color: #fff;
+      box-shadow: 0 4px 20px rgba(196,169,110,.32);
     }
-    .hero-img-badge {
-      position: absolute; bottom: -14px; left: 32px;
-      background: var(--dark); color: var(--gold-l);
-      font-family: var(--font-b); font-size: 10px; font-weight: 700;
-      letter-spacing: 2px; text-transform: uppercase;
-      padding: 7px 22px; border-radius: 9999px;
-      white-space: nowrap;
-      box-shadow: 0 4px 16px rgba(28,25,20,0.2);
+    .btn-gold:hover { background: var(--gold-d); box-shadow: 0 6px 28px rgba(196,169,110,.42); }
+    .btn-wpp {
+      background: var(--wpp); color: #fff;
+      box-shadow: 0 4px 20px rgba(37,211,102,.24);
     }
-    .hero-img-frame::before {
-      content: '';
-      position: absolute; top: -16px; right: -16px;
-      width: 120px; height: 120px; border-radius: 50%;
-      background: radial-gradient(circle, rgba(183,148,88,0.18) 0%, transparent 70%);
-      pointer-events: none; z-index: -1;
+    .btn-wpp:hover { background: #1db954; box-shadow: 0 6px 28px rgba(37,211,102,.34); }
+    .btn-outline {
+      background: transparent; color: #fff;
+      border: 1.5px solid rgba(255,255,255,.35);
+    }
+    .btn-outline:hover { background: rgba(255,255,255,.1); border-color: rgba(255,255,255,.6); }
+    .btn-dark  { background: var(--dark); color: #fff; }
+    .btn-dark:hover { background: var(--dark-2); }
+    .btn-sub {
+      display: block; text-align: center;
+      font-size: .72rem; color: rgba(255,255,255,.45);
+      margin-top: 8px;
     }
 
-    /* ── STATS BAR ── */
-    .stats-bar { background: var(--dark); color: var(--gold-l); padding: 32px 0; }
-    .stats-inner {
-      display: grid; grid-template-columns: repeat(4,1fr);
-      gap: 20px; text-align: center;
+    /* ── BARRA DE BENEFÍCIOS ── */
+    .benefits-bar {
+      background: #111009;
+      padding: 0;
+      border-bottom: 1px solid rgba(196,169,110,.12);
     }
-    .stat-value {
-      font-family: var(--font-h); font-size: 36px; font-weight: 700;
-      line-height: 1; margin-bottom: 6px; color: var(--gold-l);
+    .benefits-inner {
+      max-width: 1100px; margin: 0 auto;
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      gap: 0;
     }
-    .stat-label { font-size: 11px; font-weight: 600; letter-spacing: 1.8px;
-      text-transform: uppercase; color: rgba(212,175,122,0.65); }
+    .benefit-item {
+      display: flex; align-items: center; gap: 12px;
+      padding: 18px 20px;
+      border-right: 1px solid rgba(196,169,110,.1);
+    }
+    .benefit-item:last-child { border-right: none; }
+    .benefit-icon {
+      width: 36px; height: 36px; border-radius: 10px;
+      background: rgba(196,169,110,.12);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .benefit-icon svg { width: 18px; height: 18px; color: var(--gold); }
+    .benefit-text { display: flex; flex-direction: column; gap: 1px; }
+    .benefit-title { font-size: .78rem; font-weight: 700; color: #fff; }
+    .benefit-sub { font-size: .68rem; color: rgba(255,255,255,.45); }
+    @media (max-width: 768px) {
+      .benefits-inner { grid-template-columns: repeat(2, 1fr); }
+      .benefit-item:nth-child(2) { border-right: none; }
+      .benefit-item { padding: 14px 16px; gap: 10px; }
+    }
+    @media (max-width: 480px) {
+      .benefits-inner { grid-template-columns: 1fr 1fr; }
+      .benefit-sub { display: none; }
+      .benefit-title { font-size: .72rem; }
+    }
+
+    /* ── LINKS RÁPIDOS — CARDS ── */
+    .links-sec {
+      background: var(--dark);
+      padding: 3.5rem 24px 4rem;
+    }
+    .links-label {
+      text-align: center;
+      font-size: .68rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase;
+      color: var(--text-soft); margin-bottom: 2rem;
+    }
+    .links-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      max-width: 760px; margin: 0 auto;
+    }
+    .link-card {
+      display: flex; flex-direction: column; align-items: center;
+      gap: 12px; padding: 28px 20px 24px;
+      border-radius: 20px;
+      color: #fff;
+      text-align: center;
+      transition: transform .25s, box-shadow .25s;
+      border: 1px solid rgba(255,255,255,.06);
+      cursor: pointer;
+    }
+    .link-card:hover { transform: translateY(-5px); box-shadow: 0 16px 40px rgba(0,0,0,.35); }
+    .link-card-icon {
+      width: 52px; height: 52px; border-radius: 16px;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .link-card-icon svg { width: 26px; height: 26px; }
+    .link-card-title { font-size: .88rem; font-weight: 700; letter-spacing: .01em; line-height: 1.3; }
+    .link-card-sub { font-size: .73rem; color: rgba(255,255,255,.55); line-height: 1.5; }
+    .link-card-arrow { font-size: .72rem; color: rgba(255,255,255,.35); margin-top: 2px; }
+    /* Variantes de card */
+    .lc-wpp  { background: rgba(29,168,81,.15); border-color: rgba(29,168,81,.25); }
+    .lc-wpp .link-card-icon { background: #1da851; }
+    .lc-ig   { background: rgba(131,58,180,.15); border-color: rgba(253,29,29,.15); }
+    .lc-ig .link-card-icon { background: linear-gradient(135deg, #833ab4, #fd1d1d, #fcb045); }
+    .lc-lt   { background: rgba(196,169,110,.08); border-color: rgba(196,169,110,.2); }
+    .lc-lt .link-card-icon { background: rgba(196,169,110,.2); }
+    .lc-lt .link-card-icon svg { color: var(--gold); }
+    .lc-dark { background: rgba(255,255,255,.04); border-color: rgba(255,255,255,.1); }
+    .lc-dark .link-card-icon { background: rgba(255,255,255,.08); }
+    @media (max-width: 600px) {
+      .links-grid { grid-template-columns: 1fr; max-width: 360px; gap: 12px; }
+      .link-card { flex-direction: row; text-align: left; padding: 18px 20px; gap: 16px; }
+      .link-card-icon { width: 46px; height: 46px; border-radius: 14px; flex-shrink: 0; }
+      .link-card-title { font-size: .9rem; }
+      .link-card-sub, .link-card-arrow { display: none; }
+    }
 
     /* ── SECTIONS ── */
-    .section { padding: 84px 0; }
-    .section-alt { background: var(--surface); }
-    .section-label {
-      font-family: var(--font-b); font-size: 11px; font-weight: 700;
-      letter-spacing: 2.5px; text-transform: uppercase;
-      color: var(--gold); margin-bottom: 14px;
+    .section { padding: 88px 24px; }
+    .container { max-width: 1100px; margin: 0 auto; }
+    .sec-tag {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: .68rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase;
+      color: var(--gold); padding: 5px 14px; border-radius: 100px;
+      background: rgba(196,169,110,.1); margin-bottom: .9rem;
     }
-    .section-title {
+    .sec-title {
       font-family: var(--font-h);
-      font-size: clamp(1.9rem, 3.5vw, 2.9rem);
-      font-weight: 600; line-height: 1.2; margin-bottom: 16px; color: var(--dark);
+      font-size: clamp(1.9rem, 3.5vw, 3rem);
+      font-weight: 400; color: var(--dark); line-height: 1.2;
+      margin-bottom: .75rem;
     }
-    .section-title em { font-style: italic; color: var(--gold-d); }
-    .section-desc { font-size: 17px; color: var(--text-muted); max-width: 580px; line-height: 1.7; }
-    .section-header-grid {
-      display: grid; grid-template-columns: 1fr 1fr;
-      gap: 40px; align-items: end; margin-bottom: 56px;
+    .sec-title em { font-style: italic; color: var(--gold); }
+    .sec-sub {
+      color: var(--text-muted); font-size: .95rem;
+      max-width: 480px; line-height: 1.75;
     }
+    .sec-header { margin-bottom: 3.5rem; }
 
-    /* ── SPEC CARDS (Especialidades/Serviços) ── */
-    .spec-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
-    .spec-card {
-      background: #fff;
-      border: 1px solid var(--border);
-      border-radius: var(--radius); padding: 32px 28px;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      position: relative; overflow: hidden;
+    /* ── PRODUTOS / SERVIÇOS ── */
+    .produtos-section { background: var(--bg); }
+    .produtos-grid {
+      display: grid; grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem; max-width: 860px; margin: 0 auto;
     }
-    .spec-card::before {
-      content: ''; position: absolute;
-      top: 0; left: 0; right: 0; height: 3px;
-      background: linear-gradient(90deg, var(--gold), var(--gold-l));
-      transform: scaleX(0); transform-origin: left;
-      transition: transform 0.4s ease;
+    .prod-card {
+      border-radius: 18px; overflow: hidden;
+      background: var(--white);
+      box-shadow: 0 2px 20px rgba(26,23,20,.06);
+      transition: transform .3s, box-shadow .3s; cursor: pointer;
     }
-    .spec-card:hover::before { transform: scaleX(1); }
-    .spec-card:hover { transform: translateY(-5px); box-shadow: 0 16px 40px rgba(183,148,88,0.15); }
-    .spec-icon { font-size: 32px; margin-bottom: 18px; }
-    .spec-title { font-family: var(--font-h); font-size: 21px; font-weight: 700; margin-bottom: 10px; }
-    .spec-text { font-size: 14px; color: var(--text-muted); line-height: 1.65; }
-
-    /* ── SPLIT SECTION (Conteúdo + Foto) ── */
-    .split-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
-    .block-list { display: flex; flex-direction: column; gap: 16px; }
-    .block-item {
-      display: flex; gap: 16px; align-items: flex-start;
-      padding: 18px 20px;
-      background: #fff; border: 1px solid var(--border);
-      border-radius: var(--radius);
-      transition: border-color 0.25s;
+    .prod-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 40px rgba(26,23,20,.12);
     }
-    .block-item:hover { border-color: var(--gold); }
-    .block-icon {
-      width: 40px; height: 40px; border-radius: 10px;
-      background: var(--surface-2);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 18px; flex-shrink: 0;
+    .prod-img { position: relative; overflow: hidden; }
+    .prod-img img { aspect-ratio: 3/4; transition: transform .5s; }
+    .prod-card:hover .prod-img img { transform: scale(1.04); }
+    /* Badges de urgência */
+    .prod-badge {
+      position: absolute; top: 14px; right: 14px;
+      background: var(--gold); color: #fff;
+      font-size: .62rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase;
+      padding: 4px 10px; border-radius: 100px;
     }
-    .block-title { font-size: 14px; font-weight: 700; margin-bottom: 3px; color: var(--dark); }
-    .block-text { font-size: 13px; color: var(--text-muted); line-height: 1.55; }
-    .split-img {
-      border-radius: 24px; overflow: hidden;
-      box-shadow: 0 24px 56px rgba(28,25,20,0.14);
-      aspect-ratio: 4/5;
+    .prod-badge-red   { background: #e53e3e; }
+    .prod-badge-green { background: #1da851; }
+    .prod-badge-dark  { background: #8A6E3A; }
+    .prod-info { padding: 18px 20px 22px; }
+    .prod-name {
+      font-family: var(--font-h);
+      font-size: 1.15rem; font-weight: 500; color: var(--dark);
+      margin-bottom: 6px;
     }
-    .split-img img { width: 100%; height: 100%; object-fit: cover; object-position: center 25%; display: block; }
-
-    /* ── DEPOIMENTOS ── */
-    .depo-grid { display: flex; flex-direction: column; gap: 20px; max-width: 720px; margin: 0 auto; }
-    .depo-card {
-      background: #fff; border: 1px solid var(--border);
-      border-radius: var(--radius); padding: 28px 32px;
-      display: flex; gap: 22px; align-items: flex-start;
+    .prod-desc { font-size: .82rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 14px; }
+    .prod-cta {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: .78rem; font-weight: 600; color: var(--gold);
+      padding: 8px 16px; border-radius: 100px;
+      border: 1.5px solid rgba(196,169,110,.3);
+      transition: background .2s, color .2s;
     }
-    .depo-avatar {
-      width: 52px; height: 52px; border-radius: 50%;
-      background: var(--surface-2);
-      display: flex; align-items: center; justify-content: center;
-      font-family: var(--font-h); font-size: 22px; font-weight: 700;
-      color: var(--gold); flex-shrink: 0;
-    }
-    .depo-stars { color: var(--gold); font-size: 14px; margin-bottom: 6px; }
-    .depo-text { font-size: 15px; color: var(--text-muted); line-height: 1.65; font-style: italic; margin-bottom: 10px; }
-    .depo-author { font-size: 13px; font-weight: 700; color: var(--dark); }
-    .depo-detail { font-size: 12px; color: var(--text-soft); }
+    .prod-cta:hover { background: var(--gold); color: #fff; }
 
     /* ── SOBRE ── */
-    .sobre-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
-    .sobre-photo {
-      border-radius: 28px; overflow: hidden;
-      box-shadow: 0 28px 60px rgba(28,25,20,0.16);
-      aspect-ratio: 1/1;
+    .sobre-section { background: var(--dark); }
+    .sobre-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 3rem; align-items: center; max-width: 1000px; margin: 0 auto;
     }
-    .sobre-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center 10%; display: block; }
-    .sobre-list { display: flex; flex-direction: column; gap: 16px; margin-top: 28px; }
-    .sobre-item { display: flex; gap: 14px; align-items: flex-start; }
-    .sobre-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--gold); margin-top: 8px; flex-shrink: 0; }
-    .sobre-text { font-size: 15px; color: var(--text-muted); }
-    .sobre-text strong { color: var(--dark); }
+    .sobre-img-wrap {
+      border-radius: 20px; overflow: hidden;
+      box-shadow: 0 8px 48px rgba(0,0,0,.35);
+    }
+    .sobre-img-wrap img { aspect-ratio: 3/4; }
+    .sobre-text .sec-tag { color: var(--gold); background: rgba(196,169,110,.15); }
+    .sobre-text .sec-title { color: #fff; }
+    .sobre-text .sec-title em { color: var(--gold-l); }
+    .sobre-body {
+      color: rgba(255,255,255,.62); font-size: .95rem;
+      line-height: 1.85; margin-bottom: 2rem;
+    }
+    .sobre-stats {
+      display: flex; gap: 2rem; flex-wrap: wrap; margin-bottom: 2rem;
+    }
+    .stat { text-align: center; }
+    .stat-num {
+      font-family: var(--font-h);
+      font-size: 2.2rem; font-weight: 600; color: var(--gold);
+      line-height: 1;
+    }
+    .stat-label {
+      font-size: .72rem; color: rgba(255,255,255,.45);
+      font-weight: 500; letter-spacing: .05em; margin-top: 4px;
+    }
+    .sobre-divider {
+      width: 40px; height: 1px; background: rgba(196,169,110,.4);
+      margin: 1.5rem 0;
+    }
+    @media (max-width: 768px) {
+      .sobre-grid { grid-template-columns: 1fr; }
+      .sobre-img-wrap { max-height: 300px; }
+      .sobre-img-wrap img { aspect-ratio: 4/3; object-position: center top; }
+    }
 
-    /* ── LOCALIZAÇÕES ── */
-    .loc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; margin-top: 48px; }
-    .loc-card {
-      background: var(--dark); border-radius: 20px; padding: 36px;
-      position: relative; overflow: hidden;
+    /* ── DEPOIMENTOS ── */
+    .depo-section { background: var(--surface); }
+    .depo-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem; max-width: 1000px; margin: 0 auto;
     }
-    .loc-card::before {
-      content: ''; position: absolute; top: -40px; right: -40px;
-      width: 160px; height: 160px; border-radius: 50%;
-      background: radial-gradient(circle, rgba(183,148,88,0.14) 0%, transparent 70%);
+    .depo-card {
+      background: var(--white);
+      border-radius: 18px;
+      padding: 28px 24px;
+      box-shadow: 0 2px 20px rgba(26,23,20,.06);
+      display: flex; flex-direction: column; gap: 16px;
+      position: relative;
     }
-    .loc-city {
-      font-family: var(--font-h); font-size: 28px; font-weight: 700;
-      color: var(--gold-l); margin-bottom: 4px;
+    .depo-stars {
+      display: flex; gap: 3px;
     }
-    .loc-clinic { font-size: 14px; font-weight: 700; color: rgba(212,175,122,0.75); margin-bottom: 20px; letter-spacing: 0.5px; }
-    .loc-info { font-size: 14px; color: rgba(212,175,122,0.6); line-height: 1.7; margin-bottom: 20px; }
-    .loc-cta {
-      display: inline-flex; align-items: center; gap: 8px;
-      background: var(--gold); color: #fff; font-family: var(--font-b);
-      font-size: 13px; font-weight: 600; padding: 10px 22px;
-      border-radius: 9999px; text-decoration: none;
-      transition: background 0.2s;
+    .depo-stars svg { width: 14px; height: 14px; color: var(--gold); }
+    .depo-quote {
+      font-size: .9rem; color: var(--text-muted);
+      line-height: 1.75; flex: 1;
+      font-style: italic;
     }
-    .loc-cta:hover { background: var(--gold-l); }
+    .depo-author {
+      display: flex; align-items: center; gap: 10px;
+      padding-top: 14px;
+      border-top: 1px solid var(--border);
+    }
+    .depo-avatar {
+      width: 36px; height: 36px; border-radius: 50%;
+      background: var(--gold);
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--font-h); font-size: 1rem; font-weight: 600; color: #fff;
+      flex-shrink: 0;
+    }
+    .depo-name { font-size: .82rem; font-weight: 700; color: var(--dark); }
+    .depo-city { font-size: .72rem; color: var(--text-soft); }
+    @media (max-width: 768px) { .depo-grid { grid-template-columns: 1fr; max-width: 420px; margin: 0 auto; } }
+
+    /* ── FAQ ── */
+    .faq-section { background: var(--bg); }
+    .faq-list { max-width: 720px; margin: 0 auto; display: flex; flex-direction: column; gap: 10px; }
+    .faq-item {
+      border: 1px solid var(--border);
+      border-radius: 14px; overflow: hidden;
+      background: var(--white);
+    }
+    .faq-q {
+      width: 100%; text-align: left;
+      display: flex; align-items: center; justify-content: space-between; gap: 12px;
+      padding: 18px 22px;
+      font-size: .9rem; font-weight: 600; color: var(--dark);
+      background: none; border: none; cursor: pointer;
+      transition: color .2s;
+    }
+    .faq-q:hover { color: var(--gold-d); }
+    .faq-q svg { width: 16px; height: 16px; color: var(--gold); flex-shrink: 0; transition: transform .3s; }
+    .faq-item.open .faq-q svg { transform: rotate(180deg); }
+    .faq-a {
+      max-height: 0; overflow: hidden;
+      transition: max-height .35s ease, padding .35s;
+      font-size: .88rem; color: var(--text-muted); line-height: 1.8;
+      padding: 0 22px;
+    }
+    .faq-item.open .faq-a { max-height: 300px; padding: 0 22px 20px; }
 
     /* ── CTA FINAL ── */
     .cta-section {
-      padding: 100px 0; text-align: center;
-      background: var(--dark); color: var(--gold-l);
+      background: var(--dark);
+      padding: 88px 24px;
+      text-align: center;
       position: relative; overflow: hidden;
     }
     .cta-section::before {
-      content: ''; position: absolute;
-      top: 50%; left: 50%; transform: translate(-50%, -50%);
-      width: 600px; height: 600px; border-radius: 50%;
-      background: radial-gradient(circle, rgba(183,148,88,0.08) 0%, transparent 70%);
+      content: ''; position: absolute; top: -80px; right: -80px;
+      width: 320px; height: 320px; border-radius: 50%;
+      background: rgba(196,169,110,.06);
     }
-    .cta-monogram {
-      font-family: var(--font-h); font-size: 80px; font-weight: 300;
-      line-height: 1; color: rgba(212,175,122,0.12);
-      letter-spacing: 4px; margin-bottom: 20px;
+    .cta-section::after {
+      content: ''; position: absolute; bottom: -60px; left: -60px;
+      width: 260px; height: 260px; border-radius: 50%;
+      background: rgba(196,169,110,.04);
+    }
+    .cta-eyebrow {
+      font-size: .68rem; font-weight: 700; letter-spacing: .16em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 1.2rem; position: relative; z-index: 2;
     }
     .cta-title {
       font-family: var(--font-h);
-      font-size: clamp(2rem, 4vw, 3.2rem);
-      font-weight: 600; line-height: 1.2; margin-bottom: 18px;
-      color: var(--gold-l);
+      font-size: clamp(2.2rem, 4vw, 3.6rem);
+      font-weight: 400; color: #fff; line-height: 1.15;
+      margin-bottom: 1rem; position: relative; z-index: 2;
     }
-    .cta-title em { font-style: italic; }
-    .cta-desc { font-size: 17px; color: rgba(212,175,122,0.7); max-width: 520px; margin: 0 auto 44px; line-height: 1.7; }
-    .btn-gold {
-      display: inline-flex; align-items: center; gap: 12px;
-      background: var(--gold); color: #fff;
-      font-family: var(--font-b); font-size: 16px; font-weight: 700;
-      padding: 16px 40px; border-radius: 9999px; text-decoration: none;
-      box-shadow: 0 6px 28px rgba(183,148,88,0.45);
-      animation: pulse-gold 3s infinite;
+    .cta-title em { font-style: italic; color: var(--gold-l); }
+    .cta-sub {
+      color: rgba(255,255,255,.55); font-size: .95rem;
+      max-width: 420px; margin: 0 auto 2.5rem; position: relative; z-index: 2; line-height: 1.75;
     }
-    @keyframes pulse-gold {
-      0%,100% { box-shadow: 0 6px 28px rgba(183,148,88,0.45); }
-      50%      { box-shadow: 0 6px 40px rgba(183,148,88,0.12); }
+    .cta-urgency {
+      font-size: .78rem; color: rgba(196,169,110,.65);
+      margin-top: 1.2rem; position: relative; z-index: 2;
+      font-style: italic;
     }
-    .cta-note { font-size: 13px; color: rgba(212,175,122,0.45); margin-top: 18px; }
+    .cta-btns {
+      display: flex; justify-content: center; gap: 12px; flex-wrap: wrap;
+      position: relative; z-index: 2;
+    }
 
     /* ── FOOTER ── */
     footer {
-      padding: 20px 0; text-align: center;
-    }
-    footer .dai-logo { display: inline-block; height: 20px; width: auto; opacity: 0.4; vertical-align: middle; }
-    footer p { display: none; }
-
-    /* ── WHATSAPP FLOAT ── */
-    .wa-float {
-      position: fixed; bottom: 28px; right: 28px; z-index: 999;
-      width: 56px; height: 56px; border-radius: 50%;
-      background: #25D366; display: flex; align-items: center; justify-content: center;
-      box-shadow: 0 4px 20px rgba(37,211,102,0.45); text-decoration: none;
-      animation: pulse-wa 2.5s infinite;
-    }
-    @keyframes pulse-wa {
-      0%,100% { box-shadow: 0 4px 20px rgba(37,211,102,0.45); }
-      50%      { box-shadow: 0 4px 40px rgba(37,211,102,0.1); }
+      background: var(--dark);
+      padding: 24px;
+      text-align: center;
+      border-top: 1px solid rgba(255,255,255,.04);
     }
 
-    /* ── REVEAL ── */
-    [data-reveal] { opacity: 0; transform: translateY(28px); transition: opacity 0.65s ease, transform 0.65s ease; }
-    [data-reveal].revealed { opacity: 1; transform: translateY(0); }
-
-    /* ── RESPONSIVE ── */
-    @media (max-width: 900px) {
-      .hero-inner { grid-template-columns: 1fr; }
-      .hero-img-border { border-radius: 24px; max-width: 380px; margin: 0 auto; }
-      .hero-img-side { order: -1; }
-      .stats-inner { grid-template-columns: repeat(2,1fr); }
-      .section-header-grid { grid-template-columns: 1fr; }
-      .spec-grid { grid-template-columns: 1fr; }
-      .split-grid { grid-template-columns: 1fr; }
-      .sobre-grid { grid-template-columns: 1fr; }
-      .loc-grid { grid-template-columns: 1fr; }
+    /* ── FLOAT WPP ── */
+    .float-wpp {
+      position: fixed; bottom: 24px; right: 24px; z-index: 200;
+      width: 58px; height: 58px; border-radius: 50%;
+      background: var(--wpp);
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 6px 28px rgba(37,211,102,.40);
+      transition: transform .2s, box-shadow .2s;
     }
-    @media (max-width: 600px) {
-      .hero { padding: 52px 0; }
-      .section { padding: 60px 0; }
-      .depo-card { flex-direction: column; gap: 14px; padding: 22px; }
+    .float-wpp:hover { transform: translateY(-3px) scale(1.06); box-shadow: 0 10px 36px rgba(37,211,102,.50); }
+    .float-wpp svg { width: 26px; height: 26px; }
+
+    @media (max-width: 480px) {
+      .section { padding: 64px 16px; }
+      .produtos-grid { grid-template-columns: 1fr; max-width: 340px; margin: 0 auto; }
+      .hero-btns { flex-direction: column; }
+      .hero-btns .btn { width: 100%; max-width: 320px; }
+      .sobre-stats { gap: 1.5rem; }
     }
   </style>
 </head>
 <body>
 
-  <div id="progress-bar"></div>
+<!-- PROGRESS BAR -->
+<div id="progress-bar"></div>
 
-  <!-- NAVBAR -->
-  <nav class="navbar" id="navbar">
-    <div class="container">
-      <div class="navbar-inner">
-        <!-- ▼ BRAND: Nome e credencial no logo ▼ -->
-        <a href="#topo" class="navbar-logo">
-          {{NAME_SHORT}}
-          <span>{{CREDENTIAL}} · {{SPECIALTY_SHORT}}</span>
-        </a>
-        <a href="https://wa.me/{{WHATSAPP}}?text={{WA_MSG_AGENDAR}}" target="_blank" rel="noopener" class="navbar-cta">
-          {{CTA_NAVBAR}}
-        </a>
-        <!-- ▲ BRAND ▲ -->
-      </div>
-    </div>
-  </nav>
+<!-- ── NAV ── -->
+<!-- ▼ BRAND: Nome na navbar e link do Instagram ▼ -->
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <span class="nav-brand">{{NAME_SHORT}} <span>✦</span> {{SPECIALTY_SHORT}}</span>
+    <a href="{{INSTAGRAM_URL}}" target="_blank" rel="noopener" class="nav-ig">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+      @{{INSTAGRAM_HANDLE}}
+    </a>
+  </div>
+</nav>
+<!-- ▲ BRAND ▲ -->
 
-  <!-- HERO -->
-  <section class="hero" id="topo">
-    <div class="container">
-      <div class="hero-inner">
-        <div>
-          <!-- ▼ BRAND: Overline, título, subtítulo, badges ▼ -->
-          <div class="hero-overline">{{HERO_OVERLINE}}</div>
-          <h1 class="hero-title">
-            {{HERO_TITLE_LINE1}}<br>
-            {{HERO_TITLE_LINE2}}<br>
-            <em>{{HERO_TITLE_ITALIC}}</em>
-          </h1>
-          <p class="hero-subtitle">{{HERO_SUBTITLE}}</p>
-          <div class="hero-badge-row">
-            <span class="hero-badge">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-              {{BADGE_1}}
-            </span>
-            <span class="hero-badge">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-              {{BADGE_2}}
-            </span>
-            <span class="hero-badge">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-              {{BADGE_3}}
-            </span>
-          </div>
-          <!-- ▲ BRAND ▲ -->
-          <div class="hero-actions">
-            <a href="https://wa.me/{{WHATSAPP}}?text={{WA_MSG_AGENDAR}}" target="_blank" rel="noopener" class="btn-primary">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
-              {{CTA_HERO}}
-            </a>
-            <a href="#especialidades" class="btn-secondary">{{CTA_SECONDARY}} →</a>
-          </div>
-        </div>
-        <div class="hero-img-side">
-          <div class="hero-img-frame">
-            <div class="hero-img-border">
-              <!-- ▼ BRAND: Foto hero (sem texto, fundo limpo) ▼ -->
-              <img src="img/hero.jpg" alt="{{FULL_NAME}}" loading="eager">
-              <!-- ▲ BRAND ▲ -->
-            </div>
-            <div class="hero-img-badge">{{NAME_SHORT}} · {{SPECIALTY_SHORT}}</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- STATS BAR -->
-  <div class="stats-bar" data-reveal>
-    <div class="container">
-      <!-- ▼ BRAND: 4 estatísticas da prospect ▼ -->
-      <div class="stats-inner">
-        <div>
-          <div class="stat-value">{{STAT_1_VALUE}}</div>
-          <div class="stat-label">{{STAT_1_LABEL}}</div>
-        </div>
-        <div>
-          <div class="stat-value">{{STAT_2_VALUE}}</div>
-          <div class="stat-label">{{STAT_2_LABEL}}</div>
-        </div>
-        <div>
-          <div class="stat-value">{{STAT_3_VALUE}}</div>
-          <div class="stat-label">{{STAT_3_LABEL}}</div>
-        </div>
-        <div>
-          <div class="stat-value">{{STAT_4_VALUE}}</div>
-          <div class="stat-label">{{STAT_4_LABEL}}</div>
-        </div>
-      </div>
-      <!-- ▲ BRAND ▲ -->
+<!-- ── HERO ── -->
+<!-- ▼ BRAND: Foto hero OBRIGATÓRIA — sem texto/logo sobreposto, fundo limpo ▼ -->
+<section class="hero">
+  <div class="hero-bg">
+    <img src="img/hero.jpg" alt="{{FULL_NAME}}" loading="eager" />
+  </div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">{{HERO_OVERLINE}}</div>
+    <h1 class="hero-title">
+      {{HERO_TITLE_SOCIAL_PROOF}}<br><em>{{HERO_TITLE_ITALIC}}</em>
+    </h1>
+    <!-- SOCIAL PROOF NO TÍTULO: ex: "+500 mulheres já escolheram com a Mari" -->
+    <p class="hero-sub">{{HERO_SUBTITLE}}</p>
+    <div class="hero-btns">
+      <!-- CTA principal: WhatsApp do PROSPECT (nunca o da Digital AI) -->
+      <a href="https://wa.me/{{WHATSAPP}}?text={{WA_MSG_HERO}}" target="_blank" rel="noopener" class="btn btn-wpp">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        {{CTA_HERO}}
+      </a>
+      <a href="#produtos" class="btn btn-outline">{{CTA_HERO_SECONDARY}} ↓</a>
     </div>
   </div>
+</section>
+<!-- ▲ BRAND ▲ -->
 
-  <!-- ESPECIALIDADES / SERVIÇOS -->
-  <section class="section" id="especialidades">
-    <div class="container">
-      <div class="section-header-grid" data-reveal>
-        <div>
-          <!-- ▼ BRAND: Label e título da seção ▼ -->
-          <div class="section-label">{{SPEC_SECTION_LABEL}}</div>
-          <h2 class="section-title">{{SPEC_TITLE_LINE1}}<br><em>{{SPEC_TITLE_ITALIC}}</em></h2>
-          <!-- ▲ BRAND ▲ -->
-        </div>
-        <p class="section-desc">{{SPEC_DESC}}</p>
+<!-- ── BARRA DE BENEFÍCIOS ── -->
+<!-- ▼ BRAND: 4 trust items (autenticidade, entrega, pagamento, garantia) ▼ -->
+<div class="benefits-bar">
+  <div class="benefits-inner">
+    <div class="benefit-item">
+      <div class="benefit-icon">
+        <!-- Ícone: escudo/check — ex: autenticidade, qualidade comprovada -->
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
       </div>
-      <!-- ▼ BRAND: 6 cards de especialidades/serviços ▼ -->
-      <div class="spec-grid">
-        <div class="spec-card" data-reveal>
-          <div class="spec-icon">{{SPEC_1_ICON}}</div>
-          <div class="spec-title">{{SPEC_1_TITLE}}</div>
-          <div class="spec-text">{{SPEC_1_TEXT}}</div>
-        </div>
-        <div class="spec-card" data-reveal>
-          <div class="spec-icon">{{SPEC_2_ICON}}</div>
-          <div class="spec-title">{{SPEC_2_TITLE}}</div>
-          <div class="spec-text">{{SPEC_2_TEXT}}</div>
-        </div>
-        <div class="spec-card" data-reveal>
-          <div class="spec-icon">{{SPEC_3_ICON}}</div>
-          <div class="spec-title">{{SPEC_3_TITLE}}</div>
-          <div class="spec-text">{{SPEC_3_TEXT}}</div>
-        </div>
-        <div class="spec-card" data-reveal>
-          <div class="spec-icon">{{SPEC_4_ICON}}</div>
-          <div class="spec-title">{{SPEC_4_TITLE}}</div>
-          <div class="spec-text">{{SPEC_4_TEXT}}</div>
-        </div>
-        <div class="spec-card" data-reveal>
-          <div class="spec-icon">{{SPEC_5_ICON}}</div>
-          <div class="spec-title">{{SPEC_5_TITLE}}</div>
-          <div class="spec-text">{{SPEC_5_TEXT}}</div>
-        </div>
-        <div class="spec-card" data-reveal>
-          <div class="spec-icon">{{SPEC_6_ICON}}</div>
-          <div class="spec-title">{{SPEC_6_TITLE}}</div>
-          <div class="spec-text">{{SPEC_6_TEXT}}</div>
-        </div>
+      <div class="benefit-text">
+        <span class="benefit-title">{{BENEFIT_1_TITLE}}</span>
+        <span class="benefit-sub">{{BENEFIT_1_SUB}}</span>
       </div>
-      <!-- ▲ BRAND ▲ -->
     </div>
-  </section>
+    <div class="benefit-item">
+      <div class="benefit-icon">
+        <!-- Ícone: caixa — ex: entrega, envio -->
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4"/></svg>
+      </div>
+      <div class="benefit-text">
+        <span class="benefit-title">{{BENEFIT_2_TITLE}}</span>
+        <span class="benefit-sub">{{BENEFIT_2_SUB}}</span>
+      </div>
+    </div>
+    <div class="benefit-item">
+      <div class="benefit-icon">
+        <!-- Ícone: cartão — ex: formas de pagamento -->
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"/></svg>
+      </div>
+      <div class="benefit-text">
+        <span class="benefit-title">{{BENEFIT_3_TITLE}}</span>
+        <span class="benefit-sub">{{BENEFIT_3_SUB}}</span>
+      </div>
+    </div>
+    <div class="benefit-item">
+      <div class="benefit-icon">
+        <!-- Ícone: refresh — ex: troca, garantia -->
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
+      </div>
+      <div class="benefit-text">
+        <span class="benefit-title">{{BENEFIT_4_TITLE}}</span>
+        <span class="benefit-sub">{{BENEFIT_4_SUB}}</span>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- ▲ BRAND ▲ -->
 
-  <!-- SEÇÃO SPLIT (Conteúdo + Foto) -->
-  <section class="section section-alt" id="conteudo">
-    <div class="container">
-      <div class="split-grid">
-        <div data-reveal>
-          <!-- ▼ BRAND: Seção de problema/solução com lista ▼ -->
-          <div class="section-label">{{SPLIT_LABEL}}</div>
-          <h2 class="section-title">{{SPLIT_TITLE_LINE1}}<br><em>{{SPLIT_TITLE_ITALIC}}</em></h2>
-          <p class="section-desc" style="margin-bottom:28px">{{SPLIT_DESC}}</p>
-          <div class="block-list">
-            <div class="block-item">
-              <div class="block-icon">{{BLOCK_1_ICON}}</div>
-              <div>
-                <div class="block-title">{{BLOCK_1_TITLE}}</div>
-                <div class="block-text">{{BLOCK_1_TEXT}}</div>
-              </div>
-            </div>
-            <div class="block-item">
-              <div class="block-icon">{{BLOCK_2_ICON}}</div>
-              <div>
-                <div class="block-title">{{BLOCK_2_TITLE}}</div>
-                <div class="block-text">{{BLOCK_2_TEXT}}</div>
-              </div>
-            </div>
-            <div class="block-item">
-              <div class="block-icon">{{BLOCK_3_ICON}}</div>
-              <div>
-                <div class="block-title">{{BLOCK_3_TITLE}}</div>
-                <div class="block-text">{{BLOCK_3_TEXT}}</div>
-              </div>
-            </div>
-            <div class="block-item">
-              <div class="block-icon">{{BLOCK_4_ICON}}</div>
-              <div>
-                <div class="block-title">{{BLOCK_4_TITLE}}</div>
-                <div class="block-text">{{BLOCK_4_TEXT}}</div>
-              </div>
-            </div>
+<!-- ── LINKS RÁPIDOS — CARDS ── -->
+<!-- ▼ BRAND: 3 links de ação rápida (WhatsApp, Instagram, Catálogo/Site) ▼ -->
+<section class="links-sec">
+  <p class="links-label">Acesse direto</p>
+  <div class="links-grid">
+    <!-- Card 1: WhatsApp -->
+    <a href="https://wa.me/{{WHATSAPP}}?text={{WA_MSG_HERO}}" target="_blank" rel="noopener" class="link-card lc-wpp reveal">
+      <div class="link-card-icon">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      </div>
+      <div class="link-card-title">WhatsApp</div>
+      <div class="link-card-sub">{{LINK_CARD_WPP_SUB}}</div>
+      <div class="link-card-arrow">Abrir →</div>
+    </a>
+    <!-- Card 2: Instagram -->
+    <a href="{{INSTAGRAM_URL}}" target="_blank" rel="noopener" class="link-card lc-ig reveal d1">
+      <div class="link-card-icon">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+      </div>
+      <div class="link-card-title">Instagram</div>
+      <div class="link-card-sub">{{LINK_CARD_IG_SUB}}</div>
+      <div class="link-card-arrow">Seguir →</div>
+    </a>
+    <!-- Card 3: Catálogo / Site / Linktree -->
+    <a href="{{CATALOG_URL}}" target="_blank" rel="noopener" class="link-card lc-lt reveal d2">
+      <div class="link-card-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color:var(--gold)"><path d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"/></svg>
+      </div>
+      <div class="link-card-title">{{LINK_CARD_3_TITLE}}</div>
+      <div class="link-card-sub">{{LINK_CARD_3_SUB}}</div>
+      <div class="link-card-arrow">Ver tudo →</div>
+    </a>
+  </div>
+</section>
+<!-- ▲ BRAND ▲ -->
+
+<!-- ── PRODUTOS / SERVIÇOS ── -->
+<!-- ▼ BRAND: 4 cards de produtos ou serviços com badges de urgência ▼ -->
+<section class="section produtos-section" id="produtos">
+  <div class="container">
+    <div class="sec-header reveal">
+      <div class="sec-tag">✦ {{PRODUTOS_SEC_TAG}}</div>
+      <h2 class="sec-title">{{PRODUTOS_TITLE}}<br><em>{{PRODUTOS_TITLE_ITALIC}}</em></h2>
+      <p class="sec-sub">{{PRODUTOS_DESC}}</p>
+    </div>
+    <div class="produtos-grid">
+      <!-- Produto 1 -->
+      <div class="prod-card reveal d1">
+        <div class="prod-img">
+          <img src="img/img2.jpg" alt="{{PROD_1_NAME}}" loading="lazy" />
+          <!-- Badge: Destaque | Últimas unidades (red) | Coleção Limitada (dark) | Chegou essa semana (green) -->
+          <span class="prod-badge">{{PROD_1_BADGE}}</span>
+        </div>
+        <div class="prod-info">
+          <div class="prod-name">{{PROD_1_NAME}}</div>
+          <p class="prod-desc">{{PROD_1_DESC}}</p>
+          <a href="https://wa.me/{{WHATSAPP}}?text={{WA_MSG_PROD}}" target="_blank" rel="noopener" class="prod-cta">Ver mais →</a>
+        </div>
+      </div>
+      <!-- Produto 2 -->
+      <div class="prod-card reveal d2">
+        <div class="prod-img">
+          <img src="img/img3.jpg" alt="{{PROD_2_NAME}}" loading="lazy" />
+          <span class="prod-badge prod-badge-red">{{PROD_2_BADGE}}</span>
+        </div>
+        <div class="prod-info">
+          <div class="prod-name">{{PROD_2_NAME}}</div>
+          <p class="prod-desc">{{PROD_2_DESC}}</p>
+          <a href="https://wa.me/{{WHATSAPP}}?text={{WA_MSG_PROD}}" target="_blank" rel="noopener" class="prod-cta">Ver mais →</a>
+        </div>
+      </div>
+      <!-- Produto 3 -->
+      <div class="prod-card reveal d1">
+        <div class="prod-img">
+          <img src="img/img4.jpg" alt="{{PROD_3_NAME}}" loading="lazy" />
+          <span class="prod-badge prod-badge-dark">{{PROD_3_BADGE}}</span>
+        </div>
+        <div class="prod-info">
+          <div class="prod-name">{{PROD_3_NAME}}</div>
+          <p class="prod-desc">{{PROD_3_DESC}}</p>
+          <a href="https://wa.me/{{WHATSAPP}}?text={{WA_MSG_PROD}}" target="_blank" rel="noopener" class="prod-cta">Ver mais →</a>
+        </div>
+      </div>
+      <!-- Produto 4 -->
+      <div class="prod-card reveal d2">
+        <div class="prod-img">
+          <img src="img/img1.jpg" alt="{{PROD_4_NAME}}" loading="lazy" />
+          <span class="prod-badge prod-badge-green">{{PROD_4_BADGE}}</span>
+        </div>
+        <div class="prod-info">
+          <div class="prod-name">{{PROD_4_NAME}}</div>
+          <p class="prod-desc">{{PROD_4_DESC}}</p>
+          <a href="{{PROD_4_CTA_URL}}" target="_blank" rel="noopener" class="prod-cta">{{PROD_4_CTA_TEXT}} →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- ▲ BRAND ▲ -->
+
+<!-- ── SOBRE ── -->
+<!-- ▼ BRAND: Seção sobre com foto, bio e stats ▼ -->
+<section class="section sobre-section">
+  <div class="container">
+    <div class="sobre-grid">
+      <div class="sobre-img-wrap reveal">
+        <img src="img/img1.jpg" alt="{{FULL_NAME}}" loading="lazy" />
+      </div>
+      <div class="sobre-text reveal d2">
+        <div class="sec-tag">✦ Sobre</div>
+        <h2 class="sec-title">{{SOBRE_TITLE}}<br><em>{{SOBRE_TITLE_ITALIC}}</em></h2>
+        <p class="sobre-body">{{SOBRE_P1}}</p>
+        <div class="sobre-divider"></div>
+        <p class="sobre-body">{{SOBRE_P2}}</p>
+        <div class="sobre-stats">
+          <div class="stat">
+            <div class="stat-num">{{STAT_1_VALUE}}</div>
+            <div class="stat-label">{{STAT_1_LABEL}}</div>
           </div>
-          <!-- ▲ BRAND ▲ -->
+          <div class="stat">
+            <div class="stat-num">{{STAT_2_VALUE}}</div>
+            <div class="stat-label">{{STAT_2_LABEL}}</div>
+          </div>
+          <div class="stat">
+            <div class="stat-num">{{STAT_3_VALUE}}</div>
+            <div class="stat-label">{{STAT_3_LABEL}}</div>
+          </div>
         </div>
-        <div class="split-img" data-reveal>
-          <!-- ▼ BRAND: Segunda foto (ambiente clínico ou profissional) ▼ -->
-          <img src="img/about.jpg" alt="{{FULL_NAME}}" loading="lazy">
-          <!-- ▲ BRAND ▲ -->
-        </div>
+        <a href="https://wa.me/{{WHATSAPP}}?text={{WA_MSG_SOBRE}}" target="_blank" rel="noopener" class="btn btn-gold" style="display:inline-flex">
+          <svg viewBox="0 0 24 24" fill="currentColor" style="width:17px;height:17px"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          {{CTA_SOBRE}}
+        </a>
       </div>
     </div>
-  </section>
+  </div>
+</section>
+<!-- ▲ BRAND ▲ -->
 
-  <!-- DEPOIMENTOS -->
-  <section class="section" id="depoimentos">
-    <div class="container">
-      <div style="text-align:center;margin-bottom:52px" data-reveal>
-        <div class="section-label" style="justify-content:center;display:flex">Resultados reais</div>
-        <h2 class="section-title" style="max-width:500px;margin:0 auto">O que dizem<br><em>{{DEPO_SECTION_LABEL}}</em></h2>
-      </div>
-      <!-- ▼ BRAND: 3 depoimentos reais da prospect ▼ -->
-      <div class="depo-grid">
-        <div class="depo-card" data-reveal>
+<!-- ── DEPOIMENTOS ── -->
+<!-- ▼ BRAND: 3 depoimentos reais com estrelas SVG, nome e cidade ▼ -->
+<section class="section depo-section">
+  <div class="container">
+    <div class="sec-header reveal" style="text-align:center">
+      <div class="sec-tag">✦ Depoimentos</div>
+      <h2 class="sec-title">O que {{DEPO_SUJEITO}} <em>dizem</em></h2>
+    </div>
+    <div class="depo-grid">
+      <!-- Star SVG reutilizável — copiar 5x por card -->
+      <div class="depo-card reveal d1">
+        <div class="depo-stars">
+          <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+        </div>
+        <p class="depo-quote">"{{DEPO_1_TEXT}}"</p>
+        <div class="depo-author">
           <div class="depo-avatar">{{DEPO_1_INITIAL}}</div>
           <div>
-            <div class="depo-stars">★★★★★</div>
-            <p class="depo-text">"{{DEPO_1_TEXT}}"</p>
-            <div class="depo-author">{{DEPO_1_NAME}}</div>
-            <div class="depo-detail">{{DEPO_1_DETAIL}}</div>
+            <div class="depo-name">{{DEPO_1_NAME}}</div>
+            <div class="depo-city">{{DEPO_1_CITY}}</div>
           </div>
         </div>
-        <div class="depo-card" data-reveal>
+      </div>
+      <div class="depo-card reveal d2">
+        <div class="depo-stars">
+          <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+        </div>
+        <p class="depo-quote">"{{DEPO_2_TEXT}}"</p>
+        <div class="depo-author">
           <div class="depo-avatar">{{DEPO_2_INITIAL}}</div>
           <div>
-            <div class="depo-stars">★★★★★</div>
-            <p class="depo-text">"{{DEPO_2_TEXT}}"</p>
-            <div class="depo-author">{{DEPO_2_NAME}}</div>
-            <div class="depo-detail">{{DEPO_2_DETAIL}}</div>
+            <div class="depo-name">{{DEPO_2_NAME}}</div>
+            <div class="depo-city">{{DEPO_2_CITY}}</div>
           </div>
         </div>
-        <div class="depo-card" data-reveal>
+      </div>
+      <div class="depo-card reveal d3">
+        <div class="depo-stars">
+          <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+        </div>
+        <p class="depo-quote">"{{DEPO_3_TEXT}}"</p>
+        <div class="depo-author">
           <div class="depo-avatar">{{DEPO_3_INITIAL}}</div>
           <div>
-            <div class="depo-stars">★★★★★</div>
-            <p class="depo-text">"{{DEPO_3_TEXT}}"</p>
-            <div class="depo-author">{{DEPO_3_NAME}}</div>
-            <div class="depo-detail">{{DEPO_3_DETAIL}}</div>
+            <div class="depo-name">{{DEPO_3_NAME}}</div>
+            <div class="depo-city">{{DEPO_3_CITY}}</div>
           </div>
         </div>
       </div>
-      <!-- ▲ BRAND ▲ -->
     </div>
-  </section>
+  </div>
+</section>
+<!-- ▲ BRAND ▲ -->
 
-  <!-- SOBRE -->
-  <section class="section section-alt" id="sobre">
-    <div class="container">
-      <div class="sobre-grid">
-        <div class="sobre-photo" data-reveal>
-          <!-- ▼ BRAND: Terceira foto (rosto ou ambiente) ▼ -->
-          <img src="img/profile.jpg" alt="{{FULL_NAME}}" loading="lazy">
-          <!-- ▲ BRAND ▲ -->
-        </div>
-        <div data-reveal>
-          <!-- ▼ BRAND: Biogafia e credenciais ▼ -->
-          <div class="section-label">{{SOBRE_LABEL}}</div>
-          <h2 class="section-title">{{SOBRE_TITLE_LINE1}}<br><em>{{SOBRE_TITLE_ITALIC}}</em></h2>
-          <p class="section-desc" style="margin-bottom:0">{{SOBRE_DESC}}</p>
-          <div class="sobre-list">
-            <div class="sobre-item">
-              <div class="sobre-dot"></div>
-              <div class="sobre-text"><strong>{{SOBRE_ITEM_1_LABEL}}:</strong> {{SOBRE_ITEM_1_VALUE}}</div>
-            </div>
-            <div class="sobre-item">
-              <div class="sobre-dot"></div>
-              <div class="sobre-text"><strong>{{SOBRE_ITEM_2_LABEL}}:</strong> {{SOBRE_ITEM_2_VALUE}}</div>
-            </div>
-            <div class="sobre-item">
-              <div class="sobre-dot"></div>
-              <div class="sobre-text"><strong>{{SOBRE_ITEM_3_LABEL}}:</strong> {{SOBRE_ITEM_3_VALUE}}</div>
-            </div>
-            <div class="sobre-item">
-              <div class="sobre-dot"></div>
-              <div class="sobre-text"><strong>{{SOBRE_ITEM_4_LABEL}}:</strong> {{SOBRE_ITEM_4_VALUE}}</div>
-            </div>
-            <div class="sobre-item">
-              <div class="sobre-dot"></div>
-              <div class="sobre-text"><strong>{{SOBRE_ITEM_5_LABEL}}:</strong> {{SOBRE_ITEM_5_VALUE}}</div>
-            </div>
-          </div>
-          <!-- ▲ BRAND ▲ -->
-          <a href="https://wa.me/{{WHATSAPP}}?text={{WA_MSG_AGENDAR}}" target="_blank" rel="noopener" class="btn-primary" style="margin-top:32px;display:inline-flex">
-            {{CTA_SOBRE}} →
-          </a>
-        </div>
+<!-- ── FAQ ── -->
+<!-- ▼ BRAND: 5 perguntas frequentes relevantes para o nicho ▼ -->
+<section class="section faq-section">
+  <div class="container">
+    <div class="sec-header reveal" style="text-align:center">
+      <div class="sec-tag">✦ Dúvidas</div>
+      <h2 class="sec-title">Perguntas <em>frequentes</em></h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item reveal">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          {{FAQ_1_Q}}
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <div class="faq-a">{{FAQ_1_A}}</div>
+      </div>
+      <div class="faq-item reveal d1">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          {{FAQ_2_Q}}
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <div class="faq-a">{{FAQ_2_A}}</div>
+      </div>
+      <div class="faq-item reveal d2">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          {{FAQ_3_Q}}
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <div class="faq-a">{{FAQ_3_A}}</div>
+      </div>
+      <div class="faq-item reveal d1">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          {{FAQ_4_Q}}
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <div class="faq-a">{{FAQ_4_A}}</div>
+      </div>
+      <div class="faq-item reveal d2">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          {{FAQ_5_Q}}
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <div class="faq-a">{{FAQ_5_A}}</div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
+<!-- ▲ BRAND ▲ -->
 
-  <!-- LOCALIZAÇÕES -->
-  <section class="section" id="localizacoes">
-    <div class="container">
-      <div style="text-align:center" data-reveal>
-        <div class="section-label" style="justify-content:center;display:flex">{{LOC_LABEL}}</div>
-        <h2 class="section-title" style="max-width:480px;margin:0 auto 8px">{{LOC_TITLE_LINE1}}<br><em>{{LOC_TITLE_ITALIC}}</em></h2>
-      </div>
-      <!-- ▼ BRAND: 1 ou 2 localizações/clínicas ▼ -->
-      <div class="loc-grid">
-        <div class="loc-card" data-reveal>
-          <div class="loc-city">{{LOC_1_CITY}}</div>
-          <div class="loc-clinic">{{LOC_1_CLINIC}}</div>
-          <div class="loc-info">{{LOC_1_INFO}}</div>
-          <a href="https://wa.me/{{WHATSAPP}}?text={{WA_MSG_LOC_1}}" target="_blank" rel="noopener" class="loc-cta">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
-            {{LOC_1_CTA}}
-          </a>
-        </div>
-        <!-- Duplicar ou remover este segundo card conforme necessário -->
-        <div class="loc-card" data-reveal>
-          <div class="loc-city">{{LOC_2_CITY}}</div>
-          <div class="loc-clinic">{{LOC_2_CLINIC}}</div>
-          <div class="loc-info">{{LOC_2_INFO}}</div>
-          <a href="https://wa.me/{{WHATSAPP}}?text={{WA_MSG_LOC_2}}" target="_blank" rel="noopener" class="loc-cta">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
-            {{LOC_2_CTA}}
-          </a>
-        </div>
-      </div>
-      <!-- ▲ BRAND ▲ -->
-    </div>
-  </section>
-
-  <!-- CTA FINAL -->
-  <section class="cta-section" id="agendar">
-    <div class="container" style="position:relative;z-index:1">
-      <!-- ▼ BRAND: Monograma, título e CTA final ▼ -->
-      <div class="cta-monogram">{{MONOGRAM}}</div>
-      <h2 class="cta-title">
-        {{CTA_FINAL_TITLE_LINE1}}<br>
-        <em>{{CTA_FINAL_TITLE_ITALIC}}</em>
-      </h2>
-      <p class="cta-desc">{{CTA_FINAL_DESC}}</p>
-      <a href="https://wa.me/{{WHATSAPP}}?text={{WA_MSG_FINAL}}" target="_blank" rel="noopener" class="btn-gold">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
-        {{CTA_FINAL_BTN}}
+<!-- ── CTA FINAL ── -->
+<!-- ▼ BRAND: Eyebrow + título com social proof + micro-copy + urgência ▼ -->
+<section class="cta-section">
+  <p class="cta-eyebrow reveal">{{CTA_EYEBROW}}</p>
+  <h2 class="cta-title reveal d1">
+    {{CTA_TITLE}}<br><em>{{CTA_TITLE_ITALIC}}</em>
+  </h2>
+  <p class="cta-sub reveal d2">{{CTA_SUB}}</p>
+  <div class="cta-btns reveal d3">
+    <div>
+      <a href="https://wa.me/{{WHATSAPP}}?text={{WA_MSG_FINAL}}" target="_blank" rel="noopener" class="btn btn-wpp">
+        <svg viewBox="0 0 24 24" fill="currentColor" style="width:17px;height:17px"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        {{CTA_BTN_TEXT}}
       </a>
-      <p class="cta-note">{{CTA_FINAL_NOTE}}</p>
-      <!-- ▲ BRAND ▲ -->
+      <!-- Micro-copy de confiança abaixo do botão -->
+      <span class="btn-sub">{{CTA_MICROCOPY}}</span>
     </div>
-  </section>
+    <a href="{{INSTAGRAM_URL}}" target="_blank" rel="noopener" class="btn btn-dark">
+      <svg viewBox="0 0 24 24" fill="currentColor" style="width:17px;height:17px"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+      Ver no Instagram
+    </a>
+  </div>
+  <!-- Urgência / escassez -->
+  <p class="cta-urgency reveal d4">{{CTA_URGENCY}}</p>
+</section>
+<!-- ▲ BRAND ▲ -->
 
-  <!-- FOOTER -->
-  <footer>
-    <div class="container">
-      <a href="https://digital-ai.tech" target="_blank" rel="noopener">
-        <img src="https://s3.amazonaws.com/cdn.digital-ai.tech/uploads/media-cortex/identity/digital-ai/logos/logo-negative.svg" alt="Digital AI" class="dai-logo" />
-      </a>
-    </div>
-  </footer>
-
-  <!-- WA FLOAT -->
-  <a href="https://wa.me/{{WHATSAPP}}?text={{WA_MSG_FLOAT}}" target="_blank" rel="noopener" class="wa-float" aria-label="WhatsApp">
-    <svg width="26" height="26" viewBox="0 0 24 24" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+<!-- ── FOOTER ── -->
+<!-- Digital AI: apenas logo discreta, branca, opacity 0.4 — NUNCA texto ou pitch B2B -->
+<footer>
+  <a href="https://digital-ai.tech" target="_blank" rel="noopener">
+    <img src="https://s3.amazonaws.com/cdn.digital-ai.tech/uploads/media-cortex/identity/digital-ai/logos/logo-negative.svg"
+         alt="Digital AI"
+         height="20"
+         style="display:inline-block;width:auto;height:20px;opacity:0.4;margin:0 auto;" />
   </a>
+</footer>
 
-  <script>
-    const navbar = document.getElementById('navbar');
-    window.addEventListener('scroll', () => {
-      navbar.classList.toggle('scrolled', window.scrollY > 40);
-    });
-    const bar = document.getElementById('progress-bar');
-    window.addEventListener('scroll', () => {
-      const pct = (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100;
-      bar.style.width = pct + '%';
-    });
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(el => { if (el.isIntersecting) el.target.classList.add('revealed'); });
-    }, { threshold: 0.10 });
-    document.querySelectorAll('[data-reveal]').forEach(el => observer.observe(el));
-  </script>
+<!-- ── FLOAT WPP ── -->
+<!-- WhatsApp do PROSPECT — nunca o da Digital AI -->
+<a href="https://wa.me/{{WHATSAPP}}?text={{WA_MSG_FLOAT}}" target="_blank" rel="noopener" class="float-wpp" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<script>
+  // Progress bar
+  const bar = document.getElementById('progress-bar');
+  window.addEventListener('scroll', () => {
+    const total = document.documentElement.scrollHeight - window.innerHeight;
+    bar.style.width = (window.scrollY / total * 100) + '%';
+  }, { passive: true });
+
+  // Navbar scroll effect
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 30);
+  }, { passive: true });
+
+  // Reveal on scroll
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  // FAQ accordion
+  function toggleFaq(btn) {
+    const item = btn.closest('.faq-item');
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  }
+</script>
 </body>
 </html>
