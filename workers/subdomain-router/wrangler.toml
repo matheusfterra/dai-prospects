@@ -31,6 +31,7 @@ routes = [
   { pattern = "odontoclinic-health.digital-ai.tech/*", zone_name = "digital-ai.tech" },
   { pattern = "kion-dental-technology-health.digital-ai.tech/*", zone_name = "digital-ai.tech" },
   { pattern = "mari-saraiva-acessorios-health.digital-ai.tech/*", zone_name = "digital-ai.tech" },
+  { pattern = "mari-saraiva-acessorios.digital-ai.tech/*", zone_name = "digital-ai.tech" },
   # LeadKit: adicionar rota explícita para cada novo prospect aqui
 ]
 

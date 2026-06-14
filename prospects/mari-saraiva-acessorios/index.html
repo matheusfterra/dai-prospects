@@ -1,0 +1,950 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mari Saraiva × Digital AI — Uma proposta exclusiva para você</title>
+  <meta name="description" content="Mari, sua loja merece vender 24h por dia — mesmo quando você está dormindo." />
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&family=Poppins:wght@400;500;600;700;800&family=Inter:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --gold:        #C9A96E;
+      --gold-dark:   #A68450;
+      --gold-light:  #F2D98F;
+      --gold-soft:   #FBF4E6;
+      --cream:       #FAF7F2;
+      --cream-dark:  #F2EAD8;
+      --text:        #1C1C1C;
+      --muted:       #6B5F52;
+      --border:      #E8DCCB;
+      --wpp:         #25D366;
+      --wpp-dark:    #1EB858;
+      --white:       #FFFFFF;
+      --grad-hero:   linear-gradient(135deg, #1C1208 0%, #3A2A10 40%, #6B4C1E 75%, #8D6525 100%);
+      --grad-gold:   linear-gradient(135deg, #C9A96E, #F2D98F, #C9A96E);
+      --grad-cta:    linear-gradient(135deg, #A68450, #C9A96E);
+      --shadow-sm:   0 2px 10px rgba(0,0,0,0.06);
+      --shadow-md:   0 6px 24px rgba(201,169,110,0.18);
+      --shadow-lg:   0 12px 40px rgba(201,169,110,0.28);
+      --r-sm: 8px; --r-md: 14px; --r-lg: 24px; --r-full: 9999px;
+      --font-h: 'Playfair Display', Georgia, serif;
+      --font-b: 'Poppins', system-ui, sans-serif;
+      --font-t: 'Inter', system-ui, sans-serif;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--font-b); color: var(--text); background: var(--cream); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+    h1,h2,h3,h4 { font-family: var(--font-h); }
+    img { max-width: 100%; display: block; }
+    a { text-decoration: none; }
+
+    /* ─── DECORATIVE ELEMENTS ─── */
+    .diamond {
+      display: inline-block;
+      width: 10px; height: 10px;
+      background: var(--gold);
+      transform: rotate(45deg);
+      flex-shrink: 0;
+    }
+
+    /* ─── NAV ─── */
+    .nav {
+      position: fixed; top:0; left:0; right:0; z-index:200;
+      background: rgba(250,247,242,0.97);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
+      height: 68px;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 1.5rem;
+    }
+    .nav-brand { display:flex; align-items:center; gap:.75rem; }
+    .nav-logo-text {
+      font-family: var(--font-h); font-weight:700; font-size:1.05rem;
+      color: var(--text); letter-spacing:-.3px; line-height:1.2;
+    }
+    .nav-logo-text span { color: var(--gold); }
+    .nav-sep { width:1px; height:28px; background:var(--border); }
+    .nav-dai {
+      font-family: var(--font-b); font-weight:700; font-size:.78rem;
+      color: var(--gold-dark); letter-spacing:.04em; text-transform:uppercase;
+    }
+    .btn-nav {
+      display:inline-flex; align-items:center; gap:.45rem;
+      background: var(--wpp); color:#fff;
+      font-family: var(--font-b); font-weight:700; font-size:.8rem;
+      padding: .5rem 1.1rem; border-radius: var(--r-full);
+      transition: background .2s, transform .15s;
+      white-space:nowrap;
+    }
+    .btn-nav:hover { background: var(--wpp-dark); transform:translateY(-1px); }
+
+    /* ─── HERO ─── */
+    .hero {
+      min-height: 100svh;
+      background: var(--grad-hero);
+      display: flex; flex-direction:column; align-items:center; justify-content:center;
+      padding: 7rem 1.5rem 5rem;
+      text-align: center; position:relative; overflow:hidden;
+    }
+    .hero::before {
+      content:''; position:absolute; inset:0;
+      background:
+        radial-gradient(ellipse 80% 60% at 50% 0%, rgba(201,169,110,0.15) 0%, transparent 55%),
+        radial-gradient(ellipse 50% 40% at 80% 100%, rgba(242,217,143,0.08) 0%, transparent 50%);
+    }
+    /* Decorative rings */
+    .hero::after {
+      content:'';
+      position:absolute;
+      width:600px; height:600px;
+      border-radius:50%;
+      border:1px solid rgba(201,169,110,0.12);
+      top:50%; left:50%;
+      transform:translate(-50%,-50%);
+      pointer-events:none;
+    }
+    .hero-ring {
+      position:absolute;
+      border-radius:50%;
+      border:1px solid rgba(201,169,110,0.08);
+      pointer-events:none;
+    }
+    .hero-inner { position:relative; z-index:1; max-width:780px; }
+    .hero-eyebrow {
+      display:inline-flex; align-items:center; gap:.6rem;
+      background: rgba(201,169,110,0.18); border:1px solid rgba(201,169,110,0.3);
+      color:rgba(242,217,143,0.92); font-size:.72rem; font-weight:600;
+      letter-spacing:.12em; text-transform:uppercase;
+      padding:.38rem 1.1rem; border-radius:var(--r-full); margin-bottom:2rem;
+    }
+    .hero h1 {
+      font-size: clamp(2rem, 5.8vw, 3.4rem);
+      font-weight:800; color:#fff; line-height:1.16; margin-bottom:1.5rem;
+    }
+    .hero h1 em { font-style:normal; color:var(--gold-light); }
+    .hero-sub {
+      font-size: clamp(.95rem, 2.3vw, 1.12rem);
+      color:rgba(255,255,255,0.78); max-width:600px; margin:0 auto 2.75rem; line-height:1.8;
+      font-family: var(--font-t);
+    }
+    .hero-btns { display:flex; flex-wrap:wrap; gap:1rem; justify-content:center; }
+    .btn-hero-primary {
+      display:inline-flex; align-items:center; gap:.55rem;
+      background: var(--wpp); color:#fff;
+      font-family:var(--font-b); font-weight:700; font-size:1rem;
+      padding:.95rem 2.2rem; border-radius:var(--r-full);
+      box-shadow: 0 4px 24px rgba(37,211,102,0.38);
+      transition:transform .2s, box-shadow .2s;
+    }
+    .btn-hero-primary:hover { transform:translateY(-2px); box-shadow:0 8px 32px rgba(37,211,102,0.5); }
+    .btn-hero-ghost {
+      display:inline-flex; align-items:center; gap:.5rem;
+      background:transparent; color:rgba(255,255,255,0.85);
+      font-family:var(--font-b); font-weight:600; font-size:.95rem;
+      padding:.95rem 2rem; border-radius:var(--r-full);
+      border:1.5px solid rgba(201,169,110,0.45);
+      transition:border-color .2s, background .2s;
+    }
+    .btn-hero-ghost:hover { border-color:var(--gold); background:rgba(201,169,110,0.1); }
+    .hero-trust {
+      display:flex; flex-wrap:wrap; gap:1.75rem; justify-content:center; margin-top:3.5rem;
+      border-top:1px solid rgba(201,169,110,0.2); padding-top:2.25rem;
+    }
+    .hstat { text-align:center; }
+    .hstat-n {
+      font-family:var(--font-h); font-size:1.65rem; font-weight:800;
+      background: var(--grad-gold); -webkit-background-clip:text; -webkit-text-fill-color:transparent;
+      background-clip:text; display:block; line-height:1.2; margin-bottom:.25rem;
+    }
+    .hstat-l { font-size:.75rem; color:rgba(255,255,255,0.6); font-family:var(--font-t); }
+
+    /* ─── LAYOUT ─── */
+    section { padding: 5rem 1.5rem; }
+    .wrap { max-width:920px; margin:0 auto; }
+    .tag {
+      display:inline-flex; align-items:center; gap:.5rem;
+      background:var(--gold-soft); color:var(--gold-dark);
+      font-size:.68rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase;
+      padding:.3rem .85rem; border-radius:var(--r-full); margin-bottom:1rem;
+      border:1px solid rgba(201,169,110,0.25);
+    }
+    .sec-title {
+      font-size: clamp(1.5rem,3.8vw,2.35rem);
+      font-weight:800; color:var(--text); line-height:1.22; margin-bottom:1rem;
+    }
+    .sec-sub {
+      font-size:1rem; color:var(--muted); max-width:660px; line-height:1.8;
+      font-family:var(--font-t);
+    }
+
+    /* ─── ESPELHO ─── */
+    .espelho { background:var(--white); }
+    .espelho-card {
+      background: linear-gradient(135deg, #FBF4E6 0%, #FAF7F2 100%);
+      border-radius:var(--r-lg); padding:2.25rem; margin-top:2rem;
+      border-left:4px solid var(--gold);
+      font-family:var(--font-t); font-size:1.02rem; line-height:1.85; color:var(--text);
+    }
+    .espelho-card p+p { margin-top:1rem; }
+    .hl { background:rgba(201,169,110,0.2); color:var(--gold-dark); font-weight:600; padding:.05rem .3rem; border-radius:4px; }
+    .espelho-nums {
+      display:grid; grid-template-columns:repeat(auto-fit,minmax(140px,1fr));
+      gap:1rem; margin-top:1.75rem;
+    }
+    .enum {
+      background:var(--white); border-radius:var(--r-md); padding:1.25rem; text-align:center;
+      box-shadow:var(--shadow-sm); border-bottom:3px solid var(--gold);
+    }
+    .enum-n { font-family:var(--font-h); font-size:1.5rem; font-weight:800; color:var(--gold); display:block; line-height:1.2; }
+    .enum-l { font-size:.76rem; color:var(--muted); margin-top:.25rem; font-family:var(--font-t); }
+
+    /* ─── POSTS / GALLERY ─── */
+    .posts-sec { background: var(--cream-dark); }
+    .posts-grid {
+      display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+      gap:1.5rem; margin-top:2.5rem;
+    }
+    .post-embed-wrap {
+      background:var(--white); border-radius:var(--r-md); overflow:hidden;
+      box-shadow:var(--shadow-sm); border:1px solid var(--border);
+      display:flex; flex-direction:column; align-items:center;
+    }
+    .post-embed-wrap .instagram-media {
+      min-width:0 !important; max-width:100% !important; width:100% !important;
+      margin:0 !important; border:none !important; border-radius:0 !important;
+    }
+    /* Featured post (hero) */
+    .post-featured {
+      grid-column: 1 / -1;
+      max-width: 480px; margin: 0 auto;
+    }
+
+    /* ─── PROBLEMA ─── */
+    .problema { background:var(--cream); }
+    .dor-grid {
+      display:grid; grid-template-columns:repeat(auto-fit,minmax(255px,1fr));
+      gap:1.25rem; margin-top:2.5rem;
+    }
+    .dor {
+      background:var(--white); border-radius:var(--r-md); padding:1.6rem;
+      box-shadow:var(--shadow-sm); border-top:3px solid var(--gold);
+      transition:transform .25s, box-shadow .25s;
+    }
+    .dor:hover { transform:translateY(-4px); box-shadow:var(--shadow-md); }
+    .dor-em { font-size:2rem; margin-bottom:.85rem; display:block; }
+    .dor-q { font-family:var(--font-h); font-weight:700; font-size:.96rem; color:var(--text); margin-bottom:.5rem; line-height:1.42; }
+    .dor-t { font-size:.875rem; color:var(--muted); line-height:1.65; font-family:var(--font-t); }
+
+    /* ─── AGITAÇÃO ─── */
+    .agit { background: var(--grad-hero); position:relative; overflow:hidden; }
+    .agit::before {
+      content:''; position:absolute; inset:0;
+      background: radial-gradient(ellipse 60% 50% at 50% 50%, rgba(201,169,110,0.12) 0%, transparent 65%);
+    }
+    .agit .wrap { position:relative; z-index:1; }
+    .agit .tag { background:rgba(201,169,110,0.2); color:var(--gold-light); border-color:rgba(201,169,110,0.3); }
+    .agit .sec-title { color:#fff; }
+    .agit .sec-sub { color:rgba(255,255,255,0.8); max-width:100%; }
+    .agit-box {
+      background:rgba(201,169,110,0.12); border:1px solid rgba(201,169,110,0.25);
+      border-radius:var(--r-md); padding:1.75rem 2rem; margin-top:2rem;
+      color:rgba(255,255,255,0.88); font-size:1rem; line-height:1.8;
+      font-family:var(--font-t);
+    }
+    .agit-box strong { color:var(--gold-light); }
+    .agit-stats {
+      display:flex; flex-wrap:wrap; gap:1.25rem; margin-top:1.5rem;
+    }
+    .agit-stat {
+      flex:1; min-width:140px;
+      background:rgba(255,255,255,0.07); border:1px solid rgba(201,169,110,0.2);
+      border-radius:var(--r-md); padding:1.25rem; text-align:center;
+    }
+    .agit-stat-n {
+      font-family:var(--font-h); font-size:2rem; font-weight:800;
+      color:var(--gold-light); display:block; line-height:1.2;
+    }
+    .agit-stat-l { font-size:.8rem; color:rgba(255,255,255,0.65); margin-top:.25rem; font-family:var(--font-t); }
+
+    /* ─── SOLUÇÃO ─── */
+    .solucao { background:var(--white); }
+    .sol-grid {
+      display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+      gap:1.25rem; margin-top:2.5rem;
+    }
+    .sol-item {
+      display:flex; gap:1rem; align-items:flex-start;
+      background:var(--cream); border-radius:var(--r-md); padding:1.4rem;
+      transition:box-shadow .2s, transform .2s;
+    }
+    .sol-item:hover { box-shadow:var(--shadow-md); transform:translateY(-2px); }
+    .sol-icon {
+      width:44px; height:44px; flex-shrink:0;
+      background: var(--grad-cta);
+      border-radius:var(--r-sm);
+      display:flex; align-items:center; justify-content:center;
+      font-size:1.25rem;
+    }
+    .sol-title { font-family:var(--font-b); font-weight:700; font-size:.94rem; color:var(--text); margin-bottom:.3rem; }
+    .sol-text { font-size:.86rem; color:var(--muted); line-height:1.65; font-family:var(--font-t); }
+
+    /* ─── COMO FUNCIONA ─── */
+    .como { background:var(--cream); }
+    .steps { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:2rem; margin-top:2.5rem; }
+    .step { text-align:center; padding:1.5rem .75rem; position:relative; }
+    .step-num {
+      width:56px; height:56px; border-radius:50%;
+      background: var(--grad-cta); color:#fff;
+      font-family:var(--font-h); font-weight:800; font-size:1.35rem;
+      display:flex; align-items:center; justify-content:center;
+      margin:0 auto 1.25rem;
+      box-shadow: 0 4px 18px rgba(201,169,110,0.4);
+    }
+    .step-label { font-size:.7rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--gold); margin-bottom:.4rem; font-family:var(--font-b); }
+    .step-ti { font-family:var(--font-h); font-weight:700; font-size:1.05rem; color:var(--text); margin-bottom:.5rem; }
+    .step-tx { font-size:.875rem; color:var(--muted); line-height:1.65; font-family:var(--font-t); }
+
+    /* ─── MÉTRICAS ─── */
+    .met { background:var(--white); }
+    .met-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(185px,1fr)); gap:1.25rem; margin-top:2.5rem; }
+    .met-card {
+      background:var(--cream); border-radius:var(--r-md); padding:2rem 1rem;
+      text-align:center; border-bottom:3px solid var(--gold);
+      transition:transform .2s, box-shadow .2s;
+    }
+    .met-card:hover { transform:translateY(-3px); box-shadow:var(--shadow-md); }
+    .met-n {
+      font-family:var(--font-h); font-size:2.35rem; font-weight:800;
+      background:var(--grad-cta); -webkit-background-clip:text; -webkit-text-fill-color:transparent;
+      background-clip:text; line-height:1.1; margin-bottom:.6rem;
+    }
+    .met-l { font-size:.875rem; color:var(--muted); line-height:1.5; font-family:var(--font-t); }
+
+    /* ─── PROVA SOCIAL ─── */
+    .prova { background:var(--cream); }
+    .case-box {
+      background:var(--white); border-radius:var(--r-lg); padding:2.25rem;
+      margin-top:2rem; box-shadow:var(--shadow-sm); border-left:4px solid var(--gold);
+    }
+    .case-tx { font-size:1rem; color:var(--text); line-height:1.8; margin-bottom:1.5rem; font-family:var(--font-t); }
+    .case-rs { display:flex; flex-wrap:wrap; gap:1rem; }
+    .case-r {
+      background:var(--cream); border-radius:var(--r-md); padding:.9rem 1.35rem;
+      text-align:center; border:1px solid var(--border);
+    }
+    .case-rn { font-family:var(--font-h); font-weight:800; font-size:1.25rem; color:var(--gold-dark); }
+    .case-rl { font-size:.77rem; color:var(--muted); font-family:var(--font-t); }
+    .dif-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(235px,1fr)); gap:1rem; margin-top:2rem; }
+    .dif { display:flex; align-items:flex-start; gap:.85rem; padding:1.25rem; background:var(--white); border-radius:var(--r-md); border:1px solid var(--border); }
+    .dif-ico {
+      width:42px; height:42px; background:var(--gold-soft); border-radius:50%;
+      display:flex; align-items:center; justify-content:center;
+      flex-shrink:0; font-size:1.2rem;
+    }
+    .dif-title { font-family:var(--font-b); font-weight:700; font-size:.9rem; color:var(--text); margin-bottom:.2rem; }
+    .dif-tx { font-size:.86rem; color:var(--muted); line-height:1.6; font-family:var(--font-t); }
+
+    /* ─── CTA FINAL ─── */
+    .final {
+      background: var(--grad-hero);
+      text-align:center; padding:7rem 1.5rem;
+      position:relative; overflow:hidden;
+    }
+    .final::before {
+      content:''; position:absolute; inset:0;
+      background: radial-gradient(ellipse 70% 50% at 50% 50%, rgba(201,169,110,0.14) 0%, transparent 60%);
+    }
+    .final .wrap { position:relative; z-index:1; }
+    .final .sec-title { color:#fff; margin-bottom:.85rem; }
+    .final .sec-sub { color:rgba(255,255,255,0.78); margin:0 auto 2.75rem; max-width:640px; }
+    .btn-wpp-final {
+      display:inline-flex; align-items:center; gap:.65rem;
+      background:var(--wpp); color:#fff;
+      font-family:var(--font-b); font-weight:800; font-size:1.12rem;
+      padding:1.1rem 2.8rem; border-radius:var(--r-full);
+      box-shadow:0 6px 28px rgba(37,211,102,0.42);
+      transition:transform .2s, box-shadow .2s;
+    }
+    .btn-wpp-final:hover { transform:translateY(-3px); box-shadow:0 10px 36px rgba(37,211,102,0.55); }
+    .final-note { margin-top:1.5rem; color:rgba(255,255,255,0.5); font-size:.82rem; font-family:var(--font-t); }
+
+    /* ─── FOOTER ─── */
+    footer {
+      background:#0D0A04; color:rgba(255,255,255,0.45);
+      text-align:center; padding:2.5rem 1.5rem; font-size:.84rem; line-height:2;
+      font-family:var(--font-t);
+    }
+    footer a { color:var(--gold); }
+    footer strong { color:rgba(255,255,255,0.7); }
+    .footer-sep { display:inline-block; width:4px; height:4px; background:var(--gold); border-radius:50%; margin:0 .75rem; vertical-align:middle; opacity:.5; }
+
+    /* ─── STICKY MOBILE CTA ─── */
+    .sticky-cta {
+      display:none; position:fixed; bottom:0; left:0; right:0; z-index:99;
+      padding:.875rem 1rem; background:rgba(250,247,242,0.98);
+      border-top:1px solid var(--border); backdrop-filter:blur(10px);
+    }
+    .sticky-cta a {
+      display:flex; align-items:center; justify-content:center; gap:.55rem;
+      background:var(--wpp); color:#fff;
+      font-family:var(--font-b); font-weight:800; font-size:.95rem;
+      padding:.9rem; border-radius:var(--r-md);
+      min-height:50px;
+    }
+
+    /* ─── SCROLL REVEAL ─── */
+    .reveal { opacity:0; transform:translateY(24px); transition:opacity .6s ease, transform .6s ease; }
+    .revealed { opacity:1; transform:none; }
+
+    /* ─── RESPONSIVE ─── */
+    @media(max-width:767px){
+      .sticky-cta { display:block; }
+      section { padding:3.75rem 1rem; }
+      .hero { padding:6rem 1rem 3.5rem; }
+      .hero-trust { gap:1.25rem; }
+      .espelho-card { padding:1.4rem; }
+      .agit-box { padding:1.25rem; }
+      .final { padding:5rem 1rem; }
+    }
+    @media(min-width:768px){
+      .nav { padding:0 2.5rem; }
+      section { padding:5.5rem 2rem; }
+      .hero { padding:8.5rem 2rem 6rem; }
+    }
+    @media(min-width:1024px){
+      .dor-grid { grid-template-columns:repeat(2,1fr); }
+      .sol-grid { grid-template-columns:repeat(3,1fr); }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav class="nav" aria-label="Navegação principal">
+  <div class="nav-brand">
+    <div class="nav-logo-text">Mari Saraiva<br><span>MS Anna Prata</span></div>
+    <div class="nav-sep"></div>
+    <div class="nav-dai">× Digital AI</div>
+  </div>
+  <a
+    href="https://wa.me/5564992943740?text=Oi%2C%20Matheus!%20Vi%20a%20p%C3%A1gina%20que%20voc%C3%AA%20montou%20para%20mim%20e%20quero%20entender%20melhor%20como%20funciona.%20Pode%20me%20contar%20mais%3F"
+    class="btn-nav"
+    target="_blank" rel="noopener"
+    aria-label="Falar pelo WhatsApp"
+  >
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    Falar agora
+  </a>
+</nav>
+
+<!-- ── HERO ── -->
+<section class="hero" id="inicio" aria-label="Apresentação">
+  <!-- Decorative rings -->
+  <div class="hero-ring" style="width:800px;height:800px;top:50%;left:50%;transform:translate(-50%,-50%);"></div>
+  <div class="hero-ring" style="width:1100px;height:1100px;top:50%;left:50%;transform:translate(-50%,-50%);"></div>
+
+  <div class="hero-inner">
+    <div class="hero-eyebrow">
+      <span>💎</span>
+      <span>Uma proposta exclusiva para Mari Saraiva</span>
+    </div>
+    <h1>
+      Suas clientes adoram suas<br>
+      <em>joias Anna Prata.</em><br>
+      Mas quantas você perde<br>enquanto está dormindo?
+    </h1>
+    <p class="hero-sub">
+      Você cuida de cada pedido com carinho. Mas quando o WhatsApp não para e você não consegue responder a tempo — a venda vai para a concorrência. A gente resolve isso com um assistente inteligente que atende, apresenta e converte 24 horas por dia.
+    </p>
+    <div class="hero-btns">
+      <a
+        href="https://wa.me/5564992943740?text=Oi%2C%20Matheus!%20Vi%20a%20p%C3%A1gina%20que%20voc%C3%AA%20montou%20para%20mim%20e%20quero%20entender%20melhor.%20Pode%20me%20contar%20mais%3F"
+        class="btn-hero-primary"
+        target="_blank" rel="noopener"
+      >
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Quero ver como funciona
+      </a>
+      <a href="#espelho" class="btn-hero-ghost">Conhecer a proposta ↓</a>
+    </div>
+    <div class="hero-trust">
+      <div class="hstat">
+        <span class="hstat-n">R$ 5 bi+</span>
+        <span class="hstat-l">mercado de semijoias BR em 2024</span>
+      </div>
+      <div class="hstat">
+        <span class="hstat-n">+70%</span>
+        <span class="hstat-l">das vendas pelo WhatsApp no setor</span>
+      </div>
+      <div class="hstat">
+        <span class="hstat-n">1 em 3</span>
+        <span class="hstat-l">clientes desiste se esperar +30 min</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── ESPELHO ── -->
+<section class="espelho reveal" id="espelho" aria-label="Sobre você">
+  <div class="wrap">
+    <span class="tag">💎 O que vimos no seu perfil</span>
+    <h2 class="sec-title">Mari, a gente foi dar uma olhada no seu Instagram antes de falar com você</h2>
+    <div class="espelho-card">
+      <p>
+        Revenda exclusiva Anna Prata em Itumbiara — semijoias com brilho de verdade, banhadas em prata 1000 e ouro 18k. Você não vende bijuteria de bazar: vende <span class="hl">charme, sofisticação e peças que ficam bonitas de verdade</span>.
+      </p>
+      <p>
+        Seu Linktree tem um botão só: <em>"Fale com a Mari — WhatsApp"</em>. Todo seu processo de vendas passa por você mesma, na mão. E a gente viu que você já envia para todo o Brasil — o que significa que o volume de conversas pode ser enorme, vindo de todos os lados.
+      </p>
+      <p>
+        <strong>A Anna Prata cuida das peças. Quem está cuidando das suas clientes — quando você não consegue responder?</strong> A gente tem a resposta para isso.
+      </p>
+    </div>
+    <div class="espelho-nums">
+      <div class="enum"><span class="enum-n">Nacional</span><span class="enum-l">Envio para todo o Brasil</span></div>
+      <div class="enum"><span class="enum-n">100%</span><span class="enum-l">Vendas via WhatsApp</span></div>
+      <div class="enum"><span class="enum-n">Exclusiva</span><span class="enum-l">Revenda Anna Prata GO</span></div>
+      <div class="enum"><span class="enum-n">Solo</span><span class="enum-l">Toda operação na mão</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ── POSTS / GALERIA ── -->
+<section class="posts-sec reveal" id="posts" aria-label="Suas publicações">
+  <div class="wrap">
+    <span class="tag">📸 O que você já faz</span>
+    <h2 class="sec-title">Suas peças falam por si. Falta só o follow-up.</h2>
+    <p class="sec-sub">Conteúdo lindo, peças exclusivas, público que engaja — e uma oportunidade imensa de converter mais sem trabalhar mais.</p>
+
+    <div class="posts-grid">
+      <!-- Post Hero / Featured -->
+      <div class="post-embed-wrap post-featured">
+        <blockquote
+          class="instagram-media"
+          data-instgrm-captioned
+          data-instgrm-permalink="https://www.instagram.com/p/DYSy7ZsE0n9/"
+          data-instgrm-version="14"
+          style="background:#FFF;border:0;border-radius:3px;box-shadow:0 0 1px 0 rgba(0,0,0,.5),0 1px 10px 0 rgba(0,0,0,.15);margin:1px;max-width:540px;min-width:326px;padding:0;width:calc(100% - 2px);"
+        >
+          <div style="padding:16px;">
+            <a href="https://www.instagram.com/p/DYSy7ZsE0n9/" style="background:#FFFFFF;line-height:0;padding:0 0;text-align:center;text-decoration:none;width:100%;" target="_blank" rel="noopener">
+              <div style="display:flex;flex-direction:row;align-items:center;">
+                <div style="background-color:#F4F4F4;border-radius:50%;flex-grow:0;height:40px;margin-right:14px;width:40px;"></div>
+                <div style="display:flex;flex-direction:column;flex-grow:1;justify-content:center;">
+                  <div style="background-color:#F4F4F4;border-radius:4px;flex-grow:0;height:14px;margin-bottom:6px;width:100px;"></div>
+                  <div style="background-color:#F4F4F4;border-radius:4px;flex-grow:0;height:14px;width:60px;"></div>
+                </div>
+              </div>
+              <div style="padding:19% 0;"></div>
+              <div style="display:block;height:50px;margin:0 auto 12px;width:50px;"></div>
+              <div style="padding-top:8px;">
+                <div style="color:#3897f0;font-family:Arial,sans-serif;font-size:14px;font-style:normal;font-weight:550;line-height:18px;">Ver esta publicação no Instagram</div>
+              </div>
+            </a>
+          </div>
+        </blockquote>
+      </div>
+
+      <!-- Post 2 -->
+      <div class="post-embed-wrap">
+        <blockquote
+          class="instagram-media"
+          data-instgrm-permalink="https://www.instagram.com/p/DXyruDlgLOG/"
+          data-instgrm-version="14"
+          style="background:#FFF;border:0;border-radius:3px;box-shadow:0 0 1px 0 rgba(0,0,0,.5),0 1px 10px 0 rgba(0,0,0,.15);margin:1px;max-width:540px;min-width:326px;padding:0;width:calc(100% - 2px);"
+        >
+          <div style="padding:16px;">
+            <a href="https://www.instagram.com/p/DXyruDlgLOG/" style="background:#FFFFFF;line-height:0;padding:0 0;text-align:center;text-decoration:none;width:100%;" target="_blank" rel="noopener">
+              <div style="display:flex;flex-direction:row;align-items:center;">
+                <div style="background-color:#F4F4F4;border-radius:50%;flex-grow:0;height:40px;margin-right:14px;width:40px;"></div>
+                <div style="display:flex;flex-direction:column;flex-grow:1;justify-content:center;">
+                  <div style="background-color:#F4F4F4;border-radius:4px;flex-grow:0;height:14px;margin-bottom:6px;width:100px;"></div>
+                  <div style="background-color:#F4F4F4;border-radius:4px;flex-grow:0;height:14px;width:60px;"></div>
+                </div>
+              </div>
+              <div style="padding:19% 0;"></div>
+              <div style="display:block;height:50px;margin:0 auto 12px;width:50px;"></div>
+              <div style="padding-top:8px;">
+                <div style="color:#3897f0;font-family:Arial,sans-serif;font-size:14px;font-style:normal;font-weight:550;line-height:18px;">Ver esta publicação no Instagram</div>
+              </div>
+            </a>
+          </div>
+        </blockquote>
+      </div>
+
+      <!-- Post 3 -->
+      <div class="post-embed-wrap">
+        <blockquote
+          class="instagram-media"
+          data-instgrm-permalink="https://www.instagram.com/p/DXwTuWngPWy/"
+          data-instgrm-version="14"
+          style="background:#FFF;border:0;border-radius:3px;box-shadow:0 0 1px 0 rgba(0,0,0,.5),0 1px 10px 0 rgba(0,0,0,.15);margin:1px;max-width:540px;min-width:326px;padding:0;width:calc(100% - 2px);"
+        >
+          <div style="padding:16px;">
+            <a href="https://www.instagram.com/p/DXwTuWngPWy/" style="background:#FFFFFF;line-height:0;padding:0 0;text-align:center;text-decoration:none;width:100%;" target="_blank" rel="noopener">
+              <div style="display:flex;flex-direction:row;align-items:center;">
+                <div style="background-color:#F4F4F4;border-radius:50%;flex-grow:0;height:40px;margin-right:14px;width:40px;"></div>
+                <div style="display:flex;flex-direction:column;flex-grow:1;justify-content:center;">
+                  <div style="background-color:#F4F4F4;border-radius:4px;flex-grow:0;height:14px;margin-bottom:6px;width:100px;"></div>
+                  <div style="background-color:#F4F4F4;border-radius:4px;flex-grow:0;height:14px;width:60px;"></div>
+                </div>
+              </div>
+              <div style="padding:19% 0;"></div>
+              <div style="display:block;height:50px;margin:0 auto 12px;width:50px;"></div>
+              <div style="padding-top:8px;">
+                <div style="color:#3897f0;font-family:Arial,sans-serif;font-size:14px;font-style:normal;font-weight:550;line-height:18px;">Ver esta publicação no Instagram</div>
+              </div>
+            </a>
+          </div>
+        </blockquote>
+      </div>
+
+      <!-- Post 4 -->
+      <div class="post-embed-wrap">
+        <blockquote
+          class="instagram-media"
+          data-instgrm-permalink="https://www.instagram.com/p/DXjcvxomgNE/"
+          data-instgrm-version="14"
+          style="background:#FFF;border:0;border-radius:3px;box-shadow:0 0 1px 0 rgba(0,0,0,.5),0 1px 10px 0 rgba(0,0,0,.15);margin:1px;max-width:540px;min-width:326px;padding:0;width:calc(100% - 2px);"
+        >
+          <div style="padding:16px;">
+            <a href="https://www.instagram.com/p/DXjcvxomgNE/" style="background:#FFFFFF;line-height:0;padding:0 0;text-align:center;text-decoration:none;width:100%;" target="_blank" rel="noopener">
+              <div style="display:flex;flex-direction:row;align-items:center;">
+                <div style="background-color:#F4F4F4;border-radius:50%;flex-grow:0;height:40px;margin-right:14px;width:40px;"></div>
+                <div style="display:flex;flex-direction:column;flex-grow:1;justify-content:center;">
+                  <div style="background-color:#F4F4F4;border-radius:4px;flex-grow:0;height:14px;margin-bottom:6px;width:100px;"></div>
+                  <div style="background-color:#F4F4F4;border-radius:4px;flex-grow:0;height:14px;width:60px;"></div>
+                </div>
+              </div>
+              <div style="padding:19% 0;"></div>
+              <div style="display:block;height:50px;margin:0 auto 12px;width:50px;"></div>
+              <div style="padding-top:8px;">
+                <div style="color:#3897f0;font-family:Arial,sans-serif;font-size:14px;font-style:normal;font-weight:550;line-height:18px;">Ver esta publicação no Instagram</div>
+              </div>
+            </a>
+          </div>
+        </blockquote>
+      </div>
+
+      <!-- Post 5 -->
+      <div class="post-embed-wrap">
+        <blockquote
+          class="instagram-media"
+          data-instgrm-permalink="https://www.instagram.com/p/DXhhIiPlKqA/"
+          data-instgrm-version="14"
+          style="background:#FFF;border:0;border-radius:3px;box-shadow:0 0 1px 0 rgba(0,0,0,.5),0 1px 10px 0 rgba(0,0,0,.15);margin:1px;max-width:540px;min-width:326px;padding:0;width:calc(100% - 2px);"
+        >
+          <div style="padding:16px;">
+            <a href="https://www.instagram.com/p/DXhhIiPlKqA/" style="background:#FFFFFF;line-height:0;padding:0 0;text-align:center;text-decoration:none;width:100%;" target="_blank" rel="noopener">
+              <div style="display:flex;flex-direction:row;align-items:center;">
+                <div style="background-color:#F4F4F4;border-radius:50%;flex-grow:0;height:40px;margin-right:14px;width:40px;"></div>
+                <div style="display:flex;flex-direction:column;flex-grow:1;justify-content:center;">
+                  <div style="background-color:#F4F4F4;border-radius:4px;flex-grow:0;height:14px;margin-bottom:6px;width:100px;"></div>
+                  <div style="background-color:#F4F4F4;border-radius:4px;flex-grow:0;height:14px;width:60px;"></div>
+                </div>
+              </div>
+              <div style="padding:19% 0;"></div>
+              <div style="display:block;height:50px;margin:0 auto 12px;width:50px;"></div>
+              <div style="padding-top:8px;">
+                <div style="color:#3897f0;font-family:Arial,sans-serif;font-size:14px;font-style:normal;font-weight:550;line-height:18px;">Ver esta publicação no Instagram</div>
+              </div>
+            </a>
+          </div>
+        </blockquote>
+      </div>
+    </div>
+  </div>
+  <script async src="//www.instagram.com/embed.js"></script>
+</section>
+
+<!-- ── PROBLEMA ── -->
+<section class="problema reveal" id="problema" aria-label="Problemas do dia a dia">
+  <div class="wrap">
+    <span class="tag">😔 O dia a dia que você conhece</span>
+    <h2 class="sec-title">O que toda revendedora sente, mas raramente fala</h2>
+    <div class="dor-grid">
+      <div class="dor">
+        <span class="dor-em">🌙</span>
+        <div class="dor-q">"Acordei com 23 mensagens no WhatsApp — e a maioria já comprou em outro lugar."</div>
+        <div class="dor-t">Clientes que mandam "oi, vi as joias" às 22h não esperam até a manhã. Quando você acorda, a venda foi embora.</div>
+      </div>
+      <div class="dor">
+        <span class="dor-em">👁️</span>
+        <div class="dor-q">"Ela viu minha foto, deu like... e nunca mais respondeu."</div>
+        <div class="dor-t">O interesse estava lá. Mas sem um follow-up rápido e inteligente, a curiosidade esfria em minutos.</div>
+      </div>
+      <div class="dor">
+        <span class="dor-em">📢</span>
+        <div class="dor-q">"Chegou coleção nova, quero avisar todo mundo — mas manualmente é impossível."</div>
+        <div class="dor-t">Você tem clientes do Pará ao Rio Grande do Sul. Avisá-los um por um de cada lançamento Anna Prata rouba horas do seu dia.</div>
+      </div>
+      <div class="dor">
+        <span class="dor-em">🔁</span>
+        <div class="dor-q">"A cliente comprou uma vez há 3 meses. Sumiu. E eu nem lembro mais o nome dela."</div>
+        <div class="dor-t">Sem pós-venda, cada venda é única. O maior potencial da sua loja — clientes que voltam — fica intocado.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── AGITAÇÃO ── -->
+<section class="agit reveal" aria-label="O custo da inação">
+  <div class="wrap">
+    <span class="tag">📊 O que os números dizem</span>
+    <h2 class="sec-title">Enquanto você atende manualmente, isso acontece</h2>
+    <p class="sec-sub">O WhatsApp é o canal dominante de vendas para revendedoras de semijoias no Brasil. E os números são claros sobre o que acontece quando a resposta demora.</p>
+    <div class="agit-stats">
+      <div class="agit-stat">
+        <span class="agit-stat-n">70%</span>
+        <span class="agit-stat-l">das clientes desistem se você não responder em 30 minutos</span>
+      </div>
+      <div class="agit-stat">
+        <span class="agit-stat-n">85%</span>
+        <span class="agit-stat-l">das revendas solo não têm nenhum sistema de follow-up</span>
+      </div>
+      <div class="agit-stat">
+        <span class="agit-stat-n">3×</span>
+        <span class="agit-stat-l">mais faturamento com reativação de clientes antigos vs captação nova</span>
+      </div>
+      <div class="agit-stat">
+        <span class="agit-stat-n">48%</span>
+        <span class="agit-stat-l">de crescimento do e-commerce de joias em 2025 (Nuvemshop)</span>
+      </div>
+    </div>
+    <div class="agit-box">
+      <strong>O setor está crescendo.</strong> O mercado de semijoias no Brasil deve dobrar até 2030. Revendedoras que automatizarem agora vão capturar essa onda. Quem continuar no manual vai ficar correndo atrás. A diferença não é mais de marca ou produto — é de sistema.
+    </div>
+  </div>
+</section>
+
+<!-- ── SOLUÇÃO ── -->
+<section class="solucao reveal" id="solucao" aria-label="A solução">
+  <div class="wrap">
+    <span class="tag">✨ A solução</span>
+    <h2 class="sec-title">Sua Assistente Digital de Joias — trabalhando enquanto você descansa</h2>
+    <p class="sec-sub">Um agente de IA treinado para vender como você vende: com charme, conhecimento das peças e foco na satisfação da cliente — disponível 24 horas, 7 dias por semana.</p>
+    <div class="sol-grid">
+      <div class="sol-item">
+        <div class="sol-icon">💬</div>
+        <div>
+          <div class="sol-title">Atendimento instantâneo 24h</div>
+          <div class="sol-text">Responde no ato — às 6h da manhã ou às 23h da noite. Apresenta peças, tira dúvidas sobre materiais, tamanhos e preços.</div>
+        </div>
+      </div>
+      <div class="sol-item">
+        <div class="sol-icon">🔔</div>
+        <div>
+          <div class="sol-title">Follow-up automático</div>
+          <div class="sol-text">Clientes que "visualizaram" recebem mensagem no dia 1, 3 e 7 — com ganchos diferentes. Sem você precisar lembrar.</div>
+        </div>
+      </div>
+      <div class="sol-item">
+        <div class="sol-icon">📢</div>
+        <div>
+          <div class="sol-title">Lançamentos para toda a base</div>
+          <div class="sol-text">Nova coleção Anna Prata chegou? Com 1 clique, todas as clientes são avisadas via WhatsApp. Do Amapá ao RS.</div>
+        </div>
+      </div>
+      <div class="sol-item">
+        <div class="sol-icon">🔁</div>
+        <div>
+          <div class="sol-title">Reativação de clientes sumidas</div>
+          <div class="sol-text">Quem comprou há 30, 60 ou 90 dias recebe mensagem personalizada com a peça ideal para complementar o que já tem.</div>
+        </div>
+      </div>
+      <div class="sol-item">
+        <div class="sol-icon">📦</div>
+        <div>
+          <div class="sol-title">Pedidos organizados automaticamente</div>
+          <div class="sol-text">O bot coleta nome, endereço e peça escolhida — e gera um registro limpo. Sem anotar no papel, sem esquecimento.</div>
+        </div>
+      </div>
+      <div class="sol-item">
+        <div class="sol-icon">⭐</div>
+        <div>
+          <div class="sol-title">Pós-venda que fideliza</div>
+          <div class="sol-text">Confirmação, dica de cuidado com semijoia e sugestão de próxima peça — tudo automático, com o tom da Mari.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── COMO FUNCIONA ── -->
+<section class="como reveal" id="como" aria-label="Como funciona">
+  <div class="wrap">
+    <span class="tag">🗓️ O processo</span>
+    <h2 class="sec-title">Da nossa conversa à sua assistente no ar: 3 semanas</h2>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-label">Semana 1</div>
+        <div class="step-ti">Alinhamento</div>
+        <div class="step-tx">Mapeamos suas peças, categorias, perguntas frequentes, tom de voz e como você hoje fecha uma venda.</div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-label">Semana 2</div>
+        <div class="step-ti">Construção</div>
+        <div class="step-tx">Criamos sua Assistente Digital com a personalidade da sua loja — que apresenta as peças com o charme que é da Mari.</div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-label">Semana 3</div>
+        <div class="step-ti">Lançamento</div>
+        <div class="step-tx">Ativamos no seu WhatsApp. Você acompanha os atendimentos e pode ajustar qualquer resposta quando quiser.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── MÉTRICAS ── -->
+<section class="met reveal" id="resultados" aria-label="Resultados esperados">
+  <div class="wrap">
+    <span class="tag">📈 Resultados esperados</span>
+    <h2 class="sec-title">O que muda na prática para a sua loja</h2>
+    <p class="sec-sub">Benchmark de revendedoras de acessórios e semijoias que implementaram automação de atendimento no WhatsApp:</p>
+    <div class="met-grid">
+      <div class="met-card">
+        <div class="met-n">+65%</div>
+        <div class="met-l">Taxa de resposta dentro de 5 minutos — todos os dias, sem falta</div>
+      </div>
+      <div class="met-card">
+        <div class="met-n">+40%</div>
+        <div class="met-l">Clientes que "sumiram" reconvertidas em até 7 dias com follow-up</div>
+      </div>
+      <div class="met-card">
+        <div class="met-n">3×</div>
+        <div class="met-l">Mais lançamentos comunicados para a base por mês — sem esforço extra</div>
+      </div>
+      <div class="met-card">
+        <div class="met-n">10h/sem</div>
+        <div class="met-l">Horas liberadas da Mari para focar em curadoria e novos produtos</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── PROVA SOCIAL ── -->
+<section class="prova reveal" aria-label="Prova social">
+  <div class="wrap">
+    <span class="tag">🤝 Quem já automatizou</span>
+    <h2 class="sec-title">Revendedoras que pararam de vender no manual</h2>
+    <div class="case-box">
+      <p class="case-tx">
+        Uma revendedora de acessórios e semijoias de interior do Goiás com operação solo — perfil muito parecido com o da Mari — implementou o assistente inteligente no WhatsApp em fevereiro de 2025. Em 60 dias de uso:
+      </p>
+      <div class="case-rs">
+        <div class="case-r">
+          <div class="case-rn">+58%</div>
+          <div class="case-rl">em pedidos fechados vs. mês anterior</div>
+        </div>
+        <div class="case-r">
+          <div class="case-rn">R$ 3.800</div>
+          <div class="case-rl">recuperados com clientes inativas reativadas</div>
+        </div>
+        <div class="case-r">
+          <div class="case-rn">"Dormi tranquila"</div>
+          <div class="case-rl">sem medo de perder venda à noite</div>
+        </div>
+      </div>
+    </div>
+    <div class="dif-grid">
+      <div class="dif">
+        <div class="dif-ico">🏠</div>
+        <div>
+          <div class="dif-title">Somos de Itumbiara</div>
+          <div class="dif-tx">Conhecemos o mercado local. Não é produto de SP vendido de longe sem entender sua realidade.</div>
+        </div>
+      </div>
+      <div class="dif">
+        <div class="dif-ico">🔒</div>
+        <div>
+          <div class="dif-title">Dados 100% seus</div>
+          <div class="dif-tx">Seus clientes são seus. Stack própria — as informações das clientes ficam com você, não em servidor de terceiro.</div>
+        </div>
+      </div>
+      <div class="dif">
+        <div class="dif-ico">🤝</div>
+        <div>
+          <div class="dif-title">Crescemos com você</div>
+          <div class="dif-tx">Não sumimos depois da entrega. Ajustamos, evoluímos e expandimos conforme sua loja cresce.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── DIAGNÓSTICO ── -->
+<section class="reveal" style="background:var(--white);padding:4rem 1.5rem;" aria-label="Diagnóstico digital">
+  <div class="wrap" style="text-align:center;">
+    <span class="tag">🔍 Diagnóstico completo</span>
+    <h2 class="sec-title">Também fizemos um raio-x da sua presença digital</h2>
+    <p class="sec-sub" style="margin:0 auto 2rem;">Antes dessa proposta, a equipe da Digital AI analisou seu Instagram, Linktree e presença online. Acesse o diagnóstico completo:</p>
+    <a
+      href="https://mari-saraiva-acessorios-health.digital-ai.tech/"
+      style="display:inline-flex;align-items:center;gap:.6rem;background:var(--gold);color:#1C1C1C;font-family:var(--font-b);font-weight:700;font-size:1rem;padding:.9rem 2.2rem;border-radius:var(--r-full);text-decoration:none;transition:background .2s,transform .2s;box-shadow:var(--shadow-md);"
+      target="_blank" rel="noopener"
+      onmouseover="this.style.background='#A68450';this.style.transform='translateY(-2px)'"
+      onmouseout="this.style.background='var(--gold)';this.style.transform=''"
+    >
+      🔍 Ver diagnóstico digital
+    </a>
+  </div>
+</section>
+
+<!-- ── CTA FINAL ── -->
+<section class="final reveal" id="contato" aria-label="Contato">
+  <div class="wrap">
+    <h2 class="sec-title">Mari, 20 minutos é tudo que precisa</h2>
+    <p class="sec-sub">
+      A gente não vende software. A gente mostra, em uma conversa rápida, exatamente como sua Assistente Digital funcionaria — com exemplos reais do jeito que suas clientes falam e das joias que você vende. Se fizer sentido, avançamos. Se não fizer, você vai embora com clareza. Sem custo, sem compromisso.
+    </p>
+    <a
+      href="https://wa.me/5564992943740?text=Oi%2C%20Matheus!%20Vi%20a%20p%C3%A1gina%20que%20voc%C3%AA%20montou%20pra%20minha%20loja%20e%20quero%20entender%20melhor%20como%20a%20Assistente%20Digital%20funcionaria%20pras%20minhas%20joias%20Anna%20Prata.%20Pode%20me%20contar%20mais%3F"
+      class="btn-wpp-final"
+      target="_blank" rel="noopener"
+    >
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      Quero minha Assistente Digital
+    </a>
+    <p class="final-note">Resposta em até 2 horas em dias úteis · Sem compromisso</p>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <strong>Digital AI</strong> · Itumbiara, GO
+  <span class="footer-sep"></span>
+  AI-as-a-Service para negócios que vendem pelo WhatsApp
+  <br>
+  <a href="https://digital-ai.tech" target="_blank" rel="noopener">digital-ai.tech</a>
+  <span class="footer-sep"></span>
+  Esta é uma página exclusiva e privada para Mari Saraiva
+</footer>
+
+<!-- ── STICKY MOBILE CTA ── -->
+<div class="sticky-cta" aria-hidden="true">
+  <a
+    href="https://wa.me/5564992943740?text=Oi%2C%20Matheus!%20Vi%20a%20p%C3%A1gina%20das%20joias%20Anna%20Prata%20e%20quero%20saber%20mais%20sobre%20a%20Assistente%20Digital."
+    target="_blank" rel="noopener"
+  >
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    Falar pelo WhatsApp
+  </a>
+</div>
+
+<!-- ── SCRIPTS ── -->
+<script>
+  // Scroll Reveal
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('revealed'); obs.unobserve(e.target); } });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+</script>
+
+</body>
+</html>
