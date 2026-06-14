@@ -4,13 +4,13 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Mari Saraiva Acessórios — Revenda Exclusiva Anna Prata | Itumbiara GO</title>
-  <meta name="description" content="Revenda exclusiva Anna Prata em Itumbiara GO. Semi-joias e acessórios com toque de brilho, charme e sofisticação. Enviamos para todo o Brasil." />
+  <meta name="description" content="+500 clientes satisfeitas. Revenda exclusiva Anna Prata em Itumbiara GO. Semi-joias artesanais com garantia de autenticidade. Enviamos para todo o Brasil." />
 
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://mari-saraiva-acessorios.digital-ai.tech/" />
   <meta property="og:title" content="Mari Saraiva Acessórios — Revenda Exclusiva Anna Prata" />
-  <meta property="og:description" content="Toque de brilho, charme e sofisticação. Semi-joias Anna Prata em Itumbiara GO. Enviamos para todo o Brasil." />
+  <meta property="og:description" content="+500 clientes satisfeitas. Semi-joias Anna Prata com garantia de autenticidade. Itumbiara GO — enviamos para todo o Brasil." />
   <meta property="og:image" content="https://mari-saraiva-acessorios.digital-ai.tech/img/hero.jpg" />
   <meta property="og:image:width" content="1080" />
   <meta property="og:image:height" content="1350" />
@@ -19,7 +19,7 @@
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Mari Saraiva Acessórios — Revenda Exclusiva Anna Prata" />
-  <meta name="twitter:description" content="Toque de brilho, charme e sofisticação. Semi-joias Anna Prata em Itumbiara GO." />
+  <meta name="twitter:description" content="+500 clientes satisfeitas. Semi-joias Anna Prata com garantia de autenticidade." />
   <meta name="twitter:image" content="https://mari-saraiva-acessorios.digital-ai.tech/img/hero.jpg" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -68,10 +68,6 @@
     @keyframes fadeUp {
       from { opacity: 0; transform: translateY(28px); }
       to   { opacity: 1; transform: translateY(0); }
-    }
-    @keyframes shimmer {
-      0%   { background-position: -200% center; }
-      100% { background-position:  200% center; }
     }
     .reveal {
       opacity: 0; transform: translateY(22px);
@@ -209,6 +205,49 @@
     .btn-outline:hover { background: rgba(255,255,255,.1); border-color: rgba(255,255,255,.6); }
     .btn-dark  { background: var(--dark); color: #fff; }
     .btn-dark:hover { background: var(--dark-2); }
+    .btn-sub {
+      display: block; text-align: center;
+      font-size: .72rem; color: rgba(255,255,255,.45);
+      margin-top: 8px;
+    }
+
+    /* ── BARRA DE BENEFÍCIOS ── */
+    .benefits-bar {
+      background: #111009;
+      padding: 0;
+      border-bottom: 1px solid rgba(196,169,110,.12);
+    }
+    .benefits-inner {
+      max-width: 1100px; margin: 0 auto;
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+    }
+    .benefit-item {
+      display: flex; align-items: center; gap: 12px;
+      padding: 18px 20px;
+      border-right: 1px solid rgba(196,169,110,.1);
+    }
+    .benefit-item:last-child { border-right: none; }
+    .benefit-icon {
+      width: 36px; height: 36px; border-radius: 10px;
+      background: rgba(196,169,110,.12);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .benefit-icon svg { width: 18px; height: 18px; color: var(--gold); }
+    .benefit-text { display: flex; flex-direction: column; gap: 1px; }
+    .benefit-title { font-size: .78rem; font-weight: 700; color: #fff; }
+    .benefit-sub { font-size: .68rem; color: rgba(255,255,255,.45); }
+    @media (max-width: 768px) {
+      .benefits-inner { grid-template-columns: repeat(2, 1fr); }
+      .benefit-item:nth-child(2) { border-right: none; }
+      .benefit-item { padding: 14px 16px; gap: 10px; }
+    }
+    @media (max-width: 480px) {
+      .benefits-inner { grid-template-columns: 1fr 1fr; }
+      .benefit-sub { display: none; }
+      .benefit-title { font-size: .72rem; }
+    }
 
     /* ── LINKS RÁPIDOS — CARDS ── */
     .links-sec {
@@ -243,15 +282,9 @@
       flex-shrink: 0;
     }
     .link-card-icon svg { width: 26px; height: 26px; }
-    .link-card-title {
-      font-size: .88rem; font-weight: 700; letter-spacing: .01em; line-height: 1.3;
-    }
-    .link-card-sub {
-      font-size: .73rem; color: rgba(255,255,255,.55); line-height: 1.5;
-    }
-    .link-card-arrow {
-      font-size: .72rem; color: rgba(255,255,255,.35); margin-top: 2px;
-    }
+    .link-card-title { font-size: .88rem; font-weight: 700; letter-spacing: .01em; line-height: 1.3; }
+    .link-card-sub { font-size: .73rem; color: rgba(255,255,255,.55); line-height: 1.5; }
+    .link-card-arrow { font-size: .72rem; color: rgba(255,255,255,.35); margin-top: 2px; }
     .lc-wpp  { background: rgba(29,168,81,.15); border-color: rgba(29,168,81,.25); }
     .lc-wpp .link-card-icon { background: #1da851; }
     .lc-ig   { background: rgba(131,58,180,.15); border-color: rgba(253,29,29,.15); }
@@ -259,7 +292,6 @@
     .lc-lt   { background: rgba(196,169,110,.08); border-color: rgba(196,169,110,.2); }
     .lc-lt .link-card-icon { background: rgba(196,169,110,.2); }
     .lc-lt .link-card-icon svg { color: var(--gold); }
-
     @media (max-width: 600px) {
       .links-grid { grid-template-columns: 1fr; max-width: 360px; gap: 12px; }
       .link-card { flex-direction: row; text-align: left; padding: 18px 20px; gap: 16px; }
@@ -289,6 +321,48 @@
       max-width: 480px; line-height: 1.75;
     }
     .sec-header { margin-bottom: 3.5rem; }
+
+    /* ── PRODUTOS ── */
+    .produtos-section { background: var(--bg); }
+    .produtos-grid {
+      display: grid; grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem; max-width: 860px; margin: 0 auto;
+    }
+    .prod-card {
+      border-radius: 18px; overflow: hidden;
+      background: var(--white);
+      box-shadow: 0 2px 20px rgba(26,23,20,.06);
+      transition: transform .3s, box-shadow .3s; cursor: pointer;
+    }
+    .prod-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 40px rgba(26,23,20,.12);
+    }
+    .prod-img { position: relative; overflow: hidden; }
+    .prod-img img { aspect-ratio: 3/4; transition: transform .5s; }
+    .prod-card:hover .prod-img img { transform: scale(1.04); }
+    .prod-badge {
+      position: absolute; top: 14px; right: 14px;
+      background: var(--gold); color: #fff;
+      font-size: .62rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase;
+      padding: 4px 10px; border-radius: 100px;
+    }
+    .prod-badge-red { background: #e53e3e; }
+    .prod-info { padding: 18px 20px 22px; }
+    .prod-name {
+      font-family: var(--font-h);
+      font-size: 1.15rem; font-weight: 500; color: var(--dark);
+      margin-bottom: 6px;
+    }
+    .prod-desc { font-size: .82rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 14px; }
+    .prod-cta {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: .78rem; font-weight: 600; color: var(--gold);
+      padding: 8px 16px; border-radius: 100px;
+      border: 1.5px solid rgba(196,169,110,.3);
+      transition: background .2s, color .2s;
+    }
+    .prod-cta:hover { background: var(--gold); color: #fff; }
 
     /* ── SOBRE ── */
     .sobre-section { background: var(--dark); }
@@ -325,67 +399,77 @@
       width: 40px; height: 1px; background: rgba(196,169,110,.4);
       margin: 1.5rem 0;
     }
-
-    /* ── PRODUTOS ── */
-    .produtos-section { background: var(--bg); }
-    .produtos-grid {
-      display: grid; grid-template-columns: repeat(2, 1fr);
-      gap: 1.5rem; max-width: 860px; margin: 0 auto;
+    @media (max-width: 768px) {
+      .sobre-grid { grid-template-columns: 1fr; }
+      .sobre-img-wrap { max-height: 300px; }
+      .sobre-img-wrap img { aspect-ratio: 4/3; object-position: center top; }
     }
-    .prod-card {
-      border-radius: 18px; overflow: hidden;
+
+    /* ── DEPOIMENTOS ── */
+    .depo-section { background: var(--surface); }
+    .depo-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem; max-width: 1000px; margin: 0 auto;
+    }
+    .depo-card {
       background: var(--white);
+      border-radius: 18px;
+      padding: 28px 24px;
       box-shadow: 0 2px 20px rgba(26,23,20,.06);
-      transition: transform .3s, box-shadow .3s; cursor: pointer;
+      display: flex; flex-direction: column; gap: 16px;
+      position: relative;
     }
-    .prod-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 12px 40px rgba(26,23,20,.12);
+    .depo-stars {
+      display: flex; gap: 3px;
     }
-    .prod-img { position: relative; overflow: hidden; }
-    .prod-img img { aspect-ratio: 3/4; transition: transform .5s; }
-    .prod-card:hover .prod-img img { transform: scale(1.04); }
-    .prod-badge {
-      position: absolute; top: 14px; right: 14px;
-      background: var(--gold); color: #fff;
-      font-size: .62rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase;
-      padding: 4px 10px; border-radius: 100px;
+    .depo-stars svg { width: 14px; height: 14px; color: var(--gold); }
+    .depo-quote {
+      font-size: .9rem; color: var(--text-muted);
+      line-height: 1.75; flex: 1;
+      font-style: italic;
     }
-    .prod-info { padding: 18px 20px 22px; }
-    .prod-name {
-      font-family: var(--font-h);
-      font-size: 1.15rem; font-weight: 500; color: var(--dark);
-      margin-bottom: 6px;
+    .depo-author {
+      display: flex; align-items: center; gap: 10px;
+      padding-top: 14px;
+      border-top: 1px solid var(--border);
     }
-    .prod-desc { font-size: .82rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 14px; }
-    .prod-cta {
-      display: inline-flex; align-items: center; gap: 6px;
-      font-size: .78rem; font-weight: 600; color: var(--gold);
-      padding: 8px 16px; border-radius: 100px;
-      border: 1.5px solid rgba(196,169,110,.3);
-      transition: background .2s, color .2s;
+    .depo-avatar {
+      width: 36px; height: 36px; border-radius: 50%;
+      background: var(--gold);
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--font-h); font-size: 1rem; font-weight: 600; color: #fff;
+      flex-shrink: 0;
     }
-    .prod-cta:hover { background: var(--gold); color: #fff; }
+    .depo-name { font-size: .82rem; font-weight: 700; color: var(--dark); }
+    .depo-city { font-size: .72rem; color: var(--text-soft); }
+    @media (max-width: 768px) { .depo-grid { grid-template-columns: 1fr; max-width: 420px; margin: 0 auto; } }
 
-    /* ── DESTAQUE ── */
-    .destaque-section { background: var(--surface); }
-    .destaque-grid {
-      display: grid; grid-template-columns: 1fr 1fr;
-      gap: 2.5rem; max-width: 1000px; margin: 0 auto; align-items: center;
+    /* ── FAQ ── */
+    .faq-section { background: var(--bg); }
+    .faq-list { max-width: 720px; margin: 0 auto; display: flex; flex-direction: column; gap: 10px; }
+    .faq-item {
+      border: 1px solid var(--border);
+      border-radius: 14px; overflow: hidden;
+      background: var(--white);
     }
-    .destaque-img-wrap {
-      border-radius: 22px; overflow: hidden;
-      box-shadow: 0 8px 48px rgba(26,23,20,.12);
+    .faq-q {
+      width: 100%; text-align: left;
+      display: flex; align-items: center; justify-content: space-between; gap: 12px;
+      padding: 18px 22px;
+      font-size: .9rem; font-weight: 600; color: var(--dark);
+      background: none; border: none; cursor: pointer;
+      transition: color .2s;
     }
-    .destaque-img-wrap img { aspect-ratio: 3/4; }
-    .destaque-text { padding: 1rem 0; }
-    .destaque-quote {
-      border-left: 3px solid var(--gold); padding-left: 1.2rem;
-      font-family: var(--font-h); font-style: italic;
-      font-size: 1.1rem; color: var(--dark); line-height: 1.6;
-      margin-bottom: 2rem;
+    .faq-q:hover { color: var(--gold-d); }
+    .faq-q svg { width: 16px; height: 16px; color: var(--gold); flex-shrink: 0; transition: transform .3s; }
+    .faq-item.open .faq-q svg { transform: rotate(180deg); }
+    .faq-a {
+      max-height: 0; overflow: hidden;
+      transition: max-height .35s ease, padding .35s;
+      font-size: .88rem; color: var(--text-muted); line-height: 1.8;
+      padding: 0 22px;
     }
-    .destaque-body { font-size: .95rem; color: var(--text-muted); line-height: 1.85; margin-bottom: 2rem; }
+    .faq-item.open .faq-a { max-height: 300px; padding: 0 22px 20px; }
 
     /* ── CTA ── */
     .cta-section {
@@ -417,7 +501,12 @@
     .cta-title em { font-style: italic; color: var(--gold-l); }
     .cta-sub {
       color: rgba(255,255,255,.55); font-size: .95rem;
-      max-width: 400px; margin: 0 auto 2.5rem; position: relative; z-index: 2; line-height: 1.75;
+      max-width: 420px; margin: 0 auto 2.5rem; position: relative; z-index: 2; line-height: 1.75;
+    }
+    .cta-urgency {
+      font-size: .78rem; color: rgba(196,169,110,.65);
+      margin-top: 1.2rem; position: relative; z-index: 2;
+      font-style: italic;
     }
     .cta-btns {
       display: flex; justify-content: center; gap: 12px; flex-wrap: wrap;
@@ -444,16 +533,6 @@
     .float-wpp:hover { transform: translateY(-3px) scale(1.06); box-shadow: 0 10px 36px rgba(37,211,102,.50); }
     .float-wpp svg { width: 26px; height: 26px; }
 
-    /* ── RESPONSIVE ── */
-    @media (max-width: 768px) {
-      .hero-content { max-width: 100%; padding-bottom: 48px; }
-      .hero-title { font-size: clamp(2.2rem, 7vw, 3rem); }
-      .sobre-grid { grid-template-columns: 1fr; }
-      .sobre-img-wrap { max-height: 300px; }
-      .sobre-img-wrap img { aspect-ratio: 4/3; object-position: center top; }
-      .destaque-grid { grid-template-columns: 1fr; }
-      .destaque-img-wrap img { aspect-ratio: 4/3; }
-    }
     @media (max-width: 480px) {
       .section { padding: 64px 16px; }
       .produtos-grid { grid-template-columns: 1fr; max-width: 340px; margin: 0 auto; }
@@ -488,10 +567,10 @@
   <div class="hero-content">
     <div class="hero-eyebrow">Revenda Exclusiva Anna Prata</div>
     <h1 class="hero-title">
-      Toque de brilho,<br><em>charme e sofisticação</em>
+      +500 mulheres já<br><em>escolheram com a Mari</em>
     </h1>
     <p class="hero-sub">
-      Semi-joias artesanais que elevam qualquer look com elegância e delicadeza. Enviamos para todo o Brasil com amor e cuidado. 📍 Itumbiara GO
+      Semi-joias artesanais com garantia de autenticidade. Atendimento pessoal, embalagem presente e entrega para todo o Brasil. 📍 Itumbiara GO
     </p>
     <div class="hero-btns">
       <a href="https://wa.me/5564984041559?text=Ol%C3%A1%20Mari!%20Vi%20seus%20acess%C3%B3rios%20Anna%20Prata%20e%20adorei.%20Quero%20conhecer%20mais%20%F0%9F%92%8E" target="_blank" rel="noopener" class="btn btn-wpp">
@@ -505,11 +584,52 @@
   </div>
 </section>
 
+<!-- ── BARRA DE BENEFÍCIOS ── -->
+<div class="benefits-bar">
+  <div class="benefits-inner">
+    <div class="benefit-item">
+      <div class="benefit-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+      </div>
+      <div class="benefit-text">
+        <span class="benefit-title">100% Autêntica</span>
+        <span class="benefit-sub">Revendedora oficial Anna Prata</span>
+      </div>
+    </div>
+    <div class="benefit-item">
+      <div class="benefit-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4"/></svg>
+      </div>
+      <div class="benefit-text">
+        <span class="benefit-title">Envio para Todo Brasil</span>
+        <span class="benefit-sub">Com rastreio e embalagem presente</span>
+      </div>
+    </div>
+    <div class="benefit-item">
+      <div class="benefit-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"/></svg>
+      </div>
+      <div class="benefit-text">
+        <span class="benefit-title">Pix, Cartão ou Boleto</span>
+        <span class="benefit-sub">Cartão em até 3x sem juros</span>
+      </div>
+    </div>
+    <div class="benefit-item">
+      <div class="benefit-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
+      </div>
+      <div class="benefit-text">
+        <span class="benefit-title">Troca Garantida</span>
+        <span class="benefit-sub">7 dias para trocar sem burocracia</span>
+      </div>
+    </div>
+  </div>
+</div>
+
 <!-- ── LINKS RÁPIDOS — CARDS ── -->
 <section class="links-sec">
   <p class="links-label">Acesse direto</p>
   <div class="links-grid">
-
     <a href="https://wa.me/5564984041559?text=Ol%C3%A1%20Mari!%20Vi%20seus%20acess%C3%B3rios%20Anna%20Prata%20e%20adorei.%20Quero%20conhecer%20mais%20%F0%9F%92%8E" target="_blank" rel="noopener" class="link-card lc-wpp reveal">
       <div class="link-card-icon">
         <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
@@ -518,7 +638,6 @@
       <div class="link-card-sub">Fale direto<br>com a Mari</div>
       <div class="link-card-arrow">Abrir →</div>
     </a>
-
     <a href="https://www.instagram.com/msannaprata/" target="_blank" rel="noopener" class="link-card lc-ig reveal d1">
       <div class="link-card-icon">
         <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
@@ -527,56 +646,14 @@
       <div class="link-card-sub">@msannaprata<br>Novidades diárias</div>
       <div class="link-card-arrow">Seguir →</div>
     </a>
-
     <a href="https://linktr.ee/msannaprata" target="_blank" rel="noopener" class="link-card lc-lt reveal d2">
       <div class="link-card-icon">
-        <svg viewBox="0 0 24 24" fill="currentColor" style="color:var(--gold)"><path d="M13.511 5.853l2.053-2.033 2.053 2.033.984-.966-3.037-3-.984.967-.953-.967L10.59 4.887l.984.966 2.053-2.033 2.053 2.033-.984.966zM12.01 8.1L9.64 5.73l-1.009.967 2.37 2.37-.991.99 1.009.967 1.991-1.99-1-1 .001-.001zm-2.91 3.93l-2.37 2.37 1.009.967 2.37-2.37.991.99L12.109 14l1.991-1.99-1.009-.967-1.382 1.382-.99-.99 1.381-1.405zm3.9 3.9l-2.37 2.37 1.009.967 2.37-2.37-.991-.99-1.009-.967z"/></svg>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color:var(--gold)"><path d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"/></svg>
       </div>
-      <div class="link-card-title">Todos os Links</div>
-      <div class="link-card-sub">Catálogo,<br>pedidos e mais</div>
+      <div class="link-card-title">Catálogo</div>
+      <div class="link-card-sub">Todas as peças<br>e preços</div>
       <div class="link-card-arrow">Ver tudo →</div>
     </a>
-
-  </div>
-</section>
-
-<!-- ── SOBRE ── -->
-<section class="section sobre-section">
-  <div class="container">
-    <div class="sobre-grid">
-      <div class="sobre-img-wrap reveal">
-        <img src="img/img1.jpg" alt="Mari Saraiva com acessórios Anna Prata" loading="lazy" />
-      </div>
-      <div class="sobre-text reveal d2">
-        <div class="sec-tag">✦ Sobre</div>
-        <h2 class="sec-title">Revenda exclusiva<br><em>Anna Prata</em></h2>
-        <p class="sobre-body">
-          Sou a Mari Saraiva, revendedora exclusiva da marca Anna Prata em Itumbiara GO — uma das marcas de semi-joias mais amadas do Brasil. Cada peça é cuidadosamente selecionada para trazer elegância, charme e sofisticação ao seu dia a dia.
-        </p>
-        <div class="sobre-divider"></div>
-        <p class="sobre-body">
-          Trabalhamos com envio para todo o Brasil. Se você está em Itumbiara, atendo pessoalmente com muito carinho. Se está em outro estado, entrego na sua porta com segurança e agilidade.
-        </p>
-        <div class="sobre-stats">
-          <div class="stat">
-            <div class="stat-num">Anna</div>
-            <div class="stat-label">Prata Oficial</div>
-          </div>
-          <div class="stat">
-            <div class="stat-num">🇧🇷</div>
-            <div class="stat-label">Todo o Brasil</div>
-          </div>
-          <div class="stat">
-            <div class="stat-num">💎</div>
-            <div class="stat-label">Semi-joias Premium</div>
-          </div>
-        </div>
-        <a href="https://wa.me/5564984041559?text=Ol%C3%A1%20Mari!%20Vi%20seus%20acess%C3%B3rios%20Anna%20Prata%20e%20adorei.%20Quero%20conhecer%20mais%20%F0%9F%92%8E" target="_blank" rel="noopener" class="btn btn-gold" style="display:inline-flex">
-          <svg viewBox="0 0 24 24" fill="currentColor" style="width:17px;height:17px"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-          Quero meus Acessórios
-        </a>
-      </div>
-    </div>
   </div>
 </section>
 
@@ -597,73 +674,191 @@
         <div class="prod-info">
           <div class="prod-name">Coleção Anna Prata</div>
           <p class="prod-desc">Peças artesanais que combinam charme e sofisticação com acabamento impecável.</p>
-          <a href="https://wa.me/5564984041559?text=Ol%C3%A1%20Mari!%20Quero%20saber%20mais%20sobre%20os%20acess%C3%B3rios%20Anna%20Prata%20%F0%9F%92%8E" target="_blank" rel="noopener" class="prod-cta">
-            Ver mais →
-          </a>
+          <a href="https://wa.me/5564984041559?text=Ol%C3%A1%20Mari!%20Quero%20saber%20mais%20sobre%20os%20acess%C3%B3rios%20Anna%20Prata%20%F0%9F%92%8E" target="_blank" rel="noopener" class="prod-cta">Ver mais →</a>
         </div>
       </div>
       <div class="prod-card reveal d2">
         <div class="prod-img">
           <img src="img/img3.jpg" alt="Semi-joias Anna Prata" loading="lazy" />
-          <span class="prod-badge" style="background:#8A6E3A">Exclusivo</span>
+          <span class="prod-badge prod-badge-red">Últimas unidades</span>
         </div>
         <div class="prod-info">
           <div class="prod-name">Semi-joias Exclusivas</div>
           <p class="prod-desc">Pulseiras, colares e brincos que transformam qualquer produção em algo especial.</p>
-          <a href="https://wa.me/5564984041559?text=Ol%C3%A1%20Mari!%20Quero%20saber%20mais%20sobre%20os%20acess%C3%B3rios%20Anna%20Prata%20%F0%9F%92%8E" target="_blank" rel="noopener" class="prod-cta">
-            Ver mais →
-          </a>
+          <a href="https://wa.me/5564984041559?text=Ol%C3%A1%20Mari!%20Quero%20saber%20mais%20sobre%20os%20acess%C3%B3rios%20Anna%20Prata%20%F0%9F%92%8E" target="_blank" rel="noopener" class="prod-cta">Ver mais →</a>
         </div>
       </div>
       <div class="prod-card reveal d1">
         <div class="prod-img">
           <img src="img/img4.jpg" alt="Joias Anna Prata" loading="lazy" />
+          <span class="prod-badge" style="background:#8A6E3A">Coleção Limitada</span>
         </div>
         <div class="prod-info">
           <div class="prod-name">Toque de Brilho</div>
           <p class="prod-desc">Detalhes que fazem toda a diferença — peças pensadas para realçar sua beleza natural.</p>
-          <a href="https://wa.me/5564984041559?text=Ol%C3%A1%20Mari!%20Quero%20saber%20mais%20sobre%20os%20acess%C3%B3rios%20Anna%20Prata%20%F0%9F%92%8E" target="_blank" rel="noopener" class="prod-cta">
-            Ver mais →
-          </a>
+          <a href="https://wa.me/5564984041559?text=Ol%C3%A1%20Mari!%20Quero%20saber%20mais%20sobre%20os%20acess%C3%B3rios%20Anna%20Prata%20%F0%9F%92%8E" target="_blank" rel="noopener" class="prod-cta">Ver mais →</a>
         </div>
       </div>
       <div class="prod-card reveal d2">
         <div class="prod-img">
           <img src="img/img1.jpg" alt="Revenda Anna Prata Itumbiara" loading="lazy" />
-          <span class="prod-badge" style="background:#1da851">Novidade</span>
+          <span class="prod-badge" style="background:#1da851">Chegou essa semana</span>
         </div>
         <div class="prod-info">
           <div class="prod-name">Lançamentos</div>
           <p class="prod-desc">As últimas novidades Anna Prata chegando sempre. Siga no Instagram para ver primeiro!</p>
-          <a href="https://www.instagram.com/msannaprata/" target="_blank" rel="noopener" class="prod-cta">
-            Ver no Instagram →
-          </a>
+          <a href="https://www.instagram.com/msannaprata/" target="_blank" rel="noopener" class="prod-cta">Ver no Instagram →</a>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ── DESTAQUE ── -->
-<section class="section destaque-section">
+<!-- ── SOBRE ── -->
+<section class="section sobre-section">
   <div class="container">
-    <div class="destaque-grid">
-      <div class="destaque-img-wrap reveal">
-        <img src="img/hero.jpg" alt="Mari Saraiva Acessórios" loading="lazy" />
+    <div class="sobre-grid">
+      <div class="sobre-img-wrap reveal">
+        <img src="img/img1.jpg" alt="Mari Saraiva com acessórios Anna Prata" loading="lazy" />
       </div>
-      <div class="destaque-text reveal d2">
-        <div class="sec-tag">✦ Nossa História</div>
-        <h2 class="sec-title">Do coração<br><em>para as suas mãos</em></h2>
-        <p class="destaque-body">
-          Ser revendedora exclusiva Anna Prata em Itumbiara é muito mais do que um negócio — é uma paixão por beleza, elegância e por ver outras mulheres se sentirem poderosas com cada peça que escolhem.
+      <div class="sobre-text reveal d2">
+        <div class="sec-tag">✦ Sobre</div>
+        <h2 class="sec-title">Revenda exclusiva<br><em>Anna Prata</em></h2>
+        <p class="sobre-body">
+          Sou a Mari Saraiva, revendedora exclusiva da marca Anna Prata em Itumbiara GO — uma das marcas de semi-joias mais amadas do Brasil. Cada peça é cuidadosamente selecionada para trazer elegância, charme e sofisticação ao seu dia a dia.
         </p>
-        <blockquote class="destaque-quote">
-          "Cada acessório que entrego carrega um toque de brilho, charme e sofisticação. Porque você merece se sentir especial todos os dias."
-        </blockquote>
+        <div class="sobre-divider"></div>
+        <p class="sobre-body">
+          Atendo pessoalmente em Itumbiara e envio para todo o Brasil com embalagem especial para presente. Mais de 500 clientes já confiaram em mim para escolher a peça certa.
+        </p>
+        <div class="sobre-stats">
+          <div class="stat">
+            <div class="stat-num">500+</div>
+            <div class="stat-label">Clientes Atendidas</div>
+          </div>
+          <div class="stat">
+            <div class="stat-num">3+</div>
+            <div class="stat-label">Anos como Revendedora</div>
+          </div>
+          <div class="stat">
+            <div class="stat-num">200+</div>
+            <div class="stat-label">Modelos Disponíveis</div>
+          </div>
+        </div>
         <a href="https://wa.me/5564984041559?text=Ol%C3%A1%20Mari!%20Vi%20seus%20acess%C3%B3rios%20Anna%20Prata%20e%20adorei.%20Quero%20conhecer%20mais%20%F0%9F%92%8E" target="_blank" rel="noopener" class="btn btn-gold" style="display:inline-flex">
           <svg viewBox="0 0 24 24" fill="currentColor" style="width:17px;height:17px"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-          Fale com a Mari agora
+          Quero meus Acessórios
         </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── DEPOIMENTOS ── -->
+<section class="section depo-section">
+  <div class="container">
+    <div class="sec-header reveal" style="text-align:center">
+      <div class="sec-tag">✦ Depoimentos</div>
+      <h2 class="sec-title">O que nossas clientes <em>dizem</em></h2>
+    </div>
+    <div class="depo-grid">
+      <div class="depo-card reveal d1">
+        <div class="depo-stars">
+          <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+        </div>
+        <p class="depo-quote">"Comprei um colar Anna Prata pela Mari e fiquei impressionada com a qualidade. A embalagem veio linda, parecia um presente pra mim mesma. Já encomendei mais duas peças!"</p>
+        <div class="depo-author">
+          <div class="depo-avatar">F</div>
+          <div>
+            <div class="depo-name">Fernanda S.</div>
+            <div class="depo-city">Itumbiara, GO</div>
+          </div>
+        </div>
+      </div>
+      <div class="depo-card reveal d2">
+        <div class="depo-stars">
+          <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+        </div>
+        <p class="depo-quote">"Moro em São Paulo e fiz minha primeira compra pela internet. Chegou super rápido e a peça é ainda mais bonita pessoalmente. A Mari me ajudou a escolher pelo WhatsApp, super atenciosa!"</p>
+        <div class="depo-author">
+          <div class="depo-avatar">C</div>
+          <div>
+            <div class="depo-name">Camila R.</div>
+            <div class="depo-city">São Paulo, SP</div>
+          </div>
+        </div>
+      </div>
+      <div class="depo-card reveal d3">
+        <div class="depo-stars">
+          <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+        </div>
+        <p class="depo-quote">"Compro semi-joias há anos e nunca encontrei um atendimento tão bom quanto o da Mari. Ela entende do assunto e sempre sugere a peça perfeita para o meu estilo. Recomendo demais!"</p>
+        <div class="depo-author">
+          <div class="depo-avatar">J</div>
+          <div>
+            <div class="depo-name">Juliana M.</div>
+            <div class="depo-city">Uberlândia, MG</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FAQ ── -->
+<section class="section faq-section">
+  <div class="container">
+    <div class="sec-header reveal" style="text-align:center">
+      <div class="sec-tag">✦ Dúvidas</div>
+      <h2 class="sec-title">Perguntas <em>frequentes</em></h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item reveal">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          As peças são originais Anna Prata?
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <div class="faq-a">Sim! Sou revendedora exclusiva e autorizada da Anna Prata em Itumbiara. Todas as peças acompanham garantia de autenticidade e embalagem original da marca. Você compra com toda a segurança.</div>
+      </div>
+      <div class="faq-item reveal d1">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Vocês enviam para outros estados?
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <div class="faq-a">Sim! Enviamos para todo o Brasil com rastreio. O frete é calculado no momento do pedido. Me chama no WhatsApp para saber o prazo estimado para sua região!</div>
+      </div>
+      <div class="faq-item reveal d2">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Quais são as formas de pagamento?
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <div class="faq-a">Aceitamos Pix (com desconto especial!), cartão de crédito em até 3x sem juros e boleto bancário. Fica à vontade para escolher o que for melhor para você.</div>
+      </div>
+      <div class="faq-item reveal d1">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          E se eu não gostar da peça?
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <div class="faq-a">Você tem 7 dias após o recebimento para solicitar troca ou devolução, sem burocracia. Quero que você ame sua semi-joia — se não gostar, a gente resolve!</div>
+      </div>
+      <div class="faq-item reveal d2">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Como faço para ver o catálogo completo?
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <div class="faq-a">Me manda um "oi" no WhatsApp que eu te envio o catálogo completo com todos os modelos e preços atualizados. Atendo de segunda a sábado e respondo em até 2 horas!</div>
       </div>
     </div>
   </div>
@@ -671,23 +866,27 @@
 
 <!-- ── CTA FINAL ── -->
 <section class="cta-section">
-  <p class="cta-eyebrow reveal">Sua vez de brilhar</p>
+  <p class="cta-eyebrow reveal">Pronta para escolher a sua?</p>
   <h2 class="cta-title reveal d1">
-    Pronta para se sentir<br><em>linda e sofisticada?</em>
+    Sua semi-joia perfeita<br><em>está a uma mensagem de distância</em>
   </h2>
   <p class="cta-sub reveal d2">
-    Entre em contato pelo WhatsApp e descubra a peça perfeita para você. Atendimento personalizado com muito carinho.
+    Me manda um "oi" no WhatsApp que eu te ajudo a escolher a peça ideal pro seu estilo. Atendimento pessoal e sem compromisso.
   </p>
   <div class="cta-btns reveal d3">
-    <a href="https://wa.me/5564984041559?text=Ol%C3%A1%20Mari!%20Quero%20conhecer%20os%20acess%C3%B3rios%20Anna%20Prata%20e%20fazer%20meu%20pedido%20%F0%9F%92%8E" target="_blank" rel="noopener" class="btn btn-wpp">
-      <svg viewBox="0 0 24 24" fill="currentColor" style="width:17px;height:17px"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-      Pedir via WhatsApp
-    </a>
+    <div>
+      <a href="https://wa.me/5564984041559?text=Ol%C3%A1%20Mari!%20Quero%20conhecer%20os%20acess%C3%B3rios%20Anna%20Prata%20e%20fazer%20meu%20pedido%20%F0%9F%92%8E" target="_blank" rel="noopener" class="btn btn-wpp">
+        <svg viewBox="0 0 24 24" fill="currentColor" style="width:17px;height:17px"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Chamar a Mari no WhatsApp
+      </a>
+      <span class="btn-sub">Respondo em até 2 horas — seg a sáb</span>
+    </div>
     <a href="https://www.instagram.com/msannaprata/" target="_blank" rel="noopener" class="btn btn-dark">
       <svg viewBox="0 0 24 24" fill="currentColor" style="width:17px;height:17px"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
       Ver no Instagram
     </a>
   </div>
+  <p class="cta-urgency reveal d4">Peças artesanais em tiragem limitada — quando acaba, não repõe.</p>
 </section>
 
 <!-- ── FOOTER ── -->
@@ -724,6 +923,14 @@
     entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
   }, { threshold: 0.1 });
   document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  // FAQ accordion
+  function toggleFaq(btn) {
+    const item = btn.closest('.faq-item');
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  }
 </script>
 </body>
 </html>
