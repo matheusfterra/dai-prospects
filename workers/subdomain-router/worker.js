@@ -33,6 +33,7 @@ const ROUTING = {
   "yooufit-academia-health": "yooufit-academia-health",
   "odontoclinic-health": "odontoclinic-health",
   "kion-dental-technology-health": "kion-dental-technology-health",
+  "mari-saraiva-acess-rios-health": "mari-saraiva-acess-rios-health",
   // LeadKit adiciona entradas aqui automaticamente via Fase 4 do pipeline
 };
 
