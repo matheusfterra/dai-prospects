@@ -52,14 +52,14 @@
       --font-b: 'DM Sans', system-ui, sans-serif;
     }
 
-    html { scroll-behavior: smooth; background: var(--dark); overflow-x: hidden; }
+    html { scroll-behavior: smooth; background: var(--dark); overflow-x: clip; }
     body {
       font-family: var(--font-b);
       background: var(--bg);
       color: var(--text);
       line-height: 1.65;
       -webkit-font-smoothing: antialiased;
-      overflow-x: hidden;
+      overflow-x: clip;
     }
     img { display: block; width: 100%; object-fit: cover; }
     a { text-decoration: none; color: inherit; }
