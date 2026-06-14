@@ -269,10 +269,11 @@
     .wa-float svg{width:28px;height:28px;fill:#fff;}
 
     /* ── Footer ── */
-    .site-footer{padding:2.5rem 2rem;border-top:1px solid var(--border);text-align:center;}
-    .f-logo{font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:400;margin-bottom:.25rem;}
-    .f-sub{font-size:.72rem;color:var(--muted2);}
-    .f-meta{font-size:.62rem;color:rgba(240,235,227,.14);margin-top:.8rem;}
+    .site-footer{padding:2.5rem 2rem;background:linear-gradient(135deg,#2D52EF 0%,#0F1F5C 100%);text-align:center;}
+    .f-logo{display:block;margin:0 auto .6rem;height:28px;width:auto;}
+    .f-logo-link{display:inline-block;line-height:0;}
+    .f-sub{font-size:.72rem;color:rgba(232,238,255,.55);}
+    .f-meta{font-size:.62rem;color:rgba(232,238,255,.22);margin-top:.8rem;}
 
     /* ── Responsive ── */
     @media(max-width:768px){
@@ -788,9 +789,11 @@
 
 <footer class="site-footer">
   <div class="wrap">
-    <p class="f-logo">Digital AI</p>
+    <a href="https://digital-ai.tech" target="_blank" rel="noopener" class="f-logo-link">
+      <img src="https://s3.amazonaws.com/cdn.digital-ai.tech/uploads/media-cortex/identity/digital-ai/logos/logo-negative.svg" alt="Digital AI" class="f-logo" />
+    </a>
     <p class="f-sub">AI-as-a-Service · Automação Inteligente · Itumbiara-GO</p>
-    <p class="f-meta">Diagnóstico realizado em {{ANALYSIS_DATE}} · Digital Health Score v1.0 · digital-ai.tech · dados: @{{IG_HANDLE}}</p>
+    <p class="f-meta">Diagnóstico realizado em {{ANALYSIS_DATE}} · Digital Health Score v1.0 · <a href="https://digital-ai.tech" target="_blank" style="color:rgba(232,238,255,.45);text-decoration:none;">digital-ai.tech</a> · dados: @{{IG_HANDLE}}</p>
   </div>
 </footer>
 
