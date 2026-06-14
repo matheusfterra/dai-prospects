@@ -7,17 +7,17 @@
   <title>Diagnóstico de Presença Digital — Mari Saraiva | Acessórios</title>
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Digital Health Score · Digital AI" />
-  <meta property="og:url" content="https://mari-saraiva-acess-rios-health.digital-ai.tech" />
+  <meta property="og:url" content="https://mari-saraiva-acessorios-health.digital-ai.tech" />
   <meta property="og:title" content="Diagnóstico de Presença Digital — Mari Saraiva | Acessórios" />
   <meta property="og:description" content="Semijoias &amp; Acessórios · Itumbiara, GO · Score 35/100 · Grau D — Análise completa de Instagram, Google e Website." />
-  <meta property="og:image" content="https://mari-saraiva-acess-rios-health.digital-ai.tech/img/hero.jpg" />
+  <meta property="og:image" content="https://mari-saraiva-acessorios-health.digital-ai.tech/img/hero.jpg" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta property="og:locale" content="pt_BR" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Diagnóstico de Presença Digital — Mari Saraiva | Acessórios" />
   <meta name="twitter:description" content="Semijoias &amp; Acessórios · Itumbiara, GO · Score 35/100 · Grau D — Análise completa de Instagram, Google e Website." />
-  <meta name="twitter:image" content="https://mari-saraiva-acess-rios-health.digital-ai.tech/img/hero.jpg" />
+  <meta name="twitter:image" content="https://mari-saraiva-acessorios-health.digital-ai.tech/img/hero.jpg" />
   <!-- ▲ BRAND ▲ -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -484,7 +484,7 @@
         <h3 class="sent-chart-title">Sentimento</h3>
         <div class="sent-donut-wrap">
           <!-- Canvas ID deve ser único por página -->
-          <canvas id="sentDonut_mari-saraiva-acess-rios"></canvas>
+          <canvas id="sentDonut_mari-saraiva-acessorios"></canvas>
           <div class="sent-donut-center">
             <span class="sent-donut-pct" style="color:var(--green)">89%</span>
             <span class="sent-donut-sub">positivo</span>
@@ -500,7 +500,7 @@
 
       <div class="sent-chart-card">
         <h3 class="sent-chart-title">Tipos de Comentários</h3>
-        <div class="sent-bar-wrap"><canvas id="sentBar_mari-saraiva-acess-rios"></canvas></div>
+        <div class="sent-bar-wrap"><canvas id="sentBar_mari-saraiva-acessorios"></canvas></div>
         <!-- Adaptar legenda conforme categorias encontradas -->
         <div class="sent-legend">
           <div class="sent-leg-item"><span class="sent-leg-dot" style="background:var(--gold)"></span><span>Elogio ao Atendimento</span><strong>3</strong></div>
@@ -564,7 +564,7 @@
   function initCharts() {
     if (typeof Chart === 'undefined') { setTimeout(initCharts, 100); return; }
     /* ▼ SENTIMENT DATA — Alterar arrays com dados reais ▼ */
-    var dCtx = document.getElementById('sentDonut_mari-saraiva-acess-rios');
+    var dCtx = document.getElementById('sentDonut_mari-saraiva-acessorios');
     if (dCtx && !dCtx._chart) {
       dCtx._chart = new Chart(dCtx, {
         type: 'doughnut',
@@ -575,7 +575,7 @@
         options: { responsive: true, maintainAspectRatio: true, cutout: '68%', plugins: { legend: { display: false }, tooltip: { callbacks: { label: function(c) { return ' ' + c.label + ': ' + c.raw; } } } }, animation: { animateRotate: true, duration: 1000 } }
       });
     }
-    var bCtx = document.getElementById('sentBar_mari-saraiva-acess-rios');
+    var bCtx = document.getElementById('sentBar_mari-saraiva-acessorios');
     if (bCtx && !bCtx._chart) {
       bCtx._chart = new Chart(bCtx, {
         type: 'bar',
