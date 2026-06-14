@@ -132,11 +132,18 @@
       display: flex; align-items: flex-end;
       padding-top: 0;
     }
+    @media (min-width: 769px) {
+      .hero { align-items: center; justify-content: center; }
+      .hero-content { text-align: center; max-width: 700px; padding: 120px 40px 80px; margin: 0 auto; }
+      .hero-eyebrow { justify-content: center; }
+      .hero-btns { justify-content: center; }
+      .hero-sub { margin-left: auto; margin-right: auto; }
+    }
     .hero-bg {
       position: absolute; inset: 0; z-index: 0;
     }
     .hero-bg img {
-      height: 100%; object-position: center 15%;
+      height: 100%; object-position: center center;
       opacity: 0.72;
     }
     .hero-overlay {
@@ -203,31 +210,63 @@
     .btn-dark  { background: var(--dark); color: #fff; }
     .btn-dark:hover { background: var(--dark-2); }
 
-    /* ── LINKS RÁPIDOS ── */
+    /* ── LINKS RÁPIDOS — CARDS ── */
     .links-sec {
       background: var(--dark);
-      padding: 3rem 24px;
+      padding: 3.5rem 24px 4rem;
     }
     .links-label {
       text-align: center;
       font-size: .68rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase;
-      color: var(--text-soft); margin-bottom: 1.4rem;
+      color: var(--text-soft); margin-bottom: 2rem;
     }
     .links-grid {
-      display: flex; flex-direction: column; gap: 12px;
-      max-width: 440px; margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      max-width: 760px; margin: 0 auto;
     }
-    .link-btn {
-      display: flex; align-items: center; justify-content: center; gap: 10px;
-      padding: 15px 22px; border-radius: 14px; font-size: .88rem; font-weight: 600;
-      color: #fff; transition: transform .2s, opacity .2s;
-      border: 1px solid rgba(255,255,255,.07);
+    .link-card {
+      display: flex; flex-direction: column; align-items: center;
+      gap: 12px; padding: 28px 20px 24px;
+      border-radius: 20px;
+      color: #fff;
+      text-align: center;
+      transition: transform .25s, box-shadow .25s;
+      border: 1px solid rgba(255,255,255,.06);
+      cursor: pointer;
     }
-    .link-btn:hover { transform: translateY(-2px); opacity: .92; }
-    .link-btn svg { width: 20px; height: 20px; flex-shrink: 0; }
-    .link-wpp  { background: #1da851; }
-    .link-ig   { background: linear-gradient(135deg, #833ab4, #fd1d1d, #fcb045); }
-    .link-lt   { background: rgba(196,169,110,.25); border-color: rgba(196,169,110,.4); }
+    .link-card:hover { transform: translateY(-5px); box-shadow: 0 16px 40px rgba(0,0,0,.35); }
+    .link-card-icon {
+      width: 52px; height: 52px; border-radius: 16px;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .link-card-icon svg { width: 26px; height: 26px; }
+    .link-card-title {
+      font-size: .88rem; font-weight: 700; letter-spacing: .01em; line-height: 1.3;
+    }
+    .link-card-sub {
+      font-size: .73rem; color: rgba(255,255,255,.55); line-height: 1.5;
+    }
+    .link-card-arrow {
+      font-size: .72rem; color: rgba(255,255,255,.35); margin-top: 2px;
+    }
+    .lc-wpp  { background: rgba(29,168,81,.15); border-color: rgba(29,168,81,.25); }
+    .lc-wpp .link-card-icon { background: #1da851; }
+    .lc-ig   { background: rgba(131,58,180,.15); border-color: rgba(253,29,29,.15); }
+    .lc-ig .link-card-icon { background: linear-gradient(135deg, #833ab4, #fd1d1d, #fcb045); }
+    .lc-lt   { background: rgba(196,169,110,.08); border-color: rgba(196,169,110,.2); }
+    .lc-lt .link-card-icon { background: rgba(196,169,110,.2); }
+    .lc-lt .link-card-icon svg { color: var(--gold); }
+
+    @media (max-width: 600px) {
+      .links-grid { grid-template-columns: 1fr; max-width: 360px; gap: 12px; }
+      .link-card { flex-direction: row; text-align: left; padding: 18px 20px; gap: 16px; }
+      .link-card-icon { width: 46px; height: 46px; border-radius: 14px; flex-shrink: 0; }
+      .link-card-title { font-size: .9rem; }
+      .link-card-sub, .link-card-arrow { display: none; }
+    }
 
     /* ── SECTIONS ── */
     .section { padding: 88px 24px; }
@@ -466,22 +505,38 @@
   </div>
 </section>
 
-<!-- ── LINKS RÁPIDOS ── -->
+<!-- ── LINKS RÁPIDOS — CARDS ── -->
 <section class="links-sec">
   <p class="links-label">Acesse direto</p>
   <div class="links-grid">
-    <a href="https://wa.me/5564984041559?text=Ol%C3%A1%20Mari!%20Vi%20seus%20acess%C3%B3rios%20Anna%20Prata%20e%20adorei.%20Quero%20conhecer%20mais%20%F0%9F%92%8E" target="_blank" rel="noopener" class="link-btn link-wpp reveal">
-      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-      WhatsApp — Fale com a Mari
+
+    <a href="https://wa.me/5564984041559?text=Ol%C3%A1%20Mari!%20Vi%20seus%20acess%C3%B3rios%20Anna%20Prata%20e%20adorei.%20Quero%20conhecer%20mais%20%F0%9F%92%8E" target="_blank" rel="noopener" class="link-card lc-wpp reveal">
+      <div class="link-card-icon">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      </div>
+      <div class="link-card-title">WhatsApp</div>
+      <div class="link-card-sub">Fale direto<br>com a Mari</div>
+      <div class="link-card-arrow">Abrir →</div>
     </a>
-    <a href="https://www.instagram.com/msannaprata/" target="_blank" rel="noopener" class="link-btn link-ig reveal d1">
-      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
-      Instagram — @msannaprata
+
+    <a href="https://www.instagram.com/msannaprata/" target="_blank" rel="noopener" class="link-card lc-ig reveal d1">
+      <div class="link-card-icon">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+      </div>
+      <div class="link-card-title">Instagram</div>
+      <div class="link-card-sub">@msannaprata<br>Novidades diárias</div>
+      <div class="link-card-arrow">Seguir →</div>
     </a>
-    <a href="https://linktr.ee/msannaprata" target="_blank" rel="noopener" class="link-btn link-lt reveal d2">
-      <svg viewBox="0 0 24 24" fill="currentColor" style="color:var(--gold)"><path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm0 18c-4.418 0-8-3.582-8-8s3.582-8 8-8 8 3.582 8 8-3.582 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"/></svg>
-      Todos os Links
+
+    <a href="https://linktr.ee/msannaprata" target="_blank" rel="noopener" class="link-card lc-lt reveal d2">
+      <div class="link-card-icon">
+        <svg viewBox="0 0 24 24" fill="currentColor" style="color:var(--gold)"><path d="M13.511 5.853l2.053-2.033 2.053 2.033.984-.966-3.037-3-.984.967-.953-.967L10.59 4.887l.984.966 2.053-2.033 2.053 2.033-.984.966zM12.01 8.1L9.64 5.73l-1.009.967 2.37 2.37-.991.99 1.009.967 1.991-1.99-1-1 .001-.001zm-2.91 3.93l-2.37 2.37 1.009.967 2.37-2.37.991.99L12.109 14l1.991-1.99-1.009-.967-1.382 1.382-.99-.99 1.381-1.405zm3.9 3.9l-2.37 2.37 1.009.967 2.37-2.37-.991-.99-1.009-.967z"/></svg>
+      </div>
+      <div class="link-card-title">Todos os Links</div>
+      <div class="link-card-sub">Catálogo,<br>pedidos e mais</div>
+      <div class="link-card-arrow">Ver tudo →</div>
     </a>
+
   </div>
 </section>
 
