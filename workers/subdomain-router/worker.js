@@ -39,6 +39,7 @@ const ROUTING = {
   "dra-izabela-rezende-ginecologia-endocrina-health": "dra-izabela-rezende-ginecologia-endocrina-health",
   "dra-izabela-rezende-ginecologia-endocrina": "dra-izabela-rezende-ginecologia-endocrina",
 "otica-itumbiara-maria-optica-health": "otica-itumbiara-maria-optica-health",
+  "otica-itumbiara-maria-optica": "otica-itumbiara-maria-optica",
   // LeadKit adiciona entradas aqui automaticamente via Fase 4 do pipeline
 };
 

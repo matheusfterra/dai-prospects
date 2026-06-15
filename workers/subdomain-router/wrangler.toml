@@ -36,6 +36,7 @@ routes = [
 { pattern = "dra-izabela-rezende-ginecologia-endocrina-health.digital-ai.tech/*", zone_name = "digital-ai.tech" },
 { pattern = "dra-izabela-rezende-ginecologia-endocrina.digital-ai.tech/*", zone_name = "digital-ai.tech" },
 { pattern = "otica-itumbiara-maria-optica-health.digital-ai.tech/*", zone_name = "digital-ai.tech" },
+{ pattern = "otica-itumbiara-maria-optica.digital-ai.tech/*", zone_name = "digital-ai.tech" },
   # LeadKit: adicionar rota explícita para cada novo prospect aqui
 ]
 
