@@ -1,0 +1,879 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Maria Óptica — Curadoria Visual em Itumbiara</title>
+  <meta name="description" content="Óculos que traduzem sua identidade. Atendimento exclusivo e personalizado em Itumbiara/GO. Grifes internacionais: D&G, Prada, Versace, Tiffany & Co. Parcele em até 10x." />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://otica-itumbiara-maria-optica.digital-ai.tech/" />
+  <meta property="og:title" content="Maria Óptica | Curadoria Visual — Itumbiara GO" />
+  <meta property="og:description" content="Óculos que traduzem sua identidade. Grifes internacionais com atendimento exclusivo em Itumbiara/GO." />
+  <meta property="og:image" content="https://otica-itumbiara-maria-optica.digital-ai.tech/img/hero.jpg" />
+  <meta property="og:image:width" content="1080" />
+  <meta property="og:image:height" content="1350" />
+  <meta property="og:locale" content="pt_BR" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Maria Óptica | Curadoria Visual — Itumbiara GO" />
+  <meta name="twitter:description" content="Óculos que traduzem sua identidade. Grifes internacionais com atendimento exclusivo." />
+  <meta name="twitter:image" content="https://otica-itumbiara-maria-optica.digital-ai.tech/img/hero.jpg" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:          #FAF7F2;
+      --surface:     #F3EDE3;
+      --surface-2:   #EBE3D6;
+      --border:      rgba(168, 128, 68, 0.15);
+
+      --gold:        #A8834C;
+      --gold-l:      #C4A96E;
+      --gold-d:      #7A5E32;
+
+      --dark:        #1A1410;
+      --dark-2:      #2A1F12;
+      --text:        #1A1410;
+      --text-muted:  #5E4A30;
+      --text-soft:   #9E8254;
+      --white:       #FFFFFF;
+      --wpp:         #25D366;
+      --radius:      14px;
+      --font-h:      'Cormorant Garamond', Georgia, serif;
+      --font-b:      'DM Sans', system-ui, sans-serif;
+    }
+
+    html { scroll-behavior: smooth; background: var(--dark); overflow-x: hidden; }
+    body {
+      font-family: var(--font-b);
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+    img { display: block; width: 100%; object-fit: cover; }
+    a { text-decoration: none; color: inherit; }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(28px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .reveal {
+      opacity: 0; transform: translateY(22px);
+      transition: opacity .7s ease, transform .7s ease;
+    }
+    .reveal.visible { opacity: 1; transform: none; }
+    .d1 { transition-delay: .1s; }
+    .d2 { transition-delay: .2s; }
+    .d3 { transition-delay: .3s; }
+    .d4 { transition-delay: .4s; }
+
+    /* PROGRESS BAR */
+    #progress-bar {
+      position: fixed; top: 0; left: 0; z-index: 300;
+      height: 2px; width: 0%;
+      background: linear-gradient(90deg, var(--gold), var(--gold-l));
+      transition: width .1s linear;
+    }
+
+    /* NAV */
+    .nav {
+      position: sticky; top: 0; z-index: 100;
+      border-bottom: 1px solid transparent;
+      transition: background .3s, border-color .3s, box-shadow .3s;
+    }
+    .nav.scrolled {
+      background: rgba(250, 247, 242, 0.96);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom-color: var(--border);
+      box-shadow: 0 2px 16px rgba(26,20,16,.06);
+    }
+    .nav-inner {
+      max-width: 1100px; margin: 0 auto; padding: 0 24px;
+      display: flex; align-items: center; justify-content: space-between;
+      height: 64px;
+    }
+    .nav-brand {
+      font-family: var(--font-h);
+      font-size: 1.12rem; font-weight: 600;
+      letter-spacing: .06em; color: var(--dark);
+    }
+    .nav-brand span { color: var(--gold); }
+    .nav-ig {
+      display: flex; align-items: center; gap: 7px;
+      font-size: .78rem; font-weight: 600; color: var(--text-muted);
+      padding: 9px 16px; border-radius: 100px;
+      border: 1px solid var(--border);
+      transition: all .2s;
+    }
+    .nav-ig:hover { background: var(--dark); color: #fff; border-color: var(--dark); }
+    .nav-ig svg { width: 15px; height: 15px; }
+
+    /* HERO */
+    .hero {
+      position: relative; overflow: hidden;
+      min-height: 100svh;
+      display: flex; align-items: flex-end;
+    }
+    @media (min-width: 769px) {
+      .hero { align-items: center; justify-content: center; }
+      .hero-content { text-align: center; max-width: 700px; padding: 120px 40px 80px; margin: 0 auto; }
+      .hero-eyebrow { justify-content: center; }
+      .hero-btns { justify-content: center; }
+      .hero-sub { margin-left: auto; margin-right: auto; }
+    }
+    .hero-bg { position: absolute; inset: 0; z-index: 0; }
+    .hero-bg img { height: 100%; object-position: center center; opacity: 0.60; }
+    .hero-overlay {
+      position: absolute; inset: 0; z-index: 1;
+      background: linear-gradient(to top,
+        rgba(26,20,16,.92) 0%,
+        rgba(26,20,16,.35) 50%,
+        rgba(26,20,16,.12) 100%
+      );
+    }
+    .hero-content {
+      position: relative; z-index: 2;
+      padding: 0 24px 60px;
+      max-width: 600px;
+      animation: fadeUp .9s ease both;
+    }
+    .hero-eyebrow {
+      display: inline-flex; align-items: center; gap: 10px;
+      font-size: .7rem; font-weight: 600; letter-spacing: .18em; text-transform: uppercase;
+      color: var(--gold-l); margin-bottom: 1.4rem;
+    }
+    .hero-eyebrow::before {
+      content: ''; display: block; width: 32px; height: 1px; background: var(--gold-l);
+    }
+    .hero-title {
+      font-family: var(--font-h);
+      font-size: clamp(2.8rem, 6vw, 4.4rem);
+      font-weight: 400; line-height: 1.1;
+      color: #fff; margin-bottom: 1rem;
+    }
+    .hero-title em { font-style: italic; color: var(--gold-l); }
+    .hero-sub {
+      font-size: .95rem; color: rgba(255,255,255,.72);
+      line-height: 1.75; margin-bottom: 2.2rem; max-width: 420px;
+    }
+    .hero-btns { display: flex; gap: 12px; flex-wrap: wrap; }
+
+    /* BUTTONS */
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 9px;
+      font-family: var(--font-b); font-size: .88rem; font-weight: 600;
+      padding: 14px 26px; border-radius: 100px; cursor: pointer; border: none;
+      transition: transform .2s, box-shadow .2s, background .2s;
+      letter-spacing: .01em;
+    }
+    .btn:hover { transform: translateY(-2px); }
+    .btn svg { width: 18px; height: 18px; flex-shrink: 0; }
+    .btn-gold {
+      background: var(--gold); color: #fff;
+      box-shadow: 0 4px 20px rgba(168,131,76,.32);
+    }
+    .btn-gold:hover { background: var(--gold-d); }
+    .btn-wpp {
+      background: var(--wpp); color: #fff;
+      box-shadow: 0 4px 20px rgba(37,211,102,.24);
+    }
+    .btn-wpp:hover { background: #1db954; }
+    .btn-outline {
+      background: transparent; color: #fff;
+      border: 1.5px solid rgba(255,255,255,.35);
+    }
+    .btn-outline:hover { background: rgba(255,255,255,.1); border-color: rgba(255,255,255,.6); }
+    .btn-dark { background: var(--dark); color: #fff; }
+    .btn-dark:hover { background: var(--dark-2); }
+    .btn-sub {
+      display: block; text-align: center;
+      font-size: .72rem; color: rgba(255,255,255,.45);
+      margin-top: 8px;
+    }
+
+    /* BARRA DE BENEFÍCIOS */
+    .benefits-bar {
+      background: #110E09;
+      border-bottom: 1px solid rgba(168,131,76,.12);
+    }
+    .benefits-inner {
+      max-width: 1100px; margin: 0 auto;
+      display: grid; grid-template-columns: repeat(4, 1fr);
+    }
+    .benefit-item {
+      display: flex; align-items: center; gap: 12px;
+      padding: 18px 20px;
+      border-right: 1px solid rgba(168,131,76,.1);
+    }
+    .benefit-item:last-child { border-right: none; }
+    .benefit-icon {
+      width: 36px; height: 36px; border-radius: 10px;
+      background: rgba(168,131,76,.12);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .benefit-icon svg { width: 18px; height: 18px; color: var(--gold-l); }
+    .benefit-text { display: flex; flex-direction: column; gap: 1px; }
+    .benefit-title { font-size: .78rem; font-weight: 700; color: #fff; }
+    .benefit-sub { font-size: .68rem; color: rgba(255,255,255,.42); }
+    @media (max-width: 768px) {
+      .benefits-inner { grid-template-columns: repeat(2, 1fr); }
+      .benefit-item:nth-child(2) { border-right: none; }
+      .benefit-item { padding: 14px 16px; gap: 10px; }
+    }
+    @media (max-width: 480px) {
+      .benefits-inner { grid-template-columns: 1fr 1fr; }
+      .benefit-sub { display: none; }
+    }
+
+    /* LINKS RÁPIDOS */
+    .links-sec {
+      background: var(--dark);
+      padding: 3.5rem 24px 4rem;
+    }
+    .links-label {
+      text-align: center;
+      font-size: .68rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase;
+      color: var(--text-soft); margin-bottom: 2rem;
+    }
+    .links-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      max-width: 760px; margin: 0 auto;
+    }
+    .link-card {
+      display: flex; flex-direction: column; align-items: center;
+      gap: 12px; padding: 28px 20px 24px;
+      border-radius: 20px; color: #fff; text-align: center;
+      transition: transform .25s, box-shadow .25s;
+      border: 1px solid rgba(255,255,255,.06); cursor: pointer;
+    }
+    .link-card:hover { transform: translateY(-5px); box-shadow: 0 16px 40px rgba(0,0,0,.35); }
+    .link-card-icon {
+      width: 52px; height: 52px; border-radius: 16px;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .link-card-icon svg { width: 26px; height: 26px; }
+    .link-card-title { font-size: .88rem; font-weight: 700; letter-spacing: .01em; line-height: 1.3; }
+    .link-card-sub { font-size: .73rem; color: rgba(255,255,255,.55); line-height: 1.5; }
+    .link-card-arrow { font-size: .72rem; color: rgba(255,255,255,.35); margin-top: 2px; }
+    .lc-wpp  { background: rgba(29,168,81,.15); border-color: rgba(29,168,81,.25); }
+    .lc-wpp .link-card-icon { background: #1da851; }
+    .lc-ig   { background: rgba(131,58,180,.15); border-color: rgba(253,29,29,.15); }
+    .lc-ig .link-card-icon { background: linear-gradient(135deg, #833ab4, #fd1d1d, #fcb045); }
+    .lc-lt   { background: rgba(168,131,76,.08); border-color: rgba(168,131,76,.2); }
+    .lc-lt .link-card-icon { background: rgba(168,131,76,.2); }
+    .lc-lt .link-card-icon svg { color: var(--gold-l); }
+    @media (max-width: 600px) {
+      .links-grid { grid-template-columns: 1fr; max-width: 360px; gap: 12px; }
+      .link-card { flex-direction: row; text-align: left; padding: 18px 20px; gap: 16px; }
+      .link-card-icon { width: 46px; height: 46px; border-radius: 14px; flex-shrink: 0; }
+      .link-card-sub, .link-card-arrow { display: none; }
+    }
+
+    /* SECTIONS */
+    .section { padding: 88px 24px; }
+    .container { max-width: 1100px; margin: 0 auto; }
+    .sec-tag {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: .68rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase;
+      color: var(--gold); padding: 5px 14px; border-radius: 100px;
+      background: rgba(168,131,76,.1); margin-bottom: .9rem;
+    }
+    .sec-title {
+      font-family: var(--font-h);
+      font-size: clamp(1.9rem, 3.5vw, 3rem);
+      font-weight: 400; color: var(--dark); line-height: 1.2;
+      margin-bottom: .75rem;
+    }
+    .sec-title em { font-style: italic; color: var(--gold); }
+    .sec-sub {
+      color: var(--text-muted); font-size: .95rem;
+      max-width: 480px; line-height: 1.75;
+    }
+    .sec-header { margin-bottom: 3.5rem; }
+
+    /* PRODUTOS */
+    .produtos-section { background: var(--bg); }
+    .produtos-grid {
+      display: grid; grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem; max-width: 860px; margin: 0 auto;
+    }
+    .prod-card {
+      border-radius: 18px; overflow: hidden;
+      background: var(--white);
+      box-shadow: 0 2px 20px rgba(26,20,16,.06);
+      transition: transform .3s, box-shadow .3s; cursor: pointer;
+    }
+    .prod-card:hover { transform: translateY(-6px); box-shadow: 0 12px 40px rgba(26,20,16,.12); }
+    .prod-img { position: relative; overflow: hidden; }
+    .prod-img img { aspect-ratio: 3/4; transition: transform .5s; }
+    .prod-card:hover .prod-img img { transform: scale(1.04); }
+    .prod-badge {
+      position: absolute; top: 14px; right: 14px;
+      background: var(--gold); color: #fff;
+      font-size: .62rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase;
+      padding: 4px 10px; border-radius: 100px;
+    }
+    .prod-badge-red   { background: #c0392b; }
+    .prod-badge-dark  { background: #7A5E32; }
+    .prod-badge-green { background: #1da851; }
+    .prod-info { padding: 18px 20px 22px; }
+    .prod-name {
+      font-family: var(--font-h);
+      font-size: 1.15rem; font-weight: 500; color: var(--dark);
+      margin-bottom: 6px;
+    }
+    .prod-desc { font-size: .82rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 14px; }
+    .prod-cta {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: .78rem; font-weight: 600; color: var(--gold);
+      padding: 8px 16px; border-radius: 100px;
+      border: 1.5px solid rgba(168,131,76,.3);
+      transition: background .2s, color .2s;
+    }
+    .prod-cta:hover { background: var(--gold); color: #fff; }
+
+    /* SOBRE */
+    .sobre-section { background: var(--dark); }
+    .sobre-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 3rem; align-items: center; max-width: 1000px; margin: 0 auto;
+    }
+    .sobre-img-wrap {
+      border-radius: 20px; overflow: hidden;
+      box-shadow: 0 8px 48px rgba(0,0,0,.35);
+    }
+    .sobre-img-wrap img { aspect-ratio: 3/4; }
+    .sobre-text .sec-tag { color: var(--gold-l); background: rgba(168,131,76,.15); }
+    .sobre-text .sec-title { color: #fff; }
+    .sobre-text .sec-title em { color: var(--gold-l); }
+    .sobre-body { color: rgba(255,255,255,.62); font-size: .95rem; line-height: 1.85; margin-bottom: 2rem; }
+    .sobre-stats { display: flex; gap: 2rem; flex-wrap: wrap; margin-bottom: 2rem; }
+    .stat { text-align: center; }
+    .stat-num {
+      font-family: var(--font-h);
+      font-size: 2.2rem; font-weight: 600; color: var(--gold-l);
+      line-height: 1;
+    }
+    .stat-label {
+      font-size: .72rem; color: rgba(255,255,255,.42);
+      font-weight: 500; letter-spacing: .05em; margin-top: 4px;
+    }
+    .sobre-divider { width: 40px; height: 1px; background: rgba(168,131,76,.4); margin: 1.5rem 0; }
+    @media (max-width: 768px) {
+      .sobre-grid { grid-template-columns: 1fr; }
+      .sobre-img-wrap { max-height: 300px; }
+      .sobre-img-wrap img { aspect-ratio: 4/3; object-position: center top; }
+    }
+
+    /* DEPOIMENTOS */
+    .depo-section { background: var(--surface); }
+    .depo-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem; max-width: 1000px; margin: 0 auto;
+    }
+    .depo-card {
+      background: var(--white);
+      border-radius: 18px; padding: 28px 24px;
+      box-shadow: 0 2px 20px rgba(26,20,16,.06);
+      display: flex; flex-direction: column; gap: 16px;
+    }
+    .depo-stars { display: flex; gap: 3px; }
+    .depo-stars svg { width: 14px; height: 14px; color: var(--gold); }
+    .depo-quote { font-size: .9rem; color: var(--text-muted); line-height: 1.75; flex: 1; font-style: italic; }
+    .depo-author {
+      display: flex; align-items: center; gap: 10px;
+      padding-top: 14px; border-top: 1px solid var(--border);
+    }
+    .depo-avatar {
+      width: 36px; height: 36px; border-radius: 50%;
+      background: var(--gold);
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--font-h); font-size: 1rem; font-weight: 600; color: #fff;
+      flex-shrink: 0;
+    }
+    .depo-name { font-size: .82rem; font-weight: 700; color: var(--dark); }
+    .depo-city { font-size: .72rem; color: var(--text-soft); }
+    @media (max-width: 768px) { .depo-grid { grid-template-columns: 1fr; max-width: 420px; margin: 0 auto; } }
+
+    /* FAQ */
+    .faq-section { background: var(--bg); }
+    .faq-list { max-width: 720px; margin: 0 auto; display: flex; flex-direction: column; gap: 10px; }
+    .faq-item {
+      border: 1px solid var(--border); border-radius: 14px; overflow: hidden;
+      background: var(--white);
+    }
+    .faq-q {
+      width: 100%; text-align: left;
+      display: flex; align-items: center; justify-content: space-between; gap: 12px;
+      padding: 18px 22px;
+      font-size: .9rem; font-weight: 600; color: var(--dark);
+      background: none; border: none; cursor: pointer; transition: color .2s;
+    }
+    .faq-q:hover { color: var(--gold-d); }
+    .faq-q svg { width: 16px; height: 16px; color: var(--gold); flex-shrink: 0; transition: transform .3s; }
+    .faq-item.open .faq-q svg { transform: rotate(180deg); }
+    .faq-a {
+      max-height: 0; overflow: hidden;
+      transition: max-height .35s ease, padding .35s;
+      font-size: .88rem; color: var(--text-muted); line-height: 1.8; padding: 0 22px;
+    }
+    .faq-item.open .faq-a { max-height: 300px; padding: 0 22px 20px; }
+
+    /* CTA FINAL */
+    .cta-section {
+      background: var(--dark); padding: 88px 24px;
+      text-align: center; position: relative; overflow: hidden;
+    }
+    .cta-section::before {
+      content: ''; position: absolute; top: -80px; right: -80px;
+      width: 320px; height: 320px; border-radius: 50%;
+      background: rgba(168,131,76,.06);
+    }
+    .cta-section::after {
+      content: ''; position: absolute; bottom: -60px; left: -60px;
+      width: 260px; height: 260px; border-radius: 50%;
+      background: rgba(168,131,76,.04);
+    }
+    .cta-eyebrow {
+      font-size: .68rem; font-weight: 700; letter-spacing: .16em; text-transform: uppercase;
+      color: var(--gold-l); margin-bottom: 1.2rem; position: relative; z-index: 2;
+    }
+    .cta-title {
+      font-family: var(--font-h);
+      font-size: clamp(2.2rem, 4vw, 3.6rem);
+      font-weight: 400; color: #fff; line-height: 1.15;
+      margin-bottom: 1rem; position: relative; z-index: 2;
+    }
+    .cta-title em { font-style: italic; color: var(--gold-l); }
+    .cta-sub {
+      color: rgba(255,255,255,.55); font-size: .95rem;
+      max-width: 420px; margin: 0 auto 2.5rem; position: relative; z-index: 2; line-height: 1.75;
+    }
+    .cta-urgency {
+      font-size: .78rem; color: rgba(168,131,76,.65);
+      margin-top: 1.2rem; position: relative; z-index: 2; font-style: italic;
+    }
+    .cta-btns {
+      display: flex; justify-content: center; gap: 12px; flex-wrap: wrap;
+      position: relative; z-index: 2;
+    }
+
+    /* FOOTER */
+    footer {
+      background: var(--dark); padding: 24px;
+      text-align: center; border-top: 1px solid rgba(255,255,255,.04);
+    }
+
+    /* FLOAT WPP */
+    .float-wpp {
+      position: fixed; bottom: 24px; right: 24px; z-index: 200;
+      width: 58px; height: 58px; border-radius: 50%;
+      background: var(--wpp);
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 6px 28px rgba(37,211,102,.40);
+      transition: transform .2s, box-shadow .2s;
+    }
+    .float-wpp:hover { transform: translateY(-3px) scale(1.06); box-shadow: 0 10px 36px rgba(37,211,102,.50); }
+    .float-wpp svg { width: 26px; height: 26px; }
+
+    @media (max-width: 480px) {
+      .section { padding: 64px 16px; }
+      .produtos-grid { grid-template-columns: 1fr; max-width: 340px; margin: 0 auto; }
+      .hero-btns { flex-direction: column; }
+      .hero-btns .btn { width: 100%; max-width: 320px; }
+      .sobre-stats { gap: 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+<div id="progress-bar"></div>
+
+<!-- NAV -->
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <span class="nav-brand">Maria <span>✦</span> Óptica</span>
+    <a href="https://www.instagram.com/mariaoptica/" target="_blank" rel="noopener" class="nav-ig">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+      @mariaoptica
+    </a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg">
+    <img src="img/hero.jpg" alt="Maria Óptica — Curadoria Visual" loading="eager" />
+  </div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">Ótica Itumbiara · 8 anos de história</div>
+    <h1 class="hero-title">
+      Óculos que traduzem<br><em>sua identidade</em>
+    </h1>
+    <p class="hero-sub">Curadoria visual exclusiva com as maiores grifes internacionais. Atendimento personalizado em Itumbiara/GO — porque cada olhar conta uma história única.</p>
+    <div class="hero-btns">
+      <a href="https://wa.me/556496775700?text=Ol%C3%A1%21+Vi+o+perfil+de+voc%C3%AAs+e+quero+conhecer+a+cole%C3%A7%C3%A3o+da+Maria+%C3%93ptica%21" target="_blank" rel="noopener" class="btn btn-wpp">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Fale Conosco
+      </a>
+      <a href="#colecao" class="btn btn-outline">Ver Coleção ↓</a>
+    </div>
+  </div>
+</section>
+
+<!-- BARRA DE BENEFÍCIOS -->
+<div class="benefits-bar">
+  <div class="benefits-inner">
+    <div class="benefit-item">
+      <div class="benefit-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+      </div>
+      <div class="benefit-text">
+        <span class="benefit-title">Grifes Originais</span>
+        <span class="benefit-sub">D&G, Prada, Versace, Tiffany</span>
+      </div>
+    </div>
+    <div class="benefit-item">
+      <div class="benefit-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+      </div>
+      <div class="benefit-text">
+        <span class="benefit-title">Atendimento Premium</span>
+        <span class="benefit-sub">Exclusivo e personalizado</span>
+      </div>
+    </div>
+    <div class="benefit-item">
+      <div class="benefit-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"/></svg>
+      </div>
+      <div class="benefit-text">
+        <span class="benefit-title">10x no Cartão</span>
+        <span class="benefit-sub">10% desconto no PIX</span>
+      </div>
+    </div>
+    <div class="benefit-item">
+      <div class="benefit-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"/></svg>
+      </div>
+      <div class="benefit-text">
+        <span class="benefit-title">8 Anos de História</span>
+        <span class="benefit-sub">Excelência em saúde visual</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- LINKS RÁPIDOS -->
+<section class="links-sec">
+  <p class="links-label">Acesse direto</p>
+  <div class="links-grid">
+    <a href="https://wa.me/556496775700?text=Ol%C3%A1%21+Quero+conhecer+a+cole%C3%A7%C3%A3o+da+Maria+%C3%93ptica%21" target="_blank" rel="noopener" class="link-card lc-wpp reveal">
+      <div class="link-card-icon">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      </div>
+      <div class="link-card-title">WhatsApp</div>
+      <div class="link-card-sub">Tire dúvidas e solicite atendimento</div>
+      <div class="link-card-arrow">Abrir →</div>
+    </a>
+    <a href="https://www.instagram.com/mariaoptica/" target="_blank" rel="noopener" class="link-card lc-ig reveal d1">
+      <div class="link-card-icon">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+      </div>
+      <div class="link-card-title">Instagram</div>
+      <div class="link-card-sub">+10 mil seguidores — siga para novidades</div>
+      <div class="link-card-arrow">Seguir →</div>
+    </a>
+    <a href="https://linktr.ee/mariaopticaitumbiara" target="_blank" rel="noopener" class="link-card lc-lt reveal d2">
+      <div class="link-card-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color:var(--gold-l)"><path d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"/></svg>
+      </div>
+      <div class="link-card-title">Todos os Links</div>
+      <div class="link-card-sub">Site, agendamento e mais</div>
+      <div class="link-card-arrow">Ver tudo →</div>
+    </a>
+  </div>
+</section>
+
+<!-- COLEÇÃO / PRODUTOS -->
+<section class="section produtos-section" id="colecao">
+  <div class="container">
+    <div class="sec-header reveal">
+      <div class="sec-tag">✦ Coleção Exclusiva</div>
+      <h2 class="sec-title">Grifes internacionais<br><em>em Itumbiara</em></h2>
+      <p class="sec-sub">Da elegância italiana ao glamour contemporâneo — trazemos para você o que há de melhor no mundo da moda óptica.</p>
+    </div>
+    <div class="produtos-grid">
+      <div class="prod-card reveal d1">
+        <div class="prod-img">
+          <img src="img/img2.jpg" alt="Dolce & Gabbana DEVOTION" loading="lazy" />
+          <span class="prod-badge">Nova Coleção</span>
+        </div>
+        <div class="prod-info">
+          <div class="prod-name">Dolce &amp; Gabbana</div>
+          <p class="prod-desc">DEVOTION Collection — design romântico e sofisticado com detalhes barrocos e o icônico coração metálico banhado a ouro 18k.</p>
+          <a href="https://wa.me/556496775700?text=Ol%C3%A1%21+Quero+saber+mais+sobre+os+%C3%B3culos+Dolce+%26+Gabbana%21" target="_blank" rel="noopener" class="prod-cta">Ver mais →</a>
+        </div>
+      </div>
+      <div class="prod-card reveal d2">
+        <div class="prod-img">
+          <img src="img/img3.jpg" alt="Prada — Elegância Italiana" loading="lazy" />
+          <span class="prod-badge prod-badge-dark">Exclusivo</span>
+        </div>
+        <div class="prod-info">
+          <div class="prod-name">Prada &amp; Miu Miu</div>
+          <p class="prod-desc">Elegância italiana que equilibra sofisticação com espírito inovador. Estética impecável que define o verdadeiro bom gosto.</p>
+          <a href="https://wa.me/556496775700?text=Ol%C3%A1%21+Quero+conhecer+os+%C3%B3culos+Prada+e+Miu+Miu%21" target="_blank" rel="noopener" class="prod-cta">Ver mais →</a>
+        </div>
+      </div>
+      <div class="prod-card reveal d1">
+        <div class="prod-img">
+          <img src="img/img4.jpg" alt="Versace — Glamour e Poder" loading="lazy" />
+          <span class="prod-badge prod-badge-red">Destaque</span>
+        </div>
+        <div class="prod-info">
+          <div class="prod-name">Versace &amp; Tiffany</div>
+          <p class="prod-desc">O símbolo máximo de audácia e poder — e a elegância atemporal do azul Tiffany que encanta gerações.</p>
+          <a href="https://wa.me/556496775700?text=Ol%C3%A1%21+Quero+ver+os+%C3%B3culos+Versace+e+Tiffany%21" target="_blank" rel="noopener" class="prod-cta">Ver mais →</a>
+        </div>
+      </div>
+      <div class="prod-card reveal d2">
+        <div class="prod-img">
+          <img src="img/img1.jpg" alt="Óculos de Grau — Saúde Visual com Estilo" loading="lazy" />
+          <span class="prod-badge prod-badge-green">Atendimento</span>
+        </div>
+        <div class="prod-info">
+          <div class="prod-name">Óculos de Grau</div>
+          <p class="prod-desc">Saúde visual aliada ao estilo que você merece. Avaliação completa e curadoria personalizada para o seu perfil.</p>
+          <a href="https://wa.me/556496775700?text=Ol%C3%A1%21+Quero+agendar+um+atendimento+para+%C3%B3culos+de+grau%21" target="_blank" rel="noopener" class="prod-cta">Agendar →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SOBRE -->
+<section class="section sobre-section">
+  <div class="container">
+    <div class="sobre-grid">
+      <div class="sobre-img-wrap reveal">
+        <img src="img/hero.jpg" alt="Maria Óptica — Um novo conceito em óptica" loading="lazy" />
+      </div>
+      <div class="sobre-text reveal d2">
+        <div class="sec-tag">✦ Nossa História</div>
+        <h2 class="sec-title">Um novo conceito<br><em>em óptica</em></h2>
+        <p class="sobre-body">Há 8 anos transformando olhares em Itumbiara. A Maria Óptica nasceu com um propósito claro: unir saúde visual com curadoria de moda, levando as maiores grifes internacionais para o coração de Goiás.</p>
+        <div class="sobre-divider"></div>
+        <p class="sobre-body">Com atendimento exclusivo e personalizado, cada visita é uma experiência única — porque acreditamos que seus óculos devem traduzir quem você é. Agora com 2 unidades em Itumbiara para atender ainda melhor.</p>
+        <div class="sobre-stats">
+          <div class="stat">
+            <div class="stat-num">8+</div>
+            <div class="stat-label">Anos de história</div>
+          </div>
+          <div class="stat">
+            <div class="stat-num">2</div>
+            <div class="stat-label">Unidades em ITU</div>
+          </div>
+          <div class="stat">
+            <div class="stat-num">10k+</div>
+            <div class="stat-label">Seguidores IG</div>
+          </div>
+        </div>
+        <a href="https://wa.me/556496775700?text=Ol%C3%A1%21+Quero+conhecer+a+Maria+%C3%93ptica+pessoalmente%21" target="_blank" rel="noopener" class="btn btn-gold" style="display:inline-flex">
+          <svg viewBox="0 0 24 24" fill="currentColor" style="width:17px;height:17px"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Falar pelo WhatsApp
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DEPOIMENTOS -->
+<section class="section depo-section">
+  <div class="container">
+    <div class="sec-header reveal" style="text-align:center">
+      <div class="sec-tag">✦ Depoimentos</div>
+      <h2 class="sec-title">O que nossos clientes <em>dizem</em></h2>
+    </div>
+    <div class="depo-grid">
+      <div class="depo-card reveal d1">
+        <div class="depo-stars">
+          <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+        </div>
+        <p class="depo-quote">"Encontrei meu óculos perfeito na Maria Óptica! O atendimento é impecável, super personalizado. Saí amando meu novo visual — eles realmente entendem do que estão fazendo."</p>
+        <div class="depo-author">
+          <div class="depo-avatar">A</div>
+          <div>
+            <div class="depo-name">Ana Flávia</div>
+            <div class="depo-city">Itumbiara, GO</div>
+          </div>
+        </div>
+      </div>
+      <div class="depo-card reveal d2">
+        <div class="depo-stars">
+          <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+        </div>
+        <p class="depo-quote">"Comprei meu Prada na Maria Óptica e foi a melhor experiência! Produto original, equipe muito atenciosa. Não tem outra ótica em Itumbiara que chegue perto desse nível."</p>
+        <div class="depo-author">
+          <div class="depo-avatar">C</div>
+          <div>
+            <div class="depo-name">Carlos Henrique</div>
+            <div class="depo-city">Itumbiara, GO</div>
+          </div>
+        </div>
+      </div>
+      <div class="depo-card reveal d3">
+        <div class="depo-stars">
+          <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+        </div>
+        <p class="depo-quote">"Já sou cliente há 5 anos e nunca me decepcionei. A curadoria deles é incrível — sempre chegam novidades das melhores marcas e o atendimento é como se fossem da família."</p>
+        <div class="depo-author">
+          <div class="depo-avatar">M</div>
+          <div>
+            <div class="depo-name">Mariana Costa</div>
+            <div class="depo-city">Itumbiara, GO</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section faq-section">
+  <div class="container">
+    <div class="sec-header reveal" style="text-align:center">
+      <div class="sec-tag">✦ Dúvidas</div>
+      <h2 class="sec-title">Perguntas <em>frequentes</em></h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item reveal">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Vocês trabalham com quais marcas de óculos?
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <div class="faq-a">Trabalhamos com as principais grifes internacionais: Dolce &amp; Gabbana, Prada, Miu Miu, Versace, Tiffany &amp; Co., entre outras. Nossa curadoria é atualizada constantemente com as novas coleções.</div>
+      </div>
+      <div class="faq-item reveal d1">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Como funciona o parcelamento?
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <div class="faq-a">Parcelamos em até 10x no cartão de crédito sem juros. Para pagamento à vista no PIX, oferecemos 10% de desconto. Entre em contato para mais opções de pagamento.</div>
+      </div>
+      <div class="faq-item reveal d2">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Onde ficam as unidades da Maria Óptica?
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <div class="faq-a">Temos 2 unidades em Itumbiara/GO: a loja principal na Rua Marechal Deodoro, 222 — Centro, e a nova unidade dentro da Academia Ritmo. Ambas com atendimento exclusivo e personalizado.</div>
+      </div>
+      <div class="faq-item reveal d1">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Os produtos são originais e têm garantia?
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <div class="faq-a">Sim! Trabalhamos exclusivamente com produtos originais e autenticados das marcas. Todos os óculos possuem garantia do fabricante e acompanham nota fiscal.</div>
+      </div>
+      <div class="faq-item reveal d2">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Vocês fazem consulta para grau?
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <div class="faq-a">Realizamos o atendimento completo para óculos de grau — desde a indicação de armações que combinam com seu rosto até a montagem das lentes. Entre em contato para agendar seu atendimento.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<section class="cta-section">
+  <p class="cta-eyebrow reveal">Viva a experiência</p>
+  <h2 class="cta-title reveal d1">
+    Seu próximo óculos<br><em>está aqui</em>
+  </h2>
+  <p class="cta-sub reveal d2">Agende um atendimento exclusivo e deixe nossa equipe ajudar você a encontrar o óculos que traduz quem você é.</p>
+  <div class="cta-btns reveal d3">
+    <div>
+      <a href="https://wa.me/556496775700?text=Ol%C3%A1%21+Quero+agendar+um+atendimento+na+Maria+%C3%93ptica%21" target="_blank" rel="noopener" class="btn btn-wpp">
+        <svg viewBox="0 0 24 24" fill="currentColor" style="width:17px;height:17px"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Agendar Atendimento
+      </a>
+      <span class="btn-sub">Resposta rápida pelo WhatsApp</span>
+    </div>
+    <a href="https://www.instagram.com/mariaoptica/" target="_blank" rel="noopener" class="btn btn-dark">
+      <svg viewBox="0 0 24 24" fill="currentColor" style="width:17px;height:17px"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+      Ver no Instagram
+    </a>
+  </div>
+  <p class="cta-urgency reveal d4">Rua Marechal Deodoro, 222 — Centro · Academia Ritmo · Itumbiara/GO</p>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <a href="https://digital-ai.tech" target="_blank" rel="noopener">
+    <img src="https://s3.amazonaws.com/cdn.digital-ai.tech/uploads/media-cortex/identity/digital-ai/logos/logo-negative.svg"
+         alt="Digital AI"
+         height="20"
+         style="display:inline-block;width:auto;height:20px;opacity:0.4;margin:0 auto;" />
+  </a>
+</footer>
+
+<!-- FLOAT WPP -->
+<a href="https://wa.me/556496775700?text=Ol%C3%A1%21+Quero+conhecer+a+cole%C3%A7%C3%A3o+da+Maria+%C3%93ptica%21" target="_blank" rel="noopener" class="float-wpp" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<script>
+  const bar = document.getElementById('progress-bar');
+  window.addEventListener('scroll', () => {
+    const total = document.documentElement.scrollHeight - window.innerHeight;
+    bar.style.width = (window.scrollY / total * 100) + '%';
+  }, { passive: true });
+
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 30);
+  }, { passive: true });
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  function toggleFaq(btn) {
+    const item = btn.closest('.faq-item');
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  }
+</script>
+</body>
+</html>
