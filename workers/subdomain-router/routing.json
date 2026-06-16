@@ -1,6 +1,6 @@
 {
   "version": "1.0",
-  "updated": "2026-06-15T16:31",
+  "updated": "2026-06-16",
   "routes": {
     "labexato": "laboratorio-exato-itumbiara",
     "lab-exato": "laboratorio-exato-itumbiara",
@@ -34,6 +34,11 @@
     "otica-itumbiara-maria-optica-health": "otica-itumbiara-maria-optica-health",
     "otica-itumbiara-maria-optica": "otica-itumbiara-maria-optica",
     "sorrifacil-clinicas-odontologicas-health": "sorrifacil-clinicas-odontologicas-health",
-    "sorrifacil-clinicas-odontologicas": "sorrifacil-clinicas-odontologicas"
+    "sorrifacil-clinicas-odontologicas": "sorrifacil-clinicas-odontologicas",
+    "yooufit-academia": {
+      "folder": "yooufit-academia",
+      "company": "YoouFit Academia",
+      "created": "2026-06-16"
+    }
   }
 }

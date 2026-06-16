@@ -43,6 +43,7 @@ const ROUTING = {
   "otica-itumbiara-maria-optica": "otica-itumbiara-maria-optica",
   "sorrifacil-clinicas-odontologicas-health": "sorrifacil-clinicas-odontologicas-health",
   "sorrifacil-clinicas-odontologicas": "sorrifacil-clinicas-odontologicas",
+  "yooufit-academia": "yooufit-academia",
   // LeadKit adiciona entradas aqui automaticamente via Fase 4 do pipeline
 };
 

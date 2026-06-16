@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="YoouFit Academia — Transformando suor em saúde. 3 unidades em Lavras e Região. Musculação, cardio, aulas funcionais e muito mais. Venha treinar!">
+  <meta property="og:title" content="YoouFit Academia — Transformando Suor em Saúde">
+  <meta property="og:description" content="3 unidades em Lavras e Região. Comece sua transformação hoje!">
+  <meta property="og:image" content="img/logo.jpg">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="YoouFit Academia — Transformando Suor em Saúde">
+  <meta name="twitter:description" content="3 unidades em Lavras e Região. Comece sua transformação hoje!">
+  <title>YoouFit Academia — Transformando Suor em Saúde</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; background: #0A0A0A; }
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: #0A0A0A;
+      color: #ffffff;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    :root {
+      --yoo-black:    #0A0A0A;
+      --yoo-dark:     #111111;
+      --yoo-card:     #181818;
+      --yoo-card2:    #202020;
+      --yoo-border:   rgba(255,255,255,0.07);
+      --yoo-yellow:   #FFCC00;
+      --yoo-yellow-l: #FFD633;
+      --yoo-yellow-d: #E6B800;
+      --yoo-orange:   #FF6B00;
+      --yoo-text:     #ffffff;
+      --yoo-muted:    rgba(255,255,255,0.55);
+      --yoo-subtle:   rgba(255,255,255,0.10);
+      --wa-green:     #25D366;
+    }
+
+    .container { max-width: 480px; margin: 0 auto; padding: 0 1.25rem; }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes pulse-ring {
+      0%   { transform: scale(1); opacity: 1; }
+      80%  { transform: scale(1.6); opacity: 0; }
+      100% { transform: scale(1.6); opacity: 0; }
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50%       { transform: translateY(-6px); }
+    }
+    @keyframes shimmer {
+      0%   { background-position: -200% center; }
+      100% { background-position: 200% center; }
+    }
+
+    .reveal {
+      opacity: 0; transform: translateY(24px);
+      transition: opacity 0.55s ease, transform 0.55s ease;
+    }
+    .reveal.visible { opacity: 1; transform: none; }
+    .d1 { transition-delay: .1s; }
+    .d2 { transition-delay: .2s; }
+    .d3 { transition-delay: .3s; }
+    .d4 { transition-delay: .4s; }
+
+    /* ===== HEADER ===== */
+    .site-header {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(10,10,10,0.92);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--yoo-border);
+      padding: .75rem 0;
+      transition: all .3s;
+    }
+    .site-header.scrolled { padding: .55rem 0; box-shadow: 0 2px 24px rgba(0,0,0,.5); }
+    .header-inner {
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 1rem;
+    }
+    .header-logo {
+      display: flex; align-items: center; gap: .6rem;
+      text-decoration: none;
+    }
+    .header-logo img {
+      width: 36px; height: 36px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 1.5px solid var(--yoo-yellow);
+    }
+    .header-logo-name {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.25rem;
+      letter-spacing: .04em;
+      background: linear-gradient(90deg, var(--yoo-yellow), var(--yoo-orange));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .header-cta {
+      background: var(--yoo-yellow);
+      color: #0A0A0A;
+      font-weight: 700;
+      font-size: .78rem;
+      padding: .45rem 1rem;
+      border-radius: 999px;
+      text-decoration: none;
+      white-space: nowrap;
+      transition: all .2s;
+      box-shadow: 0 4px 16px rgba(255,204,0,.35);
+    }
+    .header-cta:hover { background: var(--yoo-yellow-l); transform: translateY(-1px); }
+
+    /* ===== HERO ===== */
+    .hero {
+      min-height: 100svh;
+      position: relative;
+      display: flex; align-items: center;
+      padding: 6rem 0 4rem;
+      overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 80% 60% at 50% 0%, rgba(255,204,0,.18) 0%, transparent 60%),
+        radial-gradient(ellipse 60% 80% at 100% 100%, rgba(255,107,0,.12) 0%, transparent 60%),
+        radial-gradient(ellipse 40% 40% at 0% 100%, rgba(255,204,0,.06) 0%, transparent 50%),
+        var(--yoo-black);
+    }
+    /* Grid pattern overlay */
+    .hero-bg::after {
+      content: '';
+      position: absolute; inset: 0;
+      background-image:
+        linear-gradient(rgba(255,204,0,.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,204,0,.04) 1px, transparent 1px);
+      background-size: 40px 40px;
+    }
+    .hero-content {
+      position: relative; z-index: 2;
+      text-align: center;
+      animation: fadeUp .7s ease both;
+    }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: .4rem;
+      background: rgba(255,204,0,.12);
+      border: 1px solid rgba(255,204,0,.3);
+      color: var(--yoo-yellow);
+      font-size: .75rem; font-weight: 600;
+      padding: .3rem .8rem;
+      border-radius: 999px;
+      margin-bottom: 1.25rem;
+      letter-spacing: .04em;
+    }
+    .hero-badge .dot {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: var(--yoo-yellow);
+      animation: pulse-ring 2s ease infinite;
+    }
+    .hero-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(3.2rem, 14vw, 5.5rem);
+      line-height: .95;
+      letter-spacing: .01em;
+      margin-bottom: .5rem;
+    }
+    .hero-title .line-yellow {
+      display: block;
+      background: linear-gradient(90deg, var(--yoo-yellow), var(--yoo-orange));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero-sub {
+      font-size: 1rem; color: var(--yoo-muted);
+      max-width: 320px; margin: 0 auto 1.75rem;
+      font-weight: 400;
+    }
+    .hero-cta-group {
+      display: flex; flex-direction: column; align-items: center; gap: .75rem;
+    }
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: .5rem;
+      background: var(--yoo-yellow);
+      color: #0A0A0A;
+      font-weight: 800; font-size: .95rem;
+      padding: .85rem 2rem;
+      border-radius: 999px;
+      text-decoration: none;
+      box-shadow: 0 8px 32px rgba(255,204,0,.4);
+      transition: all .25s;
+      white-space: nowrap;
+    }
+    .btn-primary:hover { background: var(--yoo-yellow-l); transform: translateY(-2px); box-shadow: 0 12px 40px rgba(255,204,0,.5); }
+    .btn-primary svg { width: 20px; height: 20px; flex-shrink: 0; }
+    .hero-note {
+      font-size: .78rem; color: var(--yoo-muted);
+      display: flex; align-items: center; gap: .35rem;
+      justify-content: center;
+    }
+    .hero-note svg { width: 14px; height: 14px; color: var(--yoo-yellow); flex-shrink: 0; }
+
+    /* Stats bar */
+    .stats-bar {
+      background: var(--yoo-card);
+      border-top: 1px solid var(--yoo-border);
+      border-bottom: 1px solid var(--yoo-border);
+      padding: 1.5rem 0;
+    }
+    .stats-grid {
+      display: grid; grid-template-columns: repeat(3,1fr);
+      gap: .5rem; text-align: center;
+    }
+    .stat-item {}
+    .stat-number {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2rem; line-height: 1;
+      background: linear-gradient(90deg, var(--yoo-yellow), var(--yoo-orange));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .stat-label {
+      font-size: .7rem; color: var(--yoo-muted);
+      font-weight: 500; text-transform: uppercase; letter-spacing: .05em;
+      margin-top: .15rem;
+    }
+
+    /* ===== SOBRE ===== */
+    .section { padding: 4rem 0; }
+    .section-label {
+      display: inline-block;
+      font-size: .7rem; font-weight: 700; letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--yoo-yellow);
+      margin-bottom: .6rem;
+    }
+    .section-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(2rem, 8vw, 3rem);
+      line-height: 1;
+      margin-bottom: 1rem;
+    }
+    .section-body {
+      color: var(--yoo-muted);
+      font-size: .92rem;
+      line-height: 1.7;
+    }
+    .divider {
+      width: 40px; height: 3px;
+      background: linear-gradient(90deg, var(--yoo-yellow), var(--yoo-orange));
+      border-radius: 2px;
+      margin: 1rem 0 1.25rem;
+    }
+
+    /* Logo circle in "Sobre" */
+    .sobre-logo-wrap {
+      display: flex; justify-content: center;
+      margin-bottom: 2rem;
+    }
+    .sobre-logo {
+      width: 100px; height: 100px; border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid var(--yoo-yellow);
+      box-shadow: 0 0 0 8px rgba(255,204,0,.12);
+      animation: float 4s ease infinite;
+    }
+
+    /* Units list */
+    .units-list {
+      display: flex; flex-direction: column; gap: .75rem;
+      margin-top: 1.5rem;
+    }
+    .unit-card {
+      display: flex; align-items: flex-start; gap: .875rem;
+      background: var(--yoo-card);
+      border: 1px solid var(--yoo-border);
+      border-radius: 12px;
+      padding: 1rem 1.125rem;
+      transition: all .25s;
+    }
+    .unit-card:hover { border-color: rgba(255,204,0,.25); transform: translateX(4px); }
+    .unit-icon {
+      width: 36px; height: 36px; border-radius: 8px;
+      background: rgba(255,204,0,.1);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+      font-size: 1rem;
+    }
+    .unit-info {}
+    .unit-name {
+      font-weight: 700; font-size: .9rem; color: var(--yoo-text);
+      margin-bottom: .2rem;
+    }
+    .unit-loc {
+      font-size: .78rem; color: var(--yoo-muted);
+    }
+
+    /* ===== MODALIDADES ===== */
+    .mod-section { background: var(--yoo-dark); padding: 4rem 0; }
+    .mod-grid {
+      display: grid; grid-template-columns: repeat(2,1fr);
+      gap: .75rem; margin-top: 1.5rem;
+    }
+    .mod-card {
+      background: var(--yoo-card);
+      border: 1px solid var(--yoo-border);
+      border-radius: 14px;
+      padding: 1.25rem 1rem;
+      text-align: center;
+      transition: all .3s;
+      position: relative;
+      overflow: hidden;
+    }
+    .mod-card::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--yoo-yellow), var(--yoo-orange));
+      opacity: 0; transition: opacity .3s;
+    }
+    .mod-card:hover { border-color: rgba(255,204,0,.2); transform: translateY(-3px); }
+    .mod-card:hover::before { opacity: 1; }
+    .mod-emoji { font-size: 1.8rem; margin-bottom: .5rem; display: block; }
+    .mod-name {
+      font-weight: 700; font-size: .88rem;
+      color: var(--yoo-text); margin-bottom: .25rem;
+    }
+    .mod-desc { font-size: .75rem; color: var(--yoo-muted); }
+
+    /* ===== DIFERENCIAIS ===== */
+    .diff-section { padding: 4rem 0; }
+    .diff-list {
+      display: flex; flex-direction: column; gap: .875rem;
+      margin-top: 1.5rem;
+    }
+    .diff-item {
+      display: flex; align-items: flex-start; gap: .875rem;
+    }
+    .diff-check {
+      width: 28px; height: 28px; border-radius: 50%;
+      background: rgba(255,204,0,.12);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0; margin-top: .1rem;
+    }
+    .diff-check svg { width: 14px; height: 14px; color: var(--yoo-yellow); }
+    .diff-text {}
+    .diff-title { font-weight: 700; font-size: .9rem; color: var(--yoo-text); }
+    .diff-sub { font-size: .8rem; color: var(--yoo-muted); margin-top: .1rem; }
+
+    /* ===== CTA PRINCIPAL ===== */
+    .cta-section {
+      background: linear-gradient(135deg, #0D0D0D, #111111);
+      border-top: 1px solid var(--yoo-border);
+      border-bottom: 1px solid var(--yoo-border);
+      padding: 4rem 0;
+      text-align: center;
+    }
+    .cta-glow {
+      width: 200px; height: 200px;
+      background: radial-gradient(circle, rgba(255,204,0,.15) 0%, transparent 70%);
+      margin: 0 auto -100px;
+      pointer-events: none;
+    }
+    .cta-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(2.2rem, 9vw, 3.5rem);
+      line-height: 1;
+      margin-bottom: .75rem;
+    }
+    .cta-title .accent {
+      background: linear-gradient(90deg, var(--yoo-yellow), var(--yoo-orange));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .cta-sub {
+      font-size: .9rem; color: var(--yoo-muted);
+      max-width: 280px; margin: 0 auto 2rem;
+    }
+    .btn-wa {
+      display: inline-flex; align-items: center; gap: .6rem;
+      background: var(--wa-green);
+      color: #fff;
+      font-weight: 800; font-size: 1rem;
+      padding: 1rem 2.25rem;
+      border-radius: 999px;
+      text-decoration: none;
+      box-shadow: 0 8px 32px rgba(37,211,102,.4);
+      transition: all .25s;
+    }
+    .btn-wa:hover { filter: brightness(1.1); transform: translateY(-2px); box-shadow: 0 12px 40px rgba(37,211,102,.5); }
+    .btn-wa svg { width: 22px; height: 22px; flex-shrink: 0; }
+    .cta-trust {
+      margin-top: 1.25rem;
+      font-size: .78rem; color: var(--yoo-muted);
+      display: flex; align-items: center; justify-content: center; gap: .5rem;
+    }
+    .cta-trust .star { color: var(--yoo-yellow); font-size: .85rem; }
+
+    /* ===== FLOATING WA BUTTON ===== */
+    .float-wa {
+      position: fixed; bottom: 1.5rem; right: 1.25rem; z-index: 200;
+    }
+    .float-wa a {
+      display: flex; align-items: center; justify-content: center;
+      width: 58px; height: 58px; border-radius: 50%;
+      background: var(--wa-green);
+      box-shadow: 0 6px 24px rgba(37,211,102,.5);
+      transition: all .25s;
+      text-decoration: none;
+      position: relative;
+    }
+    .float-wa a::before {
+      content: '';
+      position: absolute; inset: 0; border-radius: 50%;
+      background: var(--wa-green);
+      animation: pulse-ring 2.5s ease infinite;
+    }
+    .float-wa a:hover { transform: scale(1.1); box-shadow: 0 10px 32px rgba(37,211,102,.6); }
+    .float-wa svg { width: 28px; height: 28px; fill: #fff; position: relative; z-index: 1; }
+
+    /* ===== FOOTER ===== */
+    .site-footer {
+      padding: 1.5rem 0 2rem;
+      text-align: center;
+    }
+    .footer-inner {
+      display: flex; justify-content: center; align-items: center;
+    }
+
+    /* ===== MEDIA ===== */
+    @media (max-width: 375px) {
+      .mod-grid { grid-template-columns: 1fr; }
+      .hero-title { font-size: 2.8rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="site-header" id="site-header">
+    <div class="container">
+      <div class="header-inner">
+        <a href="#hero" class="header-logo">
+          <img src="img/logo.jpg" alt="YoouFit Academia">
+          <span class="header-logo-name">YoouFit</span>
+        </a>
+        <a href="https://wa.me/5535991980647?text=Ol%C3%A1!%20Vi%20o%20perfil%20de%20voc%C3%AAs%20e%20gostaria%20de%20saber%20mais%20sobre%20a%20academia." class="header-cta">Matricule-se</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero" id="hero">
+    <div class="hero-bg"></div>
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-badge">
+          <span class="dot"></span>
+          3 Unidades na Região
+        </div>
+        <h1 class="hero-title">
+          Transformando
+          <span class="line-yellow">Suor</span>
+          em Saúde
+        </h1>
+        <p class="hero-sub">Cada treino é uma vitória. Venha fazer parte da nossa família e comece sua transformação hoje!</p>
+        <div class="hero-cta-group">
+          <a href="https://wa.me/5535991980647?text=Ol%C3%A1!%20Quero%20conhecer%20a%20YoouFit%20Academia%20e%20saber%20sobre%20os%20planos%20dispon%C3%ADveis." class="btn-primary">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.137.561 4.144 1.538 5.887L.057 23.882a.5.5 0 0 0 .641.641l6.056-1.488A11.936 11.936 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.883 0-3.656-.511-5.17-1.4l-.37-.222-3.817.938.97-3.753-.244-.39A10 10 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+            Quero Conhecer
+          </a>
+          <p class="hero-note">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            Resposta rápida · Sem compromisso
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS BAR -->
+  <div class="stats-bar">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat-item reveal d1">
+          <div class="stat-number">3</div>
+          <div class="stat-label">Unidades</div>
+        </div>
+        <div class="stat-item reveal d2">
+          <div class="stat-number">+10</div>
+          <div class="stat-label">Anos no Mercado</div>
+        </div>
+        <div class="stat-item reveal d3">
+          <div class="stat-number">13K</div>
+          <div class="stat-label">Seguidores IG</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SOBRE -->
+  <section class="section">
+    <div class="container">
+      <div class="sobre-logo-wrap reveal">
+        <img src="img/logo.jpg" alt="YoouFit Academia" class="sobre-logo">
+      </div>
+      <span class="section-label reveal">Quem Somos</span>
+      <h2 class="section-title reveal">A Academia<br>que Transforma</h2>
+      <div class="divider reveal d1"></div>
+      <p class="section-body reveal d2">A <strong>YoouFit Academia</strong> nasceu com um propósito simples e poderoso: colocar você no centro da sua transformação. Cada treino é uma vitória — e a gente está aqui para celebrar cada uma delas com você.</p>
+      <p class="section-body reveal d3" style="margin-top:.75rem">Com estrutura completa e profissionais qualificados, a YoouFit cresceu para atender Lavras e toda a região, com <strong>3 unidades</strong> prontas para receber você onde for mais conveniente.</p>
+
+      <div class="units-list">
+        <div class="unit-card reveal d1">
+          <div class="unit-icon">📌</div>
+          <div class="unit-info">
+            <div class="unit-name">Unidade Centro</div>
+            <div class="unit-loc">Lavras, MG · @yooufitacademia</div>
+          </div>
+        </div>
+        <div class="unit-card reveal d2">
+          <div class="unit-icon">📌</div>
+          <div class="unit-info">
+            <div class="unit-name">Unidade Serra Azul</div>
+            <div class="unit-loc">Região de Lavras · @yooufit.serra_azul</div>
+          </div>
+        </div>
+        <div class="unit-card reveal d3">
+          <div class="unit-icon">📌</div>
+          <div class="unit-info">
+            <div class="unit-name">Unidade Nepomuceno</div>
+            <div class="unit-loc">Nepomuceno, MG · @yooufit.nepomuceno</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MODALIDADES -->
+  <section class="mod-section">
+    <div class="container">
+      <span class="section-label reveal">O que Oferecemos</span>
+      <h2 class="section-title reveal">Modalidades<br>para Todos</h2>
+      <div class="divider reveal d1"></div>
+      <p class="section-body reveal d2">Seja qual for o seu objetivo — emagrecer, ganhar massa, melhorar o condicionamento ou simplesmente ter mais saúde — temos a modalidade certa para você.</p>
+
+      <div class="mod-grid">
+        <div class="mod-card reveal d1">
+          <span class="mod-emoji">🏋️</span>
+          <div class="mod-name">Musculação</div>
+          <div class="mod-desc">Equipamentos modernos e supervisão profissional</div>
+        </div>
+        <div class="mod-card reveal d2">
+          <span class="mod-emoji">🏃</span>
+          <div class="mod-name">Cardio</div>
+          <div class="mod-desc">Esteiras, bikes e ergométricas de alta performance</div>
+        </div>
+        <div class="mod-card reveal d3">
+          <span class="mod-emoji">💪</span>
+          <div class="mod-name">Funcional</div>
+          <div class="mod-desc">Treinos dinâmicos para corpo e mente</div>
+        </div>
+        <div class="mod-card reveal d4">
+          <span class="mod-emoji">🧘</span>
+          <div class="mod-name">Bem-Estar</div>
+          <div class="mod-desc">Mobilidade, flexibilidade e qualidade de vida</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DIFERENCIAIS -->
+  <section class="diff-section">
+    <div class="container">
+      <span class="section-label reveal">Por que YoouFit?</span>
+      <h2 class="section-title reveal">Nossos<br>Diferenciais</h2>
+      <div class="divider reveal d1"></div>
+
+      <div class="diff-list">
+        <div class="diff-item reveal d1">
+          <div class="diff-check">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+          <div class="diff-text">
+            <div class="diff-title">Profissionais Qualificados</div>
+            <div class="diff-sub">Equipe especializada para guiar sua evolução com segurança e eficiência</div>
+          </div>
+        </div>
+        <div class="diff-item reveal d2">
+          <div class="diff-check">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+          <div class="diff-text">
+            <div class="diff-title">Estrutura Completa</div>
+            <div class="diff-sub">Equipamentos de ponta, vestiários e espaços projetados para o seu conforto</div>
+          </div>
+        </div>
+        <div class="diff-item reveal d3">
+          <div class="diff-check">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+          <div class="diff-text">
+            <div class="diff-title">3 Unidades na Região</div>
+            <div class="diff-sub">Treine sempre perto de você — Centro, Serra Azul e Nepomuceno</div>
+          </div>
+        </div>
+        <div class="diff-item reveal d4">
+          <div class="diff-check">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+          <div class="diff-text">
+            <div class="diff-title">Comunidade Motivadora</div>
+            <div class="diff-sub">+13.000 seguidores e uma comunidade apaixonada por saúde e superação</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA PRINCIPAL -->
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-glow reveal"></div>
+      <h2 class="cta-title reveal">
+        Comece sua<br>
+        <span class="accent">Transformação</span><br>
+        Hoje!
+      </h2>
+      <p class="cta-sub reveal d1">Fale com a gente no WhatsApp e descubra o plano ideal para você. Resposta rápida, sem enrolação!</p>
+      <a href="https://wa.me/5535991980647?text=Ol%C3%A1%2C%20YoouFit!%20Vi%20o%20perfil%20de%20voc%C3%AAs%20e%20gostaria%20de%20conhecer%20os%20planos%20da%20academia.%20Podem%20me%20ajudar%3F" class="btn-wa reveal d2">
+        <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.137.561 4.144 1.538 5.887L.057 23.882a.5.5 0 0 0 .641.641l6.056-1.488A11.936 11.936 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.883 0-3.656-.511-5.17-1.4l-.37-.222-3.817.938.97-3.753-.244-.39A10 10 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+        Fale Conosco no WhatsApp
+      </a>
+      <div class="cta-trust reveal d3">
+        <span class="star">★★★★★</span>
+        Atendimento rápido e humanizado
+      </div>
+    </div>
+  </section>
+
+  <!-- FLOATING WA -->
+  <div class="float-wa">
+    <a href="https://wa.me/5535991980647?text=Ol%C3%A1%2C%20YoouFit!%20Vi%20o%20perfil%20de%20voc%C3%AAs%20e%20gostaria%20de%20saber%20mais." aria-label="WhatsApp YoouFit Academia">
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.137.561 4.144 1.538 5.887L.057 23.882a.5.5 0 0 0 .641.641l6.056-1.488A11.936 11.936 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.883 0-3.656-.511-5.17-1.4l-.37-.222-3.817.938.97-3.753-.244-.39A10 10 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+    </a>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-inner">
+        <a href="https://digital-ai.tech" target="_blank" rel="noopener">
+          <img src="https://s3.amazonaws.com/cdn.digital-ai.tech/uploads/media-cortex/identity/digital-ai/logos/logo-negative.svg" height="20" alt="Digital AI" style="opacity:0.4;display:block">
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Reveal on scroll
+    const reveals = document.querySelectorAll('.reveal');
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
+    }, { threshold: 0.12 });
+    reveals.forEach(r => io.observe(r));
+
+    // Sticky header
+    const header = document.getElementById('site-header');
+    window.addEventListener('scroll', () => {
+      header.classList.toggle('scrolled', window.scrollY > 40);
+    }, { passive: true });
+  </script>
+</body>
+</html>
