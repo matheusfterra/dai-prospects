@@ -181,7 +181,7 @@
 
     /* ── OPPS — fundo branco com cards azuis interativos ── */
     .op-s{background:#f0f4ff}
-    .op-g{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px}
+    .op-g{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
 
     /* Flip cards interativos */
     .flip-outer{height:320px;perspective:1000px;cursor:pointer}
@@ -190,7 +190,8 @@
     .flip-face{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:var(--r-xl);padding:28px;display:flex;flex-direction:column}
     .flip-front{background:#fff;border:1px solid #E0E7FF;box-shadow:var(--sh-md);border-top:4px solid var(--brand-primary)}
     .flip-front:hover{box-shadow:var(--sh-xl)}
-    .flip-back{background:linear-gradient(135deg,var(--brand-primary),var(--brand-dark));transform:rotateY(180deg);justify-content:space-between}
+    .flip-back{background:linear-gradient(135deg,var(--brand-primary),var(--brand-dark));transform:rotateY(180deg);justify-content:space-between;overflow:hidden}
+    .flip-back-body{display:flex;flex-direction:column;flex:1;min-height:0}
     .op-pr{display:inline-flex;align-items:center;gap:5px;font-size:.72rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;padding:4px 10px;border-radius:100px;margin-bottom:14px;align-self:flex-start}
     .op-pr.hi{background:rgba(239,68,68,.08);color:#DC2626}
     .op-pr.me{background:rgba(245,158,11,.08);color:#D97706}
@@ -250,6 +251,7 @@
       .nav{padding:14px 20px}
       .hero{padding:100px 20px 60px}
       .roi-g{grid-template-columns:1fr 1fr}
+      .op-g{grid-template-columns:1fr}
       .cta-bs{flex-direction:column;align-items:center}
       .flip-outer{height:auto}
       .flip-inner{position:static;transform:none!important}
@@ -506,20 +508,21 @@
     </div>
     <div class="op-g">
 
+      <!-- Card 1: Agente de IA no WhatsApp -->
       <div class="flip-outer" onclick="this.classList.toggle('flipped')">
         <div class="flip-inner">
           <div class="flip-face flip-front">
             <div class="op-pr hi">🔴 Urgência alta</div>
             <div class="op-t">Agente de IA no WhatsApp</div>
-            <div class="op-d">Resposta imediata 24 horas por dia, 7 dias por semana, com qualificação por perfil comportamental — exatamente a visão que Carlos Garcia declarou publicamente.</div>
+            <div class="op-d">Atendimento automático 24 horas por dia, 7 dias por semana, com qualificação por perfil comportamental — sem depender de equipe disponível para cada mensagem recebida.</div>
             <div class="op-im">⚡ +25 a 40% na conversão de contatos</div>
             <div class="op-flip-hint">👆 Clique para ver a solução</div>
           </div>
           <div class="flip-face flip-back">
-            <div>
+            <div class="flip-back-body">
               <div class="flip-back-title">Como a Digital AI resolve</div>
               <div class="flip-back-h">Agente de atendimento com IA personalizada</div>
-              <div class="flip-back-txt">Implantamos um agente de IA no WhatsApp da YoouFit que responde instantaneamente, qualifica o perfil do interessado e direciona para a matrícula — exatamente o atendimento comportamental que Carlos sempre quis.</div>
+              <div class="flip-back-txt">Implantamos um agente de IA no WhatsApp da YoouFit que responde instantaneamente, qualifica o perfil do interessado e direciona para a matrícula — sem intervenção humana no primeiro contato.</div>
             </div>
             <a class="flip-back-cta" href="https://wa.me/5564981337424?text=Quero%20saber%20sobre%20o%20agente%20de%20IA%20para%20a%20YoouFit" target="_blank">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
@@ -529,22 +532,23 @@
         </div>
       </div>
 
+      <!-- Card 2: Chatbot Inteligente -->
       <div class="flip-outer" onclick="this.classList.toggle('flipped')">
         <div class="flip-inner">
           <div class="flip-face flip-front">
             <div class="op-pr hi">🔴 Urgência alta</div>
-            <div class="op-t">Funil para o Pico UFLA</div>
-            <div class="op-d">Página de destino e campanha específica para os mais de 5.600 alunos que chegam à UFLA em fevereiro e agosto — capturar esse fluxo sem contratar nova equipe.</div>
-            <div class="op-im">⚡ Dezenas de matrículas por semestre</div>
+            <div class="op-t">Chatbot de Qualificação e Agendamento</div>
+            <div class="op-d">Triagem automática de perfil, resposta a perguntas frequentes sobre planos e agendamento de visitas — tudo resolvido antes de qualquer atendente entrar na conversa.</div>
+            <div class="op-im">⚡ Elimina gargalos no primeiro contato</div>
             <div class="op-flip-hint">👆 Clique para ver a solução</div>
           </div>
           <div class="flip-face flip-back">
-            <div>
+            <div class="flip-back-body">
               <div class="flip-back-title">Como a Digital AI resolve</div>
-              <div class="flip-back-h">Campanha digital sazonal com funil completo</div>
-              <div class="flip-back-txt">Criamos uma landing page segmentada para universitários + fluxo automatizado de WhatsApp que nutre o lead do interesse à matrícula — ativada 2 semanas antes de cada semestre.</div>
+              <div class="flip-back-h">Chatbot inteligente integrado ao WhatsApp e ao site</div>
+              <div class="flip-back-txt">Desenvolvemos um chatbot com IA que triagem o perfil do interessado, responde sobre planos e valores, agenda a visita e notifica o consultor — reduzindo o tempo de resposta de horas para segundos.</div>
             </div>
-            <a class="flip-back-cta" href="https://wa.me/5564981337424?text=Quero%20saber%20sobre%20o%20funil%20UFLA%20para%20a%20YoouFit" target="_blank">
+            <a class="flip-back-cta" href="https://wa.me/5564981337424?text=Quero%20saber%20sobre%20o%20chatbot%20para%20a%20YoouFit" target="_blank">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
               Quero essa solução
             </a>
@@ -552,22 +556,23 @@
         </div>
       </div>
 
+      <!-- Card 3: Automação do Funil de Matrículas -->
       <div class="flip-outer" onclick="this.classList.toggle('flipped')">
         <div class="flip-inner">
           <div class="flip-face flip-front">
             <div class="op-pr me">🟡 Médio prazo</div>
-            <div class="op-t">Site com Conversão Real</div>
-            <div class="op-d">Formulários de interesse, agendamento de visita e páginas de destino por unidade. Cada visitante orgânico passa a ter um caminho claro até a matrícula.</div>
-            <div class="op-im">⚡ Elimina o desperdício de tráfego orgânico</div>
+            <div class="op-t">Automação do Funil de Matrículas</div>
+            <div class="op-d">Processo completo e automatizado — do primeiro contato à matrícula confirmada — com régua de nutrição, follow-up por WhatsApp e alertas internos para a equipe comercial.</div>
+            <div class="op-im">⚡ Zero lead perdido por falta de retorno</div>
             <div class="op-flip-hint">👆 Clique para ver a solução</div>
           </div>
           <div class="flip-face flip-back">
-            <div>
+            <div class="flip-back-body">
               <div class="flip-back-title">Como a Digital AI resolve</div>
-              <div class="flip-back-h">Site com funil integrado ao WhatsApp</div>
-              <div class="flip-back-txt">Reestruturamos as páginas com CTA estratégico, formulário de captura e integração direta com o WhatsApp — convertendo o tráfego que o Google já entrega de graça.</div>
+              <div class="flip-back-h">Pipeline automatizado com n8n e IA</div>
+              <div class="flip-back-txt">Construímos um fluxo de automação que captura o lead, envia mensagens personalizadas nos momentos certos, lembra de agendar a visita e notifica a equipe — sem depender de planilha ou memória humana.</div>
             </div>
-            <a class="flip-back-cta" href="https://wa.me/5564981337424?text=Quero%20saber%20sobre%20a%20melhoria%20do%20site%20da%20YoouFit" target="_blank">
+            <a class="flip-back-cta" href="https://wa.me/5564981337424?text=Quero%20saber%20sobre%20a%20automa%C3%A7%C3%A3o%20do%20funil%20da%20YoouFit" target="_blank">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
               Quero essa solução
             </a>
@@ -575,22 +580,23 @@
         </div>
       </div>
 
+      <!-- Card 4: Retenção com IA -->
       <div class="flip-outer" onclick="this.classList.toggle('flipped')">
         <div class="flip-inner">
           <div class="flip-face flip-front">
             <div class="op-pr me">🟡 Médio prazo</div>
-            <div class="op-t">Lançamento Digital em Nepomuceno</div>
-            <div class="op-d">Instagram local, Google Meu Negócio configurado e funil de pré-venda para construir demanda antes da abertura. Vantagem de primeiro entrante em um mercado novo.</div>
-            <div class="op-im">⚡ Dominar o mercado desde o primeiro dia</div>
+            <div class="op-t">Retenção e Reengajamento com IA</div>
+            <div class="op-d">Identificação automática de alunos com risco de cancelamento, campanhas de reengajamento personalizadas e comunicação proativa — antes de o aluno decidir sair.</div>
+            <div class="op-im">⚡ Redução de até 30% no cancelamento mensal</div>
             <div class="op-flip-hint">👆 Clique para ver a solução</div>
           </div>
           <div class="flip-face flip-back">
-            <div>
+            <div class="flip-back-body">
               <div class="flip-back-title">Como a Digital AI resolve</div>
-              <div class="flip-back-h">Presença digital local antes da abertura</div>
-              <div class="flip-back-txt">Configuramos o Google Meu Negócio, criamos o Instagram @yooufit.nepomuceno e implantamos uma lista de espera com IA para capturar interessados antes mesmo da inauguração oficial.</div>
+              <div class="flip-back-h">Agente de retenção com fluxos automatizados</div>
+              <div class="flip-back-txt">Criamos um sistema que monitora o comportamento de frequência dos alunos, dispara mensagens de reengajamento personalizadas no WhatsApp e aciona o consultor quando a situação é crítica — sem trabalho manual da equipe.</div>
             </div>
-            <a class="flip-back-cta" href="https://wa.me/5564981337424?text=Quero%20saber%20sobre%20o%20lan%C3%A7amento%20digital%20em%20Nepomuceno" target="_blank">
+            <a class="flip-back-cta" href="https://wa.me/5564981337424?text=Quero%20saber%20sobre%20reten%C3%A7%C3%A3o%20de%20alunos%20com%20IA%20para%20a%20YoouFit" target="_blank">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
               Quero essa solução
             </a>
