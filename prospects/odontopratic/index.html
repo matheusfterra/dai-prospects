@@ -166,10 +166,10 @@
       justify-content: space-between;
       align-items: center;
     }
-    .navbar-logo img { height: 32px; transition: opacity 0.3s; }
+    .navbar-logo img { height: 32px; transition: all 0.3s; }
     .navbar-cta .btn { padding: 10px 24px; font-size: 0.875rem; }
-    .navbar.scrolled .logo-negative { display: none; }
-    .navbar:not(.scrolled) .logo-primary { display: none; }
+    .navbar:not(.scrolled) .navbar-logo img { filter: brightness(0) invert(1); }
+    .logo-negative { display: none; }
 
     /* ========================================
        HERO
@@ -777,8 +777,7 @@
   <nav class="navbar" id="navbar">
     <div class="container">
       <div class="navbar-logo">
-        <img class="logo-negative" src="https://s3.amazonaws.com/cdn.digital-ai.tech/uploads/media-cortex/identity/digital-ai/logos/logo-negative.svg" alt="Digital AI" />
-        <img class="logo-primary" src="https://s3.amazonaws.com/cdn.digital-ai.tech/uploads/media-cortex/identity/digital-ai/logos/logo-primary.svg" alt="Digital AI" />
+        <img src="https://s3.amazonaws.com/cdn.digital-ai.tech/uploads/media-cortex/identity/digital-ai/logos/logo-primary.svg" alt="Digital AI" />
       </div>
       <div class="navbar-cta">
         <a href="https://wa.me/5564981337424?text=Ol%C3%A1%2C%20vim%20pela%20p%C3%A1gina%20da%20Digital%20AI%20e%20quero%20saber%20mais%20sobre%20o%20agente%20de%20IA%20para%20cl%C3%ADnicas%20odontol%C3%B3gicas." class="btn btn-primary" target="_blank" rel="noopener">Falar com Especialista</a>
@@ -1061,7 +1060,7 @@
     <div class="container">
       <div class="footer-inner">
         <div class="footer-logo">
-          <img src="https://s3.amazonaws.com/cdn.digital-ai.tech/uploads/media-cortex/identity/digital-ai/logos/logo-negative.svg" alt="Digital AI" />
+          <img src="https://s3.amazonaws.com/cdn.digital-ai.tech/uploads/media-cortex/identity/digital-ai/logos/logo-primary.svg" alt="Digital AI" style="filter: brightness(0) invert(1);" />
         </div>
         <div class="footer-text">
           <a href="https://digital-ai.tech" target="_blank" rel="noopener">digital-ai.tech</a> &mdash; Inteligencia que move negocios.
