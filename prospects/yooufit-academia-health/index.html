@@ -3,806 +3,1074 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Diagnóstico de Presença Digital — YoouFit Academia</title>
-  <meta property="og:type" content="website" />
-  <meta property="og:site_name" content="Digital Health Score · Digital AI" />
-  <meta property="og:url" content="https://yooufit-academia-health.digital-ai.tech" />
-  <meta property="og:title" content="Diagnóstico de Presença Digital — YoouFit Academia" />
-  <meta property="og:description" content="Fitness &amp; Academia · Lavras, MG · Score 68/100 · Grau C — Análise completa de Instagram, Google e Website." />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Diagnóstico de Presença Digital — YoouFit Academia" />
-  <meta name="twitter:description" content="Fitness &amp; Academia · Lavras, MG · Score 68/100 · Grau C — Análise completa de Instagram, Google e Website." />
+  <title>Diagnóstico de Saúde Digital — YoouFit Academia | Digital AI</title>
+  <meta name="description" content="Diagnóstico completo da presença digital da YoouFit Academia. Veja onde estão as oportunidades ocultas e o que está freando o crescimento." />
+  <meta property="og:title" content="Diagnóstico Digital — YoouFit Academia" />
+  <meta property="og:description" content="Score 68/100 — Saúde digital com oportunidades críticas identificadas." />
+  <meta property="og:image" content="https://s3.amazonaws.com/cdn.digital-ai.tech/uploads/media-cortex/identity/digital-ai/social/og-image.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet" />
   <style>
     :root {
-      --bg:#080808; --surface:#111111; --surface2:#181818;
-      --border:rgba(255,255,255,0.06); --gold:#C9A96E; --gold-light:#E8D4B0;
-      --text:#F0EBE3; --muted:rgba(240,235,227,0.5); --muted2:rgba(240,235,227,0.22);
-      --green:#34D399; --yellow:#FBBF24; --red:#F87171;
-      /* Grade C = yellow */
-      --grade-color: #FBBF24;
-    }
-    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-    html{background:var(--bg);scroll-behavior:smooth;overflow-x:hidden;}
-    body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);line-height:1.6;overflow-x:hidden;}
-    @keyframes fadeUp{from{opacity:0;transform:translateY(40px)}to{opacity:1;transform:translateY(0)}}
-    @keyframes fadeIn{from{opacity:0}to{opacity:1}}
-    @keyframes bounceDown{0%,100%{transform:rotate(45deg) translateY(0)}50%{transform:rotate(45deg) translateY(5px)}}
-    @keyframes pulseGold{0%,100%{box-shadow:0 0 0 0 rgba(201,169,110,.4)}60%{box-shadow:0 0 0 10px rgba(201,169,110,0)}}
-    .reveal{opacity:0;transform:translateY(36px);transition:opacity .7s ease,transform .7s ease;}.reveal.visible{opacity:1;transform:none;}
-    .d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}.d4{transition-delay:.4s}
-
-    /* ── Hero ── */
-    .hero{position:relative;height:100vh;min-height:680px;overflow:hidden;display:flex;align-items:flex-end;}
-    .hero-bg{position:absolute;inset:0;background:linear-gradient(135deg,#0a1628 0%,#0d2137 30%,#1a1a2e 60%,#0d0d0d 100%);transform:scale(1.1);will-change:transform;}
-    .hero-bg::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23C9A96E' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");}
-    .hero-gym-icon{position:absolute;top:50%;left:50%;transform:translate(-50%,-60%);font-size:280px;opacity:.03;pointer-events:none;user-select:none;line-height:1;}
-    .hero-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(8,8,8,.15) 0%,rgba(8,8,8,.05) 25%,rgba(8,8,8,.55) 65%,rgba(8,8,8,.97) 100%);}
-    .hero-content{position:relative;z-index:2;width:100%;max-width:1200px;margin:0 auto;padding:0 2rem 4rem;animation:fadeUp 1s ease .3s both;}
-    .hero-label{display:inline-flex;align-items:center;gap:.5rem;background:rgba(201,169,110,.1);border:1px solid rgba(201,169,110,.3);border-radius:100px;padding:.35rem 1rem;font-size:.62rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:1.5rem;}
-    .hero-label-dot{width:6px;height:6px;background:var(--gold);border-radius:50%;animation:pulseGold 2s infinite;}
-    .hero-name{font-family:'Playfair Display',serif;font-size:clamp(2.8rem,7vw,5.5rem);font-weight:400;line-height:1.05;margin-bottom:.5rem;}
-    .hero-name em{font-style:italic;color:var(--gold);}
-    .hero-spec{font-size:.8rem;color:var(--muted);letter-spacing:.14em;text-transform:uppercase;margin-bottom:2.5rem;}
-    .hero-score-row{display:flex;align-items:center;gap:2rem;flex-wrap:wrap;}
-    .hero-score-big{display:flex;align-items:baseline;gap:.25rem;}
-    .hero-num{font-family:'Playfair Display',serif;font-size:clamp(4rem,10vw,7rem);font-weight:700;line-height:1;color:var(--grade-color);font-variant-numeric:tabular-nums;}
-    .hero-denom{font-size:1.8rem;color:var(--muted2);}
-    .hero-grade{width:68px;height:68px;border-radius:50%;background:rgba(251,191,36,.08);border:2px solid var(--grade-color);display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:2rem;font-weight:700;color:var(--grade-color);}
-    .hero-desc{flex:1;min-width:220px;}
-    .hero-desc h3{font-size:1rem;font-weight:600;margin-bottom:.3rem;}
-    .hero-desc p{font-size:.8rem;color:var(--muted);line-height:1.6;}
-    .scroll-cue{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:.5rem;color:var(--muted2);font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;animation:fadeIn 1s ease 1.8s both;}
-    .scroll-arrow{width:18px;height:18px;border-right:1.5px solid rgba(240,235,227,.3);border-bottom:1.5px solid rgba(240,235,227,.3);transform:rotate(45deg);animation:bounceDown 2s infinite;}
-
-    @media(min-width:769px){
-      .hero{display:grid;grid-template-columns:42% 58%;grid-template-rows:100vh;height:100vh;min-height:680px;}
-      .hero-bg{position:relative!important;inset:auto!important;grid-column:1;grid-row:1;transform:none!important;overflow:hidden;min-height:100%;background:linear-gradient(160deg,#0d2137 0%,#1a1a2e 50%,#0d0d0d 100%);}
-      .hero-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(to right,transparent 55%,var(--bg) 100%);pointer-events:none;}
-      .hero-overlay{display:none!important;}
-      .hero-content{position:relative!important;grid-column:2;grid-row:1;z-index:2;background:var(--bg);display:flex!important;flex-direction:column;justify-content:flex-end;padding:3rem 4rem 5rem 3rem;max-width:none;margin:0;width:auto;}
-      .scroll-cue{display:none;}
+      --brand-primary:   #2D52EF;
+      --brand-secondary: #3B2FC9;
+      --brand-dark:      #0F1F5C;
+      --brand-accent:    #E8EEFF;
+      --brand-light:     #E8ECFD;
+      --brand-primary-rgb: 45, 82, 239;
+      --brand-dark-rgb:    15, 31, 92;
+      --color-green:  #10B981;
+      --color-yellow: #F59E0B;
+      --color-red:    #EF4444;
+      --color-gray:   #6B7280;
+      --font-heading: 'Plus Jakarta Sans', sans-serif;
+      --font-body:    'DM Sans', sans-serif;
+      --radius-sm:  4px;
+      --radius-md:  8px;
+      --radius-lg:  12px;
+      --radius-xl:  16px;
+      --radius-2xl: 24px;
+      --shadow-sm:  0 1px 3px rgba(0,0,0,.08), 0 1px 2px rgba(0,0,0,.06);
+      --shadow-md:  0 4px 6px rgba(0,0,0,.07), 0 2px 4px rgba(0,0,0,.06);
+      --shadow-lg:  0 10px 15px rgba(0,0,0,.07), 0 4px 6px rgba(0,0,0,.05);
+      --shadow-xl:  0 20px 25px rgba(0,0,0,.08), 0 10px 10px rgba(0,0,0,.04);
     }
 
-    /* ── Utilities ── */
-    .wrap{max-width:1200px;margin:0 auto;padding:0 2rem;}
-    .sec-label{font-size:.62rem;font-weight:700;letter-spacing:.26em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem;display:flex;align-items:center;gap:.75rem;}
-    .sec-label::before{content:'';width:22px;height:1px;background:var(--gold);opacity:.6;}
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-    /* ── Pillars ── */
-    .pillars-sec{padding:6rem 2rem;background:var(--surface);}
-    .pillars-head{text-align:center;margin-bottom:4rem;}
-    .pillars-head h2{font-family:'Playfair Display',serif;font-size:clamp(2rem,4.5vw,3rem);font-weight:400;line-height:1.2;margin-bottom:.8rem;}
-    .pillars-head p{font-size:.88rem;color:var(--muted);max-width:440px;margin:0 auto;}
-    .pillars-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;max-width:900px;margin:0 auto;}
-    @media(max-width:680px){.pillars-grid{grid-template-columns:1fr;}}
-    .pillar{background:var(--surface2);padding:3rem 1.5rem;text-align:center;position:relative;overflow:hidden;transition:transform .3s ease;}
-    .pillar:hover{transform:translateY(-5px);}
-    .pillar::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:var(--pc);transform:scaleX(0);transition:transform .8s cubic-bezier(.4,0,.2,1) .4s;}
-    .pillar.visible::after{transform:scaleX(1);}
-    .pillar-icon{font-size:1.8rem;margin-bottom:.75rem;opacity:.75;}
-    .pillar-label{font-size:.6rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:1.5rem;}
-    .ring{position:relative;width:120px;height:120px;margin:0 auto 1.5rem;}
-    .ring svg{width:120px;height:120px;transform:rotate(-90deg);}
-    .ring-bg{fill:none;stroke:rgba(255,255,255,.05);stroke-width:7;}
-    .ring-arc{fill:none;stroke:var(--pc);stroke-width:7;stroke-linecap:round;stroke-dasharray:339;stroke-dashoffset:339;transition:stroke-dashoffset 1.6s cubic-bezier(.4,0,.2,1);}
-    .ring-num{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;}
-    .ring-val{font-family:'Playfair Display',serif;font-size:2.2rem;font-weight:700;line-height:1;color:var(--pc);}
-    .ring-max{font-size:.62rem;color:var(--muted2);}
-    .pillar-foot strong{display:block;font-size:.85rem;font-weight:600;margin-bottom:.15rem;}
-    .pillar-foot span{font-size:.75rem;color:var(--muted);}
+    html { scroll-behavior: smooth; }
 
-    /* ── Instagram ── */
-    .insta-sec{padding:6rem 2rem;}
-    .insta-intro h2{font-family:'Playfair Display',serif;font-size:clamp(1.9rem,4vw,2.8rem);font-weight:400;line-height:1.2;margin-bottom:.8rem;}
-    .insta-intro p{font-size:.88rem;color:var(--muted);max-width:540px;line-height:1.75;}
-    .stats-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-top:2rem;}
-    @media(max-width:600px){.stats-grid{grid-template-columns:1fr;}}
+    body {
+      font-family: var(--font-body);
+      color: #1a1a2e;
+      background: #f8f9ff;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
 
-    /* ── Top 3 Posts ── */
-    .top3-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:1.5rem;}
-    @media(max-width:700px){.top3-grid{grid-template-columns:1fr;}}
-    .top3-card{display:flex;flex-direction:column;text-decoration:none;color:var(--text);background:var(--surface2);border:1px solid var(--border);overflow:hidden;transition:transform .25s ease,border-color .25s ease;}
-    .top3-card:hover{transform:translateY(-4px);border-color:rgba(201,169,110,.45);}
-    .top3-media{position:relative;width:100%;aspect-ratio:1/1;overflow:hidden;background:#0d0d0d;display:flex;align-items:center;justify-content:center;}
-    .top3-media-placeholder{width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.5rem;font-size:2.5rem;opacity:.3;}
-    .top3-media-placeholder span{font-size:.7rem;color:var(--muted);letter-spacing:.1em;text-transform:uppercase;}
-    .top3-body{padding:1rem 1.1rem;flex:1;display:flex;flex-direction:column;gap:.5rem;}
-    .top3-header{display:flex;justify-content:space-between;align-items:flex-start;}
-    .top3-badge{font-size:.55rem;letter-spacing:.12em;text-transform:uppercase;background:rgba(201,169,110,.1);color:var(--gold);border:1px solid rgba(201,169,110,.25);padding:.2rem .5rem;border-radius:2px;}
-    .top3-rank{font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:700;color:rgba(201,169,110,.2);line-height:1;}
-    .top3-caption{font-size:.75rem;color:var(--muted);line-height:1.55;flex:1;}
-    .top3-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:3px;}
-    .top3-stat{background:var(--surface);padding:.45rem .3rem;text-align:center;}
-    .top3-stat strong{display:block;font-family:'Playfair Display',serif;font-size:.95rem;font-weight:700;line-height:1.2;}
-    .top3-stat span{font-size:.5rem;color:var(--muted);letter-spacing:.09em;text-transform:uppercase;margin-top:.1rem;display:block;}
-    .top3-date{font-size:.6rem;color:var(--muted2);}
-    .insight-box{margin-top:1.5rem;padding:1.1rem 1.4rem;background:rgba(201,169,110,.05);border-left:3px solid var(--gold);display:flex;gap:.9rem;align-items:flex-start;}
-    .insight-icon{font-size:1.1rem;flex-shrink:0;margin-top:.05rem;}
-    .insight-box p{font-size:.82rem;color:var(--muted);line-height:1.65;margin:0;}
-    .insight-box strong{color:var(--text);}
+    /* ─── NAVBAR ─── */
+    .navbar {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1000;
+      padding: 16px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: all .3s ease;
+      background: transparent;
+    }
+    .navbar.scrolled {
+      background: rgba(255,255,255,.95);
+      backdrop-filter: blur(12px);
+      box-shadow: var(--shadow-md);
+    }
+    .navbar-logo img { height: 36px; }
+    .navbar-cta {
+      background: var(--brand-primary);
+      color: #fff;
+      font-family: var(--font-heading);
+      font-size: .85rem;
+      font-weight: 600;
+      padding: 10px 20px;
+      border-radius: var(--radius-xl);
+      text-decoration: none;
+      transition: all .2s;
+      border: none;
+      cursor: pointer;
+    }
+    .navbar-cta:hover { background: var(--brand-secondary); transform: translateY(-1px); }
 
-    /* ── Sentiment ── */
-    .sentiment-sec{padding:6rem 2rem;background:var(--bg);}
-    .sentiment-sec .sub{font-size:.88rem;color:var(--muted);max-width:560px;line-height:1.75;margin-top:.6rem;}
-    .sent-intro{margin-bottom:3rem;}
-    .sent-overview{display:flex;gap:0;margin-bottom:3.5rem;}
-    .sent-overview-stat{flex:1;padding:1.75rem 1.5rem;background:var(--surface);border:1px solid var(--border);text-align:center;}
-    .sent-overview-stat+.sent-overview-stat{border-left:0;}
-    .sent-big-num{display:block;font-family:'Playfair Display',serif;font-size:2.8rem;font-weight:700;line-height:1;}
-    .sent-big-label{display:block;font-size:.65rem;text-transform:uppercase;letter-spacing:.16em;color:var(--muted);margin-top:.4rem;}
-    .sent-charts{display:grid;grid-template-columns:1fr 1.5fr;gap:2rem;margin-bottom:3.5rem;align-items:start;}
-    @media(max-width:700px){.sent-charts{grid-template-columns:1fr;}.sent-overview{flex-direction:column;}}
-    .sent-chart-card{background:var(--surface);border:1px solid var(--border);padding:1.75rem;min-width:0;}
-    .sent-chart-card canvas{display:block;max-width:100%;}
-    .sent-chart-title{font-size:.75rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:1.25rem;}
-    .sent-donut-wrap{position:relative;width:160px;height:160px;margin:0 auto 1.25rem;}
-    .sent-donut-center{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;pointer-events:none;}
-    .sent-donut-pct{font-family:'Playfair Display',serif;font-size:1.75rem;font-weight:700;line-height:1;}
-    .sent-donut-sub{font-size:.6rem;color:var(--muted);text-transform:uppercase;letter-spacing:.12em;}
-    .sent-bar-wrap{position:relative;width:100%;height:190px;}
-    .sent-legend{display:flex;flex-direction:column;gap:.45rem;margin-top:1rem;}
-    .sent-leg-item{display:flex;align-items:center;gap:.6rem;font-size:.78rem;color:var(--muted);}
-    .sent-leg-item span:nth-child(2){flex:1;}
-    .sent-leg-item strong{color:var(--text);font-size:.82rem;}
-    .sent-leg-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0;}
-    .sent-comments-wrap{margin-bottom:2.5rem;}
-    .sent-comments-title{font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:400;margin-bottom:1.5rem;color:var(--text);}
-    .sent-comments-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1.25rem;}
-    .sent-comment-card{background:var(--surface);border:1px solid var(--border);padding:1.25rem;}
-    .sent-comment-badges{display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:.75rem;}
-    .sent-badge{font-size:.67rem;font-weight:600;letter-spacing:.08em;padding:.25rem .65rem;border-radius:2px;}
-    .sent-positivo{background:rgba(52,211,153,.1);color:var(--green);border:1px solid rgba(52,211,153,.2);}
-    .sent-neutro{background:rgba(240,235,227,.07);color:var(--muted);border:1px solid var(--border);}
-    .sent-cat{background:rgba(201,169,110,.08);color:var(--gold);border:1px solid rgba(201,169,110,.2);}
-    .sent-comment-text{font-size:.82rem;color:var(--muted);line-height:1.65;margin-bottom:.75rem;font-style:italic;}
-    .sent-footer{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;padding-top:2rem;border-top:1px solid var(--border);}
-    .sent-profile-link{display:inline-flex;align-items:center;gap:.5rem;background:rgba(201,169,110,.08);border:1px solid rgba(201,169,110,.25);padding:.6rem 1.25rem;font-size:.75rem;font-weight:600;color:var(--gold);text-decoration:none;letter-spacing:.1em;transition:background .2s;}
-    .sent-profile-link:hover{background:rgba(201,169,110,.15);}
-    .sent-date{font-size:.68rem;color:var(--muted2);letter-spacing:.1em;}
+    /* ─── HERO ─── */
+    .hero {
+      min-height: 100vh;
+      background: linear-gradient(135deg, var(--brand-primary) 0%, var(--brand-dark) 100%);
+      display: flex;
+      align-items: center;
+      padding: 120px 24px 80px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -20%; right: -10%;
+      width: 600px; height: 600px;
+      background: radial-gradient(circle, rgba(255,255,255,.06) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -10%; left: -5%;
+      width: 400px; height: 400px;
+      background: radial-gradient(circle, rgba(255,255,255,.04) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-inner {
+      max-width: 960px;
+      margin: 0 auto;
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255,255,255,.12);
+      border: 1px solid rgba(255,255,255,.2);
+      border-radius: 100px;
+      padding: 8px 18px;
+      margin-bottom: 32px;
+      font-size: .82rem;
+      font-weight: 600;
+      color: rgba(255,255,255,.9);
+      letter-spacing: .04em;
+      text-transform: uppercase;
+    }
+    .badge-dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: #10B981;
+      animation: pulse-green 2s infinite;
+    }
+    @keyframes pulse-green {
+      0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(16,185,129,.4); }
+      50%       { opacity: .8; box-shadow: 0 0 0 6px rgba(16,185,129,0); }
+    }
+    .hero-prospect {
+      font-family: var(--font-heading);
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      font-weight: 800;
+      color: #fff;
+      line-height: 1.15;
+      margin-bottom: 12px;
+    }
+    .hero-prospect em {
+      font-style: normal;
+      background: linear-gradient(135deg, #E8EEFF, #A5B4FC);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero-subtitle {
+      font-size: clamp(1rem, 2vw, 1.15rem);
+      color: rgba(255,255,255,.75);
+      max-width: 560px;
+      margin: 0 auto 48px;
+    }
 
-    /* ── Google ── */
-    .google-sec{padding:6rem 2rem;background:var(--surface);}
-    .google-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start;}
-    @media(max-width:780px){.google-grid{grid-template-columns:1fr;gap:2.5rem;}}
-    .google-grid h2{font-family:'Playfair Display',serif;font-size:clamp(1.9rem,4vw,2.8rem);font-weight:400;line-height:1.2;margin-bottom:.8rem;}
-    .google-grid p.sub{font-size:.88rem;color:var(--muted);margin-bottom:2rem;line-height:1.7;}
-    .checklist{display:flex;flex-direction:column;gap:.6rem;}
-    .check-row{display:flex;align-items:center;gap:.9rem;padding:.85rem 1.1rem;background:var(--surface2);border:1px solid var(--border);font-size:.83rem;}
-    .check-ico{flex-shrink:0;width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.7rem;font-weight:700;}
-    .ok{background:rgba(52,211,153,.12);color:var(--green);border:1px solid rgba(52,211,153,.25);}
-    .fail{background:rgba(248,113,113,.1);color:var(--red);border:1px solid rgba(248,113,113,.22);}
-    .warn{background:rgba(251,191,36,.1);color:var(--yellow);border:1px solid rgba(251,191,36,.22);}
-    .check-row .label strong{display:block;font-weight:500;margin-bottom:.1rem;}
-    .check-row .label span{font-size:.73rem;color:var(--muted);}
-    .g-score-box{background:var(--surface2);border:1px solid var(--border);padding:2.5rem;text-align:center;}
-    .g-score-num{font-family:'Playfair Display',serif;font-size:4.5rem;font-weight:700;line-height:1;}
-    .g-score-max{font-size:1.1rem;color:var(--muted);}
-    .g-score-lbl{font-size:.65rem;color:var(--muted);letter-spacing:.14em;text-transform:uppercase;margin-top:.4rem;}
-    .gap-box{margin-top:1.25rem;padding:1.1rem 1.25rem;background:rgba(251,191,36,.05);border-left:3px solid var(--yellow);}
-    .gap-box p{font-size:.83rem;color:var(--muted);line-height:1.65;}
-    .gap-box strong{color:var(--text);}
+    /* Score Circle */
+    .score-hero-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 24px;
+      margin-bottom: 48px;
+    }
+    .score-circle-outer {
+      position: relative;
+      width: 200px; height: 200px;
+    }
+    .score-circle-outer svg {
+      transform: rotate(-90deg);
+    }
+    .score-circle-text {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    .score-number {
+      font-family: var(--font-heading);
+      font-size: 3.5rem;
+      font-weight: 800;
+      color: #fff;
+      line-height: 1;
+    }
+    .score-total {
+      font-size: .9rem;
+      color: rgba(255,255,255,.6);
+      font-weight: 500;
+    }
+    .score-grade {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 48px; height: 48px;
+      border-radius: 50%;
+      background: #F59E0B;
+      color: #fff;
+      font-family: var(--font-heading);
+      font-size: 1.4rem;
+      font-weight: 800;
+      box-shadow: 0 4px 16px rgba(245,158,11,.4);
+    }
+    .score-label {
+      color: rgba(255,255,255,.8);
+      font-size: .95rem;
+      font-weight: 500;
+    }
 
-    /* ── Website ── */
-    .web-sec{padding:6rem 2rem;}
-    .web-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;}
-    @media(max-width:780px){.web-grid{grid-template-columns:1fr;gap:2.5rem;}}
-    .web-grid h2{font-family:'Playfair Display',serif;font-size:clamp(1.9rem,4vw,2.8rem);font-weight:400;line-height:1.2;margin-bottom:.8rem;}
-    .web-grid p.sub{font-size:.88rem;color:var(--muted);margin-bottom:1.5rem;line-height:1.7;}
-    .mockup{background:var(--surface);border:1px solid var(--border);border-radius:6px;overflow:hidden;}
-    .mbar{background:var(--surface2);padding:.65rem .9rem;display:flex;align-items:center;gap:.5rem;border-bottom:1px solid var(--border);}
-    .mdot{width:9px;height:9px;border-radius:50%;}
-    .murl{flex:1;background:rgba(255,255,255,.04);border-radius:3px;padding:.28rem .65rem;font-size:.68rem;color:var(--muted);font-family:monospace;}
-    .mbody{padding:3rem 1.5rem;text-align:center;min-height:180px;display:flex;flex-direction:column;align-items:center;justify-content:center;}
-    .web-ok{font-family:'Playfair Display',serif;font-size:3.5rem;color:var(--yellow);opacity:.7;line-height:1;}
-    .web-okt{font-size:.78rem;color:var(--muted2);margin-top:.35rem;}
-    .web-checks{display:flex;flex-direction:column;gap:.5rem;margin-top:1.5rem;}
-    .wc-row{display:flex;align-items:center;gap:.75rem;font-size:.8rem;}
+    /* Stats bar */
+    .stats-bar {
+      display: flex;
+      gap: 1px;
+      background: rgba(255,255,255,.15);
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      max-width: 640px;
+      margin: 0 auto;
+    }
+    .stat-item {
+      flex: 1;
+      padding: 20px 16px;
+      text-align: center;
+      background: rgba(255,255,255,.06);
+    }
+    .stat-value {
+      font-family: var(--font-heading);
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: #fff;
+      display: block;
+    }
+    .stat-label {
+      font-size: .78rem;
+      color: rgba(255,255,255,.6);
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: .04em;
+    }
 
-    /* ── Recommendations ── */
-    .recs-sec{padding:6rem 2rem;}
-    .recs-sec h2{font-family:'Playfair Display',serif;font-size:clamp(1.9rem,4vw,2.8rem);font-weight:400;line-height:1.2;margin-bottom:.8rem;}
-    .recs-sec p.sub{font-size:.88rem;color:var(--muted);max-width:440px;margin-bottom:3rem;}
-    .timeline{position:relative;display:flex;flex-direction:column;}
-    .timeline::before{content:'';position:absolute;left:1.75rem;top:2.5rem;bottom:2.5rem;width:1px;background:var(--border);}
-    .t-item{display:flex;gap:2rem;padding:1.75rem 0;}
-    .t-num{flex-shrink:0;width:3.5rem;height:3.5rem;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:.95rem;font-weight:600;position:relative;z-index:1;}
-    .t-body{flex:1;padding-top:.5rem;}
-    .t-impact{display:inline-block;font-size:.58rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;padding:.18rem .55rem;border-radius:2px;margin-bottom:.5rem;}
-    .t-body h3{font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:400;margin-bottom:.35rem;}
-    .t-body p{font-size:.82rem;color:var(--muted);line-height:1.7;margin-bottom:.4rem;}
-    .t-gain{font-size:.78rem;font-weight:600;}
+    /* ─── SECTION COMMONS ─── */
+    section { padding: 80px 24px; }
+    .container { max-width: 1080px; margin: 0 auto; }
+    .section-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--brand-accent);
+      color: var(--brand-primary);
+      font-size: .78rem;
+      font-weight: 700;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      padding: 6px 14px;
+      border-radius: 100px;
+      margin-bottom: 16px;
+    }
+    .section-title {
+      font-family: var(--font-heading);
+      font-size: clamp(1.6rem, 3vw, 2.2rem);
+      font-weight: 800;
+      color: var(--brand-dark);
+      line-height: 1.2;
+      margin-bottom: 12px;
+    }
+    .section-sub {
+      font-size: 1.05rem;
+      color: var(--color-gray);
+      max-width: 560px;
+    }
+    .section-header { margin-bottom: 48px; }
 
-    /* ── Projeção ── */
-    .proj-sec{padding:6rem 2rem;background:var(--surface);}
-    .proj-sec h2{font-family:'Playfair Display',serif;font-size:clamp(1.9rem,4vw,2.8rem);font-weight:400;line-height:1.2;margin-bottom:.8rem;}
-    .proj-sec p.sub{font-size:.88rem;color:var(--muted);max-width:440px;margin-bottom:3rem;}
-    .bar-group{display:flex;flex-direction:column;gap:1.75rem;}
-    .bar-head{display:flex;justify-content:space-between;margin-bottom:.5rem;}
-    .bar-label{font-size:.8rem;font-weight:500;}
-    .bar-val{font-family:'Playfair Display',serif;font-size:.95rem;font-weight:600;}
-    .bar-track{height:8px;background:rgba(255,255,255,.05);border-radius:4px;overflow:hidden;}
-    .bar-fill{height:100%;border-radius:4px;transform-origin:left;transform:scaleX(0);transition:transform 1.3s cubic-bezier(.4,0,.2,1);}
-    .bar-row.run .bar-fill{transform:scaleX(1);}
-    .proj-note{margin-top:2rem;padding:1.4rem 1.75rem;background:rgba(52,211,153,.04);border:1px solid rgba(52,211,153,.14);}
-    .proj-note p{font-size:.83rem;color:var(--muted);line-height:1.7;}
-    .proj-note strong{color:var(--text);}
+    /* ─── PILLARS ─── */
+    .pillars-section { background: #fff; }
+    .pillars-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 24px;
+    }
+    .pillar-card {
+      background: #fff;
+      border: 1px solid #E5E7EB;
+      border-radius: var(--radius-xl);
+      padding: 28px;
+      box-shadow: var(--shadow-sm);
+      transition: all .2s;
+      position: relative;
+      overflow: hidden;
+    }
+    .pillar-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-2px); }
+    .pillar-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 4px;
+    }
+    .pillar-card.green::before  { background: var(--color-green); }
+    .pillar-card.yellow::before { background: var(--color-yellow); }
+    .pillar-card.red::before    { background: var(--color-red); }
+    .pillar-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      margin-bottom: 20px;
+    }
+    .pillar-icon {
+      width: 48px; height: 48px;
+      border-radius: var(--radius-lg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+    }
+    .pillar-icon.green  { background: rgba(16,185,129,.1); }
+    .pillar-icon.yellow { background: rgba(245,158,11,.1); }
+    .pillar-icon.red    { background: rgba(239,68,68,.1); }
+    .pillar-score-wrap { text-align: right; }
+    .pillar-score {
+      font-family: var(--font-heading);
+      font-size: 1.8rem;
+      font-weight: 800;
+      line-height: 1;
+    }
+    .pillar-score.green  { color: var(--color-green); }
+    .pillar-score.yellow { color: var(--color-yellow); }
+    .pillar-score.red    { color: var(--color-red); }
+    .pillar-score-max { font-size: .8rem; color: var(--color-gray); }
+    .pillar-name {
+      font-family: var(--font-heading);
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--brand-dark);
+      margin-bottom: 8px;
+    }
+    .pillar-desc {
+      font-size: .9rem;
+      color: var(--color-gray);
+      line-height: 1.5;
+      margin-bottom: 20px;
+    }
 
-    /* ── CTA ── */
-    .cta-sec{padding:6rem 2rem;text-align:center;position:relative;overflow:hidden;}
-    .cta-sec::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 70% at 50% 110%,rgba(201,169,110,.07) 0%,transparent 60%);pointer-events:none;}
-    .cta-sec .eyebrow{font-size:.62rem;font-weight:700;letter-spacing:.26em;text-transform:uppercase;color:var(--gold);margin-bottom:1.25rem;}
-    .cta-sec h2{font-family:'Playfair Display',serif;font-size:clamp(2.2rem,6vw,4rem);font-weight:400;line-height:1.15;max-width:680px;margin:0 auto 1.25rem;}
-    .cta-sec h2 em{font-style:italic;color:var(--gold);}
-    .cta-sec p{font-size:.9rem;color:var(--muted);max-width:460px;margin:0 auto 2.5rem;line-height:1.75;}
-    .cta-btn{display:inline-flex;align-items:center;gap:.7rem;background:#25D366;color:#fff;font-weight:600;font-size:.92rem;padding:1.05rem 2.25rem;border-radius:4px;text-decoration:none;letter-spacing:.02em;transition:transform .2s ease,box-shadow .2s ease;}
-    .cta-btn:hover{transform:translateY(-2px);box-shadow:0 12px 36px rgba(37,211,102,.3);}
+    /* Progress bar */
+    .progress-bar {
+      height: 8px;
+      background: #F3F4F6;
+      border-radius: 100px;
+      overflow: hidden;
+      margin-bottom: 16px;
+    }
+    .progress-fill {
+      height: 100%;
+      border-radius: 100px;
+      transition: width .8s ease;
+    }
+    .progress-fill.green  { background: var(--color-green); }
+    .progress-fill.yellow { background: var(--color-yellow); }
+    .progress-fill.red    { background: var(--color-red); }
 
-    /* ── WhatsApp float ── */
-    .wa-float{position:fixed;bottom:1.75rem;right:1.75rem;z-index:999;width:54px;height:54px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(37,211,102,.45);transition:transform .2s ease,box-shadow .2s ease;text-decoration:none;}
-    .wa-float:hover{transform:scale(1.08);box-shadow:0 8px 24px rgba(37,211,102,.55);}
-    .wa-float svg{width:28px;height:28px;fill:#fff;}
+    /* Tags */
+    .pillar-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+    .tag {
+      font-size: .75rem;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: 100px;
+    }
+    .tag.pos { background: rgba(16,185,129,.1); color: #059669; }
+    .tag.neg { background: rgba(239,68,68,.1);  color: #DC2626; }
+    .tag.neu { background: rgba(107,114,128,.1); color: #4B5563; }
 
-    /* ── Footer ── */
-    .site-footer{padding:1.5rem 2rem;text-align:center;}
-    .f-logo{display:block;margin:0 auto;height:22px;width:auto;opacity:.45;}.f-logo-link{display:inline-block;line-height:0;}
-    
-    
+    /* ─── OPPORTUNITIES ─── */
+    .opps-section { background: var(--brand-accent); }
+    .opps-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+    .opp-card {
+      background: #fff;
+      border-radius: var(--radius-xl);
+      padding: 28px;
+      box-shadow: var(--shadow-md);
+      border-left: 4px solid var(--brand-primary);
+      transition: all .2s;
+    }
+    .opp-card:hover { box-shadow: var(--shadow-xl); transform: translateY(-2px); }
+    .opp-priority {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      font-size: .72rem;
+      font-weight: 700;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: 100px;
+      margin-bottom: 14px;
+    }
+    .opp-priority.high   { background: rgba(239,68,68,.08);   color: #DC2626; }
+    .opp-priority.medium { background: rgba(245,158,11,.08);  color: #D97706; }
+    .opp-title {
+      font-family: var(--font-heading);
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--brand-dark);
+      margin-bottom: 8px;
+    }
+    .opp-desc {
+      font-size: .9rem;
+      color: var(--color-gray);
+      line-height: 1.55;
+      margin-bottom: 16px;
+    }
+    .opp-impact {
+      font-size: .85rem;
+      color: var(--brand-primary);
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
 
-    /* ── Responsive ── */
-    @media(max-width:768px){
-      .hero-overlay{background:linear-gradient(to bottom,rgba(8,8,8,.5) 0%,rgba(8,8,8,.3) 20%,rgba(8,8,8,.75) 55%,rgba(8,8,8,.98) 100%);}
-      .hero-content{padding:0 1.25rem 3.5rem;}
-      .hero-name{font-size:clamp(2rem,8vw,3rem);}
-      .hero-score-row{flex-direction:column;gap:.75rem;align-items:flex-start;}
-      .hero-desc{display:none;}
-      .pillars-sec,.insta-sec,.google-sec,.web-sec,.recs-sec,.proj-sec,.cta-sec,.sentiment-sec{padding:3.5rem 1.25rem;}
-      .wrap{padding:0 1.25rem;}
-      .pillars-grid,.google-grid,.web-grid{grid-template-columns:1fr;gap:2rem;}
+    /* ─── ROI ─── */
+    .roi-section {
+      background: linear-gradient(135deg, var(--brand-dark) 0%, var(--brand-secondary) 100%);
+    }
+    .roi-section .section-title { color: #fff; }
+    .roi-section .section-sub   { color: rgba(255,255,255,.65); }
+    .roi-section .section-badge { background: rgba(255,255,255,.12); color: rgba(255,255,255,.9); }
+    .roi-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 24px;
+    }
+    .roi-card {
+      background: rgba(255,255,255,.07);
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: var(--radius-xl);
+      padding: 32px 24px;
+      text-align: center;
+      transition: all .2s;
+    }
+    .roi-card:hover { background: rgba(255,255,255,.12); }
+    .roi-value {
+      font-family: var(--font-heading);
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      font-weight: 800;
+      background: linear-gradient(135deg, var(--brand-accent), #A5B4FC);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      line-height: 1.1;
+      margin-bottom: 8px;
+    }
+    .roi-label {
+      font-size: .88rem;
+      color: rgba(255,255,255,.65);
+      font-weight: 500;
+    }
+
+    /* ─── DIAGNOSE SUMMARY ─── */
+    .summary-section { background: #fff; }
+    .summary-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+    }
+    @media (max-width: 768px) { .summary-grid { grid-template-columns: 1fr; } }
+    .summary-box {
+      border-radius: var(--radius-xl);
+      padding: 32px;
+    }
+    .summary-box.strengths { background: rgba(16,185,129,.06); border: 1px solid rgba(16,185,129,.2); }
+    .summary-box.gaps      { background: rgba(239,68,68,.06);  border: 1px solid rgba(239,68,68,.2);  }
+    .summary-box-title {
+      font-family: var(--font-heading);
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .summary-box.strengths .summary-box-title { color: #059669; }
+    .summary-box.gaps .summary-box-title      { color: #DC2626; }
+    .summary-list { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+    .summary-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: .92rem;
+      color: #374151;
+      line-height: 1.5;
+    }
+    .summary-list li::before {
+      content: '';
+      flex-shrink: 0;
+      width: 18px; height: 18px;
+      border-radius: 50%;
+      margin-top: 2px;
+    }
+    .strengths .summary-list li::before { background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='%2310B981'%3E%3Cpath fill-rule='evenodd' d='M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z' clip-rule='evenodd'/%3E%3C/svg%3E") center/contain no-repeat; }
+    .gaps .summary-list li::before      { background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='%23EF4444'%3E%3Cpath d='M6.28 5.22a.75.75 0 00-1.06 1.06L8.94 10l-3.72 3.72a.75.75 0 101.06 1.06L10 11.06l3.72 3.72a.75.75 0 101.06-1.06L11.06 10l3.72-3.72a.75.75 0 00-1.06-1.06L10 8.94 6.28 5.22z'/%3E%3C/svg%3E") center/contain no-repeat; }
+
+    /* ─── CTA ─── */
+    .cta-section {
+      background: linear-gradient(135deg, var(--brand-primary) 0%, var(--brand-dark) 100%);
+      text-align: center;
+    }
+    .cta-section .section-title { color: #fff; }
+    .cta-section .section-sub   { color: rgba(255,255,255,.75); margin: 0 auto 40px; }
+    .cta-section .section-badge { background: rgba(255,255,255,.15); color: rgba(255,255,255,.9); }
+    .cta-buttons {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: #25D366;
+      color: #fff;
+      font-family: var(--font-heading);
+      font-size: 1.05rem;
+      font-weight: 700;
+      padding: 18px 36px;
+      border-radius: var(--radius-2xl);
+      text-decoration: none;
+      transition: all .2s;
+      box-shadow: 0 8px 24px rgba(37,211,102,.35);
+    }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 32px rgba(37,211,102,.45); }
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(255,255,255,.12);
+      border: 1px solid rgba(255,255,255,.25);
+      color: #fff;
+      font-family: var(--font-heading);
+      font-size: 1.05rem;
+      font-weight: 600;
+      padding: 18px 36px;
+      border-radius: var(--radius-2xl);
+      text-decoration: none;
+      transition: all .2s;
+    }
+    .btn-secondary:hover { background: rgba(255,255,255,.2); }
+    .cta-guarantee {
+      margin-top: 24px;
+      font-size: .85rem;
+      color: rgba(255,255,255,.55);
+    }
+
+    /* ─── FOOTER ─── */
+    .footer {
+      background: linear-gradient(135deg, #0a1540 0%, #0F1F5C 100%);
+      padding: 48px 24px 32px;
+    }
+    .footer-inner {
+      max-width: 1080px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr;
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+    @media (max-width: 768px) {
+      .footer-inner { grid-template-columns: 1fr; gap: 32px; }
+    }
+    .footer-logo { margin-bottom: 12px; }
+    .footer-logo img { height: 32px; filter: brightness(0) invert(1); opacity: .85; }
+    .footer-brand-desc { font-size: .88rem; color: rgba(255,255,255,.5); line-height: 1.6; max-width: 280px; }
+    .footer-col-title {
+      font-family: var(--font-heading);
+      font-size: .8rem;
+      font-weight: 700;
+      color: rgba(255,255,255,.4);
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+    .footer-col-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .footer-col-list a { color: rgba(255,255,255,.65); font-size: .9rem; text-decoration: none; transition: color .2s; }
+    .footer-col-list a:hover { color: #fff; }
+    .footer-divider { border: none; border-top: 1px solid rgba(255,255,255,.08); margin-bottom: 24px; }
+    .footer-bottom {
+      max-width: 1080px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .footer-copy { font-size: .82rem; color: rgba(255,255,255,.35); }
+    .footer-made {
+      font-size: .82rem;
+      color: rgba(255,255,255,.35);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .footer-made a { color: rgba(255,255,255,.5); text-decoration: none; }
+    .footer-made a:hover { color: rgba(255,255,255,.8); }
+
+    /* ─── FLOATING WA ─── */
+    .float-wa {
+      position: fixed;
+      bottom: 28px; right: 28px;
+      z-index: 999;
+      width: 60px; height: 60px;
+      background: #25D366;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 6px 24px rgba(37,211,102,.45);
+      text-decoration: none;
+      transition: all .2s;
+      animation: float-bounce 3s ease-in-out infinite;
+    }
+    .float-wa:hover { transform: scale(1.1); box-shadow: 0 8px 32px rgba(37,211,102,.55); }
+    @keyframes float-bounce {
+      0%, 100% { transform: translateY(0); }
+      50%       { transform: translateY(-6px); }
+    }
+    .float-wa svg { width: 28px; height: 28px; fill: #fff; }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 768px) {
+      section { padding: 60px 20px; }
+      .stats-bar { flex-direction: column; }
+      .pillars-grid { grid-template-columns: 1fr; }
+      .roi-grid { grid-template-columns: 1fr 1fr; }
+      .opps-grid { grid-template-columns: 1fr; }
+      .cta-buttons { flex-direction: column; align-items: center; }
+    }
+
+    /* ─── SCORE RING ANIMATION ─── */
+    .ring-progress {
+      stroke-dasharray: 502;
+      stroke-dashoffset: 502;
+      animation: ring-fill 1.5s ease forwards .5s;
+    }
+    @keyframes ring-fill {
+      to { stroke-dashoffset: 163; } /* 502 * (1 - 0.68) = 160.6 */
     }
   </style>
-  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
 </head>
 <body>
 
-<!-- WhatsApp float -->
-<a class="wa-float" href="https://wa.me/5535991980647?text=Ol%C3%A1%2C%20vi%20o%20diagn%C3%B3stico%20digital%20da%20YoouFit%20Academia%20e%20gostaria%20de%20entender%20como%20melhorar%20esses%20n%C3%BAmeros." target="_blank" rel="noopener" title="Fale com a Digital AI">
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-</a>
+<!-- NAVBAR -->
+<nav class="navbar" id="navbar">
+  <div class="navbar-logo">
+    <img src="https://s3.amazonaws.com/cdn.digital-ai.tech/uploads/media-cortex/identity/digital-ai/logos/primary.png"
+         alt="Digital AI"
+         onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
+    <span style="display:none; font-family: var(--font-heading); font-weight:800; color:#fff; font-size:1.1rem;">Digital AI</span>
+  </div>
+  <a class="navbar-cta" href="https://wa.me/5564999999999?text=Ol%C3%A1%2C%20quero%20saber%20mais%20sobre%20o%20diagn%C3%B3stico%20digital" target="_blank">
+    Falar com Especialista
+  </a>
+</nav>
 
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-bg">
-    <div class="hero-gym-icon">🏋️</div>
-  </div>
-  <div class="hero-overlay"></div>
-  <div class="hero-content">
-    <div class="hero-label">
-      <div class="hero-label-dot"></div>
-      Diagnóstico · Digital Health Score v1.0
+  <div class="hero-inner">
+    <div class="hero-badge">
+      <span class="badge-dot"></span>
+      Diagnóstico de Saúde Digital
     </div>
-    <h1 class="hero-name"><em>YoouFit</em> Academia</h1>
-    <p class="hero-spec">Fitness &amp; Academia · Lavras, MG · 2 unidades · @yooufitacademia</p>
-    <div class="hero-score-row">
-      <div class="hero-score-big">
-        <span class="hero-num" id="heroNum">0</span>
-        <span class="hero-denom">/100</span>
+
+    <h1 class="hero-prospect">
+      <em>YoouFit Academia</em><br />
+      Seu Relatório Está Pronto
+    </h1>
+
+    <p class="hero-subtitle">
+      Analisamos sua presença digital em 5 pilares estratégicos.
+      Veja onde você está forte, onde há brechas e — mais importante — onde está o dinheiro que você está deixando na mesa.
+    </p>
+
+    <!-- Score Ring -->
+    <div class="score-hero-wrap">
+      <div style="display:flex; align-items:center; gap:32px; flex-wrap:wrap; justify-content:center;">
+        <div class="score-circle-outer">
+          <svg width="200" height="200" viewBox="0 0 200 200">
+            <circle cx="100" cy="100" r="80" fill="none" stroke="rgba(255,255,255,.12)" stroke-width="14" />
+            <circle class="ring-progress" cx="100" cy="100" r="80"
+              fill="none"
+              stroke="#F59E0B"
+              stroke-width="14"
+              stroke-linecap="round" />
+          </svg>
+          <div class="score-circle-text">
+            <span class="score-number">68</span>
+            <span class="score-total">/100</span>
+          </div>
+        </div>
+        <div style="text-align:left;">
+          <div style="display:flex; align-items:center; gap:12px; margin-bottom:12px;">
+            <span class="score-grade">C</span>
+            <div>
+              <div style="font-family:var(--font-heading); font-weight:700; color:#fff; font-size:1.1rem;">Grau C</div>
+              <div style="font-size:.85rem; color:rgba(255,255,255,.6);">Médio — com lacunas críticas</div>
+            </div>
+          </div>
+          <p style="font-size:.9rem; color:rgba(255,255,255,.65); max-width:260px; line-height:1.6;">
+            Você tem pontos fortes reais — mas 2 pilares estão travando seu crescimento silenciosamente.
+          </p>
+        </div>
       </div>
-      <div class="hero-grade">C</div>
-      <div class="hero-desc">
-        <h3>Presença regular — oportunidades significativas</h3>
-        <p>Base sólida no Instagram e Google. O potencial de crescimento está em engajamento sistematizado, SEO local e automação de atendimento.</p>
+    </div>
+
+    <!-- Stats Bar -->
+    <div class="stats-bar">
+      <div class="stat-item">
+        <span class="stat-value">13K</span>
+        <span class="stat-label">Seguidores IG</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-value">4,79★</span>
+        <span class="stat-label">Google</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-value">3 un.</span>
+        <span class="stat-label">Unidades</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-value">0</span>
+        <span class="stat-label">Automações</span>
       </div>
     </div>
   </div>
-  <div class="scroll-cue"><span>Scroll</span><div class="scroll-arrow"></div></div>
 </section>
 
 <!-- PILLARS -->
-<section class="pillars-sec">
-  <div class="wrap">
-    <div class="pillars-head reveal">
-      <div class="sec-label">Diagnóstico por Pilar</div>
-      <h2>Três pilares.<br><em style="font-style:italic">Três oportunidades.</em></h2>
-      <p>Instagram, Google e Website — cada um com peso diferente no score total de presença digital.</p>
+<section class="pillars-section">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-badge">📊 Os 5 Pilares</div>
+      <h2 class="section-title">Análise Completa por Pilar</h2>
+      <p class="section-sub">Avaliamos cada dimensão da sua presença digital de forma independente para identificar exatamente onde agir.</p>
     </div>
+
     <div class="pillars-grid">
-      <!-- Instagram: 26/40 - yellow -->
-      <div class="pillar reveal d1" style="--pc:#FBBF24">
-        <div class="pillar-icon">📱</div>
-        <p class="pillar-label">Instagram</p>
-        <div class="ring">
-          <svg viewBox="0 0 120 120"><circle class="ring-bg" cx="60" cy="60" r="54"/><circle class="ring-arc" cx="60" cy="60" r="54" data-s="26" data-m="40" style="stroke:#FBBF24"/></svg>
-          <div class="ring-num"><span class="ring-val" style="color:#FBBF24" data-t="26">0</span><span class="ring-max">/ 40</span></div>
+
+      <!-- Pilar 1: Google -->
+      <div class="pillar-card green">
+        <div class="pillar-header">
+          <div class="pillar-icon green">⭐</div>
+          <div class="pillar-score-wrap">
+            <div class="pillar-score green">22</div>
+            <div class="pillar-score-max">/25 pontos</div>
+          </div>
         </div>
-        <div class="pillar-foot"><strong>Ativo, mas pode mais</strong><span>13K seguidores · 808 posts · engajamento a otimizar</span></div>
+        <div class="pillar-name">Google Meu Negócio</div>
+        <div class="pillar-desc">
+          Sua presença no Google é o seu maior ativo digital. 4,79 estrelas com 291+ avaliações é um número excepcional — você está na elite das academias da região.
+        </div>
+        <div class="progress-bar">
+          <div class="progress-fill green" style="width: 88%;"></div>
+        </div>
+        <div class="pillar-tags">
+          <span class="tag pos">4,79★ — Excelente</span>
+          <span class="tag pos">291+ avaliações</span>
+          <span class="tag neu">3 locais listados</span>
+        </div>
       </div>
-      <!-- Google: 27/35 - green -->
-      <div class="pillar reveal d2" style="--pc:#34D399">
-        <div class="pillar-icon">🔍</div>
-        <p class="pillar-label">Google</p>
-        <div class="ring">
-          <svg viewBox="0 0 120 120"><circle class="ring-bg" cx="60" cy="60" r="54"/><circle class="ring-arc" cx="60" cy="60" r="54" data-s="27" data-m="35" style="stroke:#34D399"/></svg>
-          <div class="ring-num"><span class="ring-val" style="color:#34D399" data-t="27">0</span><span class="ring-max">/ 35</span></div>
+
+      <!-- Pilar 2: Instagram -->
+      <div class="pillar-card green">
+        <div class="pillar-header">
+          <div class="pillar-icon green">📱</div>
+          <div class="pillar-score-wrap">
+            <div class="pillar-score green">20</div>
+            <div class="pillar-score-max">/25 pontos</div>
+          </div>
         </div>
-        <div class="pillar-foot"><strong>Reputação forte</strong><span>GMB ativo · 4.79★ · 291+ avaliações</span></div>
+        <div class="pillar-name">Presença no Instagram</div>
+        <div class="pillar-desc">
+          Com 13K seguidores e 808 posts, você tem consistência e audiência. A presença de múltiplas contas por unidade mostra maturidade de conteúdo.
+        </div>
+        <div class="progress-bar">
+          <div class="progress-fill green" style="width: 80%;"></div>
+        </div>
+        <div class="pillar-tags">
+          <span class="tag pos">13K seguidores</span>
+          <span class="tag pos">808 posts</span>
+          <span class="tag neu">@yooufitacademia</span>
+        </div>
       </div>
-      <!-- Website: 15/25 - yellow -->
-      <div class="pillar reveal d3" style="--pc:#FBBF24">
-        <div class="pillar-icon">🌐</div>
-        <p class="pillar-label">Website</p>
-        <div class="ring">
-          <svg viewBox="0 0 120 120"><circle class="ring-bg" cx="60" cy="60" r="54"/><circle class="ring-arc" cx="60" cy="60" r="54" data-s="15" data-m="25" style="stroke:#FBBF24"/></svg>
-          <div class="ring-num"><span class="ring-val" style="color:#FBBF24" data-t="15">0</span><span class="ring-max">/ 25</span></div>
+
+      <!-- Pilar 3: Website -->
+      <div class="pillar-card yellow">
+        <div class="pillar-header">
+          <div class="pillar-icon yellow">🌐</div>
+          <div class="pillar-score-wrap">
+            <div class="pillar-score yellow">13</div>
+            <div class="pillar-score-max">/25 pontos</div>
+          </div>
         </div>
-        <div class="pillar-foot"><strong>Base funcional, SEO fraco</strong><span>Site existe mas não gera leads orgânicos</span></div>
+        <div class="pillar-name">Website & Conversão</div>
+        <div class="pillar-desc">
+          O site existe, mas não trabalha por você. Visitantes chegam via Google, não encontram um motivo claro para agir e saem. Tráfego sendo desperdiçado.
+        </div>
+        <div class="progress-bar">
+          <div class="progress-fill yellow" style="width: 52%;"></div>
+        </div>
+        <div class="pillar-tags">
+          <span class="tag neg">Sem CTAs claros</span>
+          <span class="tag neg">Sem captura de leads</span>
+          <span class="tag neu">yooufitacademia.com.br</span>
+        </div>
+      </div>
+
+      <!-- Pilar 4: Automação -->
+      <div class="pillar-card red">
+        <div class="pillar-header">
+          <div class="pillar-icon red">🤖</div>
+          <div class="pillar-score-wrap">
+            <div class="pillar-score red">7</div>
+            <div class="pillar-score-max">/25 pontos</div>
+          </div>
+        </div>
+        <div class="pillar-name">Automação de Atendimento</div>
+        <div class="pillar-desc">
+          ⚠️ Ponto crítico. O WhatsApp é respondido manualmente — cada mensagem perdida fora do horário comercial é um aluno que vai para o concorrente.
+        </div>
+        <div class="progress-bar">
+          <div class="progress-fill red" style="width: 28%;"></div>
+        </div>
+        <div class="pillar-tags">
+          <span class="tag neg">WhatsApp 100% manual</span>
+          <span class="tag neg">Sem chatbot</span>
+          <span class="tag neg">Sem resposta automática</span>
+        </div>
+      </div>
+
+      <!-- Pilar 5: Captação -->
+      <div class="pillar-card red" style="grid-column: span 1;">
+        <div class="pillar-header">
+          <div class="pillar-icon red">🎯</div>
+          <div class="pillar-score-wrap">
+            <div class="pillar-score red">6</div>
+            <div class="pillar-score-max">/25 pontos</div>
+          </div>
+        </div>
+        <div class="pillar-name">Estratégia de Captação Digital</div>
+        <div class="pillar-desc">
+          ⚠️ Ponto crítico. Não há funil estruturado para capturar os picos de demanda (UFLA — 5.600+ alunos em fev/ago). Oportunidade sazonal desperdiçada todo semestre.
+        </div>
+        <div class="progress-bar">
+          <div class="progress-fill red" style="width: 24%;"></div>
+        </div>
+        <div class="pillar-tags">
+          <span class="tag neg">Sem funil digital</span>
+          <span class="tag neg">Sem landing pages</span>
+          <span class="tag neg">Picos UFLA não capturados</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- STRENGTHS & GAPS -->
+<section class="summary-section">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-badge">🔍 Resumo do Diagnóstico</div>
+      <h2 class="section-title">O Que Está Funcionando e Onde Estão as Brechas</h2>
+    </div>
+    <div class="summary-grid">
+      <div class="summary-box strengths">
+        <div class="summary-box-title">✅ Pontos Fortes</div>
+        <ul class="summary-list">
+          <li>Reputação Google excepcional: 4,79★ com 291+ avaliações — top 5% das academias de MG</li>
+          <li>Audiência consolidada no Instagram com 13K seguidores e histórico de conteúdo consistente</li>
+          <li>Metodologia diferenciada: "Método Anti-Academia" com identidade visual clara</li>
+          <li>Expansão regional validada: 3 unidades em 2 cidades (Lavras + Nepomuceno)</li>
+          <li>Visão de liderança clara: Carlos Garcia com mentalidade early adopter de tecnologia</li>
+          <li>Base de avaliações orgânicas que gera confiança e SEO local</li>
+        </ul>
+      </div>
+      <div class="summary-box gaps">
+        <div class="summary-box-title">❌ Lacunas Críticas</div>
+        <ul class="summary-list">
+          <li>WhatsApp sem automação: mensagens recebidas fora do horário = aluno perdido para concorrência</li>
+          <li>Website sem funil de conversão: visitantes chegam via Google e saem sem agir</li>
+          <li>Pico UFLA (fev/ago — 5.600+ alunos) sem estratégia digital de captação estruturada</li>
+          <li>Sem landing pages por unidade ou campanha sazonal para capturar demanda específica</li>
+          <li>Sem qualificação automática de leads: equipe perde tempo com triagem manual</li>
+          <li>Expansão para Nepomuceno sem suporte digital de captação estruturado</li>
+        </ul>
       </div>
     </div>
   </div>
 </section>
 
-<!-- INSTAGRAM -->
-<section class="insta-sec">
-  <div class="wrap">
-    <div class="insta-intro reveal">
-      <div class="sec-label">Pilar 1 · Instagram</div>
-      <h2><em style="font-family:'Playfair Display',serif;font-style:italic">@yooufitacademia</em><br>Comunidade ativa que ainda não captura todo seu potencial.</h2>
-      <p>Com 13 mil seguidores e histórico de 808 publicações ao longo de 5 anos, a YoouFit tem uma base sólida no Instagram. A oportunidade está em engajamento mais sistemático com a audiência existente — respostas a comentários, frequência otimizada e conteúdo de alto impacto para alcançar novos alunos em Lavras.</p>
+<!-- OPPORTUNITIES -->
+<section class="opps-section">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-badge">💡 Oportunidades</div>
+      <h2 class="section-title">O Que Pode Ser Destravado Agora</h2>
+      <p class="section-sub">Cada oportunidade abaixo representa receita ou eficiência operacional sendo desperdiçada hoje.</p>
     </div>
-    <div class="stats-grid reveal">
-      <div style="background:var(--surface2);border:1px solid var(--border);padding:2rem 1.5rem;text-align:center;">
-        <div style="font-family:'Playfair Display',serif;font-size:2.2rem;font-weight:700;color:#FBBF24">13K</div>
-        <div style="font-size:.62rem;color:var(--muted);letter-spacing:.14em;text-transform:uppercase;margin-top:.4rem">Seguidores</div>
-      </div>
-      <div style="background:var(--surface2);border:1px solid var(--border);padding:2rem 1.5rem;text-align:center;">
-        <div style="font-family:'Playfair Display',serif;font-size:2.2rem;font-weight:700;color:#FBBF24">808</div>
-        <div style="font-size:.62rem;color:var(--muted);letter-spacing:.14em;text-transform:uppercase;margin-top:.4rem">Publicações</div>
-      </div>
-      <div style="background:var(--surface2);border:1px solid var(--border);padding:2rem 1.5rem;text-align:center;">
-        <div style="font-family:'Playfair Display',serif;font-size:2.2rem;font-weight:700;color:#FBBF24">~2%</div>
-        <div style="font-size:.62rem;color:var(--muted);letter-spacing:.14em;text-transform:uppercase;margin-top:.4rem">Engajamento est.</div>
-      </div>
-    </div>
-    <div class="reveal" style="margin-top:1.25rem;padding:1.1rem 1.25rem;background:rgba(255,255,255,.02);border-left:3px solid #FBBF24;">
-      <p style="font-size:.83rem;color:var(--muted);line-height:1.65">Score Instagram: <strong style="color:#FBBF24">26 / 40 pts</strong> · Conta ativa com boa frequência (≈3x/semana) e sentimento positivo nas avaliações externas. Engajamento médio do setor com espaço para crescimento via estratégia de conteúdo e automação de respostas.</p>
-    </div>
+    <div class="opps-grid">
 
-    <div class="reveal" style="margin-top:2.5rem;">
-      <div class="sec-label" style="margin-bottom:1.25rem;">Top 3 · Tipos de Conteúdo Identificados</div>
-      <div class="top3-grid">
-        <!-- Post 1 -->
-        <a class="top3-card reveal d1" href="https://www.instagram.com/yooufitacademia/" target="_blank" rel="noopener">
-          <div class="top3-media" style="background:linear-gradient(135deg,#1a1a2e,#2d1b4e);">
-            <div class="top3-media-placeholder">
-              🎬<span>Reels</span>
-            </div>
-          </div>
-          <div class="top3-body">
-            <div class="top3-header"><span class="top3-badge">Reel</span><span class="top3-rank">#1</span></div>
-            <div class="top3-caption">Conteúdo de treino e motivação — formato que mais engaja no fitness</div>
-            <div class="top3-stats">
-              <div class="top3-stat"><strong>~500</strong><span>❤ likes</span></div>
-              <div class="top3-stat"><strong>~25</strong><span>💬 coments</span></div>
-              <div class="top3-stat"><strong>4.0%</strong><span>eng.</span></div>
-            </div>
-            <div class="top3-date">estimativa baseada em benchmarks do setor</div>
-          </div>
-        </a>
-        <!-- Post 2 -->
-        <a class="top3-card reveal d2" href="https://www.instagram.com/yooufitacademia/" target="_blank" rel="noopener">
-          <div class="top3-media" style="background:linear-gradient(135deg,#1a2e1a,#1e3a1e);">
-            <div class="top3-media-placeholder">
-              🖼️<span>Carrossel</span>
-            </div>
-          </div>
-          <div class="top3-body">
-            <div class="top3-header"><span class="top3-badge">Carrossel</span><span class="top3-rank">#2</span></div>
-            <div class="top3-caption">Resultados de alunos e dicas de treino — alto compartilhamento</div>
-            <div class="top3-stats">
-              <div class="top3-stat"><strong>~380</strong><span>❤ likes</span></div>
-              <div class="top3-stat"><strong>~18</strong><span>💬 coments</span></div>
-              <div class="top3-stat"><strong>3.1%</strong><span>eng.</span></div>
-            </div>
-            <div class="top3-date">estimativa baseada em benchmarks do setor</div>
-          </div>
-        </a>
-        <!-- Post 3 -->
-        <a class="top3-card reveal d3" href="https://www.instagram.com/yooufitacademia/" target="_blank" rel="noopener">
-          <div class="top3-media" style="background:linear-gradient(135deg,#2e1a0e,#3a2210);">
-            <div class="top3-media-placeholder">
-              📸<span>Foto</span>
-            </div>
-          </div>
-          <div class="top3-body">
-            <div class="top3-header"><span class="top3-badge">Foto</span><span class="top3-rank">#3</span></div>
-            <div class="top3-caption">Estrutura da academia e ambiente — conteúdo institucional relevante</div>
-            <div class="top3-stats">
-              <div class="top3-stat"><strong>~280</strong><span>❤ likes</span></div>
-              <div class="top3-stat"><strong>~12</strong><span>💬 coments</span></div>
-              <div class="top3-stat"><strong>2.2%</strong><span>eng.</span></div>
-            </div>
-            <div class="top3-date">estimativa baseada em benchmarks do setor</div>
-          </div>
-        </a>
+      <div class="opp-card">
+        <div class="opp-priority high">🔴 Urgência Alta</div>
+        <div class="opp-title">Agente de IA no WhatsApp</div>
+        <div class="opp-desc">
+          Resposta imediata 24/7 para leads entrantes. Qualificação automática por perfil comportamental — a visão que Carlos Garcia declarou publicamente. Primeiro passo para se tornar a primeira academia do Brasil com atendimento por perfil comportamental.
+        </div>
+        <div class="opp-impact">⚡ +25-40% em conversão de leads</div>
       </div>
-      <div class="insight-box reveal d3">
-        <div class="insight-icon">💡</div>
-        <p><strong>Padrão identificado:</strong> Contas de academia com 10K–20K seguidores no Brasil atingem 2–4% de engajamento médio. Com 200+ aulas/mês oferecidas e 2 unidades, há conteúdo suficiente para uma estratégia robusta de Reels e carrosseis. A principal lacuna é a sistematização das respostas a comentários — fator crítico para o algoritmo do Instagram.</p>
+
+      <div class="opp-card">
+        <div class="opp-priority high">🔴 Urgência Alta</div>
+        <div class="opp-title">Funil UFLA — Picos Sazonais</div>
+        <div class="opp-desc">
+          Landing page + campanha específica para os 5.600+ alunos da UFLA que chegam em fevereiro e agosto. Capturar esse fluxo sem precisar contratar mais equipe. ROI potencial: dezenas de matrículas por semestre.
+        </div>
+        <div class="opp-impact">⚡ Capturar pico sazonal sem aumentar headcount</div>
       </div>
+
+      <div class="opp-card">
+        <div class="opp-priority medium">🟡 Médio Prazo</div>
+        <div class="opp-title">Site com Conversão</div>
+        <div class="opp-desc">
+          Transformar o site em máquina de captura: formulários de interesse, agendamento de visita, landing page por unidade. Cada visitante que chega via Google vira um lead em vez de bounce.
+        </div>
+        <div class="opp-impact">⚡ Zerar desperdício de tráfego orgânico</div>
+      </div>
+
+      <div class="opp-card">
+        <div class="opp-priority medium">🟡 Médio Prazo</div>
+        <div class="opp-title">Expansão Nepomuceno</div>
+        <div class="opp-desc">
+          A nova unidade de Nepomuceno precisa de presença digital própria. Instagram local, Google Meu Negócio configurado e funil de pré-venda para construir demanda antes da abertura oficial.
+        </div>
+        <div class="opp-impact">⚡ Diferencial absoluto em mercado novo</div>
+      </div>
+
     </div>
   </div>
 </section>
 
-<!-- SENTIMENT -->
-<section class="sentiment-sec">
-  <div class="wrap">
-    <div class="sent-intro">
-      <div class="sec-label reveal">Voz do Público · Avaliações Online</div>
-      <h2 class="reveal">O que as pessoas<br>estão dizendo.<br><em style="font-family:'Playfair Display',serif;font-style:italic">Experiência altamente positiva.</em></h2>
-      <p class="sub reveal">Análise de 296 avaliações nas plataformas Wellhub (Gympass), FitFit e Google. A YoouFit Academia tem uma das melhores reputações entre academias de Lavras — dado valioso que pode ser amplificado digitalmente.</p>
+<!-- ROI -->
+<section class="roi-section">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-badge">📈 Impacto Estimado</div>
+      <h2 class="section-title">O Que Pode Mudar com IA</h2>
+      <p class="section-sub">Baseado em casos reais de academias com perfil similar ao da YoouFit.</p>
     </div>
-
-    <div class="sent-overview reveal d2">
-      <div class="sent-overview-stat">
-        <span class="sent-big-num" style="color:var(--gold)">296</span>
-        <span class="sent-big-label">avaliações analisadas</span>
+    <div class="roi-grid">
+      <div class="roi-card">
+        <div class="roi-value">+35%</div>
+        <div class="roi-label">Conversão de Leads via WhatsApp com Resposta Imediata</div>
       </div>
-      <div class="sent-overview-stat">
-        <span class="sent-big-num" style="color:var(--green)">281</span>
-        <span class="sent-big-label">positivas (95%)</span>
+      <div class="roi-card">
+        <div class="roi-value">24/7</div>
+        <div class="roi-label">Atendimento Ativo sem Aumentar Equipe</div>
       </div>
-      <div class="sent-overview-stat">
-        <span class="sent-big-num" style="color:var(--gold)">4.79★</span>
-        <span class="sent-big-label">nota média Wellhub</span>
+      <div class="roi-card">
+        <div class="roi-value">5.600+</div>
+        <div class="roi-label">Alunos UFLA no Radar a Cada Semestre</div>
       </div>
-    </div>
-
-    <div class="sent-charts reveal d3">
-      <div class="sent-chart-card">
-        <h3 class="sent-chart-title">Sentimento</h3>
-        <div class="sent-donut-wrap">
-          <canvas id="sentDonut_yooufit"></canvas>
-          <div class="sent-donut-center">
-            <span class="sent-donut-pct" style="color:var(--green)">95%</span>
-            <span class="sent-donut-sub">positivo</span>
-          </div>
-        </div>
-        <div class="sent-legend">
-          <div class="sent-leg-item"><span class="sent-leg-dot" style="background:var(--green)"></span><span>Positivo</span><strong>281</strong></div>
-          <div class="sent-leg-item"><span class="sent-leg-dot" style="background:var(--muted2)"></span><span>Neutro</span><strong>10</strong></div>
-          <div class="sent-leg-item"><span class="sent-leg-dot" style="background:var(--yellow)"></span><span>Misto</span><strong>4</strong></div>
-          <div class="sent-leg-item"><span class="sent-leg-dot" style="background:var(--red)"></span><span>Negativo</span><strong>1</strong></div>
-        </div>
-      </div>
-
-      <div class="sent-chart-card">
-        <h3 class="sent-chart-title">O que mais elogiam</h3>
-        <div class="sent-bar-wrap"><canvas id="sentBar_yooufit"></canvas></div>
-        <div class="sent-legend">
-          <div class="sent-leg-item"><span class="sent-leg-dot" style="background:var(--gold)"></span><span>Estrutura e equipamentos</span><strong>142</strong></div>
-          <div class="sent-leg-item"><span class="sent-leg-dot" style="background:rgba(201,169,110,0.45)"></span><span>Professores e equipe</span><strong>118</strong></div>
-          <div class="sent-leg-item"><span class="sent-leg-dot" style="background:rgba(255,255,255,0.3)"></span><span>Limpeza e ambiente</span><strong>89</strong></div>
-          <div class="sent-leg-item"><span class="sent-leg-dot" style="background:var(--red)"></span><span>Reclamação / problema</span><strong>1</strong></div>
-        </div>
+      <div class="roi-card">
+        <div class="roi-value">3 min</div>
+        <div class="roi-label">Tempo Médio de Resposta com Automação vs. Horas sem ela</div>
       </div>
     </div>
+    <p style="text-align:center; margin-top:32px; font-size:.82rem; color:rgba(255,255,255,.35);">
+      * Estimativas baseadas em benchmarks de academias com perfil similar. Resultados reais variam conforme execução e contexto local.
+    </p>
+  </div>
+</section>
 
-    <div class="sent-comments-wrap">
-      <h3 class="sent-comments-title reveal d2">Avaliações em destaque</h3>
-      <div class="sent-comments-grid">
-        <div class="sent-comment-card reveal d1">
-          <div class="sent-comment-badges">
-            <span class="sent-badge sent-positivo">😊 Positivo</span>
-            <span class="sent-badge sent-cat">Estrutura</span>
-          </div>
-          <p class="sent-comment-text">"Academia ampla, limpa, com aparelhos modernos, professores competentes e atenciosos."</p>
-          <a class="sent-comment-link" href="https://br.fitfit.fitness/pt/i/7831-yooufit-academia/" target="_blank" rel="noopener">Ver plataforma ↗</a>
-        </div>
-        <div class="sent-comment-card reveal d2">
-          <div class="sent-comment-badges">
-            <span class="sent-badge sent-positivo">😊 Positivo</span>
-            <span class="sent-badge sent-cat">Equipe</span>
-          </div>
-          <p class="sent-comment-text">"Equipamentos novos, excelentes instrutores e ambiente limpo. Super recomendo!"</p>
-          <a class="sent-comment-link" href="https://br.fitfit.fitness/pt/i/7831-yooufit-academia/" target="_blank" rel="noopener">Ver plataforma ↗</a>
-        </div>
-        <div class="sent-comment-card reveal d3">
-          <div class="sent-comment-badges">
-            <span class="sent-badge sent-positivo">😊 Positivo</span>
-            <span class="sent-badge sent-cat">Recomendação</span>
-          </div>
-          <p class="sent-comment-text">"Eu amo!!! Muito boa!! Super indico!! Professores muito atenciosos e ambiente aconchegante."</p>
-          <a class="sent-comment-link" href="https://wellhub.com/pt-br/search/partners/yooufit-academia/" target="_blank" rel="noopener">Ver Wellhub ↗</a>
-        </div>
-        <div class="sent-comment-card reveal d4">
-          <div class="sent-comment-badges">
-            <span class="sent-badge sent-positivo">😊 Positivo</span>
-            <span class="sent-badge sent-cat">Aulas em grupo</span>
-          </div>
-          <p class="sent-comment-text">"A maior variedade de aulas em grupo da cidade — mais de 200 aulas por mês. Ótimo custo-benefício para Lavras."</p>
-          <a class="sent-comment-link" href="https://wellhub.com/pt-br/search/partners/yooufit-academia/" target="_blank" rel="noopener">Ver Wellhub ↗</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="sent-footer reveal d3">
-      <a class="sent-profile-link" href="https://www.instagram.com/yooufitacademia/" target="_blank" rel="noopener">
-        Ver perfil @yooufitacademia ↗
+<!-- CTA -->
+<section class="cta-section">
+  <div class="container" style="text-align:center;">
+    <div class="section-badge">🚀 Próximo Passo</div>
+    <h2 class="section-title" style="margin: 0 auto 16px;">Pronto para Transformar o Score 68 em 95+?</h2>
+    <p class="section-sub">
+      Não é sobre amar academia — é sobre amar viver. E a sua operação merece tecnologia que reflete essa filosofia. Vamos conversar sobre como a IA pode destravar o crescimento da YoouFit.
+    </p>
+    <div class="cta-buttons">
+      <a class="btn-primary"
+         href="https://wa.me/5564999999999?text=Ol%C3%A1%21%20Vi%20o%20diagn%C3%B3stico%20digital%20da%20YoouFit%20e%20quero%20conversar%20sobre%20as%20oportunidades."
+         target="_blank">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Falar via WhatsApp
       </a>
-      <span class="sent-date">Análise: 09/06/2026</span>
+      <a class="btn-secondary" href="https://digital-ai.tech" target="_blank">
+        Conhecer a Digital AI →
+      </a>
     </div>
+    <p class="cta-guarantee">✓ Diagnóstico gratuito · ✓ Sem compromisso · ✓ Resposta em até 3 minutos</p>
   </div>
 </section>
 
-<script>
-(function() {
-  function initCharts() {
-    if (typeof Chart === 'undefined') { setTimeout(initCharts, 100); return; }
-    var dCtx = document.getElementById('sentDonut_yooufit');
-    if (dCtx && !dCtx._chart) {
-      dCtx._chart = new Chart(dCtx, {
-        type: 'doughnut',
-        data: {
-          labels: ['Positivo', 'Neutro', 'Misto', 'Negativo'],
-          datasets: [{ data: [281, 10, 4, 1], backgroundColor: ['#34D399','rgba(240,235,227,0.2)','#FBBF24','#F87171'], borderWidth: 0, hoverOffset: 6 }]
-        },
-        options: { responsive: true, maintainAspectRatio: true, cutout: '68%', plugins: { legend: { display: false }, tooltip: { callbacks: { label: function(c) { return ' ' + c.label + ': ' + c.raw; } } } }, animation: { animateRotate: true, duration: 1000 } }
-      });
-    }
-    var bCtx = document.getElementById('sentBar_yooufit');
-    if (bCtx && !bCtx._chart) {
-      bCtx._chart = new Chart(bCtx, {
-        type: 'bar',
-        data: {
-          labels: ['Estrutura e equipamentos', 'Professores e equipe', 'Limpeza e ambiente', 'Reclamação'],
-          datasets: [{ data: [142, 118, 89, 1], backgroundColor: ['#C9A96E','rgba(201,169,110,0.45)','rgba(255,255,255,0.3)','#F87171'], borderRadius: 4, borderWidth: 0 }]
-        },
-        options: {
-          responsive: true, maintainAspectRatio: false, indexAxis: 'y',
-          plugins: { legend: { display: false }, tooltip: { callbacks: { label: function(c) { return ' ' + c.raw + ' avaliações'; } } } },
-          scales: {
-            x: { grid: { color: 'rgba(255,255,255,0.05)' }, ticks: { color: 'rgba(240,235,227,0.45)', font: { size: 11 } } },
-            y: { grid: { display: false }, ticks: { color: 'rgba(240,235,227,0.6)', font: { size: 11 } } }
-          },
-          animation: { duration: 900 }
-        }
-      });
-    }
-  }
-  initCharts();
-})();
-</script>
-
-<!-- GOOGLE -->
-<section class="google-sec">
-  <div class="wrap">
-    <div class="google-grid">
-      <div>
-        <div class="sec-label reveal">Pilar 2 · Google</div>
-        <h2 class="reveal">27 de 35 pontos.<br><em style="font-family:'Playfair Display',serif;font-style:italic">Presença local consolidada.</em></h2>
-        <p class="sub reveal">A YoouFit tem uma base sólida no Google — GMB ativo com nota alta e centenas de avaliações. A oportunidade está em aparecer de forma mais orgânica para buscas genéricas como "academia em Lavras" antes que um concorrente tome essa posição.</p>
-        <div class="checklist reveal">
-          <div class="check-row">
-            <div class="check-ico ok">✓</div>
-            <div class="label"><strong>Busca pelo nome da marca</strong><span>"YoouFit Academia" → aparece na 1ª posição (website próprio)</span></div>
-          </div>
-          <div class="check-row">
-            <div class="check-ico ok">✓</div>
-            <div class="label"><strong>Google Meu Negócio (GMB) ativo</strong><span>Perfil completo com endereço, telefone e horários das 2 unidades</span></div>
-          </div>
-          <div class="check-row">
-            <div class="check-ico ok">✓</div>
-            <div class="label"><strong>GMB com nota 4.79★ e 291+ avaliações</strong><span>Uma das melhores notas entre academias da região — excelente reputação</span></div>
-          </div>
-          <div class="check-row">
-            <div class="check-ico warn">!</div>
-            <div class="label"><strong>Busca genérica "academia Lavras"</strong><span>Aparece via Wellhub e agregadores — o website próprio não está entre os top 3 orgânicos</span></div>
-          </div>
-          <div class="check-row">
-            <div class="check-ico warn">!</div>
-            <div class="label"><strong>Respostas às avaliações do GMB</strong><span>Monitoramento manual com volume alto é ineficiente — oportunidade de automação</span></div>
-          </div>
-        </div>
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div>
+      <div class="footer-logo">
+        <img src="https://s3.amazonaws.com/cdn.digital-ai.tech/uploads/media-cortex/identity/digital-ai/logos/primary.png"
+             alt="Digital AI"
+             onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
+        <span style="display:none; font-family: var(--font-heading); font-weight:800; color:rgba(255,255,255,.85); font-size:1.1rem;">Digital AI</span>
       </div>
-      <div>
-        <div class="g-score-box reveal d2">
-          <div class="g-score-num" style="color:#34D399">27</div>
-          <div class="g-score-max">/35 pts</div>
-          <div class="g-score-lbl">Google Score · Bom</div>
-        </div>
-        <div class="gap-box reveal d2">
-          <p><strong>Principal gap:</strong> O website não aparece no top 3 orgânico para "academia em Lavras". Com 5+ academias concorrentes na cidade, há uma corrida por SEO local que começa agora. Quem otimizar primeiro, vence.</p>
-        </div>
-      </div>
+      <p class="footer-brand-desc">
+        Especialistas em IA para automação de atendimento, personas digitais e crescimento inteligente para negócios B2B e B2C.
+      </p>
+    </div>
+    <div>
+      <div class="footer-col-title">Empresa</div>
+      <ul class="footer-col-list">
+        <li><a href="https://digital-ai.tech" target="_blank">digital-ai.tech</a></li>
+        <li><a href="https://digital-ai.tech/#servicos" target="_blank">Serviços</a></li>
+        <li><a href="https://digital-ai.tech/#cases" target="_blank">Cases</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Contato</div>
+      <ul class="footer-col-list">
+        <li><a href="https://wa.me/5564999999999" target="_blank">WhatsApp</a></li>
+        <li><a href="https://instagram.com/digitalai.tech" target="_blank">Instagram</a></li>
+        <li><a href="mailto:contato@digital-ai.tech">contato@digital-ai.tech</a></li>
+      </ul>
     </div>
   </div>
-</section>
-
-<!-- WEBSITE -->
-<section class="web-sec">
-  <div class="wrap">
-    <div class="web-grid">
-      <div>
-        <div class="sec-label reveal">Pilar 3 · Website</div>
-        <h2 class="reveal">15 de 25 pontos.<br><em style="font-family:'Playfair Display',serif;font-style:italic">Base funcional, SEO a desenvolver.</em></h2>
-        <p class="sub reveal">O yooufitacademia.com.br existe e está ativo — ponto positivo. Porém, a plataforma de gestão (CloudGym) foca em operações da academia, não em captação de alunos. Resultado: o site não converte buscas em matrículas, e o SEO local está praticamente inexistente.</p>
-        <div class="web-checks reveal">
-          <div class="wc-row"><span style="color:var(--green)">✓</span><span>Website ativo em yooufitacademia.com.br</span></div>
-          <div class="wc-row"><span style="color:var(--green)">✓</span><span>Plataforma responsiva (mobile-friendly)</span></div>
-          <div class="wc-row"><span style="color:var(--green)">✓</span><span>Analytics instalado (Google Analytics, Hotjar, Microsoft Clarity)</span></div>
-          <div class="wc-row"><span style="color:var(--yellow)">!</span><span>SEO fraco — sem meta description, title genérico</span></div>
-          <div class="wc-row"><span style="color:var(--red)">✗</span><span>Não rankeia para "academia em Lavras" — captação zero via SEO</span></div>
-          <div class="wc-row"><span style="color:var(--red)">✗</span><span>Sem CTA clara para matrícula ou WhatsApp no site</span></div>
-        </div>
-      </div>
-      <div class="reveal d2">
-        <div class="mockup">
-          <div class="mbar">
-            <div class="mdot" style="background:#FF5F57"></div>
-            <div class="mdot" style="background:#FFBD2E"></div>
-            <div class="mdot" style="background:#28CA41"></div>
-            <div class="murl">yooufitacademia.com.br</div>
-          </div>
-          <div class="mbody">
-            <div class="web-ok">⚠</div>
-            <div class="web-okt">Site existe · SEO e conversão a otimizar</div>
-          </div>
-        </div>
-        <div style="margin-top:1rem;padding:1rem 1.25rem;background:rgba(251,191,36,.05);border:1px solid rgba(251,191,36,.15);">
-          <p style="font-size:.78rem;color:var(--muted);line-height:1.65;">O site atual serve para gestão interna. Uma landing page otimizada para SEO local + WhatsApp pode gerar <strong style="color:var(--text);">5–15 leads orgânicos por mês</strong> sem custo adicional de tráfego pago.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- RECOMENDAÇÕES -->
-<section class="recs-sec">
-  <div class="wrap">
-    <div class="sec-label reveal">Plano de Ação</div>
-    <h2 class="reveal">5 ações.<br>Por ordem de <em style="font-family:'Playfair Display',serif;font-style:italic">impacto</em>.</h2>
-    <p class="sub reveal">Ranqueadas por retorno imediato versus esforço de implementação — priorizando o que gera mais matrículas.</p>
-    <div class="timeline">
-      <!-- Ação 1 -->
-      <div class="t-item reveal">
-        <div class="t-num" style="background:rgba(52,211,153,.1);border:1.5px solid #34D399;color:#34D399">01</div>
-        <div class="t-body">
-          <span class="t-impact" style="background:rgba(52,211,153,.1);color:#34D399">🔥 Impacto Crítico</span>
-          <h3>Agente de Atendimento WhatsApp 24/7</h3>
-          <p>Com 2 unidades e mais de 200 aulas/mês, a YoouFit perde dezenas de consultas fora do horário comercial. Um agente de IA no WhatsApp responde instantaneamente perguntas sobre planos, horários, modalidades e agendamento de avaliação física — sem custo de pessoal adicional.</p>
-          <p class="t-gain" style="color:#34D399">→ Estimativa: +25–40% de conversão de leads que perguntam via WhatsApp · Atendimento de 05h às 23h sem equipe</p>
-        </div>
-      </div>
-      <!-- Ação 2 -->
-      <div class="t-item reveal d1">
-        <div class="t-num" style="background:rgba(251,191,36,.1);border:1.5px solid #FBBF24;color:#FBBF24">02</div>
-        <div class="t-body">
-          <span class="t-impact" style="background:rgba(251,191,36,.1);color:#FBBF24">⚡ Alto Impacto</span>
-          <h3>SEO Local + Landing Page para "Academia em Lavras"</h3>
-          <p>Criar uma página otimizada com as palavras-chave certas ("academia Lavras MG", "musculação Lavras", "aulas funcionais Lavras") pode colocar a YoouFit nos top 3 resultados orgânicos do Google — capturando alunos que pesquisam antes de visitar.</p>
-          <p class="t-gain" style="color:#FBBF24">→ Potencial de 8–15 leads orgânicos/mês sem custo de anúncio · ROI longo prazo elevado</p>
-        </div>
-      </div>
-      <!-- Ação 3 -->
-      <div class="t-item reveal d2">
-        <div class="t-num" style="background:rgba(201,169,110,.1);border:1.5px solid var(--gold);color:var(--gold)">03</div>
-        <div class="t-body">
-          <span class="t-impact" style="background:rgba(201,169,110,.1);color:var(--gold)">📈 Alto Impacto</span>
-          <h3>Estratégia de Conteúdo Instagram com Resposta Automatizada</h3>
-          <p>A base de 13K seguidores é ouro não minerado. Uma estratégia de Reels 3x/semana mostrando resultados de alunos + respostas automáticas a comentários via IA eleva o engajamento significativamente — o algoritmo do Instagram favorece contas responsivas.</p>
-          <p class="t-gain" style="color:var(--gold)">→ +30–50% engajamento em 60 dias · Maior alcance orgânico para novos alunos de Lavras</p>
-        </div>
-      </div>
-      <!-- Ação 4 -->
-      <div class="t-item reveal d3">
-        <div class="t-num" style="background:rgba(255,255,255,.04);border:1.5px solid rgba(255,255,255,.15);color:var(--muted)">04</div>
-        <div class="t-body">
-          <span class="t-impact" style="background:rgba(255,255,255,.05);color:var(--muted)">📊 Médio Impacto</span>
-          <h3>Gestão e Resposta Automatizada de Avaliações GMB</h3>
-          <p>Com 291+ avaliações no Wellhub e centenas no Google, responder manualmente é inviável. Uma IA que monitora e responde avaliações — agradecendo elogios e tratando críticas com elegância — demonstra profissionalismo e melhora o ranking local do Google.</p>
-          <p class="t-gain" style="color:var(--muted)">→ Melhora percepção de marca · Sinais positivos para SEO local do Google Maps</p>
-        </div>
-      </div>
-      <!-- Ação 5 -->
-      <div class="t-item reveal d4">
-        <div class="t-num" style="background:rgba(255,255,255,.04);border:1.5px solid rgba(255,255,255,.15);color:var(--muted)">05</div>
-        <div class="t-body">
-          <span class="t-impact" style="background:rgba(255,255,255,.05);color:var(--muted)">🔄 Retenção</span>
-          <h3>Programa de Retenção e Reengajamento de Alunos via IA</h3>
-          <p>Academias perdem em média 30% dos alunos em 90 dias de matrícula. Um sistema de IA que detecta queda de frequência e envia mensagens personalizadas de reengajamento via WhatsApp pode aumentar a retenção — o melhor aluno é o que já está na sua base.</p>
-          <p class="t-gain" style="color:var(--muted)">→ +15–20% taxa de retenção · Receita recorrente garantida sem custo de aquisição</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- PROJEÇÃO -->
-<section class="proj-sec">
-  <div class="wrap">
-    <div class="sec-label reveal">Score Projetado</div>
-    <h2 class="reveal">De C para<br><em style="font-family:'Playfair Display',serif;font-style:italic;color:var(--green)">Grau A.</em></h2>
-    <p class="sub reveal">Com as 5 ações implementadas, a YoouFit vai de Regular para Excelente em presença digital — superando a concorrência em Lavras.</p>
-    <div class="bar-group">
-      <div class="bar-row reveal">
-        <div class="bar-head">
-          <span class="bar-label">Score atual — diagnóstico completo</span>
-          <span class="bar-val" style="color:var(--grade-color)">68 / 100 — Grau C</span>
-        </div>
-        <div class="bar-track"><div class="bar-fill" style="width:68%;background:var(--grade-color)"></div></div>
-      </div>
-      <div class="bar-row reveal d2">
-        <div class="bar-head">
-          <span class="bar-label">Score projetado (com 5 ações)</span>
-          <span class="bar-val" style="color:#34D399">89+ / 100 — Grau A</span>
-        </div>
-        <div class="bar-track"><div class="bar-fill" style="width:89%;background:#34D399"></div></div>
-      </div>
-    </div>
-    <div class="proj-note reveal">
-      <p><strong>+21 pontos projetados:</strong> Instagram +8 (engajamento e resposta sistematizada), Google +4 (SEO local e GMB otimizado), Website +9 (landing page com SEO + CTA). Com a implementação das 5 ações priorizadas, a YoouFit passa a dominar digitalmente o mercado fitness de Lavras.</p>
-    </div>
-  </div>
-</section>
-
-<!-- CTA FINAL -->
-<section class="cta-sec">
-  <div class="wrap">
-    <p class="eyebrow reveal">Próximo passo</p>
-    <h2 class="reveal">Transforme esses números<br>em <em>matrículas reais</em>.</h2>
-    <p class="reveal">A YoouFit já tem a reputação e a base — falta a tecnologia para amplificar. Em 30 minutos de conversa, mostramos como implementar as 5 ações e elevar seu score de C para A.</p>
-    <a href="https://wa.me/5535991980647?text=Ol%C3%A1%2C%20Carlos%21%20Vi%20o%20diagn%C3%B3stico%20digital%20da%20YoouFit%20Academia%20(score%2068%2F100)%20e%20gostaria%20de%20entender%20como%20podemos%20chegar%20ao%20grau%20A%20juntos." target="_blank" class="cta-btn reveal">
-      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-      Falar com a Digital AI
-    </a>
-  </div>
-</section>
-
-<footer class="site-footer">
-  <div class="wrap">
-    <a href="https://digital-ai.tech" target="_blank" rel="noopener" class="f-logo-link">
-      <img src="https://s3.amazonaws.com/cdn.digital-ai.tech/uploads/media-cortex/identity/digital-ai/logos/logo-negative.svg" alt="Digital AI" class="f-logo" />
-    </a>
+  <hr class="footer-divider" />
+  <div class="footer-bottom">
+    <span class="footer-copy">© 2025 Digital AI · Itumbiara, GO · Todos os direitos reservados.</span>
+    <span class="footer-made">Diagnóstico gerado por <a href="https://digital-ai.tech" target="_blank">Digital AI</a></span>
   </div>
 </footer>
 
+<!-- FLOATING WHATSAPP -->
+<a class="float-wa"
+   href="https://wa.me/5564999999999?text=Ol%C3%A1%21%20Vi%20o%20diagn%C3%B3stico%20digital%20da%20YoouFit%20e%20quero%20saber%20mais."
+   target="_blank"
+   title="Falar no WhatsApp">
+  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+  </svg>
+</a>
+
+<!-- JS: Navbar scroll -->
 <script>
-function animCount(el, target, sfx, dur) {
-  const isF = String(target).includes('.');
-  const start = performance.now();
-  function tick(now) {
-    const p = Math.min((now - start) / dur, 1);
-    const e = 1 - Math.pow(1 - p, 3);
-    const v = target * e;
-    el.textContent = isF ? v.toFixed(2) + (sfx||'') : Math.round(v) + (sfx||'');
-    if (p < 1) requestAnimationFrame(tick);
-  }
-  requestAnimationFrame(tick);
-}
-function animPillar(card) {
-  const arc = card.querySelector('.ring-arc');
-  const num = card.querySelector('.ring-val[data-t]');
-  if (!arc || !num) return;
-  const s = +arc.dataset.s, m = +arc.dataset.m;
-  const offset = 339 - (s / m * 339);
-  setTimeout(() => { arc.style.strokeDashoffset = offset; animCount(num, s, '', 1500); }, 200);
-}
-const io = new IntersectionObserver(entries => {
-  entries.forEach(e => {
-    if (!e.isIntersecting) return;
-    const el = e.target;
-    el.classList.add('visible');
-    io.unobserve(el);
-    if (el.classList.contains('pillar')) animPillar(el);
-    if (el.classList.contains('bar-row')) el.classList.add('run');
-  });
-}, { threshold: 0.18 });
-document.querySelectorAll('.reveal').forEach(el => io.observe(el));
-window.addEventListener('load', () => {
-  setTimeout(() => animCount(document.getElementById('heroNum'), 68, '', 1800), 700);
-});
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 60) navbar.classList.add('scrolled');
+    else navbar.classList.remove('scrolled');
+  }, { passive: true });
 </script>
+
 </body>
 </html>
