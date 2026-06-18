@@ -1,895 +1,1738 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Dra. Izabela Rezende | Ginecologia Endócrina — Itumbiara & Uberlândia</title>
-  <meta name="description" content="Ginecologista especialista em Ginecologia Endócrina, Estética Íntima, Lipedema, Reposição Hormonal e Emagrecimento. Atende em Itumbiara GO e Uberlândia MG." />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Digital AI apresenta: solução de inteligência artificial para o consultório da Dra. Izabela Rezende — Ginecologia Endócrina, Itumbiara GO e Uberlândia MG.">
+  <meta property="og:title" content="Digital AI × Dra. Izabela Rezende | Ginecologia Endócrina">
+  <meta property="og:description" content="Atendimento inteligente 24h, triagem automatizada e nutrição de relacionamento para o consultório da Dra. Izabela. Apresentado com exclusividade pela Digital AI.">
+  <meta property="og:image" content="assets/hero.jpg">
+  <meta property="og:type" content="website">
+  <title>Digital AI × Dra. Izabela Rezende | Ginecologia Endócrina</title>
 
-  <!-- Open Graph -->
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://dra-izabela-rezende-ginecologia-endocrina.digital-ai.tech/" />
-  <meta property="og:title" content="Dra. Izabela Rezende | Ginecologia Endócrina" />
-  <meta property="og:description" content="Saúde hormonal e bem-estar feminino integrados. Consultas em Itumbiara GO e Uberlândia MG." />
-  <meta property="og:image" content="https://dra-izabela-rezende-ginecologia-endocrina.digital-ai.tech/img/hero.jpg" />
-  <meta property="og:locale" content="pt_BR" />
-
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Dra. Izabela Rezende | Ginecologia Endócrina" />
-  <meta name="twitter:description" content="Saúde hormonal e bem-estar feminino integrados." />
-  <meta name="twitter:image" content="https://dra-izabela-rezende-ginecologia-endocrina.digital-ai.tech/img/hero.jpg" />
-
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&display=swap" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
+    /* ============================================================
+       CSS CUSTOM PROPERTIES — BRAND TOKENS (Dra. Izabela Rezende)
+    ============================================================ */
     :root {
-      --bg:           #F8F5F0;
-      --surface:      #F0EAE2;
-      --surface-2:    #E6DDD2;
-      --border:       rgba(19,36,66,0.12);
+      --primary:       #1B2D3E;
+      --secondary:     #C4A47C;
+      --accent:        #B8896A;
+      --accent-dark:   #9E7459;
+      --background:    #FAF7F3;
+      --surface:       #F0EAE0;
+      --text:          #1A1A1A;
+      --text-muted:    #6B5C4E;
+      --white:         #FFFFFF;
 
-      --gold:         #B58A5C;
-      --gold-l:       #CDAA7A;
-      --gold-d:       #8A6638;
+      --font-heading:  'Cormorant Garamond', Georgia, serif;
+      --font-body:     'Inter', system-ui, sans-serif;
 
-      --dark:         #132442;
-      --dark-2:       #1A3260;
-      --text:         #132442;
-      --text-muted:   #4A5A78;
-      --text-soft:    #8A9BB8;
-      --white:        #FFFFFF;
-      --wpp:          #25D366;
+      --radius-sm:     6px;
+      --radius-md:     12px;
+      --radius-lg:     20px;
+      --radius-full:   9999px;
 
-      --radius: 14px;
-      --font-h: 'Cormorant Garamond', Georgia, serif;
-      --font-b: 'DM Sans', system-ui, sans-serif;
+      --shadow-sm:     0 2px 8px rgba(27,45,62,0.08);
+      --shadow-md:     0 4px 20px rgba(27,45,62,0.12);
+      --shadow-lg:     0 8px 40px rgba(27,45,62,0.18);
+
+      --transition:    0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      --max-width:     1140px;
+      --gutter:        1.25rem;
     }
 
-    html { scroll-behavior: smooth; background: var(--dark); overflow-x: hidden; }
+    /* ============================================================
+       RESET & BASE
+    ============================================================ */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html { scroll-behavior: smooth; font-size: 16px; }
+
     body {
-      font-family: var(--font-b);
-      background: var(--bg);
+      background-color: var(--background);
       color: var(--text);
+      font-family: var(--font-body);
+      font-weight: 400;
       line-height: 1.65;
       -webkit-font-smoothing: antialiased;
       overflow-x: hidden;
     }
-    img { display: block; width: 100%; object-fit: cover; }
-    a { text-decoration: none; color: inherit; }
 
-    /* ── ANIMATIONS ── */
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(28px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-    .reveal {
-      opacity: 0; transform: translateY(22px);
-      transition: opacity .7s ease, transform .7s ease;
-    }
-    .reveal.visible { opacity: 1; transform: none; }
-    .d1 { transition-delay: .1s; }
-    .d2 { transition-delay: .2s; }
-    .d3 { transition-delay: .3s; }
-    .d4 { transition-delay: .4s; }
+    img { max-width: 100%; height: auto; display: block; }
+    a { color: inherit; text-decoration: none; }
+    ul { list-style: none; }
 
-    /* ── PROGRESS BAR ── */
-    #progress-bar {
-      position: fixed; top: 0; left: 0; z-index: 300;
-      height: 2px; width: 0%;
-      background: linear-gradient(90deg, var(--gold), var(--gold-l));
-      transition: width .1s linear;
+    .container {
+      width: 100%;
+      max-width: var(--max-width);
+      margin-inline: auto;
+      padding-inline: var(--gutter);
     }
 
-    /* ── NAVBAR ── */
-    .nav {
-      position: sticky; top: 0; z-index: 100;
-      border-bottom: 1px solid transparent;
-      transition: background .3s, border-color .3s, box-shadow .3s;
+    /* ============================================================
+       TYPOGRAPHY
+    ============================================================ */
+    .heading-xl {
+      font-family: var(--font-heading);
+      font-size: clamp(2.4rem, 7.5vw, 3.8rem);
+      font-weight: 700;
+      font-style: italic;
+      line-height: 1.12;
+      letter-spacing: -0.01em;
     }
-    .nav.scrolled {
-      background: rgba(248, 245, 240, 0.96);
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
-      border-bottom-color: var(--border);
-      box-shadow: 0 2px 16px rgba(19,36,66,.06);
+
+    .heading-lg {
+      font-family: var(--font-heading);
+      font-size: clamp(1.8rem, 5vw, 2.6rem);
+      font-weight: 600;
+      line-height: 1.2;
     }
-    .nav-inner {
-      max-width: 1100px; margin: 0 auto; padding: 0 24px;
-      display: flex; align-items: center; justify-content: space-between;
-      height: 64px;
+
+    .heading-md {
+      font-family: var(--font-heading);
+      font-size: clamp(1.25rem, 3.5vw, 1.75rem);
+      font-weight: 600;
+      line-height: 1.3;
     }
-    .nav-brand {
-      font-family: var(--font-h);
-      font-size: 1.1rem; font-weight: 600;
-      letter-spacing: .04em; color: var(--dark);
+
+    .label {
+      font-family: var(--font-body);
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--secondary);
+    }
+
+    /* ============================================================
+       BUTTONS
+    ============================================================ */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      min-height: 48px;
+      padding: 0 1.75rem;
+      border-radius: var(--radius-full);
+      font-family: var(--font-body);
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      cursor: pointer;
+      border: none;
+      transition: var(--transition);
       white-space: nowrap;
     }
-    @media (max-width: 430px) {
-      .nav-brand { font-size: .85rem; letter-spacing: .02em; }
-      .nav-ig { font-size: .72rem; padding: 7px 12px; }
-    }
-    .nav-brand span { color: var(--gold); }
-    .nav-ig {
-      display: flex; align-items: center; gap: 7px;
-      font-size: .78rem; font-weight: 600; color: var(--text-muted);
-      padding: 9px 16px; border-radius: 100px;
-      border: 1px solid var(--border);
-      transition: all .2s;
-    }
-    .nav-ig:hover { background: var(--dark); color: #fff; border-color: var(--dark); }
-    .nav-ig svg { width: 15px; height: 15px; }
 
-    /* ── HERO ── */
-    .hero {
-      position: relative; overflow: hidden;
-      height: 100svh;
+    .btn-primary {
+      background: var(--accent);
+      color: var(--white);
+      box-shadow: 0 4px 16px rgba(184,137,106,0.35);
     }
-    .hero-bg { position: absolute; inset: 0; z-index: 0; }
-    .hero-bg img {
-      width: 100%; height: 100%;
-      object-fit: cover; object-position: 60% top;
+
+    .btn-primary:hover {
+      background: var(--accent-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(184,137,106,0.45);
     }
-    /* scroll hint */
+
+    .btn-outline {
+      background: transparent;
+      color: var(--white);
+      border: 1.5px solid rgba(255,255,255,0.45);
+    }
+
+    .btn-outline:hover {
+      background: rgba(255,255,255,0.1);
+      border-color: var(--white);
+    }
+
+    /* ============================================================
+       SCROLL ANIMATION
+    ============================================================ */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .fade-in-delay-1 { transition-delay: 0.1s; }
+    .fade-in-delay-2 { transition-delay: 0.2s; }
+    .fade-in-delay-3 { transition-delay: 0.3s; }
+    .fade-in-delay-4 { transition-delay: 0.4s; }
+
+    /* ============================================================
+       SECTION SPACING & HEADERS
+    ============================================================ */
+    section { padding-block: clamp(4rem, 10vw, 7rem); }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: clamp(2.5rem, 6vw, 4rem);
+    }
+
+    .section-header .label { display: inline-block; margin-bottom: 0.75rem; }
+
+    /* ============================================================
+       1. HERO
+    ============================================================ */
+    #hero {
+      position: relative;
+      min-height: 100svh;
+      display: flex;
+      align-items: center;
+      padding-block: 0;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background-image: url('assets/hero.jpg');
+      background-size: cover;
+      background-position: center 20%;
+      background-repeat: no-repeat;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        140deg,
+        rgba(27,45,62,0.82) 0%,
+        rgba(27,45,62,0.60) 55%,
+        rgba(27,45,62,0.40) 100%
+      );
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      padding-block: clamp(6rem, 14vw, 10rem);
+      max-width: 680px;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(196,164,124,0.18);
+      border: 1px solid rgba(196,164,124,0.45);
+      color: var(--secondary);
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 0.4rem 1rem;
+      border-radius: var(--radius-full);
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-title {
+      color: var(--white);
+      margin-bottom: 1.25rem;
+    }
+
+    .hero-title em { color: var(--secondary); }
+
+    .hero-subtitle {
+      color: rgba(255,255,255,0.78);
+      font-size: clamp(0.95rem, 2.5vw, 1.1rem);
+      line-height: 1.75;
+      margin-bottom: 2.5rem;
+      max-width: 540px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
     .hero-scroll {
-      position: absolute; bottom: 28px; left: 50%; transform: translateX(-50%);
-      z-index: 2; display: flex; flex-direction: column; align-items: center; gap: 6px;
-      opacity: .6;
+      position: absolute;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.4rem;
+      color: rgba(255,255,255,0.4);
+      font-size: 0.65rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      animation: scrollBounce 2s infinite;
     }
-    .hero-scroll span {
-      font-size: .65rem; letter-spacing: .18em; text-transform: uppercase;
-      color: #fff; font-family: var(--font-b);
-    }
-    .hero-scroll svg { width: 18px; height: 18px; stroke: #fff; animation: bounce 1.6s infinite; }
-    @keyframes bounce { 0%,100%{transform:translateY(0)} 50%{transform:translateY(5px)} }
 
-    /* ── HERO INTRO (texto abaixo da foto) ── */
-    .hero-intro {
-      background: var(--dark);
-      padding: 56px 24px 60px;
+    @keyframes scrollBounce {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50%       { transform: translateX(-50%) translateY(6px); }
+    }
+
+    /* ============================================================
+       2. SOBRE / ESPELHO
+    ============================================================ */
+    #sobre { background: var(--surface); }
+
+    .sobre-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .sobre-image-wrap {
+      position: relative;
+      max-width: 400px;
+      margin-inline: auto;
+    }
+
+    .sobre-image-wrap::before {
+      content: '';
+      position: absolute;
+      inset: -14px -14px 14px 14px;
+      border: 1.5px solid var(--secondary);
+      border-radius: var(--radius-lg);
+      opacity: 0.35;
+      z-index: 0;
+    }
+
+    .sobre-image {
+      position: relative;
+      z-index: 1;
+      border-radius: var(--radius-lg);
+      width: 100%;
+      aspect-ratio: 3 / 4;
+      object-fit: cover;
+      object-position: top center;
+      box-shadow: var(--shadow-lg);
+    }
+
+    .sobre-crm-badge {
+      position: absolute;
+      bottom: -1.25rem;
+      right: -0.75rem;
+      z-index: 2;
+      background: var(--primary);
+      color: var(--white);
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      padding: 0.6rem 1.1rem;
+      border-radius: var(--radius-md);
+      border: 1px solid rgba(196,164,124,0.25);
+      line-height: 1.6;
       text-align: center;
     }
-    .hero-eyebrow {
-      display: inline-flex; align-items: center; gap: 10px;
-      font-size: .7rem; font-weight: 700; letter-spacing: .18em; text-transform: uppercase;
-      color: var(--gold); margin-bottom: 1.4rem;
+
+    .sobre-crm-badge span { color: var(--secondary); display: block; }
+
+    .sobre-text .label { display: block; margin-bottom: 0.75rem; }
+
+    .sobre-text h2 { color: var(--primary); margin-bottom: 1.5rem; }
+
+    .sobre-text p {
+      color: var(--text-muted);
+      margin-bottom: 1rem;
+      font-size: 1rem;
+    }
+
+    .sobre-text p strong { color: var(--text); }
+
+    .sobre-highlight {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      background: var(--background);
+      border-left: 3px solid var(--accent);
+      padding: 1.25rem 1.5rem;
+      border-radius: 0 var(--radius-md) var(--radius-md) 0;
+      margin-top: 1.75rem;
+    }
+
+    .sobre-highlight p {
+      margin: 0;
+      font-style: italic;
+      color: var(--text);
+      font-size: 0.975rem;
+    }
+
+    /* ============================================================
+       3. ESPECIALIDADES
+    ============================================================ */
+    #especialidades { background: var(--background); }
+
+    .especialidades-intro {
+      text-align: center;
+      max-width: 580px;
+      margin-inline: auto;
+      color: var(--text-muted);
+      font-size: 1.05rem;
+      line-height: 1.7;
+    }
+
+    .especialidades-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.25rem;
+    }
+
+    .espec-card {
+      background: var(--white);
+      border: 1px solid transparent;
+      border-radius: var(--radius-lg);
+      padding: 2rem 1.75rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .espec-card::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--secondary), var(--accent));
+      opacity: 0;
+      transition: var(--transition);
+    }
+
+    .espec-card:hover {
+      border-color: rgba(196,164,124,0.28);
+      box-shadow: var(--shadow-md);
+      transform: translateY(-4px);
+    }
+
+    .espec-card:hover::after { opacity: 1; }
+
+    .espec-icon {
+      width: 52px; height: 52px;
+      border-radius: var(--radius-md);
+      background: linear-gradient(135deg, rgba(196,164,124,0.15), rgba(184,137,106,0.08));
+      border: 1px solid rgba(196,164,124,0.22);
+      display: flex;
+      align-items: center;
       justify-content: center;
     }
-    .hero-eyebrow::before {
-      content: ''; display: block; width: 32px; height: 1px; background: var(--gold);
-    }
-    .hero-title {
-      font-family: var(--font-h);
-      font-size: clamp(2.2rem, 6vw, 3.8rem);
-      font-weight: 400; line-height: 1.1;
-      color: #fff; margin-bottom: 1rem;
-    }
-    .hero-title em { font-style: italic; color: var(--gold-l); }
-    .hero-sub {
-      font-size: .95rem; color: rgba(255,255,255,.75);
-      line-height: 1.75; margin: 0 auto 2.2rem; max-width: 520px;
-    }
-    .hero-btns { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; }
 
-    /* ── BUTTONS ── */
-    .btn {
-      display: inline-flex; align-items: center; justify-content: center; gap: 9px;
-      font-family: var(--font-b); font-size: .88rem; font-weight: 600;
-      padding: 14px 26px; border-radius: 100px; cursor: pointer; border: none;
-      transition: transform .2s, box-shadow .2s, background .2s, opacity .2s;
-      letter-spacing: .01em;
-    }
-    .btn:hover { transform: translateY(-2px); }
-    .btn svg { width: 18px; height: 18px; flex-shrink: 0; }
-    .btn-gold {
-      background: var(--gold); color: #fff;
-      box-shadow: 0 4px 20px rgba(181,138,92,.32);
-    }
-    .btn-gold:hover { background: var(--gold-d); box-shadow: 0 6px 28px rgba(181,138,92,.42); }
-    .btn-wpp {
-      background: var(--wpp); color: #fff;
-      box-shadow: 0 4px 20px rgba(37,211,102,.24);
-    }
-    .btn-wpp:hover { background: #1db954; box-shadow: 0 6px 28px rgba(37,211,102,.34); }
-    .btn-outline {
-      background: transparent; color: #fff;
-      border: 1.5px solid rgba(255,255,255,.35);
-    }
-    .btn-outline:hover { background: rgba(255,255,255,.1); border-color: rgba(255,255,255,.6); }
-    .btn-dark  { background: var(--dark); color: #fff; }
-    .btn-dark:hover { background: var(--dark-2); }
-    .btn-sub {
-      display: block; text-align: center;
-      font-size: .72rem; color: rgba(255,255,255,.45);
-      margin-top: 8px;
+    .espec-icon svg { width: 26px; height: 26px; color: var(--accent); }
+
+    .espec-title {
+      font-family: var(--font-heading);
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--primary);
     }
 
-    /* ── BENEFITS BAR ── */
-    .benefits-bar {
-      background: #0e1b30;
-      padding: 0;
-      border-bottom: 1px solid rgba(181,138,92,.12);
-    }
-    .benefits-inner {
-      max-width: 1100px; margin: 0 auto;
-      display: grid; grid-template-columns: repeat(4, 1fr);
-    }
-    .benefit-item {
-      display: flex; align-items: center; gap: 12px;
-      padding: 18px 20px;
-      border-right: 1px solid rgba(181,138,92,.1);
-    }
-    .benefit-item:last-child { border-right: none; }
-    .benefit-icon {
-      width: 36px; height: 36px; border-radius: 10px;
-      background: rgba(181,138,92,.12);
-      display: flex; align-items: center; justify-content: center;
-      flex-shrink: 0;
-    }
-    .benefit-icon svg { width: 18px; height: 18px; color: var(--gold); }
-    .benefit-text { display: flex; flex-direction: column; gap: 1px; }
-    .benefit-title { font-size: .78rem; font-weight: 700; color: #fff; }
-    .benefit-sub { font-size: .68rem; color: rgba(255,255,255,.45); }
-    @media (max-width: 768px) {
-      .benefits-inner { grid-template-columns: repeat(2, 1fr); }
-      .benefit-item:nth-child(2) { border-right: none; }
-      .benefit-item { padding: 14px 16px; }
-    }
-    @media (max-width: 480px) {
-      .benefit-sub { display: none; }
-      .benefit-title { font-size: .72rem; }
+    .espec-desc {
+      font-size: 0.875rem;
+      color: var(--text-muted);
+      line-height: 1.65;
     }
 
-    /* ── LINKS RÁPIDOS ── */
-    .links-sec {
-      background: var(--dark);
-      padding: 3.5rem 24px 4rem;
+    /* ============================================================
+       4. AGITAÇÃO
+    ============================================================ */
+    #agitacao {
+      background: var(--primary);
+      color: var(--white);
+      position: relative;
+      overflow: hidden;
     }
-    .links-label {
-      text-align: center;
-      font-size: .68rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase;
-      color: var(--text-soft); margin-bottom: 2rem;
+
+    #agitacao::before {
+      content: '';
+      position: absolute;
+      top: -100px; right: -100px;
+      width: 360px; height: 360px;
+      border-radius: 50%;
+      background: rgba(196,164,124,0.05);
+      pointer-events: none;
     }
-    .links-grid {
+
+    #agitacao::after {
+      content: '';
+      position: absolute;
+      bottom: -80px; left: -80px;
+      width: 280px; height: 280px;
+      border-radius: 50%;
+      background: rgba(196,164,124,0.04);
+      pointer-events: none;
+    }
+
+    .agitacao-header { text-align: center; margin-bottom: 3rem; }
+    .agitacao-header h2 { color: var(--white); margin-top: 0.75rem; }
+    .agitacao-header p {
+      color: rgba(255,255,255,0.55);
+      margin-top: 1rem;
+      max-width: 540px;
+      margin-inline: auto;
+    }
+
+    .agitacao-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 14px;
-      max-width: 760px; margin: 0 auto;
-    }
-    .link-card {
-      display: flex; flex-direction: column; align-items: center;
-      gap: 12px; padding: 28px 20px 24px;
-      border-radius: 20px; color: #fff; text-align: center;
-      transition: transform .25s, box-shadow .25s;
-      border: 1px solid rgba(255,255,255,.06); cursor: pointer;
-    }
-    .link-card:hover { transform: translateY(-5px); box-shadow: 0 16px 40px rgba(0,0,0,.35); }
-    .link-card-icon {
-      width: 52px; height: 52px; border-radius: 16px;
-      display: flex; align-items: center; justify-content: center; flex-shrink: 0;
-    }
-    .link-card-icon svg { width: 26px; height: 26px; }
-    .link-card-title { font-size: .88rem; font-weight: 700; line-height: 1.3; }
-    .link-card-sub { font-size: .73rem; color: rgba(255,255,255,.55); line-height: 1.5; }
-    .link-card-arrow { font-size: .72rem; color: rgba(255,255,255,.35); margin-top: 2px; }
-    .lc-wpp  { background: rgba(29,168,81,.15); border-color: rgba(29,168,81,.25); }
-    .lc-wpp .link-card-icon { background: #1da851; }
-    .lc-ig   { background: rgba(131,58,180,.15); border-color: rgba(253,29,29,.15); }
-    .lc-ig .link-card-icon { background: linear-gradient(135deg, #833ab4, #fd1d1d, #fcb045); }
-    .lc-lt   { background: rgba(181,138,92,.08); border-color: rgba(181,138,92,.2); }
-    .lc-lt .link-card-icon { background: rgba(181,138,92,.2); }
-    .lc-lt .link-card-icon svg { color: var(--gold); }
-    @media (max-width: 600px) {
-      .links-grid { grid-template-columns: 1fr; max-width: 360px; gap: 12px; }
-      .link-card { flex-direction: row; text-align: left; padding: 18px 20px; gap: 16px; }
-      .link-card-sub, .link-card-arrow { display: none; }
+      grid-template-columns: 1fr;
+      gap: 1.25rem;
     }
 
-    /* ── SECTIONS ── */
-    .section { padding: 88px 24px; }
-    .container { max-width: 1100px; margin: 0 auto; }
-    .sec-tag {
-      display: inline-flex; align-items: center; gap: 8px;
-      font-size: .68rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase;
-      color: var(--gold); padding: 5px 14px; border-radius: 100px;
-      background: rgba(181,138,92,.1); margin-bottom: .9rem;
-    }
-    .sec-title {
-      font-family: var(--font-h);
-      font-size: clamp(1.9rem, 3.5vw, 3rem);
-      font-weight: 400; color: var(--dark); line-height: 1.2;
-      margin-bottom: .75rem;
-    }
-    .sec-title em { font-style: italic; color: var(--gold); }
-    .sec-sub {
-      color: var(--text-muted); font-size: .95rem;
-      max-width: 480px; line-height: 1.75;
-    }
-    .sec-header { margin-bottom: 3.5rem; }
-
-    /* ── SERVIÇOS ── */
-    .produtos-section { background: var(--bg); }
-    .produtos-grid {
-      display: grid; grid-template-columns: repeat(2, 1fr);
-      gap: 1.5rem; max-width: 860px; margin: 0 auto;
-    }
-    .prod-card {
-      border-radius: 18px; overflow: hidden;
-      background: var(--white);
-      box-shadow: 0 2px 20px rgba(19,36,66,.07);
-      transition: transform .3s, box-shadow .3s; cursor: pointer;
-    }
-    .prod-card:hover { transform: translateY(-6px); box-shadow: 0 12px 40px rgba(19,36,66,.13); }
-    .prod-img { position: relative; overflow: hidden; }
-    .prod-img img { aspect-ratio: 3/4; transition: transform .5s; }
-    .prod-card:hover .prod-img img { transform: scale(1.04); }
-    .prod-badge {
-      position: absolute; top: 14px; right: 14px;
-      background: var(--gold); color: #fff;
-      font-size: .62rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase;
-      padding: 4px 10px; border-radius: 100px;
-    }
-    .prod-badge-blue  { background: #2D6A9F; }
-    .prod-badge-teal  { background: #2A7F7F; }
-    .prod-badge-dark  { background: var(--dark); }
-    .prod-info { padding: 18px 20px 22px; }
-    .prod-name {
-      font-family: var(--font-h);
-      font-size: 1.15rem; font-weight: 500; color: var(--dark);
-      margin-bottom: 6px;
-    }
-    .prod-desc { font-size: .82rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 14px; }
-    .prod-cta {
-      display: inline-flex; align-items: center; gap: 6px;
-      font-size: .78rem; font-weight: 600; color: var(--gold);
-      padding: 8px 16px; border-radius: 100px;
-      border: 1.5px solid rgba(181,138,92,.3);
-      transition: background .2s, color .2s;
-    }
-    .prod-cta:hover { background: var(--gold); color: #fff; }
-
-    /* ── SOBRE ── */
-    .sobre-section { background: var(--dark); }
-    .sobre-grid {
-      display: grid; grid-template-columns: 1fr 1fr;
-      gap: 3rem; align-items: center; max-width: 1000px; margin: 0 auto;
-    }
-    .sobre-img-wrap {
-      border-radius: 20px; overflow: hidden;
-      box-shadow: 0 8px 48px rgba(0,0,0,.4);
-    }
-    .sobre-img-wrap img { aspect-ratio: 3/4; }
-    .sobre-text .sec-tag { color: var(--gold); background: rgba(181,138,92,.15); }
-    .sobre-text .sec-title { color: #fff; }
-    .sobre-text .sec-title em { color: var(--gold-l); }
-    .sobre-body {
-      color: rgba(255,255,255,.65); font-size: .95rem;
-      line-height: 1.85; margin-bottom: 2rem;
-    }
-    .sobre-stats { display: flex; gap: 2rem; flex-wrap: wrap; margin-bottom: 2rem; }
-    .stat { text-align: center; }
-    .stat-num {
-      font-family: var(--font-h);
-      font-size: 2.2rem; font-weight: 600; color: var(--gold); line-height: 1;
-    }
-    .stat-label {
-      font-size: .72rem; color: rgba(255,255,255,.45);
-      font-weight: 500; letter-spacing: .05em; margin-top: 4px;
-    }
-    .sobre-divider { width: 40px; height: 1px; background: rgba(181,138,92,.4); margin: 1.5rem 0; }
-    @media (max-width: 768px) {
-      .sobre-grid { grid-template-columns: 1fr; }
-      .sobre-img-wrap { max-height: 320px; }
-      .sobre-img-wrap img { aspect-ratio: 4/3; object-position: center top; }
+    .problema-card {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      padding: 1.5rem;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(196,164,124,0.14);
+      border-radius: var(--radius-md);
     }
 
-    /* ── DEPOIMENTOS ── */
-    .depo-section { background: var(--surface); }
-    .depo-grid {
-      display: grid; grid-template-columns: repeat(3, 1fr);
-      gap: 1.5rem; max-width: 1000px; margin: 0 auto;
-    }
-    .depo-card {
-      background: var(--white); border-radius: 18px;
-      padding: 28px 24px;
-      box-shadow: 0 2px 20px rgba(19,36,66,.06);
-      display: flex; flex-direction: column; gap: 16px;
-    }
-    .depo-stars { display: flex; gap: 3px; }
-    .depo-stars svg { width: 14px; height: 14px; color: var(--gold); }
-    .depo-quote { font-size: .9rem; color: var(--text-muted); line-height: 1.75; flex: 1; font-style: italic; }
-    .depo-author {
-      display: flex; align-items: center; gap: 10px;
-      padding-top: 14px; border-top: 1px solid var(--border);
-    }
-    .depo-avatar {
-      width: 36px; height: 36px; border-radius: 50%;
-      background: var(--gold);
-      display: flex; align-items: center; justify-content: center;
-      font-family: var(--font-h); font-size: 1rem; font-weight: 600; color: #fff;
+    .problema-icon {
+      width: 42px; height: 42px;
+      background: rgba(184,137,106,0.14);
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
       flex-shrink: 0;
     }
-    .depo-name { font-size: .82rem; font-weight: 700; color: var(--dark); }
-    .depo-city { font-size: .72rem; color: var(--text-soft); }
-    @media (max-width: 768px) { .depo-grid { grid-template-columns: 1fr; max-width: 420px; margin: 0 auto; } }
 
-    /* ── FAQ ── */
-    .faq-section { background: var(--bg); }
-    .faq-list { max-width: 720px; margin: 0 auto; display: flex; flex-direction: column; gap: 10px; }
-    .faq-item {
-      border: 1px solid var(--border); border-radius: 14px;
-      overflow: hidden; background: var(--white);
-    }
-    .faq-q {
-      width: 100%; text-align: left;
-      display: flex; align-items: center; justify-content: space-between; gap: 12px;
-      padding: 18px 22px;
-      font-size: .9rem; font-weight: 600; color: var(--dark);
-      background: none; border: none; cursor: pointer; transition: color .2s;
-    }
-    .faq-q:hover { color: var(--gold-d); }
-    .faq-q svg { width: 16px; height: 16px; color: var(--gold); flex-shrink: 0; transition: transform .3s; }
-    .faq-item.open .faq-q svg { transform: rotate(180deg); }
-    .faq-a {
-      max-height: 0; overflow: hidden;
-      transition: max-height .35s ease, padding .35s;
-      font-size: .88rem; color: var(--text-muted); line-height: 1.8; padding: 0 22px;
-    }
-    .faq-item.open .faq-a { max-height: 300px; padding: 0 22px 20px; }
+    .problema-icon svg { width: 22px; height: 22px; color: var(--secondary); }
 
-    /* ── CTA FINAL ── */
-    .cta-section {
-      background: var(--dark); padding: 88px 24px;
-      text-align: center; position: relative; overflow: hidden;
-    }
-    .cta-section::before {
-      content: ''; position: absolute; top: -80px; right: -80px;
-      width: 320px; height: 320px; border-radius: 50%;
-      background: rgba(181,138,92,.06);
-    }
-    .cta-section::after {
-      content: ''; position: absolute; bottom: -60px; left: -60px;
-      width: 260px; height: 260px; border-radius: 50%;
-      background: rgba(181,138,92,.04);
-    }
-    .cta-eyebrow {
-      font-size: .68rem; font-weight: 700; letter-spacing: .16em; text-transform: uppercase;
-      color: var(--gold); margin-bottom: 1.2rem; position: relative; z-index: 2;
-    }
-    .cta-title {
-      font-family: var(--font-h);
-      font-size: clamp(2.2rem, 4vw, 3.6rem);
-      font-weight: 400; color: #fff; line-height: 1.15;
-      margin-bottom: 1rem; position: relative; z-index: 2;
-    }
-    .cta-title em { font-style: italic; color: var(--gold-l); }
-    .cta-sub {
-      color: rgba(255,255,255,.55); font-size: .95rem;
-      max-width: 420px; margin: 0 auto 2.5rem; position: relative; z-index: 2; line-height: 1.75;
-    }
-    .cta-urgency {
-      font-size: .78rem; color: rgba(181,138,92,.65);
-      margin-top: 1.2rem; position: relative; z-index: 2; font-style: italic;
-    }
-    .cta-btns {
-      display: flex; justify-content: center; gap: 12px; flex-wrap: wrap;
-      position: relative; z-index: 2;
+    .problema-card h4 {
+      font-family: var(--font-heading);
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--white);
+      margin-bottom: 0.35rem;
     }
 
-    /* ── FOOTER ── */
-    footer {
-      background: var(--dark); padding: 24px;
-      text-align: center; border-top: 1px solid rgba(255,255,255,.04);
+    .problema-card p { font-size: 0.875rem; color: rgba(255,255,255,0.6); line-height: 1.65; }
+
+    /* ============================================================
+       5. PROVA SOCIAL / GALERIA
+    ============================================================ */
+    #prova-social { background: var(--surface); }
+
+    .galeria-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+      margin-bottom: 3rem;
     }
 
-    /* ── FLOAT WPP ── */
-    .float-wpp {
-      position: fixed; bottom: 24px; right: 24px; z-index: 200;
-      width: 58px; height: 58px; border-radius: 50%;
-      background: var(--wpp);
-      display: flex; align-items: center; justify-content: center;
-      box-shadow: 0 6px 28px rgba(37,211,102,.40);
-      transition: transform .2s, box-shadow .2s;
+    .galeria-item {
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      aspect-ratio: 4 / 3;
     }
-    .float-wpp:hover { transform: translateY(-3px) scale(1.06); box-shadow: 0 10px 36px rgba(37,211,102,.50); }
-    .float-wpp svg { width: 26px; height: 26px; }
 
-    @media (max-width: 480px) {
-      .section { padding: 64px 16px; }
-      .produtos-grid { grid-template-columns: 1fr; max-width: 340px; margin: 0 auto; }
-      .hero-btns { flex-direction: column; }
-      .hero-btns .btn { width: 100%; max-width: 320px; }
-      .sobre-stats { gap: 1.5rem; }
+    .galeria-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.55s ease;
+    }
+
+    .galeria-item:hover img { transform: scale(1.05); }
+
+    .stats-bar {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem 3rem;
+      padding: 2rem 1.5rem;
+      background: var(--primary);
+      border-radius: var(--radius-lg);
+      margin-bottom: 2.5rem;
+    }
+
+    .stat-item { text-align: center; }
+
+    .stat-number {
+      font-family: var(--font-heading);
+      font-size: clamp(1.9rem, 5vw, 2.5rem);
+      font-weight: 700;
+      color: var(--secondary);
+      display: block;
+      line-height: 1;
+    }
+
+    .stat-label {
+      font-size: 0.72rem;
+      color: rgba(255,255,255,0.55);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-top: 0.35rem;
+    }
+
+    .quote-block {
+      text-align: center;
+      max-width: 620px;
+      margin-inline: auto;
+    }
+
+    .quote-block blockquote {
+      font-family: var(--font-heading);
+      font-size: clamp(1.25rem, 3.5vw, 1.65rem);
+      font-style: italic;
+      color: var(--primary);
+      line-height: 1.45;
+      position: relative;
+      padding: 1.5rem 1rem 0;
+    }
+
+    .quote-block blockquote::before {
+      content: '\201C';
+      font-size: 5.5rem;
+      color: var(--secondary);
+      opacity: 0.28;
+      position: absolute;
+      top: -1rem; left: -0.5rem;
+      font-family: var(--font-heading);
+      line-height: 1;
+    }
+
+    .quote-cite {
+      display: block;
+      margin-top: 1rem;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      font-style: normal;
+    }
+
+    /* ============================================================
+       6. SOLUÇÃO — COMO FUNCIONA
+    ============================================================ */
+    #como-funciona { background: var(--background); }
+
+    .funciona-steps {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .step-item {
+      display: flex;
+      gap: 1.25rem;
+      align-items: flex-start;
+    }
+
+    .step-number {
+      width: 50px; height: 50px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--secondary), var(--accent));
+      color: var(--white);
+      font-family: var(--font-heading);
+      font-size: 1.15rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      box-shadow: 0 4px 14px rgba(184,137,106,0.3);
+    }
+
+    .step-content h4 {
+      font-family: var(--font-heading);
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--primary);
+      margin-bottom: 0.4rem;
+    }
+
+    .step-content p { font-size: 0.9rem; color: var(--text-muted); line-height: 1.65; }
+
+    /* ============================================================
+       7. PROPOSTA DIGITAL AI (Conversão Central)
+    ============================================================ */
+    #proposta {
+      background: var(--primary);
+      color: var(--white);
+      position: relative;
+      overflow: hidden;
+    }
+
+    #proposta::before {
+      content: '';
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 700px; height: 700px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(196,164,124,0.06) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .proposta-header {
+      text-align: center;
+      margin-bottom: clamp(2rem, 5vw, 3.5rem);
+      position: relative;
+      z-index: 1;
+    }
+
+    .proposta-header .label { color: var(--secondary); display: block; margin-bottom: 0.75rem; }
+    .proposta-header h2 { color: var(--white); max-width: 640px; margin-inline: auto; margin-bottom: 1rem; }
+    .proposta-header p { color: rgba(255,255,255,0.6); max-width: 500px; margin-inline: auto; }
+
+    .proposta-cards {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.25rem;
+      margin-bottom: 3rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .proposta-card {
+      background: rgba(255,255,255,0.055);
+      border: 1px solid rgba(196,164,124,0.18);
+      border-radius: var(--radius-lg);
+      padding: 2rem 1.75rem;
+      transition: var(--transition);
+    }
+
+    .proposta-card:hover {
+      background: rgba(255,255,255,0.09);
+      border-color: rgba(196,164,124,0.4);
+      transform: translateY(-4px);
+    }
+
+    .proposta-card-icon {
+      width: 54px; height: 54px;
+      border-radius: var(--radius-md);
+      background: rgba(196,164,124,0.14);
+      border: 1px solid rgba(196,164,124,0.22);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.25rem;
+    }
+
+    .proposta-card-icon svg { width: 26px; height: 26px; color: var(--secondary); }
+
+    .proposta-card h3 {
+      font-family: var(--font-heading);
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: var(--white);
+      margin-bottom: 0.75rem;
+    }
+
+    .proposta-card p { font-size: 0.875rem; color: rgba(255,255,255,0.62); line-height: 1.7; }
+
+    .proposta-card ul { margin-top: 1rem; }
+
+    .proposta-card ul li {
+      font-size: 0.84rem;
+      color: rgba(255,255,255,0.55);
+      padding: 0.28rem 0;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.5rem;
+    }
+
+    .proposta-card ul li::before {
+      content: '→';
+      color: var(--secondary);
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .proposta-cta {
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .proposta-cta p {
+      color: rgba(255,255,255,0.4);
+      font-size: 0.78rem;
+      margin-top: 1rem;
+      letter-spacing: 0.06em;
+    }
+
+    /* ============================================================
+       8. ROI
+    ============================================================ */
+    #roi { background: var(--surface); }
+
+    .roi-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.25rem;
+    }
+
+    .roi-card {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      padding: 2.25rem 2rem;
+      text-align: center;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid rgba(196,164,124,0.14);
+    }
+
+    .roi-number {
+      font-family: var(--font-heading);
+      font-size: clamp(2.4rem, 6vw, 3.2rem);
+      font-weight: 700;
+      color: var(--accent);
+      display: block;
+      line-height: 1;
+      margin-bottom: 0.5rem;
+    }
+
+    .roi-label {
+      font-size: 0.875rem;
+      color: var(--text-muted);
+      line-height: 1.55;
+    }
+
+    .roi-disclaimer {
+      text-align: center;
+      max-width: 580px;
+      margin-inline: auto;
+      margin-top: 2.5rem;
+      color: var(--text-muted);
+      font-size: 0.875rem;
+      font-style: italic;
+    }
+
+    /* ============================================================
+       9. CONTATO / SOBRE A DIGITAL AI
+    ============================================================ */
+    #contato { background: var(--background); }
+
+    .contato-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .contato-image {
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      max-width: 460px;
+      margin-inline: auto;
+      box-shadow: var(--shadow-md);
+    }
+
+    .contato-image img {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+    }
+
+    .contato-text .label { display: block; margin-bottom: 0.75rem; }
+    .contato-text h2 { color: var(--primary); margin-bottom: 1rem; }
+    .contato-text > p { color: var(--text-muted); margin-bottom: 1rem; }
+
+    .contato-features {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      margin: 1.5rem 0 2rem;
+    }
+
+    .feature-item {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-size: 0.9rem;
+      color: var(--text);
+    }
+
+    .feature-check {
+      width: 22px; height: 22px;
+      border-radius: 50%;
+      background: rgba(184,137,106,0.1);
+      border: 1.5px solid var(--accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .feature-check svg { width: 12px; height: 12px; color: var(--accent); }
+
+    /* ============================================================
+       10. CTA FINAL
+    ============================================================ */
+    #cta-final {
+      background: linear-gradient(140deg, var(--primary) 0%, #243649 100%);
+      color: var(--white);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    #cta-final::before {
+      content: '';
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 660px; height: 660px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(196,164,124,0.07) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .cta-final-content { position: relative; z-index: 1; }
+    .cta-final-content .label { display: inline-block; margin-bottom: 1rem; }
+    .cta-final-content h2 { color: var(--white); max-width: 600px; margin-inline: auto; margin-bottom: 1rem; }
+    .cta-final-content > p {
+      color: rgba(255,255,255,0.6);
+      max-width: 480px;
+      margin-inline: auto;
+      margin-bottom: 2.5rem;
+      font-size: 1.05rem;
+    }
+
+    .cta-actions {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .cta-nota {
+      color: rgba(255,255,255,0.35);
+      font-size: 0.72rem;
+      letter-spacing: 0.09em;
+      margin-top: 0.75rem;
+    }
+
+    /* ============================================================
+       11. FOOTER
+    ============================================================ */
+    #footer {
+      background: #111c25;
+      color: var(--white);
+      padding-block: 2.75rem;
+    }
+
+    .footer-inner {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.5rem;
+      text-align: center;
+    }
+
+    .footer-brand { display: flex; flex-direction: column; align-items: center; gap: 0.25rem; }
+
+    .footer-logo {
+      font-family: var(--font-heading);
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: var(--white);
+      letter-spacing: 0.02em;
+    }
+
+    .footer-logo span { color: var(--secondary); }
+
+    .footer-tagline {
+      font-size: 0.72rem;
+      color: rgba(255,255,255,0.35);
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .footer-divider {
+      width: 100%;
+      height: 1px;
+      background: rgba(255,255,255,0.07);
+    }
+
+    .footer-personalized { font-size: 0.8rem; color: rgba(255,255,255,0.35); }
+    .footer-personalized strong { color: var(--secondary); font-weight: 500; }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.5rem;
+    }
+
+    .footer-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.45);
+      transition: var(--transition);
+    }
+
+    .footer-link:hover { color: var(--secondary); }
+    .footer-link svg { width: 14px; height: 14px; }
+
+    .footer-copy { font-size: 0.68rem; color: rgba(255,255,255,0.18); }
+
+    /* ============================================================
+       FLOATING WHATSAPP
+    ============================================================ */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 1.5rem; right: 1.5rem;
+      z-index: 100;
+      width: 58px; height: 58px;
+      border-radius: 50%;
+      background: #25D366;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 20px rgba(37,211,102,0.4);
+      transition: var(--transition);
+    }
+
+    .whatsapp-float:hover {
+      transform: scale(1.1);
+      box-shadow: 0 6px 28px rgba(37,211,102,0.5);
+    }
+
+    .whatsapp-float svg { width: 30px; height: 30px; }
+
+    /* ============================================================
+       RESPONSIVE — 768px
+    ============================================================ */
+    @media (min-width: 768px) {
+      :root { --gutter: 2rem; }
+
+      .sobre-grid { grid-template-columns: 1fr 1fr; gap: 4rem; }
+      .sobre-image-wrap { margin-inline: 0; max-width: 100%; }
+
+      .especialidades-grid { grid-template-columns: repeat(2, 1fr); }
+
+      .agitacao-grid { grid-template-columns: repeat(2, 1fr); }
+
+      .galeria-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .galeria-item:first-child { grid-column: span 2; aspect-ratio: 16 / 9; }
+
+      .funciona-steps { grid-template-columns: repeat(2, 1fr); gap: 2.5rem; }
+
+      .proposta-cards { grid-template-columns: repeat(3, 1fr); }
+
+      .roi-grid { grid-template-columns: repeat(3, 1fr); }
+
+      .contato-grid { grid-template-columns: 1fr 1fr; gap: 4rem; }
+      .contato-image { margin-inline: 0; max-width: 100%; }
+
+      .cta-actions { flex-direction: row; justify-content: center; }
+    }
+
+    /* ============================================================
+       RESPONSIVE — 1200px
+    ============================================================ */
+    @media (min-width: 1200px) {
+      :root { --gutter: 2.5rem; }
+      .especialidades-grid { grid-template-columns: repeat(5, 1fr); }
+      .hero-content { max-width: 720px; }
     }
   </style>
 </head>
 <body>
 
-<!-- PROGRESS BAR -->
-<div id="progress-bar"></div>
-
-<!-- ── NAV ── -->
-<nav class="nav" id="nav">
-  <div class="nav-inner">
-    <span class="nav-brand">Dra. Izabela <span>✦</span> Ginecologia</span>
-    <a href="https://www.instagram.com/draizabelarezende/" target="_blank" rel="noopener" class="nav-ig">
-      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
-      @draizabelarezende
-    </a>
-  </div>
-</nav>
-
-<!-- ── HERO ── -->
-<section class="hero">
-  <div class="hero-bg">
-    <img src="img/hero.jpg" alt="Dra. Izabela Rezende" loading="eager" />
-  </div>
-  <div class="hero-scroll">
-    <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-  </div>
-</section>
-
-<!-- ── HERO INTRO ── -->
-<div class="hero-intro">
-  <div class="hero-eyebrow">Ginecologia Endócrina · RQE 19954</div>
-  <h1 class="hero-title">
-    Sua saúde hormonal<br><em>merece cuidado integral</em>
-  </h1>
-  <p class="hero-sub">Especialista em Reposição Hormonal, Lipedema, Estética Íntima e Emagrecimento. Atendimento humanizado em Itumbiara GO e Uberlândia MG.</p>
-  <div class="hero-btns">
-    <a href="https://wa.me/5564999668004?text=Ol%C3%A1%2C%20Dra.%20Izabela!%20Vim%20pelo%20site%20e%20gostaria%20de%20agendar%20uma%20consulta." target="_blank" rel="noopener" class="btn btn-wpp">
-      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-      Agendar Consulta
-    </a>
-    <a href="#servicos" class="btn btn-outline">Ver especialidades ↓</a>
-  </div>
-</div>
-
-<!-- ── BENEFITS BAR ── -->
-<div class="benefits-bar">
-  <div class="benefits-inner">
-    <div class="benefit-item">
-      <div class="benefit-icon">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
-      </div>
-      <div class="benefit-text">
-        <span class="benefit-title">Médica Verificada</span>
-        <span class="benefit-sub">CRM + RQE 19954</span>
-      </div>
-    </div>
-    <div class="benefit-item">
-      <div class="benefit-icon">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
-      </div>
-      <div class="benefit-text">
-        <span class="benefit-title">2 Localidades</span>
-        <span class="benefit-sub">Itumbiara GO · Uberlândia MG</span>
-      </div>
-    </div>
-    <div class="benefit-item">
-      <div class="benefit-icon">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
-      </div>
-      <div class="benefit-text">
-        <span class="benefit-title">Cuidado Integral</span>
-        <span class="benefit-sub">Saúde hormonal + bem-estar</span>
-      </div>
-    </div>
-    <div class="benefit-item">
-      <div class="benefit-icon">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg>
-      </div>
-      <div class="benefit-text">
-        <span class="benefit-title">Atendimento Humanizado</span>
-        <span class="benefit-sub">Escuta ativa e diagnóstico preciso</span>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- ── LINKS RÁPIDOS ── -->
-<section class="links-sec">
-  <p class="links-label">Acesse direto</p>
-  <div class="links-grid">
-    <a href="https://wa.me/5564999668004?text=Ol%C3%A1%2C%20Dra.%20Izabela!%20Gostaria%20de%20agendar%20uma%20consulta." target="_blank" rel="noopener" class="link-card lc-wpp reveal">
-      <div class="link-card-icon">
-        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-      </div>
-      <div class="link-card-title">WhatsApp</div>
-      <div class="link-card-sub">Agendar consulta agora</div>
-      <div class="link-card-arrow">Abrir →</div>
-    </a>
-    <a href="https://www.instagram.com/draizabelarezende/" target="_blank" rel="noopener" class="link-card lc-ig reveal d1">
-      <div class="link-card-icon">
-        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
-      </div>
-      <div class="link-card-title">Instagram</div>
-      <div class="link-card-sub">+10,8 mil seguidores</div>
-      <div class="link-card-arrow">Seguir →</div>
-    </a>
-    <a href="https://bio.site/draizabelarezende" target="_blank" rel="noopener" class="link-card lc-lt reveal d2">
-      <div class="link-card-icon">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color:var(--gold)"><path d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
-      </div>
-      <div class="link-card-title">Agendar Online</div>
-      <div class="link-card-sub">Escolha data e cidade</div>
-      <div class="link-card-arrow">Ver horários →</div>
-    </a>
-  </div>
-</section>
-
-<!-- ── SERVIÇOS ── -->
-<section class="section produtos-section" id="servicos">
-  <div class="container">
-    <div class="sec-header reveal">
-      <div class="sec-tag">✦ Especialidades</div>
-      <h2 class="sec-title">Cuidados que <em>transformam vidas</em></h2>
-      <p class="sec-sub">Atendimento especializado e individualizado para cada fase da sua jornada de saúde feminina.</p>
-    </div>
-    <div class="produtos-grid">
-      <!-- Serviço 1 -->
-      <div class="prod-card reveal d1">
-        <div class="prod-img">
-          <img src="img/img2.jpg" alt="Reposição Hormonal" loading="lazy" />
-          <span class="prod-badge">Especialidade</span>
-        </div>
-        <div class="prod-info">
-          <div class="prod-name">Reposição Hormonal</div>
-          <p class="prod-desc">Equilíbrio hormonal personalizado para mulheres em todas as fases — perimenopausa, menopausa e além. Qualidade de vida e autoconfiança de volta.</p>
-          <a href="https://wa.me/5564999668004?text=Ol%C3%A1%2C%20Dra.%20Izabela!%20Tenho%20interesse%20em%20saber%20mais%20sobre%20Reposi%C3%A7%C3%A3o%20Hormonal." target="_blank" rel="noopener" class="prod-cta">Saiba mais →</a>
-        </div>
-      </div>
-      <!-- Serviço 2 -->
-      <div class="prod-card reveal d2">
-        <div class="prod-img">
-          <img src="img/img3.jpg" alt="Lipedema" loading="lazy" />
-          <span class="prod-badge prod-badge-teal">Diagnóstico</span>
-        </div>
-        <div class="prod-info">
-          <div class="prod-name">Lipedema</div>
-          <p class="prod-desc">Diagnóstico preciso e protocolo terapêutico integrado para lipedema. Abordagem hormonal, nutricional e funcional para redução de dor e inchaço.</p>
-          <a href="https://wa.me/5564999668004?text=Ol%C3%A1%2C%20Dra.%20Izabela!%20Tenho%20interesse%20em%20saber%20mais%20sobre%20Lipedema." target="_blank" rel="noopener" class="prod-cta">Saiba mais →</a>
-        </div>
-      </div>
-      <!-- Serviço 3 -->
-      <div class="prod-card reveal d1">
-        <div class="prod-img">
-          <img src="img/img4.jpg" alt="Estética Íntima" loading="lazy" />
-          <span class="prod-badge prod-badge-blue">Bem-estar</span>
-        </div>
-        <div class="prod-info">
-          <div class="prod-name">Estética Íntima</div>
-          <p class="prod-desc">Procedimentos estéticos ginecológicos para autoestima, conforto e prazer. Tratamentos seguros, eficazes e com resultados que devolvem confiança.</p>
-          <a href="https://wa.me/5564999668004?text=Ol%C3%A1%2C%20Dra.%20Izabela!%20Tenho%20interesse%20em%20saber%20mais%20sobre%20Est%C3%A9tica%20%C3%8Dntima." target="_blank" rel="noopener" class="prod-cta">Saiba mais →</a>
-        </div>
-      </div>
-      <!-- Serviço 4 -->
-      <div class="prod-card reveal d2">
-        <div class="prod-img">
-          <img src="img/img1.jpg" alt="Emagrecimento com Saúde" loading="lazy" />
-          <span class="prod-badge prod-badge-dark">Programa</span>
-        </div>
-        <div class="prod-info">
-          <div class="prod-name">Emagrecimento com Saúde</div>
-          <p class="prod-desc">Protocolo médico de emagrecimento com foco hormonal e metabólico. Resultados reais e duradouros sem dietas restritivas ou saúde em risco.</p>
-          <a href="https://bio.site/draizabelarezende" target="_blank" rel="noopener" class="prod-cta">Agendar →</a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ── SOBRE ── -->
-<section class="section sobre-section">
-  <div class="container">
-    <div class="sobre-grid">
-      <div class="sobre-img-wrap reveal">
-        <img src="img/img_sobre.jpg" alt="Dra. Izabela Rezende" loading="lazy" />
-      </div>
-      <div class="sobre-text reveal d2">
-        <div class="sec-tag">✦ Sobre</div>
-        <h2 class="sec-title">Uma médica que <em>entende você</em></h2>
-        <p class="sobre-body">Sou a Dra. Izabela Rezende, ginecologista especializada em Ginecologia Endócrina — uma área que une saúde hormonal, bem-estar feminino e autoconfiança de forma integrada. Minha trajetória foi moldada por experiências reais que me ensinaram a olhar para cada mulher de forma única.</p>
-        <div class="sobre-divider"></div>
-        <p class="sobre-body">Atendo em Itumbiara GO e Uberlândia MG, levando cuidado especializado com escuta ativa, diagnóstico preciso e tratamentos baseados em evidência. Aqui, você não é um número — é uma mulher com história, desejos e merecedora de cuidado de verdade.</p>
-        <div class="sobre-stats">
-          <div class="stat">
-            <div class="stat-num">10,8K</div>
-            <div class="stat-label">Seguidoras no Instagram</div>
-          </div>
-          <div class="stat">
-            <div class="stat-num">258+</div>
-            <div class="stat-label">Conteúdos educativos</div>
-          </div>
-          <div class="stat">
-            <div class="stat-num">2</div>
-            <div class="stat-label">Cidades de atendimento</div>
-          </div>
-        </div>
-        <a href="https://wa.me/5564999668004?text=Ol%C3%A1%2C%20Dra.%20Izabela!%20Quero%20marcar%20minha%20primeira%20consulta." target="_blank" rel="noopener" class="btn btn-gold" style="display:inline-flex">
-          <svg viewBox="0 0 24 24" fill="currentColor" style="width:17px;height:17px"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-          Quero marcar minha consulta
-        </a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ── DEPOIMENTOS ── -->
-<section class="section depo-section">
-  <div class="container">
-    <div class="sec-header reveal" style="text-align:center">
-      <div class="sec-tag">✦ Depoimentos</div>
-      <h2 class="sec-title">O que as pacientes <em>dizem</em></h2>
-    </div>
-    <div class="depo-grid">
-      <div class="depo-card reveal d1">
-        <div class="depo-stars">
-          <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-          <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-          <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-          <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-          <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-        </div>
-        <p class="depo-quote">"A Dra. Izabela foi a primeira médica que realmente me ouviu sobre o lipedema. Ela me deu o diagnóstico correto e um protocolo que mudou a minha qualidade de vida. Me sinto outra pessoa."</p>
-        <div class="depo-author">
-          <div class="depo-avatar">C</div>
-          <div>
-            <div class="depo-name">Carla M.</div>
-            <div class="depo-city">Itumbiara, GO</div>
-          </div>
-        </div>
-      </div>
-      <div class="depo-card reveal d2">
-        <div class="depo-stars">
-          <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-          <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-          <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-          <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-          <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-        </div>
-        <p class="depo-quote">"Comecei a reposição hormonal com a Dra. Izabela e em 3 meses minha energia, sono e disposição voltaram completamente. Ela explica tudo com tanta clareza que me sinto segura em cada decisão."</p>
-        <div class="depo-author">
-          <div class="depo-avatar">R</div>
-          <div>
-            <div class="depo-name">Renata P.</div>
-            <div class="depo-city">Uberlândia, MG</div>
-          </div>
-        </div>
-      </div>
-      <div class="depo-card reveal d3">
-        <div class="depo-stars">
-          <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-          <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-          <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-          <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-          <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-        </div>
-        <p class="depo-quote">"Passei anos convivendo com desconforto íntimo achando que era 'normal'. A Dra. Izabela me mostrou que não precisa ser assim. O tratamento foi transformador — voltei a me sentir bem no meu próprio corpo."</p>
-        <div class="depo-author">
-          <div class="depo-avatar">F</div>
-          <div>
-            <div class="depo-name">Fernanda A.</div>
-            <div class="depo-city">Itumbiara, GO</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ── FAQ ── -->
-<section class="section faq-section">
-  <div class="container">
-    <div class="sec-header reveal" style="text-align:center">
-      <div class="sec-tag">✦ Dúvidas</div>
-      <h2 class="sec-title">Perguntas <em>frequentes</em></h2>
-    </div>
-    <div class="faq-list">
-      <div class="faq-item reveal">
-        <button class="faq-q" onclick="toggleFaq(this)">
-          O que é Ginecologia Endócrina e quando devo procurar?
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 9l-7 7-7-7"/></svg>
-        </button>
-        <div class="faq-a">A Ginecologia Endócrina é a especialidade que conecta a saúde hormonal com a saúde ginecológica. Você deve buscar quando sentir alterações como cansaço excessivo, ganho de peso, libido baixa, oscilações de humor, irregularidade menstrual ou sintomas da menopausa. Quanto antes o diagnóstico, melhor a qualidade do tratamento.</div>
-      </div>
-      <div class="faq-item reveal d1">
-        <button class="faq-q" onclick="toggleFaq(this)">
-          A reposição hormonal é segura? Tem contraindicações?
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 9l-7 7-7-7"/></svg>
-        </button>
-        <div class="faq-a">Quando bem indicada e acompanhada por especialista, a reposição hormonal é segura e baseada em evidências científicas robustas. A avaliação clínica individualizada é fundamental — existem contraindicações que precisam ser levantadas na consulta. Por isso o acompanhamento médico é indispensável.</div>
-      </div>
-      <div class="faq-item reveal d2">
-        <button class="faq-q" onclick="toggleFaq(this)">
-          Tenho sintomas de lipedema. Como é a consulta?
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 9l-7 7-7-7"/></svg>
-        </button>
-        <div class="faq-a">A consulta de lipedema inclui avaliação clínica detalhada dos membros, histórico hormonal e familiar, além de exames específicos. O diferencial da abordagem da Dra. Izabela é integrar o componente hormonal ao tratamento — fator determinante que muitos profissionais ainda ignoram.</div>
-      </div>
-      <div class="faq-item reveal d1">
-        <button class="faq-q" onclick="toggleFaq(this)">
-          Onde são as consultas? Vocês atendem por plano de saúde?
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 9l-7 7-7-7"/></svg>
-        </button>
-        <div class="faq-a">As consultas acontecem em Itumbiara GO e Uberlândia MG. Para informações sobre convênios, disponibilidade de datas e valores, entre em contato via WhatsApp — nossa equipe responde rapidamente e ajuda a encontrar o melhor dia para você.</div>
-      </div>
-      <div class="faq-item reveal d2">
-        <button class="faq-q" onclick="toggleFaq(this)">
-          Quais procedimentos de estética íntima são realizados?
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 9l-7 7-7-7"/></svg>
-        </button>
-        <div class="faq-a">São realizados procedimentos para tratar ressecamento vaginal, incontinência leve, desconforto durante relações, flacidez e questões estéticas. Todos os procedimentos são realizados com segurança, equipamentos modernos e protocolo individualizado para cada paciente. Para detalhes, agende uma avaliação.</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ── CTA FINAL ── -->
-<section class="cta-section">
-  <p class="cta-eyebrow reveal">Sua saúde não pode esperar</p>
-  <h2 class="cta-title reveal d1">
-    Dê o primeiro passo para<br><em>se sentir bem de verdade</em>
-  </h2>
-  <p class="cta-sub reveal d2">Agende agora sua consulta com a Dra. Izabela Rezende em Itumbiara GO ou Uberlândia MG.</p>
-  <div class="cta-btns reveal d3">
-    <div>
-      <a href="https://wa.me/5564999668004?text=Ol%C3%A1%2C%20Dra.%20Izabela!%20Vim%20pelo%20site%20e%20quero%20agendar%20minha%20consulta." target="_blank" rel="noopener" class="btn btn-wpp">
-        <svg viewBox="0 0 24 24" fill="currentColor" style="width:17px;height:17px"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-        Agendar pelo WhatsApp
-      </a>
-      <span class="btn-sub">Resposta rápida · Sem compromisso</span>
-    </div>
-    <a href="https://www.instagram.com/draizabelarezende/" target="_blank" rel="noopener" class="btn btn-dark">
-      <svg viewBox="0 0 24 24" fill="currentColor" style="width:17px;height:17px"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
-      Ver no Instagram
-    </a>
-  </div>
-  <p class="cta-urgency reveal d4">Vagas limitadas · Itumbiara GO e Uberlândia MG</p>
-</section>
-
-<!-- ── FOOTER ── -->
-<footer>
-  <a href="https://digital-ai.tech" target="_blank" rel="noopener">
-    <img src="https://s3.amazonaws.com/cdn.digital-ai.tech/uploads/media-cortex/identity/digital-ai/logos/logo-negative.svg"
-         alt="Digital AI"
-         height="20"
-         style="display:inline-block;width:auto;height:20px;opacity:0.4;margin:0 auto;" />
+  <!-- Floating WhatsApp -->
+  <a
+    href="https://wa.me/5564999668004?text=Ol%C3%A1%2C+vi+a+apresenta%C3%A7%C3%A3o+da+Digital+AI+e+gostaria+de+saber+mais+sobre+a+solu%C3%A7%C3%A3o."
+    target="_blank"
+    rel="noopener"
+    class="whatsapp-float"
+    aria-label="Fale pelo WhatsApp"
+  >
+    <svg viewBox="0 0 24 24" fill="currentColor">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+      <path d="M12 0C5.373 0 0 5.373 0 12c0 2.117.552 4.103 1.515 5.83L.057 23.943l6.305-1.469C8.082 23.466 10.002 24 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.855 0-3.614-.5-5.14-1.373l-.368-.218-3.742.87.953-3.67-.24-.38A9.958 9.958 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/>
+    </svg>
   </a>
-</footer>
 
-<!-- ── FLOAT WPP ── -->
-<a href="https://wa.me/5564999668004?text=Ol%C3%A1%2C%20Dra.%20Izabela!%20Vim%20pelo%20site%20e%20quero%20agendar%20minha%20consulta." target="_blank" rel="noopener" class="float-wpp" aria-label="WhatsApp">
-  <svg viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-</a>
+  <!-- ============================================================
+       SECTION 1: HERO
+  ============================================================ -->
+  <section id="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-overlay"></div>
 
-<script>
-  const bar = document.getElementById('progress-bar');
-  window.addEventListener('scroll', () => {
-    const total = document.documentElement.scrollHeight - window.innerHeight;
-    bar.style.width = (window.scrollY / total * 100) + '%';
-  }, { passive: true });
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-badge fade-in">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+          </svg>
+          Conta Verificada &nbsp;•&nbsp; 10,8 mil seguidoras
+        </div>
 
-  const nav = document.getElementById('nav');
-  window.addEventListener('scroll', () => {
-    nav.classList.toggle('scrolled', window.scrollY > 30);
-  }, { passive: true });
+        <h1 class="heading-xl hero-title fade-in fade-in-delay-1">
+          Sua saúde hormonal<br>
+          merece atenção<br>
+          <em>especializada</em>
+        </h1>
 
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-  }, { threshold: 0.1 });
-  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+        <p class="hero-subtitle fade-in fade-in-delay-2">
+          Ginecologia Endócrina &bull; Estética Íntima &bull; Lipedema<br>
+          Reposição Hormonal &bull; Emagrecimento<br>
+          <span style="opacity:0.7;font-size:0.9em">Itumbiara GO e Uberlândia MG</span>
+        </p>
 
-  function toggleFaq(btn) {
-    const item = btn.closest('.faq-item');
-    const isOpen = item.classList.contains('open');
-    document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
-    if (!isOpen) item.classList.add('open');
-  }
-</script>
+        <div class="hero-actions fade-in fade-in-delay-3">
+          <a href="#proposta" class="btn btn-primary">
+            Ver como a IA pode transformar seu atendimento
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <path d="M5 12h14M12 5l7 7-7 7"/>
+            </svg>
+          </a>
+          <a href="#sobre" class="btn btn-outline">Conhecer a proposta</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-scroll" aria-hidden="true">
+      <span>scroll</span>
+      <svg width="16" height="22" viewBox="0 0 16 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <rect x="1" y="1" width="14" height="22" rx="7"/>
+        <circle cx="8" cy="7" r="2.5" fill="currentColor" stroke="none"/>
+      </svg>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 2: ESPELHO / SOBRE
+  ============================================================ -->
+  <section id="sobre">
+    <div class="container">
+      <div class="sobre-grid">
+
+        <div class="sobre-image-wrap fade-in">
+          <img
+            src="assets/profile_pic.jpg"
+            alt="Dra. Izabela Rezende — Ginecologista"
+            class="sobre-image"
+            loading="lazy"
+          >
+          <div class="sobre-crm-badge">
+            <span>CRM GO 26641</span>
+            RQE 19954
+          </div>
+        </div>
+
+        <div class="sobre-text fade-in fade-in-delay-1">
+          <span class="label">A especialista</span>
+          <h2 class="heading-lg">Dra. Izabela Rezende</h2>
+
+          <p>
+            A Dra. Izabela não entrou na Ginecologia Endócrina por acaso. Com diagnóstico
+            pessoal de <strong>Síndrome dos Ovários Policísticos (SOP)</strong>, ela viveu
+            na própria pele o que suas pacientes enfrentam — a busca por respostas, o cansaço
+            de não ser ouvida e a esperança de finalmente encontrar quem realmente entenda.
+          </p>
+
+          <p>
+            Essa experiência transformou sua medicina. Cada consulta é um momento de
+            <strong>escuta profunda e acolhimento genuíno</strong>, onde a paciente
+            é vista como um todo — não apenas pelos seus exames.
+          </p>
+
+          <p>
+            Com atuação em Itumbiara GO e Uberlândia MG, a Dra. Izabela conquistou mais de
+            <strong>10.800 seguidoras</strong> nas redes sociais e uma reputação construída
+            sobre confiança, ciência e empatia.
+          </p>
+
+          <div class="sobre-highlight">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#B8896A" stroke-width="1.5" style="flex-shrink:0;margin-top:2px">
+              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+            </svg>
+            <p>
+              "Cuidar da sua saúde íntima começa quando você encontra
+              alguém em que realmente <strong>confia.</strong>"
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 3: ESPECIALIDADES
+  ============================================================ -->
+  <section id="especialidades">
+    <div class="container">
+      <div class="section-header fade-in">
+        <span class="label">Áreas de atuação</span>
+        <h2 class="heading-lg" style="color:var(--primary);margin-top:0.5rem">
+          Especialidades da Dra. Izabela
+        </h2>
+        <p class="especialidades-intro" style="margin-top:1rem">
+          Uma medicina integrativa que olha para a mulher como um todo — do hormonal ao emocional,
+          do íntimo ao metabólico.
+        </p>
+      </div>
+
+      <div class="especialidades-grid">
+
+        <div class="espec-card fade-in">
+          <div class="espec-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <circle cx="12" cy="12" r="3"/>
+              <path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/>
+            </svg>
+          </div>
+          <div class="espec-title">Ginecologia Endócrina</div>
+          <p class="espec-desc">Equilíbrio hormonal feminino em todas as fases da vida — da puberdade à menopausa, com foco em SOP, endometriose e distúrbios menstruais.</p>
+        </div>
+
+        <div class="espec-card fade-in fade-in-delay-1">
+          <div class="espec-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            </svg>
+          </div>
+          <div class="espec-title">Estética Íntima</div>
+          <p class="espec-desc">Procedimentos especializados para o bem-estar e autoestima feminina, aliando tecnologia de ponta com cuidado personalizado e segurança.</p>
+        </div>
+
+        <div class="espec-card fade-in fade-in-delay-2">
+          <div class="espec-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+            </svg>
+          </div>
+          <div class="espec-title">Lipedema</div>
+          <p class="espec-desc">Diagnóstico e acompanhamento especializado do lipedema — condição frequentemente subdiagnosticada que impacta qualidade de vida e autoestima.</p>
+        </div>
+
+        <div class="espec-card fade-in fade-in-delay-3">
+          <div class="espec-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M12 2l2 7h7l-5.5 4 2 7L12 16l-5.5 4 2-7L3 9h7z"/>
+            </svg>
+          </div>
+          <div class="espec-title">Reposição Hormonal</div>
+          <p class="espec-desc">Terapia de reposição hormonal bioidentica e convencional, avaliada individualmente com base em exames, sintomas e perfil de cada paciente.</p>
+        </div>
+
+        <div class="espec-card fade-in fade-in-delay-4">
+          <div class="espec-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+            </svg>
+          </div>
+          <div class="espec-title">Emagrecimento</div>
+          <p class="espec-desc">Abordagem médica integrativa com investigação de causas hormonais, metabólicas e comportamentais — protocolos individualizados para resultados reais.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 4: AGITAÇÃO
+  ============================================================ -->
+  <section id="agitacao">
+    <div class="container">
+      <div class="agitacao-header fade-in">
+        <span class="label">O cenário atual</span>
+        <h2 class="heading-lg">O que está custando caro ao seu consultório hoje</h2>
+        <p>
+          Médicas excepcionais como a Dra. Izabela perdem horas valiosas com tarefas que
+          a tecnologia já resolveu — e isso tem um custo real, invisível e diário.
+        </p>
+      </div>
+
+      <div class="agitacao-grid">
+
+        <div class="problema-card fade-in">
+          <div class="problema-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/>
+            </svg>
+          </div>
+          <div>
+            <h4>Dúvidas fora do horário sem resposta</h4>
+            <p>Pacientes enviam mensagens de madrugada e ficam sem resposta até o dia seguinte — gerando ansiedade e diminuindo a percepção de cuidado.</p>
+          </div>
+        </div>
+
+        <div class="problema-card fade-in fade-in-delay-1">
+          <div class="problema-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/>
+            </svg>
+          </div>
+          <div>
+            <h4>Agendamentos manuais que esgotam a equipe</h4>
+            <p>Cada marcação exige tempo da secretária — o que gera gargalos, erros e pacientes perdidas para clínicas com agendamento online imediato.</p>
+          </div>
+        </div>
+
+        <div class="problema-card fade-in fade-in-delay-2">
+          <div class="problema-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/>
+              <path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+            </svg>
+          </div>
+          <div>
+            <h4>Consulta sem triagem prévia</h4>
+            <p>Pacientes chegam sem os exames corretos, sem histórico adequado — e a consulta perde objetividade, tornando-se menos eficiente para ambas.</p>
+          </div>
+        </div>
+
+        <div class="problema-card fade-in fade-in-delay-3">
+          <div class="problema-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+            </svg>
+          </div>
+          <div>
+            <h4>Pacientes que somem após a consulta</h4>
+            <p>Sem follow-up estruturado, o vínculo médico-paciente se perde entre consultas — retornos são esquecidos e tratamentos abandonados no meio.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 5: PROVA SOCIAL / GALERIA
+  ============================================================ -->
+  <section id="prova-social">
+    <div class="container">
+      <div class="section-header fade-in">
+        <span class="label">Presença digital</span>
+        <h2 class="heading-lg" style="color:var(--primary);margin-top:0.5rem">
+          Uma presença que inspira confiança
+        </h2>
+      </div>
+
+      <div class="galeria-grid">
+        <div class="galeria-item fade-in">
+          <img src="assets/img2.jpg" alt="Dra. Izabela Rezende — saúde hormonal feminina" loading="lazy">
+        </div>
+        <div class="galeria-item fade-in fade-in-delay-1">
+          <img src="assets/img3.jpg" alt="Dra. Izabela Rezende — bem-estar feminino" loading="lazy">
+        </div>
+        <div class="galeria-item fade-in fade-in-delay-2">
+          <img src="assets/img4.jpg" alt="Dra. Izabela Rezende — lipedema e saúde" loading="lazy">
+        </div>
+      </div>
+
+      <div class="stats-bar fade-in">
+        <div class="stat-item">
+          <span class="stat-number">10.8k</span>
+          <span class="stat-label">Seguidoras</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">258</span>
+          <span class="stat-label">Posts</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">&#10003;</span>
+          <span class="stat-label">Conta verificada</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">2</span>
+          <span class="stat-label">Cidades atendidas</span>
+        </div>
+      </div>
+
+      <div class="quote-block fade-in">
+        <blockquote>
+          Cuidar da sua saúde íntima começa quando você encontra alguém em que realmente confia.
+          <cite class="quote-cite">— @draizabelarezende</cite>
+        </blockquote>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 6: COMO FUNCIONA
+  ============================================================ -->
+  <section id="como-funciona">
+    <div class="container">
+      <div class="section-header fade-in">
+        <span class="label">A solução</span>
+        <h2 class="heading-lg" style="color:var(--primary);margin-top:0.5rem">
+          Como a Digital AI funciona no dia a dia do consultório
+        </h2>
+        <p style="color:var(--text-muted);margin-top:1rem;max-width:520px;margin-inline:auto">
+          Implementação simples, sem burocracia técnica — integrada diretamente ao
+          WhatsApp que a sua equipe já usa.
+        </p>
+      </div>
+
+      <div class="funciona-steps">
+
+        <div class="step-item fade-in">
+          <div class="step-number">01</div>
+          <div class="step-content">
+            <h4>Paciente entra em contato pelo WhatsApp</h4>
+            <p>A IA responde imediatamente — 24h por dia, 7 dias por semana — com linguagem empática e profissional alinhada à voz da Dra. Izabela.</p>
+          </div>
+        </div>
+
+        <div class="step-item fade-in fade-in-delay-1">
+          <div class="step-number">02</div>
+          <div class="step-content">
+            <h4>Triagem inteligente por especialidade</h4>
+            <p>A IA identifica se é caso de lipedema, SOP, estética íntima — e já coleta histórico e exames relevantes para otimizar a consulta.</p>
+          </div>
+        </div>
+
+        <div class="step-item fade-in fade-in-delay-2">
+          <div class="step-number">03</div>
+          <div class="step-content">
+            <h4>Agendamento automático</h4>
+            <p>Integração com a agenda da clínica: confirmação de horários, lembretes automáticos e redução de faltas — sem intervenção da secretária.</p>
+          </div>
+        </div>
+
+        <div class="step-item fade-in fade-in-delay-3">
+          <div class="step-number">04</div>
+          <div class="step-content">
+            <h4>Follow-up e nutrição de relacionamento</h4>
+            <p>Após a consulta: acompanhamento automático, lembrete de retorno e conteúdo educativo personalizado sobre saúde hormonal feminina.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 7: PROPOSTA DIGITAL AI (Conversão Central)
+  ============================================================ -->
+  <section id="proposta">
+    <div class="container">
+      <div class="proposta-header fade-in">
+        <span class="label">Apresentado com exclusividade</span>
+        <h2 class="heading-lg">
+          O que a Digital AI pode fazer pelo consultório da Dra. Izabela
+        </h2>
+        <p>
+          Tecnologia de ponta, implementada com cuidado — para que a médica
+          se concentre no que realmente importa: cuidar das suas pacientes.
+        </p>
+      </div>
+
+      <div class="proposta-cards">
+
+        <div class="proposta-card fade-in">
+          <div class="proposta-card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+            </svg>
+          </div>
+          <h3>Atendimento 24h sem sobrecarregar a equipe</h3>
+          <p>Agente de IA que responde dúvidas frequentes, agenda consultas e qualifica pacientes via WhatsApp — mesmo fora do horário comercial, fins de semana e feriados.</p>
+          <ul>
+            <li>Respostas imediatas a qualquer hora</li>
+            <li>Linguagem empática treinada para saúde feminina</li>
+            <li>Encaminhamento automático quando necessário</li>
+          </ul>
+        </div>
+
+        <div class="proposta-card fade-in fade-in-delay-1">
+          <div class="proposta-card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.97a16 16 0 0 0 6.12 6.12l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
+            </svg>
+          </div>
+          <h3>Nutrição de relacionamento automatizada</h3>
+          <p>Sequências automáticas de acompanhamento pós-consulta, lembretes de retorno e conteúdo educativo personalizado — mantendo o vínculo com a paciente entre consultas.</p>
+          <ul>
+            <li>Lembrete de retorno no prazo certo</li>
+            <li>Conteúdo educativo sobre saúde hormonal</li>
+            <li>Reengajamento de pacientes inativas</li>
+          </ul>
+        </div>
+
+        <div class="proposta-card fade-in fade-in-delay-2">
+          <div class="proposta-card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+            </svg>
+          </div>
+          <h3>Triagem inteligente de pacientes</h3>
+          <p>Classificação automatizada por especialidade — lipedema, SOP, estética íntima — antes da consulta, com coleta de histórico e exames relevantes.</p>
+          <ul>
+            <li>Histórico coletado antes da consulta</li>
+            <li>Paciente chega mais preparada</li>
+            <li>Consultas mais objetivas e eficientes</li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="proposta-cta fade-in">
+        <a
+          href="https://wa.me/5564999668004?text=Ol%C3%A1%2C+vi+a+apresenta%C3%A7%C3%A3o+da+Digital+AI+e+quero+conhecer+a+solu%C3%A7%C3%A3o+para+o+consult%C3%B3rio+da+Dra.+Izabela."
+          target="_blank"
+          rel="noopener"
+          class="btn btn-primary"
+          style="min-height:56px;font-size:0.95rem;padding:0 2.5rem"
+        >
+          Quero conhecer a solução
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <path d="M5 12h14M12 5l7 7-7 7"/>
+          </svg>
+        </a>
+        <p>Conversa direta, sem compromisso — apresentamos a solução completa.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 8: ROI
+  ============================================================ -->
+  <section id="roi">
+    <div class="container">
+      <div class="section-header fade-in">
+        <span class="label">Resultados esperados</span>
+        <h2 class="heading-lg" style="color:var(--primary);margin-top:0.5rem">
+          O impacto real no consultório
+        </h2>
+      </div>
+
+      <div class="roi-grid">
+        <div class="roi-card fade-in">
+          <span class="roi-number">3h+</span>
+          <p class="roi-label">economizadas por dia pela equipe em atendimentos repetitivos via WhatsApp</p>
+        </div>
+        <div class="roi-card fade-in fade-in-delay-1">
+          <span class="roi-number">40%</span>
+          <p class="roi-label">redução de faltas com lembretes automáticos e confirmação inteligente de consultas</p>
+        </div>
+        <div class="roi-card fade-in fade-in-delay-2">
+          <span class="roi-number">24/7</span>
+          <p class="roi-label">disponibilidade de atendimento para novas pacientes, dúvidas e agendamentos</p>
+        </div>
+      </div>
+
+      <p class="roi-disclaimer fade-in">
+        Números baseados em resultados de clínicas médicas semelhantes que utilizam a
+        plataforma Digital AI — adaptados ao perfil do consultório da Dra. Izabela.
+      </p>
+
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 9: CONTATO / SOBRE A DIGITAL AI
+  ============================================================ -->
+  <section id="contato">
+    <div class="container">
+      <div class="contato-grid">
+
+        <div class="contato-image fade-in">
+          <img src="assets/img1.jpg" alt="Consultório — atendimento humanizado com tecnologia" loading="lazy">
+        </div>
+
+        <div class="contato-text fade-in fade-in-delay-1">
+          <span class="label">Quem somos</span>
+          <h2 class="heading-lg" style="color:var(--primary)">Digital AI — IA para quem cuida de pessoas</h2>
+
+          <p>
+            Somos uma empresa de inteligência artificial especializada em transformar o
+            atendimento de clínicas e consultórios médicos. Nossa missão é simples:
+            fazer a tecnologia trabalhar para o médico, não o contrário.
+          </p>
+
+          <p>
+            Desenvolvemos soluções sob medida, com implementação guiada e suporte
+            contínuo — para que você nunca fique sozinha com a tecnologia.
+          </p>
+
+          <div class="contato-features">
+            <div class="feature-item">
+              <div class="feature-check">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                  <polyline points="20 6 9 17 4 12"/>
+                </svg>
+              </div>
+              Implementação em até 7 dias úteis
+            </div>
+            <div class="feature-item">
+              <div class="feature-check">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                  <polyline points="20 6 9 17 4 12"/>
+                </svg>
+              </div>
+              Sem necessidade de conhecimento técnico
+            </div>
+            <div class="feature-item">
+              <div class="feature-check">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                  <polyline points="20 6 9 17 4 12"/>
+                </svg>
+              </div>
+              Suporte dedicado via WhatsApp
+            </div>
+            <div class="feature-item">
+              <div class="feature-check">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                  <polyline points="20 6 9 17 4 12"/>
+                </svg>
+              </div>
+              IA treinada com linguagem médica humanizada
+            </div>
+            <div class="feature-item">
+              <div class="feature-check">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                  <polyline points="20 6 9 17 4 12"/>
+                </svg>
+              </div>
+              Integração com WhatsApp Business existente
+            </div>
+          </div>
+
+          <a
+            href="https://wa.me/5564999668004?text=Ol%C3%A1%2C+vi+a+apresenta%C3%A7%C3%A3o+da+Digital+AI+e+quero+agendar+uma+conversa+sobre+a+solu%C3%A7%C3%A3o+para+meu+consult%C3%B3rio."
+            target="_blank"
+            rel="noopener"
+            class="btn btn-primary"
+          >
+            Agendar uma conversa
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 10: CTA FINAL
+  ============================================================ -->
+  <section id="cta-final">
+    <div class="container">
+      <div class="cta-final-content fade-in">
+        <span class="label">Próximo passo</span>
+
+        <h2 class="heading-lg">
+          Dra. Izabela, sua agenda pode trabalhar por você — mesmo quando você não está
+        </h2>
+
+        <p>
+          Uma conversa de 20 minutos pode mostrar exatamente como a IA se encaixaria no
+          dia a dia do seu consultório. Sem compromisso. Sem burocracia.
+        </p>
+
+        <div class="cta-actions">
+          <a
+            href="https://wa.me/5564999668004?text=Ol%C3%A1%2C+sou+a+Dra.+Izabela+Rezende+e+vi+a+apresenta%C3%A7%C3%A3o+da+Digital+AI.+Quero+conhecer+a+solu%C3%A7%C3%A3o+para+meu+consult%C3%B3rio."
+            target="_blank"
+            rel="noopener"
+            class="btn btn-primary"
+            style="min-height:56px;font-size:0.95rem;padding:0 2.5rem"
+          >
+            Quero conhecer a solução
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+              <path d="M12 0C5.373 0 0 5.373 0 12c0 2.117.552 4.103 1.515 5.83L.057 23.943l6.305-1.469C8.082 23.466 10.002 24 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.855 0-3.614-.5-5.14-1.373l-.368-.218-3.742.87.953-3.67-.24-.38A9.958 9.958 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/>
+            </svg>
+          </a>
+        </div>
+
+        <p class="cta-nota">Apresentado com exclusividade para Dra. Izabela Rezende</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 11: FOOTER
+  ============================================================ -->
+  <footer id="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <div class="footer-logo">Digital <span>AI</span></div>
+          <p class="footer-tagline">Inteligência Artificial para Saúde</p>
+        </div>
+
+        <div class="footer-divider"></div>
+
+        <p class="footer-personalized">
+          Esta página foi criada com exclusividade para
+          <strong>Dra. Izabela Rezende | Ginecologia Endócrina</strong>
+        </p>
+
+        <div class="footer-links">
+          <a
+            href="https://www.instagram.com/draizabelarezende/"
+            target="_blank"
+            rel="noopener"
+            class="footer-link"
+          >
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+              <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+            </svg>
+            @draizabelarezende
+          </a>
+          <a href="tel:+556499966-8004" class="footer-link">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.97a16 16 0 0 0 6.12 6.12l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
+            </svg>
+            (64) 99966-8004
+          </a>
+        </div>
+
+        <p class="footer-copy">
+          &copy; 2026 Digital AI &mdash; Todos os direitos reservados. Esta e uma apresentacao comercial exclusiva.
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Intersection Observer — fade-in on scroll -->
+  <script>
+    (function () {
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting) {
+            e.target.classList.add('visible');
+            io.unobserve(e.target);
+          }
+        });
+      }, { threshold: 0.1, rootMargin: '0px 0px -36px 0px' });
+
+      document.querySelectorAll('.fade-in').forEach(function (el) {
+        io.observe(el);
+      });
+    })();
+  </script>
+
 </body>
 </html>
