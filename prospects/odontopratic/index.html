@@ -257,22 +257,30 @@
     .hero-actions { display: flex; flex-wrap: wrap; gap: 16px; }
     .hero-stats {
       display: flex;
-      gap: 40px;
-      margin-top: 56px;
-      padding-top: 36px;
-      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      gap: 16px;
+      margin-top: 48px;
+    }
+    .hero-stats > div {
+      flex: 1;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      border-radius: var(--radius-lg);
+      padding: 20px 16px;
+      text-align: center;
+      backdrop-filter: blur(8px);
     }
     .hero-stat-value {
       font-family: var(--font-heading);
-      font-size: 2rem;
+      font-size: 1.875rem;
       font-weight: 800;
-      color: var(--brand-white);
+      color: #ffffff;
       line-height: 1;
-      margin-bottom: 4px;
+      margin-bottom: 6px;
     }
     .hero-stat-label {
-      font-size: 0.875rem;
-      color: rgba(255, 255, 255, 0.5);
+      font-size: 0.8125rem;
+      color: rgba(255, 255, 255, 0.75);
+      line-height: 1.4;
     }
 
     /* Hero visual — clínica foto */
@@ -1063,7 +1071,7 @@
           <img src="https://s3.amazonaws.com/cdn.digital-ai.tech/uploads/media-cortex/identity/digital-ai/logos/logo-primary.svg" alt="Digital AI" style="filter: brightness(0) invert(1);" />
         </div>
         <div class="footer-text">
-          <a href="https://digital-ai.tech" target="_blank" rel="noopener">digital-ai.tech</a> &mdash; Inteligencia que move negocios.
+          <a href="https://digital-ai.tech" target="_blank" rel="noopener">digital-ai.tech</a> &mdash; O seu crescimento é o nosso propósito.
         </div>
       </div>
     </div>
