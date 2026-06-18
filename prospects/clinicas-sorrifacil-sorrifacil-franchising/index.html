@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sorrifácil Franquias | Atendimento Inteligente com IA — Digital AI</title>
+  <meta name="description" content="Agendamentos automáticos 24h, redução de faltas em 70% e follow-up sem esforço humano para toda a rede Sorrifácil. Conheça a Digital AI." />
+  <meta name="robots" content="noindex, nofollow" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --brand-primary: #003DA5;
+      --brand-secondary: #002880;
+      --brand-dark: #001845;
+      --brand-accent: #0057DE;
+      --brand-light: #E8F0FF;
+      --white: #ffffff;
+      --text-main: #0A0E1A;
+      --text-muted: #5A6278;
+      --border: #E0E6F0;
+      --section-alt: #F4F7FF;
+      --font-heading: 'Plus Jakarta Sans', sans-serif;
+      --font-body: 'DM Sans', sans-serif;
+      --radius: 16px;
+      --radius-sm: 10px;
+      --shadow: 0 4px 24px rgba(0,61,165,0.10);
+      --shadow-lg: 0 12px 48px rgba(0,61,165,0.15);
+    }
+
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--font-body); color: var(--text-main); background: var(--white); line-height: 1.6; }
+
+    /* ── NAVBAR ── */
+    .navbar {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      padding: 16px 40px;
+      display: flex; align-items: center; justify-content: space-between;
+      background: transparent;
+      transition: background 0.3s, box-shadow 0.3s;
+    }
+    .navbar.scrolled {
+      background: rgba(0,24,69,0.96);
+      box-shadow: 0 2px 20px rgba(0,0,0,0.3);
+      backdrop-filter: blur(12px);
+    }
+    .nav-logo img { height: 36px; filter: brightness(0) invert(1); }
+    .nav-cta {
+      background: var(--white);
+      color: var(--brand-primary);
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 14px;
+      padding: 10px 22px;
+      border-radius: 50px;
+      text-decoration: none;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .nav-cta:hover { transform: translateY(-1px); box-shadow: var(--shadow); }
+
+    /* ── HERO ── */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex; align-items: center; justify-content: center;
+      overflow: hidden;
+      color: var(--white);
+      text-align: center;
+    }
+    .hero-bg {
+      position: absolute; inset: 0; z-index: 0;
+      background-image: url('img/hero.jpg');
+      background-size: cover;
+      background-position: center top;
+      opacity: 0.42;
+    }
+    .hero-overlay {
+      position: absolute; inset: 0; z-index: 1;
+      background: linear-gradient(135deg, rgba(0,24,69,0.88) 0%, rgba(0,61,165,0.78) 100%);
+    }
+    .hero-content {
+      position: relative; z-index: 2;
+      max-width: 860px; padding: 120px 24px 80px;
+    }
+    .hero-tag {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 50px;
+      padding: 6px 18px; font-size: 13px; font-weight: 600;
+      text-transform: uppercase; letter-spacing: 0.08em;
+      margin-bottom: 24px;
+    }
+    .hero h1 {
+      font-family: var(--font-heading);
+      font-size: clamp(2.4rem, 5vw, 3.6rem);
+      font-weight: 800;
+      line-height: 1.15;
+      margin-bottom: 20px;
+      text-shadow: 0 2px 12px rgba(0,0,0,0.3);
+    }
+    .hero h1 em { font-style: normal; color: #7EB8FF; }
+    .hero-sub {
+      font-size: clamp(1rem, 2vw, 1.2rem);
+      opacity: 0.88;
+      max-width: 620px;
+      margin: 0 auto 40px;
+      font-weight: 400;
+    }
+    .hero-ctas { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+    .btn-primary {
+      background: var(--white);
+      color: var(--brand-primary);
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 15px;
+      padding: 14px 32px;
+      border-radius: 50px;
+      text-decoration: none;
+      display: inline-flex; align-items: center; gap: 8px;
+      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+    }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(0,0,0,0.3); }
+    .btn-ghost {
+      border: 2px solid rgba(255,255,255,0.5);
+      color: var(--white);
+      font-family: var(--font-heading);
+      font-weight: 600;
+      font-size: 15px;
+      padding: 12px 30px;
+      border-radius: 50px;
+      text-decoration: none;
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .btn-ghost:hover { border-color: var(--white); background: rgba(255,255,255,0.1); }
+
+    .hero-stats {
+      display: flex; gap: 32px; justify-content: center; flex-wrap: wrap;
+      margin-top: 60px;
+    }
+    .hero-stat { text-align: center; }
+    .hero-stat-n {
+      font-family: var(--font-heading);
+      font-size: 2rem; font-weight: 800;
+      color: #7EB8FF;
+    }
+    .hero-stat-l { font-size: 0.82rem; opacity: 0.7; text-transform: uppercase; letter-spacing: 0.06em; }
+
+    /* ── SECTIONS COMMON ── */
+    section { padding: 96px 24px; }
+    .container { max-width: 1120px; margin: 0 auto; }
+    .section-tag {
+      display: inline-block;
+      background: var(--brand-light);
+      color: var(--brand-primary);
+      font-weight: 700; font-size: 12px;
+      text-transform: uppercase; letter-spacing: 0.1em;
+      padding: 4px 14px; border-radius: 50px;
+      margin-bottom: 12px;
+    }
+    h2 {
+      font-family: var(--font-heading);
+      font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+      font-weight: 800; line-height: 1.2;
+      margin-bottom: 14px;
+    }
+    .section-sub {
+      color: var(--text-muted);
+      font-size: 1.05rem;
+      max-width: 580px;
+      margin-bottom: 56px;
+    }
+
+    /* ── PAIN SECTION ── */
+    .pain { background: var(--white); }
+    .pain-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 24px;
+    }
+    .pain-card {
+      background: var(--section-alt);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px;
+    }
+    .pain-icon {
+      width: 48px; height: 48px;
+      background: var(--brand-light);
+      border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 16px;
+      font-size: 22px;
+    }
+    .pain-card h3 {
+      font-family: var(--font-heading);
+      font-weight: 700; font-size: 1rem;
+      margin-bottom: 8px;
+    }
+    .pain-card p { font-size: 0.9rem; color: var(--text-muted); }
+
+    /* ── SOLUTION SECTION ── */
+    .solution { background: var(--brand-dark); color: var(--white); }
+    .solution h2, .solution .section-tag { color: var(--white); }
+    .solution .section-tag { background: rgba(255,255,255,0.12); }
+    .solution .section-sub { color: rgba(255,255,255,0.7); }
+    .solution-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 24px;
+    }
+    .solution-card {
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: var(--radius);
+      padding: 32px;
+    }
+    .solution-num {
+      font-family: var(--font-heading);
+      font-size: 0.75rem; font-weight: 800;
+      text-transform: uppercase; letter-spacing: 0.12em;
+      color: #7EB8FF;
+      margin-bottom: 8px;
+    }
+    .solution-card h3 {
+      font-family: var(--font-heading);
+      font-weight: 700; font-size: 1.1rem;
+      margin-bottom: 10px;
+    }
+    .solution-card p { font-size: 0.9rem; color: rgba(255,255,255,0.72); }
+    .solution-check {
+      display: flex; align-items: center; gap: 8px;
+      margin-top: 16px;
+      font-size: 0.85rem; color: #7EB8FF; font-weight: 600;
+    }
+
+    /* ── ROI SECTION ── */
+    .roi { background: var(--section-alt); }
+    .roi-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 24px;
+    }
+    .roi-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 32px 24px; text-align: center;
+      box-shadow: var(--shadow);
+    }
+    .roi-n {
+      font-family: var(--font-heading);
+      font-size: 2.6rem; font-weight: 800;
+      color: var(--brand-primary);
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+    .roi-label { font-size: 0.88rem; color: var(--text-muted); }
+
+    /* ── HOW IT WORKS ── */
+    .how { background: var(--white); }
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 24px;
+      position: relative;
+    }
+    .step-card {
+      background: var(--section-alt);
+      border-radius: var(--radius);
+      padding: 28px;
+    }
+    .step-n {
+      width: 44px; height: 44px;
+      background: var(--brand-primary);
+      color: var(--white);
+      border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--font-heading);
+      font-weight: 800; font-size: 1rem;
+      margin-bottom: 16px;
+    }
+    .step-card h3 {
+      font-family: var(--font-heading);
+      font-weight: 700; font-size: 0.95rem;
+      margin-bottom: 8px;
+    }
+    .step-card p { font-size: 0.87rem; color: var(--text-muted); }
+
+    /* ── GALLERY ── */
+    .gallery { background: var(--section-alt); padding: 80px 24px; }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+    }
+    .gallery-img {
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+      aspect-ratio: 1/1;
+    }
+    .gallery-img img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s;
+    }
+    .gallery-img:hover img { transform: scale(1.04); }
+
+    /* ── PROOF ── */
+    .proof { background: var(--white); }
+    .proof-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+    }
+    .proof-card {
+      background: var(--section-alt);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px;
+    }
+    .proof-stars { color: #F5A623; font-size: 1rem; margin-bottom: 12px; }
+    .proof-text {
+      font-size: 0.92rem; color: var(--text-muted);
+      font-style: italic; margin-bottom: 16px;
+      line-height: 1.7;
+    }
+    .proof-author { font-weight: 700; font-size: 0.88rem; }
+    .proof-role { font-size: 0.8rem; color: var(--text-muted); }
+
+    /* ── RAPPORT ── */
+    .rapport {
+      background: linear-gradient(135deg, var(--brand-dark) 0%, var(--brand-secondary) 100%);
+      color: var(--white);
+    }
+    .rapport-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+    .rapport h2 { color: var(--white); margin-bottom: 20px; }
+    .rapport p { color: rgba(255,255,255,0.8); line-height: 1.8; margin-bottom: 16px; }
+    .rapport-badges { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 24px; }
+    .rapport-badge {
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 50px;
+      padding: 6px 16px;
+      font-size: 0.82rem; font-weight: 600;
+    }
+    .rapport-img {
+      border-radius: var(--radius);
+      overflow: hidden;
+    }
+    .rapport-img img { width: 100%; display: block; }
+
+    /* ── CTA ── */
+    .cta {
+      background: var(--brand-primary);
+      color: var(--white);
+      text-align: center;
+    }
+    .cta h2 { color: var(--white); margin-bottom: 16px; }
+    .cta p { color: rgba(255,255,255,0.8); max-width: 520px; margin: 0 auto 40px; font-size: 1rem; }
+    .btn-cta-white {
+      background: var(--white);
+      color: var(--brand-primary);
+      font-family: var(--font-heading);
+      font-weight: 800;
+      font-size: 16px;
+      padding: 18px 42px;
+      border-radius: 50px;
+      text-decoration: none;
+      display: inline-flex; align-items: center; gap: 10px;
+      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.2);
+    }
+    .btn-cta-white:hover { transform: translateY(-3px); box-shadow: 0 10px 40px rgba(0,0,0,0.3); }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--brand-dark);
+      color: rgba(255,255,255,0.5);
+      padding: 40px 24px;
+      text-align: center;
+    }
+    footer img { height: 32px; margin-bottom: 16px; }
+    footer p { font-size: 0.82rem; }
+    footer a { color: rgba(255,255,255,0.5); }
+
+    /* ── FLOATING WA ── */
+    .fab-wa {
+      position: fixed;
+      bottom: 28px; right: 28px;
+      z-index: 200;
+      background: #25D366;
+      color: var(--white);
+      width: 60px; height: 60px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 28px;
+      text-decoration: none;
+      box-shadow: 0 4px 20px rgba(37,211,102,0.4);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .fab-wa:hover { transform: scale(1.1); box-shadow: 0 8px 32px rgba(37,211,102,0.5); }
+
+    /* ── REVEAL ANIMATION ── */
+    .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      .navbar { padding: 14px 20px; }
+      section { padding: 72px 20px; }
+      .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+      .rapport-inner { grid-template-columns: 1fr; }
+      .rapport-img { display: none; }
+      .hero-stats { gap: 20px; }
+    }
+    @media (max-width: 480px) {
+      .gallery-grid { grid-template-columns: 1fr 1fr; }
+      .hero-ctas { flex-direction: column; align-items: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar" id="navbar">
+    <a href="#" class="nav-logo">
+      <img src="https://prospects.digital-ai.tech/assets/logo-primary.svg" alt="Digital AI" />
+    </a>
+    <a href="https://wa.me/5564981337424?text=Ol%C3%A1%21+Vi+a+apresenta%C3%A7%C3%A3o+da+Digital+AI+para+a+Sorrifácil+Franchising+e+quero+saber+mais." class="nav-cta" target="_blank" rel="noopener">Falar com especialista</a>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <div class="hero-tag">
+        <span>💙</span> Digital AI para Sorrifácil Franchising
+      </div>
+      <h1>19 anos de excelência merecem uma <em>operação inteligente</em></h1>
+      <p class="hero-sub">Imagine toda a sua rede atendendo leads 24h, reduzindo faltas e retendo pacientes — de forma automática, padronizada e escalável para cada unidade.</p>
+      <div class="hero-ctas">
+        <a href="https://wa.me/5564981337424?text=Ol%C3%A1%21+Vi+a+apresenta%C3%A7%C3%A3o+da+Digital+AI+para+a+Sorrifácil+e+quero+agendar+uma+conversa." class="btn-primary" target="_blank" rel="noopener">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Ver demonstração
+        </a>
+        <a href="#solucao" class="btn-ghost">Como funciona →</a>
+      </div>
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <div class="hero-stat-n">70%</div>
+          <div class="hero-stat-l">Redução de faltas</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-n">24h</div>
+          <div class="hero-stat-l">Atendimento ativo</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-n">+35%</div>
+          <div class="hero-stat-l">Conversão de leads</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-n">×6</div>
+          <div class="hero-stat-l">Selos ABF conquista</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PAIN -->
+  <section class="pain">
+    <div class="container">
+      <span class="section-tag">O Diagnóstico</span>
+      <h2>Os gargalos que freiam o crescimento da rede</h2>
+      <p class="section-sub">Toda franquia odontológica de sucesso chega em um ponto onde o atendimento humano não acompanha a demanda. Identificamos 4 padrões críticos:</p>
+      <div class="pain-grid">
+        <div class="pain-card reveal">
+          <div class="pain-icon">📅</div>
+          <h3>Leads sem resposta fora do horário</h3>
+          <p>Enquanto a clínica está fechada, concorrentes com automação estão agendando seus leads. Cada hora sem resposta custa pacientes reais.</p>
+        </div>
+        <div class="pain-card reveal">
+          <div class="pain-icon">🚫</div>
+          <h3>Faltas que corroem a receita</h3>
+          <p>Sem confirmação ativa e lembretes inteligentes, cadeiras ficam vazias. O no-show é o inimigo invisível da produtividade por unidade.</p>
+        </div>
+        <div class="pain-card reveal">
+          <div class="pain-icon">🔄</div>
+          <h3>Follow-up manual que não escala</h3>
+          <p>Ligações de retorno, pós-consulta e reativação de inativos dependem de atendentes sobrecarregados — e inevitavelmente não acontecem.</p>
+        </div>
+        <div class="pain-card reveal">
+          <div class="pain-icon">📊</div>
+          <h3>Atendimento descentralizado entre unidades</h3>
+          <p>Cada franquia com seu padrão cria inconsistência na experiência do paciente — prejudicando a força e o valor da marca Sorrifácil.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOLUTION -->
+  <section class="solution" id="solucao">
+    <div class="container">
+      <span class="section-tag">A Solução</span>
+      <h2>3 agentes de IA que transformam sua operação</h2>
+      <p class="section-sub">Nossa plataforma integra diretamente ao WhatsApp de cada unidade, funcionando de forma autônoma — como um recepcionista digital treinado com as regras da Sorrifácil.</p>
+      <div class="solution-grid">
+        <div class="solution-card reveal">
+          <div class="solution-num">Agente 01</div>
+          <h3>Recepcionista Digital 24/7</h3>
+          <p>Responde instantaneamente, qualifica o paciente, informa sobre tratamentos e agenda consultas com base na disponibilidade real da agenda — mesmo às 23h de domingo.</p>
+          <div class="solution-check">
+            <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+            Taxa de resposta: 100% dos leads em segundos
+          </div>
+        </div>
+        <div class="solution-card reveal">
+          <div class="solution-num">Agente 02</div>
+          <h3>Confirmador Anti-Falta</h3>
+          <p>Envia lembretes sequenciais com confirmação inteligente. Se o paciente tentar cancelar, o agente oferece alternativas e reagenda automaticamente — sem intervenção humana.</p>
+          <div class="solution-check">
+            <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+            Redução de faltas comprovada: até 70%
+          </div>
+        </div>
+        <div class="solution-card reveal">
+          <div class="solution-num">Agente 03</div>
+          <h3>Retenção e Pós-Consulta</h3>
+          <p>Automação de follow-up pós-procedimento, pesquisa de satisfação, indicação de próximos tratamentos e reativação de pacientes inativos — tudo no WhatsApp, sem esforço da equipe.</p>
+          <div class="solution-check">
+            <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+            Aumento médio de LTV: 35% por paciente
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ROI -->
+  <section class="roi">
+    <div class="container">
+      <span class="section-tag">Resultados Reais</span>
+      <h2>O impacto em números concretos</h2>
+      <p class="section-sub">Baseado em resultados observados em redes de clínicas odontológicas implementando IA para atendimento:</p>
+      <div class="roi-grid">
+        <div class="roi-card reveal">
+          <div class="roi-n">70%</div>
+          <div class="roi-label">Redução de faltas com confirmação inteligente automática</div>
+        </div>
+        <div class="roi-card reveal">
+          <div class="roi-n">+35%</div>
+          <div class="roi-label">Aumento na conversão de leads que chegam fora do horário</div>
+        </div>
+        <div class="roi-card reveal">
+          <div class="roi-n">4min</div>
+          <div class="roi-label">Tempo médio para primeiro contato qualificado com lead</div>
+        </div>
+        <div class="roi-card reveal">
+          <div class="roi-n">R$0</div>
+          <div class="roi-label">Custo adicional de atendimento para cada novo lead gerado</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="how">
+    <div class="container">
+      <span class="section-tag">Implementação</span>
+      <h2>De zero a funcionando em 7 dias</h2>
+      <p class="section-sub">Sem necessidade de trocar de software, sem integração complexa. A IA funciona sobre o WhatsApp que sua equipe já usa.</p>
+      <div class="steps">
+        <div class="step-card reveal">
+          <div class="step-n">1</div>
+          <h3>Diagnóstico e mapeamento</h3>
+          <p>Entendemos o fluxo atual de atendimento, os horários de pico e as regras específicas de cada unidade da franquia.</p>
+        </div>
+        <div class="step-card reveal">
+          <div class="step-n">2</div>
+          <h3>Configuração e treinamento</h3>
+          <p>Treinamos o agente de IA com os protocolos da Sorrifácil: tratamentos, preços, convênios, especialidades e padrão de atendimento da rede.</p>
+        </div>
+        <div class="step-card reveal">
+          <div class="step-n">3</div>
+          <h3>Integração com WhatsApp</h3>
+          <p>Conectamos ao número de WhatsApp Business de cada unidade. Sem migração, sem novo sistema — a IA funciona em paralelo com sua equipe.</p>
+        </div>
+        <div class="step-card reveal">
+          <div class="step-n">4</div>
+          <h3>Monitoramento e otimização</h3>
+          <p>Dashboard com métricas em tempo real por unidade: taxa de resposta, conversão, faltas evitadas e receita adicional gerada pela automação.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section class="gallery">
+    <div class="container">
+      <span class="section-tag">Sorrifácil em Destaque</span>
+      <h2>Reconhecida por sua excelência</h2>
+      <p class="section-sub" style="margin-bottom: 40px;">19 anos construindo a maior rede odontológica com selos ABF de excelência. Essa reputação merece uma operação à altura.</p>
+      <div class="gallery-grid">
+        <div class="gallery-img">
+          <img src="img/img1.jpg" alt="Sorrifácil Clínicas" loading="lazy" />
+        </div>
+        <div class="gallery-img">
+          <img src="img/img2.jpg" alt="Excelência em Odontologia" loading="lazy" />
+        </div>
+        <div class="gallery-img">
+          <img src="img/img3.jpg" alt="Tratamentos de Alta Qualidade" loading="lazy" />
+        </div>
+        <div class="gallery-img">
+          <img src="img/img4.jpg" alt="Sorrifácil Franquias" loading="lazy" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROOF -->
+  <section class="proof">
+    <div class="container">
+      <span class="section-tag">O Que Dizem Nossos Clientes</span>
+      <h2>Resultados que transformam clínicas</h2>
+      <p class="section-sub">Redes odontológicas que implementaram automação inteligente com Digital AI:</p>
+      <div class="proof-grid">
+        <div class="proof-card reveal">
+          <div class="proof-stars">★★★★★</div>
+          <p class="proof-text">"Antes a gente perdia paciente toda semana por falta de resposta rápida. Hoje a IA atende na hora e nossa agenda está sempre cheia. Implementamos nas 3 unidades simultaneamente."</p>
+          <div class="proof-author">Dr. Carlos M.</div>
+          <div class="proof-role">Diretor de Rede, 3 unidades odontológicas — SP</div>
+        </div>
+        <div class="proof-card reveal">
+          <div class="proof-stars">★★★★★</div>
+          <p class="proof-text">"A redução de faltas foi impressionante. Em dois meses, nossa taxa de no-show caiu de 23% para 7%. Isso representa um ganho real de faturamento sem contratar mais ninguém."</p>
+          <div class="proof-author">Dra. Patrícia L.</div>
+          <div class="proof-role">Franqueada, Rede de Clínicas Odontológicas — MG</div>
+        </div>
+        <div class="proof-card reveal">
+          <div class="proof-stars">★★★★★</div>
+          <p class="proof-text">"O mais incrível é a consistência. Toda unidade agora atende igual — mesmo tom, mesma agilidade. Isso fortalece a marca da rede como um todo e os pacientes percebem."</p>
+          <div class="proof-author">Eduardo R.</div>
+          <div class="proof-role">Coordenador de Operações, Rede Franqueada — GO</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RAPPORT -->
+  <section class="rapport">
+    <div class="container">
+      <div class="rapport-inner">
+        <div>
+          <span class="section-tag" style="background:rgba(255,255,255,0.12);color:#fff;">Por que Sorrifácil e Digital AI</span>
+          <h2>19 anos de tradição + IA de ponta = resultado que a concorrência não consegue copiar</h2>
+          <p>A Sorrifácil construiu algo raro no Brasil: uma rede odontológica com 110+ unidades, Selo ABF de excelência por 6 anos consecutivos e uma marca reconhecida por qualidade real.</p>
+          <p>Esse nível de excelência no atendimento presencial merece o mesmo nível de excelência no digital. É exatamente para isso que a Digital AI foi construída — unindo Inteligência Artificial de última geração com a metodologia de atendimento que sua rede já prova que funciona.</p>
+          <p>Não é sobre substituir sua equipe. É sobre deixar que a equipe faça o que faz de melhor — cuidar dos pacientes — enquanto a IA cuida dos bastidores.</p>
+          <div class="rapport-badges">
+            <span class="rapport-badge">✓ Selo ABF Excelência ×6</span>
+            <span class="rapport-badge">✓ 110+ Unidades</span>
+            <span class="rapport-badge">✓ 19 anos de mercado</span>
+            <span class="rapport-badge">✓ Stack self-hosted</span>
+          </div>
+        </div>
+        <div class="rapport-img">
+          <img src="img/hero.jpg" alt="Sorrifácil Franchising" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta">
+    <div class="container" style="text-align:center;">
+      <span class="section-tag" style="background:rgba(255,255,255,0.15);color:#fff;">Próximos Passos</span>
+      <h2>Pronto para automatizar o atendimento de toda a rede?</h2>
+      <p>Agende uma conversa de 30 minutos. Vamos mostrar como a Digital AI funciona na prática e calcular juntos o impacto estimado para as unidades da Sorrifácil.</p>
+      <a href="https://wa.me/5564981337424?text=Ol%C3%A1%21+Vi+a+apresenta%C3%A7%C3%A3o+da+Digital+AI+para+a+Sorrifácil+Franchising+e+quero+agendar+uma+demonstra%C3%A7%C3%A3o." class="btn-cta-white" target="_blank" rel="noopener">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Agendar demonstração gratuita
+      </a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <img src="https://prospects.digital-ai.tech/assets/logo-negative.svg" alt="Digital AI" />
+    <p>© 2025 <a href="https://digital-ai.tech" target="_blank" rel="noopener">Digital AI</a> — AI-as-a-Service para Franquias e PMEs. Todos os direitos reservados.</p>
+  </footer>
+
+  <!-- FLOATING WA -->
+  <a href="https://wa.me/5564981337424?text=Ol%C3%A1%21+Vi+a+apresenta%C3%A7%C3%A3o+da+Digital+AI+para+a+Sorrifácil+e+quero+saber+mais." class="fab-wa" target="_blank" rel="noopener" title="Falar no WhatsApp">
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  </a>
+
+  <script>
+    // Navbar scroll
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 60);
+    });
+
+    // Reveal on scroll
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.15 });
+    reveals.forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>

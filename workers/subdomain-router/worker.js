@@ -45,6 +45,7 @@ const ROUTING = {
   "sorrifacil-clinicas-odontologicas": "sorrifacil-clinicas-odontologicas",
   "yooufit-academia": "yooufit-academia",
   "draizabela": "dra-izabela-rezende-ginecologia-endocrina",
+  "clinicas-sorrifacil-sorrifacil-franchising": "clinicas-sorrifacil-sorrifacil-franchising",
   // LeadKit adiciona entradas aqui automaticamente via Fase 4 do pipeline
 };
 
