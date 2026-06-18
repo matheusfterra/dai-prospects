@@ -1,0 +1,985 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>IUB Telecom × Digital AI — Atendimento Inteligente para Provedores em Crescimento</title>
+  <meta name="description" content="A IUB Telecom atende 7 municípios com fibra óptica de excelência. A Digital AI traz o mesmo nível de qualidade para o atendimento — 24/7, sem aumentar o time." />
+  <meta property="og:title" content="IUB Telecom × Digital AI — Atendimento Inteligente" />
+  <meta property="og:description" content="A IUB Telecom cresce para 7 municípios. O atendimento precisa crescer junto." />
+  <meta property="og:type" content="website" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --brand-primary:   #2D52EF;
+      --brand-secondary: #3B2FC9;
+      --brand-dark:      #0F1F5C;
+      --brand-accent:    #E8EEFF;
+      --brand-light:     #F7F8FF;
+      --brand-white:     #FFFFFF;
+      --gradient-hero:   linear-gradient(135deg, #2D52EF 0%, #0F1F5C 100%);
+      --font-heading:    'Plus Jakarta Sans', sans-serif;
+      --font-body:       'DM Sans', sans-serif;
+      --radius-sm:  4px;
+      --radius-md:  8px;
+      --radius-lg:  12px;
+      --radius-xl:  16px;
+      --radius-2xl: 24px;
+      --shadow-md: 0 4px 16px rgba(15,31,92,0.12);
+      --shadow-lg: 0 8px 32px rgba(15,31,92,0.16);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-body);
+      color: var(--brand-dark);
+      background: var(--brand-white);
+      font-size: 16px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      font-family: var(--font-heading);
+      line-height: 1.25;
+      font-weight: 700;
+    }
+
+    img { max-width: 100%; height: auto; display: block; }
+
+    a { color: var(--brand-primary); text-decoration: none; }
+
+    .container {
+      width: 100%;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* ── BOTÕES ── */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      min-height: 52px;
+      padding: 14px 28px;
+      border-radius: var(--radius-lg);
+      font-family: var(--font-heading);
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      border: none;
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+
+    .btn-primary {
+      background: var(--brand-primary);
+      color: var(--brand-white);
+      box-shadow: 0 4px 20px rgba(45,82,239,0.35);
+    }
+
+    .btn-primary:hover {
+      background: var(--brand-secondary);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(45,82,239,0.45);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--brand-white);
+      border: 2px solid rgba(255,255,255,0.5);
+    }
+
+    .btn-outline:hover {
+      border-color: var(--brand-white);
+      background: rgba(255,255,255,0.1);
+    }
+
+    .btn-lg {
+      min-height: 60px;
+      padding: 18px 36px;
+      font-size: 1.1rem;
+    }
+
+    .btn-full { width: 100%; }
+
+    /* ── NAV ── */
+    nav {
+      background: var(--brand-white);
+      border-bottom: 1px solid var(--brand-accent);
+      padding: 16px 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 12px rgba(15,31,92,0.08);
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .nav-logo img {
+      height: 28px;
+      width: auto;
+    }
+
+    .nav-badge {
+      font-family: var(--font-body);
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: var(--brand-primary);
+      background: var(--brand-accent);
+      padding: 4px 10px;
+      border-radius: 20px;
+      white-space: nowrap;
+      display: none;
+    }
+
+    .nav-cta .btn {
+      min-height: 40px;
+      padding: 10px 20px;
+      font-size: 0.875rem;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      background: var(--gradient-hero);
+      color: var(--brand-white);
+      padding: 60px 0 50px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -60px; right: -60px;
+      width: 300px; height: 300px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.04);
+      pointer-events: none;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -80px; left: -40px;
+      width: 250px; height: 250px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.03);
+      pointer-events: none;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 20px;
+      padding: 6px 14px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      margin-bottom: 24px;
+      letter-spacing: 0.02em;
+    }
+
+    .hero-badge-dot {
+      width: 8px; height: 8px;
+      background: #4ADE80;
+      border-radius: 50%;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.7; transform: scale(1.2); }
+    }
+
+    .hero h1 {
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--brand-white);
+      margin-bottom: 20px;
+      letter-spacing: -0.02em;
+    }
+
+    .hero p {
+      font-size: 1rem;
+      line-height: 1.7;
+      color: rgba(255,255,255,0.85);
+      margin-bottom: 32px;
+      max-width: 600px;
+    }
+
+    .hero-ctas {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 40px;
+    }
+
+    .hero-trust {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.65);
+    }
+
+    .hero-trust-icon {
+      width: 16px; height: 16px;
+      background: rgba(255,255,255,0.2);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.6rem;
+    }
+
+    /* ── RECONHECIMENTO ── */
+    .secao-reconhecimento {
+      background: var(--brand-light);
+      padding: 60px 0;
+    }
+
+    .secao-label {
+      font-family: var(--font-heading);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--brand-primary);
+      margin-bottom: 12px;
+    }
+
+    .secao-titulo {
+      font-size: 1.75rem;
+      font-weight: 800;
+      color: var(--brand-dark);
+      margin-bottom: 16px;
+      letter-spacing: -0.02em;
+    }
+
+    .secao-sub {
+      font-size: 1rem;
+      color: #4A5568;
+      line-height: 1.7;
+      margin-bottom: 32px;
+      max-width: 680px;
+    }
+
+    .fotos-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+      margin-top: 32px;
+    }
+
+    .foto-card {
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      aspect-ratio: 4/3;
+      position: relative;
+    }
+
+    .foto-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+
+    .foto-card:hover img { transform: scale(1.03); }
+
+    .reconhecimento-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: 32px;
+    }
+
+    .stat-card {
+      background: var(--brand-white);
+      border-radius: var(--radius-xl);
+      padding: 24px 20px;
+      text-align: center;
+      box-shadow: var(--shadow-md);
+      border-top: 3px solid var(--brand-primary);
+    }
+
+    .stat-numero {
+      font-family: var(--font-heading);
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--brand-primary);
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+
+    .stat-label {
+      font-size: 0.8rem;
+      color: #718096;
+      font-weight: 500;
+    }
+
+    /* ── DOR ── */
+    .secao-dor {
+      padding: 60px 0;
+      background: var(--brand-white);
+    }
+
+    .dor-cards {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+      margin-top: 32px;
+    }
+
+    .dor-card {
+      background: #FFF5F5;
+      border-radius: var(--radius-xl);
+      padding: 24px;
+      border-left: 4px solid #F56565;
+      position: relative;
+    }
+
+    .dor-card-icon {
+      font-size: 1.75rem;
+      margin-bottom: 12px;
+    }
+
+    .dor-card h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--brand-dark);
+      margin-bottom: 8px;
+    }
+
+    .dor-card p {
+      font-size: 0.9rem;
+      color: #4A5568;
+      line-height: 1.6;
+    }
+
+    .dor-destaque {
+      background: var(--brand-dark);
+      color: var(--brand-white);
+      border-radius: var(--radius-2xl);
+      padding: 28px 24px;
+      margin-top: 32px;
+    }
+
+    .dor-destaque-texto {
+      font-family: var(--font-heading);
+      font-size: 1.2rem;
+      font-weight: 700;
+      line-height: 1.5;
+      margin-bottom: 12px;
+    }
+
+    .dor-destaque-sub {
+      font-size: 0.875rem;
+      color: rgba(255,255,255,0.75);
+      line-height: 1.6;
+    }
+
+    /* ── AGITAÇÃO ── */
+    .secao-agitacao {
+      background: var(--brand-accent);
+      padding: 60px 0;
+    }
+
+    .agitacao-box {
+      background: var(--brand-white);
+      border-radius: var(--radius-2xl);
+      padding: 32px 24px;
+      box-shadow: var(--shadow-md);
+    }
+
+    .agitacao-box p {
+      font-size: 0.95rem;
+      color: #4A5568;
+      line-height: 1.75;
+      margin-bottom: 16px;
+    }
+
+    .agitacao-box p:last-child { margin-bottom: 0; }
+
+    .agitacao-box strong {
+      color: var(--brand-dark);
+    }
+
+    /* ── SOLUÇÃO ── */
+    .secao-solucao {
+      padding: 60px 0;
+      background: var(--brand-white);
+    }
+
+    .solucao-cards {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+      margin-top: 32px;
+    }
+
+    .solucao-card {
+      background: var(--brand-light);
+      border-radius: var(--radius-xl);
+      padding: 24px;
+      border: 1px solid var(--brand-accent);
+      transition: box-shadow 0.2s;
+    }
+
+    .solucao-card:hover {
+      box-shadow: var(--shadow-md);
+    }
+
+    .solucao-card-icon {
+      width: 48px; height: 48px;
+      background: var(--brand-primary);
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      margin-bottom: 16px;
+    }
+
+    .solucao-card h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--brand-dark);
+      margin-bottom: 8px;
+    }
+
+    .solucao-card p {
+      font-size: 0.875rem;
+      color: #4A5568;
+      line-height: 1.65;
+    }
+
+    /* ── ROI ── */
+    .secao-roi {
+      background: var(--gradient-hero);
+      padding: 60px 0;
+      color: var(--brand-white);
+    }
+
+    .secao-roi .secao-titulo { color: var(--brand-white); }
+    .secao-roi .secao-sub { color: rgba(255,255,255,0.8); }
+
+    .roi-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+      margin-top: 32px;
+    }
+
+    .roi-card {
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: var(--radius-xl);
+      padding: 24px;
+      backdrop-filter: blur(8px);
+    }
+
+    .roi-card-numero {
+      font-family: var(--font-heading);
+      font-size: 1.75rem;
+      font-weight: 800;
+      color: #A5F3FC;
+      margin-bottom: 6px;
+    }
+
+    .roi-card h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--brand-white);
+      margin-bottom: 8px;
+    }
+
+    .roi-card p {
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.75);
+      line-height: 1.6;
+    }
+
+    .roi-payback {
+      background: rgba(255,255,255,0.15);
+      border-radius: var(--radius-xl);
+      padding: 24px;
+      margin-top: 24px;
+      text-align: center;
+      border: 2px solid rgba(255,255,255,0.25);
+    }
+
+    .roi-payback-titulo {
+      font-family: var(--font-heading);
+      font-size: 1.4rem;
+      font-weight: 800;
+      color: #4ADE80;
+      margin-bottom: 8px;
+    }
+
+    .roi-payback p {
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.8);
+    }
+
+    /* ── PROVA SOCIAL ── */
+    .secao-prova {
+      padding: 60px 0;
+      background: var(--brand-light);
+    }
+
+    .metricas-tabela {
+      background: var(--brand-white);
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+      margin-top: 32px;
+    }
+
+    .metrica-row {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      border-bottom: 1px solid var(--brand-accent);
+    }
+
+    .metrica-row:last-child { border-bottom: none; }
+
+    .metrica-header {
+      background: var(--brand-dark);
+      color: var(--brand-white);
+    }
+
+    .metrica-cell {
+      padding: 14px 16px;
+      font-size: 0.825rem;
+      line-height: 1.4;
+    }
+
+    .metrica-header .metrica-cell {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .metrica-antes {
+      color: #E53E3E;
+      font-weight: 600;
+    }
+
+    .metrica-depois {
+      color: #38A169;
+      font-weight: 700;
+    }
+
+    .quote-box {
+      background: var(--brand-white);
+      border-radius: var(--radius-xl);
+      padding: 28px 24px;
+      margin-top: 24px;
+      border-left: 4px solid var(--brand-primary);
+      box-shadow: var(--shadow-md);
+    }
+
+    .quote-texto {
+      font-size: 0.95rem;
+      color: #4A5568;
+      line-height: 1.75;
+      font-style: italic;
+      margin-bottom: 12px;
+    }
+
+    .quote-fonte {
+      font-size: 0.8rem;
+      color: var(--brand-primary);
+      font-weight: 600;
+    }
+
+    /* ── CTA PRINCIPAL ── */
+    .secao-cta {
+      padding: 60px 0;
+      background: var(--brand-white);
+    }
+
+    .cta-box {
+      background: var(--brand-light);
+      border-radius: var(--radius-2xl);
+      padding: 40px 24px;
+      text-align: center;
+      border: 2px solid var(--brand-accent);
+    }
+
+    .cta-box .secao-titulo { margin-bottom: 16px; }
+
+    .cta-box .secao-sub { margin: 0 auto 32px; }
+
+    .cta-disclaimer {
+      font-size: 0.8rem;
+      color: #718096;
+      margin-top: 16px;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--brand-dark);
+      color: rgba(255,255,255,0.8);
+      padding: 40px 0 28px;
+    }
+
+    .footer-inner {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+      text-align: center;
+    }
+
+    .footer-logo img {
+      height: 28px;
+      width: auto;
+    }
+
+    .footer-tagline {
+      font-size: 0.875rem;
+      color: rgba(255,255,255,0.6);
+    }
+
+    .footer-cta a {
+      color: #93C5FD;
+      font-weight: 600;
+      font-size: 0.875rem;
+    }
+
+    .footer-aviso {
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.4);
+      line-height: 1.6;
+      max-width: 500px;
+    }
+
+    /* ── MEDIA QUERIES ── */
+    @media (min-width: 480px) {
+      .hero-ctas {
+        flex-direction: row;
+        flex-wrap: wrap;
+      }
+
+      .hero-ctas .btn {
+        width: auto;
+        min-width: 200px;
+      }
+
+      .nav-badge { display: inline-flex; }
+    }
+
+    @media (min-width: 768px) {
+      .hero { padding: 80px 0 70px; }
+      .hero h1 { font-size: 2.75rem; }
+      .hero p { font-size: 1.125rem; }
+
+      .secao-titulo { font-size: 2.25rem; }
+
+      .fotos-grid { grid-template-columns: repeat(4, 1fr); }
+
+      .reconhecimento-stats { grid-template-columns: repeat(3, 1fr); }
+
+      .dor-cards { grid-template-columns: repeat(3, 1fr); }
+
+      .solucao-cards { grid-template-columns: repeat(2, 1fr); }
+
+      .roi-grid { grid-template-columns: repeat(3, 1fr); }
+
+      .cta-box { padding: 56px 48px; }
+    }
+
+    @media (min-width: 1200px) {
+      .hero h1 { font-size: 3.25rem; }
+      .secao-titulo { font-size: 2.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="container">
+      <div class="nav-inner">
+        <a href="#" class="nav-logo">
+          <img src="https://s3.amazonaws.com/cdn.digital-ai.tech/uploads/media-cortex/identity/digital-ai/logos/logo-primary.svg" alt="Digital AI" />
+        </a>
+        <span class="nav-badge">Preparado para IUB Telecom</span>
+        <div class="nav-cta">
+          <a href="https://wa.me/5562319014333" class="btn btn-primary" target="_blank" rel="noopener">
+            Falar com a Digital AI
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-badge">
+        <span class="hero-badge-dot"></span>
+        Apresentação exclusiva — IUB Telecom
+      </div>
+      <h1>IUB Telecom cresce para 7 municípios. O atendimento precisa crescer junto.</h1>
+      <p>Você construiu uma das provedoras mais lembradas de Itumbiara — na raça, com qualidade real. Com IA no WhatsApp, você atende leads à meia-noite, resolve chamados de suporte sem telefone e cresce a base sem contratar mais. Resultado que aparece na planilha — não tecnologia por tecnologia.</p>
+      <div class="hero-ctas">
+        <a href="https://wa.me/5562319014333" class="btn btn-primary" target="_blank" rel="noopener">
+          Ver como funciona para a IUB →
+        </a>
+        <a href="#dor" class="btn btn-outline">
+          Explorar os casos de uso
+        </a>
+      </div>
+      <div class="hero-trust">
+        <span class="hero-trust-icon">✓</span>
+        Baseado em pesquisa real sobre a IUB Telecom — não um template genérico
+      </div>
+    </div>
+  </section>
+
+  <!-- RECONHECIMENTO -->
+  <section class="secao-reconhecimento">
+    <div class="container">
+      <div class="secao-label">Fizemos nossa lição de casa</div>
+      <div class="secao-titulo">Pesquisamos a IUB Telecom antes de falar com você</div>
+      <p class="secao-sub">Troféu Imprensa 2024. 14 mil seguidores no Instagram. Fibra 100% própria — a única de Itumbiara. A IUB Telecom não chegou aqui por acaso — chegou porque apostou na qualidade quando seria mais fácil terceirizar. Esse mesmo padrão é o que a Digital AI aplica em automação de atendimento.</p>
+
+      <div class="reconhecimento-stats">
+        <div class="stat-card">
+          <div class="stat-numero">14K</div>
+          <div class="stat-label">Seguidores no Instagram</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-numero">7</div>
+          <div class="stat-label">Municípios atendidos</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-numero">18+</div>
+          <div class="stat-label">Anos de mercado</div>
+        </div>
+      </div>
+
+      <div class="fotos-grid">
+        <div class="foto-card">
+          <img src="https://raw.githubusercontent.com/matheusfterra/dai-prospects/main/prospects/iubtelecom/assets/img-005.jpg" alt="IUB Telecom — equipe e conquistas" loading="lazy" onerror="this.style.display='none'" />
+        </div>
+        <div class="foto-card">
+          <img src="https://raw.githubusercontent.com/matheusfterra/dai-prospects/main/prospects/iubtelecom/assets/img-006.jpg" alt="IUB Telecom — Troféu Imprensa 2024" loading="lazy" onerror="this.style.display='none'" />
+        </div>
+        <div class="foto-card">
+          <img src="https://raw.githubusercontent.com/matheusfterra/dai-prospects/main/prospects/iubtelecom/assets/img-007.jpg" alt="IUB Telecom — equipe técnica" loading="lazy" onerror="this.style.display='none'" />
+        </div>
+        <div class="foto-card">
+          <img src="https://raw.githubusercontent.com/matheusfterra/dai-prospects/main/prospects/iubtelecom/assets/img-008.jpg" alt="IUB Telecom — infraestrutura" loading="lazy" onerror="this.style.display='none'" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DOR -->
+  <section id="dor" class="secao-dor">
+    <div class="container">
+      <div class="secao-label">O problema</div>
+      <div class="secao-titulo">O que acontece com um lead que manda WhatsApp às 22h01?</div>
+      <p class="secao-sub">O site da IUB diz: "atendimento apenas por telefone, visita técnica de 8h às 18h". Esse texto não é um detalhe — é uma oportunidade perdida toda vez que um potencial cliente tenta contratar fora do horário.</p>
+
+      <div class="dor-cards">
+        <div class="dor-card">
+          <div class="dor-card-icon">🌙</div>
+          <h3>Leads perdidos fora do horário</h3>
+          <p>Lead entra às 22h querendo contratar 300 Mega. Sem resposta automática, ele fecha com o concorrente de manhã.</p>
+        </div>
+        <div class="dor-card">
+          <div class="dor-card-icon">📞</div>
+          <h3>Suporte nível 1 sobrecarregando o time</h3>
+          <p>60–70% dos chamados são "meu Wi-Fi caiu", "não recebi o boleto", "quero o status do chamado". Isso não precisa de humano.</p>
+        </div>
+        <div class="dor-card">
+          <div class="dor-card-icon">📍</div>
+          <h3>7 municípios, 1 equipe de atendimento</h3>
+          <p>Escala geográfica com estrutura de microempresa. Sem automação, ou você sobrecarrega o time ou perde qualidade.</p>
+        </div>
+      </div>
+
+      <div class="dor-destaque">
+        <div class="dor-destaque-texto">"Enquanto a IUB Telecom não responde, a concorrência responde."</div>
+        <div class="dor-destaque-sub">Com 7 municípios de cobertura, o custo operacional de atendimento manual cresce 7x mais rápido do que um provedor que opera só em Itumbiara.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- AGITAÇÃO -->
+  <section class="secao-agitacao">
+    <div class="container">
+      <div class="secao-label">O que está em jogo</div>
+      <div class="secao-titulo">O gargalo de atendimento não desaparece sozinho — ele cresce com você</div>
+
+      <div class="agitacao-box">
+        <p>ISPs regionais que não automatizam o atendimento enfrentam um paradoxo: <strong>quanto mais crescem, mais o custo operacional sobe, mais a qualidade de atendimento cai, e mais clientes cancelam antes de chegarem a custar o que deveriam.</strong></p>
+        <p>O índice de inadimplência médio no setor ISP no Brasil é de <strong>8 a 15%</strong>. Boa parte desse número não é cliente que não quer pagar — é cliente que não recebeu o boleto no prazo, não teve o chamado resolvido rápido, e optou por cancelar ao invés de ligar novamente.</p>
+        <p>A boa notícia: esse problema é exatamente o tipo que automação de IA resolve bem. Não com promessa de futuro — <strong>com resultado mensurável em 60 dias.</strong></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOLUÇÃO -->
+  <section class="secao-solucao">
+    <div class="container">
+      <div class="secao-label">A solução</div>
+      <div class="secao-titulo">Agente de IA no WhatsApp da IUB — atendimento 24/7 sem aumentar headcount</div>
+      <p class="secao-sub">A Digital AI entrega um agente de atendimento inteligente treinado com o conhecimento da IUB Telecom: planos, coberturas, preços, procedimentos de suporte, FAQ de roteador, geração de segunda via. Opera no WhatsApp já existente — sem trocar sistema, sem migração de número.</p>
+
+      <div class="solucao-cards">
+        <div class="solucao-card">
+          <div class="solucao-card-icon">🛠️</div>
+          <h3>Suporte Técnico 24/7</h3>
+          <p>Reset de roteador, status de serviço, abertura de chamado, tutoriais de configuração — resolvido sem humano no loop.</p>
+        </div>
+        <div class="solucao-card">
+          <div class="solucao-card-icon">🎯</div>
+          <h3>Qualificação de Novos Leads</h3>
+          <p>Consulta de viabilidade por endereço, apresentação de planos, agendamento de instalação — lead qualificado chega pronto para o técnico confirmar.</p>
+        </div>
+        <div class="solucao-card">
+          <div class="solucao-card-icon">💳</div>
+          <h3>Cobrança Proativa</h3>
+          <p>Aviso de vencimento 5 dias antes, segunda via automática, fluxo anti-churn para inadimplentes — inadimplência cai sem ligar para cada cliente.</p>
+        </div>
+        <div class="solucao-card">
+          <div class="solucao-card-icon">📈</div>
+          <h3>Upsell Automático</h3>
+          <p>Cliente com plano 100 Mega por mais de 6 meses recebe oferta personalizada de upgrade — receita adicional sem custo de vendas.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ROI -->
+  <section class="secao-roi">
+    <div class="container">
+      <div class="secao-label">Resultado em reais</div>
+      <div class="secao-titulo">O que isso representa para a IUB Telecom</div>
+      <p class="secao-sub">Estimativas conservadoras para um ISP com 500–2.000 clientes ativos e 7 municípios de cobertura:</p>
+
+      <div class="roi-grid">
+        <div class="roi-card">
+          <div class="roi-card-numero">R$ 2.500–7.000</div>
+          <h3>Economia mensal em suporte</h3>
+          <p>1 atendente de suporte custa R$ 2.500–3.500/mês. O agente substitui 1–2 posições para chamados de nível 1.</p>
+        </div>
+        <div class="roi-card">
+          <div class="roi-card-numero">R$ 4.250–5.950</div>
+          <h3>Recuperação de inadimplência/mês</h3>
+          <p>Redução de 5–7 pontos percentuais na inadimplência via cobrança proativa em base de 1.000 clientes.</p>
+        </div>
+        <div class="roi-card">
+          <div class="roi-card-numero">+10–15</div>
+          <h3>Clientes novos por mês</h3>
+          <p>Leads fora do horário comercial convertidos com resposta imediata 24/7 — antes iam para a concorrência.</p>
+        </div>
+      </div>
+
+      <div class="roi-payback">
+        <div class="roi-payback-titulo">Payback estimado: 2–3 meses</div>
+        <p>O investimento na Digital AI se paga antes de completar o primeiro trimestre.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROVA SOCIAL -->
+  <section class="secao-prova">
+    <div class="container">
+      <div class="secao-label">Dados do setor</div>
+      <div class="secao-titulo">O que muda em 60 dias para um ISP regional</div>
+
+      <div class="metricas-tabela">
+        <div class="metrica-row metrica-header">
+          <div class="metrica-cell">Indicador</div>
+          <div class="metrica-cell">Hoje</div>
+          <div class="metrica-cell">Com IA</div>
+        </div>
+        <div class="metrica-row">
+          <div class="metrica-cell">Chamados de suporte atendidos por humano</div>
+          <div class="metrica-cell metrica-antes">100%</div>
+          <div class="metrica-cell metrica-depois">30–40%</div>
+        </div>
+        <div class="metrica-row">
+          <div class="metrica-cell">Resposta a leads em até 5 minutos</div>
+          <div class="metrica-cell metrica-antes">~40% (horário comercial)</div>
+          <div class="metrica-cell metrica-depois">100% (24/7)</div>
+        </div>
+        <div class="metrica-row">
+          <div class="metrica-cell">Inadimplência estimada</div>
+          <div class="metrica-cell metrica-antes">10–15%</div>
+          <div class="metrica-cell metrica-depois">5–8%</div>
+        </div>
+        <div class="metrica-row">
+          <div class="metrica-cell">Conversão de lead via WhatsApp</div>
+          <div class="metrica-cell metrica-antes">Variável</div>
+          <div class="metrica-cell metrica-depois">+20–30%</div>
+        </div>
+      </div>
+
+      <div class="quote-box">
+        <p class="quote-texto">"Provedores regionais que implementaram atendimento automatizado no WhatsApp relatam redução de 60–70% nos chamados que chegavam ao time humano — com aumento simultâneo de NPS. O cliente não quer falar com humano para saber se o Wi-Fi vai voltar. Ele quer a resposta."</p>
+        <div class="quote-fonte">— Benchmark do setor ISP | Análise Digital AI</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA PRINCIPAL -->
+  <section class="secao-cta">
+    <div class="container">
+      <div class="cta-box">
+        <div class="secao-label" style="text-align:center;">Próximo passo</div>
+        <div class="secao-titulo">Uma conversa de 20 minutos</div>
+        <p class="secao-sub">Não viemos vender um sistema. Viemos entender a operação da IUB Telecom e mostrar, com casos reais, quanto custa não automatizar agora — e o que muda em 60 dias quando você automatiza.</p>
+        <p class="secao-sub">Kleber, você reconstruiu a IUB do zero. Sabe melhor do que ninguém o que faz diferença na operação. Uma conversa de 20 minutos é suficiente para decidir se faz sentido.</p>
+        <a href="https://wa.me/5562319014333" class="btn btn-primary btn-lg" target="_blank" rel="noopener">
+          Quero conversar com a Digital AI →
+        </a>
+        <p class="cta-disclaimer">Resposta em até 2h em horário comercial. Sem compromisso, sem pressão.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-logo">
+          <img src="https://s3.amazonaws.com/cdn.digital-ai.tech/uploads/media-cortex/identity/digital-ai/logos/logo-negative.svg" alt="Digital AI" />
+        </div>
+        <p class="footer-tagline">Inteligência que move negócios</p>
+        <div class="footer-cta">
+          <a href="https://wa.me/5562319014333" target="_blank" rel="noopener">wa.me/5562319014333</a>
+          &nbsp;·&nbsp;
+          <a href="https://digital-ai.tech" target="_blank" rel="noopener">digital-ai.tech</a>
+        </div>
+        <p class="footer-aviso">Esta landing page foi preparada exclusivamente para IUB Telecom pela equipe Digital AI. © 2026 Digital AI. Todos os direitos reservados.</p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
