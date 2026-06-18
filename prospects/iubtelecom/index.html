@@ -3,983 +3,1024 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>IUB Telecom × Digital AI — Atendimento Inteligente para Provedores em Crescimento</title>
-  <meta name="description" content="A IUB Telecom atende 7 municípios com fibra óptica de excelência. A Digital AI traz o mesmo nível de qualidade para o atendimento — 24/7, sem aumentar o time." />
-  <meta property="og:title" content="IUB Telecom × Digital AI — Atendimento Inteligente" />
-  <meta property="og:description" content="A IUB Telecom cresce para 7 municípios. O atendimento precisa crescer junto." />
+  <title>Digital AI para IUB Telecom — Atendimento Inteligente para ISPs</title>
+  <meta name="description" content="Descubra como a Digital AI pode automatizar 80% dos chamados de suporte da IUB Telecom com inteligencia artificial no WhatsApp." />
+  <!-- OG / Social Sharing -->
   <meta property="og:type" content="website" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <meta property="og:site_name" content="Digital AI" />
+  <meta property="og:title" content="Digital AI para IUB Telecom — Atendimento Inteligente para ISPs" />
+  <meta property="og:description" content="Descubra como a Digital AI pode automatizar 80% dos chamados de suporte da IUB Telecom com inteligencia artificial no WhatsApp." />
+  <meta property="og:url" content="https://prospects.digital-ai.tech/prospects/iubtelecom/" />
+  <meta property="og:image" content="https://s3.amazonaws.com/cdn.digital-ai.tech/uploads/media-cortex/identity/digital-ai/social/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Digital AI para IUB Telecom — Atendimento Inteligente para ISPs" />
+  <meta name="twitter:description" content="Descubra como a Digital AI pode automatizar 80% dos chamados de suporte da IUB Telecom com inteligencia artificial no WhatsApp." />
+  <meta name="twitter:image" content="https://s3.amazonaws.com/cdn.digital-ai.tech/uploads/media-cortex/identity/digital-ai/social/og-image.png" />
+  <link rel="icon" href="https://s3.amazonaws.com/cdn.digital-ai.tech/uploads/media-cortex/identity/digital-ai/logos/favicon-32.png" type="image/png" />
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
   <style>
+    /* ========================================
+       DESIGN TOKENS — Digital AI
+       ======================================== */
     :root {
-      --brand-primary:   #2D52EF;
+      --brand-primary: #2D52EF;
       --brand-secondary: #3B2FC9;
-      --brand-dark:      #0F1F5C;
-      --brand-accent:    #E8EEFF;
-      --brand-light:     #F7F8FF;
-      --brand-white:     #FFFFFF;
-      --gradient-hero:   linear-gradient(135deg, #2D52EF 0%, #0F1F5C 100%);
-      --font-heading:    'Plus Jakarta Sans', sans-serif;
-      --font-body:       'DM Sans', sans-serif;
-      --radius-sm:  4px;
-      --radius-md:  8px;
-      --radius-lg:  12px;
-      --radius-xl:  16px;
+      --brand-dark: #0F1F5C;
+      --brand-accent: #E8EEFF;
+      --brand-light: #F5F7FF;
+      --brand-white: #FFFFFF;
+      --brand-gray-50: #F8FAFC;
+      --brand-gray-100: #F1F5F9;
+      --brand-gray-200: #E2E8F0;
+      --brand-gray-300: #CBD5E1;
+      --brand-gray-500: #64748B;
+      --brand-gray-700: #334155;
+      --brand-gray-900: #0F172A;
+      --font-heading: 'Plus Jakarta Sans', sans-serif;
+      --font-body: 'DM Sans', sans-serif;
+      --radius-sm: 4px;
+      --radius-md: 8px;
+      --radius-lg: 12px;
+      --radius-xl: 16px;
       --radius-2xl: 24px;
-      --shadow-md: 0 4px 16px rgba(15,31,92,0.12);
-      --shadow-lg: 0 8px 32px rgba(15,31,92,0.16);
+      --shadow-sm: 0 1px 2px rgba(15, 31, 92, 0.05);
+      --shadow-md: 0 4px 6px -1px rgba(15, 31, 92, 0.07), 0 2px 4px -2px rgba(15, 31, 92, 0.05);
+      --shadow-lg: 0 10px 15px -3px rgba(15, 31, 92, 0.08), 0 4px 6px -4px rgba(15, 31, 92, 0.04);
+      --shadow-xl: 0 20px 25px -5px rgba(15, 31, 92, 0.1), 0 8px 10px -6px rgba(15, 31, 92, 0.06);
     }
 
+    /* ========================================
+       RESET & BASE
+       ======================================== */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    html { scroll-behavior: smooth; }
-
+    html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
     body {
       font-family: var(--font-body);
-      color: var(--brand-dark);
-      background: var(--brand-white);
       font-size: 16px;
       line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
+      color: var(--brand-gray-900);
+      background: var(--brand-white);
+      overflow-x: hidden;
     }
-
-    h1, h2, h3, h4, h5, h6 {
-      font-family: var(--font-heading);
-      line-height: 1.25;
-      font-weight: 700;
-    }
-
     img { max-width: 100%; height: auto; display: block; }
+    a { text-decoration: none; color: inherit; }
 
-    a { color: var(--brand-primary); text-decoration: none; }
-
+    /* ========================================
+       UTILITIES
+       ======================================== */
     .container {
       width: 100%;
-      max-width: 1100px;
+      max-width: 1120px;
       margin: 0 auto;
-      padding: 0 20px;
+      padding: 0 24px;
+    }
+    .section-padding { padding: 80px 0; }
+    .text-center { text-align: center; }
+    .text-primary { color: var(--brand-primary); }
+    .text-dark { color: var(--brand-dark); }
+    .text-muted { color: var(--brand-gray-500); }
+    .font-heading { font-family: var(--font-heading); }
+
+    /* ========================================
+       TYPOGRAPHY
+       ======================================== */
+    h1, h2, h3, h4, h5 { font-family: var(--font-heading); line-height: 1.2; }
+    h1 { font-size: clamp(2rem, 5vw, 3.25rem); font-weight: 800; }
+    h2 { font-size: clamp(1.75rem, 4vw, 2.5rem); font-weight: 700; }
+    h3 { font-size: clamp(1.25rem, 3vw, 1.5rem); font-weight: 600; }
+    p { line-height: 1.7; }
+    .subtitle {
+      font-size: clamp(1.05rem, 2.5vw, 1.25rem);
+      color: var(--brand-gray-500);
+      max-width: 640px;
+    }
+    .overline {
+      font-family: var(--font-heading);
+      font-size: 0.8125rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--brand-primary);
+      margin-bottom: 12px;
+      display: inline-block;
     }
 
-    /* ── BOTÕES ── */
+    /* ========================================
+       BUTTONS
+       ======================================== */
     .btn {
       display: inline-flex;
       align-items: center;
-      justify-content: center;
-      gap: 8px;
-      min-height: 52px;
-      padding: 14px 28px;
-      border-radius: var(--radius-lg);
+      gap: 10px;
       font-family: var(--font-heading);
+      font-weight: 600;
       font-size: 1rem;
-      font-weight: 700;
-      cursor: pointer;
+      padding: 16px 32px;
+      border-radius: var(--radius-lg);
       border: none;
-      text-decoration: none;
-      transition: all 0.2s ease;
+      cursor: pointer;
+      transition: all 0.25s ease;
     }
-
     .btn-primary {
       background: var(--brand-primary);
       color: var(--brand-white);
-      box-shadow: 0 4px 20px rgba(45,82,239,0.35);
+      box-shadow: 0 4px 14px rgba(45, 82, 239, 0.35);
     }
-
     .btn-primary:hover {
       background: var(--brand-secondary);
       transform: translateY(-2px);
-      box-shadow: 0 8px 28px rgba(45,82,239,0.45);
+      box-shadow: 0 6px 20px rgba(45, 82, 239, 0.45);
     }
-
     .btn-outline {
       background: transparent;
       color: var(--brand-white);
-      border: 2px solid rgba(255,255,255,0.5);
+      border: 2px solid rgba(255, 255, 255, 0.3);
     }
-
     .btn-outline:hover {
-      border-color: var(--brand-white);
-      background: rgba(255,255,255,0.1);
+      background: rgba(255, 255, 255, 0.1);
+      border-color: rgba(255, 255, 255, 0.6);
     }
-
-    .btn-lg {
-      min-height: 60px;
-      padding: 18px 36px;
-      font-size: 1.1rem;
+    .btn-whatsapp {
+      background: #25D366;
+      color: var(--brand-white);
+      box-shadow: 0 4px 14px rgba(37, 211, 102, 0.35);
     }
+    .btn-whatsapp:hover {
+      background: #1EBE5A;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(37, 211, 102, 0.45);
+    }
+    .btn-whatsapp svg { width: 20px; height: 20px; fill: currentColor; }
+    .btn-lg { padding: 18px 40px; font-size: 1.0625rem; }
 
-    .btn-full { width: 100%; }
-
-    /* ── NAV ── */
-    nav {
-      background: var(--brand-white);
-      border-bottom: 1px solid var(--brand-accent);
-      padding: 16px 0;
-      position: sticky;
+    /* ========================================
+       NAVBAR
+       ======================================== */
+    .navbar {
+      position: fixed;
       top: 0;
+      left: 0;
+      right: 0;
       z-index: 100;
-      box-shadow: 0 2px 12px rgba(15,31,92,0.08);
+      padding: 16px 0;
+      transition: all 0.3s ease;
+      background: transparent;
     }
+    .navbar.scrolled {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(12px);
+      box-shadow: var(--shadow-md);
+      padding: 12px 0;
+    }
+    .navbar .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .navbar-logo img { height: 32px; transition: opacity 0.3s; }
+    .navbar-cta .btn { padding: 10px 24px; font-size: 0.875rem; }
+    .navbar.scrolled .logo-negative { display: none; }
+    .navbar:not(.scrolled) .logo-primary { display: none; }
 
-    .nav-inner {
+    /* ========================================
+       HERO
+       ======================================== */
+    .hero {
+      position: relative;
+      min-height: 100vh;
       display: flex;
       align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-    }
-
-    .nav-logo img {
-      height: 28px;
-      width: auto;
-    }
-
-    .nav-badge {
-      font-family: var(--font-body);
-      font-size: 0.75rem;
-      font-weight: 500;
-      color: var(--brand-primary);
-      background: var(--brand-accent);
-      padding: 4px 10px;
-      border-radius: 20px;
-      white-space: nowrap;
-      display: none;
-    }
-
-    .nav-cta .btn {
-      min-height: 40px;
-      padding: 10px 20px;
-      font-size: 0.875rem;
-    }
-
-    /* ── HERO ── */
-    .hero {
-      background: var(--gradient-hero);
-      color: var(--brand-white);
-      padding: 60px 0 50px;
-      position: relative;
+      background: linear-gradient(135deg, #2D52EF 0%, #0F1F5C 100%);
       overflow: hidden;
+      padding-top: 80px;
     }
-
     .hero::before {
       content: '';
       position: absolute;
-      top: -60px; right: -60px;
-      width: 300px; height: 300px;
-      border-radius: 50%;
-      background: rgba(255,255,255,0.04);
+      inset: 0;
+      background:
+        radial-gradient(circle at 20% 50%, rgba(45, 82, 239, 0.3) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(59, 47, 201, 0.2) 0%, transparent 40%);
       pointer-events: none;
     }
-
-    .hero::after {
-      content: '';
+    .hero-grid {
       position: absolute;
-      bottom: -80px; left: -40px;
-      width: 250px; height: 250px;
-      border-radius: 50%;
-      background: rgba(255,255,255,0.03);
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+      background-size: 60px 60px;
       pointer-events: none;
     }
-
+    .hero .container { position: relative; z-index: 2; }
+    .hero-content { max-width: 720px; }
     .hero-badge {
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      background: rgba(255,255,255,0.12);
-      border: 1px solid rgba(255,255,255,0.2);
-      border-radius: 20px;
-      padding: 6px 14px;
-      font-size: 0.8rem;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 100px;
+      padding: 8px 20px;
+      font-family: var(--font-heading);
+      font-size: 0.8125rem;
       font-weight: 600;
-      margin-bottom: 24px;
-      letter-spacing: 0.02em;
+      color: rgba(255, 255, 255, 0.9);
+      margin-bottom: 32px;
+      backdrop-filter: blur(4px);
     }
-
     .hero-badge-dot {
-      width: 8px; height: 8px;
-      background: #4ADE80;
+      width: 8px;
+      height: 8px;
       border-radius: 50%;
-      animation: pulse 2s infinite;
+      background: #25D366;
+      animation: pulse-dot 2s infinite;
     }
-
-    @keyframes pulse {
+    @keyframes pulse-dot {
       0%, 100% { opacity: 1; transform: scale(1); }
-      50% { opacity: 0.7; transform: scale(1.2); }
+      50% { opacity: 0.5; transform: scale(1.3); }
     }
-
     .hero h1 {
+      color: var(--brand-white);
+      margin-bottom: 24px;
+      letter-spacing: -0.02em;
+    }
+    .hero h1 .highlight {
+      background: linear-gradient(90deg, #E8EEFF, #A5B4FC);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero-subtitle {
+      font-size: clamp(1.05rem, 2.5vw, 1.25rem);
+      color: rgba(255, 255, 255, 0.75);
+      max-width: 560px;
+      margin-bottom: 40px;
+      line-height: 1.7;
+    }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 16px; }
+    .hero-stats {
+      display: flex;
+      gap: 48px;
+      margin-top: 64px;
+      padding-top: 40px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .hero-stat-value {
+      font-family: var(--font-heading);
       font-size: 2rem;
       font-weight: 800;
       color: var(--brand-white);
-      margin-bottom: 20px;
-      letter-spacing: -0.02em;
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+    .hero-stat-label {
+      font-size: 0.875rem;
+      color: rgba(255, 255, 255, 0.5);
     }
 
-    .hero p {
-      font-size: 1rem;
-      line-height: 1.7;
-      color: rgba(255,255,255,0.85);
-      margin-bottom: 32px;
-      max-width: 600px;
-    }
-
-    .hero-ctas {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-      margin-bottom: 40px;
-    }
-
-    .hero-trust {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 0.8rem;
-      color: rgba(255,255,255,0.65);
-    }
-
-    .hero-trust-icon {
-      width: 16px; height: 16px;
-      background: rgba(255,255,255,0.2);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 0.6rem;
-    }
-
-    /* ── RECONHECIMENTO ── */
-    .secao-reconhecimento {
-      background: var(--brand-light);
-      padding: 60px 0;
-    }
-
-    .secao-label {
-      font-family: var(--font-heading);
-      font-size: 0.75rem;
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--brand-primary);
-      margin-bottom: 12px;
-    }
-
-    .secao-titulo {
-      font-size: 1.75rem;
-      font-weight: 800;
-      color: var(--brand-dark);
-      margin-bottom: 16px;
-      letter-spacing: -0.02em;
-    }
-
-    .secao-sub {
-      font-size: 1rem;
-      color: #4A5568;
-      line-height: 1.7;
-      margin-bottom: 32px;
-      max-width: 680px;
-    }
-
-    .fotos-grid {
+    /* ========================================
+       PAIN POINTS (DORES)
+       ======================================== */
+    .pain-section { background: var(--brand-gray-50); }
+    .pain-header { max-width: 640px; margin: 0 auto 56px; }
+    .pain-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 10px;
-      margin-top: 32px;
+      gap: 24px;
     }
-
-    .foto-card {
-      border-radius: var(--radius-lg);
+    .pain-card {
+      background: var(--brand-white);
+      border-radius: var(--radius-xl);
+      padding: 32px;
+      border: 1px solid var(--brand-gray-200);
+      transition: all 0.3s ease;
+      position: relative;
       overflow: hidden;
-      aspect-ratio: 4/3;
-      position: relative;
     }
-
-    .foto-card img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 0.3s ease;
+    .pain-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, #EF4444, #F97316);
+      opacity: 0;
+      transition: opacity 0.3s;
     }
-
-    .foto-card:hover img { transform: scale(1.03); }
-
-    .reconhecimento-stats {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
-      margin-top: 32px;
-    }
-
-    .stat-card {
-      background: var(--brand-white);
-      border-radius: var(--radius-xl);
-      padding: 24px 20px;
-      text-align: center;
-      box-shadow: var(--shadow-md);
-      border-top: 3px solid var(--brand-primary);
-    }
-
-    .stat-numero {
-      font-family: var(--font-heading);
-      font-size: 2rem;
-      font-weight: 800;
-      color: var(--brand-primary);
-      line-height: 1;
-      margin-bottom: 6px;
-    }
-
-    .stat-label {
-      font-size: 0.8rem;
-      color: #718096;
-      font-weight: 500;
-    }
-
-    /* ── DOR ── */
-    .secao-dor {
-      padding: 60px 0;
-      background: var(--brand-white);
-    }
-
-    .dor-cards {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 16px;
-      margin-top: 32px;
-    }
-
-    .dor-card {
-      background: #FFF5F5;
-      border-radius: var(--radius-xl);
-      padding: 24px;
-      border-left: 4px solid #F56565;
-      position: relative;
-    }
-
-    .dor-card-icon {
-      font-size: 1.75rem;
-      margin-bottom: 12px;
-    }
-
-    .dor-card h3 {
-      font-size: 1rem;
-      font-weight: 700;
-      color: var(--brand-dark);
-      margin-bottom: 8px;
-    }
-
-    .dor-card p {
-      font-size: 0.9rem;
-      color: #4A5568;
-      line-height: 1.6;
-    }
-
-    .dor-destaque {
-      background: var(--brand-dark);
-      color: var(--brand-white);
-      border-radius: var(--radius-2xl);
-      padding: 28px 24px;
-      margin-top: 32px;
-    }
-
-    .dor-destaque-texto {
-      font-family: var(--font-heading);
-      font-size: 1.2rem;
-      font-weight: 700;
-      line-height: 1.5;
-      margin-bottom: 12px;
-    }
-
-    .dor-destaque-sub {
-      font-size: 0.875rem;
-      color: rgba(255,255,255,0.75);
-      line-height: 1.6;
-    }
-
-    /* ── AGITAÇÃO ── */
-    .secao-agitacao {
-      background: var(--brand-accent);
-      padding: 60px 0;
-    }
-
-    .agitacao-box {
-      background: var(--brand-white);
-      border-radius: var(--radius-2xl);
-      padding: 32px 24px;
-      box-shadow: var(--shadow-md);
-    }
-
-    .agitacao-box p {
-      font-size: 0.95rem;
-      color: #4A5568;
-      line-height: 1.75;
-      margin-bottom: 16px;
-    }
-
-    .agitacao-box p:last-child { margin-bottom: 0; }
-
-    .agitacao-box strong {
-      color: var(--brand-dark);
-    }
-
-    /* ── SOLUÇÃO ── */
-    .secao-solucao {
-      padding: 60px 0;
-      background: var(--brand-white);
-    }
-
-    .solucao-cards {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 16px;
-      margin-top: 32px;
-    }
-
-    .solucao-card {
-      background: var(--brand-light);
-      border-radius: var(--radius-xl);
-      padding: 24px;
-      border: 1px solid var(--brand-accent);
-      transition: box-shadow 0.2s;
-    }
-
-    .solucao-card:hover {
-      box-shadow: var(--shadow-md);
-    }
-
-    .solucao-card-icon {
-      width: 48px; height: 48px;
-      background: var(--brand-primary);
-      border-radius: var(--radius-md);
+    .pain-card:hover { border-color: var(--brand-gray-300); box-shadow: var(--shadow-lg); }
+    .pain-card:hover::before { opacity: 1; }
+    .pain-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: var(--radius-lg);
+      background: #FEF2F2;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 1.4rem;
-      margin-bottom: 16px;
+      font-size: 1.5rem;
+      margin-bottom: 20px;
     }
-
-    .solucao-card h3 {
-      font-size: 1rem;
-      font-weight: 700;
-      color: var(--brand-dark);
-      margin-bottom: 8px;
+    .pain-card h3 { margin-bottom: 12px; color: var(--brand-gray-900); }
+    .pain-card p { color: var(--brand-gray-500); font-size: 0.9375rem; line-height: 1.7; }
+    .pain-tag {
+      display: inline-block;
+      margin-top: 16px;
+      padding: 4px 12px;
+      border-radius: 100px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      font-family: var(--font-heading);
     }
+    .pain-tag-high { background: #FEF2F2; color: #DC2626; }
+    .pain-tag-medium { background: #FFF7ED; color: #EA580C; }
 
-    .solucao-card p {
-      font-size: 0.875rem;
-      color: #4A5568;
-      line-height: 1.65;
+    /* ========================================
+       SOLUTION
+       ======================================== */
+    .solution-section { background: var(--brand-white); }
+    .solution-header { max-width: 640px; margin: 0 auto 56px; }
+    .solution-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
     }
-
-    /* ── ROI ── */
-    .secao-roi {
-      background: var(--gradient-hero);
-      padding: 60px 0;
+    .solution-card {
+      background: var(--brand-light);
+      border-radius: var(--radius-xl);
+      padding: 32px;
+      border: 1px solid transparent;
+      transition: all 0.3s ease;
+    }
+    .solution-card:hover {
+      border-color: var(--brand-primary);
+      box-shadow: var(--shadow-lg);
+      transform: translateY(-4px);
+    }
+    .solution-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: var(--radius-lg);
+      background: linear-gradient(135deg, var(--brand-primary), var(--brand-secondary));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      margin-bottom: 20px;
       color: var(--brand-white);
     }
+    .solution-card h3 { margin-bottom: 12px; }
+    .solution-card p { color: var(--brand-gray-500); font-size: 0.9375rem; }
+    .solution-features {
+      margin-top: 16px;
+      list-style: none;
+    }
+    .solution-features li {
+      position: relative;
+      padding-left: 24px;
+      margin-bottom: 8px;
+      font-size: 0.875rem;
+      color: var(--brand-gray-700);
+    }
+    .solution-features li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 7px;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--brand-primary);
+    }
 
-    .secao-roi .secao-titulo { color: var(--brand-white); }
-    .secao-roi .secao-sub { color: rgba(255,255,255,0.8); }
-
+    /* ========================================
+       ROI
+       ======================================== */
+    .roi-section {
+      background: linear-gradient(135deg, #0F1F5C 0%, #1a2d6e 50%, #2D52EF 100%);
+      color: var(--brand-white);
+      position: relative;
+      overflow: hidden;
+    }
+    .roi-section::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 70% 30%, rgba(45, 82, 239, 0.2) 0%, transparent 50%);
+      pointer-events: none;
+    }
+    .roi-header { max-width: 640px; margin: 0 auto 56px; position: relative; z-index: 2; }
+    .roi-header .subtitle { color: rgba(255, 255, 255, 0.6); }
     .roi-grid {
       display: grid;
-      grid-template-columns: 1fr;
-      gap: 16px;
-      margin-top: 32px;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      position: relative;
+      z-index: 2;
     }
-
     .roi-card {
-      background: rgba(255,255,255,0.1);
-      border: 1px solid rgba(255,255,255,0.15);
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.1);
       border-radius: var(--radius-xl);
-      padding: 24px;
-      backdrop-filter: blur(8px);
-    }
-
-    .roi-card-numero {
-      font-family: var(--font-heading);
-      font-size: 1.75rem;
-      font-weight: 800;
-      color: #A5F3FC;
-      margin-bottom: 6px;
-    }
-
-    .roi-card h3 {
-      font-size: 1rem;
-      font-weight: 700;
-      color: var(--brand-white);
-      margin-bottom: 8px;
-    }
-
-    .roi-card p {
-      font-size: 0.85rem;
-      color: rgba(255,255,255,0.75);
-      line-height: 1.6;
-    }
-
-    .roi-payback {
-      background: rgba(255,255,255,0.15);
-      border-radius: var(--radius-xl);
-      padding: 24px;
-      margin-top: 24px;
+      padding: 32px 24px;
       text-align: center;
-      border: 2px solid rgba(255,255,255,0.25);
+      backdrop-filter: blur(4px);
+      transition: all 0.3s ease;
     }
-
-    .roi-payback-titulo {
+    .roi-card:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: rgba(255, 255, 255, 0.2);
+      transform: translateY(-4px);
+    }
+    .roi-value {
       font-family: var(--font-heading);
-      font-size: 1.4rem;
+      font-size: clamp(2rem, 4vw, 2.75rem);
       font-weight: 800;
-      color: #4ADE80;
-      margin-bottom: 8px;
-    }
-
-    .roi-payback p {
-      font-size: 0.9rem;
-      color: rgba(255,255,255,0.8);
-    }
-
-    /* ── PROVA SOCIAL ── */
-    .secao-prova {
-      padding: 60px 0;
-      background: var(--brand-light);
-    }
-
-    .metricas-tabela {
-      background: var(--brand-white);
-      border-radius: var(--radius-xl);
-      overflow: hidden;
-      box-shadow: var(--shadow-md);
-      margin-top: 32px;
-    }
-
-    .metrica-row {
-      display: grid;
-      grid-template-columns: 2fr 1fr 1fr;
-      border-bottom: 1px solid var(--brand-accent);
-    }
-
-    .metrica-row:last-child { border-bottom: none; }
-
-    .metrica-header {
-      background: var(--brand-dark);
-      color: var(--brand-white);
-    }
-
-    .metrica-cell {
-      padding: 14px 16px;
-      font-size: 0.825rem;
-      line-height: 1.4;
-    }
-
-    .metrica-header .metrica-cell {
-      font-family: var(--font-heading);
-      font-weight: 700;
-      font-size: 0.75rem;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-    }
-
-    .metrica-antes {
-      color: #E53E3E;
-      font-weight: 600;
-    }
-
-    .metrica-depois {
-      color: #38A169;
-      font-weight: 700;
-    }
-
-    .quote-box {
-      background: var(--brand-white);
-      border-radius: var(--radius-xl);
-      padding: 28px 24px;
-      margin-top: 24px;
-      border-left: 4px solid var(--brand-primary);
-      box-shadow: var(--shadow-md);
-    }
-
-    .quote-texto {
-      font-size: 0.95rem;
-      color: #4A5568;
-      line-height: 1.75;
-      font-style: italic;
+      background: linear-gradient(135deg, #E8EEFF, #A5B4FC);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      line-height: 1;
       margin-bottom: 12px;
     }
+    .roi-label {
+      font-size: 0.9375rem;
+      color: rgba(255, 255, 255, 0.6);
+      line-height: 1.5;
+    }
+    .roi-note {
+      text-align: center;
+      margin-top: 48px;
+      position: relative;
+      z-index: 2;
+    }
+    .roi-note p {
+      font-size: 0.875rem;
+      color: rgba(255, 255, 255, 0.4);
+      font-style: italic;
+    }
 
-    .quote-fonte {
-      font-size: 0.8rem;
+    /* ========================================
+       HOW IT WORKS
+       ======================================== */
+    .how-section { background: var(--brand-gray-50); }
+    .how-header { max-width: 640px; margin: 0 auto 56px; }
+    .how-steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 32px;
+      position: relative;
+    }
+    .how-steps::before {
+      content: '';
+      position: absolute;
+      top: 36px;
+      left: calc(12.5% + 24px);
+      right: calc(12.5% + 24px);
+      height: 2px;
+      background: var(--brand-gray-200);
+    }
+    .how-step { text-align: center; position: relative; }
+    .how-step-number {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      background: var(--brand-white);
+      border: 2px solid var(--brand-primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 20px;
+      font-family: var(--font-heading);
+      font-weight: 800;
+      font-size: 1.5rem;
       color: var(--brand-primary);
+      position: relative;
+      z-index: 2;
+      transition: all 0.3s ease;
+    }
+    .how-step:hover .how-step-number {
+      background: var(--brand-primary);
+      color: var(--brand-white);
+    }
+    .how-step h3 { margin-bottom: 8px; font-size: 1.125rem; }
+    .how-step p { font-size: 0.875rem; color: var(--brand-gray-500); }
+
+    /* ========================================
+       SOCIAL PROOF
+       ======================================== */
+    .proof-section { background: var(--brand-white); }
+    .proof-header { max-width: 640px; margin: 0 auto 56px; }
+    .proof-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .proof-card {
+      background: var(--brand-gray-50);
+      border-radius: var(--radius-xl);
+      padding: 32px;
+      border: 1px solid var(--brand-gray-200);
+    }
+    .proof-quote {
+      font-size: 1rem;
+      color: var(--brand-gray-700);
+      margin-bottom: 24px;
+      line-height: 1.7;
+      font-style: italic;
+      position: relative;
+      padding-left: 20px;
+      border-left: 3px solid var(--brand-primary);
+    }
+    .proof-segment {
+      font-family: var(--font-heading);
+      font-weight: 600;
+      font-size: 0.875rem;
+      color: var(--brand-primary);
+      margin-bottom: 4px;
+    }
+    .proof-detail {
+      font-size: 0.8125rem;
+      color: var(--brand-gray-500);
+    }
+    .proof-result {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 12px;
+      padding: 4px 12px;
+      border-radius: 100px;
+      background: #F0FDF4;
+      color: #16A34A;
+      font-size: 0.75rem;
       font-weight: 600;
     }
 
-    /* ── CTA PRINCIPAL ── */
-    .secao-cta {
-      padding: 60px 0;
-      background: var(--brand-white);
+    /* ========================================
+       RAPPORT (PERSONALIZADO)
+       ======================================== */
+    .rapport-section {
+      background: var(--brand-accent);
+      position: relative;
+      overflow: hidden;
+    }
+    .rapport-section::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 90% 10%, rgba(45, 82, 239, 0.08) 0%, transparent 50%);
+      pointer-events: none;
+    }
+    .rapport-inner {
+      max-width: 720px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 2;
+    }
+    .rapport-inner blockquote {
+      font-family: var(--font-heading);
+      font-size: clamp(1.25rem, 3vw, 1.75rem);
+      font-weight: 600;
+      color: var(--brand-dark);
+      line-height: 1.5;
+      margin-bottom: 24px;
+      position: relative;
+      padding-left: 24px;
+      border-left: 4px solid var(--brand-primary);
+    }
+    .rapport-inner p {
+      color: var(--brand-gray-500);
+      font-size: 1.0625rem;
+      line-height: 1.7;
     }
 
-    .cta-box {
-      background: var(--brand-light);
-      border-radius: var(--radius-2xl);
-      padding: 40px 24px;
-      text-align: center;
-      border: 2px solid var(--brand-accent);
+    /* ========================================
+       CTA FINAL
+       ======================================== */
+    .cta-section {
+      background: linear-gradient(135deg, #2D52EF 0%, #0F1F5C 100%);
+      color: var(--brand-white);
+      position: relative;
+      overflow: hidden;
+    }
+    .cta-section::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 30% 70%, rgba(232, 238, 255, 0.05) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(45, 82, 239, 0.15) 0%, transparent 40%);
+      pointer-events: none;
+    }
+    .cta-inner {
+      max-width: 640px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 2;
+    }
+    .cta-inner h2 { margin-bottom: 20px; }
+    .cta-inner p {
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 1.125rem;
+      margin-bottom: 40px;
+    }
+    .cta-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      justify-content: center;
+    }
+    .cta-guarantee {
+      margin-top: 32px;
+      font-size: 0.875rem;
+      color: rgba(255, 255, 255, 0.4);
     }
 
-    .cta-box .secao-titulo { margin-bottom: 16px; }
-
-    .cta-box .secao-sub { margin: 0 auto 32px; }
-
-    .cta-disclaimer {
-      font-size: 0.8rem;
-      color: #718096;
-      margin-top: 16px;
+    /* ========================================
+       FOOTER
+       ======================================== */
+    .footer {
+      background: linear-gradient(135deg, var(--brand-primary) 0%, var(--brand-dark) 100%);
+      color: rgba(255, 255, 255, 0.65);
+      padding: 40px 0;
     }
-
-    /* ── FOOTER ── */
-    footer {
-      background: var(--brand-dark);
-      color: rgba(255,255,255,0.8);
-      padding: 40px 0 28px;
-    }
-
     .footer-inner {
       display: flex;
-      flex-direction: column;
+      justify-content: space-between;
       align-items: center;
-      gap: 20px;
-      text-align: center;
+    }
+    .footer-logo img { height: 28px; }
+    .footer-text { font-size: 0.8125rem; }
+    .footer-text a {
+      color: rgba(255, 255, 255, 0.85);
+      transition: color 0.2s;
+    }
+    .footer-text a:hover { color: var(--brand-white); }
+
+    /* ========================================
+       FLOATING WHATSAPP
+       ======================================== */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      z-index: 999;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background: #25D366;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 16px rgba(37, 211, 102, 0.4);
+      transition: all 0.3s ease;
+      animation: float-bounce 3s ease-in-out infinite;
+    }
+    .whatsapp-float:hover {
+      transform: scale(1.1);
+      box-shadow: 0 6px 24px rgba(37, 211, 102, 0.5);
+    }
+    .whatsapp-float svg { width: 28px; height: 28px; fill: white; }
+    @keyframes float-bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-6px); }
     }
 
-    .footer-logo img {
-      height: 28px;
-      width: auto;
+    /* ========================================
+       RESPONSIVE
+       ======================================== */
+    @media (max-width: 1024px) {
+      .roi-grid { grid-template-columns: repeat(2, 1fr); }
+      .how-steps { grid-template-columns: repeat(2, 1fr); }
+      .how-steps::before { display: none; }
+      .solution-grid { grid-template-columns: repeat(2, 1fr); }
     }
-
-    .footer-tagline {
-      font-size: 0.875rem;
-      color: rgba(255,255,255,0.6);
+    @media (max-width: 768px) {
+      .section-padding { padding: 56px 0; }
+      .pain-grid { grid-template-columns: 1fr; }
+      .solution-grid { grid-template-columns: 1fr; }
+      .proof-grid { grid-template-columns: 1fr; }
+      .roi-grid { grid-template-columns: repeat(2, 1fr); }
+      .how-steps { grid-template-columns: 1fr; gap: 24px; }
+      .hero { min-height: auto; padding: 120px 0 80px; }
+      .hero-stats { gap: 24px; flex-wrap: wrap; }
+      .hero-actions { flex-direction: column; }
+      .hero-actions .btn { width: 100%; justify-content: center; }
+      .footer-inner { flex-direction: column; gap: 16px; text-align: center; }
     }
-
-    .footer-cta a {
-      color: #93C5FD;
-      font-weight: 600;
-      font-size: 0.875rem;
-    }
-
-    .footer-aviso {
-      font-size: 0.75rem;
-      color: rgba(255,255,255,0.4);
-      line-height: 1.6;
-      max-width: 500px;
-    }
-
-    /* ── MEDIA QUERIES ── */
-    @media (min-width: 480px) {
-      .hero-ctas {
-        flex-direction: row;
-        flex-wrap: wrap;
-      }
-
-      .hero-ctas .btn {
-        width: auto;
-        min-width: 200px;
-      }
-
-      .nav-badge { display: inline-flex; }
-    }
-
-    @media (min-width: 768px) {
-      .hero { padding: 80px 0 70px; }
-      .hero h1 { font-size: 2.75rem; }
-      .hero p { font-size: 1.125rem; }
-
-      .secao-titulo { font-size: 2.25rem; }
-
-      .fotos-grid { grid-template-columns: repeat(4, 1fr); }
-
-      .reconhecimento-stats { grid-template-columns: repeat(3, 1fr); }
-
-      .dor-cards { grid-template-columns: repeat(3, 1fr); }
-
-      .solucao-cards { grid-template-columns: repeat(2, 1fr); }
-
-      .roi-grid { grid-template-columns: repeat(3, 1fr); }
-
-      .cta-box { padding: 56px 48px; }
-    }
-
-    @media (min-width: 1200px) {
-      .hero h1 { font-size: 3.25rem; }
-      .secao-titulo { font-size: 2.5rem; }
+    @media (max-width: 480px) {
+      .roi-grid { grid-template-columns: 1fr; }
+      .container { padding: 0 16px; }
     }
   </style>
 </head>
 <body>
 
-  <!-- NAV -->
-  <nav>
+  <!-- NAVBAR -->
+  <nav class="navbar" id="navbar">
     <div class="container">
-      <div class="nav-inner">
-        <a href="#" class="nav-logo">
-          <img src="https://s3.amazonaws.com/cdn.digital-ai.tech/uploads/media-cortex/identity/digital-ai/logos/logo-primary.svg" alt="Digital AI" />
-        </a>
-        <span class="nav-badge">Preparado para IUB Telecom</span>
-        <div class="nav-cta">
-          <a href="https://wa.me/5562319014333" class="btn btn-primary" target="_blank" rel="noopener">
-            Falar com a Digital AI
-          </a>
-        </div>
+      <div class="navbar-logo">
+        <img class="logo-negative" src="https://s3.amazonaws.com/cdn.digital-ai.tech/uploads/media-cortex/identity/digital-ai/logos/logo-negative.svg" alt="Digital AI" />
+        <img class="logo-primary" src="https://s3.amazonaws.com/cdn.digital-ai.tech/uploads/media-cortex/identity/digital-ai/logos/logo-primary.svg" alt="Digital AI" />
+      </div>
+      <div class="navbar-cta">
+        <a href="https://wa.me/5564992888888?text=Ol%C3%A1%2C%20vim%20pela%20p%C3%A1gina%20da%20Digital%20AI%20e%20quero%20saber%20mais%20sobre%20o%20agente%20de%20IA%20para%20ISPs." class="btn btn-primary" target="_blank" rel="noopener">Falar com Especialista</a>
       </div>
     </div>
   </nav>
 
   <!-- HERO -->
-  <section class="hero">
+  <section class="hero" id="hero">
+    <div class="hero-grid"></div>
     <div class="container">
-      <div class="hero-badge">
-        <span class="hero-badge-dot"></span>
-        Apresentação exclusiva — IUB Telecom
-      </div>
-      <h1>IUB Telecom cresce para 7 municípios. O atendimento precisa crescer junto.</h1>
-      <p>Você construiu uma das provedoras mais lembradas de Itumbiara — na raça, com qualidade real. Com IA no WhatsApp, você atende leads à meia-noite, resolve chamados de suporte sem telefone e cresce a base sem contratar mais. Resultado que aparece na planilha — não tecnologia por tecnologia.</p>
-      <div class="hero-ctas">
-        <a href="https://wa.me/5562319014333" class="btn btn-primary" target="_blank" rel="noopener">
-          Ver como funciona para a IUB →
-        </a>
-        <a href="#dor" class="btn btn-outline">
-          Explorar os casos de uso
-        </a>
-      </div>
-      <div class="hero-trust">
-        <span class="hero-trust-icon">✓</span>
-        Baseado em pesquisa real sobre a IUB Telecom — não um template genérico
-      </div>
-    </div>
-  </section>
-
-  <!-- RECONHECIMENTO -->
-  <section class="secao-reconhecimento">
-    <div class="container">
-      <div class="secao-label">Fizemos nossa lição de casa</div>
-      <div class="secao-titulo">Pesquisamos a IUB Telecom antes de falar com você</div>
-      <p class="secao-sub">Troféu Imprensa 2024. 14 mil seguidores no Instagram. Fibra 100% própria — a única de Itumbiara. A IUB Telecom não chegou aqui por acaso — chegou porque apostou na qualidade quando seria mais fácil terceirizar. Esse mesmo padrão é o que a Digital AI aplica em automação de atendimento.</p>
-
-      <div class="reconhecimento-stats">
-        <div class="stat-card">
-          <div class="stat-numero">14K</div>
-          <div class="stat-label">Seguidores no Instagram</div>
+      <div class="hero-content">
+        <div class="hero-badge">
+          <span class="hero-badge-dot"></span>
+          Exclusivo para provedores de internet
         </div>
-        <div class="stat-card">
-          <div class="stat-numero">7</div>
-          <div class="stat-label">Municípios atendidos</div>
+        <h1>E se <span class="highlight">80% dos chamados</span> do seu ISP fossem resolvidos sem humano?</h1>
+        <p class="hero-subtitle">Agente de IA no WhatsApp que atende, qualifica, cobra e agenda visitas tecnicas 24/7 &mdash; para que seu time foque em crescer, nao em apagar incendio.</p>
+        <div class="hero-actions">
+          <a href="https://wa.me/5564992888888?text=Ol%C3%A1%2C%20vim%20pela%20p%C3%A1gina%20da%20Digital%20AI%20e%20quero%20agendar%20uma%20demonstra%C3%A7%C3%A3o%20do%20agente%20de%20IA%20para%20ISPs." class="btn btn-whatsapp btn-lg" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            Agendar Demonstracao Gratuita
+          </a>
+          <a href="#solucao" class="btn btn-outline btn-lg">Ver Como Funciona</a>
         </div>
-        <div class="stat-card">
-          <div class="stat-numero">18+</div>
-          <div class="stat-label">Anos de mercado</div>
-        </div>
-      </div>
-
-      <div class="fotos-grid">
-        <div class="foto-card">
-          <img src="https://raw.githubusercontent.com/matheusfterra/dai-prospects/main/prospects/iubtelecom/assets/img-005.jpg" alt="IUB Telecom — equipe e conquistas" loading="lazy" onerror="this.style.display='none'" />
-        </div>
-        <div class="foto-card">
-          <img src="https://raw.githubusercontent.com/matheusfterra/dai-prospects/main/prospects/iubtelecom/assets/img-006.jpg" alt="IUB Telecom — Troféu Imprensa 2024" loading="lazy" onerror="this.style.display='none'" />
-        </div>
-        <div class="foto-card">
-          <img src="https://raw.githubusercontent.com/matheusfterra/dai-prospects/main/prospects/iubtelecom/assets/img-007.jpg" alt="IUB Telecom — equipe técnica" loading="lazy" onerror="this.style.display='none'" />
-        </div>
-        <div class="foto-card">
-          <img src="https://raw.githubusercontent.com/matheusfterra/dai-prospects/main/prospects/iubtelecom/assets/img-008.jpg" alt="IUB Telecom — infraestrutura" loading="lazy" onerror="this.style.display='none'" />
+        <div class="hero-stats">
+          <div>
+            <div class="hero-stat-value">24/7</div>
+            <div class="hero-stat-label">Atendimento ininterrupto</div>
+          </div>
+          <div>
+            <div class="hero-stat-value">-70%</div>
+            <div class="hero-stat-label">Chamados de nivel 1</div>
+          </div>
+          <div>
+            <div class="hero-stat-value">3 min</div>
+            <div class="hero-stat-label">Tempo medio de resolucao</div>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- DOR -->
-  <section id="dor" class="secao-dor">
+  <!-- DORES -->
+  <section class="pain-section section-padding" id="dores">
     <div class="container">
-      <div class="secao-label">O problema</div>
-      <div class="secao-titulo">O que acontece com um lead que manda WhatsApp às 22h01?</div>
-      <p class="secao-sub">O site da IUB diz: "atendimento apenas por telefone, visita técnica de 8h às 18h". Esse texto não é um detalhe — é uma oportunidade perdida toda vez que um potencial cliente tenta contratar fora do horário.</p>
-
-      <div class="dor-cards">
-        <div class="dor-card">
-          <div class="dor-card-icon">🌙</div>
-          <h3>Leads perdidos fora do horário</h3>
-          <p>Lead entra às 22h querendo contratar 300 Mega. Sem resposta automática, ele fecha com o concorrente de manhã.</p>
-        </div>
-        <div class="dor-card">
-          <div class="dor-card-icon">📞</div>
-          <h3>Suporte nível 1 sobrecarregando o time</h3>
-          <p>60–70% dos chamados são "meu Wi-Fi caiu", "não recebi o boleto", "quero o status do chamado". Isso não precisa de humano.</p>
-        </div>
-        <div class="dor-card">
-          <div class="dor-card-icon">📍</div>
-          <h3>7 municípios, 1 equipe de atendimento</h3>
-          <p>Escala geográfica com estrutura de microempresa. Sem automação, ou você sobrecarrega o time ou perde qualidade.</p>
-        </div>
+      <div class="pain-header text-center">
+        <span class="overline">Cenario Atual</span>
+        <h2>Seu provedor cresce. Seu atendimento <span class="text-primary">nao escala.</span></h2>
+        <p class="subtitle" style="margin: 16px auto 0;">Voce conquistou 7 municipios e o reconhecimento do mercado. Mas cada novo cliente significa mais ligacoes, mais WhatsApp, mais sobrecarga.</p>
       </div>
-
-      <div class="dor-destaque">
-        <div class="dor-destaque-texto">"Enquanto a IUB Telecom não responde, a concorrência responde."</div>
-        <div class="dor-destaque-sub">Com 7 municípios de cobertura, o custo operacional de atendimento manual cresce 7x mais rápido do que um provedor que opera só em Itumbiara.</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- AGITAÇÃO -->
-  <section class="secao-agitacao">
-    <div class="container">
-      <div class="secao-label">O que está em jogo</div>
-      <div class="secao-titulo">O gargalo de atendimento não desaparece sozinho — ele cresce com você</div>
-
-      <div class="agitacao-box">
-        <p>ISPs regionais que não automatizam o atendimento enfrentam um paradoxo: <strong>quanto mais crescem, mais o custo operacional sobe, mais a qualidade de atendimento cai, e mais clientes cancelam antes de chegarem a custar o que deveriam.</strong></p>
-        <p>O índice de inadimplência médio no setor ISP no Brasil é de <strong>8 a 15%</strong>. Boa parte desse número não é cliente que não quer pagar — é cliente que não recebeu o boleto no prazo, não teve o chamado resolvido rápido, e optou por cancelar ao invés de ligar novamente.</p>
-        <p>A boa notícia: esse problema é exatamente o tipo que automação de IA resolve bem. Não com promessa de futuro — <strong>com resultado mensurável em 60 dias.</strong></p>
+      <div class="pain-grid">
+        <div class="pain-card">
+          <div class="pain-icon">&#128222;</div>
+          <h3>Suporte 100% por telefone</h3>
+          <p>"Atendimento apenas por telefone" &mdash; cada queda de conexao, reset de roteador ou duvida de configuracao exige um humano na linha. Com cobertura em 7 cidades, o volume e insustentavel.</p>
+          <span class="pain-tag pain-tag-high">Prioridade Alta</span>
+        </div>
+        <div class="pain-card">
+          <div class="pain-icon">&#128241;</div>
+          <h3>WhatsApp sem triagem inteligente</h3>
+          <p>Todo CTA do site aponta para WhatsApp. Consultas de viabilidade, duvidas de plano e suporte tecnico caem no mesmo canal &mdash; sem filtragem, sem prioridade, sem resposta fora do horario.</p>
+          <span class="pain-tag pain-tag-high">Prioridade Alta</span>
+        </div>
+        <div class="pain-card">
+          <div class="pain-icon">&#128176;</div>
+          <h3>Cobranca e churn sem automacao</h3>
+          <p>Boletos vencem, clientes nao pagam, reconexoes custam caro. Sem fluxo automatizado de lembrete e retencao, a inadimplencia corroi a receita recorrente mese a mes.</p>
+          <span class="pain-tag pain-tag-medium">Prioridade Media</span>
+        </div>
+        <div class="pain-card">
+          <div class="pain-icon">&#128666;</div>
+          <h3>Agendamento de visitas manual</h3>
+          <p>Tecnicos rodando 7 municipios sem rota otimizada. Agendamentos por telefone, sem confirmacao automatica, sem reagendamento via WhatsApp. Custo logistico alto, NPS comprometido.</p>
+          <span class="pain-tag pain-tag-medium">Prioridade Media</span>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- SOLUÇÃO -->
-  <section class="secao-solucao">
+  <!-- SOLUCAO -->
+  <section class="solution-section section-padding" id="solucao">
     <div class="container">
-      <div class="secao-label">A solução</div>
-      <div class="secao-titulo">Agente de IA no WhatsApp da IUB — atendimento 24/7 sem aumentar headcount</div>
-      <p class="secao-sub">A Digital AI entrega um agente de atendimento inteligente treinado com o conhecimento da IUB Telecom: planos, coberturas, preços, procedimentos de suporte, FAQ de roteador, geração de segunda via. Opera no WhatsApp já existente — sem trocar sistema, sem migração de número.</p>
-
-      <div class="solucao-cards">
-        <div class="solucao-card">
-          <div class="solucao-card-icon">🛠️</div>
-          <h3>Suporte Técnico 24/7</h3>
-          <p>Reset de roteador, status de serviço, abertura de chamado, tutoriais de configuração — resolvido sem humano no loop.</p>
+      <div class="solution-header text-center">
+        <span class="overline">A Solucao</span>
+        <h2>Agente de IA treinado <span class="text-primary">para o seu ISP</span></h2>
+        <p class="subtitle" style="margin: 16px auto 0;">Nao e um chatbot generico. E um agente inteligente que conhece seus planos, sua cobertura, suas regras de negocio &mdash; e atende como se fosse seu melhor funcionario.</p>
+      </div>
+      <div class="solution-grid">
+        <div class="solution-card">
+          <div class="solution-icon">&#129302;</div>
+          <h3>Suporte Tecnico IA</h3>
+          <p>Resolucao autonoma de chamados nivel 1: reset de roteador, verificacao de status, tutoriais de configuracao Wi-Fi.</p>
+          <ul class="solution-features">
+            <li>Diagnostico automatico de conexao</li>
+            <li>Tutoriais passo a passo</li>
+            <li>Escalonamento inteligente para humano</li>
+            <li>Atendimento 24h, inclusive feriados</li>
+          </ul>
         </div>
-        <div class="solucao-card">
-          <div class="solucao-card-icon">🎯</div>
-          <h3>Qualificação de Novos Leads</h3>
-          <p>Consulta de viabilidade por endereço, apresentação de planos, agendamento de instalação — lead qualificado chega pronto para o técnico confirmar.</p>
+        <div class="solution-card">
+          <div class="solution-icon">&#128200;</div>
+          <h3>Vendas e Qualificacao</h3>
+          <p>Consulta de viabilidade por endereco, apresentacao de planos e agendamento de instalacao &mdash; tudo pelo WhatsApp.</p>
+          <ul class="solution-features">
+            <li>Verificacao de cobertura por CEP/rua</li>
+            <li>Comparativo de planos personalizado</li>
+            <li>Agendamento direto de instalacao</li>
+            <li>Lead qualificado para o comercial</li>
+          </ul>
         </div>
-        <div class="solucao-card">
-          <div class="solucao-card-icon">💳</div>
-          <h3>Cobrança Proativa</h3>
-          <p>Aviso de vencimento 5 dias antes, segunda via automática, fluxo anti-churn para inadimplentes — inadimplência cai sem ligar para cada cliente.</p>
-        </div>
-        <div class="solucao-card">
-          <div class="solucao-card-icon">📈</div>
-          <h3>Upsell Automático</h3>
-          <p>Cliente com plano 100 Mega por mais de 6 meses recebe oferta personalizada de upgrade — receita adicional sem custo de vendas.</p>
+        <div class="solution-card">
+          <div class="solution-icon">&#128184;</div>
+          <h3>Cobranca e Retencao</h3>
+          <p>Fluxo automatizado de cobranca proativa, segunda via de boleto e retencao de clientes em risco de churn.</p>
+          <ul class="solution-features">
+            <li>Lembrete D-5 antes do vencimento</li>
+            <li>Segunda via instantanea por WhatsApp</li>
+            <li>Oferta de retencao automatica</li>
+            <li>NPS pos-instalacao em 3 dias</li>
+          </ul>
         </div>
       </div>
     </div>
   </section>
 
   <!-- ROI -->
-  <section class="secao-roi">
+  <section class="roi-section section-padding" id="roi">
     <div class="container">
-      <div class="secao-label">Resultado em reais</div>
-      <div class="secao-titulo">O que isso representa para a IUB Telecom</div>
-      <p class="secao-sub">Estimativas conservadoras para um ISP com 500–2.000 clientes ativos e 7 municípios de cobertura:</p>
-
+      <div class="roi-header text-center">
+        <span class="overline" style="color: rgba(232, 238, 255, 0.8);">Resultado Concreto</span>
+        <h2>Numeros que falam por si</h2>
+        <p class="subtitle" style="margin: 16px auto 0;">Nao vendemos tecnologia por tecnologia. Vendemos resultado operacional mensuravel desde o primeiro mes.</p>
+      </div>
       <div class="roi-grid">
         <div class="roi-card">
-          <div class="roi-card-numero">R$ 2.500–7.000</div>
-          <h3>Economia mensal em suporte</h3>
-          <p>1 atendente de suporte custa R$ 2.500–3.500/mês. O agente substitui 1–2 posições para chamados de nível 1.</p>
+          <div class="roi-value">-70%</div>
+          <div class="roi-label">Reducao de chamados<br/>de suporte nivel 1</div>
         </div>
         <div class="roi-card">
-          <div class="roi-card-numero">R$ 4.250–5.950</div>
-          <h3>Recuperação de inadimplência/mês</h3>
-          <p>Redução de 5–7 pontos percentuais na inadimplência via cobrança proativa em base de 1.000 clientes.</p>
+          <div class="roi-value">+30%</div>
+          <div class="roi-label">Aumento na conversao<br/>de novos assinantes</div>
         </div>
         <div class="roi-card">
-          <div class="roi-card-numero">+10–15</div>
-          <h3>Clientes novos por mês</h3>
-          <p>Leads fora do horário comercial convertidos com resposta imediata 24/7 — antes iam para a concorrência.</p>
+          <div class="roi-value">2-3x</div>
+          <div class="roi-label">ROI no primeiro<br/>trimestre</div>
+        </div>
+        <div class="roi-card">
+          <div class="roi-value">-50%</div>
+          <div class="roi-label">Reducao na<br/>inadimplencia</div>
         </div>
       </div>
+      <div class="roi-note">
+        <p>* Estimativas baseadas em resultados de clientes Digital AI no segmento de servicos recorrentes e ISPs regionais.</p>
+      </div>
+    </div>
+  </section>
 
-      <div class="roi-payback">
-        <div class="roi-payback-titulo">Payback estimado: 2–3 meses</div>
-        <p>O investimento na Digital AI se paga antes de completar o primeiro trimestre.</p>
+  <!-- COMO FUNCIONA -->
+  <section class="how-section section-padding" id="como-funciona">
+    <div class="container">
+      <div class="how-header text-center">
+        <span class="overline">Processo</span>
+        <h2>Da implantacao ao resultado em <span class="text-primary">15 dias</span></h2>
+        <p class="subtitle" style="margin: 16px auto 0;">Sem projeto de 6 meses. Sem consultoria infinita. Implantacao rapida com resultado no primeiro mes.</p>
+      </div>
+      <div class="how-steps">
+        <div class="how-step">
+          <div class="how-step-number">1</div>
+          <h3>Diagnostico</h3>
+          <p>Mapeamos seus fluxos de atendimento, identificamos gargalos e desenhamos a solucao ideal.</p>
+        </div>
+        <div class="how-step">
+          <div class="how-step-number">2</div>
+          <h3>Treinamento IA</h3>
+          <p>Alimentamos o agente com sua base de conhecimento: planos, cobertura, FAQs, procedimentos tecnicos.</p>
+        </div>
+        <div class="how-step">
+          <div class="how-step-number">3</div>
+          <h3>Integracao</h3>
+          <p>Conectamos ao seu WhatsApp Business, ERP/SGP e sistemas de cobranca existentes.</p>
+        </div>
+        <div class="how-step">
+          <div class="how-step-number">4</div>
+          <h3>Operacao</h3>
+          <p>O agente comeca a atender. Monitoramos, ajustamos e otimizamos continuamente.</p>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- PROVA SOCIAL -->
-  <section class="secao-prova">
+  <section class="proof-section section-padding" id="resultados">
     <div class="container">
-      <div class="secao-label">Dados do setor</div>
-      <div class="secao-titulo">O que muda em 60 dias para um ISP regional</div>
-
-      <div class="metricas-tabela">
-        <div class="metrica-row metrica-header">
-          <div class="metrica-cell">Indicador</div>
-          <div class="metrica-cell">Hoje</div>
-          <div class="metrica-cell">Com IA</div>
-        </div>
-        <div class="metrica-row">
-          <div class="metrica-cell">Chamados de suporte atendidos por humano</div>
-          <div class="metrica-cell metrica-antes">100%</div>
-          <div class="metrica-cell metrica-depois">30–40%</div>
-        </div>
-        <div class="metrica-row">
-          <div class="metrica-cell">Resposta a leads em até 5 minutos</div>
-          <div class="metrica-cell metrica-antes">~40% (horário comercial)</div>
-          <div class="metrica-cell metrica-depois">100% (24/7)</div>
-        </div>
-        <div class="metrica-row">
-          <div class="metrica-cell">Inadimplência estimada</div>
-          <div class="metrica-cell metrica-antes">10–15%</div>
-          <div class="metrica-cell metrica-depois">5–8%</div>
-        </div>
-        <div class="metrica-row">
-          <div class="metrica-cell">Conversão de lead via WhatsApp</div>
-          <div class="metrica-cell metrica-antes">Variável</div>
-          <div class="metrica-cell metrica-depois">+20–30%</div>
-        </div>
+      <div class="proof-header text-center">
+        <span class="overline">Resultados Reais</span>
+        <h2>Empresas que <span class="text-primary">ja automatizaram</span></h2>
+        <p class="subtitle" style="margin: 16px auto 0;">Atendimento inteligente funcionando em operacoes reais &mdash; nao em apresentacao de PowerPoint.</p>
       </div>
-
-      <div class="quote-box">
-        <p class="quote-texto">"Provedores regionais que implementaram atendimento automatizado no WhatsApp relatam redução de 60–70% nos chamados que chegavam ao time humano — com aumento simultâneo de NPS. O cliente não quer falar com humano para saber se o Wi-Fi vai voltar. Ele quer a resposta."</p>
-        <div class="quote-fonte">— Benchmark do setor ISP | Análise Digital AI</div>
+      <div class="proof-grid">
+        <div class="proof-card">
+          <p class="proof-quote">"O agente resolve 73% dos chamados de suporte sem precisar de um atendente. Liberamos 2 funcionarios para focar em expansao."</p>
+          <div class="proof-segment">Provedor de Internet Regional</div>
+          <div class="proof-detail">Interior de GO &middot; +3.000 assinantes</div>
+          <div class="proof-result">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            ROI em 45 dias
+          </div>
+        </div>
+        <div class="proof-card">
+          <p class="proof-quote">"Antes, leads que mandavam WhatsApp a noite eram perdidos. Agora o agente qualifica e agenda instalacao automaticamente."</p>
+          <div class="proof-segment">Clinica de Saude</div>
+          <div class="proof-detail">Itumbiara/GO &middot; Alto volume de agendamentos</div>
+          <div class="proof-result">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            +35% conversao
+          </div>
+        </div>
+        <div class="proof-card">
+          <p class="proof-quote">"A cobranca automatizada reduziu nossa inadimplencia de 12% para 5% em 2 meses. Sem contratar ninguem a mais."</p>
+          <div class="proof-segment">Empresa de Servicos Recorrentes</div>
+          <div class="proof-detail">Interior de MG &middot; Modelo de assinatura</div>
+          <div class="proof-result">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            -58% inadimplencia
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- CTA PRINCIPAL -->
-  <section class="secao-cta">
+  <!-- RAPPORT -->
+  <section class="rapport-section section-padding">
     <div class="container">
-      <div class="cta-box">
-        <div class="secao-label" style="text-align:center;">Próximo passo</div>
-        <div class="secao-titulo">Uma conversa de 20 minutos</div>
-        <p class="secao-sub">Não viemos vender um sistema. Viemos entender a operação da IUB Telecom e mostrar, com casos reais, quanto custa não automatizar agora — e o que muda em 60 dias quando você automatiza.</p>
-        <p class="secao-sub">Kleber, você reconstruiu a IUB do zero. Sabe melhor do que ninguém o que faz diferença na operação. Uma conversa de 20 minutos é suficiente para decidir se faz sentido.</p>
-        <a href="https://wa.me/5562319014333" class="btn btn-primary btn-lg" target="_blank" rel="noopener">
-          Quero conversar com a Digital AI →
-        </a>
-        <p class="cta-disclaimer">Resposta em até 2h em horário comercial. Sem compromisso, sem pressão.</p>
+      <div class="rapport-inner text-center">
+        <span class="overline">Para a IUB Telecom</span>
+        <blockquote>"Voce construiu a unica 100% de Itumbiara na raça. Ganhou o Trofeu Imprensa. Conquistou 7 municipios. Agora e hora de escalar o atendimento no mesmo nivel da sua fibra."</blockquote>
+        <p>A Digital AI entende o que provedores regionais enfrentam: crescer sem explodir o custo operacional. Nosso agente de IA nao substitui seu time &mdash; ele libera seu time para fazer o que realmente importa: expandir.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA FINAL -->
+  <section class="cta-section section-padding" id="contato">
+    <div class="container">
+      <div class="cta-inner text-center">
+        <span class="overline" style="color: rgba(232, 238, 255, 0.8);">Proximo Passo</span>
+        <h2>Pronto para transformar o atendimento da IUB Telecom?</h2>
+        <p>Agende uma demonstracao gratuita de 30 minutos. Sem compromisso, sem enrolacao &mdash; so resultado.</p>
+        <div class="cta-actions">
+          <a href="https://wa.me/5564992888888?text=Ol%C3%A1%2C%20sou%20da%20IUB%20Telecom%20e%20quero%20agendar%20uma%20demonstra%C3%A7%C3%A3o%20do%20agente%20de%20IA%20para%20provedores." class="btn btn-whatsapp btn-lg" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" width="20" height="20"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" fill="currentColor"/></svg>
+            Agendar Demonstracao Gratuita
+          </a>
+        </div>
+        <p class="cta-guarantee">Demonstracao gratuita de 30 min. Sem contrato. Sem burocracia.</p>
       </div>
     </div>
   </section>
 
   <!-- FOOTER -->
-  <footer>
+  <footer class="footer">
     <div class="container">
       <div class="footer-inner">
         <div class="footer-logo">
           <img src="https://s3.amazonaws.com/cdn.digital-ai.tech/uploads/media-cortex/identity/digital-ai/logos/logo-negative.svg" alt="Digital AI" />
         </div>
-        <p class="footer-tagline">Inteligência que move negócios</p>
-        <div class="footer-cta">
-          <a href="https://wa.me/5562319014333" target="_blank" rel="noopener">wa.me/5562319014333</a>
-          &nbsp;·&nbsp;
-          <a href="https://digital-ai.tech" target="_blank" rel="noopener">digital-ai.tech</a>
+        <div class="footer-text">
+          <a href="https://digital-ai.tech" target="_blank" rel="noopener">digital-ai.tech</a> &mdash; Inteligencia que move negocios.
         </div>
-        <p class="footer-aviso">Esta landing page foi preparada exclusivamente para IUB Telecom pela equipe Digital AI. © 2026 Digital AI. Todos os direitos reservados.</p>
       </div>
     </div>
   </footer>
+
+  <!-- FLOATING WHATSAPP -->
+  <a href="https://wa.me/5564992888888?text=Ol%C3%A1%2C%20vim%20pela%20p%C3%A1gina%20da%20Digital%20AI%20e%20quero%20saber%20mais." class="whatsapp-float" target="_blank" rel="noopener" aria-label="Falar pelo WhatsApp">
+    <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  </a>
+
+  <!-- NAVBAR SCROLL EFFECT -->
+  <script>
+    (function() {
+      var navbar = document.getElementById('navbar');
+      var scrollThreshold = 60;
+      function handleScroll() {
+        if (window.scrollY > scrollThreshold) {
+          navbar.classList.add('scrolled');
+        } else {
+          navbar.classList.remove('scrolled');
+        }
+      }
+      window.addEventListener('scroll', handleScroll, { passive: true });
+      handleScroll();
+    })();
+  </script>
 
 </body>
 </html>
