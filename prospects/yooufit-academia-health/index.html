@@ -3,1074 +3,550 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Diagnóstico de Saúde Digital — YoouFit Academia | Digital AI</title>
-  <meta name="description" content="Diagnóstico completo da presença digital da YoouFit Academia. Veja onde estão as oportunidades ocultas e o que está freando o crescimento." />
-  <meta property="og:title" content="Diagnóstico Digital — YoouFit Academia" />
-  <meta property="og:description" content="Score 68/100 — Saúde digital com oportunidades críticas identificadas." />
+  <title>Diagnóstico de Presença Digital — YoouFit Academia | Digital AI</title>
+  <meta name="description" content="Score 68/100 — Análise completa da presença digital da YoouFit Academia. Veja onde estão as oportunidades ocultas." />
+  <meta property="og:url" content="https://yooufit-academia-health.digital-ai.tech" />
+  <meta property="og:title" content="Diagnóstico Digital — YoouFit Academia · Score 68/100" />
+  <meta property="og:description" content="Fitness & Academia · Lavras, MG · Score 68/100 · Grau C — Análise completa de Instagram, Google e Website." />
   <meta property="og:image" content="https://s3.amazonaws.com/cdn.digital-ai.tech/uploads/media-cortex/identity/digital-ai/social/og-image.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet" />
   <style>
-    :root {
-      --brand-primary:   #2D52EF;
-      --brand-secondary: #3B2FC9;
-      --brand-dark:      #0F1F5C;
-      --brand-accent:    #E8EEFF;
-      --brand-light:     #E8ECFD;
-      --brand-primary-rgb: 45, 82, 239;
-      --brand-dark-rgb:    15, 31, 92;
-      --color-green:  #10B981;
-      --color-yellow: #F59E0B;
-      --color-red:    #EF4444;
-      --color-gray:   #6B7280;
-      --font-heading: 'Plus Jakarta Sans', sans-serif;
-      --font-body:    'DM Sans', sans-serif;
-      --radius-sm:  4px;
-      --radius-md:  8px;
-      --radius-lg:  12px;
-      --radius-xl:  16px;
-      --radius-2xl: 24px;
-      --shadow-sm:  0 1px 3px rgba(0,0,0,.08), 0 1px 2px rgba(0,0,0,.06);
-      --shadow-md:  0 4px 6px rgba(0,0,0,.07), 0 2px 4px rgba(0,0,0,.06);
-      --shadow-lg:  0 10px 15px rgba(0,0,0,.07), 0 4px 6px rgba(0,0,0,.05);
-      --shadow-xl:  0 20px 25px rgba(0,0,0,.08), 0 10px 10px rgba(0,0,0,.04);
+    :root{
+      --brand-primary:#2D52EF;--brand-secondary:#3B2FC9;--brand-dark:#0F1F5C;
+      --brand-accent:#E8EEFF;--color-green:#10B981;--color-yellow:#F59E0B;
+      --color-red:#EF4444;--color-gray:#6B7280;
+      --font-h:'Plus Jakarta Sans',sans-serif;--font-b:'DM Sans',sans-serif;
+      --r-sm:4px;--r-md:8px;--r-lg:12px;--r-xl:16px;--r-2xl:24px;
+      --sh-sm:0 1px 3px rgba(0,0,0,.08);--sh-md:0 4px 6px rgba(0,0,0,.07),0 2px 4px rgba(0,0,0,.06);
+      --sh-lg:0 10px 15px rgba(0,0,0,.07),0 4px 6px rgba(0,0,0,.05);
+      --sh-xl:0 20px 25px rgba(0,0,0,.08),0 10px 10px rgba(0,0,0,.04);
     }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:var(--font-b);color:#1a1a2e;background:#f8f9ff;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
 
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    /* NAVBAR */
+    .nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:16px 32px;display:flex;align-items:center;justify-content:space-between;transition:all .3s}
+    .nav.sc{background:rgba(255,255,255,.96);backdrop-filter:blur(12px);box-shadow:var(--sh-md)}
+    .nav-logo{display:flex;align-items:center;gap:10px}
+    .nav-logo img{height:32px}
+    .nav-logo-t{font-family:var(--font-h);font-weight:800;color:#fff;font-size:1rem}
+    .nav.sc .nav-logo-t{color:var(--brand-dark)}
+    .nav-cta{background:var(--brand-primary);color:#fff;font-family:var(--font-h);font-size:.85rem;font-weight:600;padding:10px 22px;border-radius:100px;text-decoration:none;transition:all .2s;box-shadow:0 4px 12px rgba(45,82,239,.3)}
+    .nav-cta:hover{background:var(--brand-secondary);transform:translateY(-1px)}
 
-    html { scroll-behavior: smooth; }
+    /* HERO */
+    .hero{min-height:100vh;background:linear-gradient(135deg,var(--brand-primary) 0%,var(--brand-dark) 100%);display:flex;align-items:center;padding:120px 32px 80px;position:relative;overflow:hidden}
+    .hero-bg{position:absolute;inset:0;background-image:url('assets/ipe_IMG_9195.jpg');background-size:cover;background-position:center;opacity:.1;pointer-events:none}
+    .hero-glow{position:absolute;bottom:-10%;right:-5%;width:500px;height:500px;background:radial-gradient(circle,rgba(255,255,255,.05) 0%,transparent 70%);pointer-events:none}
+    .hero-inner{max-width:1080px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;position:relative;z-index:1;width:100%}
+    @media(max-width:900px){.hero-inner{grid-template-columns:1fr;gap:40px}}
+    .hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);border-radius:100px;padding:8px 18px;margin-bottom:24px;font-size:.78rem;font-weight:700;color:rgba(255,255,255,.9);letter-spacing:.06em;text-transform:uppercase}
+    .bdot{width:7px;height:7px;border-radius:50%;background:#10B981;animation:pg 2s infinite}
+    @keyframes pg{0%,100%{box-shadow:0 0 0 0 rgba(16,185,129,.5)}50%{box-shadow:0 0 0 6px rgba(16,185,129,0)}}
+    .hero-h{font-family:var(--font-h);font-size:clamp(1.9rem,4.5vw,3rem);font-weight:800;color:#fff;line-height:1.15;margin-bottom:16px}
+    .hero-h em{font-style:normal;background:linear-gradient(135deg,#E8EEFF,#A5B4FC);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .hero-sub{font-size:.97rem;color:rgba(255,255,255,.7);line-height:1.65;margin-bottom:32px;max-width:440px}
+    .hero-stats{display:flex;gap:12px;flex-wrap:wrap}
+    .stat-p{display:flex;flex-direction:column;align-items:center;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.15);border-radius:var(--r-xl);padding:14px 18px;min-width:80px}
+    .stat-v{font-family:var(--font-h);font-size:1.25rem;font-weight:800;color:#fff}
+    .stat-l{font-size:.68rem;color:rgba(255,255,255,.6);font-weight:500;text-transform:uppercase;letter-spacing:.04em;margin-top:2px;text-align:center}
 
-    body {
-      font-family: var(--font-body);
-      color: #1a1a2e;
-      background: #f8f9ff;
-      line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
-    }
+    /* SCORE RING */
+    .hero-score{display:flex;flex-direction:column;align-items:center;gap:24px}
+    .ring-w{position:relative;width:220px;height:220px}
+    .ring-w svg{transform:rotate(-90deg)}
+    .r-track{stroke-dasharray:565;stroke-dashoffset:0}
+    .r-fill{stroke-dasharray:565;stroke-dashoffset:565;animation:ra 1.6s ease forwards .6s}
+    @keyframes ra{to{stroke-dashoffset:181}}
+    .score-center{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center}
+    .score-n{font-family:var(--font-h);font-size:3.8rem;font-weight:800;color:#fff;line-height:1}
+    .score-d{font-size:.9rem;color:rgba(255,255,255,.55)}
+    .grade-c{display:inline-flex;align-items:center;gap:10px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.15);border-radius:var(--r-xl);padding:12px 20px}
+    .grade-l{width:44px;height:44px;border-radius:50%;background:#F59E0B;display:flex;align-items:center;justify-content:center;font-family:var(--font-h);font-size:1.4rem;font-weight:800;color:#fff;box-shadow:0 4px 16px rgba(245,158,11,.4)}
+    .grade-i .gt{font-family:var(--font-h);font-weight:700;color:#fff;font-size:1rem}
+    .grade-i .gs{font-size:.8rem;color:rgba(255,255,255,.6)}
 
-    /* ─── NAVBAR ─── */
-    .navbar {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      z-index: 1000;
-      padding: 16px 24px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      transition: all .3s ease;
-      background: transparent;
-    }
-    .navbar.scrolled {
-      background: rgba(255,255,255,.95);
-      backdrop-filter: blur(12px);
-      box-shadow: var(--shadow-md);
-    }
-    .navbar-logo img { height: 36px; }
-    .navbar-cta {
-      background: var(--brand-primary);
-      color: #fff;
-      font-family: var(--font-heading);
-      font-size: .85rem;
-      font-weight: 600;
-      padding: 10px 20px;
-      border-radius: var(--radius-xl);
-      text-decoration: none;
-      transition: all .2s;
-      border: none;
-      cursor: pointer;
-    }
-    .navbar-cta:hover { background: var(--brand-secondary); transform: translateY(-1px); }
+    /* SECTIONS */
+    section{padding:80px 32px}
+    .container{max-width:1080px;margin:0 auto}
+    .sbadge{display:inline-flex;align-items:center;gap:6px;background:var(--brand-accent);color:var(--brand-primary);font-size:.75rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:6px 14px;border-radius:100px;margin-bottom:14px}
+    .stitle{font-family:var(--font-h);font-size:clamp(1.6rem,3vw,2.2rem);font-weight:800;color:var(--brand-dark);line-height:1.2;margin-bottom:10px}
+    .ssub{font-size:1rem;color:var(--color-gray);max-width:540px}
+    .shead{margin-bottom:48px}
 
-    /* ─── HERO ─── */
-    .hero {
-      min-height: 100vh;
-      background: linear-gradient(135deg, var(--brand-primary) 0%, var(--brand-dark) 100%);
-      display: flex;
-      align-items: center;
-      padding: 120px 24px 80px;
-      position: relative;
-      overflow: hidden;
-    }
-    .hero::before {
-      content: '';
-      position: absolute;
-      top: -20%; right: -10%;
-      width: 600px; height: 600px;
-      background: radial-gradient(circle, rgba(255,255,255,.06) 0%, transparent 70%);
-      pointer-events: none;
-    }
-    .hero::after {
-      content: '';
-      position: absolute;
-      bottom: -10%; left: -5%;
-      width: 400px; height: 400px;
-      background: radial-gradient(circle, rgba(255,255,255,.04) 0%, transparent 70%);
-      pointer-events: none;
-    }
-    .hero-inner {
-      max-width: 960px;
-      margin: 0 auto;
-      text-align: center;
-      position: relative;
-      z-index: 1;
-    }
-    .hero-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: rgba(255,255,255,.12);
-      border: 1px solid rgba(255,255,255,.2);
-      border-radius: 100px;
-      padding: 8px 18px;
-      margin-bottom: 32px;
-      font-size: .82rem;
-      font-weight: 600;
-      color: rgba(255,255,255,.9);
-      letter-spacing: .04em;
-      text-transform: uppercase;
-    }
-    .badge-dot {
-      width: 8px; height: 8px;
-      border-radius: 50%;
-      background: #10B981;
-      animation: pulse-green 2s infinite;
-    }
-    @keyframes pulse-green {
-      0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(16,185,129,.4); }
-      50%       { opacity: .8; box-shadow: 0 0 0 6px rgba(16,185,129,0); }
-    }
-    .hero-prospect {
-      font-family: var(--font-heading);
-      font-size: clamp(2rem, 5vw, 3.2rem);
-      font-weight: 800;
-      color: #fff;
-      line-height: 1.15;
-      margin-bottom: 12px;
-    }
-    .hero-prospect em {
-      font-style: normal;
-      background: linear-gradient(135deg, #E8EEFF, #A5B4FC);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-    .hero-subtitle {
-      font-size: clamp(1rem, 2vw, 1.15rem);
-      color: rgba(255,255,255,.75);
-      max-width: 560px;
-      margin: 0 auto 48px;
-    }
+    /* GALLERY */
+    .gal-s{background:#fff}
+    .gal-g{display:grid;grid-template-columns:2fr 1fr 1fr;grid-template-rows:220px 220px;gap:12px}
+    @media(max-width:768px){.gal-g{grid-template-columns:1fr 1fr;grid-template-rows:180px 180px 180px}}
+    .gal-i{border-radius:var(--r-xl);overflow:hidden;position:relative}
+    .gal-i:first-child{grid-row:span 2}
+    @media(max-width:768px){.gal-i:first-child{grid-row:auto}}
+    .gal-i img{width:100%;height:100%;object-fit:cover;transition:transform .4s}
+    .gal-i:hover img{transform:scale(1.04)}
+    .gal-ov{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent,rgba(15,31,92,.75));padding:20px 14px 12px;opacity:0;transition:opacity .3s}
+    .gal-i:hover .gal-ov{opacity:1}
+    .gal-ot{font-family:var(--font-h);font-size:.78rem;font-weight:600;color:#fff}
 
-    /* Score Circle */
-    .score-hero-wrap {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 24px;
-      margin-bottom: 48px;
-    }
-    .score-circle-outer {
-      position: relative;
-      width: 200px; height: 200px;
-    }
-    .score-circle-outer svg {
-      transform: rotate(-90deg);
-    }
-    .score-circle-text {
-      position: absolute;
-      inset: 0;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-    }
-    .score-number {
-      font-family: var(--font-heading);
-      font-size: 3.5rem;
-      font-weight: 800;
-      color: #fff;
-      line-height: 1;
-    }
-    .score-total {
-      font-size: .9rem;
-      color: rgba(255,255,255,.6);
-      font-weight: 500;
-    }
-    .score-grade {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 48px; height: 48px;
-      border-radius: 50%;
-      background: #F59E0B;
-      color: #fff;
-      font-family: var(--font-heading);
-      font-size: 1.4rem;
-      font-weight: 800;
-      box-shadow: 0 4px 16px rgba(245,158,11,.4);
-    }
-    .score-label {
-      color: rgba(255,255,255,.8);
-      font-size: .95rem;
-      font-weight: 500;
-    }
+    /* PILLARS */
+    .pill-s{background:#f8f9ff}
+    .pill-g{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px}
+    .pill-c{background:#fff;border:1px solid #E5E7EB;border-radius:var(--r-xl);padding:28px;box-shadow:var(--sh-sm);transition:all .25s;position:relative;overflow:hidden}
+    .pill-c:hover{box-shadow:var(--sh-lg);transform:translateY(-3px)}
+    .pill-c::before{content:'';position:absolute;top:0;left:0;right:0;height:4px}
+    .pill-c.g::before{background:var(--color-green)}
+    .pill-c.y::before{background:var(--color-yellow)}
+    .pill-c.r::before{background:var(--color-red)}
+    .pill-h{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:18px}
+    .pill-ic{width:48px;height:48px;border-radius:var(--r-lg);display:flex;align-items:center;justify-content:center;font-size:1.4rem}
+    .pill-ic.g{background:rgba(16,185,129,.1)}
+    .pill-ic.y{background:rgba(245,158,11,.1)}
+    .pill-ic.r{background:rgba(239,68,68,.1)}
+    .pill-sw{text-align:right}
+    .pill-sc{font-family:var(--font-h);font-size:1.9rem;font-weight:800;line-height:1}
+    .pill-sc.g{color:var(--color-green)}.pill-sc.y{color:var(--color-yellow)}.pill-sc.r{color:var(--color-red)}
+    .pill-sm{font-size:.78rem;color:var(--color-gray)}
+    .pill-n{font-family:var(--font-h);font-size:1.05rem;font-weight:700;color:var(--brand-dark);margin-bottom:8px}
+    .pill-d{font-size:.88rem;color:var(--color-gray);line-height:1.55;margin-bottom:18px}
+    .pb{height:7px;background:#F3F4F6;border-radius:100px;overflow:hidden;margin-bottom:14px}
+    .pf{height:100%;border-radius:100px}
+    .pf.g{background:var(--color-green)}.pf.y{background:var(--color-yellow)}.pf.r{background:var(--color-red)}
+    .tags{display:flex;flex-wrap:wrap;gap:6px}
+    .tag{font-size:.73rem;font-weight:600;padding:4px 10px;border-radius:100px}
+    .tag.p{background:rgba(16,185,129,.1);color:#059669}
+    .tag.n{background:rgba(239,68,68,.1);color:#DC2626}
+    .tag.u{background:rgba(107,114,128,.1);color:#4B5563}
 
-    /* Stats bar */
-    .stats-bar {
-      display: flex;
-      gap: 1px;
-      background: rgba(255,255,255,.15);
-      border-radius: var(--radius-xl);
-      overflow: hidden;
-      max-width: 640px;
-      margin: 0 auto;
-    }
-    .stat-item {
-      flex: 1;
-      padding: 20px 16px;
-      text-align: center;
-      background: rgba(255,255,255,.06);
-    }
-    .stat-value {
-      font-family: var(--font-heading);
-      font-size: 1.5rem;
-      font-weight: 800;
-      color: #fff;
-      display: block;
-    }
-    .stat-label {
-      font-size: .78rem;
-      color: rgba(255,255,255,.6);
-      font-weight: 500;
-      text-transform: uppercase;
-      letter-spacing: .04em;
-    }
+    /* PHOTO STRIP */
+    .ph-s{background:var(--brand-dark)}
+    .ph-s .sbadge{background:rgba(255,255,255,.12);color:rgba(255,255,255,.9)}
+    .ph-s .stitle{color:#fff}
+    .ph-s .ssub{color:rgba(255,255,255,.6)}
+    .ph-g{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:40px}
+    @media(max-width:768px){.ph-g{grid-template-columns:repeat(2,1fr)}}
+    .ph-c{border-radius:var(--r-xl);overflow:hidden;aspect-ratio:1;position:relative}
+    .ph-c img{width:100%;height:100%;object-fit:cover;transition:transform .4s}
+    .ph-c:hover img{transform:scale(1.06)}
+    .ph-lbl{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent,rgba(15,31,92,.8));padding:20px 12px 12px;font-family:var(--font-h);font-size:.78rem;font-weight:600;color:#fff}
 
-    /* ─── SECTION COMMONS ─── */
-    section { padding: 80px 24px; }
-    .container { max-width: 1080px; margin: 0 auto; }
-    .section-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      background: var(--brand-accent);
-      color: var(--brand-primary);
-      font-size: .78rem;
-      font-weight: 700;
-      letter-spacing: .06em;
-      text-transform: uppercase;
-      padding: 6px 14px;
-      border-radius: 100px;
-      margin-bottom: 16px;
-    }
-    .section-title {
-      font-family: var(--font-heading);
-      font-size: clamp(1.6rem, 3vw, 2.2rem);
-      font-weight: 800;
-      color: var(--brand-dark);
-      line-height: 1.2;
-      margin-bottom: 12px;
-    }
-    .section-sub {
-      font-size: 1.05rem;
-      color: var(--color-gray);
-      max-width: 560px;
-    }
-    .section-header { margin-bottom: 48px; }
+    /* SUMMARY */
+    .sum-s{background:#fff}
+    .sum-g{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+    @media(max-width:768px){.sum-g{grid-template-columns:1fr}}
+    .sum-b{border-radius:var(--r-xl);padding:32px}
+    .sum-b.str{background:rgba(16,185,129,.05);border:1px solid rgba(16,185,129,.2)}
+    .sum-b.gap{background:rgba(239,68,68,.05);border:1px solid rgba(239,68,68,.2)}
+    .sum-bt{font-family:var(--font-h);font-size:1.05rem;font-weight:700;margin-bottom:20px;display:flex;align-items:center;gap:10px}
+    .str .sum-bt{color:#059669}.gap .sum-bt{color:#DC2626}
+    .sum-l{list-style:none;display:flex;flex-direction:column;gap:12px}
+    .sum-l li{font-size:.9rem;color:#374151;display:flex;gap:10px;align-items:flex-start;line-height:1.5}
+    .li-i{flex-shrink:0;margin-top:2px}
 
-    /* ─── PILLARS ─── */
-    .pillars-section { background: #fff; }
-    .pillars-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 24px;
-    }
-    .pillar-card {
-      background: #fff;
-      border: 1px solid #E5E7EB;
-      border-radius: var(--radius-xl);
-      padding: 28px;
-      box-shadow: var(--shadow-sm);
-      transition: all .2s;
-      position: relative;
-      overflow: hidden;
-    }
-    .pillar-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-2px); }
-    .pillar-card::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 4px;
-    }
-    .pillar-card.green::before  { background: var(--color-green); }
-    .pillar-card.yellow::before { background: var(--color-yellow); }
-    .pillar-card.red::before    { background: var(--color-red); }
-    .pillar-header {
-      display: flex;
-      align-items: flex-start;
-      justify-content: space-between;
-      margin-bottom: 20px;
-    }
-    .pillar-icon {
-      width: 48px; height: 48px;
-      border-radius: var(--radius-lg);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.5rem;
-    }
-    .pillar-icon.green  { background: rgba(16,185,129,.1); }
-    .pillar-icon.yellow { background: rgba(245,158,11,.1); }
-    .pillar-icon.red    { background: rgba(239,68,68,.1); }
-    .pillar-score-wrap { text-align: right; }
-    .pillar-score {
-      font-family: var(--font-heading);
-      font-size: 1.8rem;
-      font-weight: 800;
-      line-height: 1;
-    }
-    .pillar-score.green  { color: var(--color-green); }
-    .pillar-score.yellow { color: var(--color-yellow); }
-    .pillar-score.red    { color: var(--color-red); }
-    .pillar-score-max { font-size: .8rem; color: var(--color-gray); }
-    .pillar-name {
-      font-family: var(--font-heading);
-      font-size: 1.05rem;
-      font-weight: 700;
-      color: var(--brand-dark);
-      margin-bottom: 8px;
-    }
-    .pillar-desc {
-      font-size: .9rem;
-      color: var(--color-gray);
-      line-height: 1.5;
-      margin-bottom: 20px;
-    }
+    /* ABOUT */
+    .ab-s{background:#f8f9ff}
+    .ab-in{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+    @media(max-width:768px){.ab-in{grid-template-columns:1fr}}
+    .ab-img{border-radius:var(--r-2xl);overflow:hidden;box-shadow:var(--sh-xl);aspect-ratio:4/3}
+    .ab-img img{width:100%;height:100%;object-fit:cover}
+    .ab-q{border-left:4px solid var(--brand-primary);padding-left:20px;margin:24px 0;font-style:italic;color:var(--brand-dark);font-size:1rem;line-height:1.6}
+    .ab-q cite{display:block;margin-top:8px;font-style:normal;font-weight:600;font-size:.85rem;color:var(--color-gray)}
+    .ab-chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
+    .ab-chip{background:var(--brand-accent);color:var(--brand-primary);font-size:.8rem;font-weight:600;padding:6px 14px;border-radius:100px}
 
-    /* Progress bar */
-    .progress-bar {
-      height: 8px;
-      background: #F3F4F6;
-      border-radius: 100px;
-      overflow: hidden;
-      margin-bottom: 16px;
-    }
-    .progress-fill {
-      height: 100%;
-      border-radius: 100px;
-      transition: width .8s ease;
-    }
-    .progress-fill.green  { background: var(--color-green); }
-    .progress-fill.yellow { background: var(--color-yellow); }
-    .progress-fill.red    { background: var(--color-red); }
+    /* OPPS */
+    .op-s{background:var(--brand-accent)}
+    .op-g{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px}
+    .op-c{background:#fff;border-radius:var(--r-xl);padding:28px;box-shadow:var(--sh-md);border-left:4px solid var(--brand-primary);transition:all .25s}
+    .op-c:hover{box-shadow:var(--sh-xl);transform:translateY(-2px)}
+    .op-pr{display:inline-flex;align-items:center;gap:5px;font-size:.72rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;padding:4px 10px;border-radius:100px;margin-bottom:14px}
+    .op-pr.hi{background:rgba(239,68,68,.08);color:#DC2626}
+    .op-pr.me{background:rgba(245,158,11,.08);color:#D97706}
+    .op-t{font-family:var(--font-h);font-size:1.05rem;font-weight:700;color:var(--brand-dark);margin-bottom:8px}
+    .op-d{font-size:.88rem;color:var(--color-gray);line-height:1.55;margin-bottom:16px}
+    .op-im{font-size:.85rem;color:var(--brand-primary);font-weight:600}
 
-    /* Tags */
-    .pillar-tags { display: flex; flex-wrap: wrap; gap: 6px; }
-    .tag {
-      font-size: .75rem;
-      font-weight: 600;
-      padding: 4px 10px;
-      border-radius: 100px;
-    }
-    .tag.pos { background: rgba(16,185,129,.1); color: #059669; }
-    .tag.neg { background: rgba(239,68,68,.1);  color: #DC2626; }
-    .tag.neu { background: rgba(107,114,128,.1); color: #4B5563; }
+    /* ROI */
+    .roi-s{background:linear-gradient(135deg,var(--brand-dark),var(--brand-secondary))}
+    .roi-s .sbadge{background:rgba(255,255,255,.12);color:rgba(255,255,255,.9)}
+    .roi-s .stitle{color:#fff}.roi-s .ssub{color:rgba(255,255,255,.6)}
+    .roi-g{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px}
+    .roi-c{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:var(--r-xl);padding:32px 20px;text-align:center;transition:all .25s}
+    .roi-c:hover{background:rgba(255,255,255,.12)}
+    .roi-v{font-family:var(--font-h);font-size:clamp(2rem,4vw,2.8rem);font-weight:800;background:linear-gradient(135deg,#E8EEFF,#A5B4FC);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1.1;margin-bottom:8px}
+    .roi-l{font-size:.85rem;color:rgba(255,255,255,.6)}
 
-    /* ─── OPPORTUNITIES ─── */
-    .opps-section { background: var(--brand-accent); }
-    .opps-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 20px;
-    }
-    .opp-card {
-      background: #fff;
-      border-radius: var(--radius-xl);
-      padding: 28px;
-      box-shadow: var(--shadow-md);
-      border-left: 4px solid var(--brand-primary);
-      transition: all .2s;
-    }
-    .opp-card:hover { box-shadow: var(--shadow-xl); transform: translateY(-2px); }
-    .opp-priority {
-      display: inline-flex;
-      align-items: center;
-      gap: 4px;
-      font-size: .72rem;
-      font-weight: 700;
-      letter-spacing: .06em;
-      text-transform: uppercase;
-      padding: 4px 10px;
-      border-radius: 100px;
-      margin-bottom: 14px;
-    }
-    .opp-priority.high   { background: rgba(239,68,68,.08);   color: #DC2626; }
-    .opp-priority.medium { background: rgba(245,158,11,.08);  color: #D97706; }
-    .opp-title {
-      font-family: var(--font-heading);
-      font-size: 1.05rem;
-      font-weight: 700;
-      color: var(--brand-dark);
-      margin-bottom: 8px;
-    }
-    .opp-desc {
-      font-size: .9rem;
-      color: var(--color-gray);
-      line-height: 1.55;
-      margin-bottom: 16px;
-    }
-    .opp-impact {
-      font-size: .85rem;
-      color: var(--brand-primary);
-      font-weight: 600;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
+    /* CTA */
+    .cta-s{background:linear-gradient(135deg,var(--brand-primary),var(--brand-dark));text-align:center}
+    .cta-s .sbadge{background:rgba(255,255,255,.15);color:rgba(255,255,255,.9)}
+    .cta-s .stitle{color:#fff;margin-bottom:12px}
+    .cta-s .ssub{color:rgba(255,255,255,.7);margin:0 auto 40px}
+    .cta-bs{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+    .btn-wa{display:inline-flex;align-items:center;gap:10px;background:#25D366;color:#fff;font-family:var(--font-h);font-size:1.05rem;font-weight:700;padding:18px 36px;border-radius:var(--r-2xl);text-decoration:none;transition:all .25s;box-shadow:0 8px 24px rgba(37,211,102,.35)}
+    .btn-wa:hover{transform:translateY(-2px);box-shadow:0 12px 32px rgba(37,211,102,.45)}
+    .btn-gh{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);color:#fff;font-family:var(--font-h);font-size:1.05rem;font-weight:600;padding:18px 36px;border-radius:var(--r-2xl);text-decoration:none;transition:all .25s}
+    .btn-gh:hover{background:rgba(255,255,255,.2)}
+    .cta-g{margin-top:24px;font-size:.82rem;color:rgba(255,255,255,.45)}
 
-    /* ─── ROI ─── */
-    .roi-section {
-      background: linear-gradient(135deg, var(--brand-dark) 0%, var(--brand-secondary) 100%);
-    }
-    .roi-section .section-title { color: #fff; }
-    .roi-section .section-sub   { color: rgba(255,255,255,.65); }
-    .roi-section .section-badge { background: rgba(255,255,255,.12); color: rgba(255,255,255,.9); }
-    .roi-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 24px;
-    }
-    .roi-card {
-      background: rgba(255,255,255,.07);
-      border: 1px solid rgba(255,255,255,.12);
-      border-radius: var(--radius-xl);
-      padding: 32px 24px;
-      text-align: center;
-      transition: all .2s;
-    }
-    .roi-card:hover { background: rgba(255,255,255,.12); }
-    .roi-value {
-      font-family: var(--font-heading);
-      font-size: clamp(2rem, 4vw, 2.8rem);
-      font-weight: 800;
-      background: linear-gradient(135deg, var(--brand-accent), #A5B4FC);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      line-height: 1.1;
-      margin-bottom: 8px;
-    }
-    .roi-label {
-      font-size: .88rem;
-      color: rgba(255,255,255,.65);
-      font-weight: 500;
-    }
+    /* FOOTER */
+    .ft{background:#060d2e;padding:52px 32px 32px}
+    .ft-in{max-width:1080px;margin:0 auto;display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:40px;margin-bottom:40px}
+    @media(max-width:768px){.ft-in{grid-template-columns:1fr}}
+    .ft-logo img{height:30px;filter:brightness(0) invert(1);opacity:.8;margin-bottom:12px;display:block}
+    .ft-logo-t{font-family:var(--font-h);font-weight:800;color:rgba(255,255,255,.8);font-size:1rem;margin-bottom:12px}
+    .ft-desc{font-size:.85rem;color:rgba(255,255,255,.45);line-height:1.6;max-width:260px}
+    .ft-ct{font-family:var(--font-h);font-size:.75rem;font-weight:700;color:rgba(255,255,255,.35);letter-spacing:.08em;text-transform:uppercase;margin-bottom:14px}
+    .ft-lk{list-style:none;display:flex;flex-direction:column;gap:10px}
+    .ft-lk a{color:rgba(255,255,255,.55);font-size:.88rem;text-decoration:none;transition:color .2s}
+    .ft-lk a:hover{color:#fff}
+    .ft-hr{border:none;border-top:1px solid rgba(255,255,255,.07);margin:0 auto 24px;max-width:1080px}
+    .ft-bot{max-width:1080px;margin:0 auto;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+    .ft-cp{font-size:.8rem;color:rgba(255,255,255,.3)}
 
-    /* ─── DIAGNOSE SUMMARY ─── */
-    .summary-section { background: #fff; }
-    .summary-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 32px;
-    }
-    @media (max-width: 768px) { .summary-grid { grid-template-columns: 1fr; } }
-    .summary-box {
-      border-radius: var(--radius-xl);
-      padding: 32px;
-    }
-    .summary-box.strengths { background: rgba(16,185,129,.06); border: 1px solid rgba(16,185,129,.2); }
-    .summary-box.gaps      { background: rgba(239,68,68,.06);  border: 1px solid rgba(239,68,68,.2);  }
-    .summary-box-title {
-      font-family: var(--font-heading);
-      font-size: 1.1rem;
-      font-weight: 700;
-      margin-bottom: 20px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-    .summary-box.strengths .summary-box-title { color: #059669; }
-    .summary-box.gaps .summary-box-title      { color: #DC2626; }
-    .summary-list { list-style: none; display: flex; flex-direction: column; gap: 12px; }
-    .summary-list li {
-      display: flex;
-      align-items: flex-start;
-      gap: 10px;
-      font-size: .92rem;
-      color: #374151;
-      line-height: 1.5;
-    }
-    .summary-list li::before {
-      content: '';
-      flex-shrink: 0;
-      width: 18px; height: 18px;
-      border-radius: 50%;
-      margin-top: 2px;
-    }
-    .strengths .summary-list li::before { background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='%2310B981'%3E%3Cpath fill-rule='evenodd' d='M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z' clip-rule='evenodd'/%3E%3C/svg%3E") center/contain no-repeat; }
-    .gaps .summary-list li::before      { background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='%23EF4444'%3E%3Cpath d='M6.28 5.22a.75.75 0 00-1.06 1.06L8.94 10l-3.72 3.72a.75.75 0 101.06 1.06L10 11.06l3.72 3.72a.75.75 0 101.06-1.06L11.06 10l3.72-3.72a.75.75 0 00-1.06-1.06L10 8.94 6.28 5.22z'/%3E%3C/svg%3E") center/contain no-repeat; }
+    /* FLOAT WA */
+    .fwa{position:fixed;bottom:28px;right:28px;z-index:999;width:60px;height:60px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 24px rgba(37,211,102,.45);text-decoration:none;animation:wab 3s ease-in-out infinite;transition:transform .2s}
+    .fwa:hover{transform:scale(1.1)!important;animation:none}
+    @keyframes wab{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
+    .fwa svg{width:28px;height:28px;fill:#fff}
 
-    /* ─── CTA ─── */
-    .cta-section {
-      background: linear-gradient(135deg, var(--brand-primary) 0%, var(--brand-dark) 100%);
-      text-align: center;
-    }
-    .cta-section .section-title { color: #fff; }
-    .cta-section .section-sub   { color: rgba(255,255,255,.75); margin: 0 auto 40px; }
-    .cta-section .section-badge { background: rgba(255,255,255,.15); color: rgba(255,255,255,.9); }
-    .cta-buttons {
-      display: flex;
-      gap: 16px;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-    .btn-primary {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      background: #25D366;
-      color: #fff;
-      font-family: var(--font-heading);
-      font-size: 1.05rem;
-      font-weight: 700;
-      padding: 18px 36px;
-      border-radius: var(--radius-2xl);
-      text-decoration: none;
-      transition: all .2s;
-      box-shadow: 0 8px 24px rgba(37,211,102,.35);
-    }
-    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 32px rgba(37,211,102,.45); }
-    .btn-secondary {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      background: rgba(255,255,255,.12);
-      border: 1px solid rgba(255,255,255,.25);
-      color: #fff;
-      font-family: var(--font-heading);
-      font-size: 1.05rem;
-      font-weight: 600;
-      padding: 18px 36px;
-      border-radius: var(--radius-2xl);
-      text-decoration: none;
-      transition: all .2s;
-    }
-    .btn-secondary:hover { background: rgba(255,255,255,.2); }
-    .cta-guarantee {
-      margin-top: 24px;
-      font-size: .85rem;
-      color: rgba(255,255,255,.55);
-    }
-
-    /* ─── FOOTER ─── */
-    .footer {
-      background: linear-gradient(135deg, #0a1540 0%, #0F1F5C 100%);
-      padding: 48px 24px 32px;
-    }
-    .footer-inner {
-      max-width: 1080px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: 1.5fr 1fr 1fr;
-      gap: 40px;
-      margin-bottom: 40px;
-    }
-    @media (max-width: 768px) {
-      .footer-inner { grid-template-columns: 1fr; gap: 32px; }
-    }
-    .footer-logo { margin-bottom: 12px; }
-    .footer-logo img { height: 32px; filter: brightness(0) invert(1); opacity: .85; }
-    .footer-brand-desc { font-size: .88rem; color: rgba(255,255,255,.5); line-height: 1.6; max-width: 280px; }
-    .footer-col-title {
-      font-family: var(--font-heading);
-      font-size: .8rem;
-      font-weight: 700;
-      color: rgba(255,255,255,.4);
-      letter-spacing: .08em;
-      text-transform: uppercase;
-      margin-bottom: 16px;
-    }
-    .footer-col-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
-    .footer-col-list a { color: rgba(255,255,255,.65); font-size: .9rem; text-decoration: none; transition: color .2s; }
-    .footer-col-list a:hover { color: #fff; }
-    .footer-divider { border: none; border-top: 1px solid rgba(255,255,255,.08); margin-bottom: 24px; }
-    .footer-bottom {
-      max-width: 1080px;
-      margin: 0 auto;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 12px;
-    }
-    .footer-copy { font-size: .82rem; color: rgba(255,255,255,.35); }
-    .footer-made {
-      font-size: .82rem;
-      color: rgba(255,255,255,.35);
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
-    .footer-made a { color: rgba(255,255,255,.5); text-decoration: none; }
-    .footer-made a:hover { color: rgba(255,255,255,.8); }
-
-    /* ─── FLOATING WA ─── */
-    .float-wa {
-      position: fixed;
-      bottom: 28px; right: 28px;
-      z-index: 999;
-      width: 60px; height: 60px;
-      background: #25D366;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 6px 24px rgba(37,211,102,.45);
-      text-decoration: none;
-      transition: all .2s;
-      animation: float-bounce 3s ease-in-out infinite;
-    }
-    .float-wa:hover { transform: scale(1.1); box-shadow: 0 8px 32px rgba(37,211,102,.55); }
-    @keyframes float-bounce {
-      0%, 100% { transform: translateY(0); }
-      50%       { transform: translateY(-6px); }
-    }
-    .float-wa svg { width: 28px; height: 28px; fill: #fff; }
-
-    /* ─── RESPONSIVE ─── */
-    @media (max-width: 768px) {
-      section { padding: 60px 20px; }
-      .stats-bar { flex-direction: column; }
-      .pillars-grid { grid-template-columns: 1fr; }
-      .roi-grid { grid-template-columns: 1fr 1fr; }
-      .opps-grid { grid-template-columns: 1fr; }
-      .cta-buttons { flex-direction: column; align-items: center; }
-    }
-
-    /* ─── SCORE RING ANIMATION ─── */
-    .ring-progress {
-      stroke-dasharray: 502;
-      stroke-dashoffset: 502;
-      animation: ring-fill 1.5s ease forwards .5s;
-    }
-    @keyframes ring-fill {
-      to { stroke-dashoffset: 163; } /* 502 * (1 - 0.68) = 160.6 */
+    @media(max-width:768px){
+      section{padding:60px 20px}
+      .nav{padding:14px 20px}
+      .hero{padding:100px 20px 60px}
+      .roi-g{grid-template-columns:1fr 1fr}
+      .cta-bs{flex-direction:column;align-items:center}
     }
   </style>
 </head>
 <body>
 
-<!-- NAVBAR -->
-<nav class="navbar" id="navbar">
-  <div class="navbar-logo">
-    <img src="https://s3.amazonaws.com/cdn.digital-ai.tech/uploads/media-cortex/identity/digital-ai/logos/primary.png"
-         alt="Digital AI"
-         onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
-    <span style="display:none; font-family: var(--font-heading); font-weight:800; color:#fff; font-size:1.1rem;">Digital AI</span>
+<nav class="nav" id="nav">
+  <div class="nav-logo">
+    <img src="https://s3.amazonaws.com/cdn.digital-ai.tech/uploads/media-cortex/identity/digital-ai/logos/primary.png" alt="Digital AI" onerror="this.style.display='none'" />
+    <span class="nav-logo-t">Digital AI</span>
   </div>
-  <a class="navbar-cta" href="https://wa.me/5564999999999?text=Ol%C3%A1%2C%20quero%20saber%20mais%20sobre%20o%20diagn%C3%B3stico%20digital" target="_blank">
-    Falar com Especialista
-  </a>
+  <a class="nav-cta" href="https://wa.me/5564999999999?text=Ol%C3%A1%21%20Vi%20o%20diagn%C3%B3stico%20da%20YoouFit%20e%20quero%20conversar." target="_blank">Falar com Especialista</a>
 </nav>
 
-<!-- HERO -->
 <section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-glow"></div>
   <div class="hero-inner">
-    <div class="hero-badge">
-      <span class="badge-dot"></span>
-      Diagnóstico de Saúde Digital
+    <div>
+      <div class="hero-badge"><span class="bdot"></span> Diagnóstico de Presença Digital</div>
+      <h1 class="hero-h"><em>YoouFit Academia</em><br />Seu Diagnóstico Está Pronto</h1>
+      <p class="hero-sub">Analisamos sua presença digital em 5 pilares estratégicos — Instagram, Google, Website, Atendimento e Captação. Veja exatamente onde você está forte e onde está o dinheiro sendo deixado na mesa.</p>
+      <div class="hero-stats">
+        <div class="stat-p"><span class="stat-v">13K</span><span class="stat-l">Seguidores IG</span></div>
+        <div class="stat-p"><span class="stat-v">4,79★</span><span class="stat-l">Google</span></div>
+        <div class="stat-p"><span class="stat-v">3</span><span class="stat-l">Unidades</span></div>
+        <div class="stat-p"><span class="stat-v">817</span><span class="stat-l">Posts IG</span></div>
+      </div>
     </div>
-
-    <h1 class="hero-prospect">
-      <em>YoouFit Academia</em><br />
-      Seu Relatório Está Pronto
-    </h1>
-
-    <p class="hero-subtitle">
-      Analisamos sua presença digital em 5 pilares estratégicos.
-      Veja onde você está forte, onde há brechas e — mais importante — onde está o dinheiro que você está deixando na mesa.
-    </p>
-
-    <!-- Score Ring -->
-    <div class="score-hero-wrap">
-      <div style="display:flex; align-items:center; gap:32px; flex-wrap:wrap; justify-content:center;">
-        <div class="score-circle-outer">
-          <svg width="200" height="200" viewBox="0 0 200 200">
-            <circle cx="100" cy="100" r="80" fill="none" stroke="rgba(255,255,255,.12)" stroke-width="14" />
-            <circle class="ring-progress" cx="100" cy="100" r="80"
-              fill="none"
-              stroke="#F59E0B"
-              stroke-width="14"
-              stroke-linecap="round" />
-          </svg>
-          <div class="score-circle-text">
-            <span class="score-number">68</span>
-            <span class="score-total">/100</span>
-          </div>
+    <div class="hero-score">
+      <div class="ring-w">
+        <svg width="220" height="220" viewBox="0 0 220 220">
+          <circle class="r-track" cx="110" cy="110" r="90" fill="none" stroke="rgba(255,255,255,.1)" stroke-width="16"/>
+          <circle class="r-fill" cx="110" cy="110" r="90" fill="none" stroke="#F59E0B" stroke-width="16" stroke-linecap="round"/>
+        </svg>
+        <div class="score-center">
+          <span class="score-n">68</span>
+          <span class="score-d">/100 pts</span>
         </div>
-        <div style="text-align:left;">
-          <div style="display:flex; align-items:center; gap:12px; margin-bottom:12px;">
-            <span class="score-grade">C</span>
-            <div>
-              <div style="font-family:var(--font-heading); font-weight:700; color:#fff; font-size:1.1rem;">Grau C</div>
-              <div style="font-size:.85rem; color:rgba(255,255,255,.6);">Médio — com lacunas críticas</div>
-            </div>
-          </div>
-          <p style="font-size:.9rem; color:rgba(255,255,255,.65); max-width:260px; line-height:1.6;">
-            Você tem pontos fortes reais — mas 2 pilares estão travando seu crescimento silenciosamente.
-          </p>
+      </div>
+      <div class="grade-c">
+        <div class="grade-l">C</div>
+        <div class="grade-i">
+          <div class="gt">Grau C — Médio</div>
+          <div class="gs">Com lacunas críticas a destravar</div>
         </div>
       </div>
     </div>
+  </div>
+</section>
 
-    <!-- Stats Bar -->
-    <div class="stats-bar">
-      <div class="stat-item">
-        <span class="stat-value">13K</span>
-        <span class="stat-label">Seguidores IG</span>
+<!-- GALLERY -->
+<section class="gal-s">
+  <div class="container">
+    <div class="shead">
+      <div class="sbadge">📸 A Academia</div>
+      <h2 class="stitle">YoouFit Academia — Lavras, MG</h2>
+      <p class="ssub">Infraestrutura de destaque para uma academia em rota de expansão regional.</p>
+    </div>
+    <div class="gal-g">
+      <div class="gal-i">
+        <img src="assets/ipe_IMG_9195.jpg" alt="YoouFit espaço principal" loading="lazy" />
+        <div class="gal-ov"><span class="gal-ot">Espaço principal — Unidade Centro</span></div>
       </div>
-      <div class="stat-item">
-        <span class="stat-value">4,79★</span>
-        <span class="stat-label">Google</span>
+      <div class="gal-i">
+        <img src="assets/ipe_IMG_6315.jpg" alt="YoouFit musculação" loading="lazy" />
+        <div class="gal-ov"><span class="gal-ot">Área de musculação</span></div>
       </div>
-      <div class="stat-item">
-        <span class="stat-value">3 un.</span>
-        <span class="stat-label">Unidades</span>
+      <div class="gal-i">
+        <img src="assets/ipe_IMG_6330.jpg" alt="YoouFit funcional" loading="lazy" />
+        <div class="gal-ov"><span class="gal-ot">Área funcional</span></div>
       </div>
-      <div class="stat-item">
-        <span class="stat-value">0</span>
-        <span class="stat-label">Automações</span>
+      <div class="gal-i">
+        <img src="assets/ipe_IMG_6449.jpg" alt="YoouFit aulas coletivas" loading="lazy" />
+        <div class="gal-ov"><span class="gal-ot">Aulas coletivas</span></div>
+      </div>
+      <div class="gal-i">
+        <img src="assets/ipe_IMG_9210.jpg" alt="YoouFit estrutura" loading="lazy" />
+        <div class="gal-ov"><span class="gal-ot">Vista geral da estrutura</span></div>
       </div>
     </div>
   </div>
 </section>
 
 <!-- PILLARS -->
-<section class="pillars-section">
+<section class="pill-s">
   <div class="container">
-    <div class="section-header">
-      <div class="section-badge">📊 Os 5 Pilares</div>
-      <h2 class="section-title">Análise Completa por Pilar</h2>
-      <p class="section-sub">Avaliamos cada dimensão da sua presença digital de forma independente para identificar exatamente onde agir.</p>
+    <div class="shead">
+      <div class="sbadge">📊 Os 5 Pilares</div>
+      <h2 class="stitle">Análise Completa por Pilar</h2>
+      <p class="ssub">Cada dimensão avaliada de forma independente para identificar exatamente onde agir.</p>
     </div>
-
-    <div class="pillars-grid">
-
-      <!-- Pilar 1: Google -->
-      <div class="pillar-card green">
-        <div class="pillar-header">
-          <div class="pillar-icon green">⭐</div>
-          <div class="pillar-score-wrap">
-            <div class="pillar-score green">22</div>
-            <div class="pillar-score-max">/25 pontos</div>
-          </div>
+    <div class="pill-g">
+      <div class="pill-c g">
+        <div class="pill-h">
+          <div class="pill-ic g">⭐</div>
+          <div class="pill-sw"><div class="pill-sc g">22</div><div class="pill-sm">/25 pts</div></div>
         </div>
-        <div class="pillar-name">Google Meu Negócio</div>
-        <div class="pillar-desc">
-          Sua presença no Google é o seu maior ativo digital. 4,79 estrelas com 291+ avaliações é um número excepcional — você está na elite das academias da região.
-        </div>
-        <div class="progress-bar">
-          <div class="progress-fill green" style="width: 88%;"></div>
-        </div>
-        <div class="pillar-tags">
-          <span class="tag pos">4,79★ — Excelente</span>
-          <span class="tag pos">291+ avaliações</span>
-          <span class="tag neu">3 locais listados</span>
-        </div>
+        <div class="pill-n">Google Meu Negócio</div>
+        <div class="pill-d">Seu maior ativo digital. 4,79★ com 291+ avaliações coloca a YoouFit na elite das academias do sul de Minas. Vencedora do prêmio "O Melhor Daqui" categoria Ouro.</div>
+        <div class="pb"><div class="pf g" style="width:88%"></div></div>
+        <div class="tags"><span class="tag p">4,79★ Excelente</span><span class="tag p">291+ avaliações</span><span class="tag u">3 locais listados</span></div>
       </div>
-
-      <!-- Pilar 2: Instagram -->
-      <div class="pillar-card green">
-        <div class="pillar-header">
-          <div class="pillar-icon green">📱</div>
-          <div class="pillar-score-wrap">
-            <div class="pillar-score green">20</div>
-            <div class="pillar-score-max">/25 pontos</div>
-          </div>
+      <div class="pill-c g">
+        <div class="pill-h">
+          <div class="pill-ic g">📱</div>
+          <div class="pill-sw"><div class="pill-sc g">20</div><div class="pill-sm">/25 pts</div></div>
         </div>
-        <div class="pillar-name">Presença no Instagram</div>
-        <div class="pillar-desc">
-          Com 13K seguidores e 808 posts, você tem consistência e audiência. A presença de múltiplas contas por unidade mostra maturidade de conteúdo.
-        </div>
-        <div class="progress-bar">
-          <div class="progress-fill green" style="width: 80%;"></div>
-        </div>
-        <div class="pillar-tags">
-          <span class="tag pos">13K seguidores</span>
-          <span class="tag pos">808 posts</span>
-          <span class="tag neu">@yooufitacademia</span>
-        </div>
+        <div class="pill-n">Presença no Instagram</div>
+        <div class="pill-d">13.158 seguidores e 817 posts demonstram consistência real. Múltiplas contas por unidade (Centro, Serra Azul, Nepomuceno) indicam maturidade de comunicação.</div>
+        <div class="pb"><div class="pf g" style="width:80%"></div></div>
+        <div class="tags"><span class="tag p">13.158 seguidores</span><span class="tag p">817 publicações</span><span class="tag u">3 contas ativas</span></div>
       </div>
-
-      <!-- Pilar 3: Website -->
-      <div class="pillar-card yellow">
-        <div class="pillar-header">
-          <div class="pillar-icon yellow">🌐</div>
-          <div class="pillar-score-wrap">
-            <div class="pillar-score yellow">13</div>
-            <div class="pillar-score-max">/25 pontos</div>
-          </div>
+      <div class="pill-c y">
+        <div class="pill-h">
+          <div class="pill-ic y">🌐</div>
+          <div class="pill-sw"><div class="pill-sc y">13</div><div class="pill-sm">/25 pts</div></div>
         </div>
-        <div class="pillar-name">Website & Conversão</div>
-        <div class="pillar-desc">
-          O site existe, mas não trabalha por você. Visitantes chegam via Google, não encontram um motivo claro para agir e saem. Tráfego sendo desperdiçado.
-        </div>
-        <div class="progress-bar">
-          <div class="progress-fill yellow" style="width: 52%;"></div>
-        </div>
-        <div class="pillar-tags">
-          <span class="tag neg">Sem CTAs claros</span>
-          <span class="tag neg">Sem captura de leads</span>
-          <span class="tag neu">yooufitacademia.com.br</span>
-        </div>
+        <div class="pill-n">Website & Conversão</div>
+        <div class="pill-d">O site existe mas não converte. Visitantes chegam via Google, não encontram motivo para agir e saem. Tráfego orgânico desperdiçado todos os dias.</div>
+        <div class="pb"><div class="pf y" style="width:52%"></div></div>
+        <div class="tags"><span class="tag n">Sem CTAs claros</span><span class="tag n">Sem captura de leads</span><span class="tag u">yooufitacademia.com.br</span></div>
       </div>
-
-      <!-- Pilar 4: Automação -->
-      <div class="pillar-card red">
-        <div class="pillar-header">
-          <div class="pillar-icon red">🤖</div>
-          <div class="pillar-score-wrap">
-            <div class="pillar-score red">7</div>
-            <div class="pillar-score-max">/25 pontos</div>
-          </div>
+      <div class="pill-c r">
+        <div class="pill-h">
+          <div class="pill-ic r">🤖</div>
+          <div class="pill-sw"><div class="pill-sc r">7</div><div class="pill-sm">/25 pts</div></div>
         </div>
-        <div class="pillar-name">Automação de Atendimento</div>
-        <div class="pillar-desc">
-          ⚠️ Ponto crítico. O WhatsApp é respondido manualmente — cada mensagem perdida fora do horário comercial é um aluno que vai para o concorrente.
-        </div>
-        <div class="progress-bar">
-          <div class="progress-fill red" style="width: 28%;"></div>
-        </div>
-        <div class="pillar-tags">
-          <span class="tag neg">WhatsApp 100% manual</span>
-          <span class="tag neg">Sem chatbot</span>
-          <span class="tag neg">Sem resposta automática</span>
-        </div>
+        <div class="pill-n">Automação de Atendimento</div>
+        <div class="pill-d">⚠️ Crítico. WhatsApp gerenciado manualmente — toda mensagem fora do horário é um aluno potencial que vai embora sem resposta e fecha matrícula na concorrência.</div>
+        <div class="pb"><div class="pf r" style="width:28%"></div></div>
+        <div class="tags"><span class="tag n">WhatsApp 100% manual</span><span class="tag n">Sem chatbot</span><span class="tag n">Sem resposta automática</span></div>
       </div>
-
-      <!-- Pilar 5: Captação -->
-      <div class="pillar-card red" style="grid-column: span 1;">
-        <div class="pillar-header">
-          <div class="pillar-icon red">🎯</div>
-          <div class="pillar-score-wrap">
-            <div class="pillar-score red">6</div>
-            <div class="pillar-score-max">/25 pontos</div>
-          </div>
+      <div class="pill-c r">
+        <div class="pill-h">
+          <div class="pill-ic r">🎯</div>
+          <div class="pill-sw"><div class="pill-sc r">6</div><div class="pill-sm">/25 pts</div></div>
         </div>
-        <div class="pillar-name">Estratégia de Captação Digital</div>
-        <div class="pillar-desc">
-          ⚠️ Ponto crítico. Não há funil estruturado para capturar os picos de demanda (UFLA — 5.600+ alunos em fev/ago). Oportunidade sazonal desperdiçada todo semestre.
-        </div>
-        <div class="progress-bar">
-          <div class="progress-fill red" style="width: 24%;"></div>
-        </div>
-        <div class="pillar-tags">
-          <span class="tag neg">Sem funil digital</span>
-          <span class="tag neg">Sem landing pages</span>
-          <span class="tag neg">Picos UFLA não capturados</span>
-        </div>
+        <div class="pill-n">Estratégia de Captação Digital</div>
+        <div class="pill-d">⚠️ Crítico. Sem funil para capturar os picos da UFLA (5.600+ alunos em fev/ago). Oportunidade sazonal que se repete sem ser capturada digitalmente.</div>
+        <div class="pb"><div class="pf r" style="width:24%"></div></div>
+        <div class="tags"><span class="tag n">Sem funil digital</span><span class="tag n">Picos UFLA desperdiçados</span><span class="tag n">Sem landing pages</span></div>
       </div>
-
     </div>
   </div>
 </section>
 
-<!-- STRENGTHS & GAPS -->
-<section class="summary-section">
+<!-- PHOTO STRIP -->
+<section class="ph-s">
   <div class="container">
-    <div class="section-header">
-      <div class="section-badge">🔍 Resumo do Diagnóstico</div>
-      <h2 class="section-title">O Que Está Funcionando e Onde Estão as Brechas</h2>
+    <div class="shead">
+      <div class="sbadge">🏋️ Estrutura</div>
+      <h2 class="stitle">As 3 Unidades da YoouFit</h2>
+      <p class="ssub">Centro · Serra Azul · Nepomuceno — academia em expansão regional consistente.</p>
     </div>
-    <div class="summary-grid">
-      <div class="summary-box strengths">
-        <div class="summary-box-title">✅ Pontos Fortes</div>
-        <ul class="summary-list">
-          <li>Reputação Google excepcional: 4,79★ com 291+ avaliações — top 5% das academias de MG</li>
-          <li>Audiência consolidada no Instagram com 13K seguidores e histórico de conteúdo consistente</li>
-          <li>Metodologia diferenciada: "Método Anti-Academia" com identidade visual clara</li>
-          <li>Expansão regional validada: 3 unidades em 2 cidades (Lavras + Nepomuceno)</li>
-          <li>Visão de liderança clara: Carlos Garcia com mentalidade early adopter de tecnologia</li>
-          <li>Base de avaliações orgânicas que gera confiança e SEO local</li>
+    <div class="ph-g">
+      <div class="ph-c"><img src="assets/ipe_IMG_6396.jpg" alt="Área de treino" loading="lazy" /><div class="ph-lbl">Área de Treino</div></div>
+      <div class="ph-c"><img src="assets/ipe_IMG_6493.jpg" alt="Equipamentos" loading="lazy" /><div class="ph-lbl">Equipamentos</div></div>
+      <div class="ph-c"><img src="assets/img2.jpg" alt="Unidade Centro" loading="lazy" /><div class="ph-lbl">Unidade Centro</div></div>
+      <div class="ph-c"><img src="assets/img5.jpg" alt="Unidade Serra Azul" loading="lazy" /><div class="ph-lbl">Serra Azul</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- SUMMARY -->
+<section class="sum-s">
+  <div class="container">
+    <div class="shead">
+      <div class="sbadge">🔍 Diagnóstico</div>
+      <h2 class="stitle">Forças e Lacunas Identificadas</h2>
+    </div>
+    <div class="sum-g">
+      <div class="sum-b str">
+        <div class="sum-bt">✅ Pontos Fortes</div>
+        <ul class="sum-l">
+          <li><span class="li-i">⭐</span>Google 4,79★ com 291+ avaliações — top 5% das academias de Minas Gerais</li>
+          <li><span class="li-i">📱</span>13K seguidores com 817 posts consistentes — audiência real consolidada</li>
+          <li><span class="li-i">🏆</span>Prêmio "O Melhor Daqui" Ouro — autoridade local reconhecida</li>
+          <li><span class="li-i">💪</span>Método "Anti-Academia" com identidade clara e posicionamento premium</li>
+          <li><span class="li-i">🚀</span>3 unidades ativas em 2 cidades — expansão regional validada e em curso</li>
+          <li><span class="li-i">💡</span>Visão tecnológica: Carlos Garcia quer ser "primeiro gym do Brasil com atendimento por perfil comportamental"</li>
         </ul>
       </div>
-      <div class="summary-box gaps">
-        <div class="summary-box-title">❌ Lacunas Críticas</div>
-        <ul class="summary-list">
-          <li>WhatsApp sem automação: mensagens recebidas fora do horário = aluno perdido para concorrência</li>
-          <li>Website sem funil de conversão: visitantes chegam via Google e saem sem agir</li>
-          <li>Pico UFLA (fev/ago — 5.600+ alunos) sem estratégia digital de captação estruturada</li>
-          <li>Sem landing pages por unidade ou campanha sazonal para capturar demanda específica</li>
-          <li>Sem qualificação automática de leads: equipe perde tempo com triagem manual</li>
-          <li>Expansão para Nepomuceno sem suporte digital de captação estruturado</li>
+      <div class="sum-b gap">
+        <div class="sum-bt">❌ Lacunas Críticas</div>
+        <ul class="sum-l">
+          <li><span class="li-i">💬</span>WhatsApp sem automação — mensagem fora do horário = aluno perdido para a concorrência</li>
+          <li><span class="li-i">🌐</span>Site sem funil — visitantes orgânicos chegam e saem sem converter</li>
+          <li><span class="li-i">🎓</span>Pico UFLA (5.600+ alunos em fev/ago) sem estratégia digital estruturada</li>
+          <li><span class="li-i">📄</span>Sem landing pages por unidade ou campanha sazonal</li>
+          <li><span class="li-i">⚙️</span>Sem qualificação automática de leads — equipe gasta tempo em triagem manual</li>
+          <li><span class="li-i">📍</span>Nepomuceno sem presença digital estruturada para capturar demanda local</li>
         </ul>
       </div>
     </div>
   </div>
 </section>
 
-<!-- OPPORTUNITIES -->
-<section class="opps-section">
+<!-- ABOUT / QUOTE -->
+<section class="ab-s">
   <div class="container">
-    <div class="section-header">
-      <div class="section-badge">💡 Oportunidades</div>
-      <h2 class="section-title">O Que Pode Ser Destravado Agora</h2>
-      <p class="section-sub">Cada oportunidade abaixo representa receita ou eficiência operacional sendo desperdiçada hoje.</p>
+    <div class="ab-in">
+      <div class="ab-img"><img src="assets/ipe_IMG_9210.jpg" alt="YoouFit Academia" loading="lazy" /></div>
+      <div>
+        <div class="sbadge">💬 Visão de Futuro</div>
+        <h2 class="stitle">A Ambição de Ser Primeiro</h2>
+        <blockquote class="ab-q">
+          "Quero ser a primeira academia do Brasil com atendimento por perfil comportamental."
+          <cite>— Carlos Henrique Garcia, Co-fundador da YoouFit Academia</cite>
+        </blockquote>
+        <p style="font-size:.95rem;color:var(--color-gray);line-height:1.7">Esta declaração é mais do que uma visão — é uma oportunidade de mercado clara. A tecnologia para isso já existe. O que falta é a ponte entre a ambição e a implementação.</p>
+        <div class="ab-chips">
+          <span class="ab-chip">Early Adopter de Tecnologia</span>
+          <span class="ab-chip">3 Unidades Ativas</span>
+          <span class="ab-chip">Prêmio Ouro Local</span>
+          <span class="ab-chip">Oportunidade 8/10</span>
+        </div>
+      </div>
     </div>
-    <div class="opps-grid">
+  </div>
+</section>
 
-      <div class="opp-card">
-        <div class="opp-priority high">🔴 Urgência Alta</div>
-        <div class="opp-title">Agente de IA no WhatsApp</div>
-        <div class="opp-desc">
-          Resposta imediata 24/7 para leads entrantes. Qualificação automática por perfil comportamental — a visão que Carlos Garcia declarou publicamente. Primeiro passo para se tornar a primeira academia do Brasil com atendimento por perfil comportamental.
-        </div>
-        <div class="opp-impact">⚡ +25-40% em conversão de leads</div>
+<!-- OPPS -->
+<section class="op-s">
+  <div class="container">
+    <div class="shead">
+      <div class="sbadge">💡 Oportunidades</div>
+      <h2 class="stitle">O Que Pode Ser Destravado Agora</h2>
+      <p class="ssub">Cada oportunidade representa receita ou eficiência operacional desperdiçada hoje.</p>
+    </div>
+    <div class="op-g">
+      <div class="op-c">
+        <div class="op-pr hi">🔴 Urgência Alta</div>
+        <div class="op-t">Agente de IA no WhatsApp</div>
+        <div class="op-d">Resposta imediata 24/7 com qualificação por perfil comportamental — exatamente a visão que Carlos declarou. Primeiro passo concreto para ser a primeira academia do Brasil com atendimento inteligente.</div>
+        <div class="op-im">⚡ +25-40% em conversão de leads</div>
       </div>
-
-      <div class="opp-card">
-        <div class="opp-priority high">🔴 Urgência Alta</div>
-        <div class="opp-title">Funil UFLA — Picos Sazonais</div>
-        <div class="opp-desc">
-          Landing page + campanha específica para os 5.600+ alunos da UFLA que chegam em fevereiro e agosto. Capturar esse fluxo sem precisar contratar mais equipe. ROI potencial: dezenas de matrículas por semestre.
-        </div>
-        <div class="opp-impact">⚡ Capturar pico sazonal sem aumentar headcount</div>
+      <div class="op-c">
+        <div class="op-pr hi">🔴 Urgência Alta</div>
+        <div class="op-t">Funil UFLA — Pico Sazonal</div>
+        <div class="op-d">Landing page + campanha para os 5.600+ alunos que chegam em fevereiro e agosto. Capturar esse fluxo sem contratar equipe adicional. ROI: dezenas de matrículas por semestre.</div>
+        <div class="op-im">⚡ Capturar pico sazonal sem aumentar headcount</div>
       </div>
-
-      <div class="opp-card">
-        <div class="opp-priority medium">🟡 Médio Prazo</div>
-        <div class="opp-title">Site com Conversão</div>
-        <div class="opp-desc">
-          Transformar o site em máquina de captura: formulários de interesse, agendamento de visita, landing page por unidade. Cada visitante que chega via Google vira um lead em vez de bounce.
-        </div>
-        <div class="opp-impact">⚡ Zerar desperdício de tráfego orgânico</div>
+      <div class="op-c">
+        <div class="op-pr me">🟡 Médio Prazo</div>
+        <div class="op-t">Website com Conversão Real</div>
+        <div class="op-d">Formulários, agendamento de visita, landing page por unidade. Cada visitante orgânico vira um lead em vez de estatística de bounce.</div>
+        <div class="op-im">⚡ Zerar desperdício de tráfego orgânico</div>
       </div>
-
-      <div class="opp-card">
-        <div class="opp-priority medium">🟡 Médio Prazo</div>
-        <div class="opp-title">Expansão Nepomuceno</div>
-        <div class="opp-desc">
-          A nova unidade de Nepomuceno precisa de presença digital própria. Instagram local, Google Meu Negócio configurado e funil de pré-venda para construir demanda antes da abertura oficial.
-        </div>
-        <div class="opp-impact">⚡ Diferencial absoluto em mercado novo</div>
+      <div class="op-c">
+        <div class="op-pr me">🟡 Médio Prazo</div>
+        <div class="op-t">Lançamento Digital — Nepomuceno</div>
+        <div class="op-d">Instagram local, Google Meu Negócio otimizado e funil de pré-venda para construir demanda antes da abertura oficial. Diferencial absoluto em mercado novo.</div>
+        <div class="op-im">⚡ Dominar novo mercado desde o dia 1</div>
       </div>
-
     </div>
   </div>
 </section>
 
 <!-- ROI -->
-<section class="roi-section">
+<section class="roi-s">
   <div class="container">
-    <div class="section-header">
-      <div class="section-badge">📈 Impacto Estimado</div>
-      <h2 class="section-title">O Que Pode Mudar com IA</h2>
-      <p class="section-sub">Baseado em casos reais de academias com perfil similar ao da YoouFit.</p>
+    <div class="shead">
+      <div class="sbadge">📈 Impacto Estimado</div>
+      <h2 class="stitle">O Que Muda com IA</h2>
+      <p class="ssub">Benchmarks de academias com perfil similar à YoouFit.</p>
     </div>
-    <div class="roi-grid">
-      <div class="roi-card">
-        <div class="roi-value">+35%</div>
-        <div class="roi-label">Conversão de Leads via WhatsApp com Resposta Imediata</div>
-      </div>
-      <div class="roi-card">
-        <div class="roi-value">24/7</div>
-        <div class="roi-label">Atendimento Ativo sem Aumentar Equipe</div>
-      </div>
-      <div class="roi-card">
-        <div class="roi-value">5.600+</div>
-        <div class="roi-label">Alunos UFLA no Radar a Cada Semestre</div>
-      </div>
-      <div class="roi-card">
-        <div class="roi-value">3 min</div>
-        <div class="roi-label">Tempo Médio de Resposta com Automação vs. Horas sem ela</div>
-      </div>
+    <div class="roi-g">
+      <div class="roi-c"><div class="roi-v">+35%</div><div class="roi-l">Conversão de Leads com Resposta Imediata no WhatsApp</div></div>
+      <div class="roi-c"><div class="roi-v">24/7</div><div class="roi-l">Atendimento Ativo sem Aumentar Equipe</div></div>
+      <div class="roi-c"><div class="roi-v">5.600+</div><div class="roi-l">Alunos UFLA no Radar a Cada Semestre</div></div>
+      <div class="roi-c"><div class="roi-v">3 min</div><div class="roi-l">Tempo de Resposta com IA vs. Horas sem Automação</div></div>
     </div>
-    <p style="text-align:center; margin-top:32px; font-size:.82rem; color:rgba(255,255,255,.35);">
-      * Estimativas baseadas em benchmarks de academias com perfil similar. Resultados reais variam conforme execução e contexto local.
-    </p>
+    <p style="text-align:center;margin-top:32px;font-size:.8rem;color:rgba(255,255,255,.3)">* Estimativas baseadas em benchmarks. Resultados reais variam conforme execução.</p>
   </div>
 </section>
 
 <!-- CTA -->
-<section class="cta-section">
-  <div class="container" style="text-align:center;">
-    <div class="section-badge">🚀 Próximo Passo</div>
-    <h2 class="section-title" style="margin: 0 auto 16px;">Pronto para Transformar o Score 68 em 95+?</h2>
-    <p class="section-sub">
-      Não é sobre amar academia — é sobre amar viver. E a sua operação merece tecnologia que reflete essa filosofia. Vamos conversar sobre como a IA pode destravar o crescimento da YoouFit.
-    </p>
-    <div class="cta-buttons">
-      <a class="btn-primary"
-         href="https://wa.me/5564999999999?text=Ol%C3%A1%21%20Vi%20o%20diagn%C3%B3stico%20digital%20da%20YoouFit%20e%20quero%20conversar%20sobre%20as%20oportunidades."
-         target="_blank">
+<section class="cta-s">
+  <div class="container">
+    <div class="sbadge">🚀 Próximo Passo</div>
+    <h2 class="stitle">Pronto para Ir de 68 para 95+?</h2>
+    <p class="ssub">Não é sobre amar academia — é sobre amar viver. E a YoouFit merece tecnologia que reflete essa filosofia. Vamos conversar?</p>
+    <div class="cta-bs">
+      <a class="btn-wa" href="https://wa.me/5564999999999?text=Ol%C3%A1%21%20Vi%20o%20diagn%C3%B3stico%20da%20YoouFit%20e%20quero%20conversar." target="_blank">
         <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
         Falar via WhatsApp
       </a>
-      <a class="btn-secondary" href="https://digital-ai.tech" target="_blank">
-        Conhecer a Digital AI →
-      </a>
+      <a class="btn-gh" href="https://digital-ai.tech" target="_blank">Conhecer a Digital AI →</a>
     </div>
-    <p class="cta-guarantee">✓ Diagnóstico gratuito · ✓ Sem compromisso · ✓ Resposta em até 3 minutos</p>
+    <p class="cta-g">✓ Diagnóstico gratuito &nbsp;·&nbsp; ✓ Sem compromisso &nbsp;·&nbsp; ✓ Resposta em até 3 minutos</p>
   </div>
 </section>
 
-<!-- FOOTER -->
-<footer class="footer">
-  <div class="footer-inner">
+<footer class="ft">
+  <div class="ft-in">
     <div>
-      <div class="footer-logo">
-        <img src="https://s3.amazonaws.com/cdn.digital-ai.tech/uploads/media-cortex/identity/digital-ai/logos/primary.png"
-             alt="Digital AI"
-             onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
-        <span style="display:none; font-family: var(--font-heading); font-weight:800; color:rgba(255,255,255,.85); font-size:1.1rem;">Digital AI</span>
-      </div>
-      <p class="footer-brand-desc">
-        Especialistas em IA para automação de atendimento, personas digitais e crescimento inteligente para negócios B2B e B2C.
-      </p>
+      <div class="ft-logo"><img src="https://s3.amazonaws.com/cdn.digital-ai.tech/uploads/media-cortex/identity/digital-ai/logos/primary.png" alt="Digital AI" onerror="this.style.display='none'" /></div>
+      <div class="ft-logo-t">Digital AI</div>
+      <p class="ft-desc">Especialistas em IA para automação de atendimento, personas digitais e crescimento inteligente para negócios B2B e B2C.</p>
     </div>
     <div>
-      <div class="footer-col-title">Empresa</div>
-      <ul class="footer-col-list">
+      <div class="ft-ct">Empresa</div>
+      <ul class="ft-lk">
         <li><a href="https://digital-ai.tech" target="_blank">digital-ai.tech</a></li>
         <li><a href="https://digital-ai.tech/#servicos" target="_blank">Serviços</a></li>
         <li><a href="https://digital-ai.tech/#cases" target="_blank">Cases</a></li>
       </ul>
     </div>
     <div>
-      <div class="footer-col-title">Contato</div>
-      <ul class="footer-col-list">
+      <div class="ft-ct">Contato</div>
+      <ul class="ft-lk">
         <li><a href="https://wa.me/5564999999999" target="_blank">WhatsApp</a></li>
         <li><a href="https://instagram.com/digitalai.tech" target="_blank">Instagram</a></li>
         <li><a href="mailto:contato@digital-ai.tech">contato@digital-ai.tech</a></li>
       </ul>
     </div>
   </div>
-  <hr class="footer-divider" />
-  <div class="footer-bottom">
-    <span class="footer-copy">© 2025 Digital AI · Itumbiara, GO · Todos os direitos reservados.</span>
-    <span class="footer-made">Diagnóstico gerado por <a href="https://digital-ai.tech" target="_blank">Digital AI</a></span>
+  <hr class="ft-hr" />
+  <div class="ft-bot">
+    <span class="ft-cp">© 2025 Digital AI · Itumbiara, GO · Todos os direitos reservados.</span>
+    <span class="ft-cp">Diagnóstico gerado por Digital AI</span>
   </div>
 </footer>
 
-<!-- FLOATING WHATSAPP -->
-<a class="float-wa"
-   href="https://wa.me/5564999999999?text=Ol%C3%A1%21%20Vi%20o%20diagn%C3%B3stico%20digital%20da%20YoouFit%20e%20quero%20saber%20mais."
-   target="_blank"
-   title="Falar no WhatsApp">
-  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
-  </svg>
+<a class="fwa" href="https://wa.me/5564999999999?text=Ol%C3%A1%21%20Vi%20o%20diagn%C3%B3stico%20da%20YoouFit%20e%20quero%20saber%20mais." target="_blank" title="WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
 </a>
 
-<!-- JS: Navbar scroll -->
 <script>
-  const navbar = document.getElementById('navbar');
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > 60) navbar.classList.add('scrolled');
-    else navbar.classList.remove('scrolled');
-  }, { passive: true });
+  const nav=document.getElementById('nav');
+  window.addEventListener('scroll',()=>nav.classList.toggle('sc',window.scrollY>60),{passive:true});
 </script>
-
 </body>
 </html>
