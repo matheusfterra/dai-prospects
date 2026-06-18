@@ -156,9 +156,9 @@
       background: transparent;
     }
     .navbar.scrolled {
-      background: rgba(15, 31, 92, 0.97);
+      background: rgba(255, 255, 255, 0.95);
       backdrop-filter: blur(12px);
-      box-shadow: 0 4px 24px rgba(15,31,92,0.4);
+      box-shadow: var(--shadow-md);
       padding: 12px 0;
     }
     .navbar .container {
@@ -168,7 +168,8 @@
     }
     .navbar-logo img { height: 32px; transition: opacity 0.3s; }
     .navbar-cta .btn { padding: 10px 24px; font-size: 0.875rem; }
-    .logo-primary { display: none; }
+    .navbar.scrolled .logo-negative { display: none; }
+    .navbar:not(.scrolled) .logo-primary { display: none; }
 
     /* ========================================
        HERO
@@ -312,22 +313,22 @@
       position: absolute;
       top: -16px;
       right: -16px;
-      background: #ffffff;
+      background: var(--brand-primary);
       border-radius: var(--radius-xl);
       padding: 16px 20px;
-      color: var(--brand-dark);
+      color: rgba(255,255,255,0.85);
       font-family: var(--font-heading);
       font-size: 0.8125rem;
       font-weight: 600;
       white-space: nowrap;
       z-index: 3;
-      box-shadow: 0 8px 32px rgba(15, 31, 92, 0.25);
+      box-shadow: 0 8px 32px rgba(15, 31, 92, 0.5);
     }
     .hero-visual-badge strong {
       display: block;
       font-size: 1.375rem;
       font-weight: 800;
-      color: var(--brand-primary);
+      color: #ffffff;
     }
 
     /* ========================================
