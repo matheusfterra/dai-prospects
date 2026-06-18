@@ -41,6 +41,7 @@ routes = [
 { pattern = "sorrifacil-clinicas-odontologicas-health.digital-ai.tech/*", zone_name = "digital-ai.tech" },
 { pattern = "sorrifacil-clinicas-odontologicas.digital-ai.tech/*", zone_name = "digital-ai.tech" },
 { pattern = "yooufit-academia.digital-ai.tech/*", zone_name = "digital-ai.tech" },
+  { pattern = "draizabela.digital-ai.tech/*", zone_name = "digital-ai.tech" },
   # LeadKit: adicionar rota explícita para cada novo prospect aqui
 ]
 
