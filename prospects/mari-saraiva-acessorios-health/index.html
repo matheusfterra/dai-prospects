@@ -269,11 +269,16 @@
     .wa-float svg{width:28px;height:28px;fill:#fff;}
 
     /* ── Footer ── */
-    .site-footer{padding:1.5rem 2rem;text-align:center;}
-    .f-logo{display:block;margin:0 auto;height:22px;width:auto;opacity:.45;}
+    .site-footer{background:#0a0f1e;padding:3rem 2rem 2rem;text-align:center;}
+    .site-footer .footer-inner{max-width:600px;margin:0 auto;display:flex;flex-direction:column;align-items:center;gap:1rem;}
+    .f-logo{display:block;height:28px;width:auto;opacity:.9;filter:brightness(0) invert(1);}
     .f-logo-link{display:inline-block;line-height:0;}
-    
-    
+    .f-tagline{color:rgba(255,255,255,0.55);font-size:0.9rem;margin:0;}
+    .f-links{display:flex;gap:1.5rem;}
+    .f-links a{color:rgba(255,255,255,0.4);text-decoration:none;font-size:0.82rem;transition:color 0.2s;}
+    .f-links a:hover{color:rgba(255,255,255,0.8);}
+    .f-copy{color:rgba(255,255,255,0.25);font-size:0.75rem;margin:0;}
+
 
     /* ── Responsive ── */
     @media(max-width:768px){
@@ -789,9 +794,19 @@
 
 <footer class="site-footer">
   <div class="wrap">
-    <a href="https://digital-ai.tech" target="_blank" rel="noopener" class="f-logo-link">
-      <img src="https://s3.amazonaws.com/cdn.digital-ai.tech/uploads/media-cortex/identity/digital-ai/logos/logo-negative.svg" alt="Digital AI" class="f-logo" />
-    </a>
+    <div class="footer-inner">
+      <a href="https://digital-ai.tech" target="_blank" rel="noopener" class="f-logo-link">
+        <img src="https://s3.amazonaws.com/cdn.digital-ai.tech/uploads/media-cortex/identity/digital-ai/logos/logo-primary.svg"
+             alt="Digital AI" class="f-logo" />
+      </a>
+      <p class="f-tagline">Inteligência Artificial para empresas que querem crescer.</p>
+      <div class="f-links">
+        <a href="https://digital-ai.tech" target="_blank">Site</a>
+        <a href="https://digital-ai.tech/contato" target="_blank">Contato</a>
+        <a href="https://wa.me/5564992943740" target="_blank">WhatsApp</a>
+      </div>
+      <p class="f-copy">&copy; 2025 Digital AI &middot; Itumbiara, GO &middot; digital-ai.tech</p>
+    </div>
   </div>
 </footer>
 
