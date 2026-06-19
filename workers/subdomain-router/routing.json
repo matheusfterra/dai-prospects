@@ -1,6 +1,6 @@
 {
   "version": "1.0",
-  "updated": "2026-06-16",
+  "updated": "2026-06-18",
   "routes": {
     "labexato": "laboratorio-exato-itumbiara",
     "lab-exato": "laboratorio-exato-itumbiara",
@@ -44,6 +44,7 @@
       "folder": "dra-izabela-rezende-ginecologia-endocrina",
       "company": "Dra. Izabela Rezende — Ginecologia Endócrina",
       "created": "2026-06-18"
-    }
+    },
+    "kion-dental-technology": "kion-dental-technology"
   }
 }
