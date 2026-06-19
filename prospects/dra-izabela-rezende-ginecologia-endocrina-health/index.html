@@ -1,835 +1,737 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <!-- ▼ BRAND: Alterar título e meta ▼ -->
-  <title>Diagnóstico de Presença Digital — Dra. Izabela Rezende</title>
-  <meta property="og:type" content="website" />
-  <meta property="og:site_name" content="Digital Health Score · Digital AI" />
-  <meta property="og:url" content="https://dra-izabela-rezende-ginecologia-endocrina-health.digital-ai.tech" />
-  <meta property="og:title" content="Diagnóstico de Presença Digital — Dra. Izabela Rezende" />
-  <meta property="og:description" content="Ginecologia Endócrina · Itumbiara GO · Uberlândia MG · Score 51/100 · Grau C — Análise completa de Instagram, Google e Website." />
-  <meta property="og:image" content="https://dra-izabela-rezende-ginecologia-endocrina-health.digital-ai.tech/img/hero.jpg" />
-  <meta property="og:image:width" content="1200" />
-  <meta property="og:image:height" content="630" />
-  <meta property="og:locale" content="pt_BR" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Diagnóstico de Presença Digital — Dra. Izabela Rezende" />
-  <meta name="twitter:description" content="Ginecologia Endócrina · Itumbiara GO · Uberlândia MG · Score 51/100 · Grau C — Análise completa de Instagram, Google e Website." />
-  <meta name="twitter:image" content="https://dra-izabela-rezende-ginecologia-endocrina-health.digital-ai.tech/img/hero.jpg" />
-  <!-- ▲ BRAND ▲ -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Diagnóstico Digital — Dra. Izabela Rezende</title>
+  <meta property="og:type" content="website"/>
+  <meta property="og:title" content="Diagnóstico de Presença Digital — Dra. Izabela Rezende"/>
+  <meta property="og:description" content="Ginecologia Endócrina · Itumbiara GO | Uberlândia MG · Score 52/100 · Grau C — Análise completa de Instagram, Google e Website."/>
+  <meta property="og:image" content="https://dra-izabela-health.digital-ai.tech/img/hero.jpg"/>
+  <meta property="og:locale" content="pt_BR"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
   <style>
     /* ═══════════════════════════════════════════════════
-       HEALTH REPORT — Paleta dark premium (padrão fixo)
-       Só alterar os valores de score e cor do grade
+       HEALTH REPORT — Padrão Igor: YoouFit/Noma (2025+)
+       Gradient azul hero + foto sutil .07 opacity
        ═══════════════════════════════════════════════════ */
-    :root {
-      --bg:#080808; --surface:#111111; --surface2:#181818;
-      --border:rgba(255,255,255,0.06); --gold:#C9A96E; --gold-light:#E8D4B0;
-      --text:#F0EBE3; --muted:rgba(240,235,227,0.5); --muted2:rgba(240,235,227,0.22);
-
-      /* Cores semáforo — NÃO alterar */
-      --green:#34D399; --yellow:#FBBF24; --red:#F87171;
-
-      /* ▼ SCORE: Alterar cor do grade conforme nota ▼ */
-      /* A (85-100): --grade-color: var(--green)  */
-      /* B (70-84):  --grade-color: var(--green)  */
-      /* C (50-69):  --grade-color: var(--yellow) */
-      /* D (30-49):  --grade-color: var(--yellow) */
-      /* F (<30):    --grade-color: var(--red)    */
-      --grade-color: #FBBF24;
+    :root{
+      --brand-primary:#2D52EF;
+      --brand-secondary:#3B2FC9;
+      --brand-dark:#0F1F5C;
+      --brand-accent:#4F6FFF;
+      --surface:#F8F9FC;
+      --surface2:#EEF1F8;
+      --text:#1A2340;
+      --muted:#64748B;
+      --muted-light:#94A3B8;
+      --border:#E2E8F0;
+      --white:#FFFFFF;
+      --green:#22C55E;
+      --yellow:#F59E0B;
+      --red:#EF4444;
+      --r-sm:8px;
+      --r-md:12px;
+      --r-lg:16px;
+      --r-xl:20px;
+      --font-h:'Plus Jakarta Sans',sans-serif;
+      --font-b:'DM Sans',sans-serif;
+      /* Grade: ajustar conforme score
+         A(85-100): #22C55E   B(70-84): #22C55E
+         C(50-69):  #F59E0B   D(30-49): #EF4444
+         F(<30):    #DC2626                      */
+      --grade-color:#FBBF24;
+      --grade-shadow:rgba(251,191,36,.4);
     }
-    /* ═══════════════════════════════════════════════════ */
-
-    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-    html{background:var(--bg);scroll-behavior:smooth;overflow-x:hidden;}
-    body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);line-height:1.6;overflow-x:hidden;}
-    @keyframes fadeUp{from{opacity:0;transform:translateY(40px)}to{opacity:1;transform:translateY(0)}}
-    @keyframes fadeIn{from{opacity:0}to{opacity:1}}
-    @keyframes bounceDown{0%,100%{transform:rotate(45deg) translateY(0)}50%{transform:rotate(45deg) translateY(5px)}}
-    @keyframes pulseGold{0%,100%{box-shadow:0 0 0 0 rgba(201,169,110,.4)}60%{box-shadow:0 0 0 10px rgba(201,169,110,0)}}
-    .reveal{opacity:0;transform:translateY(36px);transition:opacity .7s ease,transform .7s ease;}.reveal.visible{opacity:1;transform:none;}
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth;overflow-x:hidden}
+    body{font-family:var(--font-b);color:var(--text);background:var(--white);overflow-x:hidden}
+    @keyframes fadeUp{from{opacity:0;transform:translateY(32px)}to{opacity:1;transform:translateY(0)}}
+    @keyframes ra{to{stroke-dashoffset:271}}
+    @keyframes countUp{from{opacity:0}to{opacity:1}}
+    .reveal{opacity:0;transform:translateY(28px);transition:opacity .65s ease,transform .65s ease}
+    .reveal.visible{opacity:1;transform:none}
     .d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}.d4{transition-delay:.4s}
 
-    /* ── Hero ── */
-    .hero{position:relative;height:100vh;min-height:680px;overflow:hidden;display:flex;align-items:flex-end;}
-    .hero-bg{position:absolute;inset:0;background:url('img/hero.jpg') center center/cover no-repeat;transform:scale(1.1);will-change:transform;}
-    .hero-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(8,8,8,.15) 0%,rgba(8,8,8,.05) 25%,rgba(8,8,8,.55) 65%,rgba(8,8,8,.97) 100%);}
-    .hero-content{position:relative;z-index:2;width:100%;max-width:1200px;margin:0 auto;padding:0 2rem 4rem;animation:fadeUp 1s ease .3s both;}
-    .hero-label{display:inline-flex;align-items:center;gap:.5rem;background:rgba(201,169,110,.1);border:1px solid rgba(201,169,110,.3);border-radius:100px;padding:.35rem 1rem;font-size:.62rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:1.5rem;}
-    .hero-label-dot{width:6px;height:6px;background:var(--gold);border-radius:50%;animation:pulseGold 2s infinite;}
-    .hero-name{font-family:'Playfair Display',serif;font-size:clamp(2.8rem,7vw,5.5rem);font-weight:400;line-height:1.05;margin-bottom:.5rem;}
-    .hero-name em{font-style:italic;color:var(--gold);}
-    .hero-spec{font-size:.8rem;color:var(--muted);letter-spacing:.14em;text-transform:uppercase;margin-bottom:2.5rem;}
-    .hero-score-row{display:flex;align-items:center;gap:2rem;flex-wrap:wrap;}
-    .hero-score-big{display:flex;align-items:baseline;gap:.25rem;}
-    .hero-num{font-family:'Playfair Display',serif;font-size:clamp(4rem,10vw,7rem);font-weight:700;line-height:1;color:var(--grade-color);font-variant-numeric:tabular-nums;}
-    .hero-denom{font-size:1.8rem;color:var(--muted2);}
-    .hero-grade{width:68px;height:68px;border-radius:50%;background:rgba(52,211,153,.08);border:2px solid var(--grade-color);display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:2rem;font-weight:700;color:var(--grade-color);}
-    .hero-desc{flex:1;min-width:220px;}
-    .hero-desc h3{font-size:1rem;font-weight:600;margin-bottom:.3rem;}
-    .hero-desc p{font-size:.8rem;color:var(--muted);line-height:1.6;}
-    .scroll-cue{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:.5rem;color:var(--muted2);font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;animation:fadeIn 1s ease 1.8s both;}
-    .scroll-arrow{width:18px;height:18px;border-right:1.5px solid rgba(240,235,227,.3);border-bottom:1.5px solid rgba(240,235,227,.3);transform:rotate(45deg);animation:bounceDown 2s infinite;}
+    /* ── NAV ── */
+    .nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:.9rem 2rem;display:flex;align-items:center;justify-content:space-between;background:rgba(15,31,92,.82);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+    .nav-logo{height:26px;width:auto;filter:brightness(0) invert(1);opacity:.92}
+    .nav-cta{display:inline-flex;align-items:center;gap:.5rem;background:#25D366;color:#fff;font-family:var(--font-h);font-size:.75rem;font-weight:700;padding:.5rem 1.1rem;border-radius:100px;text-decoration:none;letter-spacing:.02em;transition:opacity .2s}
+    .nav-cta:hover{opacity:.9}
+    .nav-cta svg{width:15px;height:15px;fill:#fff}
 
-    /* ── Desktop split ── */
-    @media(min-width:769px){
-      .hero{display:grid;grid-template-columns:42% 58%;grid-template-rows:100vh;height:100vh;min-height:680px;}
-      .hero-bg{position:relative!important;inset:auto!important;grid-column:1;grid-row:1;background-image:url('img/hero.jpg');background-size:cover;background-position:center top;transform:none!important;overflow:hidden;min-height:100%;}
-      .hero-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(to right,transparent 55%,var(--bg) 100%);pointer-events:none;}
-      .hero-overlay{display:none!important;}
-      .hero-content{position:relative!important;grid-column:2;grid-row:1;z-index:2;background:var(--bg);display:flex!important;flex-direction:column;justify-content:flex-end;padding:3rem 4rem 5rem 3rem;max-width:none;margin:0;width:auto;}
-      .scroll-cue{display:none;}
-    }
+    /* ── HERO ── */
+    .hero{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,var(--brand-primary) 0%,var(--brand-dark) 100%);overflow:hidden;padding:7rem 2rem 4rem}
+    /* PADRÃO IGOR: foto real do prospect como fundo sutil (opacity .07) */
+    .hero-bg{position:absolute;inset:0;background-image:url('img/hero.jpg');background-size:cover;background-position:center;opacity:.07;pointer-events:none}
+    .hero-inner{position:relative;z-index:1;max-width:900px;width:100%;margin:0 auto;text-align:center}
+    .hero-badge{display:inline-flex;align-items:center;gap:.5rem;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.22);border-radius:100px;padding:.4rem 1rem;font-family:var(--font-h);font-size:.65rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.85);margin-bottom:2rem;animation:fadeUp .8s ease .1s both}
+    .hero-badge-dot{width:6px;height:6px;border-radius:50%;background:#25D366;animation:pulse 2s infinite}
+    @keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(37,211,102,.5)}60%{box-shadow:0 0 0 8px rgba(37,211,102,0)}}
+    .hero-title{font-family:var(--font-h);font-size:clamp(2.4rem,6vw,4rem);font-weight:800;color:#fff;line-height:1.1;margin-bottom:.75rem;animation:fadeUp .8s ease .2s both}
+    .hero-subtitle{font-size:.95rem;color:rgba(255,255,255,.65);letter-spacing:.08em;text-transform:uppercase;margin-bottom:3rem;animation:fadeUp .8s ease .3s both}
 
-    /* ── Utilities ── */
-    .wrap{max-width:1200px;margin:0 auto;padding:0 2rem;}
-    .sec-label{font-size:.62rem;font-weight:700;letter-spacing:.26em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem;display:flex;align-items:center;gap:.75rem;}
-    .sec-label::before{content:'';width:22px;height:1px;background:var(--gold);opacity:.6;}
+    /* Score ring */
+    .score-ring-wrap{position:relative;width:200px;height:200px;margin:0 auto 2rem;animation:fadeUp .8s ease .4s both}
+    .score-ring-wrap svg{width:200px;height:200px;transform:rotate(-90deg)}
+    .sr-bg{fill:none;stroke:rgba(255,255,255,.15);stroke-width:10}
+    .sr-arc{fill:none;stroke:var(--grade-color);stroke-width:10;stroke-linecap:round;stroke-dasharray:565;stroke-dashoffset:565;animation:ra 1.8s cubic-bezier(.4,0,.2,1) .6s forwards;filter:drop-shadow(0 0 12px var(--grade-shadow))}
+    .score-ring-center{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.1rem}
+    .score-num{font-family:var(--font-h);font-size:3.2rem;font-weight:800;color:#fff;line-height:1}
+    .score-denom{font-size:.85rem;color:rgba(255,255,255,.5);margin-top:.1rem}
+    .score-grade{font-family:var(--font-h);font-size:1rem;font-weight:700;color:var(--grade-color);letter-spacing:.12em;text-transform:uppercase;margin-top:.2rem}
 
-    /* ── Pillars (Anéis) ── */
-    .pillars-sec{padding:6rem 2rem;background:var(--surface);}
-    .pillars-head{text-align:center;margin-bottom:4rem;}
-    .pillars-head h2{font-family:'Playfair Display',serif;font-size:clamp(2rem,4.5vw,3rem);font-weight:400;line-height:1.2;margin-bottom:.8rem;}
-    .pillars-head p{font-size:.88rem;color:var(--muted);max-width:440px;margin:0 auto;}
-    .pillars-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;max-width:900px;margin:0 auto;}
-    @media(max-width:680px){.pillars-grid{grid-template-columns:1fr;}}
-    .pillar{background:var(--surface2);padding:3rem 1.5rem;text-align:center;position:relative;overflow:hidden;transition:transform .3s ease;}
-    .pillar:hover{transform:translateY(-5px);}
-    .pillar::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:var(--pc);transform:scaleX(0);transition:transform .8s cubic-bezier(.4,0,.2,1) .4s;}
-    .pillar.visible::after{transform:scaleX(1);}
-    .pillar-icon{font-size:1.8rem;margin-bottom:.75rem;opacity:.75;}
-    .pillar-label{font-size:.6rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:1.5rem;}
-    .ring{position:relative;width:120px;height:120px;margin:0 auto 1.5rem;}
-    .ring svg{width:120px;height:120px;transform:rotate(-90deg);}
-    .ring-bg{fill:none;stroke:rgba(255,255,255,.05);stroke-width:7;}
-    .ring-arc{fill:none;stroke:var(--pc);stroke-width:7;stroke-linecap:round;stroke-dasharray:339;stroke-dashoffset:339;transition:stroke-dashoffset 1.6s cubic-bezier(.4,0,.2,1);}
-    .ring-num{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;}
-    .ring-val{font-family:'Playfair Display',serif;font-size:2.2rem;font-weight:700;line-height:1;color:var(--pc);}
-    .ring-max{font-size:.62rem;color:var(--muted2);}
-    .pillar-foot strong{display:block;font-size:.85rem;font-weight:600;margin-bottom:.15rem;}
-    .pillar-foot span{font-size:.75rem;color:var(--muted);}
+    /* Stats row */
+    .hero-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.1);border-radius:var(--r-lg);overflow:hidden;animation:fadeUp .8s ease .5s both}
+    @media(max-width:600px){.hero-stats{grid-template-columns:repeat(2,1fr)}}
+    .hs-item{background:rgba(255,255,255,.08);padding:1.25rem 1rem;text-align:center}
+    .hs-val{font-family:var(--font-h);font-size:1.5rem;font-weight:800;color:#fff;line-height:1}
+    .hs-lbl{font-size:.65rem;color:rgba(255,255,255,.55);letter-spacing:.12em;text-transform:uppercase;margin-top:.3rem}
 
-    /* ── Instagram ── */
-    .insta-sec{padding:6rem 2rem;}
-    .insta-intro h2{font-family:'Playfair Display',serif;font-size:clamp(1.9rem,4vw,2.8rem);font-weight:400;line-height:1.2;margin-bottom:.8rem;}
-    .insta-intro p{font-size:.88rem;color:var(--muted);max-width:540px;line-height:1.75;}
-    .stats-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-top:2rem;}
-    @media(max-width:600px){.stats-grid{grid-template-columns:1fr;}}
+    /* ── GALLERY ── */
+    .gallery-s{padding:4rem 2rem;background:var(--white)}
+    .gallery-wrap{max-width:1100px;margin:0 auto}
+    .gallery-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}
+    @media(max-width:780px){.gallery-grid{grid-template-columns:repeat(3,1fr)}}
+    @media(max-width:500px){.gallery-grid{grid-template-columns:repeat(2,1fr)}}
+    .gallery-item{position:relative;border-radius:var(--r-md);overflow:hidden;aspect-ratio:1/1;background:var(--surface2)}
+    .gallery-item img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s ease}
+    .gallery-item:hover img{transform:scale(1.04)}
+    .gallery-caption{position:absolute;bottom:0;left:0;right:0;padding:.5rem .65rem;background:linear-gradient(to top,rgba(15,31,92,.85) 0%,transparent 100%);font-size:.62rem;font-weight:600;color:#fff;letter-spacing:.08em;text-transform:uppercase;opacity:0;transition:opacity .3s ease}
+    .gallery-item:hover .gallery-caption{opacity:1}
 
-    /* ── Top 3 Posts ── */
-    .top3-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:1.5rem;}
-    @media(max-width:700px){.top3-grid{grid-template-columns:1fr;}}
-    .top3-card{display:flex;flex-direction:column;text-decoration:none;color:var(--text);background:var(--surface2);border:1px solid var(--border);overflow:hidden;transition:transform .25s ease,border-color .25s ease;}
-    .top3-card:hover{transform:translateY(-4px);border-color:rgba(201,169,110,.45);}
-    .top3-media{position:relative;width:100%;aspect-ratio:1/1;overflow:hidden;background:#0d0d0d;}
-    .top3-media img{width:100%;height:100%;object-fit:cover;display:block;}
-    .top3-play-btn{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,.32);pointer-events:none;}
-    .top3-body{padding:1rem 1.1rem;flex:1;display:flex;flex-direction:column;gap:.5rem;}
-    .top3-header{display:flex;justify-content:space-between;align-items:flex-start;}
-    .top3-badge{font-size:.55rem;letter-spacing:.12em;text-transform:uppercase;background:rgba(201,169,110,.1);color:var(--gold);border:1px solid rgba(201,169,110,.25);padding:.2rem .5rem;border-radius:2px;}
-    .top3-rank{font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:700;color:rgba(201,169,110,.2);line-height:1;}
-    .top3-caption{font-size:.75rem;color:var(--muted);line-height:1.55;flex:1;}
-    .top3-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:3px;}
-    .top3-stat{background:var(--surface);padding:.45rem .3rem;text-align:center;}
-    .top3-stat strong{display:block;font-family:'Playfair Display',serif;font-size:.95rem;font-weight:700;line-height:1.2;}
-    .top3-stat span{font-size:.5rem;color:var(--muted);letter-spacing:.09em;text-transform:uppercase;margin-top:.1rem;display:block;}
-    .top3-date{font-size:.6rem;color:var(--muted2);}
-    .insight-box{margin-top:1.5rem;padding:1.1rem 1.4rem;background:rgba(201,169,110,.05);border-left:3px solid var(--gold);display:flex;gap:.9rem;align-items:flex-start;}
-    .insight-icon{font-size:1.1rem;flex-shrink:0;margin-top:.05rem;}
-    .insight-box p{font-size:.82rem;color:var(--muted);line-height:1.65;margin:0;}
-    .insight-box strong{color:var(--text);}
+    /* ── SCORE BREAKDOWN ── */
+    .score-s{padding:5rem 2rem;background:var(--brand-dark)}
+    .score-s-inner{max-width:900px;margin:0 auto}
+    .sec-tag{font-family:var(--font-h);font-size:.65rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:rgba(255,255,255,.45);margin-bottom:.75rem}
+    .score-s h2{font-family:var(--font-h);font-size:clamp(1.8rem,4vw,2.8rem);font-weight:800;color:#fff;line-height:1.15;margin-bottom:1rem}
+    .score-s .sub{font-size:.9rem;color:rgba(255,255,255,.55);line-height:1.7;max-width:560px;margin-bottom:3rem}
+    .pillars-g{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    @media(max-width:680px){.pillars-g{grid-template-columns:1fr}}
+    .pillar-c{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);border-radius:var(--r-xl);padding:2rem;text-align:center;transition:background .25s}
+    .pillar-c:hover{background:rgba(255,255,255,.11)}
+    .p-icon{font-size:1.6rem;margin-bottom:.75rem}
+    .p-label{font-family:var(--font-h);font-size:.6rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.45);margin-bottom:1.25rem}
+    .p-ring{position:relative;width:100px;height:100px;margin:0 auto 1rem}
+    .p-ring svg{width:100px;height:100px;transform:rotate(-90deg)}
+    .pr-bg{fill:none;stroke:rgba(255,255,255,.08);stroke-width:8}
+    .pr-arc{fill:none;stroke-width:8;stroke-linecap:round;stroke-dasharray:283;stroke-dashoffset:283;transition:stroke-dashoffset 1.4s cubic-bezier(.4,0,.2,1)}
+    .pr-center{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center}
+    .pr-val{font-family:var(--font-h);font-size:1.6rem;font-weight:800;line-height:1}
+    .pr-max{font-size:.58rem;color:rgba(255,255,255,.35)}
+    .p-title{font-family:var(--font-h);font-size:.82rem;font-weight:700;color:#fff;margin-bottom:.25rem}
+    .p-desc{font-size:.72rem;color:rgba(255,255,255,.45);line-height:1.5}
 
-    /* ── Sentiment ── */
-    .sentiment-sec{padding:6rem 2rem;background:var(--bg);}
-    .sentiment-sec .sub{font-size:.88rem;color:var(--muted);max-width:560px;line-height:1.75;margin-top:.6rem;}
-    .sent-intro{margin-bottom:3rem;}
-    .sent-overview{display:flex;gap:0;margin-bottom:3.5rem;}
-    .sent-overview-stat{flex:1;padding:1.75rem 1.5rem;background:var(--surface);border:1px solid var(--border);text-align:center;}
-    .sent-overview-stat+.sent-overview-stat{border-left:0;}
-    .sent-big-num{display:block;font-family:'Playfair Display',serif;font-size:2.8rem;font-weight:700;line-height:1;}
-    .sent-big-label{display:block;font-size:.65rem;text-transform:uppercase;letter-spacing:.16em;color:var(--muted);margin-top:.4rem;}
-    .sent-charts{display:grid;grid-template-columns:1fr 1.5fr;gap:2rem;margin-bottom:3.5rem;align-items:start;}
-    @media(max-width:700px){.sent-charts{grid-template-columns:1fr;}.sent-overview{flex-direction:column;}}
-    .sent-chart-card{background:var(--surface);border:1px solid var(--border);padding:1.75rem;min-width:0;}
-    .sent-chart-card canvas{display:block;max-width:100%;}
-    .sent-chart-title{font-size:.75rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:1.25rem;}
-    .sent-donut-wrap{position:relative;width:160px;height:160px;margin:0 auto 1.25rem;}
-    .sent-donut-center{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;pointer-events:none;}
-    .sent-donut-pct{font-family:'Playfair Display',serif;font-size:1.75rem;font-weight:700;line-height:1;}
-    .sent-donut-sub{font-size:.6rem;color:var(--muted);text-transform:uppercase;letter-spacing:.12em;}
-    .sent-bar-wrap{position:relative;width:100%;height:190px;}
-    .sent-legend{display:flex;flex-direction:column;gap:.45rem;margin-top:1rem;}
-    .sent-leg-item{display:flex;align-items:center;gap:.6rem;font-size:.78rem;color:var(--muted);}
-    .sent-leg-item span:nth-child(2){flex:1;}
-    .sent-leg-item strong{color:var(--text);font-size:.82rem;}
-    .sent-leg-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0;}
-    .sent-comments-wrap{margin-bottom:2.5rem;}
-    .sent-comments-title{font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:400;margin-bottom:1.5rem;color:var(--text);}
-    .sent-comments-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1.25rem;}
-    .sent-comment-card{background:var(--surface);border:1px solid var(--border);padding:1.25rem;}
-    .sent-comment-badges{display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:.75rem;}
-    .sent-badge{font-size:.67rem;font-weight:600;letter-spacing:.08em;padding:.25rem .65rem;border-radius:2px;}
-    .sent-positivo{background:rgba(52,211,153,.1);color:var(--green);border:1px solid rgba(52,211,153,.2);}
-    .sent-neutro{background:rgba(240,235,227,.07);color:var(--muted);border:1px solid var(--border);}
-    .sent-negativo{background:rgba(248,113,113,.1);color:var(--red);border:1px solid rgba(248,113,113,.2);}
-    .sent-cat{background:rgba(201,169,110,.08);color:var(--gold);border:1px solid rgba(201,169,110,.2);}
-    .sent-comment-text{font-size:.82rem;color:var(--muted);line-height:1.65;margin-bottom:.75rem;font-style:italic;}
-    .sent-comment-link{font-size:.72rem;color:var(--gold);text-decoration:none;letter-spacing:.06em;}
-    .sent-comment-link:hover{text-decoration:underline;}
-    .sent-footer{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;padding-top:2rem;border-top:1px solid var(--border);}
-    .sent-profile-link{display:inline-flex;align-items:center;gap:.5rem;background:rgba(201,169,110,.08);border:1px solid rgba(201,169,110,.25);padding:.6rem 1.25rem;font-size:.75rem;font-weight:600;color:var(--gold);text-decoration:none;letter-spacing:.1em;transition:background .2s;}
-    .sent-profile-link:hover{background:rgba(201,169,110,.15);}
-    .sent-date{font-size:.68rem;color:var(--muted2);letter-spacing:.1em;}
+    /* ── TEAM / FOUNDERS ── */
+    .team-s{padding:5rem 2rem;background:var(--surface)}
+    .team-inner{max-width:900px;margin:0 auto}
+    .section-header{margin-bottom:3rem}
+    .section-header .tag{font-family:var(--font-h);font-size:.65rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--brand-primary);margin-bottom:.6rem}
+    .section-header h2{font-family:var(--font-h);font-size:clamp(1.8rem,4vw,2.5rem);font-weight:800;color:var(--text);line-height:1.15;margin-bottom:.75rem}
+    .section-header p{font-size:.9rem;color:var(--muted);line-height:1.75;max-width:560px}
+    .team-g{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+    @media(max-width:580px){.team-g{grid-template-columns:1fr}}
+    .team-c{background:var(--white);border:1px solid var(--border);border-radius:var(--r-xl);padding:2rem;display:flex;flex-direction:column;gap:1rem;transition:box-shadow .25s}
+    .team-c:hover{box-shadow:0 8px 32px rgba(45,82,239,.1)}
+    .team-av{width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,var(--brand-primary),var(--brand-secondary));display:flex;align-items:center;justify-content:center;font-size:1.5rem;flex-shrink:0}
+    .team-name{font-family:var(--font-h);font-size:1.05rem;font-weight:800;color:var(--text);margin-bottom:.2rem}
+    .team-role{font-size:.75rem;color:var(--muted);font-weight:500}
+    .team-tags{display:flex;flex-wrap:wrap;gap:.4rem}
+    .team-tag{font-size:.65rem;font-weight:600;padding:.25rem .65rem;border-radius:100px;background:rgba(45,82,239,.08);color:var(--brand-primary);letter-spacing:.04em}
+    .team-cred{font-size:.78rem;color:var(--muted);line-height:1.6;border-top:1px solid var(--border);padding-top:.75rem;margin-top:.25rem}
 
-    /* ── Google ── */
-    .google-sec{padding:6rem 2rem;background:var(--surface);}
-    .google-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start;}
-    @media(max-width:780px){.google-grid{grid-template-columns:1fr;gap:2.5rem;}}
-    .google-grid h2{font-family:'Playfair Display',serif;font-size:clamp(1.9rem,4vw,2.8rem);font-weight:400;line-height:1.2;margin-bottom:.8rem;}
-    .google-grid p.sub{font-size:.88rem;color:var(--muted);margin-bottom:2rem;line-height:1.7;}
-    .checklist{display:flex;flex-direction:column;gap:.6rem;}
-    .check-row{display:flex;align-items:center;gap:.9rem;padding:.85rem 1.1rem;background:var(--surface2);border:1px solid var(--border);font-size:.83rem;}
-    .check-ico{flex-shrink:0;width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.7rem;font-weight:700;}
-    .ok{background:rgba(52,211,153,.12);color:var(--green);border:1px solid rgba(52,211,153,.25);}
-    .fail{background:rgba(248,113,113,.1);color:var(--red);border:1px solid rgba(248,113,113,.22);}
-    .warn{background:rgba(251,191,36,.1);color:var(--yellow);border:1px solid rgba(251,191,36,.22);}
-    .check-row .label strong{display:block;font-weight:500;margin-bottom:.1rem;}
-    .check-row .label span{font-size:.73rem;color:var(--muted);}
-    .g-score-box{background:var(--surface2);border:1px solid var(--border);padding:2.5rem;text-align:center;}
-    .g-score-num{font-family:'Playfair Display',serif;font-size:4.5rem;font-weight:700;line-height:1;}
-    .g-score-max{font-size:1.1rem;color:var(--muted);}
-    .g-score-lbl{font-size:.65rem;color:var(--muted);letter-spacing:.14em;text-transform:uppercase;margin-top:.4rem;}
-    .gap-box{margin-top:1.25rem;padding:1.1rem 1.25rem;background:rgba(248,113,113,.05);border-left:3px solid var(--red);}
-    .gap-box p{font-size:.83rem;color:var(--muted);line-height:1.65;}
-    .gap-box strong{color:var(--text);}
+    /* ── ANALYSIS (strengths / gaps) ── */
+    .analysis-s{padding:5rem 2rem;background:var(--white)}
+    .analysis-inner{max-width:900px;margin:0 auto}
+    .analysis-g{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:2.5rem}
+    @media(max-width:680px){.analysis-g{grid-template-columns:1fr}}
+    .analysis-box{border-radius:var(--r-xl);padding:2rem}
+    .analysis-box.strengths{background:rgba(34,197,94,.06);border:1px solid rgba(34,197,94,.2)}
+    .analysis-box.gaps{background:rgba(239,68,68,.06);border:1px solid rgba(239,68,68,.2)}
+    .analysis-box h3{font-family:var(--font-h);font-size:1rem;font-weight:700;margin-bottom:1.25rem;display:flex;align-items:center;gap:.5rem}
+    .analysis-box h3 span{font-size:1.1rem}
+    .analysis-box.strengths h3{color:var(--green)}
+    .analysis-box.gaps h3{color:var(--red)}
+    .analysis-list{display:flex;flex-direction:column;gap:.65rem}
+    .al-item{display:flex;align-items:flex-start;gap:.65rem;font-size:.83rem;color:var(--muted);line-height:1.55}
+    .al-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0;margin-top:.35rem}
+    .strengths .al-dot{background:var(--green)}
+    .gaps .al-dot{background:var(--red)}
 
-    /* ── Website ── */
-    .web-sec{padding:6rem 2rem;}
-    .web-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;}
-    @media(max-width:780px){.web-grid{grid-template-columns:1fr;gap:2.5rem;}}
-    .web-grid h2{font-family:'Playfair Display',serif;font-size:clamp(1.9rem,4vw,2.8rem);font-weight:400;line-height:1.2;margin-bottom:.8rem;}
-    .web-grid p.sub{font-size:.88rem;color:var(--muted);margin-bottom:1.5rem;line-height:1.7;}
-    .mockup{background:var(--surface);border:1px solid var(--border);border-radius:6px;overflow:hidden;}
-    .mbar{background:var(--surface2);padding:.65rem .9rem;display:flex;align-items:center;gap:.5rem;border-bottom:1px solid var(--border);}
-    .mdot{width:9px;height:9px;border-radius:50%;}
-    .murl{flex:1;background:rgba(255,255,255,.04);border-radius:3px;padding:.28rem .65rem;font-size:.68rem;color:var(--muted);font-family:monospace;}
-    .mbody{padding:3rem 1.5rem;text-align:center;min-height:180px;display:flex;flex-direction:column;align-items:center;justify-content:center;}
-    .web-ok{font-family:'Playfair Display',serif;font-size:3.5rem;color:var(--green);opacity:.5;line-height:1;}
-    .web-okt{font-size:.78rem;color:var(--muted2);margin-top:.35rem;}
-    .web-checks{display:flex;flex-direction:column;gap:.5rem;margin-top:1.5rem;}
-    .wc-row{display:flex;align-items:center;gap:.75rem;font-size:.8rem;}
+    /* Insight quote */
+    .insight-s{padding:4rem 2rem;background:linear-gradient(135deg,var(--brand-primary) 0%,var(--brand-dark) 100%)}
+    .insight-inner{max-width:800px;margin:0 auto;text-align:center}
+    .insight-q{font-family:var(--font-h);font-size:clamp(1.4rem,3.5vw,2.2rem);font-weight:700;color:#fff;line-height:1.3;margin-bottom:1rem}
+    .insight-q::before{content:'"';color:rgba(255,255,255,.3);font-size:3rem;line-height:0;vertical-align:-.6rem;margin-right:.2rem}
+    .insight-q::after{content:'"';color:rgba(255,255,255,.3);font-size:3rem;line-height:0;vertical-align:-.6rem;margin-left:.2rem}
+    .insight-src{font-size:.72rem;color:rgba(255,255,255,.45);letter-spacing:.14em;text-transform:uppercase;margin-bottom:2rem}
+    .insight-analysis{font-size:.9rem;color:rgba(255,255,255,.7);line-height:1.75;max-width:640px;margin:0 auto 2rem}
+    .insight-chips{display:flex;flex-wrap:wrap;gap:.5rem;justify-content:center}
+    .insight-chip{font-size:.68rem;font-weight:600;padding:.3rem .8rem;border-radius:100px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.18);color:rgba(255,255,255,.8);letter-spacing:.05em}
 
-    /* ── Recommendations ── */
-    .recs-sec{padding:6rem 2rem;}
-    .recs-sec h2{font-family:'Playfair Display',serif;font-size:clamp(1.9rem,4vw,2.8rem);font-weight:400;line-height:1.2;margin-bottom:.8rem;}
-    .recs-sec p.sub{font-size:.88rem;color:var(--muted);max-width:440px;margin-bottom:3rem;}
-    .timeline{position:relative;display:flex;flex-direction:column;}
-    .timeline::before{content:'';position:absolute;left:1.75rem;top:2.5rem;bottom:2.5rem;width:1px;background:var(--border);}
-    .t-item{display:flex;gap:2rem;padding:1.75rem 0;}
-    .t-num{flex-shrink:0;width:3.5rem;height:3.5rem;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:.95rem;font-weight:600;position:relative;z-index:1;}
-    .t-body{flex:1;padding-top:.5rem;}
-    .t-impact{display:inline-block;font-size:.58rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;padding:.18rem .55rem;border-radius:2px;margin-bottom:.5rem;}
-    .t-body h3{font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:400;margin-bottom:.35rem;}
-    .t-body p{font-size:.82rem;color:var(--muted);line-height:1.7;margin-bottom:.4rem;}
-    .t-gain{font-size:.78rem;font-weight:600;}
+    /* ── OPPORTUNITIES (flip cards) ── */
+    .opp-s{padding:5rem 2rem;background:var(--surface)}
+    .opp-inner{max-width:1000px;margin:0 auto}
+    .opp-g{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:2.5rem}
+    @media(max-width:780px){.opp-g{grid-template-columns:repeat(2,1fr)}}
+    @media(max-width:500px){.opp-g{grid-template-columns:1fr}}
+    .opp-card{height:220px;perspective:1000px;cursor:pointer}
+    .opp-inner-flip{position:relative;width:100%;height:100%;transform-style:preserve-3d;transition:transform .55s cubic-bezier(.4,0,.2,1)}
+    .opp-card:hover .opp-inner-flip,.opp-card.flipped .opp-inner-flip{transform:rotateY(180deg)}
+    .opp-front,.opp-back{position:absolute;inset:0;border-radius:var(--r-xl);padding:1.75rem;backface-visibility:hidden;-webkit-backface-visibility:hidden}
+    .opp-front{background:var(--white);border:1px solid var(--border);display:flex;flex-direction:column;gap:.75rem}
+    .opp-back{background:linear-gradient(135deg,var(--brand-primary),var(--brand-secondary));transform:rotateY(180deg);display:flex;flex-direction:column;justify-content:center;gap:.75rem}
+    .opp-num{font-family:var(--font-h);font-size:2rem;font-weight:800;color:var(--surface2);line-height:1}
+    .opp-icon{font-size:1.6rem}
+    .opp-title{font-family:var(--font-h);font-size:.95rem;font-weight:700;color:var(--text);line-height:1.25}
+    .opp-impact{font-size:.7rem;font-weight:600;color:var(--brand-primary);letter-spacing:.08em;text-transform:uppercase}
+    .opp-hint{font-size:.67rem;color:var(--muted);letter-spacing:.08em}
+    .opp-back .opp-title{color:#fff;font-size:.88rem}
+    .opp-back p{font-size:.78rem;color:rgba(255,255,255,.8);line-height:1.6}
+    .opp-back .opp-gain{font-size:.78rem;font-weight:700;color:rgba(255,255,255,.95);margin-top:auto}
 
-    /* ── Projeção ── */
-    .proj-sec{padding:6rem 2rem;background:var(--surface);}
-    .proj-sec h2{font-family:'Playfair Display',serif;font-size:clamp(1.9rem,4vw,2.8rem);font-weight:400;line-height:1.2;margin-bottom:.8rem;}
-    .proj-sec p.sub{font-size:.88rem;color:var(--muted);max-width:440px;margin-bottom:3rem;}
-    .bar-group{display:flex;flex-direction:column;gap:1.75rem;}
-    .bar-head{display:flex;justify-content:space-between;margin-bottom:.5rem;}
-    .bar-label{font-size:.8rem;font-weight:500;}
-    .bar-val{font-family:'Playfair Display',serif;font-size:.95rem;font-weight:600;}
-    .bar-track{height:8px;background:rgba(255,255,255,.05);border-radius:4px;overflow:hidden;}
-    .bar-fill{height:100%;border-radius:4px;transform-origin:left;transform:scaleX(0);transition:transform 1.3s cubic-bezier(.4,0,.2,1);}
-    .bar-row.run .bar-fill{transform:scaleX(1);}
-    .proj-note{margin-top:2rem;padding:1.4rem 1.75rem;background:rgba(52,211,153,.04);border:1px solid rgba(52,211,153,.14);}
-    .proj-note p{font-size:.83rem;color:var(--muted);line-height:1.7;}
-    .proj-note strong{color:var(--text);}
+    /* ── ROI COUNTERS ── */
+    .roi-s{padding:5rem 2rem;background:var(--brand-dark)}
+    .roi-inner{max-width:900px;margin:0 auto;text-align:center}
+    .roi-s h2{font-family:var(--font-h);font-size:clamp(1.8rem,4vw,2.8rem);font-weight:800;color:#fff;line-height:1.15;margin-bottom:.75rem}
+    .roi-s .sub{font-size:.9rem;color:rgba(255,255,255,.55);line-height:1.7;max-width:520px;margin:0 auto 3rem}
+    .roi-g{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(255,255,255,.08);border-radius:var(--r-xl);overflow:hidden}
+    @media(max-width:600px){.roi-g{grid-template-columns:1fr}}
+    .roi-c{background:rgba(255,255,255,.06);padding:2.5rem 2rem;text-align:center}
+    .roi-num{font-family:var(--font-h);font-size:2.8rem;font-weight:800;color:#fff;line-height:1}
+    .roi-unit{font-family:var(--font-h);font-size:1.2rem;font-weight:700;color:rgba(255,255,255,.6)}
+    .roi-lbl{font-size:.72rem;color:rgba(255,255,255,.45);letter-spacing:.14em;text-transform:uppercase;margin-top:.5rem;line-height:1.4}
 
     /* ── CTA ── */
-    .cta-sec{padding:6rem 2rem;text-align:center;position:relative;overflow:hidden;}
-    .cta-sec::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 70% at 50% 110%,rgba(201,169,110,.07) 0%,transparent 60%);pointer-events:none;}
-    .cta-sec .eyebrow{font-size:.62rem;font-weight:700;letter-spacing:.26em;text-transform:uppercase;color:var(--gold);margin-bottom:1.25rem;}
-    .cta-sec h2{font-family:'Playfair Display',serif;font-size:clamp(2.2rem,6vw,4rem);font-weight:400;line-height:1.15;max-width:680px;margin:0 auto 1.25rem;}
-    .cta-sec h2 em{font-style:italic;color:var(--gold);}
-    .cta-sec p{font-size:.9rem;color:var(--muted);max-width:460px;margin:0 auto 2.5rem;line-height:1.75;}
-    .cta-btn{display:inline-flex;align-items:center;gap:.7rem;background:#25D366;color:#fff;font-weight:600;font-size:.92rem;padding:1.05rem 2.25rem;border-radius:4px;text-decoration:none;letter-spacing:.02em;transition:transform .2s ease,box-shadow .2s ease;}
-    .cta-btn:hover{transform:translateY(-2px);box-shadow:0 12px 36px rgba(37,211,102,.3);}
+    .cta-s{padding:6rem 2rem;background:var(--surface);text-align:center}
+    .cta-inner{max-width:660px;margin:0 auto}
+    .cta-tag{font-family:var(--font-h);font-size:.65rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--brand-primary);margin-bottom:1rem}
+    .cta-s h2{font-family:var(--font-h);font-size:clamp(2rem,5vw,3rem);font-weight:800;color:var(--text);line-height:1.15;margin-bottom:1rem}
+    .cta-s p{font-size:.95rem;color:var(--muted);line-height:1.75;margin-bottom:2.5rem}
+    .cta-btn-wa{display:inline-flex;align-items:center;gap:.7rem;background:#25D366;color:#fff;font-family:var(--font-h);font-weight:700;font-size:.95rem;padding:1rem 2.25rem;border-radius:100px;text-decoration:none;letter-spacing:.02em;box-shadow:0 8px 28px rgba(37,211,102,.3);transition:transform .2s,box-shadow .2s}
+    .cta-btn-wa:hover{transform:translateY(-2px);box-shadow:0 12px 36px rgba(37,211,102,.4)}
+    .cta-btn-wa svg{width:20px;height:20px;fill:#fff}
+    .cta-note{font-size:.75rem;color:var(--muted-light);margin-top:1.25rem}
 
-    /* ── WhatsApp float ── */
-    .wa-float{position:fixed;bottom:1.75rem;right:1.75rem;z-index:999;width:54px;height:54px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(37,211,102,.45);transition:transform .2s ease,box-shadow .2s ease;text-decoration:none;}
-    .wa-float:hover{transform:scale(1.08);box-shadow:0 8px 24px rgba(37,211,102,.55);}
-    .wa-float svg{width:28px;height:28px;fill:#fff;}
+    /* ── FOOTER ── */
+    .site-footer{padding:1.75rem 2rem;text-align:center;background:var(--brand-dark)}
+    .f-logo{height:22px;width:auto;opacity:.6;display:inline-block}
 
-    /* ── Footer ── */
-    .site-footer{padding:1.5rem 2rem;text-align:center;}
-    .f-logo{display:block;margin:0 auto;height:22px;width:auto;opacity:.45;}
-    .f-logo-link{display:inline-block;line-height:0;}
-    .f-sub,.f-meta{display:none;}
+    /* ── WA FLOAT ── */
+    .wa-float{position:fixed;bottom:1.75rem;right:1.75rem;z-index:999;width:52px;height:52px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 18px rgba(37,211,102,.5);text-decoration:none;transition:transform .2s}
+    .wa-float:hover{transform:scale(1.1)}
+    .wa-float svg{width:26px;height:26px;fill:#fff}
 
-    /* ── Responsive ── */
+    /* ── RESPONSIVE ── */
     @media(max-width:768px){
-      .hero-overlay{background:linear-gradient(to bottom,rgba(8,8,8,.5) 0%,rgba(8,8,8,.3) 20%,rgba(8,8,8,.75) 55%,rgba(8,8,8,.98) 100%);}
-      .hero-content{padding:0 1.25rem 3.5rem;}
-      .hero-name{font-size:clamp(2rem,8vw,3rem);}
-      .hero-score-row{flex-direction:column;gap:.75rem;align-items:flex-start;}
-      .hero-desc{display:none;}
-      .pillars-sec,.insta-sec,.google-sec,.web-sec,.recs-sec,.proj-sec,.cta-sec,.sentiment-sec{padding:3.5rem 1.25rem;}
-      .wrap{padding:0 1.25rem;}
-      .pillars-grid,.google-grid,.web-grid{grid-template-columns:1fr;gap:2rem;}
+      .nav{padding:.75rem 1.25rem}
+      .hero{padding:6rem 1.25rem 3.5rem}
+      .hero-title{font-size:clamp(1.9rem,7vw,2.6rem)}
+      .score-ring-wrap{width:160px;height:160px}
+      .score-ring-wrap svg{width:160px;height:160px}
+      .score-num{font-size:2.4rem}
+      .gallery-s,.score-s,.team-s,.analysis-s,.opp-s,.roi-s,.cta-s{padding:3.5rem 1.25rem}
+      .analysis-g,.opp-g,.roi-g{grid-template-columns:1fr}
+      .team-g{grid-template-columns:1fr}
     }
   </style>
-  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
 </head>
 <body>
 
-<!-- WhatsApp float -->
-<a class="wa-float" href="https://wa.me/5564992943740?text=Ol%C3%A1%2C%20vi%20o%20diagn%C3%B3stico%20digital%20da%20Dra.%20Izabela%20Rezende%20e%20gostaria%20de%20saber%20mais%20sobre%20as%20solu%C3%A7%C3%B5es%20da%20Digital%20AI." target="_blank" rel="noopener" title="Fale com a Digital AI">
+<!-- NAV -->
+<nav class="nav">
+  <a href="https://digital-ai.tech" target="_blank" rel="noopener">
+    <img src="https://s3.amazonaws.com/cdn.digital-ai.tech/uploads/media-cortex/identity/digital-ai/logos/logo-negative.svg" alt="Digital AI" class="nav-logo"/>
+  </a>
+  <a href="https://wa.me/5564981337424?text=Ol%C3%A1!+Quero+evoluir+minha+presen%C3%A7a+digital" target="_blank" rel="noopener" class="nav-cta">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    Falar com a equipe
+  </a>
+</nav>
+
+<!-- WA FLOAT -->
+<a class="wa-float" href="https://wa.me/5564981337424?text=Ol%C3%A1!+Quero+evoluir+minha+presen%C3%A7a+digital" target="_blank" rel="noopener" title="Fale com a Digital AI">
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
 </a>
 
-<!-- ▼ HERO — Alterar apenas os dados da marca ▼ -->
+<!-- HERO -->
 <section class="hero">
   <div class="hero-bg"></div>
-  <div class="hero-overlay"></div>
-  <div class="hero-content">
-    <div class="hero-label">
-      <div class="hero-label-dot"></div>
+  <div class="hero-inner">
+    <div class="hero-badge">
+      <span class="hero-badge-dot"></span>
       Diagnóstico · Digital Health Score v1.0
     </div>
-    <h1 class="hero-name"><em>Dra. Izabela</em> Rezende</h1>
-    <p class="hero-spec">Ginecologia Endócrina · Itumbiara GO · Uberlândia MG · RQE 19954 · Perfil Verificado</p>
-    <div class="hero-score-row">
-      <div class="hero-score-big">
-        <span class="hero-num" id="heroNum">0</span>
-        <span class="hero-denom">/100</span>
-      </div>
-      <div class="hero-grade">C</div>
-      <div class="hero-desc">
-        <h3>Instagram forte — Google invisível</h3>
-        <p>10.841 seguidores verificados e conteúdo de alto impacto, mas sem presença no Google e sem website profissional.</p>
-      </div>
-    </div>
-  </div>
-  <div class="scroll-cue"><span>Scroll</span><div class="scroll-arrow"></div></div>
-</section>
-<!-- ▲ HERO ▲ -->
+    <h1 class="hero-title">Dra. Izabela Rezende</h1>
+    <p class="hero-subtitle">Ginecologia Endócrina · Itumbiara GO | Uberlândia MG</p>
 
-<!-- ▼ PILLARS — Alterar scores e cores de cada pilar ▼ -->
-<!-- Cores: Instagram=#FBBF24(yellow)/#34D399(green), Google=#F87171(red)/#FBBF24, Website=#34D399(green) -->
-<section class="pillars-sec">
-  <div class="wrap">
-    <div class="pillars-head reveal">
-      <div class="sec-label">Diagnóstico por Pilar</div>
-      <h2>Três pilares.<br><em style="font-style:italic">Dados reais. Ação imediata.</em></h2>
-      <p>Instagram, Google e Website — cada um com peso diferente no score total de presença digital.</p>
+    <!-- Score Ring -->
+    <div class="score-ring-wrap">
+      <svg viewBox="0 0 200 200">
+        <circle class="sr-bg" cx="100" cy="100" r="90"/>
+        <circle class="sr-arc" cx="100" cy="100" r="90"/>
+      </svg>
+      <div class="score-ring-center">
+        <span class="score-num">52</span>
+        <span class="score-denom">/100 pontos</span>
+        <span class="score-grade">Grau C</span>
+      </div>
     </div>
-    <div class="pillars-grid">
-      <!-- Instagram: max=40, data-s=score obtido, data-m=40 -->
-      <div class="pillar reveal d1" style="--pc:#34D399">
-        <div class="pillar-icon">📱</div>
-        <p class="pillar-label">Instagram</p>
-        <div class="ring">
-          <svg viewBox="0 0 120 120"><circle class="ring-bg" cx="60" cy="60" r="54"/><circle class="ring-arc" cx="60" cy="60" r="54" data-s="33" data-m="40" style="stroke:#34D399"/></svg>
-          <div class="ring-num"><span class="ring-val" style="color:#34D399" data-t="33">0</span><span class="ring-max">/ 40</span></div>
-        </div>
-        <div class="pillar-foot"><strong>Forte</strong><span>10,8K seguidores · verificada · conteúdo educativo</span></div>
+
+    <!-- Hero Stats -->
+    <div class="hero-stats">
+      <div class="hs-item">
+        <div class="hs-val">10,9K</div>
+        <div class="hs-lbl">Seguidoras</div>
       </div>
-      <!-- Google: max=35 -->
-      <div class="pillar reveal d2" style="--pc:#EF4444">
-        <div class="pillar-icon">🔍</div>
-        <p class="pillar-label">Google</p>
-        <div class="ring">
-          <svg viewBox="0 0 120 120"><circle class="ring-bg" cx="60" cy="60" r="54"/><circle class="ring-arc" cx="60" cy="60" r="54" data-s="8" data-m="35" style="stroke:#EF4444"/></svg>
-          <div class="ring-num"><span class="ring-val" style="color:#EF4444" data-t="8">0</span><span class="ring-max">/ 35</span></div>
-        </div>
-        <div class="pillar-foot"><strong>Ausente</strong><span>Não encontramos Google Meu Negócio verificado para a Dra. Izabela Rezende. Pacientes que buscam "ginecologista Itumbiara" ou "ginecologista Uberlândia" não chegam até ela — um gap crítico que precisa ser corrigido com urgência.</span></div>
+      <div class="hs-item">
+        <div class="hs-val">261</div>
+        <div class="hs-lbl">Posts</div>
       </div>
-      <!-- Website: max=25 -->
-      <div class="pillar reveal d3" style="--pc:#F59E0B">
-        <div class="pillar-icon">🌐</div>
-        <p class="pillar-label">Website</p>
-        <div class="ring">
-          <svg viewBox="0 0 120 120"><circle class="ring-bg" cx="60" cy="60" r="54"/><circle class="ring-arc" cx="60" cy="60" r="54" data-s="10" data-m="25" style="stroke:#F59E0B"/></svg>
-          <div class="ring-num"><span class="ring-val" style="color:#F59E0B" data-t="10">0</span><span class="ring-max">/ 25</span></div>
-        </div>
-        <div class="pillar-foot"><strong>Básico</strong><span>A Dra. Izabela usa uma página bio.site com links de agendamento via WhatsApp para Itumbiara e Uberlândia. Funciona para quem já a segue, mas não gera tráfego orgânico, não possui SEO e não captura quem a encontra pelo Google.</span></div>
+      <div class="hs-item">
+        <div class="hs-val">52/100</div>
+        <div class="hs-lbl">Score Digital</div>
+      </div>
+      <div class="hs-item">
+        <div class="hs-val">2 Cidades</div>
+        <div class="hs-lbl">Atuação</div>
       </div>
     </div>
   </div>
 </section>
-<!-- ▲ PILLARS ▲ -->
 
-<!-- ▼ INSTAGRAM — Alterar dados do perfil e top 3 posts ▼ -->
-<section class="insta-sec" style="">
-  <div class="wrap">
-    <div class="insta-intro reveal">
-      <div class="sec-label">Pilar 1 · Instagram</div>
-      <h2><em style="font-family:'Playfair Display',serif;font-style:italic">@draizabelarezende</em><br>Referência em ginecologia endócrina e lipedema.</h2>
-      <p>Com 10.841 seguidores e conta verificada, a Dra. Izabela Rezende construiu autoridade digital real em ginecologia endócrina, lipedema e reposição hormonal. Conteúdo educativo consistente, com picos de engajamento acima de 5% — raro para profissionais de saúde.</p>
-    </div>
-    <div class="stats-grid reveal">
-      <div style="background:var(--surface2);border:1px solid var(--border);padding:2rem 1.5rem;text-align:center;">
-        <div style="font-family:'Playfair Display',serif;font-size:2.2rem;font-weight:700;color:#34D399">10.841</div>
-        <div style="font-size:.62rem;color:var(--muted);letter-spacing:.14em;text-transform:uppercase;margin-top:.4rem">Seguidores</div>
+<!-- GALLERY -->
+<!-- IMPORTANTE: cada imagem deve aparecer APENAS UMA VEZ em toda a página -->
+<!-- Use assets/img-post1.jpg até img-post5.jpg ou profile.jpg -->
+<section class="gallery-s">
+  <div class="gallery-wrap">
+    <div class="gallery-grid reveal">
+      <div class="gallery-item">
+        <img src="img/candidate_hero1.jpg" alt="Dra. Izabela Rezende — Consultório" loading="lazy"/>
+        <div class="gallery-caption">Consultório</div>
       </div>
-      <div style="background:var(--surface2);border:1px solid var(--border);padding:2rem 1.5rem;text-align:center;">
-        <div style="font-family:'Playfair Display',serif;font-size:2.2rem;font-weight:700;color:#34D399">258</div>
-        <div style="font-size:.62rem;color:var(--muted);letter-spacing:.14em;text-transform:uppercase;margin-top:.4rem">Posts</div>
+      <div class="gallery-item">
+        <img src="img/top1.jpg" alt="Dra. Izabela Rezende — Lipedema" loading="lazy"/>
+        <div class="gallery-caption">Lipedema</div>
       </div>
-      <div style="background:var(--surface2);border:1px solid var(--border);padding:2rem 1.5rem;text-align:center;">
-        <div style="font-family:'Playfair Display',serif;font-size:2.2rem;font-weight:700;color:#34D399">3,96%</div>
-        <div style="font-size:.62rem;color:var(--muted);letter-spacing:.14em;text-transform:uppercase;margin-top:.4rem">Engajamento</div>
+      <div class="gallery-item">
+        <img src="img/top2.jpg" alt="Dra. Izabela Rezende — Lipedema & Menopausa" loading="lazy"/>
+        <div class="gallery-caption">Lipedema & Menopausa</div>
       </div>
-    </div>
-    <div class="reveal" style="margin-top:1.25rem;padding:1.1rem 1.25rem;background:rgba(255,255,255,.02);border-left:3px solid #34D399;">
-      <p style="font-size:.83rem;color:var(--muted);line-height:1.65">Score Instagram: <strong style="color:#34D399">33 / 40 pts</strong> · Conta verificada, seguidores qualificados e picos de engajamento expressivos confirmam autoridade digital consolidada</p>
-    </div>
-
-    <div class="reveal" style="margin-top:2.5rem;">
-      <div class="sec-label" style="margin-bottom:1.25rem;">Top 3 · Publicações com Maior Engajamento</div>
-      <div class="top3-grid">
-        <!-- Post 1 -->
-        <a class="top3-card reveal d1" href="https://www.instagram.com/p/DWG3vb2DSZ6/" target="_blank" rel="noopener">
-          <div class="top3-media">
-            <img src="img/top1.jpg" loading="lazy" alt="Antes e depois de autoestima — Dra. Izabela Rezende">
-            <!-- Adicionar .top3-play-btn se for Reel/Vídeo -->
-          </div>
-          <div class="top3-body">
-            <div class="top3-header"><span class="top3-badge">Carrossel</span><span class="top3-rank">#1</span></div>
-            <div class="top3-caption">"Esse antes e depois não fala só de estética. Ele fala de brilho nos olhos. De autoestima reconstruída. De uma autoconfiança que não se compra, SE CONQUISTA."</div>
-            <div class="top3-stats">
-              <div class="top3-stat"><strong>538</strong><span>❤ likes</span></div>
-              <div class="top3-stat"><strong>83</strong><span>💬 coments</span></div>
-              <div class="top3-stat"><strong>5,73%</strong><span>eng.</span></div>
-            </div>
-            <div class="top3-date">20 mar 2026</div>
-          </div>
-        </a>
-        <!-- Post 2 -->
-        <a class="top3-card reveal d2" href="https://www.instagram.com/p/DYxwXtUKbIJ/" target="_blank" rel="noopener">
-          <div class="top3-media">
-            <img src="img/top2.jpg" loading="lazy" alt="Lipedema na menopausa — Dra. Izabela Rezende">
-          </div>
-          <div class="top3-body">
-            <div class="top3-header"><span class="top3-badge">Reels</span><span class="top3-rank">#2</span></div>
-            <div class="top3-caption">"Muita mulher acha que o lipedema piorou do nada na menopausa. O que muda nessa fase vai muito além do hormônio."</div>
-            <div class="top3-stats">
-              <div class="top3-stat"><strong>506</strong><span>❤ likes</span></div>
-              <div class="top3-stat"><strong>8</strong><span>💬 coments</span></div>
-              <div class="top3-stat"><strong>4,74%</strong><span>eng.</span></div>
-            </div>
-            <div class="top3-date">25 mai 2026</div>
-          </div>
-        </a>
-        <!-- Post 3 -->
-        <a class="top3-card reveal d3" href="https://www.instagram.com/p/DZDvqyYqzEE/" target="_blank" rel="noopener">
-          <div class="top3-media">
-            <img src="img/top3.jpg" loading="lazy" alt="Ácido alfa-lipoico e metabolismo — Dra. Izabela Rezende">
-          </div>
-          <div class="top3-body">
-            <div class="top3-header"><span class="top3-badge">Reels</span><span class="top3-rank">#3</span></div>
-            <div class="top3-caption">"O ácido alfa-lipoico virou um dos suplementos mais comentados da saúde metabólica. O que chama atenção é a quantidade de funções em que ele participa."</div>
-            <div class="top3-stats">
-              <div class="top3-stat"><strong>145</strong><span>❤ likes</span></div>
-              <div class="top3-stat"><strong>8</strong><span>💬 coments</span></div>
-              <div class="top3-stat"><strong>1,41%</strong><span>eng.</span></div>
-            </div>
-            <div class="top3-date">1 jun 2026</div>
-          </div>
-        </a>
+      <div class="gallery-item">
+        <img src="img/top3.jpg" alt="Dra. Izabela Rezende — Saúde Metabólica" loading="lazy"/>
+        <div class="gallery-caption">Saúde Metabólica</div>
       </div>
-      <div class="insight-box reveal d3">
-        <div class="insight-icon">💡</div>
-        <p><strong>Padrão identificado:</strong> Posts de resultado (antes/depois) geram 5x mais engajamento que a média do perfil — oportunidade clara de ampliar essa narrativa de transformação com frequência semanal.</p>
+      <div class="gallery-item">
+        <img src="img/hero.jpg" alt="Dra. Izabela Rezende — Ginecologia Endócrina" loading="lazy"/>
+        <div class="gallery-caption">Ginecologia Endócrina</div>
       </div>
     </div>
   </div>
 </section>
-<!-- ▲ INSTAGRAM ▲ -->
 
-<!-- ▼ SENTIMENT — Alterar dados de comentários ▼ -->
-<section class="sentiment-sec" style="">
-  <div class="wrap">
-    <div class="sent-intro">
-      <div class="sec-label reveal">Voz do Público · Instagram</div>
-      <h2 class="reveal">O que as pessoas<br>estão dizendo.<br><em style="font-family:'Playfair Display',serif;font-style:italic">Elogios e identificação massivos.</em></h2>
-      <p class="sub reveal">Analisamos 30 comentários nas principais publicações da Dra. Izabela Rezende. O sentimento é esmagadoramente positivo — audiência apaixonada, fiel e altamente qualificada para conversão em pacientes.</p>
-    </div>
-
-    <div class="sent-overview reveal d2">
-      <div class="sent-overview-stat">
-        <span class="sent-big-num" style="color:var(--gold)">30</span>
-        <span class="sent-big-label">comentários analisados</span>
-      </div>
-      <div class="sent-overview-stat">
-        <span class="sent-big-num" style="color:var(--green)">29</span>
-        <span class="sent-big-label">positivos (97%)</span>
-      </div>
-      <div class="sent-overview-stat">
-        <span class="sent-big-num" style="color:var(--gold)">3</span>
-        <span class="sent-big-label">publicações analisadas</span>
-      </div>
-    </div>
-
-    <div class="sent-charts reveal d3">
-      <div class="sent-chart-card">
-        <h3 class="sent-chart-title">Sentimento</h3>
-        <div class="sent-donut-wrap">
-          <!-- Canvas ID deve ser único por página -->
-          <canvas id="sentDonut_dra-izabela-rezende-ginecologia-endocrina"></canvas>
-          <div class="sent-donut-center">
-            <span class="sent-donut-pct" style="color:var(--green)">97%</span>
-            <span class="sent-donut-sub">positivo</span>
+<!-- SCORE BREAKDOWN / PILLARS -->
+<section class="score-s">
+  <div class="score-s-inner">
+    <div class="sec-tag reveal">Diagnóstico por Pilar</div>
+    <h2 class="reveal">Três pilares.<br>Uma análise completa.</h2>
+    <p class="sub reveal">Instagram, Google e Website — cada um com peso diferente no score total de presença digital.</p>
+    <div class="pillars-g">
+      <!-- Pilar 1: Instagram (max 40) -->
+      <!-- PILLAR1_COLOR: #F59E0B (fraco), #22C55E (forte) -->
+      <div class="pillar-c reveal d1" data-pillar="32" data-max="40" data-color="#22C55E">
+        <div class="p-icon">📱</div>
+        <div class="p-label">Instagram</div>
+        <div class="p-ring">
+          <svg viewBox="0 0 100 100">
+            <circle class="pr-bg" cx="50" cy="50" r="45"/>
+            <circle class="pr-arc" cx="50" cy="50" r="45" style="stroke:#22C55E"/>
+          </svg>
+          <div class="pr-center">
+            <span class="pr-val" style="color:#22C55E">32</span>
+            <span class="pr-max">/40</span>
           </div>
         </div>
-        <div class="sent-legend">
-          <div class="sent-leg-item"><span class="sent-leg-dot" style="background:var(--green)"></span><span>Positivo</span><strong>29</strong></div>
-          <div class="sent-leg-item"><span class="sent-leg-dot" style="background:var(--muted2)"></span><span>Neutro</span><strong>1</strong></div>
-          <div class="sent-leg-item"><span class="sent-leg-dot" style="background:var(--yellow)"></span><span>Misto</span><strong>0</strong></div>
-          <div class="sent-leg-item"><span class="sent-leg-dot" style="background:var(--red)"></span><span>Negativo</span><strong>0</strong></div>
-        </div>
+        <div class="p-title" style="color:#22C55E">Instagram Forte</div>
+        <div class="p-desc">10,9 mil seguidoras verificadas, conteúdo consistente e posts virais sobre Lipedema.</div>
       </div>
-
-      <div class="sent-chart-card">
-        <h3 class="sent-chart-title">Categorias de comentário</h3>
-        <div class="sent-bar-wrap"><canvas id="sentBar_dra-izabela-rezende-ginecologia-endocrina"></canvas></div>
-        <!-- Adaptar legenda conforme categorias encontradas -->
-        <div class="sent-legend">
-          <div class="sent-leg-item"><span class="sent-leg-dot" style="background:var(--gold)"></span><span>Elogio à médica</span><strong>18</strong></div>
-          <div class="sent-leg-item"><span class="sent-leg-dot" style="background:rgba(201,169,110,0.45)"></span><span>Identificação com conteúdo</span><strong>8</strong></div>
-          <div class="sent-leg-item"><span class="sent-leg-dot" style="background:rgba(255,255,255,0.3)"></span><span>Apoio & emoji</span><strong>3</strong></div>
-          <div class="sent-leg-item"><span class="sent-leg-dot" style="background:var(--red)"></span><span>Reclamação</span><strong>0</strong></div>
+      <!-- Pilar 2: Google (max 35) -->
+      <div class="pillar-c reveal d2" data-pillar="6" data-max="35" data-color="#EF4444">
+        <div class="p-icon">🔍</div>
+        <div class="p-label">Google</div>
+        <div class="p-ring">
+          <svg viewBox="0 0 100 100">
+            <circle class="pr-bg" cx="50" cy="50" r="45"/>
+            <circle class="pr-arc" cx="50" cy="50" r="45" style="stroke:#EF4444"/>
+          </svg>
+          <div class="pr-center">
+            <span class="pr-val" style="color:#EF4444">6</span>
+            <span class="pr-max">/35</span>
+          </div>
         </div>
+        <div class="p-title" style="color:#EF4444">Google Invisível</div>
+        <div class="p-desc">Sem Google Meu Negócio, sem reviews e ausente em todos os diretórios médicos.</div>
       </div>
-    </div>
-
-    <div class="sent-comments-wrap">
-      <h3 class="sent-comments-title reveal d2">Comentários em destaque</h3>
-      <div class="sent-comments-grid">
-        <!-- Repetir .sent-comment-card para cada comentário em destaque (4-6 cards) -->
-        <div class="sent-comment-card reveal d1">
-          <div class="sent-comment-badges">
-            <span class="sent-badge sent-positivo">😊 Positivo</span>
-            <span class="sent-badge sent-cat">Reconhecimento</span>
+      <!-- Pilar 3: Website (max 25) -->
+      <div class="pillar-c reveal d3" data-pillar="14" data-max="25" data-color="#F59E0B">
+        <div class="p-icon">🌐</div>
+        <div class="p-label">Website</div>
+        <div class="p-ring">
+          <svg viewBox="0 0 100 100">
+            <circle class="pr-bg" cx="50" cy="50" r="45"/>
+            <circle class="pr-arc" cx="50" cy="50" r="45" style="stroke:#F59E0B"/>
+          </svg>
+          <div class="pr-center">
+            <span class="pr-val" style="color:#F59E0B">14</span>
+            <span class="pr-max">/25</span>
           </div>
-          <p class="sent-comment-text">"Cara não daaaaaaá, estão maravilhosas demais BRASIL 🔥🔥 Que exemplo!!!"</p>
-          <a class="sent-comment-link" href="https://www.instagram.com/p/DWG3vb2DSZ6/" target="_blank" rel="noopener">Ver publicação ↗</a>
         </div>
-        <div class="sent-comment-card reveal d2">
-          <div class="sent-comment-badges">
-            <span class="sent-badge sent-positivo">😊 Positivo</span>
-            <span class="sent-badge sent-cat">Elogio</span>
-          </div>
-          <p class="sent-comment-text">"Que espetáculo 💯🚀"</p>
-          <a class="sent-comment-link" href="https://www.instagram.com/p/DWG3vb2DSZ6/" target="_blank" rel="noopener">Ver publicação ↗</a>
-        </div>
-        <div class="sent-comment-card reveal d3">
-          <div class="sent-comment-badges">
-            <span class="sent-badge sent-positivo">😊 Positivo</span>
-            <span class="sent-badge sent-cat">Admiração</span>
-          </div>
-          <p class="sent-comment-text">"Divas fibradas 🔥😍❤️👏🏻"</p>
-          <a class="sent-comment-link" href="https://www.instagram.com/p/DWG3vb2DSZ6/" target="_blank" rel="noopener">Ver publicação ↗</a>
-        </div>
-        <div class="sent-comment-card reveal d4">
-          <div class="sent-comment-badges">
-            <span class="sent-badge sent-positivo">😊 Positivo</span>
-            <span class="sent-badge sent-cat">Elogio</span>
-          </div>
-          <p class="sent-comment-text">"Maravilhosassssssss uau😍"</p>
-          <a class="sent-comment-link" href="https://www.instagram.com/p/DWG3vb2DSZ6/" target="_blank" rel="noopener">Ver publicação ↗</a>
-        </div>
+        <div class="p-title" style="color:#F59E0B">Website Básico</div>
+        <div class="p-desc">bio.site funciona como cartão de visitas, mas sem SEO, sem conteúdo e sem funil.</div>
       </div>
-    </div>
-
-    <div class="sent-footer reveal d3">
-      <a class="sent-profile-link" href="https://www.instagram.com/draizabelarezende/" target="_blank" rel="noopener">
-        Ver perfil @draizabelarezende ↗
-      </a>
-      <span class="sent-date">Análise: 15 de junho de 2026</span>
     </div>
   </div>
 </section>
 
-<script>
-(function() {
-  function initCharts() {
-    if (typeof Chart === 'undefined') { setTimeout(initCharts, 100); return; }
-    /* ▼ SENTIMENT DATA — Alterar arrays com dados reais ▼ */
-    var dCtx = document.getElementById('sentDonut_dra-izabela-rezende-ginecologia-endocrina');
-    if (dCtx && !dCtx._chart) {
-      dCtx._chart = new Chart(dCtx, {
-        type: 'doughnut',
-        data: {
-          labels: ['Positivo', 'Neutro', 'Misto', 'Negativo'],
-          datasets: [{ data: [29, 1, 0, 0], backgroundColor: ['#34D399','rgba(240,235,227,0.2)','#FBBF24','#F87171'], borderWidth: 0, hoverOffset: 6 }]
-        },
-        options: { responsive: true, maintainAspectRatio: true, cutout: '68%', plugins: { legend: { display: false }, tooltip: { callbacks: { label: function(c) { return ' ' + c.label + ': ' + c.raw; } } } }, animation: { animateRotate: true, duration: 1000 } }
-      });
-    }
-    var bCtx = document.getElementById('sentBar_dra-izabela-rezende-ginecologia-endocrina');
-    if (bCtx && !bCtx._chart) {
-      bCtx._chart = new Chart(bCtx, {
-        type: 'bar',
-        data: {
-          labels: ['Elogio à médica', 'Identificação com conteúdo', 'Apoio & emoji', 'Reclamação'],
-          datasets: [{ data: [18, 8, 3, 0], backgroundColor: ['#C9A96E','rgba(201,169,110,0.45)','rgba(255,255,255,0.3)','#F87171'], borderRadius: 4, borderWidth: 0 }]
-        },
-        options: {
-          responsive: true, maintainAspectRatio: false, indexAxis: 'y',
-          plugins: { legend: { display: false }, tooltip: { callbacks: { label: function(c) { return ' ' + c.raw + ' comentários'; } } } },
-          scales: {
-            x: { grid: { color: 'rgba(255,255,255,0.05)' }, ticks: { color: 'rgba(240,235,227,0.45)', font: { size: 11 } } },
-            y: { grid: { display: false }, ticks: { color: 'rgba(240,235,227,0.6)', font: { size: 12 } } }
-          },
-          animation: { duration: 900 }
-        }
-      });
-    }
-    /* ▲ SENTIMENT DATA ▲ */
-  }
-  initCharts();
-})();
-</script>
-<!-- ▲ SENTIMENT ▲ -->
+<!-- TEAM / FOUNDERS -->
+<section class="team-s">
+  <div class="team-inner">
+    <div class="section-header reveal">
+      <div class="tag">Quem está por trás</div>
+      <h2>Ginecologista especialista em saúde hormonal feminina.</h2>
+      <p>A Dra. Izabela Rezende é referência regional em Ginecologia Endócrina, com foco em condições como Lipedema, Reposição Hormonal e Emagrecimento feminino.</p>
+    </div>
+    <div class="team-g">
+      <!-- ▼ TEAM_MEMBERS: repetir .team-c para cada membro ▼ -->
+      <!-- Exemplo de estrutura para copiar:
+      <div class="team-c reveal d1">
+        <div class="team-av">🩺</div>
+        <div>
+          <div class="team-name">Dr. Nome Completo</div>
+          <div class="team-role">Especialidade · CRM 12345</div>
+        </div>
+        <div class="team-tags">
+          <span class="team-tag">Tag 1</span>
+          <span class="team-tag">Tag 2</span>
+        </div>
+        <div class="team-cred">Breve descrição das credenciais e diferenciais do profissional.</div>
+      </div>
+      -->
+      <div class="team-c reveal d1">
+  <div class="team-av">🩺</div>
+  <div>
+    <div class="team-name">Dra. Izabela Rezende</div>
+    <div class="team-role">Ginecologista · RQE 19954</div>
+  </div>
+  <div class="team-tags">
+    <span class="team-tag">Ginecologia Endócrina</span>
+    <span class="team-tag">Lipedema</span>
+    <span class="team-tag">Reposição Hormonal</span>
+    <span class="team-tag">Estética Íntima</span>
+  </div>
+  <div class="team-cred">Especialista em Ginecologia Endócrina com atuação em Itumbiara GO e Uberlândia MG. Referência regional em Lipedema, Reposição Hormonal e Emagrecimento feminino. Conta verificada no Instagram com 10,9 mil seguidoras.</div>
+</div>
+<div class="team-c reveal d2">
+  <div class="team-av">⚕️</div>
+  <div>
+    <div class="team-name">Especialidades Atendidas</div>
+    <div class="team-role">Clínica · Itumbiara GO & Uberlândia MG</div>
+  </div>
+  <div class="team-tags">
+    <span class="team-tag">Lipedema</span>
+    <span class="team-tag">Emagrecimento</span>
+    <span class="team-tag">Endometriose</span>
+    <span class="team-tag">SOP</span>
+  </div>
+  <div class="team-cred">Atendimento especializado para mulheres com condições hormonais complexas. Foco em diagnóstico preciso e tratamento individualizado com abordagem endócrina integrada.</div>
+</div>
+    </div>
+  </div>
+</section>
 
-<!-- ▼ GOOGLE — Alterar itens do checklist e score ▼ -->
-<section class="google-sec">
-  <div class="wrap">
-    <div class="google-grid">
-      <div>
-        <div class="sec-label reveal">Pilar 2 · Google</div>
-        <h2 class="reveal">8 de 35 pontos.<br><em style="font-family:'Playfair Display',serif;font-style:italic">Invisível para quem busca no Google.</em></h2>
-        <p class="sub reveal">Não encontramos Google Meu Negócio verificado para a Dra. Izabela Rezende. Pacientes que buscam "ginecologista Itumbiara" ou "ginecologista Uberlândia" não chegam até ela — um gap crítico que precisa ser corrigido com urgência.</p>
-        <div class="checklist reveal">
-          <!-- Usar .ok (✓), .fail (✗) ou .warn (!) conforme status -->
-          <div class="check-row">
-            <div class="check-ico fail">✗</div>
-            <div class="label"><strong>Google Meu Negócio</strong><span>Sem perfil verificado encontrado nas buscas</span></div>
-          </div>
-          <div class="check-row">
-            <div class="check-ico fail">✗</div>
-            <div class="label"><strong>Avaliações Google</strong><span>Nenhuma review de pacientes identificada</span></div>
-          </div>
-          <div class="check-row">
-            <div class="check-ico fail">✗</div>
-            <div class="label"><strong>Doctoralia / BoaConsulta</strong><span>Sem perfil ativo em plataformas médicas</span></div>
-          </div>
-          <div class="check-row">
-            <div class="check-ico warn">!</div>
-            <div class="label"><strong>Aparece em busca por nome</strong><span>Perfil Instagram verificado (@draizabelarezende) encontrado</span></div>
-          </div>
-          <div class="check-row">
-            <div class="check-ico fail">✗</div>
-            <div class="label"><strong>Visibilidade local (SEO)</strong><span>Não aparece em "ginecologista Itumbiara" ou "Uberlândia"</span></div>
-          </div>
+<!-- ANALYSIS: STRENGTHS + GAPS -->
+<section class="analysis-s">
+  <div class="analysis-inner">
+    <div class="section-header reveal">
+      <div class="tag" style="color:var(--text);opacity:.55">Análise Detalhada</div>
+      <h2>O que está funcionando.<br>O que precisa evoluir.</h2>
+      <p>Diagnóstico honesto dos pontos fortes e das oportunidades de melhoria na presença digital.</p>
+    </div>
+    <div class="analysis-g">
+      <div class="analysis-box strengths reveal d1">
+        <h3><span>✅</span> Pontos Fortes</h3>
+        <div class="analysis-list">
+          <!-- ▼ STRENGTHS: repetir .al-item para cada ponto ▼ -->
+          <!-- Exemplo: <div class="al-item"><div class="al-dot"></div><span>Descrição do ponto forte</span></div> -->
+          <div class="al-item"><div class="al-dot"></div><span>Conta verificada no Instagram com 10,9 mil seguidoras — autoridade digital reconhecida no nicho</span></div>
+<div class="al-item"><div class="al-dot"></div><span>261 posts e publicação ativa: produção de conteúdo consistente e frequente</span></div>
+<div class="al-item"><div class="al-dot"></div><span>Post viral sobre Lipedema com 2.128 curtidas — tema com altíssima demanda e busca no Google</span></div>
+<div class="al-item"><div class="al-dot"></div><span>Especialização em nichos femininos de alta procura: Lipedema, Reposição Hormonal e Emagrecimento</span></div>
+<div class="al-item"><div class="al-dot"></div><span>Presença em duas cidades estratégicas: Itumbiara GO e Uberlândia MG</span></div>
         </div>
       </div>
-      <div>
-        <div class="g-score-box reveal d2">
-          <div class="g-score-num" style="color:#EF4444">8</div>
-          <div class="g-score-max">/35 pts</div>
-          <div class="g-score-lbl">Google Score · Fraco</div>
-        </div>
-        <div class="gap-box reveal d2">
-          <p><strong>Gap crítico:</strong> Médicos com GMB ativo e 50+ avaliações captam em média 3× mais consultas orgânicas. A Dra. Izabela tem presença forte no Instagram, mas está invisível para quem ainda não a segue e busca no Google.</p>
+      <div class="analysis-box gaps reveal d2">
+        <h3><span>⚠️</span> Lacunas Identificadas</h3>
+        <div class="analysis-list">
+          <!-- ▼ GAPS: repetir .al-item para cada lacuna ▼ -->
+          <div class="al-item"><div class="al-dot"></div><span>Sem Google Meu Negócio: pacientes que buscam "ginecologista Itumbiara" no Maps não encontram a clínica</span></div>
+<div class="al-item"><div class="al-dot"></div><span>Ausência total em Doctoralia e BoaConsulta — concorrentes com avaliações ★★★★★ aparecem primeiro</span></div>
+<div class="al-item"><div class="al-dot"></div><span>bio.site não é um site profissional: sem SEO, sem indexação orgânica, sem blog de conteúdo</span></div>
+<div class="al-item"><div class="al-dot"></div><span>Nenhuma avaliação online encontrada — reputação digital zerada fora do Instagram</span></div>
+<div class="al-item"><div class="al-dot"></div><span>10,9 mil seguidoras sem funil: conteúdo excelente que não converte em consultas agendadas</span></div>
         </div>
       </div>
     </div>
   </div>
 </section>
-<!-- ▲ GOOGLE ▲ -->
 
-<!-- ▼ WEBSITE — Alterar URL, checks e score ▼ -->
-<section class="web-sec">
-  <div class="wrap">
-    <div class="web-grid">
-      <div>
-        <div class="sec-label reveal">Pilar 3 · Website</div>
-        <h2 class="reveal">10 de 25 pontos.<br><em style="font-family:'Playfair Display',serif;font-style:italic">Bio.site funcional — mas sem presença profissional.</em></h2>
-        <p class="sub reveal">A Dra. Izabela usa uma página bio.site com links de agendamento via WhatsApp para Itumbiara e Uberlândia. Funciona para quem já a segue, mas não gera tráfego orgânico, não possui SEO e não captura quem a encontra pelo Google.</p>
-        <div class="web-checks reveal">
-          <div class="wc-row"><span style="color:#34D399">✓</span><span>Online com SSL e acesso móvel funcionais</span></div>
-          <div class="wc-row"><span style="color:#34D399">✓</span><span>CTAs de agendamento WhatsApp (Itumbiara e Uberlândia)</span></div>
-          <div class="wc-row"><span style="color:#EF4444">✗</span><span>Sem domínio próprio — bio.site não é indexado no Google</span></div>
-          <div class="wc-row"><span style="color:#EF4444">✗</span><span>Sem formulário, sem blog, sem SEO médico indexável</span></div>
-        </div>
-      </div>
-      <div class="reveal d2">
-        <div class="mockup">
-          <div class="mbar">
-            <div class="mdot" style="background:#FF5F57"></div>
-            <div class="mdot" style="background:#FFBD2E"></div>
-            <div class="mdot" style="background:#28CA41"></div>
-            <div class="murl">bio.site/draizabelarezende</div>
+<!-- INSIGHT QUOTE -->
+<section class="insight-s">
+  <div class="insight-inner">
+    <p class="insight-q reveal">Muita gente ainda trata o lipedema como se fosse apenas gordura localizada — mas o lipedema não é gordura comum.</p>
+    <p class="insight-src reveal">Post com 2.128 curtidas — @draizabelarezende, maio/2026</p>
+    <p class="insight-analysis reveal">Esse post viral revela o potencial de audiência já existente. A Dra. Izabela tem a autoridade de conteúdo e o engajamento real — o que falta é a infraestrutura digital para converter esse alcance em consultas agendadas e pacientes fidelizadas.</p>
+    <div class="insight-chips reveal">
+      <!-- ▼ INSIGHT_CHIPS: <span class="insight-chip">tag</span> ▼ -->
+      <span class="insight-chip">Lipedema</span>
+<span class="insight-chip">Reposição Hormonal</span>
+<span class="insight-chip">Ginecologia Endócrina</span>
+<span class="insight-chip">10,9K seguidoras</span>
+<span class="insight-chip">Conta Verificada ✓</span>
+    </div>
+  </div>
+</section>
+
+<!-- OPPORTUNITIES (flip cards) -->
+<section class="opp-s">
+  <div class="opp-inner">
+    <div class="section-header reveal">
+      <div class="tag">Oportunidades Identificadas</div>
+      <h2>O que a Digital AI<br>faria diferente.</h2>
+      <p>Passe o mouse sobre cada card para ver o detalhamento de cada oportunidade.</p>
+    </div>
+    <div class="opp-g">
+      <!--
+      ESTRUTURA de cada card — copiar e adaptar:
+      <div class="opp-card reveal d1">
+        <div class="opp-inner-flip">
+          <div class="opp-front">
+            <div class="opp-num">01</div>
+            <div class="opp-icon">🤖</div>
+            <div class="opp-title">Título da Oportunidade</div>
+            <div class="opp-impact">Alto Impacto</div>
+            <div class="opp-hint">Passe o mouse para ver detalhes ↗</div>
           </div>
-          <div class="mbody">
-            <div class="web-ok">🔗</div>
-            <div class="web-okt">bio.site/draizabelarezende</div>
+          <div class="opp-back">
+            <div class="opp-title">Título da Oportunidade</div>
+            <p>Descrição detalhada do que seria feito e como impacta o negócio.</p>
+            <div class="opp-gain">→ Resultado esperado: X</div>
           </div>
         </div>
       </div>
+      -->
+      <div class="opp-card reveal d1">
+  <div class="opp-inner-flip">
+    <div class="opp-front">
+      <div class="opp-num">01</div>
+      <div class="opp-icon">📍</div>
+      <div class="opp-title">Google Meu Negócio Ativo</div>
+      <div class="opp-impact">Impacto Crítico</div>
+      <div class="opp-hint">Passe o mouse para ver detalhes ↗</div>
+    </div>
+    <div class="opp-back">
+      <div class="opp-title">Presença no Google Maps</div>
+      <p>Criar e otimizar a ficha GMB com fotos, horários, especialidades e link de agendamento. Pacientes buscando "ginecologista Itumbiara" passariam a encontrar a Dra. Izabela imediatamente.</p>
+      <div class="opp-gain">→ +60% de novos contatos via Google</div>
+    </div>
+  </div>
+</div>
+<div class="opp-card reveal d2">
+  <div class="opp-inner-flip">
+    <div class="opp-front">
+      <div class="opp-num">02</div>
+      <div class="opp-icon">🌐</div>
+      <div class="opp-title">Landing Page Profissional</div>
+      <div class="opp-impact">Alto Impacto</div>
+      <div class="opp-hint">Passe o mouse para ver detalhes ↗</div>
+    </div>
+    <div class="opp-back">
+      <div class="opp-title">Site com Agendamento Integrado</div>
+      <p>Substituir o bio.site por uma landing page profissional com SEO local, especialidades detalhadas, formulário de contato e agendamento direto — convertendo visitantes em pacientes.</p>
+      <div class="opp-gain">→ Taxa de conversão 3x maior</div>
+    </div>
+  </div>
+</div>
+<div class="opp-card reveal d3">
+  <div class="opp-inner-flip">
+    <div class="opp-front">
+      <div class="opp-num">03</div>
+      <div class="opp-icon">⭐</div>
+      <div class="opp-title">Reputação em Diretórios</div>
+      <div class="opp-impact">Alto Impacto</div>
+      <div class="opp-hint">Passe o mouse para ver detalhes ↗</div>
+    </div>
+    <div class="opp-back">
+      <div class="opp-title">Doctoralia & BoaConsulta</div>
+      <p>Perfis completos com avaliações de pacientes nos principais diretórios médicos do Brasil. Concorrentes em Itumbiara já têm avaliações 5 estrelas e captam pacientes que a Dra. Izabela não alcança.</p>
+      <div class="opp-gain">→ +40% de visibilidade médica online</div>
+    </div>
+  </div>
+</div>
+<div class="opp-card reveal d1">
+  <div class="opp-inner-flip">
+    <div class="opp-front">
+      <div class="opp-num">04</div>
+      <div class="opp-icon">🤖</div>
+      <div class="opp-title">Agente de IA no WhatsApp</div>
+      <div class="opp-impact">Alto Impacto</div>
+      <div class="opp-hint">Passe o mouse para ver detalhes ↗</div>
+    </div>
+    <div class="opp-back">
+      <div class="opp-title">Atendimento Inteligente 24/7</div>
+      <p>Agente de IA que responde dúvidas sobre Lipedema, Reposição Hormonal e Ginecologia Endócrina, qualifica pacientes e agenda consultas automaticamente — sem depender do atendimento manual.</p>
+      <div class="opp-gain">→ 0 perdas por falta de resposta rápida</div>
+    </div>
+  </div>
+</div>
+<div class="opp-card reveal d2">
+  <div class="opp-inner-flip">
+    <div class="opp-front">
+      <div class="opp-num">05</div>
+      <div class="opp-icon">📊</div>
+      <div class="opp-title">Funil de Conversão Instagram</div>
+      <div class="opp-impact">Médio Impacto</div>
+      <div class="opp-hint">Passe o mouse para ver detalhes ↗</div>
+    </div>
+    <div class="opp-back">
+      <div class="opp-title">Transformar Seguidoras em Pacientes</div>
+      <p>Estratégia de conteúdo com CTAs estruturados, link na bio otimizado e sequência de mensagens automáticas que convertem as 10,9 mil seguidoras em consultas agendadas.</p>
+      <div class="opp-gain">→ 2-5% de conversão de seguidoras</div>
+    </div>
+  </div>
+</div>
+<div class="opp-card reveal d3">
+  <div class="opp-inner-flip">
+    <div class="opp-front">
+      <div class="opp-num">06</div>
+      <div class="opp-icon">📝</div>
+      <div class="opp-title">Conteúdo SEO para Lipedema</div>
+      <div class="opp-impact">Médio Impacto</div>
+      <div class="opp-hint">Passe o mouse para ver detalhes ↗</div>
+    </div>
+    <div class="opp-back">
+      <div class="opp-title">Blog e SEO Local</div>
+      <p>Artigos otimizados sobre Lipedema, Reposição Hormonal e Emagrecimento feminino — temas que a Dra. Izabela já domina e que têm altíssimo volume de busca orgânica no Google.</p>
+      <div class="opp-gain">→ Tráfego orgânico recorrente e gratuito</div>
+    </div>
+  </div>
+</div>
     </div>
   </div>
 </section>
-<!-- ▲ WEBSITE ▲ -->
 
-<!-- ▼ RECOMENDAÇÕES — 5 ações em ordem de impacto ▼ -->
-<section class="recs-sec">
-  <div class="wrap">
-    <div class="sec-label reveal">Plano de Ação</div>
-    <h2 class="reveal">5 ações.<br>Por ordem de <em style="font-family:'Playfair Display',serif;font-style:italic">impacto</em>.</h2>
-    <p class="sub reveal">Ranqueadas por retorno imediato × esforço de implementação.</p>
-    <div class="timeline">
-      <!-- Ação 1 — Crítico (verde) -->
-      <div class="t-item reveal">
-        <div class="t-num" style="background:rgba(52,211,153,.1);border:1.5px solid #34D399;color:#34D399">01</div>
-        <div class="t-body">
-          <span class="t-impact" style="background:rgba(52,211,153,.1);color:#34D399">⚡ Crítico</span>
-          <h3>Criar e verificar Google Meu Negócio</h3>
-          <p>Cadastrar e verificar o perfil GMB com fotos profissionais, especialidades, localização e link de agendamento. Ativar estratégia de coleta de avaliações com pacientes satisfeitas após cada consulta.</p>
-          <p class="t-gain" style="color:#34D399">→ Potencial: +18 pts no score · Captação orgânica triplicada em buscas locais</p>
-        </div>
+<!-- ROI COUNTERS -->
+<section class="roi-s">
+  <div class="roi-inner">
+    <h2 class="reveal">O impacto quando a presença digital funciona de verdade.</h2>
+    <p class="sub reveal">Projeção conservadora baseada em benchmarks de segmento similar com IA aplicada.</p>
+    <div class="roi-g">
+      <!--
+      ESTRUTURA de cada counter — copiar e adaptar:
+      <div class="roi-c reveal d1">
+        <div class="roi-num" data-target="120" data-suffix="%">0</div>
+        <div class="roi-lbl">Aumento em engajamento Instagram</div>
       </div>
-      <!-- Ação 2 — Alto (amarelo) -->
-      <div class="t-item reveal d1">
-        <div class="t-num" style="background:rgba(251,191,36,.1);border:1.5px solid #FBBF24;color:#FBBF24">02</div>
-        <div class="t-body">
-          <span class="t-impact" style="background:rgba(251,191,36,.1);color:#FBBF24">🚀 Alto Impacto</span>
-          <h3>Landing page profissional no link da bio</h3>
-          <p>Substituir o bio.site por uma landing page personalizada com especialidades, depoimentos, fotos e agendamento online integrado — com domínio próprio, indexável pelo Google.</p>
-          <p class="t-gain" style="color:#FBBF24">→ Potencial: +10 pts no score · Converte seguidores do Instagram em pacientes reais</p>
-        </div>
-      </div>
-      <!-- Ação 3 — Alto (gold) -->
-      <div class="t-item reveal d2">
-        <div class="t-num" style="background:rgba(201,169,110,.1);border:1.5px solid var(--gold);color:var(--gold)">03</div>
-        <div class="t-body">
-          <span class="t-impact" style="background:rgba(201,169,110,.1);color:var(--gold)">🎯 Alto Impacto</span>
-          <h3>Perfil ativo no Doctoralia e BoaConsulta</h3>
-          <p>Criar e manter perfis nas principais plataformas médicas do Brasil. Além de reviews, garante presença nas buscas de pacientes que pesquisam diretamente por especialidade e cidade.</p>
-          <p class="t-gain" style="color:var(--gold)">→ Potencial: +5 pts no score · Nova fonte de pacientes qualificados por plataforma</p>
-        </div>
-      </div>
-      <!-- Ação 4 — Médio (cinza) -->
-      <div class="t-item reveal d3">
-        <div class="t-num" style="background:rgba(255,255,255,.04);border:1.5px solid rgba(255,255,255,.15);color:var(--muted)">04</div>
-        <div class="t-body">
-          <span class="t-impact" style="background:rgba(255,255,255,.05);color:var(--muted)">📈 Médio</span>
-          <h3>Ampliar conteúdo de resultados com frequência semanal</h3>
-          <p>Posts de antes/depois geraram 5× o engajamento médio do perfil. Aumentar a frequência desse tipo de conteúdo — com consentimento documentado das pacientes — acelera autoridade e conversão.</p>
-          <p class="t-gain" style="color:var(--muted)">→ Potencial: +3 pts no score · ER médio superior a 4%</p>
-        </div>
-      </div>
-      <!-- Ação 5 — Digital AI -->
-      <div class="t-item reveal d4">
-        <div class="t-num" style="background:rgba(255,255,255,.04);border:1.5px solid rgba(255,255,255,.15);color:var(--muted)">05</div>
-        <div class="t-body">
-          <span class="t-impact" style="background:rgba(255,255,255,.05);color:var(--muted)">🤖 Diferencial</span>
-          <h3>Agente de IA para triagem e agendamento no WhatsApp</h3>
-          <p>Implementar um agente inteligente que responde dúvidas frequentes, qualifica pacientes e agenda consultas automaticamente — 24h por dia, sem sobrecarregar a equipe.</p>
-          <p class="t-gain" style="color:var(--muted)">→ Potencial: +5 pts no score · Atendimento automatizado, mais conversões, menos sobrecarga</p>
-        </div>
-      </div>
+      data-target: número final | data-suffix: sufixo (%, x, +, etc.)
+      -->
+      <div class="roi-c reveal d1">
+  <div class="roi-num" data-target="3" data-suffix="x">0</div>
+  <div class="roi-lbl">Mais captação de pacientes<br>via Google e Maps</div>
+</div>
+<div class="roi-c reveal d2">
+  <div class="roi-num" data-target="40" data-suffix="%">0</div>
+  <div class="roi-lbl">Redução de faltas com<br>lembretes automáticos via WhatsApp</div>
+</div>
+<div class="roi-c reveal d3">
+  <div class="roi-num" data-target="120" data-suffix="%">0</div>
+  <div class="roi-lbl">Aumento de engajamento com<br>funil de conteúdo estruturado</div>
+</div>
     </div>
   </div>
 </section>
-<!-- ▲ RECOMENDAÇÕES ▲ -->
 
-<!-- ▼ PROJEÇÃO — Barras de score atual vs. projetado ▼ -->
-<section class="proj-sec">
-  <div class="wrap">
-    <div class="sec-label reveal">Score Projetado</div>
-    <h2 class="reveal">De C para<br><em style="font-family:'Playfair Display',serif;font-style:italic;color:var(--green)">A.</em></h2>
-    <p class="sub reveal">Com as 5 ações implementadas em 90 dias, o score pode saltar de Grau C para Grau A — passando de invisível no Google para referência digital em ginecologia endócrina na região.</p>
-    <div class="bar-group">
-      <div class="bar-row reveal">
-        <div class="bar-head">
-          <span class="bar-label">Score atual — diagnóstico completo</span>
-          <span class="bar-val" style="color:var(--grade-color)">51 / 100 — Grau C</span>
-        </div>
-        <div class="bar-track"><div class="bar-fill" style="width:51%;background:var(--grade-color)"></div></div>
-      </div>
-      <div class="bar-row reveal d2">
-        <div class="bar-head">
-          <span class="bar-label">Score projetado (com 5 ações)</span>
-          <span class="bar-val" style="color:#34D399">87+ / 100 — Grau A</span>
-        </div>
-        <div class="bar-track"><div class="bar-fill" style="width:87%;background:#34D399"></div></div>
-      </div>
-    </div>
-    <div class="proj-note reveal">
-      <p><strong>Projeção em 90 dias:</strong> GMB verificado (+18 pts) + Landing page profissional (+10 pts) + Doctoralia (+5 pts) + conteúdo de resultado (+3 pts) + IA WhatsApp (+5 pts) = <strong>+41 pontos</strong>. Score estimado: 87+/100 · Grau A.</p>
-    </div>
-  </div>
-</section>
-<!-- ▲ PROJEÇÃO ▲ -->
-
-<!-- CTA FINAL -->
-<section class="cta-sec">
-  <div class="wrap">
-    <p class="eyebrow reveal">Próximo passo</p>
-    <h2 class="reveal">Transforme sua presença digital<br>em <em>90 dias</em>.</h2>
-    <p class="reveal">A Digital AI cria sua landing page personalizada, configura seu Google Meu Negócio e estrutura toda a sua presença digital — para você focar no que importa: cuidar das suas pacientes.</p>
-    <a href="https://wa.me/5564992943740?text=Ol%C3%A1%2C%20vi%20o%20diagn%C3%B3stico%20digital%20da%20Dra.%20Izabela%20Rezende%20e%20gostaria%20de%20saber%20mais%20sobre%20as%20solu%C3%A7%C3%B5es%20da%20Digital%20AI." target="_blank" class="cta-btn reveal">
-      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-      Chamar a equipe
+<!-- CTA -->
+<section class="cta-s">
+  <div class="cta-inner">
+    <div class="cta-tag reveal">Próximo passo</div>
+    <h2 class="reveal">Sua expertise merece uma presença digital à altura.</h2>
+    <p class="reveal">Identificamos gaps importantes que estão limitando o crescimento da Dra. Izabela Rezende online. Podemos resolver o Google, o site e o funil de conversão em uma solução integrada de IA — rápido e sem complicação.</p>
+    <a href="https://wa.me/5564981337424?text=Ol%C3%A1%2C+vi+o+diagn%C3%B3stico+digital+da+Dra.+Izabela+Rezende+e+gostaria+de+conversar+sobre+como+a+Digital+AI+pode+ajudar" target="_blank" rel="noopener" class="cta-btn-wa reveal">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      Quero evoluir minha presença digital
     </a>
+    <p class="cta-note reveal">Sem compromisso — só uma conversa rápida de 15 min com a equipe da Digital AI</p>
   </div>
 </section>
 
+<!-- FOOTER -->
 <footer class="site-footer">
-  <div class="wrap">
-    <a href="https://digital-ai.tech" target="_blank" rel="noopener" class="f-logo-link">
-      <img src="https://s3.amazonaws.com/cdn.digital-ai.tech/uploads/media-cortex/identity/digital-ai/logos/logo-negative.svg" alt="Digital AI" class="f-logo" />
-    </a>
-  </div>
+  <a href="https://digital-ai.tech" target="_blank" rel="noopener">
+    <img src="https://s3.amazonaws.com/cdn.digital-ai.tech/uploads/media-cortex/identity/digital-ai/logos/logo-negative.svg" alt="Digital AI" class="f-logo"/>
+  </a>
 </footer>
 
 <script>
+/* ═══════════════════════════════════════════════
+   ANIMAÇÕES — não alterar
+   ═══════════════════════════════════════════════ */
+// Intersection Observer para .reveal
+const io = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (!e.isIntersecting) return;
+    e.target.classList.add('visible');
+    io.unobserve(e.target);
+    // Pillar rings
+    if (e.target.classList.contains('pillar-c')) animPillar(e.target);
+    // ROI counters
+    if (e.target.classList.contains('roi-c')) {
+      const el = e.target.querySelector('[data-target]');
+      if (el) animCount(el, +el.dataset.target, el.dataset.suffix||'', 1800);
+    }
+  });
+}, { threshold: 0.15 });
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+// Pillar ring animation
+function animPillar(card) {
+  const arc = card.querySelector('.pr-arc');
+  const val = card.querySelector('.pr-val');
+  if (!arc) return;
+  const s = +card.dataset.pillar, m = +card.dataset.max;
+  const off = 283 - (s / m * 283);
+  setTimeout(() => { arc.style.strokeDashoffset = off; }, 200);
+  if (val) animCount(val, s, '', 1400);
+}
+
+// Count-up animation
 function animCount(el, target, sfx, dur) {
-  const isF = String(target).includes('.');
   const start = performance.now();
+  const isFloat = String(target).includes('.');
   function tick(now) {
     const p = Math.min((now - start) / dur, 1);
-    const e = 1 - Math.pow(1 - p, 3);
-    const v = target * e;
-    el.textContent = isF ? v.toFixed(2) + (sfx||'') : Math.round(v) + (sfx||'');
+    const ease = 1 - Math.pow(1 - p, 3);
+    const v = target * ease;
+    el.textContent = (isFloat ? v.toFixed(1) : Math.round(v)) + (sfx || '');
     if (p < 1) requestAnimationFrame(tick);
   }
   requestAnimationFrame(tick);
 }
-function animPillar(card) {
-  const arc = card.querySelector('.ring-arc');
-  const num = card.querySelector('.ring-val[data-t]');
-  if (!arc || !num) return;
-  const s = +arc.dataset.s, m = +arc.dataset.m;
-  const offset = 339 - (s / m * 339);
-  setTimeout(() => { arc.style.strokeDashoffset = offset; animCount(num, s, '', 1500); }, 200);
-}
-const io = new IntersectionObserver(entries => {
-  entries.forEach(e => {
-    if (!e.isIntersecting) return;
-    const el = e.target;
-    el.classList.add('visible');
-    io.unobserve(el);
-    if (el.classList.contains('pillar')) animPillar(el);
-    if (el.classList.contains('bar-row')) el.classList.add('run');
-  });
-}, { threshold: 0.18 });
-document.querySelectorAll('.reveal').forEach(el => io.observe(el));
-window.addEventListener('load', () => {
-  /* ▼ SCORE: Alterar o número final da animação do hero ▼ */
-  setTimeout(() => animCount(document.getElementById('heroNum'), 51, '', 1800), 700);
-  /* ▲ SCORE ▲ */
+
+// Flip cards — touch support
+document.querySelectorAll('.opp-card').forEach(card => {
+  card.addEventListener('click', () => card.classList.toggle('flipped'));
 });
 </script>
 </body>
