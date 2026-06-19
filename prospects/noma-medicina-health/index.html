@@ -136,15 +136,18 @@
     .pill-expand-hint::after{content:'›';font-size:1rem;transition:transform .3s}
     .pill-c.active .pill-expand-hint::after{transform:rotate(90deg)}
 
-    /* ── PHOTO STRIP — azul primário ── */
+    /* ── FOUNDER CARDS — azul primário ── */
     .ph-s{background:linear-gradient(135deg,var(--brand-primary) 0%,var(--brand-secondary) 100%)}
-    .ph-g{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:40px}
-    @media(max-width:768px){.ph-g{grid-template-columns:repeat(2,1fr)}}
-    .ph-c{border-radius:var(--r-xl);overflow:hidden;aspect-ratio:1;position:relative;cursor:pointer}
-    .ph-c img{width:100%;height:100%;object-fit:cover;transition:transform .45s ease,filter .3s}
-    .ph-c:hover img{transform:scale(1.08);filter:brightness(1.1)}
-    .ph-lbl{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent,rgba(15,31,92,.85));padding:24px 12px 12px;font-family:var(--font-h);font-size:.78rem;font-weight:600;color:#fff;transform:translateY(4px);transition:transform .3s}
-    .ph-c:hover .ph-lbl{transform:translateY(0)}
+    .ph-g{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;margin-top:40px}
+    @media(max-width:640px){.ph-g{grid-template-columns:1fr}}
+    .ph-c{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);border-radius:var(--r-xl);padding:32px;display:flex;flex-direction:column;gap:16px;transition:background .25s}
+    .ph-c:hover{background:rgba(255,255,255,.16)}
+    .ph-av{width:64px;height:64px;border-radius:50%;background:rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center;font-size:1.8rem;flex-shrink:0}
+    .ph-name{font-family:var(--font-h);font-size:1.2rem;font-weight:800;color:#fff;margin-bottom:4px}
+    .ph-role{font-size:.85rem;color:rgba(255,255,255,.7);margin-bottom:12px}
+    .ph-tags{display:flex;flex-wrap:wrap;gap:6px}
+    .ph-tag{background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.25);color:#fff;font-size:.75rem;font-weight:600;padding:4px 10px;border-radius:100px}
+    .ph-cred{font-size:.82rem;color:rgba(255,255,255,.55);font-style:italic;margin-top:4px}
 
     /* ── SUMMARY — branco ── */
     .sum-s{background:#fff}
@@ -162,10 +165,7 @@
     /* ── ABOUT — azul escuro ── */
     .ab-s{background:var(--brand-dark);position:relative;overflow:hidden}
     .ab-s::before{content:'';position:absolute;top:-30%;right:-10%;width:600px;height:600px;background:radial-gradient(circle,rgba(45,82,239,.25) 0%,transparent 70%);pointer-events:none}
-    .ab-in{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;position:relative;z-index:1}
-    @media(max-width:768px){.ab-in{grid-template-columns:1fr}}
-    .ab-img{border-radius:var(--r-2xl);overflow:hidden;box-shadow:0 24px 60px rgba(0,0,0,.4);aspect-ratio:4/3}
-    .ab-img img{width:100%;height:100%;object-fit:cover}
+    .ab-in{max-width:760px;margin:0 auto;position:relative;z-index:1;text-align:left}
     .ab-q{border-left:4px solid var(--brand-primary);padding-left:20px;margin:24px 0;font-style:italic;color:rgba(255,255,255,.9);font-size:1.05rem;line-height:1.65}
     .ab-q cite{display:block;margin-top:10px;font-style:normal;font-weight:600;font-size:.85rem;color:rgba(255,255,255,.5)}
     .ab-txt{font-size:.95rem;color:rgba(255,255,255,.65);line-height:1.75}
@@ -422,10 +422,32 @@
       <p class="ssub ssub-inv">Ginecologia Integrativa + Dermatologia Avançada — duas especialistas com formações de destaque unidas pelo propósito de oferecer cuidado 360° para mulheres.</p>
     </div>
     <div class="ph-g">
-      <div class="ph-c"><img src="assets/img-post2.jpg" alt="Noma Medicina" loading="lazy" /><div class="ph-lbl">@nomamedicinaintegrativa</div></div>
-      <div class="ph-c"><img src="assets/img-post1.jpg" alt="Clínica Noma" loading="lazy" /><div class="ph-lbl">Ginecologia · Climatério · UNIFESP</div></div>
-      <div class="ph-c"><img src="assets/img-post12.jpg" alt="Medicina Integrativa" loading="lazy" /><div class="ph-lbl">Dermatologia · +10K atendimentos</div></div>
-      <div class="ph-c"><img src="assets/img-post5.jpg" alt="Saúde da Mulher" loading="lazy" /><div class="ph-lbl">Lipedema 360° · Tecnologias</div></div>
+      <div class="ph-c">
+        <div class="ph-av">👩‍⚕️</div>
+        <div>
+          <div class="ph-name">Dra. Marcella Dorte</div>
+          <div class="ph-role">Ginecologia Integrativa · Climatério · Endócrinologia</div>
+          <div class="ph-tags">
+            <span class="ph-tag">UNIFESP — Ambulatório de Climatério</span>
+            <span class="ph-tag">Fitoterapia</span>
+            <span class="ph-tag">Saúde da Mulher</span>
+          </div>
+          <div class="ph-cred">@dramarcelladorte</div>
+        </div>
+      </div>
+      <div class="ph-c">
+        <div class="ph-av">👩‍⚕️</div>
+        <div>
+          <div class="ph-name">Dra. Ana Luiza Torres</div>
+          <div class="ph-role">Dermatologia · Nutrologia · Tecnologias Estéticas</div>
+          <div class="ph-tags">
+            <span class="ph-tag">+10K atendimentos</span>
+            <span class="ph-tag">Lipedema 360°</span>
+            <span class="ph-tag">Nutrição Funcional</span>
+          </div>
+          <div class="ph-cred">@draanaluizatlima</div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -468,21 +490,18 @@
 <section class="ab-s">
   <div class="container">
     <div class="ab-in">
-      <div class="ab-img"><img src="assets/img-post2.jpg" alt="Noma Medicina Integrativa" loading="lazy" /></div>
-      <div>
-        <div class="sbadge sbadge-inv">💬 Visão Estratégica</div>
-        <h2 class="stitle stitle-inv">O Momento Certo para Crescer com Tecnologia</h2>
-        <blockquote class="ab-q">
-          "Descomplique sua jornada — nossa equipe está pronta para ajudar você a entender melhor nossos processos."
-          <cite>— Noma Medicina Integrativa, clinicanoma.med.br</cite>
-        </blockquote>
-        <p class="ab-txt">Essa frase revela um insight estratégico: a própria clínica reconhece que pacientes têm dificuldade de navegar pelo processo. É exatamente aí que a automação com IA resolve — de forma invisível para a paciente, transformadora para a equipe.</p>
-        <div class="ab-chips">
-          <span class="ab-chip">Clínica em fase de lançamento</span>
-          <span class="ab-chip">2 fundadoras</span>
-          <span class="ab-chip">Ticket R$350–800</span>
-          <span class="ab-chip">Oportunidade: 9 de 10</span>
-        </div>
+      <div class="sbadge sbadge-inv">💬 Visão Estratégica</div>
+      <h2 class="stitle stitle-inv">O Momento Certo para Crescer com Tecnologia</h2>
+      <blockquote class="ab-q">
+        "Descomplique sua jornada — nossa equipe está pronta para ajudar você a entender melhor nossos processos."
+        <cite>— Noma Medicina Integrativa, clinicanoma.med.br</cite>
+      </blockquote>
+      <p class="ab-txt">Essa frase revela um insight estratégico: a própria clínica reconhece que pacientes têm dificuldade de navegar pelo processo. É exatamente aí que a automação com IA resolve — de forma invisível para a paciente, transformadora para a equipe.</p>
+      <div class="ab-chips">
+        <span class="ab-chip">Clínica em fase de lançamento</span>
+        <span class="ab-chip">2 fundadoras</span>
+        <span class="ab-chip">Ticket R$350–800</span>
+        <span class="ab-chip">Oportunidade: 9 de 10</span>
       </div>
     </div>
   </div>
