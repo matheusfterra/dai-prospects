@@ -3,1027 +3,773 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Diagnostico de Saude Digital — Noma Medicina Integrativa</title>
-  <meta property="og:title" content="Diagnostico de Saude Digital — Noma Medicina Integrativa" />
-  <meta property="og:description" content="Medicina Integrativa · Sao Paulo · Score 4,5/10 — Analise completa da presenca digital." />
-  <meta property="og:type" content="website" />
-  <meta property="og:locale" content="pt_BR" />
+  <title>Diagnóstico de Presença Digital — Noma Medicina Integrativa | Digital AI</title>
+  <meta name="description" content="Score 45/100 — Análise completa da presença digital da Noma Medicina Integrativa. Veja onde estão as oportunidades ocultas de crescimento." />
+  <meta property="og:title" content="Diagnóstico Digital — Noma Medicina Integrativa · Score 45/100" />
+  <meta property="og:description" content="Medicina Integrativa · Bela Vista, São Paulo/SP · Score 45/100 · Grau D — Análise completa de Instagram, Google, Website e Atendimento." />
+  <meta name="twitter:card" content="summary_large_image" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet" />
   <style>
-    :root {
-      --brand-primary: #2D52EF;
-      --brand-secondary: #3B2FC9;
-      --brand-dark: #0F1F5C;
-      --brand-accent: #E8EEFF;
-      --font-heading: 'Plus Jakarta Sans', sans-serif;
-      --font-body: 'DM Sans', sans-serif;
+    :root{
+      --brand-primary:#2D52EF;
+      --brand-secondary:#3B2FC9;
+      --brand-dark:#0F1F5C;
+      --brand-accent:#E8EEFF;
+      --color-green:#10B981;
+      --color-yellow:#F59E0B;
+      --color-red:#EF4444;
+      --color-gray:#6B7280;
+      --font-h:'Plus Jakarta Sans',sans-serif;
+      --font-b:'DM Sans',sans-serif;
+      --r-xl:16px;--r-2xl:24px;
+      --sh-sm:0 1px 3px rgba(0,0,0,.08);
+      --sh-md:0 4px 6px rgba(0,0,0,.07),0 2px 4px rgba(0,0,0,.06);
+      --sh-lg:0 10px 15px rgba(0,0,0,.07),0 4px 6px rgba(0,0,0,.05);
+      --sh-xl:0 20px 25px rgba(0,0,0,.08),0 10px 10px rgba(0,0,0,.04);
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:var(--font-b);color:#1a1a2e;background:#fff;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
 
-      --bg: #FAFBFF;
-      --surface: #FFFFFF;
-      --surface-alt: #F0F3FF;
-      --text-primary: #0F1F5C;
-      --text-secondary: #4A5578;
-      --text-muted: #8892B0;
-      --border: rgba(15, 31, 92, 0.08);
-      --shadow-sm: 0 1px 3px rgba(15, 31, 92, 0.06);
-      --shadow-md: 0 4px 16px rgba(15, 31, 92, 0.08);
-      --shadow-lg: 0 8px 32px rgba(15, 31, 92, 0.10);
+    /* ── NAVBAR ── */
+    .nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:16px 32px;display:flex;align-items:center;justify-content:space-between;transition:all .3s}
+    .nav.sc{background:rgba(255,255,255,.97);backdrop-filter:blur(12px);box-shadow:0 2px 20px rgba(45,82,239,.1)}
+    .nav-logo{display:flex;align-items:center;gap:10px}
+    .nav-logo img{height:34px;transition:filter .3s;filter:brightness(0) invert(1)}
+    .nav.sc .nav-logo img{filter:none}
+    .nav-cta{background:var(--brand-primary);color:#fff;font-family:var(--font-h);font-size:.85rem;font-weight:600;padding:10px 22px;border-radius:100px;text-decoration:none;transition:all .2s;box-shadow:0 4px 12px rgba(45,82,239,.3)}
+    .nav-cta:hover{background:var(--brand-secondary);transform:translateY(-1px);box-shadow:0 6px 18px rgba(45,82,239,.4)}
 
-      --score-critical: #E53E3E;
-      --score-low: #ED8936;
-      --score-medium: #ECC94B;
-      --score-good: #38A169;
-      --score-great: #2D52EF;
-    }
+    /* ── HERO ── */
+    .hero{min-height:100vh;background:linear-gradient(135deg,var(--brand-primary) 0%,var(--brand-dark) 100%);display:flex;align-items:center;padding:120px 32px 80px;position:relative;overflow:hidden}
+    .hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse at 20% 80%,rgba(59,47,201,.3) 0%,transparent 50%),radial-gradient(ellipse at 80% 20%,rgba(45,82,239,.2) 0%,transparent 50%);pointer-events:none}
+    .hero-particles{position:absolute;inset:0;pointer-events:none;overflow:hidden}
+    .hero-particles::before{content:'';position:absolute;top:15%;left:10%;width:300px;height:300px;border:1px solid rgba(255,255,255,.06);border-radius:50%;animation:float 8s ease-in-out infinite}
+    .hero-particles::after{content:'';position:absolute;bottom:20%;right:8%;width:200px;height:200px;border:1px solid rgba(255,255,255,.04);border-radius:50%;animation:float 6s ease-in-out infinite reverse}
+    @keyframes float{0%,100%{transform:translateY(0) rotate(0deg)}50%{transform:translateY(-20px) rotate(5deg)}}
+    .hero-glow{position:absolute;top:-20%;right:-10%;width:700px;height:700px;background:radial-gradient(circle,rgba(59,47,201,.4) 0%,transparent 70%);pointer-events:none}
+    .hero-inner{max-width:1080px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;position:relative;z-index:1;width:100%}
+    @media(max-width:900px){.hero-inner{grid-template-columns:1fr;gap:40px}}
+    .hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);border-radius:100px;padding:8px 18px;margin-bottom:24px;font-size:.78rem;font-weight:700;color:rgba(255,255,255,.9);letter-spacing:.06em;text-transform:uppercase}
+    .bdot{width:7px;height:7px;border-radius:50%;background:#10B981;animation:pg 2s infinite;flex-shrink:0}
+    @keyframes pg{0%,100%{box-shadow:0 0 0 0 rgba(16,185,129,.5)}50%{box-shadow:0 0 0 6px rgba(16,185,129,0)}}
+    .hero-h{font-family:var(--font-h);font-size:clamp(1.9rem,4.5vw,3rem);font-weight:800;color:#fff;line-height:1.15;margin-bottom:16px}
+    .hero-h em{font-style:normal;background:linear-gradient(135deg,#E8EEFF,#A5B4FC);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .hero-sub{font-size:.97rem;color:rgba(255,255,255,.72);line-height:1.7;margin-bottom:32px;max-width:440px}
+    .hero-stats{display:flex;gap:12px;flex-wrap:wrap}
+    .stat-p{display:flex;flex-direction:column;align-items:center;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.15);border-radius:var(--r-xl);padding:14px 18px;min-width:80px;transition:background .2s}
+    .stat-p:hover{background:rgba(255,255,255,.18)}
+    .stat-v{font-family:var(--font-h);font-size:1.25rem;font-weight:800;color:#fff}
+    .stat-l{font-size:.68rem;color:rgba(255,255,255,.6);font-weight:500;text-transform:uppercase;letter-spacing:.04em;margin-top:2px;text-align:center}
 
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    /* SCORE RING */
+    .hero-score{display:flex;flex-direction:column;align-items:center;gap:24px}
+    .ring-w{position:relative;width:220px;height:220px}
+    .ring-w svg{transform:rotate(-90deg)}
+    .r-track{stroke-dasharray:565;stroke-dashoffset:0}
+    .r-fill{stroke-dasharray:565;stroke-dashoffset:565;animation:ra 1.8s cubic-bezier(.4,0,.2,1) forwards .8s}
+    @keyframes ra{to{stroke-dashoffset:311}}
+    .score-center{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center}
+    .score-n{font-family:var(--font-h);font-size:3.8rem;font-weight:800;color:#fff;line-height:1}
+    .score-d{font-size:.9rem;color:rgba(255,255,255,.55)}
+    .grade-c{display:inline-flex;align-items:center;gap:10px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.15);border-radius:var(--r-xl);padding:12px 20px}
+    .grade-l{width:44px;height:44px;border-radius:50%;background:var(--color-red);display:flex;align-items:center;justify-content:center;font-family:var(--font-h);font-size:1.4rem;font-weight:800;color:#fff;box-shadow:0 4px 16px rgba(239,68,68,.4)}
+    .gt{font-family:var(--font-h);font-weight:700;color:#fff;font-size:1rem}
+    .gs{font-size:.8rem;color:rgba(255,255,255,.6)}
 
-    html {
-      background: var(--bg);
-      scroll-behavior: smooth;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-    }
+    /* ── SECTIONS ── */
+    section{padding:80px 32px}
+    .container{max-width:1080px;margin:0 auto}
+    .sbadge{display:inline-flex;align-items:center;gap:6px;background:var(--brand-accent);color:var(--brand-primary);font-size:.75rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:6px 14px;border-radius:100px;margin-bottom:14px}
+    .sbadge-inv{background:rgba(255,255,255,.15);color:#fff}
+    .stitle{font-family:var(--font-h);font-size:clamp(1.6rem,3vw,2.2rem);font-weight:800;color:var(--brand-dark);line-height:1.2;margin-bottom:10px}
+    .stitle-inv{color:#fff}
+    .ssub{font-size:1rem;color:var(--color-gray);max-width:540px}
+    .ssub-inv{color:rgba(255,255,255,.65)}
+    .shead{margin-bottom:48px}
 
-    body {
-      font-family: var(--font-body);
-      color: var(--text-primary);
-      line-height: 1.6;
-      overflow-x: hidden;
-    }
+    /* ── PERFIL DA CLINICA ── */
+    .profile-s{background:#fff}
+    .profile-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:60px;align-items:center}
+    @media(max-width:768px){.profile-grid{grid-template-columns:1fr;gap:32px}}
+    .profile-card{background:linear-gradient(135deg,var(--brand-dark) 0%,#1a1060 100%);border-radius:var(--r-2xl);padding:40px;position:relative;overflow:hidden}
+    .profile-card::before{content:'';position:absolute;top:-30%;right:-20%;width:300px;height:300px;background:radial-gradient(circle,rgba(45,82,239,.3) 0%,transparent 70%)}
+    .profile-card-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.18);border-radius:100px;padding:6px 14px;font-size:.72rem;font-weight:700;color:rgba(255,255,255,.9);letter-spacing:.05em;text-transform:uppercase;margin-bottom:20px;position:relative;z-index:1}
+    .profile-card-name{font-family:var(--font-h);font-size:1.6rem;font-weight:800;color:#fff;margin-bottom:8px;line-height:1.2;position:relative;z-index:1}
+    .profile-card-sub{font-size:.9rem;color:rgba(255,255,255,.6);margin-bottom:24px;position:relative;z-index:1}
+    .profile-stats{display:grid;grid-template-columns:1fr 1fr;gap:12px;position:relative;z-index:1}
+    .ps-item{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);border-radius:var(--r-xl);padding:14px;text-align:center}
+    .ps-v{font-family:var(--font-h);font-size:1.3rem;font-weight:800;color:#fff}
+    .ps-l{font-size:.7rem;color:rgba(255,255,255,.5);text-transform:uppercase;letter-spacing:.04em;margin-top:3px}
+    .profile-info{display:flex;flex-direction:column;gap:16px}
+    .profile-info-item{display:flex;gap:14px;align-items:flex-start}
+    .pi-icon{width:42px;height:42px;border-radius:10px;background:var(--brand-accent);display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0}
+    .pi-label{font-size:.75rem;color:var(--color-gray);font-weight:600;text-transform:uppercase;letter-spacing:.04em;margin-bottom:2px}
+    .pi-val{font-family:var(--font-h);font-size:.95rem;font-weight:600;color:var(--brand-dark)}
 
-    /* ── Animations ── */
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(30px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    @keyframes scaleIn {
-      from { opacity: 0; transform: scale(0.9); }
-      to { opacity: 1; transform: scale(1); }
-    }
-    @keyframes fillGauge {
-      from { stroke-dashoffset: 283; }
-    }
-    @keyframes countUp {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
-    @keyframes slideRight {
-      from { transform: scaleX(0); }
-      to { transform: scaleX(var(--progress)); }
-    }
-    @keyframes pulse {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0.6; }
-    }
+    /* ── PILLARS ── */
+    .pill-s{background:#f0f4ff}
+    .pill-g{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px}
+    .pill-c{background:#fff;border:1px solid #E0E7FF;border-radius:var(--r-xl);padding:28px;box-shadow:var(--sh-sm);transition:all .3s;position:relative;overflow:hidden;cursor:pointer}
+    .pill-c:hover{box-shadow:var(--sh-lg);transform:translateY(-4px);border-color:transparent}
+    .pill-c.active{box-shadow:0 0 0 2px var(--brand-primary),var(--sh-xl);transform:translateY(-4px)}
+    .pill-c::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;transition:height .3s}
+    .pill-c.g::before{background:var(--color-green)}
+    .pill-c.y::before{background:var(--color-yellow)}
+    .pill-c.r::before{background:var(--color-red)}
+    .pill-c.active::before{height:6px}
+    .pill-h{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:18px}
+    .pill-ic{width:48px;height:48px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.4rem;transition:transform .2s}
+    .pill-c:hover .pill-ic{transform:scale(1.1)}
+    .pill-ic.g{background:rgba(16,185,129,.1)}.pill-ic.y{background:rgba(245,158,11,.1)}.pill-ic.r{background:rgba(239,68,68,.1)}
+    .pill-sw{text-align:right}
+    .pill-sc{font-family:var(--font-h);font-size:1.9rem;font-weight:800;line-height:1}
+    .pill-sc.g{color:var(--color-green)}.pill-sc.y{color:var(--color-yellow)}.pill-sc.r{color:var(--color-red)}
+    .pill-sm{font-size:.78rem;color:var(--color-gray)}
+    .pill-n{font-family:var(--font-h);font-size:1.05rem;font-weight:700;color:var(--brand-dark);margin-bottom:8px}
+    .pill-d{font-size:.88rem;color:var(--color-gray);line-height:1.6;margin-bottom:18px}
+    .pb{height:7px;background:#EEF2FF;border-radius:100px;overflow:hidden;margin-bottom:14px}
+    .pf{height:100%;border-radius:100px;transition:width 1.2s cubic-bezier(.4,0,.2,1)}
+    .pf.g{background:var(--color-green)}.pf.y{background:var(--color-yellow)}.pf.r{background:var(--color-red)}
+    .tags{display:flex;flex-wrap:wrap;gap:6px}
+    .tag{font-size:.73rem;font-weight:600;padding:4px 10px;border-radius:100px}
+    .tag.p{background:rgba(16,185,129,.1);color:#059669}
+    .tag.n{background:rgba(239,68,68,.1);color:#DC2626}
+    .tag.u{background:rgba(107,114,128,.1);color:#4B5563}
+    .pill-extra{max-height:0;overflow:hidden;transition:max-height .4s ease,opacity .3s;opacity:0;border-top:1px solid #EEF2FF;margin-top:16px;padding-top:0}
+    .pill-c.active .pill-extra{max-height:140px;opacity:1;padding-top:14px}
+    .pill-extra p{font-size:.83rem;color:var(--brand-dark);line-height:1.6}
+    .pill-expand-hint{font-size:.75rem;color:var(--brand-primary);font-weight:600;display:flex;align-items:center;gap:4px;margin-top:14px;opacity:.7;transition:opacity .2s}
+    .pill-c:hover .pill-expand-hint{opacity:1}
+    .pill-expand-hint::after{content:'›';font-size:1rem;transition:transform .3s}
+    .pill-c.active .pill-expand-hint::after{transform:rotate(90deg)}
 
-    .reveal {
-      opacity: 0;
-      transform: translateY(30px);
-      transition: opacity 0.6s ease, transform 0.6s ease;
-    }
-    .reveal.visible {
-      opacity: 1;
-      transform: none;
-    }
-    .d1 { transition-delay: 0.1s; }
-    .d2 { transition-delay: 0.2s; }
-    .d3 { transition-delay: 0.3s; }
-    .d4 { transition-delay: 0.4s; }
-    .d5 { transition-delay: 0.5s; }
+    /* ── EQUIPE ── */
+    .team-s{background:linear-gradient(135deg,var(--brand-primary) 0%,var(--brand-secondary) 100%)}
+    .team-g{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:40px}
+    @media(max-width:768px){.team-g{grid-template-columns:repeat(2,1fr)}}
+    .team-c{border-radius:var(--r-xl);overflow:hidden;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.15);padding:24px 20px;text-align:center;transition:all .3s}
+    .team-c:hover{background:rgba(255,255,255,.18);transform:translateY(-4px)}
+    .team-avatar{width:72px;height:72px;border-radius:50%;background:rgba(255,255,255,.2);border:2px solid rgba(255,255,255,.3);margin:0 auto 16px;display:flex;align-items:center;justify-content:center;font-size:1.8rem}
+    .team-name{font-family:var(--font-h);font-size:.95rem;font-weight:700;color:#fff;margin-bottom:4px;line-height:1.3}
+    .team-spec{font-size:.78rem;color:rgba(255,255,255,.65);line-height:1.5}
+    .team-ig{font-size:.73rem;color:rgba(255,255,255,.45);margin-top:8px}
 
-    /* ── Layout ── */
-    .container {
-      max-width: 960px;
-      margin: 0 auto;
-      padding: 0 1.5rem;
-    }
+    /* ── SUMMARY ── */
+    .sum-s{background:#fff}
+    .sum-g{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+    @media(max-width:768px){.sum-g{grid-template-columns:1fr}}
+    .sum-b{border-radius:var(--r-xl);padding:32px}
+    .sum-b.str{background:rgba(16,185,129,.04);border:1.5px solid rgba(16,185,129,.25)}
+    .sum-b.gap{background:rgba(239,68,68,.04);border:1.5px solid rgba(239,68,68,.25)}
+    .sum-bt{font-family:var(--font-h);font-size:1.05rem;font-weight:700;margin-bottom:20px;display:flex;align-items:center;gap:10px}
+    .str .sum-bt{color:#059669}.gap .sum-bt{color:#DC2626}
+    .sum-l{list-style:none;display:flex;flex-direction:column;gap:12px}
+    .sum-l li{font-size:.9rem;color:#374151;display:flex;gap:10px;align-items:flex-start;line-height:1.55}
+    .li-i{flex-shrink:0;margin-top:1px}
 
-    /* ── Header ── */
-    .header {
-      background: var(--surface);
-      border-bottom: 1px solid var(--border);
-      padding: 1rem 0;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      backdrop-filter: blur(12px);
-      background: rgba(255, 255, 255, 0.92);
-    }
-    .header-inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 1rem;
-    }
-    .header-logo {
-      height: 28px;
-      width: auto;
-    }
-    .header-badge {
-      font-size: 0.65rem;
-      font-weight: 700;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--brand-primary);
-      background: var(--brand-accent);
-      padding: 0.3rem 0.8rem;
-      border-radius: 100px;
-    }
+    /* ── ABOUT ── */
+    .ab-s{background:var(--brand-dark);position:relative;overflow:hidden}
+    .ab-s::before{content:'';position:absolute;top:-30%;right:-10%;width:600px;height:600px;background:radial-gradient(circle,rgba(45,82,239,.25) 0%,transparent 70%);pointer-events:none}
+    .ab-in{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;position:relative;z-index:1}
+    @media(max-width:768px){.ab-in{grid-template-columns:1fr}}
+    .ab-visual{border-radius:var(--r-2xl);background:linear-gradient(135deg,rgba(45,82,239,.25),rgba(15,31,92,.5));border:1px solid rgba(255,255,255,.08);padding:40px;display:flex;flex-direction:column;gap:16px}
+    .ab-kpi{display:flex;align-items:center;gap:14px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);border-radius:var(--r-xl);padding:16px 20px}
+    .ab-kpi-icon{width:44px;height:44px;border-radius:10px;background:rgba(45,82,239,.4);display:flex;align-items:center;justify-content:center;font-size:1.2rem;flex-shrink:0}
+    .ab-kpi-v{font-family:var(--font-h);font-size:1.2rem;font-weight:800;color:#fff}
+    .ab-kpi-l{font-size:.75rem;color:rgba(255,255,255,.5);margin-top:1px}
+    .ab-q{border-left:4px solid var(--brand-primary);padding-left:20px;margin:24px 0;font-style:italic;color:rgba(255,255,255,.9);font-size:1.05rem;line-height:1.65}
+    .ab-q cite{display:block;margin-top:10px;font-style:normal;font-weight:600;font-size:.85rem;color:rgba(255,255,255,.5)}
+    .ab-txt{font-size:.95rem;color:rgba(255,255,255,.65);line-height:1.75}
+    .ab-chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:24px}
+    .ab-chip{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);color:rgba(255,255,255,.85);font-size:.8rem;font-weight:600;padding:6px 14px;border-radius:100px;transition:background .2s}
+    .ab-chip:hover{background:rgba(255,255,255,.18)}
 
-    /* ── Hero ── */
-    .hero {
-      background: linear-gradient(135deg, var(--brand-primary) 0%, var(--brand-dark) 100%);
-      color: #fff;
-      padding: 4rem 0 5rem;
-      position: relative;
-      overflow: hidden;
-    }
-    .hero::before {
-      content: '';
-      position: absolute;
-      top: -50%;
-      right: -20%;
-      width: 600px;
-      height: 600px;
-      border-radius: 50%;
-      background: rgba(255, 255, 255, 0.03);
-    }
-    .hero::after {
-      content: '';
-      position: absolute;
-      bottom: -30%;
-      left: -10%;
-      width: 400px;
-      height: 400px;
-      border-radius: 50%;
-      background: rgba(255, 255, 255, 0.02);
-    }
-    .hero-content {
-      position: relative;
-      z-index: 2;
-      text-align: center;
-      animation: fadeUp 0.8s ease both;
-    }
-    .hero-label {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      font-size: 0.65rem;
-      font-weight: 700;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: rgba(255, 255, 255, 0.7);
-      margin-bottom: 1.5rem;
-    }
-    .hero-label-dot {
-      width: 6px;
-      height: 6px;
-      background: rgba(255, 255, 255, 0.5);
-      border-radius: 50%;
-      animation: pulse 2s infinite;
-    }
-    .hero h1 {
-      font-family: var(--font-heading);
-      font-size: clamp(1.6rem, 4.5vw, 2.4rem);
-      font-weight: 700;
-      line-height: 1.2;
-      margin-bottom: 0.5rem;
-    }
-    .hero-company {
-      font-family: var(--font-heading);
-      font-size: clamp(1.1rem, 3vw, 1.5rem);
-      font-weight: 400;
-      color: rgba(255, 255, 255, 0.75);
-      margin-bottom: 0.75rem;
-    }
-    .hero-meta {
-      font-size: 0.8rem;
-      color: rgba(255, 255, 255, 0.5);
-      margin-bottom: 2.5rem;
-    }
+    /* ── OPPS ── */
+    .op-s{background:#f0f4ff}
+    .op-g{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
+    .flip-outer{height:340px;perspective:1000px;cursor:pointer}
+    .flip-inner{position:relative;width:100%;height:100%;transition:transform .6s cubic-bezier(.4,0,.2,1);transform-style:preserve-3d}
+    .flip-outer.flipped .flip-inner{transform:rotateY(180deg)}
+    .flip-face{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:var(--r-xl);padding:28px;display:flex;flex-direction:column}
+    .flip-front{background:#fff;border:1px solid #E0E7FF;box-shadow:var(--sh-md);border-top:4px solid var(--brand-primary)}
+    .flip-front:hover{box-shadow:var(--sh-xl)}
+    .flip-back{background:linear-gradient(135deg,var(--brand-primary),var(--brand-dark));transform:rotateY(180deg);justify-content:space-between;overflow:hidden}
+    .flip-back-body{display:flex;flex-direction:column;flex:1;min-height:0}
+    .op-pr{display:inline-flex;align-items:center;gap:5px;font-size:.72rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;padding:4px 10px;border-radius:100px;margin-bottom:14px;align-self:flex-start}
+    .op-pr.hi{background:rgba(239,68,68,.08);color:#DC2626}
+    .op-pr.me{background:rgba(245,158,11,.08);color:#D97706}
+    .op-t{font-family:var(--font-h);font-size:1.05rem;font-weight:700;color:var(--brand-dark);margin-bottom:8px}
+    .op-d{font-size:.88rem;color:var(--color-gray);line-height:1.6;flex:1}
+    .op-im{font-size:.85rem;color:var(--brand-primary);font-weight:700;margin-top:14px}
+    .op-flip-hint{font-size:.75rem;color:var(--brand-primary);font-weight:600;display:flex;align-items:center;gap:4px;margin-top:12px;opacity:.65}
+    .flip-back-title{font-family:var(--font-h);font-size:.72rem;font-weight:700;color:rgba(255,255,255,.7);margin-bottom:8px;text-transform:uppercase;letter-spacing:.04em}
+    .flip-back-h{font-family:var(--font-h);font-size:1.15rem;font-weight:800;color:#fff;margin-bottom:14px;line-height:1.3}
+    .flip-back-txt{font-size:.87rem;color:rgba(255,255,255,.8);line-height:1.65;flex:1}
+    .flip-back-cta{display:inline-flex;align-items:center;gap:8px;background:#25D366;color:#fff;font-family:var(--font-h);font-size:.88rem;font-weight:700;padding:12px 20px;border-radius:100px;text-decoration:none;transition:all .2s;align-self:flex-start;margin-top:16px}
+    .flip-back-cta:hover{transform:scale(1.03);box-shadow:0 6px 16px rgba(37,211,102,.4)}
 
-    /* ── Score Ring ── */
-    .score-section {
-      margin-top: -3.5rem;
-      position: relative;
-      z-index: 10;
-      padding-bottom: 3rem;
-    }
-    .score-card {
-      background: var(--surface);
-      border-radius: 20px;
-      box-shadow: var(--shadow-lg);
-      padding: 2.5rem 2rem;
-      text-align: center;
-      animation: scaleIn 0.6s ease 0.3s both;
-    }
-    .score-ring-wrap {
-      position: relative;
-      width: 180px;
-      height: 180px;
-      margin: 0 auto 1.5rem;
-    }
-    .score-ring-wrap svg {
-      width: 180px;
-      height: 180px;
-      transform: rotate(-90deg);
-    }
-    .score-ring-bg {
-      fill: none;
-      stroke: var(--surface-alt);
-      stroke-width: 10;
-    }
-    .score-ring-fill {
-      fill: none;
-      stroke: var(--score-low);
-      stroke-width: 10;
-      stroke-linecap: round;
-      stroke-dasharray: 283;
-      stroke-dashoffset: 155;
-      animation: fillGauge 1.5s cubic-bezier(0.4, 0, 0.2, 1) 0.5s both;
-    }
-    .score-ring-text {
-      position: absolute;
-      inset: 0;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-    }
-    .score-number {
-      font-family: var(--font-heading);
-      font-size: 3rem;
-      font-weight: 800;
-      color: var(--score-low);
-      line-height: 1;
-    }
-    .score-max {
-      font-size: 0.85rem;
-      color: var(--text-muted);
-      font-weight: 500;
-    }
-    .score-label {
-      font-family: var(--font-heading);
-      font-size: 1.1rem;
-      font-weight: 700;
-      color: var(--score-low);
-      margin-bottom: 0.5rem;
-    }
-    .score-desc {
-      font-size: 0.85rem;
-      color: var(--text-secondary);
-      max-width: 500px;
-      margin: 0 auto;
-      line-height: 1.7;
-    }
+    /* ── ROI ── */
+    .roi-s{background:linear-gradient(135deg,var(--brand-dark) 0%,#1a1060 100%)}
+    .roi-g{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px}
+    .roi-c{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:var(--r-xl);padding:32px 20px;text-align:center;transition:all .3s}
+    .roi-c:hover{background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.2);transform:translateY(-3px)}
+    .roi-v{font-family:var(--font-h);font-size:clamp(2rem,4vw,2.8rem);font-weight:800;background:linear-gradient(135deg,#E8EEFF,#A5B4FC);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1.1;margin-bottom:10px}
+    .roi-l{font-size:.85rem;color:rgba(255,255,255,.6);line-height:1.5}
 
-    /* ── Section ── */
-    .section {
-      padding: 3.5rem 0;
-    }
-    .section-header {
-      margin-bottom: 2rem;
-    }
-    .section-label {
-      font-size: 0.62rem;
-      font-weight: 700;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      color: var(--brand-primary);
-      margin-bottom: 0.5rem;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-    .section-label::before {
-      content: '';
-      width: 20px;
-      height: 2px;
-      background: var(--brand-primary);
-      border-radius: 1px;
-    }
-    .section-title {
-      font-family: var(--font-heading);
-      font-size: clamp(1.4rem, 3.5vw, 1.8rem);
-      font-weight: 700;
-      color: var(--text-primary);
-      line-height: 1.3;
-    }
-    .section-subtitle {
-      font-size: 0.88rem;
-      color: var(--text-secondary);
-      margin-top: 0.5rem;
-      line-height: 1.7;
-    }
+    /* ── CTA ── */
+    .cta-s{background:linear-gradient(135deg,var(--brand-primary) 0%,var(--brand-dark) 100%);text-align:center;position:relative;overflow:hidden}
+    .cta-s::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 100%,rgba(59,47,201,.5) 0%,transparent 60%);pointer-events:none}
+    .cta-inner{position:relative;z-index:1}
+    .cta-bs{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+    .btn-wa{display:inline-flex;align-items:center;gap:10px;background:#25D366;color:#fff;font-family:var(--font-h);font-size:1.05rem;font-weight:700;padding:18px 36px;border-radius:var(--r-2xl);text-decoration:none;transition:all .25s;box-shadow:0 8px 24px rgba(37,211,102,.35)}
+    .btn-wa:hover{transform:translateY(-2px);box-shadow:0 12px 32px rgba(37,211,102,.5)}
+    .btn-gh{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);color:#fff;font-family:var(--font-h);font-size:1.05rem;font-weight:600;padding:18px 36px;border-radius:var(--r-2xl);text-decoration:none;transition:all .25s}
+    .btn-gh:hover{background:rgba(255,255,255,.22)}
+    .cta-g{margin-top:24px;font-size:.82rem;color:rgba(255,255,255,.45)}
 
-    /* ── Channel Cards ── */
-    .channels-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: 1rem;
-    }
-    .channel-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      padding: 1.5rem;
-      transition: transform 0.25s ease, box-shadow 0.25s ease;
-    }
-    .channel-card:hover {
-      transform: translateY(-3px);
-      box-shadow: var(--shadow-md);
-    }
-    .channel-top {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: 1rem;
-    }
-    .channel-icon {
-      width: 42px;
-      height: 42px;
-      border-radius: 10px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.2rem;
-    }
-    .channel-score-badge {
-      font-family: var(--font-heading);
-      font-size: 1.3rem;
-      font-weight: 800;
-    }
-    .channel-name {
-      font-family: var(--font-heading);
-      font-size: 0.95rem;
-      font-weight: 700;
-      margin-bottom: 0.25rem;
-    }
-    .channel-status {
-      font-size: 0.72rem;
-      font-weight: 600;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      margin-bottom: 0.75rem;
-    }
-    .channel-bar-wrap {
-      height: 6px;
-      background: var(--surface-alt);
-      border-radius: 3px;
-      overflow: hidden;
-      margin-bottom: 1rem;
-    }
-    .channel-bar-fill {
-      height: 100%;
-      border-radius: 3px;
-      transform-origin: left;
-      transform: scaleX(0);
-      transition: transform 1s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-    .channel-card.visible .channel-bar-fill {
-      transform: scaleX(var(--progress));
-    }
-    .channel-detail {
-      font-size: 0.78rem;
-      color: var(--text-secondary);
-      line-height: 1.65;
-    }
-    .channel-detail strong {
-      color: var(--text-primary);
-    }
+    /* ── FOOTER ── */
+    .ft{background:#050c28;padding:52px 32px 32px}
+    .ft-in{max-width:1080px;margin:0 auto;display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:40px;margin-bottom:40px}
+    @media(max-width:768px){.ft-in{grid-template-columns:1fr}}
+    .ft-logo img{height:30px;filter:brightness(0) invert(1);opacity:.8;margin-bottom:12px;display:block}
+    .ft-desc{font-size:.85rem;color:rgba(255,255,255,.4);line-height:1.65;max-width:260px}
+    .ft-ct{font-family:var(--font-h);font-size:.75rem;font-weight:700;color:rgba(255,255,255,.3);letter-spacing:.08em;text-transform:uppercase;margin-bottom:14px}
+    .ft-lk{list-style:none;display:flex;flex-direction:column;gap:10px}
+    .ft-lk a{color:rgba(255,255,255,.5);font-size:.88rem;text-decoration:none;transition:color .2s}
+    .ft-lk a:hover{color:#fff}
+    .ft-hr{border:none;border-top:1px solid rgba(255,255,255,.06);margin:0 auto 24px;max-width:1080px}
+    .ft-bot{max-width:1080px;margin:0 auto;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+    .ft-cp{font-size:.8rem;color:rgba(255,255,255,.28)}
 
-    /* Score colors */
-    .score-c { color: var(--score-critical); }
-    .score-l { color: var(--score-low); }
-    .score-m { color: var(--score-medium); }
-    .score-g { color: var(--score-good); }
-    .bg-c { background: var(--score-critical); }
-    .bg-l { background: var(--score-low); }
-    .bg-m { background: var(--score-medium); }
-    .bg-g { background: var(--score-good); }
-    .icon-c { background: rgba(229, 62, 62, 0.08); }
-    .icon-l { background: rgba(237, 137, 54, 0.08); }
-    .icon-m { background: rgba(236, 201, 75, 0.08); }
-    .icon-g { background: rgba(56, 161, 105, 0.08); }
+    /* ── FLOATING WA ── */
+    .fwa{position:fixed;bottom:28px;right:28px;z-index:999;width:60px;height:60px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 24px rgba(37,211,102,.45);text-decoration:none;animation:wab 3s ease-in-out infinite;transition:transform .2s,box-shadow .2s}
+    .fwa:hover{transform:scale(1.12)!important;animation:none;box-shadow:0 10px 32px rgba(37,211,102,.55)}
+    @keyframes wab{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+    .fwa svg{width:28px;height:28px;fill:#fff}
 
-    /* ── Alert Cards ── */
-    .alerts-grid {
-      display: grid;
-      gap: 1rem;
-    }
-    .alert-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      padding: 1.5rem;
-      display: flex;
-      gap: 1rem;
-      align-items: flex-start;
-      border-left: 4px solid var(--score-critical);
-      transition: transform 0.25s ease, box-shadow 0.25s ease;
-    }
-    .alert-card:hover {
-      transform: translateY(-2px);
-      box-shadow: var(--shadow-md);
-    }
-    .alert-card.warning {
-      border-left-color: var(--score-low);
-    }
-    .alert-icon {
-      width: 40px;
-      height: 40px;
-      border-radius: 10px;
-      background: rgba(229, 62, 62, 0.08);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.1rem;
-      flex-shrink: 0;
-    }
-    .alert-card.warning .alert-icon {
-      background: rgba(237, 137, 54, 0.08);
-    }
-    .alert-title {
-      font-family: var(--font-heading);
-      font-size: 0.92rem;
-      font-weight: 700;
-      margin-bottom: 0.3rem;
-    }
-    .alert-desc {
-      font-size: 0.8rem;
-      color: var(--text-secondary);
-      line-height: 1.65;
-    }
-    .alert-impact {
-      font-size: 0.72rem;
-      font-weight: 600;
-      color: var(--score-critical);
-      margin-top: 0.5rem;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.3rem;
-    }
-    .alert-card.warning .alert-impact {
-      color: var(--score-low);
-    }
-
-    /* ── Opportunity Cards ── */
-    .opps-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: 1rem;
-    }
-    .opp-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      padding: 1.75rem 1.5rem;
-      position: relative;
-      overflow: hidden;
-      transition: transform 0.25s ease, box-shadow 0.25s ease;
-    }
-    .opp-card:hover {
-      transform: translateY(-3px);
-      box-shadow: var(--shadow-md);
-    }
-    .opp-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 3px;
-      background: linear-gradient(90deg, var(--brand-primary), var(--brand-secondary));
-    }
-    .opp-number {
-      font-family: var(--font-heading);
-      font-size: 2.5rem;
-      font-weight: 800;
-      color: var(--brand-accent);
-      line-height: 1;
-      margin-bottom: 0.75rem;
-    }
-    .opp-title {
-      font-family: var(--font-heading);
-      font-size: 1rem;
-      font-weight: 700;
-      margin-bottom: 0.5rem;
-    }
-    .opp-desc {
-      font-size: 0.8rem;
-      color: var(--text-secondary);
-      line-height: 1.65;
-      margin-bottom: 1rem;
-    }
-    .opp-roi {
-      font-size: 0.72rem;
-      font-weight: 600;
-      color: var(--score-good);
-      background: rgba(56, 161, 105, 0.06);
-      padding: 0.35rem 0.7rem;
-      border-radius: 6px;
-      display: inline-block;
-    }
-
-    /* ── CTA Section ── */
-    .cta-section {
-      background: linear-gradient(135deg, var(--brand-primary) 0%, var(--brand-dark) 100%);
-      color: #fff;
-      padding: 4rem 0;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-    }
-    .cta-section::before {
-      content: '';
-      position: absolute;
-      top: -40%;
-      right: -15%;
-      width: 500px;
-      height: 500px;
-      border-radius: 50%;
-      background: rgba(255, 255, 255, 0.03);
-    }
-    .cta-content {
-      position: relative;
-      z-index: 2;
-    }
-    .cta-title {
-      font-family: var(--font-heading);
-      font-size: clamp(1.4rem, 3.5vw, 2rem);
-      font-weight: 700;
-      margin-bottom: 0.75rem;
-    }
-    .cta-desc {
-      font-size: 0.9rem;
-      color: rgba(255, 255, 255, 0.7);
-      max-width: 480px;
-      margin: 0 auto 2rem;
-      line-height: 1.7;
-    }
-    .cta-button {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.6rem;
-      background: #FFFFFF;
-      color: var(--brand-primary);
-      font-family: var(--font-heading);
-      font-size: 0.95rem;
-      font-weight: 700;
-      padding: 0.9rem 2rem;
-      border-radius: 100px;
-      text-decoration: none;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
-    }
-    .cta-button:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
-    }
-    .cta-button svg {
-      width: 20px;
-      height: 20px;
-    }
-
-    /* ── Footer ── */
-    .footer {
-      background: var(--brand-dark);
-      color: rgba(255, 255, 255, 0.5);
-      padding: 2.5rem 0;
-      text-align: center;
-    }
-    .footer-logo {
-      height: 24px;
-      margin-bottom: 0.75rem;
-      filter: brightness(0) invert(1);
-    }
-    .footer-text {
-      font-size: 0.75rem;
-      line-height: 1.6;
-    }
-    .footer-link {
-      color: rgba(255, 255, 255, 0.7);
-      text-decoration: none;
-      font-weight: 500;
-    }
-    .footer-link:hover {
-      color: #fff;
-    }
-
-    /* ── Divider ── */
-    .divider {
-      height: 1px;
-      background: var(--border);
-      margin: 0;
-    }
-
-    /* ── Summary Table ── */
-    .summary-table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 1rem;
-    }
-    .summary-table th,
-    .summary-table td {
-      padding: 0.75rem 1rem;
-      text-align: left;
-      font-size: 0.82rem;
-      border-bottom: 1px solid var(--border);
-    }
-    .summary-table th {
-      font-family: var(--font-heading);
-      font-weight: 700;
-      color: var(--text-muted);
-      font-size: 0.68rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      background: var(--surface-alt);
-    }
-    .summary-table td {
-      color: var(--text-secondary);
-    }
-    .summary-table tr:last-child td {
-      border-bottom: none;
-      font-weight: 700;
-      color: var(--text-primary);
-      background: var(--surface-alt);
-    }
-
-    /* ── Responsive ── */
-    @media (max-width: 640px) {
-      .hero { padding: 3rem 0 4rem; }
-      .score-card { padding: 2rem 1.25rem; }
-      .score-ring-wrap { width: 150px; height: 150px; }
-      .score-ring-wrap svg { width: 150px; height: 150px; }
-      .score-number { font-size: 2.4rem; }
-      .channels-grid { grid-template-columns: 1fr; }
-      .opps-grid { grid-template-columns: 1fr; }
-      .section { padding: 2.5rem 0; }
-      .alert-card { flex-direction: column; }
+    @media(max-width:768px){
+      section{padding:60px 20px}
+      .nav{padding:14px 20px}
+      .hero{padding:100px 20px 60px}
+      .roi-g{grid-template-columns:1fr 1fr}
+      .op-g{grid-template-columns:1fr}
+      .cta-bs{flex-direction:column;align-items:center}
+      .flip-outer{height:auto;perspective:none}
+      .flip-inner{position:relative;height:auto;transform:none!important;transform-style:flat}
+      .flip-face{position:static;backface-visibility:visible;-webkit-backface-visibility:visible;transform:none!important}
+      .flip-front{display:flex}
+      .flip-back{display:none;transform:none!important}
+      .flip-outer.flipped .flip-front{display:none}
+      .flip-outer.flipped .flip-back{display:flex;border-radius:var(--r-xl)}
     }
   </style>
 </head>
 <body>
 
-  <!-- Header -->
-  <header class="header">
-    <div class="container header-inner">
-      <img
-        src="https://s3.amazonaws.com/cdn.digital-ai.tech/uploads/media-cortex/identity/digital-ai/logos/logo-primary.svg"
-        alt="Digital AI"
-        class="header-logo"
-      />
-      <span class="header-badge">Diagnostico Digital</span>
-    </div>
-  </header>
+<!-- NAVBAR -->
+<nav class="nav" id="nav">
+  <div class="nav-logo">
+    <img src="assets/dai-logo-primary.png" alt="Digital AI" />
+  </div>
+  <a class="nav-cta" href="https://wa.me/5511916538342?text=Ol%C3%A1%21%20Vi%20o%20diagn%C3%B3stico%20da%20Noma%20Medicina%20e%20quero%20conversar." target="_blank">Falar com Especialista</a>
+</nav>
 
-  <!-- Hero -->
-  <section class="hero">
-    <div class="container hero-content">
-      <div class="hero-label">
-        <span class="hero-label-dot"></span>
-        Relatorio personalizado
-      </div>
-      <h1>Diagnostico de Saude Digital</h1>
-      <p class="hero-company">Noma Medicina Integrativa</p>
-      <p class="hero-meta">Medicina Integrativa &middot; Bela Vista, Sao Paulo &middot; Junho 2026</p>
-    </div>
-  </section>
-
-  <!-- Score Geral -->
-  <section class="score-section">
-    <div class="container">
-      <div class="score-card">
-        <div class="score-ring-wrap">
-          <svg viewBox="0 0 100 100">
-            <circle class="score-ring-bg" cx="50" cy="50" r="45" />
-            <circle class="score-ring-fill" cx="50" cy="50" r="45" />
-          </svg>
-          <div class="score-ring-text">
-            <span class="score-number">4,5</span>
-            <span class="score-max">de 10</span>
-          </div>
-        </div>
-        <div class="score-label">Em Desenvolvimento</div>
-        <p class="score-desc">
-          A Noma possui uma base solida — site premium, WhatsApp ativo e equipe qualificada. Porem, a ausencia de automacao, SEO e canais complementares limita significativamente o potencial de captacao e retencao digital. O momento e ideal para estruturar: clinica nova, sem vicios de processo, com alto potencial de escala.
-        </p>
-
-        <table class="summary-table" style="margin-top: 2rem;">
-          <thead>
-            <tr>
-              <th>Canal</th>
-              <th>Score</th>
-              <th>Status</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Site (WordPress + Elementor)</td>
-              <td><strong class="score-l">6 / 10</strong></td>
-              <td>Visual premium, sem conversao otimizada</td>
-            </tr>
-            <tr>
-              <td>Instagram</td>
-              <td><strong class="score-l">4 / 10</strong></td>
-              <td>Presenca jovem, conteudo irregular</td>
-            </tr>
-            <tr>
-              <td>WhatsApp</td>
-              <td><strong class="score-l">6 / 10</strong></td>
-              <td>Canal ativo, 100% manual</td>
-            </tr>
-            <tr>
-              <td>Google Meu Negocio</td>
-              <td><strong class="score-c">2 / 10</strong></td>
-              <td>Pouco otimizado, sem avaliacoes</td>
-            </tr>
-            <tr>
-              <td>Doctoralia / Agendamento</td>
-              <td><strong class="score-c">1 / 10</strong></td>
-              <td>Ausencia total</td>
-            </tr>
-            <tr>
-              <td>Facebook / YouTube / LinkedIn</td>
-              <td><strong class="score-c">0 / 10</strong></td>
-              <td>Inexistentes ou inativos</td>
-            </tr>
-            <tr>
-              <td>Media Geral</td>
-              <td><strong style="color: var(--score-low);">4,5 / 10</strong></td>
-              <td>Em Desenvolvimento</td>
-            </tr>
-          </tbody>
-        </table>
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-particles"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-inner">
+    <div>
+      <div class="hero-badge"><span class="bdot"></span> Diagnóstico de Presença Digital</div>
+      <h1 class="hero-h"><em>Noma Medicina Integrativa</em><br />Seu Diagnóstico Está Pronto</h1>
+      <p class="hero-sub">Analisamos sua presença digital em cinco pilares estratégicos — Website, Instagram, WhatsApp, Google e Captação Digital. Veja exatamente onde sua clínica está deixando pacientes na mesa.</p>
+      <div class="hero-stats">
+        <div class="stat-p"><span class="stat-v">4</span><span class="stat-l">Especialidades</span></div>
+        <div class="stat-p"><span class="stat-v">SP</span><span class="stat-l">Bela Vista</span></div>
+        <div class="stat-p"><span class="stat-v">&lt;1 ano</span><span class="stat-l">Lançamento</span></div>
+        <div class="stat-p"><span class="stat-v">360°</span><span class="stat-l">Cuidado</span></div>
       </div>
     </div>
-  </section>
-
-  <!-- Analise por Canal -->
-  <section class="section">
-    <div class="container">
-      <div class="section-header reveal">
-        <div class="section-label">Analise detalhada</div>
-        <h2 class="section-title">Presenca em cada canal</h2>
-        <p class="section-subtitle">Avaliacao individual dos canais digitais da clinica, com diagnostico e recomendacoes.</p>
+    <div class="hero-score">
+      <div class="ring-w">
+        <svg width="220" height="220" viewBox="0 0 220 220">
+          <circle class="r-track" cx="110" cy="110" r="90" fill="none" stroke="rgba(255,255,255,.1)" stroke-width="16"/>
+          <circle class="r-fill" cx="110" cy="110" r="90" fill="none" stroke="#EF4444" stroke-width="16" stroke-linecap="round"/>
+        </svg>
+        <div class="score-center">
+          <span class="score-n">45</span>
+          <span class="score-d">/100 pts</span>
+        </div>
       </div>
-
-      <div class="channels-grid">
-        <!-- Site -->
-        <div class="channel-card reveal d1">
-          <div class="channel-top">
-            <div class="channel-icon icon-l">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#ED8936" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-            </div>
-            <span class="channel-score-badge score-l">6/10</span>
-          </div>
-          <div class="channel-name">Site</div>
-          <div class="channel-status score-l">Parcialmente otimizado</div>
-          <div class="channel-bar-wrap">
-            <div class="channel-bar-fill bg-l" style="--progress: 0.6;"></div>
-          </div>
-          <div class="channel-detail">
-            <strong>Visual premium</strong> com Elementor e identidade consistente. Porem: <strong>9 CTAs apontam para o mesmo WhatsApp</strong> sem triagem. Sem formulario, sem agendamento online. Blog vazio (apenas "Hello World"). Paginas internas (/sobre, /servicos) com conteudo textual escasso — prejudica SEO. Credenciais (CNPJ, CRM) visiveis no rodape e boa pratica de compliance.
-          </div>
-        </div>
-
-        <!-- Instagram -->
-        <div class="channel-card reveal d2">
-          <div class="channel-top">
-            <div class="channel-icon icon-l">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#ED8936" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
-            </div>
-            <span class="channel-score-badge score-l">4/10</span>
-          </div>
-          <div class="channel-name">Instagram</div>
-          <div class="channel-status score-l">Presenca inicial</div>
-          <div class="channel-bar-wrap">
-            <div class="channel-bar-fill bg-l" style="--progress: 0.4;"></div>
-          </div>
-          <div class="channel-detail">
-            Perfil institucional <strong>@nomamedicinaintegrativa</strong> ativo, porem com menos de 7 meses de existencia. Principal canal de geracao de leads (parametro utm_source=ig detectado no site). Os 4 profissionais possuem perfis pessoais ativos — oportunidade de <strong>cross-promotion</strong> ainda nao explorada. Calendario editorial provavelmente irregular para clinica neste estagio.
-          </div>
-        </div>
-
-        <!-- WhatsApp -->
-        <div class="channel-card reveal d3">
-          <div class="channel-top">
-            <div class="channel-icon icon-l">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#ED8936" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
-            </div>
-            <span class="channel-score-badge score-l">6/10</span>
-          </div>
-          <div class="channel-name">WhatsApp</div>
-          <div class="channel-status score-l">Ativo, sem automacao</div>
-          <div class="channel-bar-wrap">
-            <div class="channel-bar-fill bg-l" style="--progress: 0.6;"></div>
-          </div>
-          <div class="channel-detail">
-            Numero (11) 91653-8342 ativo com plugin <strong>JoinChat</strong> integrado ao site. Ponto positivo: contato imediato. Ponto critico: <strong>100% do agendamento e manual</strong>. Sem triagem automatica, sem qualificacao, sem confirmacao de consulta. Para 4 especialidades simultaneas, a carga operacional cresce linearmente com a demanda.
-          </div>
-        </div>
-
-        <!-- Google Meu Negocio -->
-        <div class="channel-card reveal d4">
-          <div class="channel-top">
-            <div class="channel-icon icon-c">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#E53E3E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="10" r="3"/><path d="M12 21.7C17.3 17 20 13 20 10a8 8 0 1 0-16 0c0 3 2.7 7 8 11.7z"/></svg>
-            </div>
-            <span class="channel-score-badge score-c">2/10</span>
-          </div>
-          <div class="channel-name">Google Meu Negocio</div>
-          <div class="channel-status score-c">Critico</div>
-          <div class="channel-bar-wrap">
-            <div class="channel-bar-fill bg-c" style="--progress: 0.2;"></div>
-          </div>
-          <div class="channel-detail">
-            Clinica <strong>nao aparece em resultados de busca local</strong> com relevancia. Sem avaliacoes identificadas, sem fotos do Google, sem horario de funcionamento publicado. Pacientes que buscam "ginecologista integrativa Bela Vista" ou "reposicao hormonal Sao Paulo" <strong>nao encontram a Noma</strong> — perdem para concorrentes com mais tempo de mercado.
-          </div>
-        </div>
-
-        <!-- Doctoralia -->
-        <div class="channel-card reveal d5">
-          <div class="channel-top">
-            <div class="channel-icon icon-c">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#E53E3E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-            </div>
-            <span class="channel-score-badge score-c">1/10</span>
-          </div>
-          <div class="channel-name">Agendamento Online</div>
-          <div class="channel-status score-c">Ausente</div>
-          <div class="channel-bar-wrap">
-            <div class="channel-bar-fill bg-c" style="--progress: 0.1;"></div>
-          </div>
-          <div class="channel-detail">
-            Sem perfil identificado na <strong>Doctoralia</strong>, iClinic ou qualquer plataforma de agendamento online. O paciente precisa interagir manualmente em cada etapa: pesquisa, agendamento, confirmacao, lembrete. Isso <strong>aumenta o no-show</strong> e a carga operacional — especialmente critico para tratamentos de longa duracao como reposicao hormonal e acompanhamento nutricional.
-          </div>
-        </div>
-
-        <!-- Outros canais -->
-        <div class="channel-card reveal d5">
-          <div class="channel-top">
-            <div class="channel-icon icon-c">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#E53E3E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
-            </div>
-            <span class="channel-score-badge score-c">0/10</span>
-          </div>
-          <div class="channel-name">Facebook / YouTube / LinkedIn</div>
-          <div class="channel-status score-c">Inexistentes</div>
-          <div class="channel-bar-wrap">
-            <div class="channel-bar-fill bg-c" style="--progress: 0.02;"></div>
-          </div>
-          <div class="channel-detail">
-            Nenhum desses canais foi identificado como ativo. O site vincula apenas Instagram e WhatsApp. Para o segmento premium de medicina integrativa, o <strong>YouTube tem potencial educativo</strong> significativo (conteudo sobre hormonio, lipedema, nutricao) — canal de autoridade que gera confianca antes da consulta.
-          </div>
+      <div class="grade-c">
+        <div class="grade-l">D</div>
+        <div>
+          <div class="gt">Grau D — Crítico</div>
+          <div class="gs">Alta oportunidade de crescimento</div>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <hr class="divider" />
-
-  <!-- Pontos Criticos -->
-  <section class="section">
-    <div class="container">
-      <div class="section-header reveal">
-        <div class="section-label">Atencao imediata</div>
-        <h2 class="section-title">Pontos criticos identificados</h2>
-        <p class="section-subtitle">Vulnerabilidades que impactam diretamente a captacao e retencao de pacientes.</p>
+<!-- PERFIL DA CLÍNICA -->
+<section class="profile-s">
+  <div class="container">
+    <div class="shead">
+      <div class="sbadge">🏥 A Clínica</div>
+      <h2 class="stitle">Noma Medicina Integrativa — Bela Vista, SP</h2>
+      <p class="ssub">Clínica premium de medicina integrativa, fundada em 2025, com time multidisciplinar focado em saúde da mulher e medicina de precisão.</p>
+    </div>
+    <div class="profile-grid">
+      <div class="profile-card">
+        <div class="profile-card-badge">📍 São Paulo / SP</div>
+        <div class="profile-card-name">Noma Medicina Integrativa</div>
+        <div class="profile-card-sub">Rua Barata Ribeiro, 190 — 6º andar, Bela Vista</div>
+        <div class="profile-stats">
+          <div class="ps-item"><div class="ps-v">2025</div><div class="ps-l">Fundação</div></div>
+          <div class="ps-item"><div class="ps-v">4</div><div class="ps-l">Especialidades</div></div>
+          <div class="ps-item"><div class="ps-v">360°</div><div class="ps-l">Cuidado</div></div>
+          <div class="ps-item"><div class="ps-v">A/B</div><div class="ps-l">Público-Alvo</div></div>
+        </div>
       </div>
-
-      <div class="alerts-grid">
-        <div class="alert-card reveal d1">
-          <div class="alert-icon">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#E53E3E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
-          </div>
+      <div class="profile-info">
+        <div class="profile-info-item">
+          <div class="pi-icon">🎯</div>
           <div>
-            <div class="alert-title">Gargalo de atendimento: 9 CTAs, 1 WhatsApp, 0 automacao</div>
-            <div class="alert-desc">
-              Todos os pontos de contato do site direcionam para o mesmo numero de WhatsApp, sem qualquer triagem ou qualificacao automatica. Com 4 especialidades e multiplos profissionais, o volume de mensagens cresce com a demanda — mas a capacidade de resposta manual nao acompanha. Cada lead nao respondido em ate 1 hora tem <strong>80% menos chance de converter</strong>.
-            </div>
-            <div class="alert-impact">Impacto: perda direta de pacientes potenciais</div>
+            <div class="pi-label">Posicionamento</div>
+            <div class="pi-val">Medicina premium com cuidado 360° para mulheres</div>
           </div>
         </div>
-
-        <div class="alert-card reveal d2">
-          <div class="alert-icon">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#E53E3E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
-          </div>
+        <div class="profile-info-item">
+          <div class="pi-icon">💊</div>
           <div>
-            <div class="alert-title">Invisibilidade em busca organica: crescimento apenas por indicacao</div>
-            <div class="alert-desc">
-              Sem blog, sem conteudo textual indexavel, sem avaliacoes no Google e sem Doctoralia. A clinica depende exclusivamente de Instagram e indicacoes boca a boca para gerar novos pacientes. Em um mercado competitivo como medicina integrativa em Sao Paulo (Side Clinic, Graziele Cervantes, Ana Angelica Clinica), a ausencia de SEO e reputacao online significa <strong>conceder todo o trafego organico aos concorrentes</strong>.
-            </div>
-            <div class="alert-impact">Impacto: crescimento lento e imprevisivel</div>
+            <div class="pi-label">Especialidades</div>
+            <div class="pi-val">Ginecologia · Dermatologia · Endocrinologia · Nutrição · Lipedema 360°</div>
           </div>
         </div>
-
-        <div class="alert-card warning reveal d3">
-          <div class="alert-icon">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ED8936" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
-          </div>
+        <div class="profile-info-item">
+          <div class="pi-icon">📱</div>
           <div>
-            <div class="alert-title">Tratamentos longos sem follow-up: receita ficando na mesa</div>
-            <div class="alert-desc">
-              Reposicao hormonal, acompanhamento nutricional e tratamento de lipedema sao protocolos de meses ou anos. Sem sistema de follow-up automatizado, pacientes que nao retornam por conta propria simplesmente se perdem. <strong>Reativar um paciente existente custa 5x menos</strong> do que adquirir um novo — para uma clinica nova, cada paciente perdido pesa mais no faturamento.
-            </div>
-            <div class="alert-impact">Impacto: churn elevado e perda de receita recorrente</div>
+            <div class="pi-label">Canal principal</div>
+            <div class="pi-val">@nomamedicinaintegrativa — Instagram como porta de entrada</div>
+          </div>
+        </div>
+        <div class="profile-info-item">
+          <div class="pi-icon">⚡</div>
+          <div>
+            <div class="pi-label">Momento estratégico</div>
+            <div class="pi-val">Fase de lançamento — sem vícios de sistema, ideal para implantar automação do zero</div>
           </div>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <hr class="divider" />
+<!-- PILLARS -->
+<section class="pill-s">
+  <div class="container">
+    <div class="shead">
+      <div class="sbadge">📊 Os 5 Pilares</div>
+      <h2 class="stitle">Análise Completa por Pilar</h2>
+      <p class="ssub">Cada dimensão é avaliada de forma independente. Clique em qualquer card para ver mais detalhes.</p>
+    </div>
+    <div class="pill-g">
 
-  <!-- Oportunidades -->
-  <section class="section">
-    <div class="container">
-      <div class="section-header reveal">
-        <div class="section-label">Oportunidades</div>
-        <h2 class="section-title">O que pode mudar com automacao inteligente</h2>
-        <p class="section-subtitle">Tres iniciativas de alto impacto para transformar a presenca digital da Noma.</p>
+      <div class="pill-c y" onclick="togglePillar(this)">
+        <div class="pill-h">
+          <div class="pill-ic y">🌐</div>
+          <div class="pill-sw"><div class="pill-sc y">15</div><div class="pill-sm">/25 pts</div></div>
+        </div>
+        <div class="pill-n">Website</div>
+        <div class="pill-d">Design premium com Elementor e identidade visual consistente. Porém, o site funciona como brochura — todos os 9 CTAs levam ao mesmo WhatsApp manual. Zero formulário, zero agendamento online, zero conteúdo textual para o Google.</div>
+        <div class="pb"><div class="pf y" style="width:0" data-w="60%"></div></div>
+        <div class="tags"><span class="tag p">Visual premium</span><span class="tag p">CNPJ + CRM visíveis</span><span class="tag n">Sem agendamento online</span><span class="tag n">Zero blog / SEO</span></div>
+        <div class="pill-extra"><p>WordPress 6.9.4 + Elementor 4.1.1 com JoinChat ativo. Porém, as páginas internas /sobre, /servicos e /contato têm conteúdo quase exclusivamente visual — invisível para indexação no Google.</p></div>
+        <div class="pill-expand-hint">Ver análise completa</div>
       </div>
 
-      <div class="opps-grid">
-        <div class="opp-card reveal d1">
-          <div class="opp-number">01</div>
-          <div class="opp-title">Agente IA de Atendimento no WhatsApp</div>
-          <div class="opp-desc">
-            Atendimento 24/7 que responde duvidas sobre especialidades e procedimentos, qualifica o paciente automaticamente (qual medico? qual problema? particular ou convenio?), agenda consultas e envia lembretes 24h antes. Resposta em segundos — nao em horas.
-          </div>
-          <span class="opp-roi">Potencial: +40% em conversao de leads</span>
+      <div class="pill-c r" onclick="togglePillar(this)">
+        <div class="pill-h">
+          <div class="pill-ic r">📱</div>
+          <div class="pill-sw"><div class="pill-sc r">10</div><div class="pill-sm">/25 pts</div></div>
         </div>
+        <div class="pill-n">Instagram</div>
+        <div class="pill-d">Perfil institucional ativo e confirmado como canal oficial, com dados ainda incipientes para uma clínica com menos de 1 ano. Os 4 médicos têm perfis pessoais ativos — um ativo de autoridade ainda subutilizado.</div>
+        <div class="pb"><div class="pf r" style="width:0" data-w="40%"></div></div>
+        <div class="tags"><span class="tag p">4 médicos com @pessoais</span><span class="tag p">Principal canal de leads</span><span class="tag n">Volume de posts baixo</span><span class="tag n">Sem funil de captação</span></div>
+        <div class="pill-extra"><p>O utm_source=ig no link do WhatsApp confirma que o Instagram é o principal gerador de leads. Sem funil estruturado, os leads vindos do Instagram se perdem antes de virar consulta agendada.</p></div>
+        <div class="pill-expand-hint">Ver análise completa</div>
+      </div>
 
-        <div class="opp-card reveal d2">
-          <div class="opp-number">02</div>
-          <div class="opp-title">Regua de Retencao e Reativacao</div>
-          <div class="opp-desc">
-            Automacao de lembretes de retorno conforme protocolo de cada especialidade. Mensagens de reativacao para pacientes inativos ha 60, 90 e 180 dias. Coleta automatica de feedback pos-consulta e direcionamento para avaliacao no Google. Constroi reputacao online enquanto retém pacientes.
-          </div>
-          <span class="opp-roi">Potencial: 5x menor custo vs. nova aquisicao</span>
+      <div class="pill-c y" onclick="togglePillar(this)">
+        <div class="pill-h">
+          <div class="pill-ic y">💬</div>
+          <div class="pill-sw"><div class="pill-sc y">15</div><div class="pill-sm">/25 pts</div></div>
         </div>
+        <div class="pill-n">WhatsApp</div>
+        <div class="pill-d">Número ativo com JoinChat integrado ao site — ponto positivo. É o único canal de agendamento, o que cria um gargalo operacional crítico conforme o volume cresce: sem triagem, sem resposta automática, sem confirmação de consulta.</div>
+        <div class="pb"><div class="pf y" style="width:0" data-w="60%"></div></div>
+        <div class="tags"><span class="tag p">JoinChat integrado</span><span class="tag p">Link direto no site</span><span class="tag n">100% manual</span><span class="tag n">Sem triagem automática</span></div>
+        <div class="pill-extra"><p>Para uma clínica com 4 especialistas e múltiplos profissionais, um único número sem bot significa mensagens misturadas, sem priorização e com alto risco de não-resposta fora do horário comercial.</p></div>
+        <div class="pill-expand-hint">Ver análise completa</div>
+      </div>
 
-        <div class="opp-card reveal d3">
-          <div class="opp-number">03</div>
-          <div class="opp-title">Captacao Inteligente via Instagram</div>
-          <div class="opp-desc">
-            Captura e qualificacao automatica de leads vindos do Instagram — o canal que ja gera a maior parte dos contatos (utm_source=ig detectado). Integracao entre DM do Instagram e WhatsApp com sistema de tags por especialidade. Nenhum lead se perde entre os dois canais.
+      <div class="pill-c r" onclick="togglePillar(this)">
+        <div class="pill-h">
+          <div class="pill-ic r">⭐</div>
+          <div class="pill-sw"><div class="pill-sc r">5</div><div class="pill-sm">/25 pts</div></div>
+        </div>
+        <div class="pill-n">Google Meu Negócio</div>
+        <div class="pill-d">⚠️ Ponto crítico. A clínica não aparece com destaque em buscas locais. Sem avaliações estruturadas no Google, pacientes que pesquisam "ginecologista integrativa Bela Vista" encontram os concorrentes com histórico — nunca a Noma.</div>
+        <div class="pb"><div class="pf r" style="width:0" data-w="20%"></div></div>
+        <div class="tags"><span class="tag n">Baixa visibilidade local</span><span class="tag n">Sem avaliações visíveis</span><span class="tag u">Clínica nova — oportunidade real</span></div>
+        <div class="pill-extra"><p>Com uma clínica nova, qualquer esforço de gestão de reputação tem impacto imediato. Um sistema de solicitação automática de avaliação pós-consulta pode construir autoridade no Google em 90 dias.</p></div>
+        <div class="pill-expand-hint">Ver análise completa</div>
+      </div>
+
+      <div class="pill-c r" onclick="togglePillar(this)">
+        <div class="pill-h">
+          <div class="pill-ic r">🎯</div>
+          <div class="pill-sw"><div class="pill-sc r">0</div><div class="pill-sm">/25 pts</div></div>
+        </div>
+        <div class="pill-n">Agendamento e Captação Digital</div>
+        <div class="pill-d">⚠️ Ponto crítico. Sem Doctoralia, Calendly ou qualquer sistema de agendamento online. Todo o processo — pesquisa, contato, agendamento, confirmação, lembrete — é feito 100% manualmente, aumentando no-show e sobrecarga da equipe.</div>
+        <div class="pb"><div class="pf r" style="width:0" data-w="0%"></div></div>
+        <div class="tags"><span class="tag n">Sem Doctoralia</span><span class="tag n">Sem agendamento online</span><span class="tag n">Sem confirmação automática</span><span class="tag n">Alto risco de no-show</span></div>
+        <div class="pill-extra"><p>A ausência de sistemas de agendamento impede captura de pacientes fora do horário comercial, sobrecarrega a equipe com tarefas operacionais e reduz a taxa de comparecimento por falta de lembrete automático.</p></div>
+        <div class="pill-expand-hint">Ver análise completa</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- EQUIPE -->
+<section class="team-s">
+  <div class="container">
+    <div class="shead">
+      <div class="sbadge sbadge-inv">👩‍⚕️ Equipe</div>
+      <h2 class="stitle stitle-inv">Time Multidisciplinar de Alta Competência</h2>
+      <p class="ssub ssub-inv">Quatro especialistas com formações de destaque — cada um com perfil pessoal ativo no Instagram. Um ativo de autoridade ainda subutilizado.</p>
+    </div>
+    <div class="team-g">
+      <div class="team-c">
+        <div class="team-avatar">👩‍⚕️</div>
+        <div class="team-name">Dra. Marcella Dorte</div>
+        <div class="team-spec">Ginecologista Integrativa · Climatério UNIFESP · Responsável Técnica</div>
+        <div class="team-ig">@dramarcelladorte</div>
+      </div>
+      <div class="team-c">
+        <div class="team-avatar">🩺</div>
+        <div class="team-name">Dra. Ana Luiza Torres</div>
+        <div class="team-spec">Dermatologista · +10.000 atendimentos · Rejuvenescimento Facial</div>
+        <div class="team-ig">@draanaluizatlima</div>
+      </div>
+      <div class="team-c">
+        <div class="team-avatar">🥗</div>
+        <div class="team-name">Dra. Marina Toledo</div>
+        <div class="team-spec">Nutricionista Funcional · Saúde Intestinal · Pós-graduação Nutrição Clínica</div>
+        <div class="team-ig">@nutrimarinatoledo</div>
+      </div>
+      <div class="team-c">
+        <div class="team-avatar">⚗️</div>
+        <div class="team-name">Dr. Leonardo Galinari</div>
+        <div class="team-spec">Nutrólogo · Otimização Metabólica · Emagrecimento · Hipertrofia</div>
+        <div class="team-ig">@drleogalinari</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SUMMARY -->
+<section class="sum-s">
+  <div class="container">
+    <div class="shead">
+      <div class="sbadge">🔍 Diagnóstico</div>
+      <h2 class="stitle">Forças e Lacunas Identificadas</h2>
+    </div>
+    <div class="sum-g">
+      <div class="sum-b str">
+        <div class="sum-bt">✅ Pontos Fortes</div>
+        <ul class="sum-l">
+          <li><span class="li-i">🏥</span>Posicionamento premium com proposta de valor clara: cuidado 360° para mulheres em região nobre de São Paulo</li>
+          <li><span class="li-i">👩‍⚕️</span>Time multidisciplinar com formações de destaque — UNIFESP, +10 mil atendimentos, pós-graduações especializadas</li>
+          <li><span class="li-i">💊</span>Especialização em lipedema — nicho com demanda crescente e alta fidelização de pacientes de longo prazo</li>
+          <li><span class="li-i">📱</span>Quatro médicos com perfis pessoais ativos no Instagram — potencial de autoridade digital ainda a ser explorado</li>
+          <li><span class="li-i">⚡</span>Clínica nova sem vícios de sistema — o momento exato para implantar automação do zero sem resistência</li>
+          <li><span class="li-i">🎨</span>Site com identidade visual premium e credenciais (CNPJ/CRM) visíveis — compliance e confiança desde o início</li>
+        </ul>
+      </div>
+      <div class="sum-b gap">
+        <div class="sum-bt">❌ Lacunas Críticas</div>
+        <ul class="sum-l">
+          <li><span class="li-i">💬</span>WhatsApp 100% manual — cada mensagem fora do horário é uma paciente perdida para a concorrência</li>
+          <li><span class="li-i">⭐</span>Sem avaliações estruturadas no Google — invisível para pacientes que buscam médico online</li>
+          <li><span class="li-i">📅</span>Sem sistema de agendamento digital — processo 100% manual e sujeito a no-show e perdas de lead</li>
+          <li><span class="li-i">🔍</span>Site sem conteúdo textual para SEO — páginas internas são visuais, não indexáveis pelo Google</li>
+          <li><span class="li-i">🔄</span>Sem régua de follow-up — pacientes de hormonal, lipedema e nutrição se perdem sem lembretes automáticos</li>
+          <li><span class="li-i">📊</span>Sem Doctoralia ou plataformas de avaliação médica — ausência onde a decisão da paciente acontece</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="ab-s">
+  <div class="container">
+    <div class="ab-in">
+      <div class="ab-visual">
+        <div class="ab-kpi">
+          <div class="ab-kpi-icon">🩺</div>
+          <div>
+            <div class="ab-kpi-v">+10.000</div>
+            <div class="ab-kpi-l">Atendimentos — Dra. Ana Luiza Torres (Dermatologia)</div>
           </div>
-          <span class="opp-roi">Potencial: zero leads perdidos entre canais</span>
+        </div>
+        <div class="ab-kpi">
+          <div class="ab-kpi-icon">⚕️</div>
+          <div>
+            <div class="ab-kpi-v">UNIFESP</div>
+            <div class="ab-kpi-l">Especialização em Climatério — Dra. Marcella Dorte</div>
+          </div>
+        </div>
+        <div class="ab-kpi">
+          <div class="ab-kpi-icon">📍</div>
+          <div>
+            <div class="ab-kpi-v">Bela Vista</div>
+            <div class="ab-kpi-l">Região premium próxima à Av. Paulista, São Paulo/SP</div>
+          </div>
+        </div>
+        <div class="ab-kpi">
+          <div class="ab-kpi-icon">🎯</div>
+          <div>
+            <div class="ab-kpi-v">Lipedema 360°</div>
+            <div class="ab-kpi-l">Protocolo especializado — nicho com demanda crescente acelerada</div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="sbadge sbadge-inv">💬 Visão Estratégica</div>
+        <h2 class="stitle stitle-inv">O Momento Certo para Crescer com Tecnologia</h2>
+        <blockquote class="ab-q">
+          "Descomplique sua jornada — nossa equipe está pronta para ajudar você a entender melhor nossos processos."
+          <cite>— Noma Medicina Integrativa, clinicanoma.med.br</cite>
+        </blockquote>
+        <p class="ab-txt">Essa frase revela um insight estratégico: a própria clínica reconhece que pacientes têm dificuldade de navegar pelo processo. É exatamente aí que a automação com IA age — de forma invisível para a paciente, mas transformadora para a equipe.</p>
+        <div class="ab-chips">
+          <span class="ab-chip">Clínica em lançamento</span>
+          <span class="ab-chip">4 especialistas</span>
+          <span class="ab-chip">Ticket R$350–800</span>
+          <span class="ab-chip">Oportunidade: 9 de 10</span>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- CTA -->
-  <section class="cta-section">
-    <div class="container cta-content reveal">
-      <h2 class="cta-title">Vamos transformar esse diagnostico em resultado?</h2>
-      <p class="cta-desc">
-        Cada ponto identificado aqui tem solucao. E o melhor momento para agir e agora — enquanto a clinica e nova e flexivel para implementar do jeito certo.
-      </p>
-      <a href="https://wa.me/5564981337424?text=Oi!%20Vi%20o%20diagn%C3%B3stico%20digital%20da%20Noma%20e%20quero%20saber%20mais." class="cta-button" target="_blank" rel="noopener">
-        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-        Conversar com a Digital AI
+<!-- OPPS -->
+<section class="op-s">
+  <div class="container">
+    <div class="shead">
+      <div class="sbadge">💡 Oportunidades</div>
+      <h2 class="stitle">O Que Pode Ser Destravado Agora</h2>
+      <p class="ssub">Cada oportunidade representa receita ou eficiência operacional sendo desperdiçada hoje. <strong style="color:var(--brand-primary)">Clique nos cards para ver como resolver.</strong></p>
+    </div>
+    <div class="op-g">
+
+      <div class="flip-outer" onclick="this.classList.toggle('flipped')">
+        <div class="flip-inner">
+          <div class="flip-face flip-front">
+            <div class="op-pr hi">🔴 Urgência alta</div>
+            <div class="op-t">Agente de IA no WhatsApp 24/7</div>
+            <div class="op-d">Triagem automática por especialidade, resposta imediata fora do horário comercial e qualificação da paciente (qual médica, qual queixa, convênio ou particular) antes do primeiro contato humano.</div>
+            <div class="op-im">⚡ +35 a 50% na conversão de contatos</div>
+            <div class="op-flip-hint">👆 Clique para ver a solução</div>
+          </div>
+          <div class="flip-face flip-back">
+            <div class="flip-back-body">
+              <div class="flip-back-title">Como a Digital AI resolve</div>
+              <div class="flip-back-h">Agente de IA especializado em saúde</div>
+              <div class="flip-back-txt">Um agente de IA no WhatsApp da Noma que responde em segundos, qualifica a paciente (especialidade, urgência, convênio), coleta dados para agendamento e encaminha para a médica certa — sem intervenção humana no primeiro contato.</div>
+            </div>
+            <a class="flip-back-cta" href="https://wa.me/5511916538342?text=Quero%20saber%20sobre%20o%20agente%20de%20IA%20para%20a%20Noma" target="_blank">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              Quero essa solução
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="flip-outer" onclick="this.classList.toggle('flipped')">
+        <div class="flip-inner">
+          <div class="flip-face flip-front">
+            <div class="op-pr hi">🔴 Urgência alta</div>
+            <div class="op-t">Confirmação e Lembrete Automático de Consultas</div>
+            <div class="op-d">Confirmação automática 48h antes, lembrete personalizado 2h antes e follow-up pós-consulta com NPS. Elimina no-show sem trabalho manual — crítico para consultas de R$350–800 com especialistas premium.</div>
+            <div class="op-im">⚡ Redução de 40–60% no no-show</div>
+            <div class="op-flip-hint">👆 Clique para ver a solução</div>
+          </div>
+          <div class="flip-face flip-back">
+            <div class="flip-back-body">
+              <div class="flip-back-title">Como a Digital AI resolve</div>
+              <div class="flip-back-h">Automação de confirmações e lembretes</div>
+              <div class="flip-back-txt">Fluxos automáticos que confirmam a consulta, enviam lembretes personalizados com nome da paciente e da médica, e coletam NPS pós-atendimento — sem a equipe precisar tocar em nada manualmente.</div>
+            </div>
+            <a class="flip-back-cta" href="https://wa.me/5511916538342?text=Quero%20saber%20sobre%20automa%C3%A7%C3%A3o%20de%20consultas%20para%20a%20Noma" target="_blank">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              Quero essa solução
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="flip-outer" onclick="this.classList.toggle('flipped')">
+        <div class="flip-inner">
+          <div class="flip-face flip-front">
+            <div class="op-pr me">🟡 Médio prazo</div>
+            <div class="op-t">Reativação de Pacientes com Tratamentos Longos</div>
+            <div class="op-d">Pacientes de reposição hormonal, lipedema e nutrição precisam de retorno mensal ou trimestral. Sem régua de reativação, a clínica perde receita recorrente para o simples esquecimento — especialmente crítico em clínica nova que ainda constrói vínculo.</div>
+            <div class="op-im">⚡ Reativar custa 5× menos que adquirir</div>
+            <div class="op-flip-hint">👆 Clique para ver a solução</div>
+          </div>
+          <div class="flip-face flip-back">
+            <div class="flip-back-body">
+              <div class="flip-back-title">Como a Digital AI resolve</div>
+              <div class="flip-back-h">Régua de reativação por especialidade</div>
+              <div class="flip-back-txt">Fluxos automáticos que detectam pacientes inativos há 60/90/180 dias por especialidade e disparam mensagens personalizadas de reativação — aumentando a receita recorrente sem esforço manual da equipe.</div>
+            </div>
+            <a class="flip-back-cta" href="https://wa.me/5511916538342?text=Quero%20saber%20sobre%20rea%C3%A7%C3%A3o%20de%20pacientes%20para%20a%20Noma" target="_blank">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              Quero essa solução
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="flip-outer" onclick="this.classList.toggle('flipped')">
+        <div class="flip-inner">
+          <div class="flip-face flip-front">
+            <div class="op-pr me">🟡 Médio prazo</div>
+            <div class="op-t">Reputação Online Automatizada no Google</div>
+            <div class="op-d">Com clínica nova, um sistema que solicita avaliação automaticamente após consulta pode construir dezenas de reviews em meses — transformando a Noma em referência nas buscas locais antes que os concorrentes percebam o movimento.</div>
+            <div class="op-im">⚡ 5★ no Google = 70% mais agendamentos</div>
+            <div class="op-flip-hint">👆 Clique para ver a solução</div>
+          </div>
+          <div class="flip-face flip-back">
+            <div class="flip-back-body">
+              <div class="flip-back-title">Como a Digital AI resolve</div>
+              <div class="flip-back-h">Pipeline de avaliações automáticas pós-consulta</div>
+              <div class="flip-back-txt">Fluxo automático que, após a consulta, envia mensagem personalizada solicitando avaliação no Google — com link direto, texto sugerido e timing otimizado. Em 90 dias, a Noma pode ter mais avaliações que concorrentes com 5 anos no mercado.</div>
+            </div>
+            <a class="flip-back-cta" href="https://wa.me/5511916538342?text=Quero%20saber%20sobre%20gest%C3%A3o%20de%20reputa%C3%A7%C3%A3o%20para%20a%20Noma" target="_blank">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              Quero essa solução
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ROI -->
+<section class="roi-s">
+  <div class="container">
+    <div class="shead">
+      <div class="sbadge sbadge-inv">📈 Impacto Estimado</div>
+      <h2 class="stitle stitle-inv">O Que Muda com Inteligência Artificial</h2>
+      <p class="ssub ssub-inv">Estimativas baseadas em clínicas com perfil semelhante à Noma Medicina.</p>
+    </div>
+    <div class="roi-g">
+      <div class="roi-c"><div class="roi-v">24/7</div><div class="roi-l">Atendimento ativo e qualificado sem ampliar a equipe — inclusive madrugada e fins de semana</div></div>
+      <div class="roi-c"><div class="roi-v">–55%</div><div class="roi-l">Redução média no no-show com confirmação automática de consultas 48h e 2h antes</div></div>
+      <div class="roi-c"><div class="roi-v">3 min</div><div class="roi-l">Tempo médio de resposta com IA, contra 4h+ no modelo manual típico em clínicas de SP</div></div>
+      <div class="roi-c"><div class="roi-v">5×</div><div class="roi-l">Mais barato reativar uma paciente existente do que conquistar uma nova — sem esforço manual</div></div>
+    </div>
+    <p style="text-align:center;margin-top:32px;font-size:.8rem;color:rgba(255,255,255,.28)">* Estimativas baseadas em benchmarks do setor de saúde privada. Resultados reais variam conforme execução e contexto.</p>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-s">
+  <div class="cta-inner container">
+    <div class="sbadge sbadge-inv">🚀 Próximo Passo</div>
+    <h2 class="stitle stitle-inv" style="margin-bottom:12px">Pronta para ir de 45 para 95+?</h2>
+    <p class="ssub ssub-inv" style="margin:0 auto 40px">A Noma tem um posicionamento premium e um time brilhante. Agora é hora de ter uma tecnologia à altura — que cuida das pacientes quando a equipe não está disponível. Vamos conversar?</p>
+    <div class="cta-bs">
+      <a class="btn-wa" href="https://wa.me/5511916538342?text=Ol%C3%A1%21%20Vi%20o%20diagn%C3%B3stico%20da%20Noma%20e%20quero%20conversar%20sobre%20as%20oportunidades." target="_blank">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Falar via WhatsApp
       </a>
+      <a class="btn-gh" href="https://digital-ai.tech" target="_blank">Conhecer a Digital AI →</a>
     </div>
-  </section>
+    <p class="cta-g">✓ Diagnóstico gratuito &nbsp;·&nbsp; ✓ Sem compromisso &nbsp;·&nbsp; ✓ Retorno em até 3 minutos</p>
+  </div>
+</section>
 
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="container">
-      <img
-        src="https://s3.amazonaws.com/cdn.digital-ai.tech/uploads/media-cortex/identity/digital-ai/logos/logo-primary.svg"
-        alt="Digital AI"
-        class="footer-logo"
-      />
-      <p class="footer-text">
-        <a href="https://digital-ai.tech" class="footer-link" target="_blank" rel="noopener">digital-ai.tech</a>
-        <br />O seu crescimento e o nosso proposito.
-      </p>
-      <p class="footer-text" style="margin-top: 1rem; font-size: 0.65rem;">
-        Diagnostico gerado em Junho 2026 &middot; Dados coletados via analise publica
-      </p>
+<!-- FOOTER -->
+<footer class="ft">
+  <div class="ft-in">
+    <div>
+      <div class="ft-logo"><img src="assets/dai-logo-primary.png" alt="Digital AI" /></div>
+      <p class="ft-desc">Especialistas em IA para automação de atendimento, personas digitais e crescimento inteligente para clínicas e empresas B2B.</p>
     </div>
-  </footer>
+    <div>
+      <div class="ft-ct">Empresa</div>
+      <ul class="ft-lk">
+        <li><a href="https://digital-ai.tech" target="_blank">digital-ai.tech</a></li>
+        <li><a href="https://digital-ai.tech/#servicos" target="_blank">Serviços</a></li>
+        <li><a href="https://digital-ai.tech/#cases" target="_blank">Cases</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="ft-ct">Contato</div>
+      <ul class="ft-lk">
+        <li><a href="https://wa.me/5511916538342" target="_blank">(11) 91653-8342</a></li>
+        <li><a href="https://instagram.com/digitalai.tech" target="_blank">@digitalai.tech</a></li>
+        <li><a href="mailto:contato@digital-ai.tech">contato@digital-ai.tech</a></li>
+      </ul>
+    </div>
+  </div>
+  <hr class="ft-hr" />
+  <div class="ft-bot">
+    <span class="ft-cp">© 2026 Digital AI · Itumbiara, GO · Todos os direitos reservados.</span>
+    <span class="ft-cp">Diagnóstico gerado por Digital AI</span>
+  </div>
+</footer>
 
-  <script>
-    // Intersection Observer for reveal animations
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+<!-- FLOATING WA -->
+<a class="fwa" href="https://wa.me/5511916538342?text=Ol%C3%A1%21%20Vi%20o%20diagn%C3%B3stico%20da%20Noma%20e%20quero%20saber%20mais." target="_blank" title="Falar no WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
 
-    document.querySelectorAll('.reveal, .channel-card').forEach(el => observer.observe(el));
-  </script>
+<script>
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => nav.classList.toggle('sc', window.scrollY > 60), { passive: true });
 
+  function togglePillar(el) {
+    el.classList.toggle('active');
+    const hint = el.querySelector('.pill-expand-hint');
+    if (hint) hint.textContent = el.classList.contains('active') ? 'Fechar' : 'Ver análise completa';
+  }
+
+  const bars = document.querySelectorAll('.pf[data-w]');
+  const barObs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.style.width = e.target.dataset.w;
+        barObs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.3 });
+  bars.forEach(b => barObs.observe(b));
+</script>
 </body>
 </html>
