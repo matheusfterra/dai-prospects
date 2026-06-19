@@ -1,0 +1,865 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Diagnóstico Digital — Jennefer Anunciato</title>
+  <meta property="og:type" content="website"/>
+  <meta property="og:title" content="Diagnóstico de Presença Digital — Jennefer Anunciato"/>
+  <meta property="og:description" content="Análise completa da presença digital — Instagram, Google e Website. Score: 52/100 · Grau C."/>
+  <meta property="og:url" content="https://jennefer-anunciato-health.digital-ai.tech/"/>
+  <meta property="og:site_name" content="Digital AI — Diagnóstico de Presença Digital"/>
+  <meta property="og:image" content="https://jennefer-anunciato-health.digital-ai.tech/img/hero.jpg"/>
+  <meta property="og:image:width" content="1080"/>
+  <meta property="og:image:height" content="1350"/>
+  <meta property="og:locale" content="pt_BR"/>
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:title" content="Diagnóstico de Presença Digital — Jennefer Anunciato"/>
+  <meta name="twitter:description" content="Análise completa da presença digital — Instagram, Google e Website. Score: 52/100 · Grau C."/>
+  <meta name="twitter:image" content="https://jennefer-anunciato-health.digital-ai.tech/img/hero.jpg"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+  <style>
+    /* ═══════════════════════════════════════════════════
+       HEALTH REPORT — Padrão Igor: YoouFit/Noma (2025+)
+       Gradient azul hero + foto sutil .07 opacity
+       ═══════════════════════════════════════════════════ */
+    :root{
+      --brand-primary:#2D52EF;
+      --brand-secondary:#3B2FC9;
+      --brand-dark:#0F1F5C;
+      --brand-accent:#4F6FFF;
+      --surface:#F8F9FC;
+      --surface2:#EEF1F8;
+      --text:#1A2340;
+      --muted:#64748B;
+      --muted-light:#94A3B8;
+      --border:#E2E8F0;
+      --white:#FFFFFF;
+      --green:#22C55E;
+      --yellow:#F59E0B;
+      --red:#EF4444;
+      --r-sm:8px;
+      --r-md:12px;
+      --r-lg:16px;
+      --r-xl:20px;
+      --font-h:'Plus Jakarta Sans',sans-serif;
+      --font-b:'DM Sans',sans-serif;
+      --grade-color:#FBBF24;
+      --grade-shadow:rgba(251,191,36,.4);
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth;overflow-x:hidden}
+    body{font-family:var(--font-b);color:var(--text);background:var(--white);overflow-x:hidden}
+    @keyframes fadeUp{from{opacity:0;transform:translateY(32px)}to{opacity:1;transform:translateY(0)}}
+    @keyframes ra{to{stroke-dashoffset:271}}
+    @keyframes countUp{from{opacity:0}to{opacity:1}}
+    .reveal{opacity:0;transform:translateY(28px);transition:opacity .65s ease,transform .65s ease}
+    .reveal.visible{opacity:1;transform:none}
+    .d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}.d4{transition-delay:.4s}
+
+    /* ── Utilities ── */
+    .wrap{max-width:1100px;margin:0 auto;padding:0 2rem}
+    .sec-label{font-family:var(--font-h);font-size:.62rem;font-weight:700;letter-spacing:.24em;text-transform:uppercase;color:var(--brand-primary);margin-bottom:1rem;display:flex;align-items:center;gap:.75rem}
+    .sec-label::before{content:'';width:22px;height:1px;background:var(--brand-primary);opacity:.5}
+
+    /* ── NAV ── */
+    .nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:.9rem 2rem;display:flex;align-items:center;justify-content:space-between;background:rgba(15,31,92,.82);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+    .nav-logo{height:26px;width:auto;filter:brightness(0) invert(1);opacity:.92}
+    .nav-cta{display:inline-flex;align-items:center;gap:.5rem;background:#25D366;color:#fff;font-family:var(--font-h);font-size:.75rem;font-weight:700;padding:.5rem 1.1rem;border-radius:100px;text-decoration:none;letter-spacing:.02em;transition:opacity .2s}
+    .nav-cta:hover{opacity:.9}
+    .nav-cta svg{width:15px;height:15px;fill:#fff}
+
+    /* ── HERO ── */
+    .hero{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,var(--brand-primary) 0%,var(--brand-dark) 100%);overflow:hidden;padding:7rem 2rem 4rem}
+    .hero-bg{position:absolute;inset:0;background-image:url('img/hero.jpg');background-size:cover;background-position:center top;opacity:.07;pointer-events:none}
+    .hero-inner{position:relative;z-index:1;max-width:900px;width:100%;margin:0 auto;text-align:center}
+    .hero-badge{display:inline-flex;align-items:center;gap:.5rem;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.22);border-radius:100px;padding:.4rem 1rem;font-family:var(--font-h);font-size:.65rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.85);margin-bottom:2rem;animation:fadeUp .8s ease .1s both}
+    .hero-badge-dot{width:6px;height:6px;border-radius:50%;background:#25D366;animation:pulse 2s infinite}
+    @keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(37,211,102,.5)}60%{box-shadow:0 0 0 8px rgba(37,211,102,0)}}
+    .hero-title{font-family:var(--font-h);font-size:clamp(2.4rem,6vw,4rem);font-weight:800;color:#fff;line-height:1.1;margin-bottom:.75rem;animation:fadeUp .8s ease .2s both}
+    .hero-subtitle{font-size:.95rem;color:rgba(255,255,255,.65);letter-spacing:.08em;text-transform:uppercase;margin-bottom:3rem;animation:fadeUp .8s ease .3s both}
+
+    /* Score ring */
+    .score-ring-wrap{position:relative;width:200px;height:200px;margin:0 auto 2rem;animation:fadeUp .8s ease .4s both}
+    .score-ring-wrap svg{width:200px;height:200px;transform:rotate(-90deg)}
+    .sr-bg{fill:none;stroke:rgba(255,255,255,.15);stroke-width:10}
+    .sr-arc{fill:none;stroke:var(--grade-color);stroke-width:10;stroke-linecap:round;stroke-dasharray:565;stroke-dashoffset:565;animation:ra 1.8s cubic-bezier(.4,0,.2,1) .6s forwards;filter:drop-shadow(0 0 12px var(--grade-shadow))}
+    .score-ring-center{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.1rem}
+    .score-num{font-family:var(--font-h);font-size:3.2rem;font-weight:800;color:#fff;line-height:1}
+    .score-denom{font-size:.85rem;color:rgba(255,255,255,.5);margin-top:.1rem}
+    .score-grade{font-family:var(--font-h);font-size:1rem;font-weight:700;color:var(--grade-color);letter-spacing:.12em;text-transform:uppercase;margin-top:.2rem}
+
+    /* Stats row */
+    .hero-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.1);border-radius:var(--r-lg);overflow:hidden;animation:fadeUp .8s ease .5s both}
+    @media(max-width:600px){.hero-stats{grid-template-columns:repeat(2,1fr)}}
+    .hs-item{background:rgba(255,255,255,.08);padding:1.25rem 1rem;text-align:center}
+    .hs-val{font-family:var(--font-h);font-size:1.5rem;font-weight:800;color:#fff;line-height:1}
+    .hs-lbl{font-size:.65rem;color:rgba(255,255,255,.55);letter-spacing:.12em;text-transform:uppercase;margin-top:.3rem}
+
+    /* ── PILLARS ── */
+    .pillars-sec{padding:5rem 2rem;background:var(--brand-dark)}
+    .pillars-head{text-align:center;margin-bottom:3rem}
+    .pillars-head h2{font-family:var(--font-h);font-size:clamp(1.8rem,4vw,2.8rem);font-weight:800;color:#fff;line-height:1.15;margin-bottom:1rem}
+    .pillars-head p{font-size:.9rem;color:rgba(255,255,255,.55);max-width:560px;margin:0 auto;line-height:1.7}
+    .pillars-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;max-width:900px;margin:0 auto}
+    @media(max-width:680px){.pillars-grid{grid-template-columns:1fr}}
+    .pillar-c{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);border-radius:var(--r-xl);padding:2rem;text-align:center;transition:background .25s}
+    .pillar-c:hover{background:rgba(255,255,255,.11)}
+    .p-icon{font-size:1.6rem;margin-bottom:.75rem}
+    .p-label{font-family:var(--font-h);font-size:.6rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.45);margin-bottom:1.25rem}
+    .p-ring{position:relative;width:100px;height:100px;margin:0 auto 1rem}
+    .p-ring svg{width:100px;height:100px;transform:rotate(-90deg)}
+    .pr-bg{fill:none;stroke:rgba(255,255,255,.08);stroke-width:8}
+    .pr-arc{fill:none;stroke-width:8;stroke-linecap:round;stroke-dasharray:283;stroke-dashoffset:283;transition:stroke-dashoffset 1.4s cubic-bezier(.4,0,.2,1)}
+    .pr-center{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center}
+    .pr-val{font-family:var(--font-h);font-size:1.6rem;font-weight:800;line-height:1}
+    .pr-max{font-size:.58rem;color:rgba(255,255,255,.35)}
+    .p-title{font-family:var(--font-h);font-size:.82rem;font-weight:700;color:#fff;margin-bottom:.25rem}
+    .p-desc{font-size:.72rem;color:rgba(255,255,255,.45);line-height:1.5}
+
+    /* ── INSTAGRAM ── */
+    .insta-sec{padding:5rem 2rem;background:var(--white)}
+    .insta-intro h2{font-family:var(--font-h);font-size:clamp(1.6rem,3.5vw,2.4rem);font-weight:800;color:var(--text);line-height:1.2;margin-bottom:.8rem}
+    .insta-intro h2 em{color:var(--brand-primary);font-style:normal}
+    .insta-intro p{font-size:.88rem;color:var(--muted);max-width:540px;line-height:1.75}
+    .stats-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-top:2rem}
+    @media(max-width:600px){.stats-grid{grid-template-columns:1fr}}
+    .stat-box{background:var(--surface2);border:1px solid var(--border);padding:1.75rem 1.25rem;text-align:center}
+    .stat-box .stat-num{font-family:var(--font-h);font-size:2rem;font-weight:800;color:var(--brand-primary);line-height:1}
+    .stat-box .stat-lbl{font-size:.62rem;color:var(--muted);letter-spacing:.14em;text-transform:uppercase;margin-top:.4rem}
+    .top3-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:1.5rem}
+    @media(max-width:700px){.top3-grid{grid-template-columns:1fr}}
+    .top3-card{display:flex;flex-direction:column;text-decoration:none;color:var(--text);background:var(--surface);border:1px solid var(--border);border-radius:var(--r-md);overflow:hidden;transition:transform .25s ease,border-color .25s ease}
+    .top3-card:hover{transform:translateY(-4px);border-color:var(--brand-primary)}
+    .top3-media{position:relative;width:100%;aspect-ratio:1/1;overflow:hidden;background:var(--surface2)}
+    .top3-media img{width:100%;height:100%;object-fit:cover;display:block}
+    .top3-body{padding:1rem 1.1rem;flex:1;display:flex;flex-direction:column;gap:.5rem}
+    .top3-header{display:flex;justify-content:space-between;align-items:flex-start}
+    .top3-badge{font-size:.55rem;letter-spacing:.12em;text-transform:uppercase;background:rgba(45,82,239,.08);color:var(--brand-primary);border:1px solid rgba(45,82,239,.2);padding:.2rem .5rem;border-radius:4px;font-weight:700}
+    .top3-rank{font-family:var(--font-h);font-size:1.8rem;font-weight:800;color:rgba(45,82,239,.15);line-height:1}
+    .top3-caption{font-size:.75rem;color:var(--muted);line-height:1.55;flex:1}
+    .top3-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:3px}
+    .top3-stat{background:var(--surface2);padding:.45rem .3rem;text-align:center;border-radius:4px}
+    .top3-stat strong{display:block;font-family:var(--font-h);font-size:.95rem;font-weight:700;line-height:1.2}
+    .top3-stat span{font-size:.5rem;color:var(--muted);letter-spacing:.09em;text-transform:uppercase;margin-top:.1rem;display:block}
+    .top3-date{font-size:.6rem;color:var(--muted-light)}
+    .insight-box{margin-top:1.5rem;padding:1.1rem 1.4rem;background:rgba(45,82,239,.04);border-left:3px solid var(--brand-primary);border-radius:0 var(--r-sm) var(--r-sm) 0;display:flex;gap:.9rem;align-items:flex-start}
+    .insight-icon{font-size:1.1rem;flex-shrink:0;margin-top:.05rem}
+    .insight-box p{font-size:.82rem;color:var(--muted);line-height:1.65;margin:0}
+    .insight-box strong{color:var(--text)}
+
+    /* ── SENTIMENT ── */
+    .sentiment-sec{padding:5rem 2rem;background:var(--surface)}
+    .sentiment-sec h2{font-family:var(--font-h);font-size:clamp(1.6rem,3.5vw,2.4rem);font-weight:800;color:var(--text);line-height:1.2;margin-bottom:.6rem}
+    .sentiment-sec .sub{font-size:.88rem;color:var(--muted);max-width:560px;line-height:1.75;margin-top:.4rem}
+    .sent-intro{margin-bottom:3rem}
+    .sent-overview{display:flex;gap:0;margin-bottom:3rem}
+    .sent-overview-stat{flex:1;padding:1.75rem 1.25rem;background:var(--white);border:1px solid var(--border);text-align:center}
+    .sent-overview-stat+.sent-overview-stat{border-left:0}
+    .sent-big-num{display:block;font-family:var(--font-h);font-size:2.8rem;font-weight:800;line-height:1}
+    .sent-big-label{display:block;font-size:.62rem;text-transform:uppercase;letter-spacing:.14em;color:var(--muted);margin-top:.4rem}
+    .sent-charts{display:grid;grid-template-columns:1fr 1.5fr;gap:2rem;margin-bottom:3rem;align-items:start}
+    @media(max-width:700px){.sent-charts{grid-template-columns:1fr}.sent-overview{flex-direction:column}}
+    .sent-chart-card{background:var(--white);border:1px solid var(--border);border-radius:var(--r-lg);padding:1.75rem;min-width:0}
+    .sent-chart-card canvas{display:block;max-width:100%}
+    .sent-chart-title{font-family:var(--font-h);font-size:.72rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--brand-primary);margin-bottom:1.25rem}
+    .sent-donut-wrap{position:relative;width:160px;height:160px;margin:0 auto 1.25rem}
+    .sent-donut-center{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;pointer-events:none}
+    .sent-donut-pct{font-family:var(--font-h);font-size:1.75rem;font-weight:800;line-height:1}
+    .sent-donut-sub{font-size:.6rem;color:var(--muted);text-transform:uppercase;letter-spacing:.12em}
+    .sent-bar-wrap{position:relative;width:100%;height:190px}
+    .sent-legend{display:flex;flex-direction:column;gap:.45rem;margin-top:1rem}
+    .sent-leg-item{display:flex;align-items:center;gap:.6rem;font-size:.78rem;color:var(--muted)}
+    .sent-leg-item span:nth-child(2){flex:1}
+    .sent-leg-item strong{color:var(--text);font-size:.82rem}
+    .sent-leg-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
+    .sent-footer{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;padding-top:2rem;border-top:1px solid var(--border)}
+    .sent-profile-link{display:inline-flex;align-items:center;gap:.5rem;background:rgba(45,82,239,.06);border:1px solid rgba(45,82,239,.2);padding:.6rem 1.25rem;border-radius:100px;font-size:.75rem;font-weight:600;color:var(--brand-primary);text-decoration:none;letter-spacing:.06em;transition:background .2s}
+    .sent-profile-link:hover{background:rgba(45,82,239,.12)}
+    .sent-date{font-size:.68rem;color:var(--muted-light);letter-spacing:.1em}
+
+    /* ── GOOGLE ── */
+    .google-sec{padding:5rem 2rem;background:var(--white)}
+    .google-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start}
+    @media(max-width:780px){.google-grid{grid-template-columns:1fr;gap:2.5rem}}
+    .google-grid h2{font-family:var(--font-h);font-size:clamp(1.6rem,3.5vw,2.4rem);font-weight:800;color:var(--text);line-height:1.2;margin-bottom:.8rem}
+    .google-grid p.sub{font-size:.88rem;color:var(--muted);margin-bottom:2rem;line-height:1.7}
+    .checklist{display:flex;flex-direction:column;gap:.6rem}
+    .check-row{display:flex;align-items:center;gap:.9rem;padding:.85rem 1.1rem;background:var(--surface);border:1px solid var(--border);border-radius:var(--r-md);font-size:.83rem}
+    .check-ico{flex-shrink:0;width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.72rem;font-weight:700}
+    .check-ico.ok{background:rgba(34,197,94,.1);color:var(--green);border:1px solid rgba(34,197,94,.25)}
+    .check-ico.fail{background:rgba(239,68,68,.08);color:var(--red);border:1px solid rgba(239,68,68,.2)}
+    .check-ico.warn{background:rgba(245,158,11,.08);color:var(--yellow);border:1px solid rgba(245,158,11,.2)}
+    .check-row .label strong{display:block;font-weight:600;margin-bottom:.1rem}
+    .check-row .label span{font-size:.73rem;color:var(--muted)}
+    .g-score-box{background:var(--surface);border:1px solid var(--border);border-radius:var(--r-xl);padding:2.5rem;text-align:center}
+    .g-score-num{font-family:var(--font-h);font-size:4.5rem;font-weight:800;line-height:1}
+    .g-score-max{font-size:1.1rem;color:var(--muted)}
+    .g-score-lbl{font-family:var(--font-h);font-size:.65rem;color:var(--muted);letter-spacing:.14em;text-transform:uppercase;margin-top:.4rem}
+    .gap-box{margin-top:1.25rem;padding:1.1rem 1.25rem;background:rgba(239,68,68,.04);border-left:3px solid var(--red);border-radius:0 var(--r-sm) var(--r-sm) 0}
+    .gap-box p{font-size:.83rem;color:var(--muted);line-height:1.65}
+    .gap-box strong{color:var(--text)}
+
+    /* ── WEBSITE ── */
+    .web-sec{padding:5rem 2rem;background:var(--surface)}
+    .web-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
+    @media(max-width:780px){.web-grid{grid-template-columns:1fr;gap:2.5rem}}
+    .web-grid h2{font-family:var(--font-h);font-size:clamp(1.6rem,3.5vw,2.4rem);font-weight:800;color:var(--text);line-height:1.2;margin-bottom:.8rem}
+    .web-grid p.sub{font-size:.88rem;color:var(--muted);margin-bottom:1.5rem;line-height:1.7}
+    .mockup{background:var(--white);border:1px solid var(--border);border-radius:var(--r-lg);overflow:hidden}
+    .mbar{background:var(--surface2);padding:.65rem .9rem;display:flex;align-items:center;gap:.5rem;border-bottom:1px solid var(--border)}
+    .mdot{width:9px;height:9px;border-radius:50%}
+    .murl{flex:1;background:rgba(0,0,0,.03);border-radius:4px;padding:.28rem .65rem;font-size:.68rem;color:var(--muted);font-family:monospace}
+    .mbody{padding:3rem 1.5rem;text-align:center;min-height:180px;display:flex;flex-direction:column;align-items:center;justify-content:center}
+    .web-ok{font-size:3.5rem;line-height:1;opacity:.5}
+    .web-okt{font-size:.78rem;color:var(--muted-light);margin-top:.35rem}
+    .web-checks{display:flex;flex-direction:column;gap:.5rem;margin-top:1.5rem}
+    .wc-row{display:flex;align-items:center;gap:.75rem;font-size:.8rem;color:var(--muted)}
+
+    /* ── RECOMMENDATIONS ── */
+    .recs-sec{padding:5rem 2rem;background:var(--white)}
+    .recs-sec h2{font-family:var(--font-h);font-size:clamp(1.6rem,3.5vw,2.4rem);font-weight:800;color:var(--text);line-height:1.2;margin-bottom:.8rem}
+    .recs-sec p.sub{font-size:.88rem;color:var(--muted);max-width:480px;margin-bottom:3rem}
+    .timeline{position:relative;display:flex;flex-direction:column}
+    .timeline::before{content:'';position:absolute;left:1.75rem;top:2.5rem;bottom:2.5rem;width:1px;background:var(--border)}
+    .t-item{display:flex;gap:2rem;padding:1.75rem 0}
+    .t-num{flex-shrink:0;width:3.5rem;height:3.5rem;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--font-h);font-size:.95rem;font-weight:700;position:relative;z-index:1}
+    .t-body{flex:1;padding-top:.5rem}
+    .t-impact{display:inline-block;font-family:var(--font-h);font-size:.58rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;padding:.2rem .6rem;border-radius:100px;margin-bottom:.5rem}
+    .t-body h3{font-family:var(--font-h);font-size:1.05rem;font-weight:700;color:var(--text);margin-bottom:.35rem}
+    .t-body p{font-size:.82rem;color:var(--muted);line-height:1.7;margin-bottom:.4rem}
+    .t-gain{font-size:.78rem;font-weight:700}
+
+    /* ── PROJECTION ── */
+    .proj-sec{padding:5rem 2rem;background:var(--surface)}
+    .proj-sec h2{font-family:var(--font-h);font-size:clamp(1.6rem,3.5vw,2.4rem);font-weight:800;color:var(--text);line-height:1.2;margin-bottom:.8rem}
+    .proj-sec p.sub{font-size:.88rem;color:var(--muted);max-width:540px;margin-bottom:3rem}
+    .bar-group{display:flex;flex-direction:column;gap:1.75rem}
+    .bar-head{display:flex;justify-content:space-between;margin-bottom:.5rem}
+    .bar-label{font-family:var(--font-h);font-size:.8rem;font-weight:600;color:var(--text)}
+    .bar-val{font-family:var(--font-h);font-size:.95rem;font-weight:700}
+    .bar-track{height:10px;background:var(--surface2);border:1px solid var(--border);border-radius:5px;overflow:hidden}
+    .bar-fill{height:100%;border-radius:5px;transform-origin:left;transform:scaleX(0);transition:transform 1.3s cubic-bezier(.4,0,.2,1)}
+    .bar-row.run .bar-fill{transform:scaleX(1)}
+    .proj-note{margin-top:2rem;padding:1.4rem 1.75rem;background:rgba(34,197,94,.04);border:1px solid rgba(34,197,94,.14);border-radius:var(--r-md)}
+    .proj-note p{font-size:.83rem;color:var(--muted);line-height:1.7}
+    .proj-note strong{color:var(--text)}
+
+    /* ── CTA ── */
+    .cta-s{padding:6rem 2rem;background:var(--brand-dark);text-align:center}
+    .cta-inner{max-width:660px;margin:0 auto}
+    .cta-tag{font-family:var(--font-h);font-size:.65rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:1rem}
+    .cta-s h2{font-family:var(--font-h);font-size:clamp(2rem,5vw,3rem);font-weight:800;color:#fff;line-height:1.15;margin-bottom:1rem}
+    .cta-s p{font-size:.95rem;color:rgba(255,255,255,.6);line-height:1.75;margin-bottom:2.5rem}
+    .cta-btn-wa{display:inline-flex;align-items:center;gap:.7rem;background:#25D366;color:#fff;font-family:var(--font-h);font-weight:700;font-size:.95rem;padding:1rem 2.25rem;border-radius:100px;text-decoration:none;letter-spacing:.02em;box-shadow:0 8px 28px rgba(37,211,102,.3);transition:transform .2s,box-shadow .2s}
+    .cta-btn-wa:hover{transform:translateY(-2px);box-shadow:0 12px 36px rgba(37,211,102,.4)}
+    .cta-btn-wa svg{width:20px;height:20px;fill:#fff}
+    .cta-note{font-size:.75rem;color:rgba(255,255,255,.35);margin-top:1.25rem}
+
+    /* ── FOOTER ── */
+    .site-footer{padding:3rem 2rem 2rem;text-align:center;background:#0a0f1e}
+    .site-footer .footer-inner{max-width:600px;margin:0 auto;display:flex;flex-direction:column;align-items:center;gap:1rem}
+    .f-logo-link{display:inline-block;line-height:0}
+    .f-logo{height:28px;width:auto;opacity:.9;display:inline-block;filter:brightness(0) invert(1)}
+    .f-tagline{color:rgba(255,255,255,0.55);font-size:0.9rem;margin:0}
+    .f-links{display:flex;gap:1.5rem}
+    .f-links a{color:rgba(255,255,255,0.4);text-decoration:none;font-size:0.82rem;transition:color 0.2s}
+    .f-links a:hover{color:rgba(255,255,255,0.8)}
+    .f-copy{color:rgba(255,255,255,0.25);font-size:0.75rem;margin:0}
+
+    /* ── WA FLOAT ── */
+    .wa-float{position:fixed;bottom:1.75rem;right:1.75rem;z-index:999;width:52px;height:52px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 18px rgba(37,211,102,.5);text-decoration:none;transition:transform .2s}
+    .wa-float:hover{transform:scale(1.1)}
+    .wa-float svg{width:26px;height:26px;fill:#fff}
+
+    /* ── RESPONSIVE ── */
+    @media(max-width:768px){
+      .nav{padding:.75rem 1.25rem}
+      .hero{padding:6rem 1.25rem 3.5rem}
+      .hero-title{font-size:clamp(1.9rem,7vw,2.6rem)}
+      .score-ring-wrap{width:160px;height:160px}
+      .score-ring-wrap svg{width:160px;height:160px}
+      .score-num{font-size:2.4rem}
+      .wrap{padding:0 1.25rem}
+      .pillars-sec,.insta-sec,.sentiment-sec,.google-sec,.web-sec,.recs-sec,.proj-sec,.cta-s{padding:3.5rem 1.25rem}
+      .pillars-grid,.google-grid,.web-grid{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <a href="https://digital-ai.tech" target="_blank" rel="noopener">
+    <img src="https://s3.amazonaws.com/cdn.digital-ai.tech/uploads/media-cortex/identity/digital-ai/logos/logo-primary.svg" alt="Digital AI" class="nav-logo"/>
+  </a>
+  <a href="https://wa.me/5564981337424?text=Ol%C3%A1!+Quero+evoluir+minha+presen%C3%A7a+digital" target="_blank" rel="noopener" class="nav-cta">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    Falar com a equipe
+  </a>
+</nav>
+
+<!-- WA FLOAT -->
+<a class="wa-float" href="https://wa.me/5564981337424?text=Ol%C3%A1!+Quero+evoluir+minha+presen%C3%A7a+digital" target="_blank" rel="noopener" title="Fale com a Digital AI">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-inner">
+    <div class="hero-badge">
+      <span class="hero-badge-dot"></span>
+      Diagnóstico · Digital Health Score v1.0
+    </div>
+    <h1 class="hero-title">Jennefer Anunciato</h1>
+    <p class="hero-subtitle">Fisioterapeuta Dermatofuncional · Florianópolis SC</p>
+
+    <!-- Score Ring -->
+    <div class="score-ring-wrap">
+      <svg viewBox="0 0 200 200">
+        <circle class="sr-bg" cx="100" cy="100" r="90"/>
+        <circle class="sr-arc" cx="100" cy="100" r="90"/>
+      </svg>
+      <div class="score-ring-center">
+        <span class="score-num">52</span>
+        <span class="score-denom">/100 pontos</span>
+        <span class="score-grade">Grau C</span>
+      </div>
+    </div>
+
+    <!-- Hero Stats -->
+    <div class="hero-stats">
+      <div class="hs-item">
+        <div class="hs-val">9.007</div>
+        <div class="hs-lbl">Seguidores</div>
+      </div>
+      <div class="hs-item">
+        <div class="hs-val">619</div>
+        <div class="hs-lbl">Posts</div>
+      </div>
+      <div class="hs-item">
+        <div class="hs-val">52/100</div>
+        <div class="hs-lbl">Score Digital</div>
+      </div>
+      <div class="hs-item">
+        <div class="hs-val">11+ Anos</div>
+        <div class="hs-lbl">Experiência</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PILLARS -->
+<section class="pillars-sec">
+  <div class="wrap">
+    <div class="pillars-head reveal">
+      <h2>Três pilares.<br>Uma análise completa.</h2>
+      <p>Instagram, Google e Website — cada um com peso diferente no score total de presença digital.</p>
+    </div>
+    <div class="pillars-grid">
+      <!-- Pilar 1: Instagram (max 40) -->
+      <div class="pillar-c reveal d1" data-pillar="30" data-max="40" data-color="#22C55E">
+        <div class="p-icon">📱</div>
+        <div class="p-label">Instagram</div>
+        <div class="p-ring">
+          <svg viewBox="0 0 100 100">
+            <circle class="pr-bg" cx="50" cy="50" r="45"/>
+            <circle class="pr-arc" cx="50" cy="50" r="45" style="stroke:#22C55E"/>
+          </svg>
+          <div class="pr-center">
+            <span class="pr-val" style="color:#22C55E">30</span>
+            <span class="pr-max">/40</span>
+          </div>
+        </div>
+        <div class="p-title" style="color:#22C55E">Instagram Sólido</div>
+        <div class="p-desc">9 mil seguidores, 619 publicações e audiência com conexão emocional genuína com a profissional.</div>
+      </div>
+      <!-- Pilar 2: Google (max 35) -->
+      <div class="pillar-c reveal d2" data-pillar="12" data-max="35" data-color="#EF4444">
+        <div class="p-icon">🔍</div>
+        <div class="p-label">Google</div>
+        <div class="p-ring">
+          <svg viewBox="0 0 100 100">
+            <circle class="pr-bg" cx="50" cy="50" r="45"/>
+            <circle class="pr-arc" cx="50" cy="50" r="45" style="stroke:#EF4444"/>
+          </svg>
+          <div class="pr-center">
+            <span class="pr-val" style="color:#EF4444">12</span>
+            <span class="pr-max">/35</span>
+          </div>
+        </div>
+        <div class="p-title" style="color:#EF4444">Google Invisível</div>
+        <div class="p-desc">Sem Google Meu Negócio verificado, sem reviews e ausente em diretórios de saúde.</div>
+      </div>
+      <!-- Pilar 3: Website (max 25) -->
+      <div class="pillar-c reveal d3" data-pillar="10" data-max="25" data-color="#F59E0B">
+        <div class="p-icon">🌐</div>
+        <div class="p-label">Website</div>
+        <div class="p-ring">
+          <svg viewBox="0 0 100 100">
+            <circle class="pr-bg" cx="50" cy="50" r="45"/>
+            <circle class="pr-arc" cx="50" cy="50" r="45" style="stroke:#F59E0B"/>
+          </svg>
+          <div class="pr-center">
+            <span class="pr-val" style="color:#F59E0B">10</span>
+            <span class="pr-max">/25</span>
+          </div>
+        </div>
+        <div class="p-title" style="color:#F59E0B">Website Instável</div>
+        <div class="p-desc">Domínio dinantclinique.com.br existe mas estava inacessível — risco direto de perda de pacientes.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INSTAGRAM -->
+<section class="insta-sec">
+  <div class="wrap">
+    <div class="insta-intro reveal">
+      <div class="sec-label">Pilar 1 · Instagram</div>
+      <h2><em>@jenneferanunciato</em><br>9 mil seguidores com conexão genuína.</h2>
+      <p>30 de 40 pontos no pilar Instagram. Conta ativa com 619 publicações e audiência que responde com força ao conteúdo autêntico. Os posts de maior engajamento revelam seguidores que confiam em Jennefer como pessoa — uma base sólida para estratégia clínica digital.</p>
+    </div>
+    <div class="stats-grid reveal">
+      <div class="stat-box">
+        <div class="stat-num">9.007</div>
+        <div class="stat-lbl">Seguidores</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-num">619</div>
+        <div class="stat-lbl">Posts</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-num">30/40</div>
+        <div class="stat-lbl">Score Instagram</div>
+      </div>
+    </div>
+    <div class="reveal" style="margin-top:1.25rem;padding:1.1rem 1.25rem;background:rgba(45,82,239,.04);border-left:3px solid var(--brand-primary);border-radius:0 var(--r-sm) var(--r-sm) 0">
+      <p style="font-size:.83rem;color:var(--muted);line-height:1.65">Score Instagram: <strong style="color:var(--brand-primary)">30 / 40 pts</strong> · Audiência engajada com conteúdo autêntico — posts pessoais geram até 3,5% de taxa de engajamento</p>
+    </div>
+
+    <div class="reveal" style="margin-top:2.5rem">
+      <div class="sec-label" style="margin-bottom:1.25rem">Top 3 · Publicações com Maior Engajamento</div>
+      <div class="top3-grid">
+        <!-- Post 1 -->
+        <a class="top3-card reveal d1" href="https://www.instagram.com/p/DZPrdJJFWmz/" target="_blank" rel="noopener">
+          <div class="top3-media">
+            <img src="img/top1.jpg" loading="lazy" alt="Bento Gonçalves — Jennefer Anunciato">
+          </div>
+          <div class="top3-body">
+            <div class="top3-header"><span class="top3-badge">Viral</span><span class="top3-rank">#1</span></div>
+            <div class="top3-caption">Bento Gonçalves — experiência pessoal que conectou audiência. Conteúdo autêntico de viagem e lifestyle com forte resposta emocional dos seguidores.</div>
+            <div class="top3-stats">
+              <div class="top3-stat"><strong>276</strong><span>curtidas</span></div>
+              <div class="top3-stat"><strong>38</strong><span>comentários</span></div>
+              <div class="top3-stat"><strong>3,5%</strong><span>eng.</span></div>
+            </div>
+            <div class="top3-date">junho 2026</div>
+          </div>
+        </a>
+        <!-- Post 2 -->
+        <a class="top3-card reveal d2" href="https://www.instagram.com/p/DZQ7p7Jjbr9/" target="_blank" rel="noopener">
+          <div class="top3-media">
+            <img src="img/top2.jpg" loading="lazy" alt="Mensagem inspiracional — Jennefer Anunciato">
+          </div>
+          <div class="top3-body">
+            <div class="top3-header"><span class="top3-badge">Inspiração</span><span class="top3-rank">#2</span></div>
+            <div class="top3-caption">"A graça de Deus não apenas me sustentou nos dias difíceis. Ela me transformou na mulher que eu precisava me tornar." — post com maior número de comentários.</div>
+            <div class="top3-stats">
+              <div class="top3-stat"><strong>274</strong><span>curtidas</span></div>
+              <div class="top3-stat"><strong>54</strong><span>comentários</span></div>
+              <div class="top3-stat"><strong>3,6%</strong><span>eng.</span></div>
+            </div>
+            <div class="top3-date">junho 2026</div>
+          </div>
+        </a>
+        <!-- Post 3 -->
+        <a class="top3-card reveal d3" href="https://www.instagram.com/p/DWu-QITDR5d/" target="_blank" rel="noopener">
+          <div class="top3-media">
+            <img src="img/top3.jpg" loading="lazy" alt="Conteúdo de vida — Jennefer Anunciato">
+          </div>
+          <div class="top3-body">
+            <div class="top3-header"><span class="top3-badge">Lifestyle</span><span class="top3-rank">#3</span></div>
+            <div class="top3-caption">Conteúdo de lifestyle com imagem forte — demonstra que a audiência se engaja com a pessoa por trás da profissional, não apenas com conteúdo técnico.</div>
+            <div class="top3-stats">
+              <div class="top3-stat"><strong>202</strong><span>curtidas</span></div>
+              <div class="top3-stat"><strong>27</strong><span>comentários</span></div>
+              <div class="top3-stat"><strong>2,5%</strong><span>eng.</span></div>
+            </div>
+            <div class="top3-date">abril 2026</div>
+          </div>
+        </a>
+      </div>
+      <div class="insight-box reveal d3">
+        <div class="insight-icon">💡</div>
+        <p><strong>Padrão identificado:</strong> Os 3 posts com mais curtidas são conteúdo pessoal — viagem, fé e estética de vida. Isso mostra que Jennefer tem uma audiência que a ama como pessoa. O desafio e a grande oportunidade é conectar essa autenticidade ao conteúdo clínico de pós-operatório e taping, convertendo seguidores em pacientes da Dinant Clinique.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SENTIMENT -->
+<section class="sentiment-sec">
+  <div class="wrap">
+    <div class="sent-intro">
+      <div class="sec-label reveal">Engajamento da Audiência · Instagram</div>
+      <h2 class="reveal">O que os números revelam sobre a audiência.</h2>
+      <p class="sub reveal">Análise de 20 publicações coletadas revela padrões claros de engajamento — audiência emocional com alta receptividade a conteúdo pessoal e profissional de Jennefer.</p>
+    </div>
+
+    <div class="sent-overview reveal d2">
+      <div class="sent-overview-stat">
+        <span class="sent-big-num" style="color:var(--brand-primary)">20</span>
+        <span class="sent-big-label">posts analisados</span>
+      </div>
+      <div class="sent-overview-stat">
+        <span class="sent-big-num" style="color:var(--green)">1,2%</span>
+        <span class="sent-big-label">engajamento médio</span>
+      </div>
+      <div class="sent-overview-stat">
+        <span class="sent-big-num" style="color:var(--yellow)">3,6%</span>
+        <span class="sent-big-label">pico de engajamento</span>
+      </div>
+    </div>
+
+    <div class="sent-charts reveal d3">
+      <div class="sent-chart-card">
+        <h3 class="sent-chart-title">Tipo de Conteúdo</h3>
+        <div class="sent-donut-wrap">
+          <canvas id="sentDonut_jennefer"></canvas>
+          <div class="sent-donut-center">
+            <span class="sent-donut-pct" style="color:var(--brand-primary)">619</span>
+            <span class="sent-donut-sub">posts total</span>
+          </div>
+        </div>
+        <div class="sent-legend">
+          <div class="sent-leg-item"><span class="sent-leg-dot" style="background:var(--brand-primary)"></span><span>Pessoal / Emocional</span><strong>12</strong></div>
+          <div class="sent-leg-item"><span class="sent-leg-dot" style="background:var(--green)"></span><span>Profissional / Clínico</span><strong>5</strong></div>
+          <div class="sent-leg-item"><span class="sent-leg-dot" style="background:var(--muted-light)"></span><span>Lifestyle / Inspiração</span><strong>3</strong></div>
+        </div>
+      </div>
+
+      <div class="sent-chart-card">
+        <h3 class="sent-chart-title">Engajamento por Tema</h3>
+        <div class="sent-bar-wrap"><canvas id="sentBar_jennefer"></canvas></div>
+        <div class="sent-legend">
+          <div class="sent-leg-item"><span class="sent-leg-dot" style="background:var(--brand-primary)"></span><span>Viagem / Experiências</span><strong>276 curtidas</strong></div>
+          <div class="sent-leg-item"><span class="sent-leg-dot" style="background:var(--brand-accent)"></span><span>Fé / Inspiração</span><strong>274 curtidas</strong></div>
+          <div class="sent-leg-item"><span class="sent-leg-dot" style="background:var(--muted-light)"></span><span>Maternidade / Família</span><strong>142 curtidas</strong></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sent-footer reveal d3">
+      <a class="sent-profile-link" href="https://www.instagram.com/jenneferanunciato/" target="_blank" rel="noopener">
+        Ver perfil @jenneferanunciato ↗
+      </a>
+      <span class="sent-date">Análise: 19 de junho de 2026</span>
+    </div>
+  </div>
+</section>
+
+<script>
+(function() {
+  function initCharts() {
+    if (typeof Chart === 'undefined') { setTimeout(initCharts, 100); return; }
+    var dCtx = document.getElementById('sentDonut_jennefer');
+    if (dCtx && !dCtx._chart) {
+      dCtx._chart = new Chart(dCtx, {
+        type: 'doughnut',
+        data: {
+          labels: ['Pessoal / Emocional', 'Profissional / Clínico', 'Lifestyle'],
+          datasets: [{ data: [12, 5, 3], backgroundColor: ['#2D52EF','#22C55E','#94A3B8'], borderWidth: 0, hoverOffset: 6 }]
+        },
+        options: { responsive: true, maintainAspectRatio: true, cutout: '68%', plugins: { legend: { display: false }, tooltip: { callbacks: { label: function(c) { return ' ' + c.label + ': ' + c.raw + ' posts'; } } } }, animation: { animateRotate: true, duration: 1000 } }
+      });
+    }
+    var bCtx = document.getElementById('sentBar_jennefer');
+    if (bCtx && !bCtx._chart) {
+      bCtx._chart = new Chart(bCtx, {
+        type: 'bar',
+        data: {
+          labels: ['Viagem / Experiências', 'Fé / Inspiração', 'Maternidade / Família'],
+          datasets: [{ data: [276, 274, 142], backgroundColor: ['#2D52EF','#4F6FFF','#94A3B8'], borderRadius: 4, borderWidth: 0 }]
+        },
+        options: {
+          responsive: true, maintainAspectRatio: false, indexAxis: 'y',
+          plugins: { legend: { display: false }, tooltip: { callbacks: { label: function(c) { return ' ' + c.raw + ' curtidas'; } } } },
+          scales: {
+            x: { grid: { color: 'rgba(0,0,0,0.04)' }, ticks: { color: '#94A3B8', font: { size: 11 } } },
+            y: { grid: { display: false }, ticks: { color: '#64748B', font: { size: 12 } } }
+          },
+          animation: { duration: 900 }
+        }
+      });
+    }
+  }
+  initCharts();
+})();
+</script>
+
+<!-- GOOGLE -->
+<section class="google-sec">
+  <div class="wrap">
+    <div class="google-grid">
+      <div>
+        <div class="sec-label reveal">Pilar 2 · Google</div>
+        <h2 class="reveal">12 de 35 pontos.<br>Quase invisível na busca local.</h2>
+        <p class="sub reveal">Pacientes que buscam "fisioterapia pós-operatório Florianópolis" ou "taping dermatofuncional Florianópolis" no Google não encontram Jennefer. Sem Google Meu Negócio e sem reviews — a maior lacuna do diagnóstico.</p>
+        <div class="checklist reveal">
+          <div class="check-row">
+            <div class="check-ico ok">✓</div>
+            <div class="label"><strong>Site indexado no Google</strong><span>dinantclinique.com.br aparece nos resultados orgânicos</span></div>
+          </div>
+          <div class="check-row">
+            <div class="check-ico warn">!</div>
+            <div class="label"><strong>Google Maps — localização parcial</strong><span>Trompowsky Medical Center aparece, mas sem ficha específica da Dinant Clinique</span></div>
+          </div>
+          <div class="check-row">
+            <div class="check-ico fail">✗</div>
+            <div class="label"><strong>Google Meu Negócio</strong><span>Sem perfil verificado com horário, fotos e especialidades</span></div>
+          </div>
+          <div class="check-row">
+            <div class="check-ico fail">✗</div>
+            <div class="label"><strong>Avaliações Google</strong><span>Nenhuma review encontrada — zero prova social no Google</span></div>
+          </div>
+          <div class="check-row">
+            <div class="check-ico fail">✗</div>
+            <div class="label"><strong>Doctoralia / BoaConsulta</strong><span>Ausente em diretórios de saúde — perde visibilidade para especialidade</span></div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="g-score-box reveal d2">
+          <div class="g-score-num" style="color:var(--red)">12</div>
+          <div class="g-score-max">/35 pts</div>
+          <div class="g-score-lbl">Google Score · Fraco</div>
+        </div>
+        <div class="gap-box reveal d2">
+          <p><strong>Oportunidade crítica:</strong> pacientes buscando "fisioterapia pós-operatório Florianópolis" ou "taping Florianópolis" encontram concorrentes com avaliações ★★★★★. Jennefer tem 11 anos de expertise — mas é invisível onde os pacientes buscam.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WEBSITE -->
+<section class="web-sec">
+  <div class="wrap">
+    <div class="web-grid">
+      <div>
+        <div class="sec-label reveal">Pilar 3 · Website</div>
+        <h2 class="reveal">10 de 25 pontos.<br>Site inacessível durante a análise.</h2>
+        <p class="sub reveal">O domínio dinantclinique.com.br existe e aparece indexado no Google, mas estava inacessível durante esta análise — DNS não resolvia. A Linktree funciona como alternativa com link para WhatsApp e Google Maps, mas não substitui um site profissional com SEO local.</p>
+        <div class="web-checks reveal">
+          <div class="wc-row"><span style="color:var(--green)">✓</span><span>Linktree ativa com CTA direto para WhatsApp</span></div>
+          <div class="wc-row"><span style="color:var(--green)">✓</span><span>Domínio próprio registrado (dinantclinique.com.br)</span></div>
+          <div class="wc-row"><span style="color:var(--yellow)">!</span><span>Site inacessível durante análise — possível queda ou problema de DNS</span></div>
+          <div class="wc-row"><span style="color:var(--red)">✗</span><span>Sem formulário ou agendamento online integrado</span></div>
+          <div class="wc-row"><span style="color:var(--red)">✗</span><span>Sem blog ou conteúdo indexável pelo Google</span></div>
+        </div>
+      </div>
+      <div class="reveal d2">
+        <div class="mockup">
+          <div class="mbar">
+            <div class="mdot" style="background:#FF5F57"></div>
+            <div class="mdot" style="background:#FFBD2E"></div>
+            <div class="mdot" style="background:#28CA41"></div>
+            <div class="murl">dinantclinique.com.br</div>
+          </div>
+          <div class="mbody">
+            <div class="web-ok">⚠️</div>
+            <div class="web-okt">Site inacessível durante análise · Linktree como substituto</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RECOMMENDATIONS -->
+<section class="recs-sec">
+  <div class="wrap">
+    <div class="sec-label reveal">Plano de Ação</div>
+    <h2 class="reveal">5 ações.<br>Por ordem de impacto.</h2>
+    <p class="sub reveal">Ranqueadas por retorno imediato × esforço de implementação.</p>
+    <div class="timeline">
+      <!-- Ação 1 — Crítico -->
+      <div class="t-item reveal">
+        <div class="t-num" style="background:rgba(239,68,68,.08);border:1.5px solid var(--red);color:var(--red)">01</div>
+        <div class="t-body">
+          <span class="t-impact" style="background:rgba(239,68,68,.08);color:var(--red)">Crítico</span>
+          <h3>Reativar e estabilizar dinantclinique.com.br</h3>
+          <p>O site estar inacessível é uma sangria direta de pacientes. Qualquer pessoa que tentou acessar encontrou erro — perdendo confiança instantaneamente. Resolver o problema de DNS/hospedagem e garantir uptime de 99,9% é a prioridade máxima.</p>
+          <p class="t-gain" style="color:var(--red)">↑ +8 pts no score · recuperação imediata de credibilidade</p>
+        </div>
+      </div>
+      <!-- Ação 2 — Alto -->
+      <div class="t-item reveal d1">
+        <div class="t-num" style="background:rgba(239,68,68,.08);border:1.5px solid var(--red);color:var(--red)">02</div>
+        <div class="t-body">
+          <span class="t-impact" style="background:rgba(239,68,68,.08);color:var(--red)">Crítico</span>
+          <h3>Criar e verificar Google Meu Negócio para Dinant Clinique</h3>
+          <p>Cadastrar perfil GMB com fotos da clínica, especialidades (pós-operatório, taping, dermatofuncional), horários de atendimento e link de agendamento. Solicitar avaliações às primeiras pacientes — a maior alavanca de captação orgânica local.</p>
+          <p class="t-gain" style="color:var(--red)">↑ +16 pts no score · captação orgânica triplicada</p>
+        </div>
+      </div>
+      <!-- Ação 3 — Médio -->
+      <div class="t-item reveal d2">
+        <div class="t-num" style="background:rgba(245,158,11,.08);border:1.5px solid var(--yellow);color:var(--yellow)">03</div>
+        <div class="t-body">
+          <span class="t-impact" style="background:rgba(245,158,11,.08);color:var(--yellow)">Alto Impacto</span>
+          <h3>Landing page no link da bio — convertendo seguidores em pacientes</h3>
+          <p>Substituir a Linktree por uma landing page profissional personalizada no link da bio do Instagram. Com 9 mil seguidores e engajamento emocional comprovado, uma LP otimizada para agendamento pode converter seguidores em pacientes da Dinant Clinique diretamente.</p>
+          <p class="t-gain" style="color:var(--yellow)">↑ +7 pts · conversão direta dos seguidores do Instagram</p>
+        </div>
+      </div>
+      <!-- Ação 4 — Médio -->
+      <div class="t-item reveal d3">
+        <div class="t-num" style="background:rgba(45,82,239,.06);border:1.5px solid var(--brand-primary);color:var(--brand-primary)">04</div>
+        <div class="t-body">
+          <span class="t-impact" style="background:rgba(45,82,239,.06);color:var(--brand-primary)">Médio Impacto</span>
+          <h3>Estratégia de avaliações Google + Doctoralia</h3>
+          <p>Implementar fluxo automatizado pós-consulta pedindo avaliação no Google e criar perfil no Doctoralia com especialidades detalhadas. 20 reviews com nota 5 posicionam a ficha acima de concorrentes em Florianópolis.</p>
+          <p class="t-gain" style="color:var(--brand-primary)">↑ +5 pts · prova social e nova fonte de pacientes</p>
+        </div>
+      </div>
+      <!-- Ação 5 — Oportunidade -->
+      <div class="t-item reveal d4">
+        <div class="t-num" style="background:rgba(34,197,94,.06);border:1.5px solid var(--green);color:var(--green)">05</div>
+        <div class="t-body">
+          <span class="t-impact" style="background:rgba(34,197,94,.06);color:var(--green)">Oportunidade</span>
+          <h3>Conteúdo clínico autêntico no Instagram</h3>
+          <p>Trazer a mesma autenticidade dos posts pessoais para conteúdo clínico — casos de pós-operatório bem-sucedidos, bastidores do taping, resultados reais. O engajamento emocional já existe; basta direcioná-lo para os serviços da Dinant Clinique.</p>
+          <p class="t-gain" style="color:var(--green)">↑ +4 pts · autoridade clínica e captação orgânica</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTION -->
+<section class="proj-sec">
+  <div class="wrap">
+    <div class="sec-label reveal">Score Projetado</div>
+    <h2 class="reveal">De C para<br><span style="color:var(--green)">A.</span></h2>
+    <p class="sub reveal">Com as 5 ações implementadas — especialmente Google Meu Negócio e site estável — o score projetado sobe de 52 para 86, elevando a presença digital ao Grau A em 90 dias.</p>
+    <div class="bar-group">
+      <div class="bar-row reveal">
+        <div class="bar-head">
+          <span class="bar-label">Instagram</span>
+          <span class="bar-val" style="color:var(--green)">30 → 36</span>
+        </div>
+        <div class="bar-track"><div class="bar-fill" style="width:90%;background:var(--green)"></div></div>
+      </div>
+      <div class="bar-row reveal d1">
+        <div class="bar-head">
+          <span class="bar-label">Google</span>
+          <span class="bar-val" style="color:var(--brand-primary)">12 → 28</span>
+        </div>
+        <div class="bar-track"><div class="bar-fill" style="width:80%;background:var(--brand-primary)"></div></div>
+      </div>
+      <div class="bar-row reveal d2">
+        <div class="bar-head">
+          <span class="bar-label">Website</span>
+          <span class="bar-val" style="color:var(--yellow)">10 → 22</span>
+        </div>
+        <div class="bar-track"><div class="bar-fill" style="width:88%;background:var(--yellow)"></div></div>
+      </div>
+      <div class="bar-row reveal d3">
+        <div class="bar-head">
+          <span class="bar-label">Score Total</span>
+          <span class="bar-val" style="color:var(--green)">52 → 86 · Grau A</span>
+        </div>
+        <div class="bar-track"><div class="bar-fill" style="width:86%;background:linear-gradient(90deg,var(--brand-primary),var(--green))"></div></div>
+      </div>
+    </div>
+    <div class="proj-note reveal">
+      <p><strong>O maior salto vem do Google:</strong> um GMB ativo com avaliações pode adicionar até 16 pontos ao score. Combinado com site estável (+8 pts) e landing page profissional (+7 pts), Jennefer pode atingir o Grau A de presença digital em menos de 3 meses — colocando a Dinant Clinique no topo das buscas de fisioterapia em Florianópolis.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-s">
+  <div class="cta-inner">
+    <div class="cta-tag reveal">Próximo passo</div>
+    <h2 class="reveal">11 anos de expertise merecem estar no topo do Google.</h2>
+    <p class="reveal">Identificamos lacunas críticas que limitam o alcance da Dinant Clinique online. Podemos resolver o site, o Google Meu Negócio e o funil de conversão do Instagram em uma solução integrada de IA — rápido e sem complicação.</p>
+    <a href="https://wa.me/5564981337424?text=Ol%C3%A1%2C+vi+o+diagn%C3%B3stico+digital+de+Jennefer+Anunciato+e+gostaria+de+conversar+sobre+como+a+Digital+AI+pode+ajudar" target="_blank" rel="noopener" class="cta-btn-wa reveal">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      Quero evoluir minha presença digital
+    </a>
+    <p class="cta-note reveal">Sem compromisso — só uma conversa rápida de 15 min com a equipe da Digital AI</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-inner">
+      <a href="https://digital-ai.tech" target="_blank" rel="noopener" class="f-logo-link">
+        <img src="https://s3.amazonaws.com/cdn.digital-ai.tech/uploads/media-cortex/identity/digital-ai/logos/logo-primary.svg"
+             alt="Digital AI" class="f-logo"
+             style="filter: brightness(0) invert(1);" />
+      </a>
+      <p class="f-tagline">Inteligência Artificial para empresas que querem crescer.</p>
+      <div class="f-links">
+        <a href="https://digital-ai.tech" target="_blank">Site</a>
+        <a href="https://digital-ai.tech/contato" target="_blank">Contato</a>
+        <a href="https://wa.me/5564981337424" target="_blank">WhatsApp</a>
+      </div>
+      <p class="f-copy">&copy; 2026 Digital AI &middot; Itumbiara, GO &middot; digital-ai.tech</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* ═══════════════════════════════════════════════
+   ANIMAÇÕES
+   ═══════════════════════════════════════════════ */
+// Intersection Observer para .reveal
+const io = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (!e.isIntersecting) return;
+    e.target.classList.add('visible');
+    io.unobserve(e.target);
+    // Pillar rings
+    if (e.target.classList.contains('pillar-c')) animPillar(e.target);
+    // Projection bars
+    if (e.target.classList.contains('bar-row')) e.target.classList.add('run');
+  });
+}, { threshold: 0.15 });
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+// Pillar ring animation
+function animPillar(card) {
+  const arc = card.querySelector('.pr-arc');
+  const val = card.querySelector('.pr-val');
+  if (!arc) return;
+  const s = +card.dataset.pillar, m = +card.dataset.max;
+  const off = 283 - (s / m * 283);
+  setTimeout(() => { arc.style.strokeDashoffset = off; }, 200);
+  if (val) animCount(val, s, '', 1400);
+}
+
+// Count-up animation
+function animCount(el, target, sfx, dur) {
+  const start = performance.now();
+  const isFloat = String(target).includes('.');
+  function tick(now) {
+    const p = Math.min((now - start) / dur, 1);
+    const ease = 1 - Math.pow(1 - p, 3);
+    const v = target * ease;
+    el.textContent = (isFloat ? v.toFixed(1) : Math.round(v)) + (sfx || '');
+    if (p < 1) requestAnimationFrame(tick);
+  }
+  requestAnimationFrame(tick);
+}
+</script>
+</body>
+</html>

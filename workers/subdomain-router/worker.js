@@ -49,6 +49,7 @@ const ROUTING = {
   "draizabela": "dra-izabela-rezende-ginecologia-endocrina",
   "kion-dental-technology": "kion-dental-technology",
   "clinicas-sorrifacil": "clinicas-sorrifacil",
+  "jennefer-anunciato-health": "jennefer-anunciato-health",
   // LeadKit adiciona entradas aqui automaticamente via Fase 4 do pipeline
 };
 
