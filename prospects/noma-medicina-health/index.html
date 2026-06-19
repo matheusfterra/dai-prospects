@@ -44,7 +44,7 @@
 
     /* ── HERO ── */
     .hero{min-height:100vh;background:linear-gradient(135deg,var(--brand-primary) 0%,var(--brand-dark) 100%);display:flex;align-items:center;padding:120px 32px 80px;position:relative;overflow:hidden}
-    .hero-bg{display:none}
+    .hero-bg{position:absolute;inset:0;background-image:url('assets/img-post2.jpg');background-size:cover;background-position:center;opacity:.07;pointer-events:none}
     .hero-glow{position:absolute;top:-20%;right:-10%;width:700px;height:700px;background:radial-gradient(circle,rgba(59,47,201,.4) 0%,transparent 70%);pointer-events:none}
     .hero-inner{max-width:1080px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;position:relative;z-index:1;width:100%}
     @media(max-width:900px){.hero-inner{grid-template-columns:1fr;gap:40px}}
