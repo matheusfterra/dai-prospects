@@ -36,6 +36,7 @@ const ROUTING = {
   "mari-saraiva-acessorios-health": "mari-saraiva-acessorios-health",
   "mari-saraiva-acessorios": "mari-saraiva-acessorios",
   "dra-mariajuliaoliv": "dra-mariajuliaoliv",
+  "dra-izabela": "dra-izabela",
   "dra-izabela-rezende-ginecologia-endocrina-health": "dra-izabela-rezende-ginecologia-endocrina-health",
   "dra-izabela-rezende-ginecologia-endocrina": "dra-izabela-rezende-ginecologia-endocrina",
   "dra-izabela-health": "dra-izabela-rezende-ginecologia-endocrina-health",
