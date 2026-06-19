@@ -252,12 +252,13 @@
       .roi-g{grid-template-columns:1fr 1fr}
       .op-g{grid-template-columns:1fr}
       .cta-bs{flex-direction:column;align-items:center}
-      .flip-outer{height:auto}
-      .flip-inner{position:static;transform:none!important}
-      .flip-face{position:static;backface-visibility:visible}
-      .flip-back{display:none}
-      .flip-outer.flipped .flip-back{display:flex;margin-top:12px;border-radius:var(--r-xl)}
-      .flip-outer.flipped .flip-inner{transform:none}
+      .flip-outer{height:auto;perspective:none}
+      .flip-inner{position:relative;height:auto;transform:none!important;transform-style:flat}
+      .flip-face{position:static;backface-visibility:visible;-webkit-backface-visibility:visible;transform:none!important}
+      .flip-front{display:flex}
+      .flip-back{display:none;transform:none!important}
+      .flip-outer.flipped .flip-front{display:none}
+      .flip-outer.flipped .flip-back{display:flex;border-radius:var(--r-xl)}
     }
   </style>
 </head>
