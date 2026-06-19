@@ -31,6 +31,7 @@ const ROUTING = {
   "magabwear": "magab-wear",
   "magabwear-health": "magabwear-health",
   "yooufit-academia-health": "yooufit-academia-health",
+  "noma-medicina-health": "noma-medicina-health",
   "odontoclinic-health": "odontoclinic-health",
   "kion-dental-technology-health": "kion-dental-technology-health",
   "mari-saraiva-acessorios-health": "mari-saraiva-acessorios-health",
