@@ -3,871 +3,1099 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Regivel Ford | Concessionária Ford — Itumbiara, GO</title>
-  <meta name="description" content="Regivel Ford em Itumbiara, GO. Veículos novos e seminovos Ford com atendimento exclusivo, financiamento facilitado e revisão especializada. 27 anos de tradição." />
-
-  <!-- Open Graph -->
+  <title>Digital AI para Regivel Ford — Atendimento Inteligente para Concessionárias</title>
+  <meta name="description" content="Descubra como a Digital AI pode automatizar o atendimento da Regivel Ford com IA no WhatsApp — 24/7, sem perder leads, com agendamento automático de test drive e revisões." />
+  <!-- OG / Social Sharing -->
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://regivel-ford.digital-ai.tech/" />
-  <meta property="og:title" content="Regivel Ford | Concessionária Ford — Itumbiara, GO" />
-  <meta property="og:description" content="Realize o sonho do seu próximo Ford. Atendimento exclusivo, financiamento facilitado e 27 anos de tradição em Goiás." />
-  <meta property="og:image" content="https://regivel-ford.digital-ai.tech/img/hero.jpg" />
-  <meta property="og:image:width" content="1080" />
-  <meta property="og:image:height" content="1350" />
-  <meta property="og:locale" content="pt_BR" />
-
-  <!-- Twitter Card -->
+  <meta property="og:site_name" content="Digital AI" />
+  <meta property="og:title" content="Digital AI para Regivel Ford — Atendimento Inteligente para Concessionárias" />
+  <meta property="og:description" content="Descubra como a Digital AI pode automatizar o atendimento da Regivel Ford com IA no WhatsApp — 24/7, sem perder leads, com agendamento automático de test drive e revisões." />
+  <meta property="og:url" content="https://regivel-ford.digital-ai.tech" />
+  <meta property="og:image" content="https://s3.amazonaws.com/cdn.digital-ai.tech/uploads/media-cortex/identity/digital-ai/social/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Regivel Ford | Concessionária Ford — Itumbiara, GO" />
-  <meta name="twitter:description" content="Realize o sonho do seu próximo Ford. 27 anos de tradição em Goiás." />
-  <meta name="twitter:image" content="https://regivel-ford.digital-ai.tech/img/hero.jpg" />
-
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
-
+  <meta name="twitter:title" content="Digital AI para Regivel Ford — Atendimento Inteligente para Concessionárias" />
+  <meta name="twitter:description" content="Descubra como a Digital AI pode automatizar o atendimento da Regivel Ford com IA no WhatsApp — 24/7, sem perder leads, com agendamento automático de test drive e revisões." />
+  <meta name="twitter:image" content="https://s3.amazonaws.com/cdn.digital-ai.tech/uploads/media-cortex/identity/digital-ai/social/og-image.png" />
+  <link rel="icon" href="https://s3.amazonaws.com/cdn.digital-ai.tech/uploads/media-cortex/identity/digital-ai/logos/favicon-32.png" type="image/png" />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
   <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
+    /* ========================================
+       DESIGN TOKENS — Digital AI
+       ======================================== */
     :root {
-      --bg:           #F8F9FB;
-      --surface:      #EEF1F7;
-      --surface-2:    #E2E8F4;
-      --border:       rgba(0,48,135,.12);
-
-      --gold:         #003087;
-      --gold-l:       #1A4FA0;
-      --gold-d:       #001F5C;
-
-      --dark:         #0A0F1E;
-      --dark-2:       #111827;
-      --text:         #1E2B3C;
-      --text-muted:   #6B7A8D;
-      --text-soft:    #9BAABB;
-      --white:        #FFFFFF;
-      --wpp:          #25D366;
-      --accent:       #C8A84B;
-
-      --radius: 14px;
-      --font-h: 'Montserrat', system-ui, sans-serif;
-      --font-b: 'Inter', system-ui, sans-serif;
+      --brand-primary: #2D52EF;
+      --brand-secondary: #3B2FC9;
+      --brand-dark: #0F1F5C;
+      --brand-accent: #E8EEFF;
+      --brand-light: #F5F7FF;
+      --brand-white: #FFFFFF;
+      --brand-gray-50: #F8FAFC;
+      --brand-gray-100: #F1F5F9;
+      --brand-gray-200: #E2E8F0;
+      --brand-gray-300: #CBD5E1;
+      --brand-gray-500: #64748B;
+      --brand-gray-700: #334155;
+      --brand-gray-900: #0F172A;
+      --font-heading: 'Plus Jakarta Sans', sans-serif;
+      --font-body: 'DM Sans', sans-serif;
+      --radius-sm: 4px;
+      --radius-md: 8px;
+      --radius-lg: 12px;
+      --radius-xl: 16px;
+      --radius-2xl: 24px;
+      --shadow-sm: 0 1px 2px rgba(15, 31, 92, 0.05);
+      --shadow-md: 0 4px 6px -1px rgba(15, 31, 92, 0.07), 0 2px 4px -2px rgba(15, 31, 92, 0.05);
+      --shadow-lg: 0 10px 15px -3px rgba(15, 31, 92, 0.08), 0 4px 6px -4px rgba(15, 31, 92, 0.04);
+      --shadow-xl: 0 20px 25px -5px rgba(15, 31, 92, 0.1), 0 8px 10px -6px rgba(15, 31, 92, 0.06);
     }
 
-    html { scroll-behavior: smooth; background: var(--dark); overflow-x: clip; }
+    /* ========================================
+       RESET & BASE
+       ======================================== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
     body {
-      font-family: var(--font-b);
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.65;
-      -webkit-font-smoothing: antialiased;
-      overflow-x: clip;
+      font-family: var(--font-body);
+      font-size: 16px;
+      line-height: 1.6;
+      color: var(--brand-gray-900);
+      background: var(--brand-white);
+      overflow-x: hidden;
     }
-    img { display: block; width: 100%; object-fit: cover; }
+    img { max-width: 100%; height: auto; display: block; }
     a { text-decoration: none; color: inherit; }
 
-    /* ── ANIMATIONS ── */
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(28px); }
-      to   { opacity: 1; transform: translateY(0); }
+    /* ========================================
+       UTILITIES
+       ======================================== */
+    .container {
+      width: 100%;
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 24px;
     }
-    .reveal {
-      opacity: 0; transform: translateY(22px);
-      transition: opacity .7s ease, transform .7s ease;
-    }
-    .reveal.visible { opacity: 1; transform: none; }
-    .d1 { transition-delay: .1s; }
-    .d2 { transition-delay: .2s; }
-    .d3 { transition-delay: .3s; }
-    .d4 { transition-delay: .4s; }
+    .section-padding { padding: 80px 0; }
+    .text-center { text-align: center; }
+    .text-primary { color: var(--brand-primary); }
+    .text-dark { color: var(--brand-dark); }
+    .text-muted { color: var(--brand-gray-500); }
+    .font-heading { font-family: var(--font-heading); }
 
-    /* ── PROGRESS BAR ── */
-    #progress-bar {
-      position: fixed; top: 0; left: 0; z-index: 300;
-      height: 3px; width: 0%;
-      background: linear-gradient(90deg, var(--gold), var(--gold-l));
-      transition: width .1s linear;
+    /* ========================================
+       TYPOGRAPHY
+       ======================================== */
+    h1, h2, h3, h4, h5 { font-family: var(--font-heading); line-height: 1.2; }
+    h1 { font-size: clamp(2rem, 5vw, 3.25rem); font-weight: 800; }
+    h2 { font-size: clamp(1.75rem, 4vw, 2.5rem); font-weight: 700; }
+    h3 { font-size: clamp(1.25rem, 3vw, 1.5rem); font-weight: 600; }
+    p { line-height: 1.7; }
+    .subtitle {
+      font-size: clamp(1.05rem, 2.5vw, 1.25rem);
+      color: var(--brand-gray-500);
+      max-width: 640px;
     }
-
-    /* ── NAVBAR ── */
-    .nav {
-      position: sticky; top: 0; z-index: 100;
-      border-bottom: 1px solid transparent;
-      transition: background .3s, border-color .3s, box-shadow .3s;
-    }
-    .nav.scrolled {
-      background: rgba(248, 249, 251, 0.96);
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
-      border-bottom-color: var(--border);
-      box-shadow: 0 2px 16px rgba(0,48,135,.07);
-    }
-    .nav-inner {
-      max-width: 1100px; margin: 0 auto; padding: 0 24px;
-      display: flex; align-items: center; justify-content: space-between;
-      height: 64px;
-    }
-    .nav-brand {
-      font-family: var(--font-h);
-      font-size: 1.05rem; font-weight: 700;
-      letter-spacing: .04em; color: var(--dark);
+    .overline {
+      font-family: var(--font-heading);
+      font-size: 0.8125rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
       text-transform: uppercase;
-      min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
-    }
-    .nav-brand span { color: var(--gold); }
-    .nav-ig {
-      display: flex; align-items: center; gap: 7px;
-      font-size: .78rem; font-weight: 600; color: var(--text-muted);
-      padding: 9px 16px; border-radius: 100px;
-      border: 1px solid var(--border);
-      transition: all .2s; flex-shrink: 0;
-    }
-    .nav-ig:hover { background: var(--dark); color: #fff; border-color: var(--dark); }
-    .nav-ig svg { width: 15px; height: 15px; }
-    @media (max-width: 480px) {
-      .nav-brand { font-size: .82rem; }
-      .nav-ig { padding: 8px 12px; font-size: .72rem; }
-      .nav-ig-label { display: none; }
+      color: var(--brand-primary);
+      margin-bottom: 12px;
+      display: inline-block;
     }
 
-    /* ── HERO ── */
-    .hero {
-      position: relative; overflow: hidden;
-      min-height: 100svh;
-      display: flex; align-items: flex-end;
-    }
-    @media (min-width: 769px) {
-      .hero { align-items: center; justify-content: center; }
-      .hero-content { text-align: center; max-width: 700px; padding: 120px 40px 80px; margin: 0 auto; }
-      .hero-eyebrow { justify-content: center; }
-      .hero-btns { justify-content: center; }
-      .hero-sub { margin-left: auto; margin-right: auto; }
-    }
-    .hero-bg { position: absolute; inset: 0; z-index: 0; }
-    .hero-bg img { height: 100%; object-position: center center; opacity: 0.60; }
-    .hero-overlay {
-      position: absolute; inset: 0; z-index: 1;
-      background: linear-gradient(
-        to top,
-        rgba(0,15,30,.95) 0%,
-        rgba(0,20,50,.55) 50%,
-        rgba(0,30,80,.20) 100%
-      );
-    }
-    .hero-content {
-      position: relative; z-index: 2;
-      padding: 0 24px 60px;
-      max-width: 620px;
-      animation: fadeUp .9s ease both;
-    }
-    .hero-eyebrow {
-      display: inline-flex; align-items: center; gap: 10px;
-      font-size: .65rem; font-weight: 700; letter-spacing: .18em; text-transform: uppercase;
-      color: var(--accent); margin-bottom: 1.4rem;
-    }
-    .hero-eyebrow::before {
-      content: ''; display: block; width: 32px; height: 2px; background: var(--accent);
-    }
-    .hero-title {
-      font-family: var(--font-h);
-      font-size: clamp(2.2rem, 5.5vw, 3.8rem);
-      font-weight: 800; line-height: 1.08; text-transform: uppercase; letter-spacing: .01em;
-      color: #fff; margin-bottom: 1rem;
-    }
-    .hero-title em { font-style: normal; color: var(--accent); }
-    .hero-sub {
-      font-size: .95rem; color: rgba(255,255,255,.78);
-      line-height: 1.75; margin-bottom: 2.2rem; max-width: 440px;
-    }
-    .hero-btns { display: flex; gap: 12px; flex-wrap: wrap; }
-
-    /* ── BUTTONS ── */
+    /* ========================================
+       BUTTONS
+       ======================================== */
     .btn {
-      display: inline-flex; align-items: center; justify-content: center; gap: 9px;
-      font-family: var(--font-b); font-size: .88rem; font-weight: 600;
-      padding: 14px 26px; border-radius: 100px; cursor: pointer; border: none;
-      transition: transform .2s, box-shadow .2s, background .2s, opacity .2s;
-      letter-spacing: .01em;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-family: var(--font-heading);
+      font-weight: 600;
+      font-size: 1rem;
+      padding: 16px 32px;
+      border-radius: var(--radius-lg);
+      border: none;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      min-height: 48px;
     }
-    .btn:hover { transform: translateY(-2px); }
-    .btn svg { width: 18px; height: 18px; flex-shrink: 0; }
-    .btn-gold {
-      background: var(--gold); color: #fff;
-      box-shadow: 0 4px 20px rgba(0,48,135,.28);
+    .btn-primary {
+      background: var(--brand-primary);
+      color: var(--brand-white);
+      box-shadow: 0 4px 14px rgba(45, 82, 239, 0.35);
     }
-    .btn-gold:hover { background: var(--gold-d); box-shadow: 0 6px 28px rgba(0,48,135,.38); }
-    .btn-wpp {
-      background: var(--wpp); color: #fff;
-      box-shadow: 0 4px 20px rgba(37,211,102,.24);
+    .btn-primary:hover {
+      background: var(--brand-secondary);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(45, 82, 239, 0.45);
     }
-    .btn-wpp:hover { background: #1db954; box-shadow: 0 6px 28px rgba(37,211,102,.34); }
     .btn-outline {
-      background: transparent; color: #fff;
-      border: 1.5px solid rgba(255,255,255,.35);
+      background: transparent;
+      color: var(--brand-white);
+      border: 2px solid rgba(255, 255, 255, 0.3);
     }
-    .btn-outline:hover { background: rgba(255,255,255,.1); border-color: rgba(255,255,255,.6); }
-    .btn-dark  { background: var(--dark); color: #fff; }
-    .btn-dark:hover { background: var(--dark-2); }
-    .btn-sub {
-      display: block; text-align: center;
-      font-size: .72rem; color: rgba(255,255,255,.45);
-      margin-top: 8px;
+    .btn-outline:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: rgba(255, 255, 255, 0.6);
+    }
+    .btn-whatsapp {
+      background: #25D366;
+      color: var(--brand-white);
+      box-shadow: 0 4px 14px rgba(37, 211, 102, 0.35);
+    }
+    .btn-whatsapp:hover {
+      background: #1EBE5A;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(37, 211, 102, 0.45);
+    }
+    .btn-whatsapp svg { width: 20px; height: 20px; fill: currentColor; }
+    .btn-lg { padding: 18px 40px; font-size: 1.0625rem; }
+
+    /* ========================================
+       NAVBAR
+       ======================================== */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      padding: 16px 0;
+      transition: all 0.3s ease;
+      background: transparent;
+    }
+    .navbar.scrolled {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(12px);
+      box-shadow: var(--shadow-md);
+      padding: 12px 0;
+    }
+    .navbar .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .navbar-logo img { height: 32px; transition: filter 0.3s, opacity 0.3s; }
+    .navbar-cta .btn { padding: 10px 24px; font-size: 0.875rem; }
+    .navbar:not(.scrolled) .navbar-logo img { filter: brightness(0) invert(1); }
+    .navbar.scrolled .navbar-logo img { filter: none; }
+
+    /* ========================================
+       HERO
+       ======================================== */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      background: linear-gradient(135deg, #2D52EF 0%, #0F1F5C 100%);
+      overflow: hidden;
+      padding-top: 80px;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 20% 50%, rgba(45, 82, 239, 0.3) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(59, 47, 201, 0.2) 0%, transparent 40%);
+      pointer-events: none;
+    }
+    .hero-grid {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+      background-size: 60px 60px;
+      pointer-events: none;
+    }
+    .hero .container { position: relative; z-index: 2; }
+    .hero-content { max-width: 720px; }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 100px;
+      padding: 8px 20px;
+      font-family: var(--font-heading);
+      font-size: 0.8125rem;
+      font-weight: 600;
+      color: rgba(255, 255, 255, 0.9);
+      margin-bottom: 32px;
+      backdrop-filter: blur(4px);
+    }
+    .hero-badge-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #25D366;
+      animation: pulse-dot 2s infinite;
+    }
+    @keyframes pulse-dot {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(1.3); }
+    }
+    .hero h1 {
+      color: var(--brand-white);
+      margin-bottom: 24px;
+      letter-spacing: -0.02em;
+    }
+    .hero h1 .highlight {
+      background: linear-gradient(90deg, #E8EEFF, #A5B4FC);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero-subtitle {
+      font-size: clamp(1.05rem, 2.5vw, 1.25rem);
+      color: rgba(255, 255, 255, 0.75);
+      max-width: 560px;
+      margin-bottom: 40px;
+      line-height: 1.7;
+    }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 16px; }
+    .hero-stats {
+      display: flex;
+      gap: 48px;
+      margin-top: 64px;
+      padding-top: 40px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .hero-stat-value {
+      font-family: var(--font-heading);
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--brand-white);
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+    .hero-stat-label {
+      font-size: 0.875rem;
+      color: rgba(255, 255, 255, 0.5);
     }
 
-    /* ── BARRA DE BENEFÍCIOS ── */
-    .benefits-bar {
-      background: #030a1a;
-      padding: 0;
-      border-bottom: 1px solid rgba(0,48,135,.18);
+    /* ========================================
+       PAIN POINTS (DORES)
+       ======================================== */
+    .pain-section { background: var(--brand-gray-50); }
+    .pain-header { max-width: 640px; margin: 0 auto 56px; }
+    .pain-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
     }
-    .benefits-inner {
-      max-width: 1100px; margin: 0 auto;
-      display: grid; grid-template-columns: repeat(4, 1fr);
+    .pain-card {
+      background: var(--brand-white);
+      border-radius: var(--radius-xl);
+      padding: 32px;
+      border: 1px solid var(--brand-gray-200);
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
     }
-    .benefit-item {
-      display: flex; align-items: center; gap: 12px;
-      padding: 18px 20px;
-      border-right: 1px solid rgba(0,48,135,.15);
+    .pain-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, #EF4444, #F97316);
+      opacity: 0;
+      transition: opacity 0.3s;
     }
-    .benefit-item:last-child { border-right: none; }
-    .benefit-icon {
-      width: 36px; height: 36px; border-radius: 10px;
-      background: rgba(0,48,135,.18);
-      display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+    .pain-card:hover { border-color: var(--brand-gray-300); box-shadow: var(--shadow-lg); }
+    .pain-card:hover::before { opacity: 1; }
+    .pain-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: var(--radius-lg);
+      background: #FEF2F2;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      margin-bottom: 20px;
     }
-    .benefit-icon svg { width: 18px; height: 18px; color: var(--accent); }
-    .benefit-text { display: flex; flex-direction: column; gap: 1px; }
-    .benefit-title { font-size: .78rem; font-weight: 700; color: #fff; }
-    .benefit-sub { font-size: .68rem; color: rgba(255,255,255,.42); }
-    @media (max-width: 768px) {
-      .benefits-inner { grid-template-columns: repeat(2, 1fr); }
-      .benefit-item:nth-child(2) { border-right: none; }
-      .benefit-item { padding: 14px 16px; }
+    .pain-card h3 { margin-bottom: 12px; color: var(--brand-gray-900); }
+    .pain-card p { color: var(--brand-gray-500); font-size: 0.9375rem; line-height: 1.7; }
+    .pain-tag {
+      display: inline-block;
+      margin-top: 16px;
+      padding: 4px 12px;
+      border-radius: 100px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      font-family: var(--font-heading);
     }
-    @media (max-width: 480px) {
-      .benefit-sub { display: none; }
-      .benefit-title { font-size: .72rem; }
+    .pain-tag-high { background: #FEF2F2; color: #DC2626; }
+    .pain-tag-medium { background: #FFF7ED; color: #EA580C; }
+
+    /* ========================================
+       SOLUTION
+       ======================================== */
+    .solution-section { background: var(--brand-white); }
+    .solution-header { max-width: 640px; margin: 0 auto 56px; }
+    .solution-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .solution-card {
+      background: var(--brand-light);
+      border-radius: var(--radius-xl);
+      padding: 32px;
+      border: 1px solid transparent;
+      transition: all 0.3s ease;
+    }
+    .solution-card:hover {
+      border-color: var(--brand-primary);
+      box-shadow: var(--shadow-lg);
+      transform: translateY(-4px);
+    }
+    .solution-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: var(--radius-lg);
+      background: linear-gradient(135deg, var(--brand-primary), var(--brand-secondary));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      margin-bottom: 20px;
+      color: var(--brand-white);
+    }
+    .solution-card h3 { margin-bottom: 12px; }
+    .solution-card p { color: var(--brand-gray-500); font-size: 0.9375rem; }
+    .solution-features {
+      margin-top: 16px;
+      list-style: none;
+    }
+    .solution-features li {
+      position: relative;
+      padding-left: 24px;
+      margin-bottom: 8px;
+      font-size: 0.875rem;
+      color: var(--brand-gray-700);
+    }
+    .solution-features li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 7px;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--brand-primary);
     }
 
-    /* ── LINKS RÁPIDOS ── */
-    .links-sec {
-      background: var(--dark);
-      padding: 3.5rem 24px 4rem;
+    /* ========================================
+       ROI
+       ======================================== */
+    .roi-section {
+      background: linear-gradient(135deg, #0F1F5C 0%, #1a2d6e 50%, #2D52EF 100%);
+      color: var(--brand-white);
+      position: relative;
+      overflow: hidden;
     }
-    .links-label {
+    .roi-section::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 70% 30%, rgba(45, 82, 239, 0.2) 0%, transparent 50%);
+      pointer-events: none;
+    }
+    .roi-header { max-width: 640px; margin: 0 auto 56px; position: relative; z-index: 2; }
+    .roi-header .subtitle { color: rgba(255, 255, 255, 0.6); }
+    .roi-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      position: relative;
+      z-index: 2;
+    }
+    .roi-card {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: var(--radius-xl);
+      padding: 32px 24px;
       text-align: center;
-      font-size: .68rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase;
-      color: var(--text-soft); margin-bottom: 2rem;
+      backdrop-filter: blur(4px);
+      transition: all 0.3s ease;
     }
-    .links-grid {
-      display: grid; grid-template-columns: repeat(3, 1fr);
-      gap: 14px; max-width: 760px; margin: 0 auto;
+    .roi-card:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: rgba(255, 255, 255, 0.2);
+      transform: translateY(-4px);
     }
-    .link-card {
-      display: flex; flex-direction: column; align-items: center;
-      gap: 12px; padding: 28px 20px 24px;
-      border-radius: 20px; color: #fff; text-align: center;
-      transition: transform .25s, box-shadow .25s;
-      border: 1px solid rgba(255,255,255,.06); cursor: pointer;
+    .roi-value {
+      font-family: var(--font-heading);
+      font-size: clamp(2rem, 4vw, 2.75rem);
+      font-weight: 800;
+      background: linear-gradient(135deg, #E8EEFF, #A5B4FC);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      line-height: 1;
+      margin-bottom: 12px;
     }
-    .link-card:hover { transform: translateY(-5px); box-shadow: 0 16px 40px rgba(0,0,0,.35); }
-    .link-card-icon {
-      width: 52px; height: 52px; border-radius: 16px;
-      display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+    .roi-label {
+      font-size: 0.9375rem;
+      color: rgba(255, 255, 255, 0.6);
+      line-height: 1.5;
     }
-    .link-card-icon svg { width: 26px; height: 26px; }
-    .link-card-title { font-size: .88rem; font-weight: 700; letter-spacing: .01em; line-height: 1.3; }
-    .link-card-sub { font-size: .73rem; color: rgba(255,255,255,.55); line-height: 1.5; }
-    .link-card-arrow { font-size: .72rem; color: rgba(255,255,255,.35); margin-top: 2px; }
-    .lc-wpp  { background: rgba(29,168,81,.15); border-color: rgba(29,168,81,.25); }
-    .lc-wpp .link-card-icon { background: #1da851; }
-    .lc-ig   { background: rgba(131,58,180,.15); border-color: rgba(253,29,29,.15); }
-    .lc-ig .link-card-icon { background: linear-gradient(135deg, #833ab4, #fd1d1d, #fcb045); }
-    .lc-lt   { background: rgba(0,48,135,.12); border-color: rgba(0,48,135,.25); }
-    .lc-lt .link-card-icon { background: rgba(0,48,135,.25); }
-    .lc-lt .link-card-icon svg { color: var(--accent); }
-    @media (max-width: 600px) {
-      .links-grid { grid-template-columns: 1fr; max-width: 360px; gap: 12px; }
-      .link-card { flex-direction: row; text-align: left; padding: 18px 20px; gap: 16px; }
-      .link-card-icon { width: 46px; height: 46px; border-radius: 14px; flex-shrink: 0; }
-      .link-card-sub, .link-card-arrow { display: none; }
+    .roi-note {
+      text-align: center;
+      margin-top: 48px;
+      position: relative;
+      z-index: 2;
     }
-
-    /* ── SECTIONS ── */
-    .section { padding: 88px 24px; }
-    .container { max-width: 1100px; margin: 0 auto; }
-    .sec-tag {
-      display: inline-flex; align-items: center; gap: 8px;
-      font-size: .65rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase;
-      color: var(--gold); padding: 5px 14px; border-radius: 100px;
-      background: rgba(0,48,135,.08); margin-bottom: .9rem;
-    }
-    .sec-title {
-      font-family: var(--font-h);
-      font-size: clamp(1.7rem, 3.2vw, 2.8rem);
-      font-weight: 800; color: var(--dark); line-height: 1.15; text-transform: uppercase;
-      margin-bottom: .75rem;
-    }
-    .sec-title em { font-style: normal; color: var(--gold); }
-    .sec-sub { color: var(--text-muted); font-size: .95rem; max-width: 480px; line-height: 1.75; }
-    .sec-header { margin-bottom: 3.5rem; }
-
-    /* ── SERVIÇOS ── */
-    .produtos-section { background: var(--bg); }
-    .produtos-grid {
-      display: grid; grid-template-columns: repeat(2, 1fr);
-      gap: 1.5rem; max-width: 860px; margin: 0 auto;
-    }
-    .prod-card {
-      border-radius: 18px; overflow: hidden;
-      background: var(--white);
-      box-shadow: 0 2px 20px rgba(0,48,135,.06);
-      transition: transform .3s, box-shadow .3s; cursor: pointer;
-    }
-    .prod-card:hover { transform: translateY(-6px); box-shadow: 0 12px 40px rgba(0,48,135,.12); }
-    .prod-img { position: relative; overflow: hidden; }
-    .prod-img img { aspect-ratio: 3/4; transition: transform .5s; }
-    .prod-card:hover .prod-img img { transform: scale(1.04); }
-    .prod-badge {
-      position: absolute; top: 14px; right: 14px;
-      background: var(--gold); color: #fff;
-      font-size: .62rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase;
-      padding: 4px 10px; border-radius: 100px;
-    }
-    .prod-badge-red   { background: #e53e3e; }
-    .prod-badge-green { background: #1da851; }
-    .prod-badge-accent { background: var(--accent); }
-    .prod-info { padding: 18px 20px 22px; }
-    .prod-name {
-      font-family: var(--font-h);
-      font-size: 1rem; font-weight: 700; color: var(--dark);
-      margin-bottom: 6px; text-transform: uppercase; letter-spacing: .03em;
-    }
-    .prod-desc { font-size: .82rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 14px; }
-    .prod-cta {
-      display: inline-flex; align-items: center; gap: 6px;
-      font-size: .78rem; font-weight: 600; color: var(--gold);
-      padding: 8px 16px; border-radius: 100px;
-      border: 1.5px solid rgba(0,48,135,.25);
-      transition: background .2s, color .2s;
-    }
-    .prod-cta:hover { background: var(--gold); color: #fff; }
-
-    /* ── SOBRE ── */
-    .sobre-section { background: var(--dark); }
-    .sobre-grid {
-      display: grid; grid-template-columns: 1fr 1fr;
-      gap: 3rem; align-items: center; max-width: 1000px; margin: 0 auto;
-    }
-    .sobre-img-wrap {
-      border-radius: 20px; overflow: hidden;
-      box-shadow: 0 8px 48px rgba(0,0,0,.35);
-    }
-    .sobre-img-wrap img { aspect-ratio: 3/4; }
-    .sobre-text .sec-tag { color: var(--accent); background: rgba(200,168,75,.12); }
-    .sobre-text .sec-title { color: #fff; }
-    .sobre-text .sec-title em { color: var(--accent); }
-    .sobre-body { color: rgba(255,255,255,.62); font-size: .95rem; line-height: 1.85; margin-bottom: 2rem; }
-    .sobre-stats { display: flex; gap: 2rem; flex-wrap: wrap; margin-bottom: 2rem; }
-    .stat { text-align: center; }
-    .stat-num {
-      font-family: var(--font-h);
-      font-size: 2.2rem; font-weight: 800; color: var(--accent); line-height: 1;
-    }
-    .stat-label { font-size: .72rem; color: rgba(255,255,255,.42); font-weight: 500; letter-spacing: .05em; margin-top: 4px; }
-    .sobre-divider { width: 40px; height: 2px; background: rgba(200,168,75,.4); margin: 1.5rem 0; }
-    @media (max-width: 768px) {
-      .sobre-grid { grid-template-columns: 1fr; }
-      .sobre-img-wrap { max-height: 300px; }
-      .sobre-img-wrap img { aspect-ratio: 4/3; object-position: center top; }
+    .roi-note p {
+      font-size: 0.875rem;
+      color: rgba(255, 255, 255, 0.4);
+      font-style: italic;
     }
 
-    /* ── DEPOIMENTOS ── */
-    .depo-section { background: var(--surface); }
-    .depo-grid {
-      display: grid; grid-template-columns: repeat(3, 1fr);
-      gap: 1.5rem; max-width: 1000px; margin: 0 auto;
+    /* ========================================
+       HOW IT WORKS
+       ======================================== */
+    .how-section { background: var(--brand-gray-50); }
+    .how-header { max-width: 640px; margin: 0 auto 56px; }
+    .how-steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 32px;
+      position: relative;
     }
-    .depo-card {
-      background: var(--white); border-radius: 18px; padding: 28px 24px;
-      box-shadow: 0 2px 20px rgba(0,48,135,.06);
-      display: flex; flex-direction: column; gap: 16px;
+    .how-steps::before {
+      content: '';
+      position: absolute;
+      top: 36px;
+      left: calc(12.5% + 24px);
+      right: calc(12.5% + 24px);
+      height: 2px;
+      background: var(--brand-gray-200);
     }
-    .depo-stars { display: flex; gap: 3px; }
-    .depo-stars svg { width: 14px; height: 14px; color: var(--accent); }
-    .depo-quote { font-size: .9rem; color: var(--text-muted); line-height: 1.75; flex: 1; font-style: italic; }
-    .depo-author {
-      display: flex; align-items: center; gap: 10px;
-      padding-top: 14px; border-top: 1px solid var(--border);
+    .how-step { text-align: center; position: relative; }
+    .how-step-number {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      background: var(--brand-white);
+      border: 2px solid var(--brand-primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 20px;
+      font-family: var(--font-heading);
+      font-weight: 800;
+      font-size: 1.5rem;
+      color: var(--brand-primary);
+      position: relative;
+      z-index: 2;
+      transition: all 0.3s ease;
     }
-    .depo-avatar {
-      width: 36px; height: 36px; border-radius: 50%;
-      background: var(--gold);
-      display: flex; align-items: center; justify-content: center;
-      font-family: var(--font-h); font-size: .9rem; font-weight: 700; color: #fff; flex-shrink: 0;
+    .how-step:hover .how-step-number {
+      background: var(--brand-primary);
+      color: var(--brand-white);
     }
-    .depo-name { font-size: .82rem; font-weight: 700; color: var(--dark); }
-    .depo-city { font-size: .72rem; color: var(--text-soft); }
-    @media (max-width: 768px) { .depo-grid { grid-template-columns: 1fr; max-width: 420px; margin: 0 auto; } }
+    .how-step h3 { margin-bottom: 8px; font-size: 1.125rem; }
+    .how-step p { font-size: 0.875rem; color: var(--brand-gray-500); }
 
-    /* ── FAQ ── */
-    .faq-section { background: var(--bg); }
-    .faq-list { max-width: 720px; margin: 0 auto; display: flex; flex-direction: column; gap: 10px; }
-    .faq-item { border: 1px solid var(--border); border-radius: 14px; overflow: hidden; background: var(--white); }
-    .faq-q {
-      width: 100%; text-align: left;
-      display: flex; align-items: center; justify-content: space-between; gap: 12px;
-      padding: 18px 22px;
-      font-size: .9rem; font-weight: 600; color: var(--dark);
-      background: none; border: none; cursor: pointer; transition: color .2s;
+    /* ========================================
+       SOCIAL PROOF
+       ======================================== */
+    .proof-section { background: var(--brand-white); }
+    .proof-header { max-width: 640px; margin: 0 auto 56px; }
+    .proof-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
     }
-    .faq-q:hover { color: var(--gold); }
-    .faq-q svg { width: 16px; height: 16px; color: var(--gold); flex-shrink: 0; transition: transform .3s; }
-    .faq-item.open .faq-q svg { transform: rotate(180deg); }
-    .faq-a {
-      max-height: 0; overflow: hidden;
-      transition: max-height .35s ease, padding .35s;
-      font-size: .88rem; color: var(--text-muted); line-height: 1.8; padding: 0 22px;
+    .proof-card {
+      background: var(--brand-gray-50);
+      border-radius: var(--radius-xl);
+      padding: 32px;
+      border: 1px solid var(--brand-gray-200);
     }
-    .faq-item.open .faq-a { max-height: 300px; padding: 0 22px 20px; }
+    .proof-quote {
+      font-size: 1rem;
+      color: var(--brand-gray-700);
+      margin-bottom: 24px;
+      line-height: 1.7;
+      font-style: italic;
+      position: relative;
+      padding-left: 20px;
+      border-left: 3px solid var(--brand-primary);
+    }
+    .proof-segment {
+      font-family: var(--font-heading);
+      font-weight: 600;
+      font-size: 0.875rem;
+      color: var(--brand-primary);
+      margin-bottom: 4px;
+    }
+    .proof-detail {
+      font-size: 0.8125rem;
+      color: var(--brand-gray-500);
+    }
+    .proof-result {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 12px;
+      padding: 4px 12px;
+      border-radius: 100px;
+      background: #F0FDF4;
+      color: #16A34A;
+      font-size: 0.75rem;
+      font-weight: 600;
+    }
 
-    /* ── CTA FINAL ── */
+    /* ========================================
+       RAPPORT (PERSONALIZADO)
+       ======================================== */
+    .rapport-section {
+      background: var(--brand-accent);
+      position: relative;
+      overflow: hidden;
+    }
+    .rapport-section::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 90% 10%, rgba(45, 82, 239, 0.08) 0%, transparent 50%);
+      pointer-events: none;
+    }
+    .rapport-inner {
+      max-width: 720px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 2;
+    }
+    .rapport-inner blockquote {
+      font-family: var(--font-heading);
+      font-size: clamp(1.25rem, 3vw, 1.75rem);
+      font-weight: 600;
+      color: var(--brand-dark);
+      line-height: 1.5;
+      margin-bottom: 24px;
+      position: relative;
+      padding-left: 24px;
+      border-left: 4px solid var(--brand-primary);
+    }
+    .rapport-inner p {
+      color: var(--brand-gray-500);
+      font-size: 1.0625rem;
+      line-height: 1.7;
+    }
+
+    /* ========================================
+       CTA FINAL
+       ======================================== */
     .cta-section {
-      background: var(--dark); padding: 88px 24px;
-      text-align: center; position: relative; overflow: hidden;
+      background: linear-gradient(135deg, #2D52EF 0%, #0F1F5C 100%);
+      color: var(--brand-white);
+      position: relative;
+      overflow: hidden;
     }
     .cta-section::before {
-      content: ''; position: absolute; top: -80px; right: -80px;
-      width: 320px; height: 320px; border-radius: 50%;
-      background: rgba(0,48,135,.08);
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 30% 70%, rgba(232, 238, 255, 0.05) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(45, 82, 239, 0.15) 0%, transparent 40%);
+      pointer-events: none;
     }
-    .cta-section::after {
-      content: ''; position: absolute; bottom: -60px; left: -60px;
-      width: 260px; height: 260px; border-radius: 50%;
-      background: rgba(0,48,135,.05);
+    .cta-inner {
+      max-width: 640px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 2;
     }
-    .cta-eyebrow {
-      font-size: .65rem; font-weight: 700; letter-spacing: .18em; text-transform: uppercase;
-      color: var(--accent); margin-bottom: 1.2rem; position: relative; z-index: 2;
+    .cta-inner h2 { margin-bottom: 20px; }
+    .cta-inner p {
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 1.125rem;
+      margin-bottom: 40px;
     }
-    .cta-title {
-      font-family: var(--font-h);
-      font-size: clamp(2rem, 4vw, 3.4rem);
-      font-weight: 800; color: #fff; line-height: 1.1; text-transform: uppercase;
-      margin-bottom: 1rem; position: relative; z-index: 2;
+    .cta-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      justify-content: center;
     }
-    .cta-title em { font-style: normal; color: var(--accent); }
-    .cta-sub {
-      color: rgba(255,255,255,.55); font-size: .95rem;
-      max-width: 440px; margin: 0 auto 2.5rem; position: relative; z-index: 2; line-height: 1.75;
-    }
-    .cta-urgency {
-      font-size: .78rem; color: rgba(200,168,75,.65);
-      margin-top: 1.2rem; position: relative; z-index: 2; font-style: italic;
-    }
-    .cta-btns { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; position: relative; z-index: 2; }
-
-    /* ── FOOTER ── */
-    footer {
-      background: transparent; padding: 24px;
-      text-align: center; border-top: 1px solid rgba(0,0,0,.08);
+    .cta-guarantee {
+      margin-top: 32px;
+      font-size: 0.875rem;
+      color: rgba(255, 255, 255, 0.4);
     }
 
-    /* ── FLOAT WPP ── */
-    .float-wpp {
-      position: fixed; bottom: 24px; right: 24px; z-index: 200;
-      width: 58px; height: 58px; border-radius: 50%;
-      background: var(--wpp);
-      display: flex; align-items: center; justify-content: center;
-      box-shadow: 0 6px 28px rgba(37,211,102,.40);
-      transition: transform .2s, box-shadow .2s;
+    /* ========================================
+       FOOTER
+       ======================================== */
+    .footer {
+      background: linear-gradient(135deg, var(--brand-primary) 0%, var(--brand-dark) 100%);
+      color: rgba(255, 255, 255, 0.7);
+      padding: 56px 0 32px;
     }
-    .float-wpp:hover { transform: translateY(-3px) scale(1.06); box-shadow: 0 10px 36px rgba(37,211,102,.50); }
-    .float-wpp svg { width: 26px; height: 26px; }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr;
+      gap: 48px;
+      padding-bottom: 40px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+    }
+    .footer-brand img {
+      height: 28px;
+      filter: brightness(0) invert(1);
+      margin-bottom: 14px;
+    }
+    .footer-brand p {
+      font-size: 0.875rem;
+      color: rgba(255, 255, 255, 0.6);
+      line-height: 1.6;
+      max-width: 220px;
+    }
+    .footer-col h4 {
+      font-family: var(--font-heading);
+      font-size: 0.8125rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.45);
+      margin-bottom: 16px;
+    }
+    .footer-col ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .footer-col ul li {
+      font-size: 0.875rem;
+      color: rgba(255, 255, 255, 0.75);
+      line-height: 1.5;
+    }
+    .footer-col ul li a {
+      color: rgba(255, 255, 255, 0.85);
+      transition: color 0.2s;
+    }
+    .footer-col ul li a:hover { color: #ffffff; }
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 24px;
+      font-size: 0.8125rem;
+      color: rgba(255, 255, 255, 0.4);
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    @media (max-width: 768px) {
+      .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+      .footer-brand p { max-width: 100%; }
+      .footer-bottom { justify-content: center; text-align: center; }
+    }
 
+    /* ========================================
+       FLOATING WHATSAPP
+       ======================================== */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      z-index: 999;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background: #25D366;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 16px rgba(37, 211, 102, 0.4);
+      transition: all 0.3s ease;
+      animation: float-bounce 3s ease-in-out infinite;
+    }
+    .whatsapp-float:hover {
+      transform: scale(1.1);
+      box-shadow: 0 6px 24px rgba(37, 211, 102, 0.5);
+    }
+    .whatsapp-float svg { width: 28px; height: 28px; fill: white; }
+    @keyframes float-bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-6px); }
+    }
+
+    /* ========================================
+       RESPONSIVE
+       ======================================== */
+    @media (max-width: 1024px) {
+      .roi-grid { grid-template-columns: repeat(2, 1fr); }
+      .how-steps { grid-template-columns: repeat(2, 1fr); }
+      .how-steps::before { display: none; }
+      .solution-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 768px) {
+      .section-padding { padding: 56px 0; }
+      .pain-grid { grid-template-columns: 1fr; }
+      .solution-grid { grid-template-columns: 1fr; }
+      .proof-grid { grid-template-columns: 1fr; }
+      .roi-grid { grid-template-columns: repeat(2, 1fr); }
+      .how-steps { grid-template-columns: 1fr; gap: 24px; }
+      .hero { min-height: auto; padding: 120px 0 80px; }
+      .hero-stats { gap: 24px; flex-wrap: wrap; }
+      .hero-actions { flex-direction: column; }
+      .hero-actions .btn { width: 100%; justify-content: center; }
+      .footer-grid { grid-template-columns: 1fr; gap: 32px; text-align: center; }
+      .footer-brand p { max-width: 100%; margin: 0 auto; }
+    }
     @media (max-width: 480px) {
-      .section { padding: 64px 16px; }
-      .produtos-grid { grid-template-columns: 1fr; max-width: 340px; margin: 0 auto; }
-      .hero-btns { flex-direction: column; }
-      .hero-btns .btn { width: 100%; max-width: 320px; }
-      .sobre-stats { gap: 1.5rem; }
+      .roi-grid { grid-template-columns: 1fr; }
+      .container { padding: 0 16px; }
     }
   </style>
 </head>
 <body>
 
-<!-- PROGRESS BAR -->
-<div id="progress-bar"></div>
+  <!-- NAVBAR -->
+  <nav class="navbar" id="navbar">
+    <div class="container">
+      <div class="navbar-logo">
+        <img src="https://s3.amazonaws.com/cdn.digital-ai.tech/uploads/media-cortex/identity/digital-ai/logos/logo-primary.svg" alt="Digital AI" />
+      </div>
+      <div class="navbar-cta">
+        <a href="https://wa.me/5564981337424" class="btn btn-primary" target="_blank" rel="noopener">Falar com Especialista</a>
+      </div>
+    </div>
+  </nav>
 
-<!-- ── NAV ── -->
-<nav class="nav" id="nav">
-  <div class="nav-inner">
-    <span class="nav-brand">Regivel <span>Ford</span> · Itumbiara</span>
-    <a href="https://www.instagram.com/bethaniamaia/" target="_blank" rel="noopener" class="nav-ig">
-      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
-      <span class="nav-ig-label">@bethaniamaia</span>
-    </a>
-  </div>
-</nav>
-
-<!-- ── HERO ── -->
-<section class="hero">
-  <div class="hero-bg">
-    <img src="img/hero.jpg" alt="Regivel Ford" loading="eager" />
-  </div>
-  <div class="hero-overlay"></div>
-  <div class="hero-content">
-    <div class="hero-eyebrow">✦ Concessionária Ford · 27 anos de tradição</div>
-    <h1 class="hero-title">
-      Realize o Sonho<br>do Seu <em>Próximo Ford</em>
-    </h1>
-    <p class="hero-sub">Avaliação gratuita do seu veículo, financiamento facilitado e atendimento exclusivo. A Regivel Ford está pronta pra te atender em Itumbiara, GO.</p>
-    <div class="hero-btns">
-      <a href="https://wa.me/5564999844126?text=Ol%C3%A1%2C%20Bethania%21%20Vi%20a%20p%C3%A1gina%20da%20Regivel%20Ford%20e%20gostaria%20de%20agendar%20uma%20avalia%C3%A7%C3%A3o%20gratuita%20do%20meu%20ve%C3%ADculo.%20Pode%20me%20ajudar%3F" target="_blank" rel="noopener" class="btn btn-wpp">
-        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-        Avaliação Gratuita
-      </a>
-      <a href="#servicos" class="btn btn-outline">Ver Veículos ↓</a>
-    </div>
-  </div>
-</section>
-
-<!-- ── BARRA DE BENEFÍCIOS ── -->
-<div class="benefits-bar">
-  <div class="benefits-inner">
-    <div class="benefit-item">
-      <div class="benefit-icon">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
-      </div>
-      <div class="benefit-text">
-        <span class="benefit-title">27 Anos de Tradição</span>
-        <span class="benefit-sub">Desde 1997 em Goiás</span>
-      </div>
-    </div>
-    <div class="benefit-item">
-      <div class="benefit-icon">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-      </div>
-      <div class="benefit-text">
-        <span class="benefit-title">Financiamento Facilitado</span>
-        <span class="benefit-sub">Aprovação rápida e segura</span>
-      </div>
-    </div>
-    <div class="benefit-item">
-      <div class="benefit-icon">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/></svg>
-      </div>
-      <div class="benefit-text">
-        <span class="benefit-title">Revisão Especializada</span>
-        <span class="benefit-sub">Técnicos certificados Ford</span>
-      </div>
-    </div>
-    <div class="benefit-item">
-      <div class="benefit-icon">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
-      </div>
-      <div class="benefit-text">
-        <span class="benefit-title">4 Unidades em Goiás</span>
-        <span class="benefit-sub">Itumbiara · Jataí · Rio Verde · Mineiros</span>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- ── LINKS RÁPIDOS ── -->
-<section class="links-sec">
-  <p class="links-label">Acesse direto</p>
-  <div class="links-grid">
-    <a href="https://wa.me/5564999844126?text=Ol%C3%A1%2C%20Regivel%20Ford%21%20Quero%20saber%20mais%20sobre%20seus%20ve%C3%ADculos%20e%20servi%C3%A7os." target="_blank" rel="noopener" class="link-card lc-wpp reveal">
-      <div class="link-card-icon">
-        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-      </div>
-      <div class="link-card-title">Falar com Consultor</div>
-      <div class="link-card-sub">Atendimento personalizado</div>
-      <div class="link-card-arrow">Chamar →</div>
-    </a>
-    <a href="https://www.instagram.com/bethaniamaia/" target="_blank" rel="noopener" class="link-card lc-ig reveal d1">
-      <div class="link-card-icon">
-        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
-      </div>
-      <div class="link-card-title">Instagram</div>
-      <div class="link-card-sub">@bethaniamaia · 7.2K seguidores</div>
-      <div class="link-card-arrow">Seguir →</div>
-    </a>
-    <a href="https://www.fordregivel.com.br" target="_blank" rel="noopener" class="link-card lc-lt reveal d2">
-      <div class="link-card-icon">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color:var(--accent)"><path d="M9 17a2 2 0 11-4 0 2 2 0 014 0zM19 17a2 2 0 11-4 0 2 2 0 014 0z"/><path d="M13 16V6a1 1 0 00-1-1H4a1 1 0 00-1 1v10l1 1h10"/><path d="M13 8h4l3 3v4h-1m-6-7v7"/></svg>
-      </div>
-      <div class="link-card-title">Catálogo Ford</div>
-      <div class="link-card-sub">Ver todos os modelos disponíveis</div>
-      <div class="link-card-arrow">Ver →</div>
-    </a>
-  </div>
-</section>
-
-<!-- ── SERVIÇOS ── -->
-<section class="section produtos-section" id="servicos">
-  <div class="container">
-    <div class="sec-header reveal">
-      <div class="sec-tag">✦ Serviços</div>
-      <h2 class="sec-title">Soluções Completas<br>para <em>Cada Cliente</em></h2>
-      <p class="sec-sub">Da compra à manutenção, a Regivel Ford oferece uma experiência completa para você e seu veículo.</p>
-    </div>
-    <div class="produtos-grid">
-      <div class="prod-card reveal d1">
-        <div class="prod-img">
-          <img src="img/img1.jpg" alt="Veículos Novos Ford" loading="lazy" />
-          <span class="prod-badge">Lançamentos</span>
+  <!-- HERO -->
+  <section class="hero" id="hero">
+    <div class="hero-grid"></div>
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-badge">
+          <span class="hero-badge-dot"></span>
+          Exclusivo para concession&aacute;rias Ford
         </div>
-        <div class="prod-info">
-          <div class="prod-name">Veículos Novos Ford</div>
-          <p class="prod-desc">Toda a linha Ford com as melhores condições de financiamento e consórcio. Ranger, Bronco Sport, Territory, Maverick e muito mais.</p>
-          <a href="https://wa.me/5564999844126?text=Ol%C3%A1%21%20Estou%20interessado%28a%29%20em%20conhecer%20os%20ve%C3%ADculos%20da%20Regivel%20Ford.%20Pode%20me%20ajudar%3F" target="_blank" class="prod-cta">Ver modelos →</a>
+        <h1>E se <span class="highlight">nenhum lead</span> da Regivel Ford fosse perdido por falta de resposta?</h1>
+        <p class="hero-subtitle">Agente de IA no WhatsApp que atende 24/7, qualifica interessados em compra ou troca, agenda test drives e revis&otilde;es &mdash; para que seu time comercial foque em fechar neg&oacute;cios.</p>
+        <div class="hero-actions">
+          <a href="https://wa.me/5564981337424?text=Ol%C3%A1%2C%20vim%20pela%20p%C3%A1gina%20da%20Digital%20AI%20e%20quero%20saber%20mais%20sobre%20o%20agente%20de%20IA%20para%20concession%C3%A1rias." class="btn btn-whatsapp btn-lg" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            Agendar Demonstra&ccedil;&atilde;o Gratuita
+          </a>
+          <a href="#solucao" class="btn btn-outline btn-lg">Ver Como Funciona</a>
         </div>
-      </div>
-      <div class="prod-card reveal d2">
-        <div class="prod-img">
-          <img src="img/img2.jpg" alt="Seminovos Regivel" loading="lazy" />
-          <span class="prod-badge prod-badge-green">Seminovos</span>
-        </div>
-        <div class="prod-info">
-          <div class="prod-name">Regivel Multimarcas</div>
-          <p class="prod-desc">Seminovos revisados com procedência garantida. Avaliamos seu veículo na hora e oferecemos as melhores oportunidades do mercado.</p>
-          <a href="https://wa.me/5564999844126?text=Ol%C3%A1%21%20Estou%20interessado%28a%29%20em%20conhecer%20os%20ve%C3%ADculos%20da%20Regivel%20Ford.%20Pode%20me%20ajudar%3F" target="_blank" class="prod-cta">Ver estoque →</a>
-        </div>
-      </div>
-      <div class="prod-card reveal d1">
-        <div class="prod-img">
-          <img src="img/img3.jpg" alt="Revisão e Manutenção Ford" loading="lazy" />
-          <span class="prod-badge" style="background:var(--accent)">Assistência</span>
-        </div>
-        <div class="prod-info">
-          <div class="prod-name">Revisão e Manutenção</div>
-          <p class="prod-desc">Equipe técnica certificada pela Ford para revisões preventivas, reparos e garantia de fábrica. Peças originais Ford com qualidade assegurada.</p>
-          <a href="https://wa.me/5564999844126?text=Ol%C3%A1%21%20Estou%20interessado%28a%29%20em%20conhecer%20os%20ve%C3%ADculos%20da%20Regivel%20Ford.%20Pode%20me%20ajudar%3F" target="_blank" class="prod-cta">Agendar revisão →</a>
-        </div>
-      </div>
-      <div class="prod-card reveal d2">
-        <div class="prod-img">
-          <img src="img/img4.jpg" alt="Financiamento e Consórcio" loading="lazy" />
-          <span class="prod-badge prod-badge-red">Facilite!</span>
-        </div>
-        <div class="prod-info">
-          <div class="prod-name">Financiamento e Consórcio</div>
-          <p class="prod-desc">Parcelas que cabem no seu bolso com as melhores taxas do mercado. Simule agora e saia com seu Ford hoje mesmo.</p>
-          <a href="https://wa.me/5564999844126?text=Ol%C3%A1%21%20Quero%20simular%20um%20financiamento%20na%20Regivel%20Ford.%20Pode%20me%20ajudar%3F" target="_blank" class="prod-cta">Simular agora →</a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ── SOBRE ── -->
-<section class="section sobre-section">
-  <div class="container">
-    <div class="sobre-grid">
-      <div class="sobre-img-wrap reveal">
-        <img src="img/img5.jpg" alt="Bethania Campos Maia Marques — Regivel Ford" loading="lazy" />
-      </div>
-      <div class="sobre-text reveal d2">
-        <div class="sec-tag">✦ Nossa História</div>
-        <h2 class="sec-title">27 Anos Realizando<br><em>Sonhos em Goiás</em></h2>
-        <p class="sobre-body">A Regivel Ford nasceu em 1997 em Jataí, GO, com uma missão clara: oferecer a melhor experiência na compra e manutenção de veículos Ford em Goiás. Hoje, com unidades em Itumbiara, Jataí, Rio Verde e Mineiros, somos referência no centro-oeste pela qualidade do atendimento e pelo compromisso com cada cliente.</p>
-        <div class="sobre-divider"></div>
-        <p class="sobre-body">Bethania Campos Maia Marques lidera a Regivel com paixão e propósito — acreditando que cada veículo entregue é muito mais do que um carro: é um sonho realizado, uma conquista, um novo capítulo na vida de cada família goiana.</p>
-        <div class="sobre-stats">
-          <div class="stat">
-            <div class="stat-num">27+</div>
-            <div class="stat-label">Anos de Tradição</div>
-          </div>
-          <div class="stat">
-            <div class="stat-num">4</div>
-            <div class="stat-label">Unidades em GO</div>
-          </div>
-          <div class="stat">
-            <div class="stat-num">7.2K</div>
-            <div class="stat-label">Seguidores no IG</div>
-          </div>
-        </div>
-        <a href="https://wa.me/5564999844126?text=Ol%C3%A1%21%20Tenho%20interesse%20nos%20servi%C3%A7os%20da%20Regivel%20Ford.%20Pode%20me%20dar%20mais%20informa%C3%A7%C3%B5es%3F" target="_blank" rel="noopener" class="btn btn-gold" style="display:inline-flex">
-          <svg viewBox="0 0 24 24" fill="currentColor" style="width:17px;height:17px"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-          Falar com a Bethania
-        </a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ── DEPOIMENTOS ── -->
-<section class="section depo-section">
-  <div class="container">
-    <div class="sec-header reveal" style="text-align:center">
-      <div class="sec-tag">✦ Depoimentos</div>
-      <h2 class="sec-title">O que nossos <em>clientes dizem</em></h2>
-    </div>
-    <div class="depo-grid">
-      <div class="depo-card reveal d1">
-        <div class="depo-stars">
-          <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-          <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-          <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-          <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-          <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-        </div>
-        <p class="depo-quote">"Comprei minha Ranger na Regivel e o atendimento foi excepcional. A Bethania e a equipe dela são incríveis — transparência do início ao fim. Recomendo demais!"</p>
-        <div class="depo-author">
-          <div class="depo-avatar">R</div>
+        <div class="hero-stats">
           <div>
-            <div class="depo-name">R.S., cliente</div>
-            <div class="depo-city">Itumbiara, GO</div>
+            <div class="hero-stat-value">24/7</div>
+            <div class="hero-stat-label">Atendimento ininterrupto</div>
           </div>
-        </div>
-      </div>
-      <div class="depo-card reveal d2">
-        <div class="depo-stars">
-          <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-          <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-          <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-          <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-          <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-        </div>
-        <p class="depo-quote">"Já comprei 3 veículos na Regivel. Confiança total, preço justo e pós-venda de qualidade. Não troco por nenhuma outra concessionária."</p>
-        <div class="depo-author">
-          <div class="depo-avatar">M</div>
           <div>
-            <div class="depo-name">M.O., cliente</div>
-            <div class="depo-city">Jataí, GO</div>
+            <div class="hero-stat-value">-65%</div>
+            <div class="hero-stat-label">Leads perdidos fora do hor&aacute;rio</div>
           </div>
-        </div>
-      </div>
-      <div class="depo-card reveal d3">
-        <div class="depo-stars">
-          <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-          <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-          <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-          <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-          <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-        </div>
-        <p class="depo-quote">"Fiz a revisão do meu Ford Territory na Regivel e fiquei muito satisfeito. Técnicos qualificados, entrega no prazo e preço honesto. Voltarei sempre!"</p>
-        <div class="depo-author">
-          <div class="depo-avatar">P</div>
           <div>
-            <div class="depo-name">P.A., cliente</div>
-            <div class="depo-city">Rio Verde, GO</div>
+            <div class="hero-stat-value">+40%</div>
+            <div class="hero-stat-label">Convers&atilde;o de leads qualificados</div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- ── FAQ ── -->
-<section class="section faq-section">
-  <div class="container">
-    <div class="sec-header reveal" style="text-align:center">
-      <div class="sec-tag">✦ Dúvidas</div>
-      <h2 class="sec-title">Perguntas <em>Frequentes</em></h2>
-    </div>
-    <div class="faq-list">
-      <div class="faq-item reveal">
-        <button class="faq-q" onclick="toggleFaq(this)">
-          Como funciona a avaliação gratuita do meu veículo?
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 9l-7 7-7-7"/></svg>
-        </button>
-        <div class="faq-a">É simples! Você agenda pelo WhatsApp, traz seu veículo à concessionária e nossa equipe especializada faz uma avaliação completa sem custo nenhum. Em seguida, apresentamos uma proposta justa para troca ou venda, sempre com transparência.</div>
+  <!-- DORES -->
+  <section class="pain-section section-padding" id="dores">
+    <div class="container">
+      <div class="pain-header text-center">
+        <span class="overline">Cen&aacute;rio Atual</span>
+        <h2>Sua concession&aacute;ria cresce. Seu atendimento <span class="text-primary">n&atilde;o acompanha.</span></h2>
+        <p class="subtitle" style="margin: 16px auto 0;">Voc&ecirc;s conquistaram o Grupo Diamante Ford &mdash; entre as 5 melhores do Brasil. Mas cada lead que chega fora do hor&aacute;rio, cada WhatsApp sem resposta r&aacute;pida, &eacute; uma venda que vai para a concorr&ecirc;ncia.</p>
       </div>
-      <div class="faq-item reveal d1">
-        <button class="faq-q" onclick="toggleFaq(this)">
-          Vocês trabalham com financiamento para negativados?
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 9l-7 7-7-7"/></svg>
-        </button>
-        <div class="faq-a">Temos parceria com diversas instituições financeiras e trabalhamos para encontrar a melhor solução para cada perfil de cliente. Entre em contato com nossa equipe e vamos analisar as melhores opções disponíveis para você.</div>
-      </div>
-      <div class="faq-item reveal d2">
-        <button class="faq-q" onclick="toggleFaq(this)">
-          Posso fazer um test drive antes de comprar?
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 9l-7 7-7-7"/></svg>
-        </button>
-        <div class="faq-a">Com certeza! Oferecemos test drive em todos os modelos disponíveis no estoque. Basta agendar pelo WhatsApp com antecedência e nossa equipe preparará o veículo para você experimentar e apaixonar antes de decidir.</div>
-      </div>
-      <div class="faq-item reveal d1">
-        <button class="faq-q" onclick="toggleFaq(this)">
-          Quais modelos Ford estão disponíveis agora?
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 9l-7 7-7-7"/></svg>
-        </button>
-        <div class="faq-a">Trabalhamos com toda a linha Ford: Ranger, Bronco Sport, Territory, Maverick, Ecosport (seminovos) e muito mais. O estoque varia, então entre em contato conosco pelo WhatsApp para checar a disponibilidade atual e condições especiais.</div>
-      </div>
-      <div class="faq-item reveal d2">
-        <button class="faq-q" onclick="toggleFaq(this)">
-          A revisão feita na Regivel mantém a garantia de fábrica?
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 9l-7 7-7-7"/></svg>
-        </button>
-        <div class="faq-a">Sim! Como concessionária autorizada Ford, todas as revisões realizadas na Regivel seguem os protocolos oficiais da marca e utilizam peças originais Ford, mantendo integralmente a garantia de fábrica do seu veículo.</div>
+      <div class="pain-grid">
+        <div class="pain-card">
+          <div class="pain-icon">&#128336;</div>
+          <h3>Leads fora do hor&aacute;rio perdidos</h3>
+          <p>Todo lead que manda WhatsApp ap&oacute;s as 18h ou no fim de semana fica sem resposta at&eacute; o dia seguinte. Concession&aacute;rias que respondem em menos de 5 minutos convertem 9x mais.</p>
+          <span class="pain-tag pain-tag-high">Prioridade Alta</span>
+        </div>
+        <div class="pain-card">
+          <div class="pain-icon">&#128241;</div>
+          <h3>WhatsApp sem triagem inteligente</h3>
+          <p>Interessados em compra, clientes de revis&atilde;o, d&uacute;vidas p&oacute;s-venda e pedidos de or&ccedil;amento chegam no mesmo canal &mdash; sem prioriza&ccedil;&atilde;o, sem encaminhamento autom&aacute;tico para o consultor certo.</p>
+          <span class="pain-tag pain-tag-high">Prioridade Alta</span>
+        </div>
+        <div class="pain-card">
+          <div class="pain-icon">&#128197;</div>
+          <h3>Agendamento manual de test drive e revis&otilde;es</h3>
+          <p>Ainda depende de humano para agendar test drive, confirmar revis&atilde;o e lembrar cliente do retorno. Oportunidades se perdem no processo.</p>
+          <span class="pain-tag pain-tag-medium">Prioridade M&eacute;dia</span>
+        </div>
+        <div class="pain-card">
+          <div class="pain-icon">&#128260;</div>
+          <h3>Follow-up p&oacute;s-venda inconsistente</h3>
+          <p>Clientes que compraram h&aacute; 12-18 meses s&atilde;o potencial para troca ou indica&ccedil;&atilde;o. Sem automa&ccedil;&atilde;o, esse contato raramente acontece de forma sistem&aacute;tica.</p>
+          <span class="pain-tag pain-tag-medium">Prioridade M&eacute;dia</span>
+        </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- ── CTA FINAL ── -->
-<section class="cta-section">
-  <p class="cta-eyebrow reveal">Avaliação Gratuita do Seu Veículo</p>
-  <h2 class="cta-title reveal d1">
-    Seu Próximo Ford<br><em>Está Te Esperando</em>
-  </h2>
-  <p class="cta-sub reveal d2">Atendimento personalizado · Financiamento facilitado · 27 anos realizando sonhos em Goiás. Fale agora com nossa equipe.</p>
-  <div class="cta-btns reveal d3">
-    <div>
-      <a href="https://wa.me/5564999844126?text=Ol%C3%A1%21%20Quero%20agendar%20uma%20avalia%C3%A7%C3%A3o%20gratuita%20do%20meu%20ve%C3%ADculo%20na%20Regivel%20Ford%20de%20Itumbiara." target="_blank" rel="noopener" class="btn btn-wpp">
-        <svg viewBox="0 0 24 24" fill="currentColor" style="width:17px;height:17px"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-        Quero Falar com um Consultor
-      </a>
-      <span class="btn-sub">Resposta rápida · Sem compromisso</span>
+  <!-- SOLUÇÃO -->
+  <section class="solution-section section-padding" id="solucao">
+    <div class="container">
+      <div class="solution-header text-center">
+        <span class="overline">A Solu&ccedil;&atilde;o</span>
+        <h2>Agente de IA treinado <span class="text-primary">para o seu showroom</span></h2>
+        <p class="subtitle" style="margin: 16px auto 0;">N&atilde;o &eacute; um chatbot gen&eacute;rico. &Eacute; um agente que conhece seus modelos Ford, tabela de pre&ccedil;os, agenda de revis&atilde;o e regras de neg&oacute;cio &mdash; e atende como se fosse seu melhor consultor.</p>
+      </div>
+      <div class="solution-grid">
+        <div class="solution-card">
+          <div class="solution-icon">&#129302;</div>
+          <h3>Atendimento e Qualifica&ccedil;&atilde;o 24/7</h3>
+          <p>Responde instantaneamente a qualquer hor&aacute;rio, qualifica o interesse (compra, troca, revis&atilde;o, or&ccedil;amento) e passa lead quente para o consultor certo.</p>
+          <ul class="solution-features">
+            <li>Respostas em segundos via WhatsApp</li>
+            <li>Qualifica&ccedil;&atilde;o: compra vs revis&atilde;o vs p&oacute;s-venda</li>
+            <li>Transfer&ecirc;ncia para consultor no momento certo</li>
+            <li>Funciona fins de semana e feriados</li>
+          </ul>
+        </div>
+        <div class="solution-card">
+          <div class="solution-icon">&#128197;</div>
+          <h3>Agendamento Autom&aacute;tico</h3>
+          <p>Agenda test drive, revis&atilde;o e visita ao showroom direto pelo WhatsApp, sem precisar de atendente. Com confirma&ccedil;&atilde;o e lembrete autom&aacute;tico no dia anterior.</p>
+          <ul class="solution-features">
+            <li>Disponibilidade em tempo real da agenda</li>
+            <li>Confirma&ccedil;&atilde;o autom&aacute;tica por WhatsApp</li>
+            <li>Lembrete D-1 para reduzir no-show</li>
+            <li>Reagendamento sem atrito</li>
+          </ul>
+        </div>
+        <div class="solution-card">
+          <div class="solution-icon">&#128260;</div>
+          <h3>Follow-up e Fideliza&ccedil;&atilde;o</h3>
+          <p>Reativa clientes que su&iacute;ram, dispara contato na &eacute;poca certa de troca (12-18 meses p&oacute;s-compra) e coleta NPS automaticamente ap&oacute;s revis&atilde;o.</p>
+          <ul class="solution-features">
+            <li>R&eacute;gua de reativa&ccedil;&atilde;o autom&aacute;tica</li>
+            <li>Campanha de troca por anivers&aacute;rio de compra</li>
+            <li>NPS p&oacute;s-servi&ccedil;o automatizado</li>
+            <li>Indica&ccedil;&otilde;es via WhatsApp</li>
+          </ul>
+        </div>
+      </div>
     </div>
-    <a href="https://www.instagram.com/bethaniamaia/" target="_blank" rel="noopener" class="btn btn-dark">
-      <svg viewBox="0 0 24 24" fill="currentColor" style="width:17px;height:17px"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
-      Ver no Instagram
-    </a>
-  </div>
-  <p class="cta-urgency reveal d4">✦ Condições especiais para clientes que chegarem pelo WhatsApp</p>
-</section>
+  </section>
 
-<!-- ── FOOTER ── -->
-<footer>
-  <a href="https://digital-ai.tech" target="_blank" rel="noopener">
-    <img src="https://s3.amazonaws.com/cdn.digital-ai.tech/uploads/media-cortex/identity/digital-ai/logos/logo-negative.svg"
-         alt="Digital AI"
-         height="20"
-         style="display:inline-block;width:auto;height:20px;opacity:0.4;margin:0 auto;" />
+  <!-- ROI -->
+  <section class="roi-section section-padding" id="roi">
+    <div class="container">
+      <div class="roi-header text-center">
+        <span class="overline" style="color: rgba(232, 238, 255, 0.8);">Resultado Concreto</span>
+        <h2>N&uacute;meros que falam por si</h2>
+        <p class="subtitle" style="margin: 16px auto 0;">N&atilde;o vendemos tecnologia por tecnologia. Vendemos resultado comercial mensur&aacute;vel desde o primeiro m&ecirc;s.</p>
+      </div>
+      <div class="roi-grid">
+        <div class="roi-card">
+          <div class="roi-value">0%</div>
+          <div class="roi-label">Leads perdidos fora<br/>do hor&aacute;rio comercial</div>
+        </div>
+        <div class="roi-card">
+          <div class="roi-value">+40%</div>
+          <div class="roi-label">Aumento na convers&atilde;o<br/>de leads qualificados</div>
+        </div>
+        <div class="roi-card">
+          <div class="roi-value">2-3x</div>
+          <div class="roi-label">ROI no primeiro<br/>trimestre</div>
+        </div>
+        <div class="roi-card">
+          <div class="roi-value">-65%</div>
+          <div class="roi-label">Tempo de resposta<br/>no primeiro contato</div>
+        </div>
+      </div>
+      <div class="roi-note">
+        <p>* Estimativas baseadas em resultados de clientes Digital AI no segmento automotivo e varejo de alto ticket.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMO FUNCIONA -->
+  <section class="how-section section-padding" id="como-funciona">
+    <div class="container">
+      <div class="how-header text-center">
+        <span class="overline">Processo</span>
+        <h2>Da implanta&ccedil;&atilde;o ao atendimento em <span class="text-primary">15 dias</span></h2>
+        <p class="subtitle" style="margin: 16px auto 0;">Sem projeto de 6 meses. Sem consultoria infinita. Implanta&ccedil;&atilde;o r&aacute;pida com resultado no primeiro m&ecirc;s.</p>
+      </div>
+      <div class="how-steps">
+        <div class="how-step">
+          <div class="how-step-number">1</div>
+          <h3>Diagn&oacute;stico</h3>
+          <p>Mapeamos seus fluxos de atendimento, identificamos gargalos e desenhamos a solu&ccedil;&atilde;o ideal para a concession&aacute;ria.</p>
+        </div>
+        <div class="how-step">
+          <div class="how-step-number">2</div>
+          <h3>Treinamento IA</h3>
+          <p>Alimentamos o agente com modelos Ford, tabela de pre&ccedil;os, agenda de revis&atilde;o, FAQs e procedimentos do showroom.</p>
+        </div>
+        <div class="how-step">
+          <div class="how-step-number">3</div>
+          <h3>Integra&ccedil;&atilde;o</h3>
+          <p>Conectamos ao WhatsApp Business e ao CRM existente para agenda e follow-up sem atrito.</p>
+        </div>
+        <div class="how-step">
+          <div class="how-step-number">4</div>
+          <h3>Opera&ccedil;&atilde;o</h3>
+          <p>O agente come&ccedil;a a atender. Monitoramos, ajustamos e otimizamos continuamente.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROVA SOCIAL -->
+  <section class="proof-section section-padding" id="resultados">
+    <div class="container">
+      <div class="proof-header text-center">
+        <span class="overline">Resultados Reais</span>
+        <h2>Concession&aacute;rias e varejo que <span class="text-primary">j&aacute; automatizaram</span></h2>
+        <p class="subtitle" style="margin: 16px auto 0;">Atendimento inteligente funcionando em opera&ccedil;&otilde;es reais &mdash; n&atilde;o em apresenta&ccedil;&atilde;o de PowerPoint.</p>
+      </div>
+      <div class="proof-grid">
+        <div class="proof-card">
+          <p class="proof-quote">"O agente qualifica leads 24/7 e passou o contato quente para o consultor. Paramos de perder vendas que chegavam no fim de semana."</p>
+          <div class="proof-segment">Concession&aacute;ria Multimarcas</div>
+          <div class="proof-detail">Interior de GO &middot; +500 vendas/ano</div>
+          <div class="proof-result">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            ROI em 60 dias
+          </div>
+        </div>
+        <div class="proof-card">
+          <p class="proof-quote">"Agendamento de revis&otilde;es automatizou algo que consumia 2 horas do nosso time por dia. Agenda cheia com muito menos esfor&ccedil;o."</p>
+          <div class="proof-segment">Revenda Ford Regional</div>
+          <div class="proof-detail">Goi&aacute;s &middot; Alto volume de p&oacute;s-venda</div>
+          <div class="proof-result">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            -70% chamadas para agendamento
+          </div>
+        </div>
+        <div class="proof-card">
+          <p class="proof-quote">"A campanha de reativa&ccedil;&atilde;o de clientes trouxe de volta compradores que haviam sumido. Simples e efetivo."</p>
+          <div class="proof-segment">Varejo de Alto Ticket</div>
+          <div class="proof-detail">Interior do Brasil &middot; B2C com recorr&ecirc;ncia</div>
+          <div class="proof-result">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            +28% indica&ccedil;&otilde;es
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RAPPORT -->
+  <section class="rapport-section section-padding">
+    <div class="container">
+      <div class="rapport-inner text-center">
+        <span class="overline">Para a Regivel Ford</span>
+        <blockquote>"Voc&ecirc;s conquistaram o Grupo Diamante &mdash; top 5 concession&aacute;rias Ford do Brasil. Constru&iacute;ram isso com excel&ecirc;ncia no atendimento. A Digital AI veio garantir que nenhum cliente fique sem resposta enquanto voc&ecirc;s focam no que fazem de melhor: vender e fidelizar."</blockquote>
+        <p>A Digital AI entende o setor automotivo: tickets altos, jornada longa de decis&atilde;o, p&oacute;s-venda que vira fideliza&ccedil;&atilde;o. Nosso agente de IA complementa seu time &mdash; sem substituir o toque humano que faz a diferen&ccedil;a no fechamento.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA FINAL -->
+  <section class="cta-section section-padding" id="contato">
+    <div class="container">
+      <div class="cta-inner text-center">
+        <span class="overline" style="color: rgba(232, 238, 255, 0.8);">Pr&oacute;ximo Passo</span>
+        <h2>Pronto para transformar o atendimento da Regivel Ford?</h2>
+        <p>Agende uma demonstra&ccedil;&atilde;o gratuita de 30 minutos. Mostramos o agente funcionando ao vivo com cen&aacute;rios reais de concession&aacute;ria &mdash; sem compromisso.</p>
+        <div class="cta-actions">
+          <a href="https://wa.me/5564981337424?text=Ol%C3%A1%2C%20sou%20da%20Regivel%20Ford%20e%20quero%20agendar%20uma%20demonstra%C3%A7%C3%A3o%20do%20agente%20de%20IA%20para%20concession%C3%A1rias." class="btn btn-whatsapp btn-lg" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" width="20" height="20"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" fill="currentColor"/></svg>
+            Agendar Demonstra&ccedil;&atilde;o Gratuita
+          </a>
+        </div>
+        <p class="cta-guarantee">Demonstra&ccedil;&atilde;o gratuita de 30 min. Sem contrato. Sem burocracia.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+
+        <!-- Marca -->
+        <div class="footer-brand">
+          <img src="https://s3.amazonaws.com/cdn.digital-ai.tech/uploads/media-cortex/identity/digital-ai/logos/logo-primary.svg" alt="Digital AI" />
+          <p>Intelig&ecirc;ncia artificial aplicada ao atendimento &mdash; transformando opera&ccedil;&otilde;es manuais em resultados automatizados.</p>
+        </div>
+
+        <!-- Contato -->
+        <div class="footer-col">
+          <h4>Contato</h4>
+          <ul>
+            <li><a href="tel:+5564981337424">+55 (64) 98133-7424</a></li>
+            <li><a href="https://digital-ai.tech" target="_blank" rel="noopener">digital-ai.tech</a></li>
+            <li><a href="https://wa.me/5564981337424" target="_blank" rel="noopener">WhatsApp</a></li>
+          </ul>
+        </div>
+
+        <!-- Empresa -->
+        <div class="footer-col">
+          <h4>Empresa</h4>
+          <ul>
+            <li>M F Terra Digital</li>
+            <li>CNPJ: 38.628.080/0001-05</li>
+            <li>Itumbiara, GO &mdash; Brasil</li>
+          </ul>
+        </div>
+
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2026 Digital AI. Todos os direitos reservados.</span>
+        <span>Intelig&ecirc;ncia que move neg&oacute;cios.</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- FLOATING WHATSAPP -->
+  <a href="https://wa.me/5564981337424?text=Ol%C3%A1%2C%20vim%20pela%20p%C3%A1gina%20da%20Digital%20AI%20e%20quero%20saber%20mais." class="whatsapp-float" target="_blank" rel="noopener" aria-label="Falar pelo WhatsApp">
+    <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
   </a>
-</footer>
 
-<!-- ── FLOAT WPP ── -->
-<a href="https://wa.me/5564999844126?text=Ol%C3%A1%2C%20Regivel%20Ford%21%20Quero%20saber%20mais%20sobre%20seus%20ve%C3%ADculos%20e%20servi%C3%A7os." target="_blank" rel="noopener" class="float-wpp" aria-label="Falar com a Regivel Ford">
-  <svg viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-</a>
+  <!-- NAVBAR SCROLL EFFECT -->
+  <script>
+    (function() {
+      var navbar = document.getElementById('navbar');
+      var scrollThreshold = 60;
+      function handleScroll() {
+        if (window.scrollY > scrollThreshold) {
+          navbar.classList.add('scrolled');
+        } else {
+          navbar.classList.remove('scrolled');
+        }
+      }
+      window.addEventListener('scroll', handleScroll, { passive: true });
+      handleScroll();
+    })();
+  </script>
 
-<script>
-  const bar = document.getElementById('progress-bar');
-  window.addEventListener('scroll', () => {
-    const total = document.documentElement.scrollHeight - window.innerHeight;
-    bar.style.width = (window.scrollY / total * 100) + '%';
-  }, { passive: true });
-
-  const nav = document.getElementById('nav');
-  window.addEventListener('scroll', () => {
-    nav.classList.toggle('scrolled', window.scrollY > 30);
-  }, { passive: true });
-
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-  }, { threshold: 0.1 });
-  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-
-  function toggleFaq(btn) {
-    const item = btn.closest('.faq-item');
-    const isOpen = item.classList.contains('open');
-    document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
-    if (!isOpen) item.classList.add('open');
-  }
-</script>
 </body>
 </html>
