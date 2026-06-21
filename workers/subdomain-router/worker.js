@@ -52,6 +52,7 @@ const ROUTING = {
   "jennefer-anunciato-health": "jennefer-anunciato-health",
   "jennefer-anunciato": "jennefer-anunciato",
   "oral-center": "oral-center",
+  "regivel-ford": "regivel-ford",
   // LeadKit adiciona entradas aqui automaticamente via Fase 4 do pipeline
 };
 

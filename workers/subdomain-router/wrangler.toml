@@ -48,6 +48,7 @@ routes = [
 { pattern = "jennefer-anunciato-health.digital-ai.tech/*", zone_name = "digital-ai.tech" },
 { pattern = "jennefer-anunciato.digital-ai.tech/*", zone_name = "digital-ai.tech" },
 { pattern = "oral-center.digital-ai.tech/*", zone_name = "digital-ai.tech" },
+{ pattern = "regivel-ford.digital-ai.tech/*", zone_name = "digital-ai.tech" },
   # LeadKit: adicionar rota explícita para cada novo prospect aqui
 ]
 
