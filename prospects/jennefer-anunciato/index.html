@@ -72,6 +72,7 @@
       line-height: 1.65;
       -webkit-font-smoothing: antialiased;
       overflow-x: hidden;
+      padding-top: 64px;
     }
     img { display: block; width: 100%; object-fit: cover; }
     a { text-decoration: none; color: inherit; }
@@ -101,15 +102,11 @@
 
     /* ── NAVBAR ── */
     .nav {
-      position: sticky; top: 0; z-index: 100;
-      border-bottom: 1px solid transparent;
-      transition: background .3s, border-color .3s, box-shadow .3s;
-    }
-    .nav.scrolled {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
       background: rgba(248, 245, 240, 0.95);
       backdrop-filter: blur(14px);
       -webkit-backdrop-filter: blur(14px);
-      border-bottom-color: var(--border);
+      border-bottom: 1px solid var(--border);
       box-shadow: 0 2px 16px rgba(26,23,20,.06);
     }
     .nav-inner {
@@ -940,10 +937,10 @@
 <!-- Digital AI: apenas logo discreta, branca, opacity 0.4 — NUNCA texto ou pitch B2B -->
 <footer>
   <a href="https://digital-ai.tech" target="_blank" rel="noopener">
-    <img src="https://s3.amazonaws.com/cdn.digital-ai.tech/uploads/media-cortex/identity/digital-ai/logos/logo-negative.svg"
+    <img src="img/logo-dai.svg"
          alt="Digital AI"
          height="20"
-         style="display:inline-block;width:auto;height:20px;filter:brightness(0) invert(1);opacity:0.4;margin:0 auto;" />
+         style="display:inline-block;width:auto;height:20px;opacity:0.4;margin:0 auto;" />
   </a>
 </footer>
 
