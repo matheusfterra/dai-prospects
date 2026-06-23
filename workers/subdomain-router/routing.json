@@ -65,5 +65,10 @@
     }
   },
   "clinicas-sorrifacil": "clinicas-sorrifacil",
-  "dra-izabela": "dra-izabela"
+  "dra-izabela": "dra-izabela",
+  "odonto-vita-health": {
+    "folder": "odonto-vita-health",
+    "company": "Odonto Vita — Dra. Andressa Cunha",
+    "created": "2026-06-23"
+  }
 }
