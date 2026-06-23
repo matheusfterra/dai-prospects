@@ -410,7 +410,6 @@
     .gallery-layout {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      grid-template-rows: 300px 300px;
       gap: 16px;
       margin-top: 40px;
     }
@@ -420,21 +419,22 @@
       position: relative;
       box-shadow: var(--shadow-sm);
       transition: all 0.25s ease;
+      background: var(--gray-100);
     }
     .gallery-item:hover { transform: scale(1.01); box-shadow: var(--shadow-md); }
     .gallery-item img {
       width: 100%;
-      height: 100%;
-      object-fit: cover;
+      aspect-ratio: 1 / 1;
+      object-fit: contain;
+      display: block;
     }
     .gallery-item.featured {
-      grid-row: span 2;
+      grid-column: span 1;
     }
-    .gallery-item.featured img { height: 100%; }
     .gallery-label {
       position: absolute;
-      bottom: 14px;
-      left: 14px;
+      bottom: 10px;
+      left: 10px;
       background: rgba(26,43,74,0.88);
       color: var(--white);
       font-family: var(--font-head);
@@ -644,32 +644,81 @@
     /* ==================== RESPONSIVE ==================== */
     @media (max-width: 1024px) {
       .services-grid { grid-template-columns: repeat(2, 1fr); }
+      .gallery-layout { grid-template-columns: repeat(2, 1fr); }
     }
 
-    @media (max-width: 900px) {
-      .hero-inner { grid-template-columns: 1fr; }
+    @media (max-width: 768px) {
+      /* Hero */
+      .hero-inner { grid-template-columns: 1fr; gap: 32px; }
       .hero-image-wrap { display: none; }
-      .why-grid { grid-template-columns: 1fr; }
+      .hero-headline { font-size: clamp(28px, 8vw, 40px); }
+      .hero-sub { font-size: 16px; }
+      .hero-actions { flex-direction: column; align-items: stretch; }
+      .hero-actions .btn { width: 100%; justify-content: center; }
+
+      /* Why */
+      .why-grid { grid-template-columns: 1fr; gap: 32px; }
       .why-image { display: none; }
-      .gallery-layout {
-        grid-template-columns: 1fr;
-        grid-template-rows: auto;
-      }
-      .gallery-item.featured { grid-row: span 1; }
-      .gallery-item { height: 260px; }
-      .cta-band-inner { flex-direction: column; text-align: center; }
+
+      /* Gallery: 2 colunas ainda no tablet */
+      .gallery-layout { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+
+      /* Stats */
       .stats-inner { grid-template-columns: repeat(2, 1fr); }
       .stat-item:nth-child(2) { border-right: none; }
+
+      /* CTA band */
+      .cta-band-inner { flex-direction: column; text-align: center; }
+      .cta-band-inner .btn { width: 100%; max-width: 340px; margin: 0 auto; }
+
+      /* Footer */
+      .footer-inner { flex-direction: column; align-items: flex-start; gap: 16px; }
+      .footer-links { flex-direction: column; gap: 12px; }
     }
 
-    @media (max-width: 640px) {
-      .services-grid { grid-template-columns: 1fr; }
+    @media (max-width: 480px) {
+      /* Container */
+      .container { padding: 0 16px; }
+
+      /* Header */
       .header-cta { display: none; }
-      .btn { font-size: 15px; padding: 14px 28px; }
-      .hero-actions { flex-direction: column; align-items: flex-start; }
-      .footer-inner { flex-direction: column; align-items: flex-start; }
+
+      /* Hero */
+      .hero { padding: 48px 0 40px; }
+      .hero-headline { font-size: clamp(26px, 9vw, 36px); }
+      .chip { font-size: 10px; padding: 4px 12px; }
+
+      /* Stats: 1 coluna */
       .stats-inner { grid-template-columns: 1fr; }
       .stat-item { border-right: none; border-bottom: 1px solid var(--gray-200); }
+      .stat-item:last-child { border-bottom: none; }
+
+      /* Services: 1 coluna */
+      .services-grid { grid-template-columns: 1fr; }
+      .service-card { padding: 24px 20px; }
+
+      /* Gallery: 1 coluna no mobile pequeno */
+      .gallery-layout { grid-template-columns: 1fr; }
+
+      /* Buttons */
+      .btn { font-size: 15px; padding: 14px 24px; width: 100%; justify-content: center; }
+      .header-cta { display: none; }
+
+      /* CTA final */
+      .cta-final-box { padding: 32px 20px; }
+      .cta-final-headline { font-size: clamp(22px, 7vw, 30px); }
+
+      /* Why items */
+      .why-item { gap: 14px; }
+      .why-icon-wrap { width: 44px; height: 44px; font-size: 18px; flex-shrink: 0; }
+
+      /* Footer */
+      .footer-inner { flex-direction: column; align-items: flex-start; }
+      .footer-links { flex-direction: column; gap: 10px; }
+      .footer-copy { text-align: left; }
+
+      /* WPP float */
+      .wpp-float { width: 52px; height: 52px; bottom: 16px; right: 16px; }
     }
   </style>
 </head>
@@ -814,7 +863,7 @@
       <p class="section-sub">Cada projeto entregue com qualidade, seguranca e responsabilidade tecnica. Confira alguns dos nossos servicos realizados.</p>
 
       <div class="gallery-layout">
-        <div class="gallery-item featured">
+        <div class="gallery-item">
           <img src="assets/post5_manutencao_solar.jpg" alt="Manutencao e limpeza de paineis solares — Solar Martins">
           <span class="gallery-label">Manutencao Solar</span>
         </div>
@@ -826,12 +875,9 @@
           <img src="assets/post4_servicos_eletricos.jpg" alt="Servicos eletricos — Solar Martins">
           <span class="gallery-label">Servicos Eletricos</span>
         </div>
-      </div>
-
-      <div style="margin-top:16px; display:grid; grid-template-columns:1fr; gap:16px;">
-        <div class="gallery-item" style="height:280px; border-radius: var(--r-lg); overflow:hidden; position:relative; box-shadow: var(--shadow-sm);">
-          <img src="assets/post8_eletrica_qualidade.jpg" alt="Qualidade em instalacao eletrica — Solar Martins" style="width:100%; height:100%; object-fit:cover;">
-          <span class="gallery-label">Instalacao Eletrica com Qualidade</span>
+        <div class="gallery-item">
+          <img src="assets/post8_eletrica_qualidade.jpg" alt="Instalacao eletrica com qualidade — Solar Martins">
+          <span class="gallery-label">Instalacao Eletrica</span>
         </div>
       </div>
     </div>
