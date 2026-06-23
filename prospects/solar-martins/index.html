@@ -10,21 +10,23 @@
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   <style>
     /* ============================================================
-       TOKENS
+       TOKENS — Paleta real Solar Martins (extraída do logo)
+       Laranja solar #F5A000, creme #FAF0DC, navy #0F1F3D
     ============================================================ */
     :root {
-      --orange:       #E87722;
-      --orange-dark:  #C96318;
-      --orange-light: #FFF0E0;
+      --orange:       #F5A000;
+      --orange-dark:  #D98500;
+      --orange-light: #FFF5DC;
+      --cream:        #FAF0DC;
       --navy:         #0F1F3D;
-      --navy-mid:     #162B55;
-      --navy-light:   #1E3A6E;
+      --navy-mid:     #152B52;
+      --navy-light:   #1C3A6A;
       --white:        #FFFFFF;
       --gray-50:      #F8F9FB;
       --gray-100:     #EAEDF2;
       --gray-300:     #C4CAD4;
       --gray-500:     #6B7585;
-      --gray-900:     #111827;
+      --gray-900:     #0D1520;
       --green-wpp:    #25D366;
 
       --font-head: 'Montserrat', sans-serif;
@@ -43,7 +45,7 @@
       --shadow-sm:  0 1px 4px rgba(0,0,0,0.06);
       --shadow-md:  0 4px 16px rgba(0,0,0,0.10);
       --shadow-lg:  0 10px 40px rgba(0,0,0,0.14);
-      --shadow-cta: 0 6px 24px rgba(232,119,34,0.40);
+      --shadow-cta: 0 6px 24px rgba(245,160,0,0.40);
 
       --max-w: 1160px;
       --px:    clamp(16px, 5vw, 48px);
@@ -440,11 +442,13 @@
       align-items: center;
       justify-content: center;
       margin: 0 auto 20px;
-      font-size: 30px;
-      transition: background var(--transition), transform var(--transition);
+      color: var(--orange);
+      transition: background var(--transition), color var(--transition), transform var(--transition);
     }
+    .service-icon svg { width: 32px; height: 32px; transition: color var(--transition); }
     .service-card:hover .service-icon {
       background: var(--orange);
+      color: var(--white);
       transform: scale(1.1) rotate(-4deg);
     }
     .service-name {
@@ -587,16 +591,18 @@
       width: 48px;
       height: 48px;
       border-radius: var(--r-md);
-      background: rgba(232,119,34,0.15);
-      border: 1px solid rgba(232,119,34,0.30);
+      background: rgba(245,160,0,0.15);
+      border: 1px solid rgba(245,160,0,0.30);
       display: flex;
       align-items: center;
       justify-content: center;
+      color: var(--orange);
       font-size: 22px;
       flex-shrink: 0;
-      transition: background var(--transition);
+      transition: background var(--transition), color var(--transition);
     }
-    .why-item:hover .why-icon { background: rgba(232,119,34,0.30); }
+    .why-icon svg { width: 24px; height: 24px; }
+    .why-item:hover .why-icon { background: rgba(245,160,0,0.28); color: var(--orange); }
     .why-title {
       font-family: var(--font-head);
       font-weight: 700;
@@ -906,7 +912,7 @@
           <div class="stat-label">Segmentos: Res. Com. Ind.</div>
         </div>
         <div class="stat-item reveal reveal-delay-3">
-          <div class="stat-num">🚁</div>
+          <div class="stat-num">Drone</div>
           <div class="stat-label">Orçamento com Drone</div>
         </div>
       </div>
@@ -923,22 +929,47 @@
 
       <div class="services-grid">
         <div class="service-card reveal">
-          <div class="service-icon">☀️</div>
+          <div class="service-icon">
+            <!-- Sol -->
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="4" fill="currentColor" stroke="none"/>
+              <line x1="12" y1="2" x2="12" y2="4"/><line x1="12" y1="20" x2="12" y2="22"/>
+              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+              <line x1="2" y1="12" x2="4" y2="12"/><line x1="20" y1="12" x2="22" y2="12"/>
+              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+            </svg>
+          </div>
           <div class="service-name">Instalação Solar</div>
           <p class="service-desc">Sistemas fotovoltaicos completos para residências, comércios e indústrias. Projeto, instalação e homologação na distribuidora.</p>
         </div>
         <div class="service-card reveal reveal-delay-1">
-          <div class="service-icon">🔧</div>
+          <div class="service-icon">
+            <!-- Ferramenta / manutenção -->
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
+            </svg>
+          </div>
           <div class="service-name">Manutenção Solar</div>
           <p class="service-desc">Limpeza, inspeção e manutenção preventiva e corretiva de sistemas fotovoltaicos. Máxima geração durante todo o ano.</p>
         </div>
         <div class="service-card reveal reveal-delay-2">
-          <div class="service-icon">⚡</div>
+          <div class="service-icon">
+            <!-- Raio elétrico — igual ao logo -->
+            <svg viewBox="0 0 24 24" fill="currentColor" stroke="none">
+              <path d="M13 2L4.09 12.96A1 1 0 0 0 5 14.5h6.5l-1.5 7.5 9.91-10.96A1 1 0 0 0 19 9.5h-6.5L13 2z"/>
+            </svg>
+          </div>
           <div class="service-name">Serviços Elétricos</div>
           <p class="service-desc">Instalações elétricas residenciais, comerciais e industriais. Atualização de padrão, quadros, tomadas e muito mais.</p>
         </div>
         <div class="service-card reveal reveal-delay-3">
-          <div class="service-icon">🚁</div>
+          <div class="service-icon">
+            <!-- Drone / câmera aérea -->
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 2a2 2 0 0 1 2 2v1h2a2 2 0 0 1 2 2v1h1a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1h-1v1a2 2 0 0 1-2 2h-2v1a2 2 0 0 1-2 2h0a2 2 0 0 1-2-2v-1H8a2 2 0 0 1-2-2v-1H5a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1h1V7a2 2 0 0 1 2-2h2V4a2 2 0 0 1 2-2z"/>
+              <circle cx="12" cy="11" r="2" fill="currentColor" stroke="none"/>
+            </svg>
+          </div>
           <div class="service-name">Orçamento com Drone</div>
           <p class="service-desc">Medição de telhado via drone para orçamento preciso e seguro. Sem escadas, sem risco, resultado exato em minutos.</p>
         </div>
@@ -1014,35 +1045,45 @@
           <div class="rule"></div>
           <div class="why-items">
             <div class="why-item">
-              <div class="why-icon">🏆</div>
+              <div class="why-icon">
+                <svg viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              </div>
               <div>
                 <div class="why-title">+3.500 instalações realizadas</div>
                 <p class="why-text">Histórico sólido de projetos entregues com qualidade em Blumenau e toda a região de Santa Catarina.</p>
               </div>
             </div>
             <div class="why-item">
-              <div class="why-icon">🚁</div>
+              <div class="why-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="2"/><circle cx="5" cy="19" r="2"/><circle cx="19" cy="19" r="2"/><line x1="12" y1="7" x2="12" y2="13"/><line x1="12" y1="13" x2="5" y2="17"/><line x1="12" y1="13" x2="19" y2="17"/></svg>
+              </div>
               <div>
                 <div class="why-title">Orçamento com tecnologia de drone</div>
                 <p class="why-text">Medição precisa do telhado sem riscos, com resultados exatos para um dimensionamento correto do sistema.</p>
               </div>
             </div>
             <div class="why-item">
-              <div class="why-icon">⚡</div>
+              <div class="why-icon">
+                <svg viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M13 2L4.09 12.96A1 1 0 0 0 5 14.5h6.5l-1.5 7.5 9.91-10.96A1 1 0 0 0 19 9.5h-6.5L13 2z"/></svg>
+              </div>
               <div>
                 <div class="why-title">Equipe própria capacitada</div>
                 <p class="why-text">Profissionais treinados para instalação solar e elétrica. Não terceirizamos — garantimos padrão de qualidade em cada serviço.</p>
               </div>
             </div>
             <div class="why-item">
-              <div class="why-icon">📅</div>
+              <div class="why-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+              </div>
               <div>
                 <div class="why-title">No mercado desde 2017</div>
                 <p class="why-text">Mais de 8 anos de experiência em energia solar e serviços elétricos na região de Blumenau/SC. Solidez e confiança comprovadas.</p>
               </div>
             </div>
             <div class="why-item">
-              <div class="why-icon">🏗️</div>
+              <div class="why-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+              </div>
               <div>
                 <div class="why-title">Residencial, comercial e industrial</div>
                 <p class="why-text">Atendemos todos os portes de projeto, da casa própria a grandes galpões industriais, com soluções fotovoltaicas sob medida.</p>
