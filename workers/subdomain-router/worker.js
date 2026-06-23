@@ -54,6 +54,7 @@ const ROUTING = {
   "oral-center": "oral-center",
   "regivel-ford": "regivel-ford",
   "dra-viviane": "dra-viviane",
+  "cartorio-dualibi-health": "cartorio-dualibi-health",
   // LeadKit adiciona entradas aqui automaticamente via Fase 4 do pipeline
 };
 
