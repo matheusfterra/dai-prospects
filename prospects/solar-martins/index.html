@@ -3,733 +3,698 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Solar Martins + Digital AI — Atendimento Inteligente para Instalações Solares</title>
-  <meta name="description" content="A Solar Martins já instalou mais de 3.500 sistemas fotovoltaicos em Blumenau e região. Com IA, atende clientes 24/7, qualifica leads e agenda visitas automaticamente.">
+  <title>Solar Martins — Energia Solar e Serviços Elétricos em Blumenau/SC</title>
+  <meta name="description" content="Solar Martins: +3.500 instalações de energia solar em Blumenau/SC. Sistemas fotovoltaicos residenciais, comerciais e industriais. Orçamento com drone. Fale agora no WhatsApp.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
   <style>
-    /* ===================== TOKENS ===================== */
+    /* ==================== CSS TOKENS ==================== */
     :root {
-      --color-solar-yellow: #F5A623;
-      --color-solar-yellow-dark: #E8941A;
-      --color-verde-energia: #2D6A2D;
-      --color-verde-dark: #1E4D1E;
-      --color-azul-profundo: #1A3A5C;
-      --color-branco: #FFFFFF;
-      --color-cinza-escuro: #2C2C2C;
-      --color-cinza-medio: #6C757D;
-      --color-cinza-claro: #F4F4F4;
-      --color-amarelo-suave: #FFF8E7;
-      --color-verde-sucesso: #28A745;
-      --color-verde-suave: #E8F5E9;
+      --yellow:        #F5B800;
+      --yellow-dark:   #D9A000;
+      --yellow-light:  #FFF8D6;
+      --navy:          #1A2B4A;
+      --navy-mid:      #243556;
+      --navy-light:    #2E4470;
+      --white:         #FFFFFF;
+      --gray-100:      #F7F8FA;
+      --gray-200:      #EAEDF2;
+      --gray-400:      #9AA3B2;
+      --gray-700:      #3D4A5C;
+      --gray-900:      #1A1F2E;
+      --green-wpp:     #25D366;
 
-      --font-heading: 'Montserrat', sans-serif;
-      --font-body: 'Open Sans', sans-serif;
+      --font-head:  'Montserrat', sans-serif;
+      --font-body:  'Open Sans', sans-serif;
 
-      --text-hero: clamp(28px, 5vw, 52px);
-      --text-h2: clamp(22px, 3.5vw, 36px);
-      --text-h3: clamp(17px, 2.5vw, 22px);
-      --text-body: 16px;
-      --text-caption: 13px;
-      --text-cta: 17px;
+      --h1:   clamp(30px, 6vw, 56px);
+      --h2:   clamp(24px, 4vw, 40px);
+      --h3:   clamp(18px, 2.5vw, 24px);
+      --body: 16px;
+      --sm:   14px;
+      --xs:   12px;
 
-      --space-xs: 8px;
-      --space-sm: 16px;
-      --space-md: 24px;
-      --space-lg: 48px;
-      --space-xl: 80px;
+      --r-sm:   8px;
+      --r-md:   14px;
+      --r-lg:   22px;
+      --r-pill: 100px;
 
-      --radius-sm: 6px;
-      --radius-md: 12px;
-      --radius-lg: 20px;
-      --radius-pill: 50px;
+      --shadow-sm:  0 2px 8px rgba(0,0,0,0.07);
+      --shadow-md:  0 6px 24px rgba(0,0,0,0.10);
+      --shadow-lg:  0 12px 48px rgba(0,0,0,0.14);
+      --shadow-cta: 0 6px 24px rgba(245,184,0,0.45);
 
-      --shadow-card: 0 4px 20px rgba(0,0,0,0.08);
-      --shadow-card-hover: 0 8px 32px rgba(245,166,35,0.22);
-      --shadow-cta: 0 4px 18px rgba(245,166,35,0.42);
-
-      --container-max: 1100px;
-      --container-padding: clamp(16px, 5vw, 40px);
+      --max-w: 1140px;
+      --px:    clamp(18px, 5vw, 48px);
+      --py-lg: clamp(56px, 8vw, 96px);
     }
 
-    /* ===================== RESET ===================== */
+    /* ==================== RESET ==================== */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
+    html { scroll-behavior: smooth; background: var(--navy); }
     body {
       font-family: var(--font-body);
-      color: var(--color-cinza-escuro);
-      background: var(--color-branco);
-      line-height: 1.65;
+      color: var(--gray-700);
+      background: var(--white);
+      line-height: 1.7;
       -webkit-font-smoothing: antialiased;
     }
     img { max-width: 100%; height: auto; display: block; }
     a { text-decoration: none; color: inherit; }
     ul { list-style: none; }
 
-    /* ===================== CONTAINER ===================== */
+    /* ==================== LAYOUT ==================== */
     .container {
-      max-width: var(--container-max);
+      max-width: var(--max-w);
       margin: 0 auto;
-      padding: 0 var(--container-padding);
+      padding: 0 var(--px);
     }
 
-    /* ===================== BUTTONS ===================== */
-    .btn-cta {
-      background: linear-gradient(90deg, var(--color-solar-yellow) 0%, var(--color-solar-yellow-dark) 100%);
-      color: var(--color-azul-profundo);
-      font-family: var(--font-heading);
+    /* ==================== BUTTONS ==================== */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      font-family: var(--font-head);
       font-weight: 700;
-      font-size: var(--text-cta);
-      padding: 15px 36px;
-      border-radius: var(--radius-pill);
+      font-size: 16px;
+      padding: 16px 36px;
+      border-radius: var(--r-pill);
       border: none;
       cursor: pointer;
+      transition: all 0.22s ease;
+      min-height: 52px;
+      white-space: nowrap;
+    }
+    .btn-primary {
+      background: var(--yellow);
+      color: var(--navy);
       box-shadow: var(--shadow-cta);
-      transition: all 0.25s ease;
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
     }
-    .btn-cta:hover {
+    .btn-primary:hover {
+      background: var(--yellow-dark);
       transform: translateY(-2px);
-      box-shadow: 0 8px 28px rgba(245,166,35,0.52);
+      box-shadow: 0 10px 32px rgba(245,184,0,0.55);
     }
-    .btn-cta-outline {
+    .btn-outline {
       background: transparent;
-      border: 2px solid var(--color-solar-yellow);
-      color: var(--color-solar-yellow);
-      font-family: var(--font-heading);
-      font-weight: 700;
-      font-size: 15px;
-      padding: 10px 24px;
-      border-radius: var(--radius-pill);
-      cursor: pointer;
-      transition: all 0.2s ease;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
+      border: 2px solid var(--yellow);
+      color: var(--yellow);
     }
-    .btn-cta-outline:hover {
-      background: var(--color-solar-yellow);
-      color: var(--color-azul-profundo);
+    .btn-outline:hover {
+      background: var(--yellow);
+      color: var(--navy);
+    }
+    .btn-white {
+      background: var(--white);
+      color: var(--navy);
+      box-shadow: var(--shadow-md);
+    }
+    .btn-white:hover {
+      background: var(--yellow-light);
+      transform: translateY(-2px);
     }
 
-    /* ===================== BADGE ===================== */
-    .badge {
-      background: var(--color-amarelo-suave);
-      color: var(--color-verde-energia);
-      font-family: var(--font-heading);
+    /* ==================== TAGS / CHIPS ==================== */
+    .chip {
+      display: inline-block;
+      font-family: var(--font-head);
       font-weight: 700;
       font-size: 11px;
-      padding: 5px 14px;
-      border-radius: var(--radius-pill);
+      letter-spacing: 1px;
       text-transform: uppercase;
-      letter-spacing: 0.8px;
-      display: inline-block;
-      margin-bottom: 16px;
+      padding: 5px 16px;
+      border-radius: var(--r-pill);
+      margin-bottom: 18px;
     }
-    .badge-white {
-      background: rgba(255,255,255,0.15);
-      color: var(--color-branco);
-    }
+    .chip-yellow { background: var(--yellow-light); color: var(--navy); }
+    .chip-white  { background: rgba(255,255,255,0.15); color: var(--white); }
+    .chip-navy   { background: var(--navy); color: var(--yellow); }
 
-    /* ===================== SECTION TITLE ===================== */
-    .section-title {
-      font-family: var(--font-heading);
+    /* ==================== SECTION TYPOGRAPHY ==================== */
+    .section-heading {
+      font-family: var(--font-head);
       font-weight: 800;
-      font-size: var(--text-h2);
+      font-size: var(--h2);
+      color: var(--navy);
       line-height: 1.15;
-      color: var(--color-azul-profundo);
       margin-bottom: 16px;
     }
-    .section-title em {
-      font-style: normal;
-      color: var(--color-solar-yellow);
-    }
+    .section-heading .accent { color: var(--yellow); font-style: normal; }
+    .section-heading.on-dark  { color: var(--white); }
     .section-sub {
       font-size: 17px;
-      color: var(--color-cinza-medio);
-      max-width: 620px;
-      line-height: 1.65;
+      color: var(--gray-400);
+      line-height: 1.75;
+      max-width: 640px;
     }
-
-    /* ===================== DIVIDER ===================== */
-    .divider {
+    .section-sub.on-dark { color: rgba(255,255,255,0.65); }
+    .rule {
+      width: 56px;
       height: 4px;
-      width: 60px;
-      background: linear-gradient(90deg, var(--color-solar-yellow), var(--color-verde-energia));
+      background: linear-gradient(90deg, var(--yellow), var(--yellow-dark));
       border-radius: 4px;
-      margin: 16px 0 28px;
+      margin: 18px 0 28px;
     }
 
-    /* ===================== HEADER ===================== */
-    header {
-      background: var(--color-azul-profundo);
-      padding: 16px 0;
+    /* ==================== HEADER ==================== */
+    .site-header {
+      background: var(--navy);
       position: sticky;
       top: 0;
-      z-index: 100;
-      box-shadow: 0 2px 16px rgba(0,0,0,0.18);
+      z-index: 200;
+      box-shadow: 0 2px 20px rgba(0,0,0,0.25);
     }
     .header-inner {
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 16px;
+      padding-top: 14px;
+      padding-bottom: 14px;
     }
-    .logo-text {
-      font-family: var(--font-heading);
-      font-weight: 800;
-      color: var(--color-branco);
-      font-size: 18px;
+    .logo {
       display: flex;
       align-items: center;
       gap: 10px;
+      font-family: var(--font-head);
+      font-weight: 800;
+      font-size: 20px;
+      color: var(--white);
     }
-    .logo-text span {
-      color: var(--color-solar-yellow);
+    .logo .logo-sun {
+      width: 38px;
+      height: 38px;
+      background: var(--yellow);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
     }
-    .logo-icon {
-      font-size: 22px;
-    }
+    .logo .logo-sun svg { width: 22px; height: 22px; }
+    .logo .logo-accent { color: var(--yellow); }
+    .header-cta { font-size: 14px; padding: 12px 24px; }
 
-    /* ===================== HERO ===================== */
+    /* ==================== HERO ==================== */
     .hero {
-      background: linear-gradient(135deg, var(--color-azul-profundo) 0%, #1E4D2D 55%, #2A5F1A 100%);
-      padding: 72px 0 60px;
-      overflow: hidden;
+      background: linear-gradient(150deg, var(--navy) 0%, #1E3358 50%, #162540 100%);
+      padding: clamp(60px, 10vw, 110px) 0 clamp(48px, 8vw, 88px);
       position: relative;
+      overflow: hidden;
     }
     .hero::before {
       content: '';
       position: absolute;
-      top: -40px; right: -80px;
-      width: 420px; height: 420px;
+      top: -120px; right: -120px;
+      width: 520px; height: 520px;
       border-radius: 50%;
-      background: radial-gradient(circle, rgba(245,166,35,0.12) 0%, transparent 70%);
+      background: radial-gradient(circle, rgba(245,184,0,0.10) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -60px; left: -60px;
+      width: 320px; height: 320px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(245,184,0,0.06) 0%, transparent 70%);
       pointer-events: none;
     }
     .hero-inner {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 48px;
+      gap: 56px;
       align-items: center;
-    }
-    .hero-content { position: relative; z-index: 2; }
-    .hero-headline {
-      font-family: var(--font-heading);
-      font-weight: 800;
-      font-size: var(--text-hero);
-      color: var(--color-branco);
-      line-height: 1.1;
-      margin-bottom: 20px;
-    }
-    .hero-headline strong {
-      color: var(--color-solar-yellow);
-      display: block;
-    }
-    .hero-sub {
-      color: rgba(255,255,255,0.85);
-      font-size: 17px;
-      line-height: 1.7;
-      margin-bottom: 32px;
-      max-width: 500px;
-    }
-    .hero-microcopy {
-      font-size: 13px;
-      color: rgba(255,255,255,0.55);
-      margin-top: 12px;
-    }
-    .hero-image-wrap {
       position: relative;
       z-index: 2;
     }
+    .hero-headline {
+      font-family: var(--font-head);
+      font-weight: 900;
+      font-size: var(--h1);
+      color: var(--white);
+      line-height: 1.08;
+      margin-bottom: 20px;
+    }
+    .hero-headline .accent {
+      color: var(--yellow);
+      display: block;
+    }
+    .hero-sub {
+      font-size: 18px;
+      color: rgba(255,255,255,0.78);
+      line-height: 1.75;
+      margin-bottom: 36px;
+      max-width: 480px;
+    }
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      align-items: center;
+    }
+    .hero-note {
+      font-size: 13px;
+      color: rgba(255,255,255,0.45);
+      margin-top: 14px;
+    }
+    .hero-image-wrap {
+      position: relative;
+    }
     .hero-image-wrap img {
       width: 100%;
-      height: 400px;
+      height: 440px;
       object-fit: cover;
-      border-radius: var(--radius-lg);
-      box-shadow: 0 12px 48px rgba(0,0,0,0.35);
+      border-radius: var(--r-lg);
+      box-shadow: var(--shadow-lg);
     }
-    .hero-image-badge {
+    .hero-badge {
       position: absolute;
       bottom: 20px;
-      left: 20px;
-      background: var(--color-solar-yellow);
-      color: var(--color-azul-profundo);
-      font-family: var(--font-heading);
+      left: -16px;
+      background: var(--yellow);
+      color: var(--navy);
+      font-family: var(--font-head);
       font-weight: 700;
       font-size: 13px;
-      padding: 8px 16px;
-      border-radius: var(--radius-md);
-      box-shadow: 0 4px 12px rgba(0,0,0,0.20);
+      padding: 10px 20px;
+      border-radius: var(--r-md);
+      box-shadow: var(--shadow-md);
+      display: flex;
+      align-items: center;
+      gap: 8px;
     }
+    .hero-badge-2 {
+      position: absolute;
+      top: 20px;
+      right: -16px;
+      background: var(--navy);
+      border: 2px solid rgba(255,255,255,0.15);
+      color: var(--white);
+      font-family: var(--font-head);
+      font-weight: 700;
+      font-size: 12px;
+      padding: 10px 18px;
+      border-radius: var(--r-md);
+      box-shadow: var(--shadow-md);
+    }
+    .hero-badge-2 strong { color: var(--yellow); font-size: 18px; display: block; }
 
-    /* ===================== METRICS ===================== */
-    .metrics {
-      background: var(--color-branco);
-      border-bottom: 1px solid #EAEAEA;
-      padding: 0;
+    /* ==================== STATS BAR ==================== */
+    .stats-bar {
+      background: var(--white);
+      border-bottom: 1px solid var(--gray-200);
     }
-    .metrics-inner {
+    .stats-inner {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      border-top: 4px solid var(--color-solar-yellow);
+      border-top: 4px solid var(--yellow);
     }
-    .metric-item {
-      padding: 32px 24px;
+    .stat-item {
+      padding: 28px 20px;
       text-align: center;
-      border-right: 1px solid #EAEAEA;
+      border-right: 1px solid var(--gray-200);
       transition: background 0.2s ease;
     }
-    .metric-item:last-child { border-right: none; }
-    .metric-item:hover { background: var(--color-amarelo-suave); }
-    .metric-number {
-      font-family: var(--font-heading);
-      font-weight: 800;
-      font-size: 36px;
-      color: var(--color-solar-yellow);
+    .stat-item:last-child { border-right: none; }
+    .stat-item:hover { background: var(--yellow-light); }
+    .stat-num {
+      font-family: var(--font-head);
+      font-weight: 900;
+      font-size: clamp(24px, 3.5vw, 36px);
+      color: var(--yellow);
       line-height: 1;
       margin-bottom: 6px;
     }
-    .metric-label {
-      font-size: 13px;
-      color: var(--color-cinza-medio);
+    .stat-label {
+      font-size: var(--xs);
       font-weight: 600;
       text-transform: uppercase;
-      letter-spacing: 0.5px;
+      letter-spacing: 0.6px;
+      color: var(--gray-400);
     }
 
-    /* ===================== DOR ===================== */
-    .section-dor {
-      background: var(--color-cinza-claro);
-      padding: var(--space-xl) 0;
+    /* ==================== SERVICES ==================== */
+    .section-services {
+      background: var(--gray-100);
+      padding: var(--py-lg) 0;
     }
-    .dor-grid {
+    .services-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 56px;
-      align-items: center;
-    }
-    .dor-bullets {
-      margin-top: 24px;
-      display: flex;
-      flex-direction: column;
-      gap: 14px;
-    }
-    .dor-bullet {
-      display: flex;
-      align-items: flex-start;
-      gap: 12px;
-      background: var(--color-branco);
-      padding: 14px 18px;
-      border-radius: var(--radius-md);
-      box-shadow: var(--shadow-card);
-      border-left: 3px solid #E53E3E;
-    }
-    .dor-bullet-icon { font-size: 18px; flex-shrink: 0; margin-top: 1px; }
-    .dor-bullet-text { font-size: 15px; color: var(--color-cinza-escuro); line-height: 1.55; }
-    .dor-transition {
-      margin-top: 28px;
-      font-size: 17px;
-      font-weight: 600;
-      color: var(--color-verde-energia);
-    }
-    .dor-image img {
-      width: 100%;
-      height: 380px;
-      object-fit: cover;
-      border-radius: var(--radius-lg);
-      box-shadow: var(--shadow-card);
-    }
-
-    /* ===================== SOLUÇÃO ===================== */
-    .section-solucao {
-      background: var(--color-azul-profundo);
-      padding: var(--space-xl) 0;
-      position: relative;
-      overflow: hidden;
-    }
-    .section-solucao::after {
-      content: '☀';
-      position: absolute;
-      right: -30px;
-      top: -30px;
-      font-size: 260px;
-      opacity: 0.04;
-      color: var(--color-solar-yellow);
-      pointer-events: none;
-    }
-    .section-solucao .section-title { color: var(--color-branco); }
-    .section-solucao .section-sub { color: rgba(255,255,255,0.70); }
-    .solucao-cards {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
       margin-top: 40px;
     }
-    .solucao-card {
-      background: rgba(255,255,255,0.07);
-      border: 1px solid rgba(255,255,255,0.12);
-      border-radius: var(--radius-lg);
-      padding: 32px 28px;
+    .service-card {
+      background: var(--white);
+      border-radius: var(--r-lg);
+      padding: 32px 24px;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid var(--gray-200);
       transition: all 0.25s ease;
-    }
-    .solucao-card:hover {
-      background: rgba(245,166,35,0.10);
-      border-color: rgba(245,166,35,0.35);
-      transform: translateY(-4px);
-    }
-    .solucao-card-icon {
-      font-size: 38px;
-      margin-bottom: 16px;
-    }
-    .solucao-card-title {
-      font-family: var(--font-heading);
-      font-weight: 700;
-      font-size: 18px;
-      color: var(--color-solar-yellow);
-      margin-bottom: 10px;
-    }
-    .solucao-card-text {
-      font-size: 15px;
-      color: rgba(255,255,255,0.75);
-      line-height: 1.65;
-    }
-
-    /* ===================== COMO FUNCIONA ===================== */
-    .section-como {
-      background: var(--color-branco);
-      padding: var(--space-xl) 0;
-    }
-    .como-steps {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 32px;
-      margin-top: 40px;
-      position: relative;
-    }
-    .como-steps::before {
-      content: '';
-      position: absolute;
-      top: 36px;
-      left: calc(16.66% + 20px);
-      right: calc(16.66% + 20px);
-      height: 2px;
-      background: linear-gradient(90deg, var(--color-solar-yellow), var(--color-verde-energia));
-      z-index: 0;
-    }
-    .como-step {
       text-align: center;
-      position: relative;
-      z-index: 1;
     }
-    .como-step-number {
-      width: 72px;
-      height: 72px;
-      background: linear-gradient(135deg, var(--color-solar-yellow), var(--color-solar-yellow-dark));
+    .service-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-md);
+      border-color: var(--yellow);
+    }
+    .service-icon {
+      width: 64px;
+      height: 64px;
+      background: var(--yellow-light);
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-family: var(--font-heading);
-      font-weight: 800;
-      font-size: 26px;
-      color: var(--color-azul-profundo);
-      margin: 0 auto 20px;
-      box-shadow: 0 4px 16px rgba(245,166,35,0.38);
+      margin: 0 auto 18px;
+      font-size: 28px;
     }
-    .como-step-title {
-      font-family: var(--font-heading);
+    .service-card:hover .service-icon {
+      background: var(--yellow);
+    }
+    .service-name {
+      font-family: var(--font-head);
       font-weight: 700;
-      font-size: 17px;
-      color: var(--color-azul-profundo);
+      font-size: 16px;
+      color: var(--navy);
       margin-bottom: 10px;
     }
-    .como-step-bubble {
-      background: var(--color-azul-profundo);
-      color: var(--color-branco);
-      font-size: 14px;
-      padding: 10px 14px;
-      border-radius: var(--radius-md);
-      font-style: italic;
-      margin-bottom: 12px;
-      text-align: left;
-    }
-    .como-step-text {
-      font-size: 14px;
-      color: var(--color-cinza-medio);
-      line-height: 1.6;
-    }
-    .como-footer {
-      margin-top: 40px;
-      background: var(--color-verde-suave);
-      border-left: 4px solid var(--color-verde-energia);
-      padding: 20px 24px;
-      border-radius: 0 var(--radius-md) var(--radius-md) 0;
-      font-size: 16px;
-      color: var(--color-verde-dark);
-      font-weight: 600;
-    }
-
-    /* ===================== SERVIÇOS ===================== */
-    .section-servicos {
-      background: var(--color-cinza-claro);
-      padding: var(--space-xl) 0;
-    }
-    .servicos-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 24px;
-      margin-top: 40px;
-    }
-    .servico-card {
-      background: var(--color-branco);
-      border-radius: var(--radius-lg);
-      overflow: hidden;
-      box-shadow: var(--shadow-card);
-      transition: all 0.25s ease;
-    }
-    .servico-card:hover {
-      transform: translateY(-4px);
-      box-shadow: var(--shadow-card-hover);
-    }
-    .servico-card-img {
-      width: 100%;
-      height: 220px;
-      object-fit: cover;
-    }
-    .servico-card-body {
-      padding: 24px;
-    }
-    .servico-card-icon { font-size: 28px; margin-bottom: 10px; }
-    .servico-card-title {
-      font-family: var(--font-heading);
-      font-weight: 700;
-      font-size: 20px;
-      color: var(--color-azul-profundo);
-      margin-bottom: 14px;
-    }
-    .servico-list li {
-      display: flex;
-      align-items: flex-start;
-      gap: 8px;
-      font-size: 14px;
-      color: var(--color-cinza-escuro);
-      padding: 5px 0;
-      border-bottom: 1px solid #F0F0F0;
-    }
-    .servico-list li:last-child { border-bottom: none; }
-    .check { color: var(--color-verde-sucesso); font-size: 15px; flex-shrink: 0; margin-top: 1px; }
-
-    /* ===================== ROI ===================== */
-    .section-roi {
-      background: linear-gradient(135deg, var(--color-verde-energia), var(--color-verde-dark));
-      padding: var(--space-xl) 0;
-      text-align: center;
-    }
-    .section-roi .section-title { color: var(--color-branco); }
-    .roi-number {
-      font-family: var(--font-heading);
-      font-weight: 800;
-      font-size: clamp(36px, 7vw, 72px);
-      color: var(--color-solar-yellow);
-      margin: 24px 0;
-      line-height: 1;
-    }
-    .roi-text {
-      color: rgba(255,255,255,0.82);
-      font-size: 17px;
-      max-width: 680px;
-      margin: 0 auto 28px;
-      line-height: 1.7;
-    }
-    .roi-callout {
-      background: rgba(255,255,255,0.10);
-      border: 1px solid rgba(255,255,255,0.20);
-      border-radius: var(--radius-lg);
-      padding: 28px 36px;
-      max-width: 680px;
-      margin: 0 auto;
-      font-size: 17px;
-      color: rgba(255,255,255,0.90);
+    .service-desc {
+      font-size: var(--sm);
+      color: var(--gray-400);
       line-height: 1.65;
     }
-    .roi-callout strong { color: var(--color-solar-yellow); }
+    .service-tag {
+      display: inline-block;
+      margin-top: 14px;
+      background: var(--yellow-light);
+      color: var(--navy);
+      font-family: var(--font-head);
+      font-weight: 700;
+      font-size: 10px;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      padding: 4px 12px;
+      border-radius: var(--r-pill);
+    }
 
-    /* ===================== GALERIA ===================== */
-    .section-galeria {
-      background: var(--color-branco);
-      padding: var(--space-xl) 0;
+    /* ==================== GALLERY ==================== */
+    .section-gallery {
+      background: var(--white);
+      padding: var(--py-lg) 0;
     }
-    .galeria-grid {
+    .gallery-layout {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 300px 300px;
       gap: 16px;
-      margin-top: 36px;
+      margin-top: 40px;
     }
-    .galeria-item {
-      border-radius: var(--radius-md);
+    .gallery-item {
+      border-radius: var(--r-lg);
       overflow: hidden;
-      box-shadow: var(--shadow-card);
+      position: relative;
+      box-shadow: var(--shadow-sm);
       transition: all 0.25s ease;
     }
-    .galeria-item:hover { transform: scale(1.02); box-shadow: var(--shadow-card-hover); }
-    .galeria-item img {
+    .gallery-item:hover { transform: scale(1.01); box-shadow: var(--shadow-md); }
+    .gallery-item img {
       width: 100%;
-      height: 220px;
+      height: 100%;
       object-fit: cover;
     }
-    .galeria-quote {
-      margin-top: 32px;
-      background: var(--color-cinza-claro);
-      border-left: 4px solid var(--color-solar-yellow);
-      padding: 20px 24px;
-      border-radius: 0 var(--radius-md) var(--radius-md) 0;
-      font-size: 16px;
-      font-style: italic;
-      color: var(--color-cinza-escuro);
+    .gallery-item.featured {
+      grid-row: span 2;
     }
-    .galeria-quote cite {
-      display: block;
-      margin-top: 8px;
-      font-style: normal;
+    .gallery-item.featured img { height: 100%; }
+    .gallery-label {
+      position: absolute;
+      bottom: 14px;
+      left: 14px;
+      background: rgba(26,43,74,0.88);
+      color: var(--white);
+      font-family: var(--font-head);
       font-weight: 600;
-      font-size: 13px;
-      color: var(--color-verde-energia);
+      font-size: 12px;
+      padding: 6px 14px;
+      border-radius: var(--r-pill);
+      backdrop-filter: blur(4px);
     }
 
-    /* ===================== CTA FINAL ===================== */
-    .section-cta-final {
-      background: var(--color-azul-profundo);
-      padding: var(--space-xl) 0;
-      text-align: center;
+    /* ==================== WHY US ==================== */
+    .section-why {
+      background: var(--navy);
+      padding: var(--py-lg) 0;
       position: relative;
       overflow: hidden;
     }
-    .section-cta-final::before {
-      content: '⚡';
+    .section-why::after {
+      content: '';
       position: absolute;
-      left: -20px;
-      bottom: -20px;
-      font-size: 280px;
-      opacity: 0.04;
+      right: -80px; bottom: -80px;
+      width: 400px; height: 400px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(245,184,0,0.07) 0%, transparent 70%);
       pointer-events: none;
     }
-    .cta-final-headline {
-      font-family: var(--font-heading);
+    .why-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+      position: relative;
+      z-index: 2;
+    }
+    .why-image img {
+      width: 100%;
+      height: 460px;
+      object-fit: cover;
+      border-radius: var(--r-lg);
+      box-shadow: var(--shadow-lg);
+    }
+    .why-items {
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+      margin-top: 32px;
+    }
+    .why-item {
+      display: flex;
+      gap: 18px;
+      align-items: flex-start;
+    }
+    .why-icon-wrap {
+      width: 52px;
+      height: 52px;
+      border-radius: var(--r-md);
+      background: rgba(245,184,0,0.12);
+      border: 1px solid rgba(245,184,0,0.25);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      flex-shrink: 0;
+    }
+    .why-title {
+      font-family: var(--font-head);
+      font-weight: 700;
+      font-size: 16px;
+      color: var(--white);
+      margin-bottom: 6px;
+    }
+    .why-text {
+      font-size: var(--sm);
+      color: rgba(255,255,255,0.60);
+      line-height: 1.65;
+    }
+
+    /* ==================== CTA BAND ==================== */
+    .cta-band {
+      background: var(--yellow);
+      padding: clamp(40px, 6vw, 64px) 0;
+    }
+    .cta-band-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 32px;
+      flex-wrap: wrap;
+    }
+    .cta-band-text {
+      font-family: var(--font-head);
       font-weight: 800;
-      font-size: clamp(26px, 4vw, 44px);
-      color: var(--color-branco);
+      font-size: clamp(22px, 3.5vw, 34px);
+      color: var(--navy);
+      line-height: 1.2;
+    }
+    .cta-band-sub {
+      font-size: 16px;
+      color: rgba(26,43,74,0.65);
+      margin-top: 8px;
+    }
+
+    /* ==================== CTA FINAL ==================== */
+    .section-cta-final {
+      background: var(--gray-100);
+      padding: var(--py-lg) 0;
+      text-align: center;
+    }
+    .cta-final-box {
+      background: var(--white);
+      border-radius: var(--r-lg);
+      padding: clamp(40px, 6vw, 72px) clamp(24px, 5vw, 72px);
+      box-shadow: var(--shadow-md);
+      max-width: 780px;
+      margin: 0 auto;
+      border-top: 5px solid var(--yellow);
+    }
+    .cta-final-headline {
+      font-family: var(--font-head);
+      font-weight: 800;
+      font-size: clamp(26px, 4vw, 42px);
+      color: var(--navy);
       line-height: 1.15;
       margin-bottom: 14px;
     }
-    .cta-final-headline em {
-      font-style: normal;
-      color: var(--color-solar-yellow);
-    }
+    .cta-final-headline .accent { color: var(--yellow); font-style: normal; }
     .cta-final-sub {
-      font-size: 18px;
-      color: rgba(255,255,255,0.75);
-      margin-bottom: 32px;
-    }
-    .cta-final-body {
-      font-size: 15px;
-      color: rgba(255,255,255,0.60);
-      max-width: 560px;
-      margin: 0 auto 36px;
+      font-size: 17px;
+      color: var(--gray-400);
+      margin-bottom: 36px;
       line-height: 1.7;
     }
-    .cta-final-microcopy {
-      margin-top: 14px;
-      font-size: 13px;
-      color: rgba(255,255,255,0.45);
+    .cta-final-note {
+      font-size: var(--xs);
+      color: var(--gray-400);
+      margin-top: 16px;
     }
+    .cta-final-note a { color: var(--navy); text-decoration: underline; }
 
-    /* ===================== FOOTER ===================== */
-    footer {
-      background: #111;
-      padding: 32px 0;
-      text-align: center;
+    /* ==================== FOOTER ==================== */
+    .site-footer {
+      background: var(--gray-900);
+      padding: 40px 0 28px;
     }
-    .footer-text {
-      color: rgba(255,255,255,0.40);
-      font-size: 13px;
-      line-height: 1.8;
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      flex-wrap: wrap;
+      margin-bottom: 28px;
     }
-    .footer-text a { color: var(--color-solar-yellow); }
     .footer-logo {
-      font-family: var(--font-heading);
+      font-family: var(--font-head);
       font-weight: 800;
-      color: rgba(255,255,255,0.70);
-      font-size: 16px;
-      margin-bottom: 8px;
+      font-size: 20px;
+      color: var(--white);
     }
-    .footer-logo span { color: var(--color-solar-yellow); }
+    .footer-logo .accent { color: var(--yellow); }
+    .footer-links {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+    .footer-link {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: var(--sm);
+      color: rgba(255,255,255,0.55);
+      transition: color 0.2s;
+    }
+    .footer-link:hover { color: var(--yellow); }
+    .footer-divider {
+      border: none;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      margin-bottom: 20px;
+    }
+    .footer-copy {
+      text-align: center;
+      font-size: var(--xs);
+      color: rgba(255,255,255,0.25);
+    }
 
-    /* ===================== WHATSAPP FLOAT ===================== */
+    /* ==================== WPP FLOAT ==================== */
     .wpp-float {
       position: fixed;
-      bottom: 28px;
-      right: 28px;
+      bottom: 24px;
+      right: 24px;
       z-index: 999;
-      background: #25D366;
-      width: 60px;
-      height: 60px;
+      width: 58px;
+      height: 58px;
+      background: var(--green-wpp);
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
       box-shadow: 0 4px 20px rgba(37,211,102,0.45);
       transition: all 0.25s ease;
-      font-size: 28px;
     }
     .wpp-float:hover {
       transform: scale(1.1);
-      box-shadow: 0 8px 28px rgba(37,211,102,0.55);
+      box-shadow: 0 8px 30px rgba(37,211,102,0.55);
     }
 
-    /* ===================== RESPONSIVE ===================== */
+    /* ==================== RESPONSIVE ==================== */
+    @media (max-width: 1024px) {
+      .services-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
     @media (max-width: 900px) {
       .hero-inner { grid-template-columns: 1fr; }
       .hero-image-wrap { display: none; }
-      .dor-grid { grid-template-columns: 1fr; }
-      .dor-image { display: none; }
-      .solucao-cards { grid-template-columns: 1fr; }
-      .como-steps { grid-template-columns: 1fr; gap: 24px; }
-      .como-steps::before { display: none; }
-      .servicos-grid { grid-template-columns: 1fr; }
-      .galeria-grid { grid-template-columns: 1fr; }
-      .metrics-inner { grid-template-columns: repeat(2, 1fr); }
-      .metric-item:nth-child(2) { border-right: none; }
-      .metric-item:nth-child(3) { border-top: 1px solid #EAEAEA; }
+      .why-grid { grid-template-columns: 1fr; }
+      .why-image { display: none; }
+      .gallery-layout {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+      }
+      .gallery-item.featured { grid-row: span 1; }
+      .gallery-item { height: 260px; }
+      .cta-band-inner { flex-direction: column; text-align: center; }
+      .stats-inner { grid-template-columns: repeat(2, 1fr); }
+      .stat-item:nth-child(2) { border-right: none; }
     }
-    @media (max-width: 540px) {
-      .metrics-inner { grid-template-columns: 1fr; }
-      .metric-item { border-right: none; border-bottom: 1px solid #EAEAEA; }
-      .metric-item:last-child { border-bottom: none; }
-      .btn-cta { padding: 14px 24px; font-size: 15px; }
+
+    @media (max-width: 640px) {
+      .services-grid { grid-template-columns: 1fr; }
+      .header-cta { display: none; }
+      .btn { font-size: 15px; padding: 14px 28px; }
+      .hero-actions { flex-direction: column; align-items: flex-start; }
+      .footer-inner { flex-direction: column; align-items: flex-start; }
+      .stats-inner { grid-template-columns: 1fr; }
+      .stat-item { border-right: none; border-bottom: 1px solid var(--gray-200); }
     }
   </style>
 </head>
 <body>
 
-  <!-- WHATSAPP FLOAT -->
-  <a href="https://wa.me/554799489362" class="wpp-float" target="_blank" rel="noopener" title="Falar no WhatsApp">
-    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="white">
+  <!-- WPP FLOAT -->
+  <a href="https://wa.me/5547994893620" class="wpp-float" target="_blank" rel="noopener" aria-label="Falar no WhatsApp">
+    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="white">
       <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
     </svg>
   </a>
 
   <!-- HEADER -->
-  <header>
+  <header class="site-header">
     <div class="container header-inner">
-      <div class="logo-text">
-        <span class="logo-icon">☀️</span>
-        <span>Solar<span> Martins</span></span>
-      </div>
-      <a href="https://wa.me/554799489362" class="btn-cta-outline" target="_blank" rel="noopener">
+      <a href="#" class="logo">
+        <div class="logo-sun">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="12" cy="12" r="4" fill="#1A2B4A"/>
+            <path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41" stroke="#1A2B4A" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <span>Solar <span class="logo-accent">Martins</span></span>
+      </a>
+      <a href="https://wa.me/5547994893620" class="btn btn-outline header-cta" target="_blank" rel="noopener">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
         Falar no WhatsApp
       </a>
@@ -740,251 +705,247 @@
   <section class="hero">
     <div class="container hero-inner">
       <div class="hero-content">
-        <span class="badge badge-white">Exclusivo para Solar Martins — Blumenau/SC</span>
+        <span class="chip chip-white">Blumenau/SC — Referencia em Energia Solar</span>
         <h1 class="hero-headline">
-          Enquanto você instala painéis,
-          <strong>a IA atende seus clientes.</strong>
+          Energia solar que<br>
+          <em class="accent">zera sua conta</em><br>
+          de luz.
         </h1>
         <p class="hero-sub">
-          Orion, a Solar Martins tem +3.500 instalações e reputação consolidada em Blumenau.
-          O gargalo não é sua capacidade técnica — é o tempo que você perde respondendo WhatsApp manualmente.
-          A Digital AI resolve isso com um agente que qualifica leads e agenda visitas 24h por dia.
+          Instalacao e manutencao de sistemas fotovoltaicos residenciais, comerciais e industriais. Mais de 3.500 instalacoes realizadas em Blumenau e regiao.
         </p>
-        <a href="https://wa.me/554799489362" class="btn-cta" target="_blank" rel="noopener">
-          ⚡ Quero ver como funciona
-        </a>
-        <p class="hero-microcopy">Resposta em minutos. Sem compromisso.</p>
+        <div class="hero-actions">
+          <a href="https://wa.me/5547994893620" class="btn btn-primary" target="_blank" rel="noopener">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            Pedir Orcamento Gratis
+          </a>
+        </div>
+        <p class="hero-note">Orcamento via WhatsApp, sem compromisso. Respondemos rapido!</p>
       </div>
       <div class="hero-image-wrap">
-        <img src="assets/post9_drone_orcamento.jpg" alt="Orçamento com drone — Solar Martins">
-        <div class="hero-image-badge">🚁 Orçamento com drone</div>
+        <img src="assets/post9_drone_orcamento.jpg" alt="Orcamento com drone — Solar Martins">
+        <div class="hero-badge">
+          <span>&#128640;</span> Orcamento com Drone
+        </div>
+        <div class="hero-badge-2">
+          <strong>+3.500</strong>
+          instalacoes realizadas
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- METRICS -->
-  <section class="metrics">
+  <!-- STATS BAR -->
+  <section class="stats-bar">
     <div class="container">
-      <div class="metrics-inner">
-        <div class="metric-item">
-          <div class="metric-number">+3.500</div>
-          <div class="metric-label">Instalações realizadas</div>
+      <div class="stats-inner">
+        <div class="stat-item">
+          <div class="stat-num">+3.500</div>
+          <div class="stat-label">Instalacoes realizadas</div>
         </div>
-        <div class="metric-item">
-          <div class="metric-number">Blumenau</div>
-          <div class="metric-label">Referência regional em SC</div>
+        <div class="stat-item">
+          <div class="stat-num">Blumenau</div>
+          <div class="stat-label">Referencia regional — SC</div>
         </div>
-        <div class="metric-item">
-          <div class="metric-number">3</div>
-          <div class="metric-label">Segmentos: Residencial, Comercial e Industrial</div>
+        <div class="stat-item">
+          <div class="stat-num">3</div>
+          <div class="stat-label">Segmentos: Res. Comercial e Industrial</div>
         </div>
-        <div class="metric-item">
-          <div class="metric-number">24/7</div>
-          <div class="metric-label">Como você vai atender com IA</div>
+        <div class="stat-item">
+          <div class="stat-num">Drone</div>
+          <div class="stat-label">Medicao de telhado precisa</div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- DOR -->
-  <section class="section-dor">
-    <div class="container dor-grid">
-      <div class="dor-content">
-        <span class="badge">O problema que ninguém fala</span>
-        <h2 class="section-title">
-          Você não perde cliente<br>por falta de qualidade.<br>
-          <em>Perde por falta de tempo</em><br>para responder.
-        </h2>
-        <div class="divider"></div>
-        <p style="font-size:16px; color: var(--color-cinza-medio); line-height:1.7;">
-          Você está no telhado instalando os painéis — enquanto isso, 3 clientes mandam mensagem no WhatsApp e ficam sem resposta por horas. Um vai contratar o concorrente. Outro vai desistir. O terceiro vai te avaliar mal por demorar.
-        </p>
-        <ul class="dor-bullets">
-          <li class="dor-bullet">
-            <span class="dor-bullet-icon">🌙</span>
-            <span class="dor-bullet-text">Leads chegam fora do horário e ficam sem resposta até o dia seguinte</span>
-          </li>
-          <li class="dor-bullet">
-            <span class="dor-bullet-icon">🔧</span>
-            <span class="dor-bullet-text">Você interrompe instalações para responder perguntas simples no WhatsApp</span>
-          </li>
-          <li class="dor-bullet">
-            <span class="dor-bullet-icon">📊</span>
-            <span class="dor-bullet-text">Não tem como acompanhar quem pediu orçamento e simplesmente sumiu</span>
-          </li>
-          <li class="dor-bullet">
-            <span class="dor-bullet-icon">⏰</span>
-            <span class="dor-bullet-text">Fim de semana e à noite: sem resposta, você perde o melhor momento de fechar</span>
-          </li>
-        </ul>
-        <p class="dor-transition">Tudo isso tem solução. E ela não exige contratar mais ninguém.</p>
-      </div>
-      <div class="dor-image">
-        <img src="assets/post5_manutencao_solar.jpg" alt="Manutenção e limpeza de painéis solares — Solar Martins">
-      </div>
-    </div>
-  </section>
-
-  <!-- SOLUÇÃO -->
-  <section class="section-solucao">
+  <!-- SERVICES -->
+  <section class="section-services" id="servicos">
     <div class="container">
-      <span class="badge badge-white">Como a Digital AI resolve</span>
-      <h2 class="section-title">Um agente de IA que trabalha por você<br><em>enquanto você trabalha para seus clientes.</em></h2>
-      <p class="section-sub">Desenvolvemos agentes de atendimento inteligente no WhatsApp — especializados no seu negócio, treinados com os seus serviços, respondendo como se fosse você.</p>
-      <div class="solucao-cards">
-        <div class="solucao-card">
-          <div class="solucao-card-icon">📲</div>
-          <div class="solucao-card-title">Atendimento 24/7</div>
-          <p class="solucao-card-text">Seu cliente manda mensagem às 23h querendo saber sobre energia solar. O agente responde na hora, com as informações certas e o tom da Solar Martins. Sempre.</p>
+      <span class="chip chip-yellow">Nossos Servicos</span>
+      <h2 class="section-heading">Tudo que voce precisa<br>em <em class="accent">energia solar e eletrica</em></h2>
+      <div class="rule"></div>
+      <p class="section-sub">Da instalacao a manutencao, a Solar Martins cuida de tudo com qualidade, seguranca e equipe propria treinada.</p>
+
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-icon">&#9728;</div>
+          <div class="service-name">Instalacao Solar</div>
+          <p class="service-desc">Sistemas fotovoltaicos completos para residencias, comercios e industrias. Projeto, instalacao e homologacao na distribuidora.</p>
+          <span class="service-tag">Residencial &middot; Comercial &middot; Industrial</span>
         </div>
-        <div class="solucao-card">
-          <div class="solucao-card-icon">🎯</div>
-          <div class="solucao-card-title">Qualificação Automática</div>
-          <p class="solucao-card-text">O agente pergunta o tipo de imóvel, consumo médio de energia e localização. Você só recebe os leads que já estão prontos para receber uma visita técnica.</p>
+        <div class="service-card">
+          <div class="service-icon">&#128295;</div>
+          <div class="service-name">Manutencao Solar</div>
+          <p class="service-desc">Limpeza, inspecao e manutencao preventiva e corretiva de sistemas fotovoltaicos. Maxima geracao de energia o ano todo.</p>
+          <span class="service-tag">Preventiva &middot; Corretiva &middot; Limpeza</span>
         </div>
-        <div class="solucao-card">
-          <div class="solucao-card-icon">📅</div>
-          <div class="solucao-card-title">Agenda no WhatsApp</div>
-          <p class="solucao-card-text">Quando o lead está qualificado, o agente propõe um horário e confirma a visita — direto no WhatsApp. Você chega com hora marcada, sem ligação prévia.</p>
+        <div class="service-card">
+          <div class="service-icon">&#9889;</div>
+          <div class="service-name">Servicos Eletricos</div>
+          <p class="service-desc">Instalacoes eletricas residenciais, comerciais e industriais. Atualizacao de padrao, quadros, tomadas e muito mais.</p>
+          <span class="service-tag">Residencial &middot; Comercial &middot; Industrial</span>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">&#128640;</div>
+          <div class="service-name">Orcamento com Drone</div>
+          <p class="service-desc">Medicao de telhado via drone para orcamento preciso e seguro. Sem escadas, sem risco, resultado exato em minutos.</p>
+          <span class="service-tag">Tecnologia &middot; Precisao &middot; Agilidade</span>
+        </div>
+      </div>
+
+      <!-- CTA entre servicos -->
+      <div style="text-align:center; margin-top: 48px;">
+        <a href="https://wa.me/5547994893620" class="btn btn-primary" target="_blank" rel="noopener">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Solicitar Orcamento Agora
+        </a>
+        <p style="font-size:13px; color:var(--gray-400); margin-top: 12px;">Atendemos Blumenau e toda a regiao de SC</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section class="section-gallery" id="trabalhos">
+    <div class="container">
+      <span class="chip chip-navy">Trabalhos Realizados</span>
+      <h2 class="section-heading">Mais de 3.500 instalacoes.<br><em class="accent">Veja nosso trabalho.</em></h2>
+      <div class="rule"></div>
+      <p class="section-sub">Cada projeto entregue com qualidade, seguranca e responsabilidade tecnica. Confira alguns dos nossos servicos realizados.</p>
+
+      <div class="gallery-layout">
+        <div class="gallery-item featured">
+          <img src="assets/post5_manutencao_solar.jpg" alt="Manutencao e limpeza de paineis solares — Solar Martins">
+          <span class="gallery-label">Manutencao Solar</span>
+        </div>
+        <div class="gallery-item">
+          <img src="assets/post9_drone_orcamento.jpg" alt="Orcamento com drone — Solar Martins">
+          <span class="gallery-label">Orcamento com Drone</span>
+        </div>
+        <div class="gallery-item">
+          <img src="assets/post4_servicos_eletricos.jpg" alt="Servicos eletricos — Solar Martins">
+          <span class="gallery-label">Servicos Eletricos</span>
+        </div>
+      </div>
+
+      <div style="margin-top:16px; display:grid; grid-template-columns:1fr; gap:16px;">
+        <div class="gallery-item" style="height:280px; border-radius: var(--r-lg); overflow:hidden; position:relative; box-shadow: var(--shadow-sm);">
+          <img src="assets/post8_eletrica_qualidade.jpg" alt="Qualidade em instalacao eletrica — Solar Martins" style="width:100%; height:100%; object-fit:cover;">
+          <span class="gallery-label">Instalacao Eletrica com Qualidade</span>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- COMO FUNCIONA -->
-  <section class="section-como">
-    <div class="container">
-      <span class="badge">Na prática</span>
-      <h2 class="section-title">Como funciona em <em>3 passos</em></h2>
-      <div class="divider"></div>
-      <div class="como-steps">
-        <div class="como-step">
-          <div class="como-step-number">1</div>
-          <div class="como-step-bubble">💬 "Quero um orçamento para energia solar em casa."</div>
-          <div class="como-step-title">Seu cliente escreve no WhatsApp</div>
-          <p class="como-step-text">A qualquer hora, qualquer dia. O agente já está pronto para responder.</p>
-        </div>
-        <div class="como-step">
-          <div class="como-step-number">2</div>
-          <div class="como-step-bubble">🤖 "Qual é o consumo médio de energia elétrica da sua residência?"</div>
-          <div class="como-step-title">O agente responde, qualifica e agenda</div>
-          <p class="como-step-text">Em segundos, levanta as informações necessárias e propõe o horário da visita técnica com drone.</p>
-        </div>
-        <div class="como-step">
-          <div class="como-step-number">3</div>
-          <div class="como-step-bubble">✅ "Visita agendada para sexta às 14h com a Solar Martins!"</div>
-          <div class="como-step-title">Você recebe o lead pronto</div>
-          <p class="como-step-text">Na hora marcada, você chega com todas as informações já levantadas. Só precisa apresentar a proposta.</p>
-        </div>
+  <!-- CTA BAND -->
+  <div class="cta-band">
+    <div class="container cta-band-inner">
+      <div>
+        <div class="cta-band-text">Pronto para economizar<br>na conta de luz?</div>
+        <p class="cta-band-sub">Fale agora com nossa equipe e receba seu orcamento gratuitamente.</p>
       </div>
-      <div class="como-footer">
-        ☀️ Enquanto isso acontece, você está instalando painéis — gerando receita, não respondendo mensagens.
-      </div>
+      <a href="https://wa.me/5547994893620" class="btn btn-white" target="_blank" rel="noopener" style="min-width: 220px;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="#25D366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Chamar no WhatsApp
+      </a>
     </div>
-  </section>
+  </div>
 
-  <!-- SERVIÇOS -->
-  <section class="section-servicos">
+  <!-- WHY US -->
+  <section class="section-why" id="sobre">
     <div class="container">
-      <span class="badge">O que o agente vai promover</span>
-      <h2 class="section-title">Os serviços da Solar Martins que o agente domina</h2>
-      <p class="section-sub">O agente aprende tudo sobre o que você oferece e sabe exatamente o que responder para cada tipo de cliente.</p>
-      <div class="servicos-grid">
-        <div class="servico-card">
-          <img src="assets/post5_manutencao_solar.jpg" alt="Energia Solar — Solar Martins" class="servico-card-img">
-          <div class="servico-card-body">
-            <div class="servico-card-icon">☀️</div>
-            <div class="servico-card-title">Energia Solar</div>
-            <ul class="servico-list">
-              <li><span class="check">✔</span> Instalação fotovoltaica residencial, comercial e industrial</li>
-              <li><span class="check">✔</span> Ampliação de sistemas existentes</li>
-              <li><span class="check">✔</span> Carport solar e usinas fotovoltaicas</li>
-              <li><span class="check">✔</span> Limpeza e manutenção preventiva de painéis</li>
-              <li><span class="check">✔</span> Orçamento com drone (medição de telhado)</li>
-            </ul>
+      <div class="why-grid">
+        <div class="why-image">
+          <img src="assets/post8_eletrica_qualidade.jpg" alt="Equipe Solar Martins — Blumenau/SC">
+        </div>
+        <div>
+          <span class="chip chip-white">Por que escolher a Solar Martins</span>
+          <h2 class="section-heading on-dark">Experiencia, qualidade<br>e <em class="accent" style="font-style:normal;">tecnologia no servico</em></h2>
+          <div class="rule"></div>
+          <div class="why-items">
+            <div class="why-item">
+              <div class="why-icon-wrap">&#127941;</div>
+              <div>
+                <div class="why-title">+3.500 instalacoes realizadas</div>
+                <p class="why-text">Historico solido de projetos entregues com qualidade em Blumenau e toda a regiao de Santa Catarina. Experiencia que faz a diferenca.</p>
+              </div>
+            </div>
+            <div class="why-item">
+              <div class="why-icon-wrap">&#128640;</div>
+              <div>
+                <div class="why-title">Orcamento com tecnologia de drone</div>
+                <p class="why-text">Medicao precisa do telhado sem riscos, com resultados exatos para um dimensionamento correto do sistema fotovoltaico.</p>
+              </div>
+            </div>
+            <div class="why-item">
+              <div class="why-icon-wrap">&#9889;</div>
+              <div>
+                <div class="why-title">Equipe propria treinada</div>
+                <p class="why-text">Profissionais capacitados para instalacao solar e eletrica. Nao terceirizamos — garantimos padrao de qualidade em cada servico.</p>
+              </div>
+            </div>
+            <div class="why-item">
+              <div class="why-icon-wrap">&#127981;</div>
+              <div>
+                <div class="why-title">Residencial, comercial e industrial</div>
+                <p class="why-text">Atendemos todos os portes de projeto, da casa propria a grandes galpoes industriais, com solucoes fotovoltaicas sob medida.</p>
+              </div>
+            </div>
           </div>
         </div>
-        <div class="servico-card">
-          <img src="assets/post8_eletrica_qualidade.jpg" alt="Serviços Elétricos — Solar Martins" class="servico-card-img">
-          <div class="servico-card-body">
-            <div class="servico-card-icon">⚡</div>
-            <div class="servico-card-title">Serviços Elétricos</div>
-            <ul class="servico-list">
-              <li><span class="check">✔</span> Instalação elétrica residencial completa</li>
-              <li><span class="check">✔</span> Atualização de padrão elétrico e de poste</li>
-              <li><span class="check">✔</span> Instalação de portão elétrico e câmeras</li>
-              <li><span class="check">✔</span> Serviços comerciais e industriais</li>
-              <li><span class="check">✔</span> Instalação de ventiladores e equipamentos</li>
-            </ul>
-          </div>
-        </div>
       </div>
-    </div>
-  </section>
-
-  <!-- ROI -->
-  <section class="section-roi">
-    <div class="container">
-      <span class="badge badge-white">O impacto em receita</span>
-      <h2 class="section-title" style="color: var(--color-branco);">1 lead a mais por semana.<br><em>Quantos mil reais a mais por mês?</em></h2>
-      <div class="roi-number">R$ 15k – 45k</div>
-      <p class="roi-text">Valor médio de uma instalação solar residencial em Blumenau. Com atendimento 24/7 e qualificação automática, quantos leads você deixa de perder por falta de resposta rápida?</p>
-      <div class="roi-callout">
-        A Solar Martins já tem a reputação. Já tem o volume. Já tem as 3.500 instalações.
-        <strong>Falta só o sistema para não perder os próximos clientes.</strong>
-      </div>
-    </div>
-  </section>
-
-  <!-- GALERIA -->
-  <section class="section-galeria">
-    <div class="container">
-      <span class="badge">Trabalhos realizados</span>
-      <h2 class="section-title">+3.500 instalações em Blumenau e região</h2>
-      <p class="section-sub">Experiência que fala por si. A Solar Martins não precisa de promessas — tem resultados reais.</p>
-      <div class="galeria-grid">
-        <div class="galeria-item">
-          <img src="assets/post9_drone_orcamento.jpg" alt="Orçamento com drone — Solar Martins">
-        </div>
-        <div class="galeria-item">
-          <img src="assets/post4_servicos_eletricos.jpg" alt="Serviços elétricos — Solar Martins">
-        </div>
-        <div class="galeria-item">
-          <img src="assets/post8_eletrica_qualidade.jpg" alt="Qualidade em instalação elétrica — Solar Martins">
-        </div>
-        <div class="galeria-item">
-          <img src="assets/post5_manutencao_solar.jpg" alt="Manutenção solar — Solar Martins">
-        </div>
-      </div>
-      <blockquote class="galeria-quote">
-        "Instalação e manutenção sistema solar. Serviços elétricos residenciais, comerciais e industriais. Energia sustentável para um futuro brilhante."
-        <cite>— Solar Martins, @solarmartins_ • Blumenau/SC</cite>
-      </blockquote>
     </div>
   </section>
 
   <!-- CTA FINAL -->
-  <section class="section-cta-final">
+  <section class="section-cta-final" id="contato">
     <div class="container">
-      <h2 class="cta-final-headline">Orion, você merece focar no<br>que você faz de melhor.<br><em>Instalar com qualidade.</em></h2>
-      <p class="cta-final-sub">A gente cuida do atendimento.</p>
-      <p class="cta-final-body">
-        A Digital AI desenvolve agentes de IA personalizados para empresas como a Solar Martins — com a linguagem certa, os seus serviços, e disponibilidade 24 horas por dia no WhatsApp. Sem contrato de fidelidade. Sem jargão técnico.
-      </p>
-      <a href="https://wa.me/554799489362" class="btn-cta" target="_blank" rel="noopener" style="font-size:18px; padding: 18px 44px;">
-        ⚡ Quero conhecer o agente
-      </a>
-      <p class="cta-final-microcopy">Atendimento direto com a equipe Digital AI · Blumenau/SC e todo o Brasil</p>
+      <div class="cta-final-box">
+        <span class="chip chip-yellow">Fale Conosco Agora</span>
+        <h2 class="cta-final-headline">
+          Comece a economizar<br>
+          na sua <em class="accent">conta de luz hoje</em>
+        </h2>
+        <p class="cta-final-sub">
+          Entre em contato agora pelo WhatsApp e receba um orcamento personalizado gratuitamente. Nossa equipe responde rapido e atende toda a regiao de Blumenau/SC.
+        </p>
+        <a href="https://wa.me/5547994893620" class="btn btn-primary" target="_blank" rel="noopener" style="font-size:18px; padding: 18px 48px;">
+          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Pedir Orcamento pelo WhatsApp
+        </a>
+        <p class="cta-final-note">
+          Ou siga no Instagram:
+          <a href="https://instagram.com/solarmartins_" target="_blank" rel="noopener">@solarmartins_</a>
+        </p>
+      </div>
     </div>
   </section>
 
   <!-- FOOTER -->
-  <footer>
+  <footer class="site-footer">
     <div class="container">
-      <div class="footer-logo">Digital <span>AI</span></div>
-      <p class="footer-text">
-        Automação inteligente para empresas · <a href="https://digital-ai.tech" target="_blank" rel="noopener">digital-ai.tech</a><br>
-        Esta página foi criada especialmente para a Solar Martins · Blumenau/SC · @solarmartins_
+      <div class="footer-inner">
+        <div class="footer-logo">
+          Solar <span class="accent">Martins</span>
+        </div>
+        <div class="footer-links">
+          <a href="https://wa.me/5547994893620" class="footer-link" target="_blank" rel="noopener">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            +55 47 9948-9362
+          </a>
+          <a href="https://instagram.com/solarmartins_" class="footer-link" target="_blank" rel="noopener">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+            @solarmartins_
+          </a>
+          <span class="footer-link" style="cursor:default;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            Blumenau — SC
+          </span>
+        </div>
+      </div>
+      <hr class="footer-divider">
+      <p class="footer-copy">
+        &copy; 2025 Solar Martins. Instalacao &amp; Manutencao de Energia Solar e Servicos Eletricos — Blumenau/SC
       </p>
     </div>
   </footer>
