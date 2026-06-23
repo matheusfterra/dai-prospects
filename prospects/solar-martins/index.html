@@ -12,8 +12,10 @@
     :root {
       --orange:       #F5A000;
       --orange-dark:  #D98500;
-      --orange-glow:  rgba(245,160,0,0.18);
-      --cream:        #FAF8F2;
+      --orange-deep:  #B87200;
+      --orange-light: #FFF4E0;
+      --orange-mid:   #FEEDD0;
+      --cream:        #FEF9EF;
       --navy:         #0C1C38;
       --navy-mid:     #12274D;
       --navy-light:   #1A3562;
@@ -48,7 +50,6 @@
     a { text-decoration: none; color: inherit; }
     ul { list-style: none; }
 
-    /* ── CONTAINER ── */
     .container {
       max-width: var(--max-w);
       margin: 0 auto;
@@ -58,8 +59,9 @@
     /* ── REVEAL ── */
     .reveal {
       opacity: 0;
-      transform: translateY(24px);
-      transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+      transform: translateY(22px);
+      transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1),
+                  transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
     }
     .reveal.visible { opacity: 1; transform: none; }
     .reveal-delay-1 { transition-delay: 0.08s; }
@@ -108,27 +110,28 @@
     }
     .btn-outline {
       background: transparent;
-      border: 1.5px solid rgba(255,255,255,0.35);
+      border: 1.5px solid rgba(255,255,255,0.32);
       color: var(--white);
     }
     .btn-outline:hover {
-      background: rgba(255,255,255,0.08);
+      background: rgba(255,255,255,0.1);
       border-color: rgba(255,255,255,0.6);
     }
-    .btn-outline-dark {
-      background: transparent;
-      border: 1.5px solid var(--navy);
-      color: var(--navy);
-    }
-    .btn-outline-dark:hover {
+    .btn-navy {
       background: var(--navy);
       color: var(--white);
     }
+    .btn-navy:hover {
+      background: var(--navy-light);
+      transform: translateY(-2px);
+    }
     .btn-lg { padding: 17px 40px; font-size: 15px; min-height: 56px; }
 
-    /* ── EYEBROW LABEL (substituindo chips genéricos) ── */
+    /* ── EYEBROW ── */
     .eyebrow {
-      display: block;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
       font-family: var(--font-head);
       font-size: 11px;
       font-weight: 700;
@@ -137,28 +140,42 @@
       color: var(--orange);
       margin-bottom: 14px;
     }
-    .eyebrow.on-dark { color: rgba(255,255,255,0.45); }
+    .eyebrow::before {
+      content: '';
+      width: 20px;
+      height: 2px;
+      background: var(--orange);
+      display: block;
+      flex-shrink: 0;
+    }
+    .eyebrow.on-dark { color: rgba(255,255,255,0.5); }
+    .eyebrow.on-dark::before { background: rgba(255,255,255,0.3); }
+    .eyebrow.on-orange { color: rgba(255,255,255,0.7); }
+    .eyebrow.on-orange::before { background: rgba(255,255,255,0.5); }
 
-    /* ── SECTION HEADING ── */
+    /* ── HEADINGS ── */
     .section-heading {
       font-family: var(--font-head);
       font-weight: 800;
       font-size: clamp(28px, 4vw, 44px);
       color: var(--navy);
       line-height: 1.1;
-      letter-spacing: -0.02em;
+      letter-spacing: -0.025em;
       margin-bottom: 16px;
     }
     .section-heading .hi { color: var(--orange); font-style: normal; }
     .section-heading.on-dark { color: var(--white); }
-    .section-subheading {
+    .section-heading.on-orange { color: var(--navy); }
+    .section-heading.on-orange .hi { color: var(--navy-light); }
+    .section-sub {
       font-size: 17px;
       font-weight: 400;
       color: var(--gray-500);
       line-height: 1.8;
       max-width: 560px;
     }
-    .section-subheading.on-dark { color: rgba(255,255,255,0.55); }
+    .section-sub.on-dark { color: rgba(255,255,255,0.52); }
+    .section-sub.on-orange { color: rgba(12,28,56,0.65); }
 
     /* ============================================================
        HEADER
@@ -167,11 +184,10 @@
       position: sticky;
       top: 0;
       z-index: 200;
-      background: rgba(12, 28, 56, 0.96);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      border-bottom: 1px solid rgba(255,255,255,0.06);
-      transition: background var(--transition);
+      background: rgba(12,28,56,0.97);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(255,255,255,0.05);
     }
     .header-inner {
       display: flex;
@@ -183,7 +199,7 @@
     .logo {
       display: flex;
       align-items: center;
-      gap: 11px;
+      gap: 10px;
       flex-shrink: 0;
     }
     .logo-img {
@@ -191,14 +207,14 @@
       height: 38px;
       border-radius: 50%;
       object-fit: cover;
-      border: 1.5px solid rgba(245,160,0,0.5);
+      border: 1.5px solid rgba(245,160,0,0.55);
     }
     .logo-name {
       font-family: var(--font-head);
       font-weight: 800;
       font-size: 17px;
       color: var(--white);
-      letter-spacing: -0.01em;
+      letter-spacing: -0.015em;
     }
     .logo-name span { color: var(--orange); }
     .header-nav {
@@ -209,46 +225,46 @@
     .header-nav a {
       font-size: 13px;
       font-weight: 500;
-      color: rgba(255,255,255,0.55);
+      color: rgba(255,255,255,0.5);
       transition: color var(--transition);
-      white-space: nowrap;
     }
     .header-nav a:hover { color: var(--white); }
-    .header-cta { font-size: 13px; padding: 10px 22px; min-height: 40px; border-radius: 4px; }
+    .header-cta { font-size: 13px; padding: 10px 22px; min-height: 40px; }
 
     /* ============================================================
-       HERO
+       HERO — NAVY ESCURO
     ============================================================ */
     .hero {
-      background: linear-gradient(125deg, #0A1628 0%, #142448 50%, #0E1E3A 100%);
-      padding: clamp(72px, 10vw, 120px) 0 clamp(60px, 8vw, 96px);
+      background: linear-gradient(125deg, #09152A 0%, #142448 55%, #0C1E3C 100%);
+      padding: clamp(80px, 10vw, 128px) 0 clamp(64px, 8vw, 96px);
       position: relative;
       overflow: hidden;
     }
-    /* Subtle noise texture */
-    .hero::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
-      pointer-events: none;
-      opacity: 0.5;
-    }
-    /* Orange radial glow */
     .hero-glow {
       position: absolute;
-      top: -160px; right: -160px;
-      width: 640px; height: 640px;
+      top: -200px; right: -200px;
+      width: 720px; height: 720px;
       border-radius: 50%;
-      background: radial-gradient(circle, rgba(245,160,0,0.10) 0%, transparent 68%);
+      background: radial-gradient(circle, rgba(245,160,0,0.12) 0%, transparent 65%);
       pointer-events: none;
     }
     .hero-glow-2 {
       position: absolute;
-      bottom: -120px; left: -80px;
-      width: 420px; height: 420px;
+      bottom: -100px; left: -60px;
+      width: 440px; height: 440px;
       border-radius: 50%;
-      background: radial-gradient(circle, rgba(245,160,0,0.05) 0%, transparent 68%);
+      background: radial-gradient(circle, rgba(245,160,0,0.06) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    /* Subtle grid overlay for texture */
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(245,160,0,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(245,160,0,0.04) 1px, transparent 1px);
+      background-size: 48px 48px;
       pointer-events: none;
     }
     .hero-inner {
@@ -262,35 +278,37 @@
     .hero-label {
       display: inline-flex;
       align-items: center;
-      gap: 8px;
+      gap: 10px;
       font-family: var(--font-head);
       font-size: 11px;
       font-weight: 700;
-      letter-spacing: 1.5px;
+      letter-spacing: 2px;
       text-transform: uppercase;
       color: var(--orange);
-      margin-bottom: 22px;
+      margin-bottom: 24px;
     }
     .hero-label::before {
       content: '';
-      width: 24px;
-      height: 1.5px;
+      width: 24px; height: 2px;
       background: var(--orange);
-      display: block;
     }
     .hero-headline {
       font-family: var(--font-head);
       font-weight: 800;
-      font-size: clamp(34px, 5.5vw, 62px);
+      font-size: clamp(36px, 5.5vw, 64px);
       color: var(--white);
-      line-height: 1.04;
+      line-height: 1.03;
       letter-spacing: -0.03em;
-      margin-bottom: 24px;
+      margin-bottom: 26px;
     }
-    .hero-headline .hi { color: var(--orange); display: block; }
+    .hero-headline .hi {
+      color: var(--orange);
+      display: block;
+      position: relative;
+    }
     .hero-sub {
       font-size: 17px;
-      color: rgba(255,255,255,0.62);
+      color: rgba(255,255,255,0.58);
       line-height: 1.8;
       margin-bottom: 36px;
       max-width: 460px;
@@ -311,150 +329,183 @@
       width: 7px; height: 7px;
       border-radius: 50%;
       background: var(--green-wpp);
-      box-shadow: 0 0 8px rgba(37,211,102,0.6);
+      box-shadow: 0 0 8px rgba(37,211,102,0.65);
       flex-shrink: 0;
+      animation: pulse-dot 2s infinite;
+    }
+    @keyframes pulse-dot {
+      0%, 100% { box-shadow: 0 0 8px rgba(37,211,102,0.65); }
+      50% { box-shadow: 0 0 16px rgba(37,211,102,0.90); }
     }
     .hero-trust span {
       font-size: 12.5px;
-      color: rgba(255,255,255,0.38);
+      color: rgba(255,255,255,0.35);
     }
-    /* Image column */
     .hero-visual { position: relative; }
     .hero-img-wrap {
-      border-radius: 6px;
+      border-radius: 8px;
       overflow: hidden;
-      box-shadow: 0 24px 64px rgba(0,0,0,0.45);
+      box-shadow: 0 32px 80px rgba(0,0,0,0.50);
+      position: relative;
     }
-    .hero-img-wrap img {
-      width: 100%;
-      height: auto;
-      display: block;
+    .hero-img-wrap::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: 8px;
+      box-shadow: inset 0 0 0 1px rgba(245,160,0,0.18);
     }
-    /* Floating stat card */
+    .hero-img-wrap img { width: 100%; height: auto; display: block; }
     .hero-stat-card {
       position: absolute;
-      left: -28px;
-      bottom: 28px;
-      background: var(--white);
+      left: -24px;
+      bottom: 24px;
+      background: var(--orange);
       border-radius: 6px;
-      padding: 16px 22px;
-      box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+      padding: 14px 20px;
+      box-shadow: 0 8px 32px rgba(245,160,0,0.40);
     }
     .hero-stat-num {
       font-family: var(--font-head);
       font-weight: 800;
-      font-size: 28px;
-      color: var(--navy);
-      letter-spacing: -0.03em;
+      font-size: 30px;
+      color: var(--white);
+      letter-spacing: -0.04em;
       line-height: 1;
     }
-    .hero-stat-num span { color: var(--orange); }
     .hero-stat-label {
       font-size: 11px;
-      font-weight: 500;
-      color: var(--gray-500);
+      font-weight: 600;
+      color: rgba(255,255,255,0.75);
       margin-top: 4px;
       white-space: nowrap;
+      letter-spacing: 0.3px;
     }
 
     /* ============================================================
-       STATS STRIP
+       STATS — FUNDO LARANJA (pancada visual)
     ============================================================ */
     .stats-strip {
-      background: var(--navy);
-      border-bottom: 1px solid rgba(255,255,255,0.05);
+      background: var(--orange);
+      position: relative;
+      overflow: hidden;
+    }
+    .stats-strip::before {
+      content: '';
+      position: absolute;
+      right: -80px; top: -80px;
+      width: 300px; height: 300px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.06);
+      pointer-events: none;
+    }
+    .stats-strip::after {
+      content: '';
+      position: absolute;
+      left: 5%; bottom: -60px;
+      width: 200px; height: 200px;
+      border-radius: 50%;
+      background: rgba(0,0,0,0.05);
+      pointer-events: none;
     }
     .stats-strip-inner {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
+      position: relative;
+      z-index: 2;
     }
     .stat-col {
-      padding: 32px 20px;
+      padding: 36px 20px;
       text-align: center;
-      border-right: 1px solid rgba(255,255,255,0.06);
+      border-right: 1px solid rgba(255,255,255,0.18);
       transition: background var(--transition);
     }
     .stat-col:last-child { border-right: none; }
-    .stat-col:hover { background: rgba(245,160,0,0.05); }
+    .stat-col:hover { background: rgba(0,0,0,0.06); }
     .stat-num {
       font-family: var(--font-head);
       font-weight: 800;
-      font-size: clamp(26px, 3vw, 40px);
-      color: var(--orange);
+      font-size: clamp(28px, 3.2vw, 44px);
+      color: var(--white);
       letter-spacing: -0.03em;
       line-height: 1;
       margin-bottom: 8px;
     }
     .stat-label {
       font-size: 11.5px;
-      font-weight: 500;
-      color: rgba(255,255,255,0.38);
+      font-weight: 600;
+      color: rgba(255,255,255,0.65);
       letter-spacing: 0.5px;
+      text-transform: uppercase;
     }
 
     /* ============================================================
-       PROCESS
+       PROCESS — BRANCO
     ============================================================ */
     .section-process {
       background: var(--white);
       padding: var(--py) 0;
     }
     .process-header {
-      max-width: 520px;
+      max-width: 540px;
       margin-bottom: 64px;
     }
     .process-track {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 0;
       position: relative;
     }
-    /* Connecting line */
     .process-track::before {
       content: '';
       position: absolute;
-      top: 28px;
+      top: 27px;
       left: calc(12.5% + 16px);
       right: calc(12.5% + 16px);
-      height: 1px;
-      background: linear-gradient(90deg, var(--orange) 0%, rgba(245,160,0,0.2) 100%);
+      height: 2px;
+      background: linear-gradient(90deg, var(--orange) 0%, rgba(245,160,0,0.15) 100%);
       pointer-events: none;
-      z-index: 0;
     }
     .process-step {
-      padding: 0 20px;
+      padding: 0 24px;
       position: relative;
       z-index: 1;
       text-align: center;
     }
-    .step-num-wrap {
+    .step-circle {
       width: 56px;
       height: 56px;
       border-radius: 50%;
-      background: var(--navy);
+      background: var(--orange-light);
+      border: 2px solid var(--orange);
       display: flex;
       align-items: center;
       justify-content: center;
       margin: 0 auto 28px;
-      position: relative;
-      transition: background var(--transition), box-shadow var(--transition);
+      transition: all var(--transition);
     }
-    .process-step:first-child .step-num-wrap { background: var(--orange); }
-    .process-step:hover .step-num-wrap {
+    .process-step:first-child .step-circle {
       background: var(--orange);
+      border-color: var(--orange);
+    }
+    .process-step:first-child .step-circle span { color: var(--white); }
+    .process-step:hover .step-circle {
+      background: var(--orange);
+      border-color: var(--orange-dark);
       box-shadow: 0 0 0 8px rgba(245,160,0,0.12);
     }
-    .step-num-wrap span {
+    .process-step:hover .step-circle span { color: var(--white); }
+    .step-circle span {
       font-family: var(--font-head);
       font-weight: 800;
       font-size: 16px;
-      color: var(--white);
+      color: var(--orange-dark);
       letter-spacing: -0.01em;
+      transition: color var(--transition);
     }
     .step-title {
       font-family: var(--font-head);
       font-weight: 700;
-      font-size: 15px;
+      font-size: 14.5px;
       color: var(--navy);
       margin-bottom: 10px;
       line-height: 1.3;
@@ -466,10 +517,10 @@
     }
 
     /* ============================================================
-       SERVICES
+       SERVICES — CREME QUENTE
     ============================================================ */
     .section-services {
-      background: var(--gray-50);
+      background: var(--cream);
       padding: var(--py) 0;
     }
     .services-header {
@@ -489,43 +540,44 @@
       background: var(--white);
       border-radius: 6px;
       padding: 36px 24px 32px;
-      border: 1px solid var(--gray-100);
+      border: 1px solid rgba(245,160,0,0.12);
       transition: all var(--transition);
       position: relative;
       overflow: hidden;
     }
-    .service-card::after {
+    .service-card::before {
       content: '';
       position: absolute;
-      bottom: 0; left: 0; right: 0;
-      height: 2px;
-      background: var(--orange);
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--orange), var(--orange-dark));
       transform: scaleX(0);
       transform-origin: left;
-      transition: transform var(--transition);
+      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
     }
     .service-card:hover {
       border-color: transparent;
-      box-shadow: 0 8px 40px rgba(0,0,0,0.10);
-      transform: translateY(-4px);
+      box-shadow: 0 12px 48px rgba(245,160,0,0.15);
+      transform: translateY(-5px);
     }
-    .service-card:hover::after { transform: scaleX(1); }
+    .service-card:hover::before { transform: scaleX(1); }
     .service-icon {
-      width: 52px;
-      height: 52px;
-      background: var(--cream);
-      border-radius: 10px;
+      width: 56px;
+      height: 56px;
+      background: var(--orange-light);
+      border-radius: 12px;
       display: flex;
       align-items: center;
       justify-content: center;
-      color: var(--orange);
+      color: var(--orange-dark);
       margin-bottom: 22px;
-      transition: background var(--transition), color var(--transition);
+      transition: background var(--transition), color var(--transition), transform var(--transition);
     }
     .service-icon svg { width: 26px; height: 26px; }
     .service-card:hover .service-icon {
       background: var(--orange);
       color: var(--white);
+      transform: rotate(-4deg) scale(1.05);
     }
     .service-name {
       font-family: var(--font-head);
@@ -542,10 +594,10 @@
     }
 
     /* ============================================================
-       GALLERY — ASSIMÉTRICA
+       GALLERY — NAVY (fotos se destacam no fundo escuro)
     ============================================================ */
     .section-gallery {
-      background: var(--white);
+      background: var(--navy);
       padding: var(--py) 0;
     }
     .gallery-header {
@@ -560,34 +612,30 @@
       display: grid;
       grid-template-columns: 55% 1fr 1fr;
       grid-template-rows: auto auto;
-      gap: 12px;
+      gap: 10px;
     }
     .gallery-card {
       border-radius: 6px;
       overflow: hidden;
       position: relative;
-      background: var(--gray-50);
+      background: var(--navy-light);
     }
+    .gallery-card:nth-child(1) { grid-row: 1 / 3; }
+    .gallery-card:nth-child(4) { grid-column: 2 / 4; }
     .gallery-card img {
       width: 100%;
       height: auto;
       display: block;
       transition: transform 0.55s cubic-bezier(0.16, 1, 0.3, 1);
+      opacity: 0.92;
+      transition: transform 0.55s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s;
     }
-    .gallery-card:hover img { transform: scale(1.03); }
-    /* First card spans 2 rows */
-    .gallery-card:nth-child(1) {
-      grid-row: 1 / 3;
-    }
-    /* Last card spans 2 cols */
-    .gallery-card:nth-child(4) {
-      grid-column: 2 / 4;
-    }
+    .gallery-card:hover img { transform: scale(1.04); opacity: 1; }
     .gallery-overlay {
       position: absolute;
       bottom: 0; left: 0; right: 0;
-      padding: 20px 18px 16px;
-      background: linear-gradient(to top, rgba(9,15,28,0.75) 0%, transparent 100%);
+      padding: 28px 18px 16px;
+      background: linear-gradient(to top, rgba(9,15,28,0.82) 0%, transparent 100%);
       display: flex;
       align-items: flex-end;
     }
@@ -595,153 +643,96 @@
       font-family: var(--font-head);
       font-size: 12px;
       font-weight: 700;
-      color: rgba(255,255,255,0.9);
+      color: var(--white);
       letter-spacing: 0.5px;
-    }
-
-    /* ============================================================
-       TESTIMONIALS
-    ============================================================ */
-    .section-testimonials {
-      background: var(--cream);
-      padding: var(--py) 0;
-    }
-    .testimonials-header { margin-bottom: 52px; }
-    .testimonials-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-    }
-    .testimonial-card {
-      background: var(--white);
-      border-radius: 6px;
-      padding: 32px 28px;
-      border: 1px solid rgba(0,0,0,0.04);
-      transition: box-shadow var(--transition);
-    }
-    .testimonial-card:hover { box-shadow: 0 8px 32px rgba(0,0,0,0.08); }
-    .testimonial-stars {
-      color: var(--orange);
-      font-size: 14px;
-      letter-spacing: 2px;
-      margin-bottom: 18px;
-    }
-    .testimonial-text {
-      font-size: 15px;
-      color: var(--navy);
-      line-height: 1.75;
-      margin-bottom: 24px;
-      font-weight: 400;
-      font-style: italic;
-    }
-    .testimonial-footer {
       display: flex;
       align-items: center;
-      gap: 13px;
-      border-top: 1px solid var(--gray-100);
-      padding-top: 18px;
+      gap: 8px;
     }
-    .author-avatar {
-      width: 38px;
-      height: 38px;
+    .gallery-label::before {
+      content: '';
+      width: 6px; height: 6px;
       border-radius: 50%;
-      background: var(--navy);
-      color: var(--orange);
-      font-family: var(--font-head);
-      font-weight: 700;
-      font-size: 13px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      background: var(--orange);
       flex-shrink: 0;
     }
-    .author-name {
-      font-family: var(--font-head);
-      font-weight: 700;
-      font-size: 13px;
-      color: var(--navy);
-    }
-    .author-loc {
-      font-size: 12px;
-      color: var(--gray-300);
-    }
 
     /* ============================================================
-       WHY US
+       WHY US — BRANCO (alternância após navy)
     ============================================================ */
     .section-why {
-      background: var(--navy);
+      background: var(--white);
       padding: var(--py) 0;
-      position: relative;
-      overflow: hidden;
-    }
-    .why-glow {
-      position: absolute;
-      right: -120px; top: 50%;
-      transform: translateY(-50%);
-      width: 480px; height: 480px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(245,160,0,0.07) 0%, transparent 70%);
-      pointer-events: none;
     }
     .why-inner {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 80px;
       align-items: center;
+    }
+    .why-visual {
       position: relative;
-      z-index: 2;
     }
     .why-visual img {
       width: 100%;
-      border-radius: 6px;
-      box-shadow: 0 24px 60px rgba(0,0,0,0.40);
+      border-radius: 8px;
+      box-shadow: 0 20px 56px rgba(0,0,0,0.12);
+    }
+    /* Decorative orange corner */
+    .why-visual::before {
+      content: '';
+      position: absolute;
+      bottom: -16px; right: -16px;
+      width: 64px; height: 64px;
+      background: var(--orange);
+      border-radius: 4px;
+      z-index: -1;
     }
     .why-items {
       display: flex;
       flex-direction: column;
-      gap: 0;
-      margin-top: 40px;
+      margin-top: 36px;
     }
     .why-item {
       display: flex;
       gap: 20px;
       padding: 22px 0;
-      border-bottom: 1px solid rgba(255,255,255,0.05);
-      transition: opacity var(--transition);
+      border-bottom: 1px solid var(--gray-100);
     }
     .why-item:last-child { border-bottom: none; }
-    .why-item:hover { opacity: 0.9; }
     .why-icon {
-      width: 42px;
-      height: 42px;
-      border-radius: 8px;
-      background: rgba(245,160,0,0.12);
+      width: 44px;
+      height: 44px;
+      border-radius: 10px;
+      background: var(--orange-light);
+      border: 1px solid rgba(245,160,0,0.25);
       display: flex;
       align-items: center;
       justify-content: center;
-      color: var(--orange);
+      color: var(--orange-dark);
       flex-shrink: 0;
+      transition: background var(--transition);
     }
     .why-icon svg { width: 20px; height: 20px; }
+    .why-item:hover .why-icon { background: var(--orange); color: var(--white); }
     .why-title {
       font-family: var(--font-head);
       font-weight: 700;
-      font-size: 14px;
-      color: var(--white);
+      font-size: 14.5px;
+      color: var(--navy);
       margin-bottom: 5px;
     }
     .why-text {
-      font-size: 13px;
-      color: rgba(255,255,255,0.45);
+      font-size: 13.5px;
+      color: var(--gray-500);
       line-height: 1.6;
     }
 
     /* ============================================================
-       CTA BAND
+       CTA BAND — LARANJA
     ============================================================ */
     .cta-band {
-      background: var(--orange);
+      background: linear-gradient(135deg, var(--orange) 0%, var(--orange-dark) 100%);
       padding: clamp(56px, 8vw, 80px) 0;
       position: relative;
       overflow: hidden;
@@ -749,18 +740,18 @@
     .cta-band::before {
       content: '';
       position: absolute;
-      right: -60px; top: -60px;
-      width: 280px; height: 280px;
+      right: -80px; top: -80px;
+      width: 320px; height: 320px;
       border-radius: 50%;
-      background: rgba(255,255,255,0.06);
+      background: rgba(255,255,255,0.07);
     }
     .cta-band::after {
       content: '';
       position: absolute;
-      left: 10%; bottom: -40px;
-      width: 180px; height: 180px;
+      left: 8%; bottom: -60px;
+      width: 220px; height: 220px;
       border-radius: 50%;
-      background: rgba(0,0,0,0.05);
+      background: rgba(0,0,0,0.06);
     }
     .cta-band-inner {
       display: flex;
@@ -776,33 +767,33 @@
       font-weight: 800;
       font-size: clamp(22px, 3.5vw, 36px);
       color: var(--white);
-      letter-spacing: -0.02em;
+      letter-spacing: -0.025em;
       line-height: 1.15;
     }
     .cta-band-sub {
       font-size: 16px;
       color: rgba(255,255,255,0.72);
       margin-top: 8px;
-      font-weight: 400;
     }
     .btn-white {
       background: var(--white);
       color: var(--navy);
-      border: none;
-      box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+      font-family: var(--font-head);
+      font-weight: 700;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.14);
     }
     .btn-white:hover {
       background: var(--navy);
       color: var(--white);
       transform: translateY(-2px);
-      box-shadow: 0 8px 28px rgba(0,0,0,0.20);
+      box-shadow: 0 8px 28px rgba(0,0,0,0.22);
     }
 
     /* ============================================================
-       CTA FINAL
+       CTA FINAL — CREME
     ============================================================ */
     .section-cta {
-      background: var(--white);
+      background: var(--cream);
       padding: var(--py) 0;
       text-align: center;
     }
@@ -810,12 +801,10 @@
       max-width: 640px;
       margin: 0 auto;
     }
-    .cta-inner .section-heading { margin-bottom: 16px; }
-    .cta-inner .section-subheading { margin: 0 auto 36px; }
     .cta-note {
       font-size: 12px;
       color: var(--gray-300);
-      margin-top: 14px;
+      margin-top: 16px;
     }
     .cta-note a { color: var(--navy); }
 
@@ -833,15 +822,20 @@
       margin-bottom: 40px;
       align-items: flex-start;
     }
-    .footer-brand .logo-name {
+    .footer-logo-name {
+      font-family: var(--font-head);
+      font-weight: 800;
       font-size: 19px;
+      color: var(--white);
+      letter-spacing: -0.015em;
       margin: 10px 0 8px;
     }
+    .footer-logo-name span { color: var(--orange); }
     .footer-tagline {
       font-size: 13px;
-      color: rgba(255,255,255,0.28);
-      max-width: 260px;
+      color: rgba(255,255,255,0.25);
       line-height: 1.6;
+      max-width: 280px;
     }
     .footer-links {
       display: flex;
@@ -853,12 +847,10 @@
       align-items: center;
       gap: 10px;
       font-size: 13px;
-      color: rgba(255,255,255,0.38);
+      color: rgba(255,255,255,0.35);
       transition: color var(--transition);
     }
     .footer-link:hover { color: var(--orange); }
-    .footer-link svg { flex-shrink: 0; opacity: 0.6; }
-    .footer-link:hover svg { opacity: 1; }
     .footer-divider {
       border: none;
       border-top: 1px solid rgba(255,255,255,0.05);
@@ -866,7 +858,7 @@
     }
     .footer-copy {
       font-size: 11.5px;
-      color: rgba(255,255,255,0.16);
+      color: rgba(255,255,255,0.15);
       text-align: center;
     }
 
@@ -886,7 +878,7 @@
       box-shadow: 0 4px 22px rgba(37,211,102,0.45);
       transition: all var(--transition);
     }
-    .wpp-float:hover { transform: scale(1.10); box-shadow: 0 8px 32px rgba(37,211,102,0.60); }
+    .wpp-float:hover { transform: scale(1.1); box-shadow: 0 8px 32px rgba(37,211,102,0.60); }
     .wpp-float:active { transform: scale(0.95); }
 
     /* ============================================================
@@ -896,14 +888,13 @@
       .services-grid { grid-template-columns: repeat(2, 1fr); }
       .gallery-grid {
         grid-template-columns: 1fr 1fr;
-        grid-template-rows: auto auto auto;
+        grid-template-rows: auto;
       }
       .gallery-card:nth-child(1) { grid-row: auto; grid-column: 1 / 3; }
       .gallery-card:nth-child(4) { grid-column: 1 / 3; }
       .why-inner { gap: 48px; }
-      .process-track { grid-template-columns: repeat(2, 1fr); gap: 32px; }
+      .process-track { grid-template-columns: repeat(2, 1fr); gap: 36px; }
       .process-track::before { display: none; }
-      .testimonials-grid { grid-template-columns: repeat(2, 1fr); }
     }
 
     @media (max-width: 768px) {
@@ -916,52 +907,40 @@
 
       .stats-strip-inner { grid-template-columns: repeat(2, 1fr); }
       .stat-col:nth-child(2) { border-right: none; }
+      .stat-col:nth-child(3) { border-top: 1px solid rgba(255,255,255,0.18); }
+      .stat-col:nth-child(4) { border-top: 1px solid rgba(255,255,255,0.18); border-right: none; }
 
       .services-grid { grid-template-columns: repeat(2, 1fr); }
       .services-header { flex-direction: column; align-items: flex-start; }
 
-      .gallery-grid {
-        grid-template-columns: 1fr;
-        grid-template-rows: auto;
-      }
+      .gallery-grid { grid-template-columns: 1fr; }
       .gallery-card:nth-child(1),
       .gallery-card:nth-child(4) { grid-column: auto; grid-row: auto; }
 
-      .why-inner { grid-template-columns: 1fr; gap: 40px; }
+      .why-inner { grid-template-columns: 1fr; gap: 48px; }
       .why-visual { display: none; }
 
       .cta-band-inner { flex-direction: column; text-align: center; }
-      .cta-band-inner .btn { width: 100%; max-width: 340px; margin: 0 auto; }
-
-      .testimonials-grid { grid-template-columns: 1fr; }
+      .cta-band-inner .btn { width: 100%; max-width: 360px; margin: 0 auto; }
 
       .footer-top { grid-template-columns: 1fr; }
       .footer-links { flex-direction: row; flex-wrap: wrap; gap: 16px; }
-      .footer-link { font-size: 12px; }
     }
 
     @media (max-width: 640px) {
       .header-nav { display: none; }
       .header-cta { display: none; }
 
-      .process-track { grid-template-columns: 1fr; }
-
-      .stats-strip-inner { grid-template-columns: 1fr 1fr; }
-      .stat-col:nth-child(odd) { border-right: 1px solid rgba(255,255,255,0.06); }
-      .stat-col:nth-child(2n) { border-right: none; }
-      .stat-col:nth-child(n+3) { border-top: 1px solid rgba(255,255,255,0.06); }
+      .process-track { grid-template-columns: 1fr; gap: 28px; }
 
       .services-grid { grid-template-columns: 1fr; }
 
+      .section-heading { font-size: clamp(24px, 7vw, 34px); }
+      .section-sub { font-size: 15px; }
+
       .btn-lg { width: 100%; justify-content: center; }
 
-      .section-heading { font-size: clamp(24px, 7vw, 32px); }
-      .section-subheading { font-size: 15px; }
-
-      .cta-box-inner .btn { width: 100%; }
-
       .wpp-float { width: 52px; height: 52px; bottom: 18px; right: 18px; }
-      .wpp-float svg { width: 24px; height: 24px; }
     }
   </style>
 </head>
@@ -982,10 +961,10 @@
         <div class="logo-name">Solar <span>Martins</span></div>
       </a>
       <nav class="header-nav">
+        <a href="#processo">Como Funciona</a>
         <a href="#servicos">Serviços</a>
         <a href="#trabalhos">Projetos</a>
         <a href="#sobre">Sobre</a>
-        <a href="#contato">Contato</a>
       </nav>
       <a href="https://wa.me/554799489362" class="btn btn-primary header-cta" target="_blank" rel="noopener">
         Pedir Orçamento
@@ -1006,7 +985,7 @@
           de luz.
         </h1>
         <p class="hero-sub">
-          Instalação e manutenção de sistemas fotovoltaicos residenciais, comerciais e industriais. Mais de 3.500 instalações com qualidade e responsabilidade técnica.
+          Instalação e manutenção de sistemas fotovoltaicos residenciais, comerciais e industriais. Mais de 3.500 instalações entregues com qualidade e responsabilidade técnica.
         </p>
         <div class="hero-actions">
           <a href="https://wa.me/554799489362" class="btn btn-wpp btn-lg" target="_blank" rel="noopener">
@@ -1017,7 +996,7 @@
         </div>
         <div class="hero-trust">
           <div class="hero-trust-dot"></div>
-          <span>Atendemos Blumenau e toda a região de SC · Resposta rápida via WhatsApp</span>
+          <span>Atendemos Blumenau e toda a região de SC · Resposta rápida no WhatsApp</span>
         </div>
       </div>
       <div class="hero-visual reveal reveal-delay-2">
@@ -1025,20 +1004,20 @@
           <img src="assets/post9_drone_orcamento.jpg" alt="Orçamento com drone — Solar Martins">
         </div>
         <div class="hero-stat-card">
-          <div class="hero-stat-num"><span>+</span>3.500</div>
+          <div class="hero-stat-num">+3.500</div>
           <div class="hero-stat-label">instalações entregues</div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- STATS STRIP -->
+  <!-- STATS — LARANJA SÓLIDO -->
   <div class="stats-strip">
     <div class="container">
       <div class="stats-strip-inner">
         <div class="stat-col reveal">
-          <div class="stat-num" data-target="3500" data-prefix="+">+3.500</div>
-          <div class="stat-label">Instalações realizadas</div>
+          <div class="stat-num">+3.500</div>
+          <div class="stat-label">Instalações</div>
         </div>
         <div class="stat-col reveal reveal-delay-1">
           <div class="stat-num">2017</div>
@@ -1050,46 +1029,46 @@
         </div>
         <div class="stat-col reveal reveal-delay-3">
           <div class="stat-num">Drone</div>
-          <div class="stat-label">Orçamento por drone</div>
+          <div class="stat-label">Orçamento preciso</div>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- PROCESS -->
+  <!-- PROCESS — BRANCO -->
   <section class="section-process" id="processo">
     <div class="container">
       <div class="process-header reveal">
         <span class="eyebrow">Como Funciona</span>
         <h2 class="section-heading">Do orçamento à <em class="hi">economia real</em></h2>
-        <p class="section-subheading">Processo simples, transparente e conduzido por uma equipe técnica própria — do primeiro contato à geração de energia.</p>
+        <p class="section-sub">Processo simples e transparente, conduzido por equipe técnica própria — do primeiro contato à geração de energia.</p>
       </div>
       <div class="process-track">
         <div class="process-step reveal">
-          <div class="step-num-wrap"><span>01</span></div>
+          <div class="step-circle"><span>01</span></div>
           <div class="step-title">Solicite o orçamento</div>
-          <p class="step-desc">Fale com nossa equipe via WhatsApp. Agendamos a visita sem compromisso.</p>
+          <p class="step-desc">Fale com nossa equipe via WhatsApp. Agendamos a visita técnica sem compromisso.</p>
         </div>
         <div class="process-step reveal reveal-delay-1">
-          <div class="step-num-wrap"><span>02</span></div>
+          <div class="step-circle"><span>02</span></div>
           <div class="step-title">Medição com drone</div>
           <p class="step-desc">Medimos o telhado com drone — seguro, preciso e em minutos.</p>
         </div>
         <div class="process-step reveal reveal-delay-2">
-          <div class="step-num-wrap"><span>03</span></div>
+          <div class="step-circle"><span>03</span></div>
           <div class="step-title">Instalação profissional</div>
           <p class="step-desc">Equipe própria realiza toda a instalação e homologação na distribuidora.</p>
         </div>
         <div class="process-step reveal reveal-delay-3">
-          <div class="step-num-wrap"><span>04</span></div>
+          <div class="step-circle"><span>04</span></div>
           <div class="step-title">Economia garantida</div>
-          <p class="step-desc">Sistema conectado à rede e gerando energia desde o primeiro mês.</p>
+          <p class="step-desc">Sistema conectado à rede, gerando energia e economizando desde o primeiro mês.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- SERVICES -->
+  <!-- SERVICES — CREME -->
   <section class="section-services" id="servicos">
     <div class="container">
       <div class="services-header">
@@ -1098,7 +1077,7 @@
           <h2 class="section-heading">Tudo em energia solar<br>e <em class="hi">serviços elétricos</em></h2>
         </div>
         <div class="reveal reveal-delay-1">
-          <p class="section-subheading">Da instalação à manutenção — a Solar Martins cuida de tudo com qualidade, segurança e equipe própria.</p>
+          <p class="section-sub">Da instalação à manutenção — qualidade, segurança e equipe própria em cada projeto.</p>
         </div>
       </div>
 
@@ -1123,7 +1102,7 @@
             </svg>
           </div>
           <div class="service-name">Manutenção Solar</div>
-          <p class="service-desc">Limpeza, inspeção e manutenção preventiva e corretiva de sistemas fotovoltaicos. Máxima geração durante todo o ano.</p>
+          <p class="service-desc">Limpeza, inspeção e manutenção preventiva e corretiva. Máxima geração garantida durante todo o ano.</p>
         </div>
         <div class="service-card reveal reveal-delay-2">
           <div class="service-icon">
@@ -1132,7 +1111,7 @@
             </svg>
           </div>
           <div class="service-name">Serviços Elétricos</div>
-          <p class="service-desc">Instalações elétricas residenciais, comerciais e industriais. Atualização de padrão, quadros, tomadas e muito mais.</p>
+          <p class="service-desc">Instalações elétricas residenciais, comerciais e industriais. Atualização de padrão, quadros, tomadas e mais.</p>
         </div>
         <div class="service-card reveal reveal-delay-3">
           <div class="service-icon">
@@ -1142,7 +1121,7 @@
             </svg>
           </div>
           <div class="service-name">Orçamento com Drone</div>
-          <p class="service-desc">Medição precisa do telhado via drone para orçamento correto e sem riscos. Resultado exato em minutos.</p>
+          <p class="service-desc">Medição precisa do telhado via drone — seguro, sem escadas, com resultado exato em minutos.</p>
         </div>
       </div>
 
@@ -1156,16 +1135,16 @@
     </div>
   </section>
 
-  <!-- GALLERY -->
+  <!-- GALLERY — NAVY (fotos se destacam) -->
   <section class="section-gallery" id="trabalhos">
     <div class="container">
       <div class="gallery-header">
         <div class="reveal">
-          <span class="eyebrow">Trabalhos Realizados</span>
-          <h2 class="section-heading">Mais de 3.500<br><em class="hi">instalações entregues.</em></h2>
+          <span class="eyebrow on-dark">Trabalhos Realizados</span>
+          <h2 class="section-heading on-dark">Mais de 3.500<br><em class="hi">instalações entregues.</em></h2>
         </div>
         <div class="reveal reveal-delay-1">
-          <p class="section-subheading">Projetos com qualidade, segurança e responsabilidade técnica em Blumenau e toda a região de SC.</p>
+          <p class="section-sub on-dark">Projetos com qualidade e responsabilidade técnica em Blumenau e toda a região de SC.</p>
         </div>
       </div>
 
@@ -1177,7 +1156,7 @@
           </div>
         </div>
         <div class="gallery-card reveal reveal-delay-1">
-          <img src="assets/post5_manutencao_solar.jpg" alt="Manutenção de painéis solares — Solar Martins">
+          <img src="assets/post5_manutencao_solar.jpg" alt="Manutenção de painéis — Solar Martins">
           <div class="gallery-overlay">
             <span class="gallery-label">Manutenção Solar</span>
           </div>
@@ -1189,7 +1168,7 @@
           </div>
         </div>
         <div class="gallery-card reveal reveal-delay-3">
-          <img src="assets/post8_eletrica_qualidade.jpg" alt="Instalação elétrica com qualidade — Solar Martins">
+          <img src="assets/post8_eletrica_qualidade.jpg" alt="Instalação elétrica — Solar Martins">
           <div class="gallery-overlay">
             <span class="gallery-label">Instalação Elétrica</span>
           </div>
@@ -1198,62 +1177,16 @@
     </div>
   </section>
 
-  <!-- TESTIMONIALS -->
-  <section class="section-testimonials">
-    <div class="container">
-      <div class="testimonials-header reveal">
-        <span class="eyebrow">Depoimentos</span>
-        <h2 class="section-heading">O que nossos<br>clientes <em class="hi">dizem</em></h2>
-      </div>
-      <div class="testimonials-grid">
-        <div class="testimonial-card reveal">
-          <div class="testimonial-stars">★★★★★</div>
-          <p class="testimonial-text">"A instalação foi impecável e a conta de luz caiu mais de 85% no primeiro mês. Indico a Solar Martins para todo mundo."</p>
-          <div class="testimonial-footer">
-            <div class="author-avatar">RF</div>
-            <div>
-              <div class="author-name">Rodrigo F.</div>
-              <div class="author-loc">Velha, Blumenau/SC</div>
-            </div>
-          </div>
-        </div>
-        <div class="testimonial-card reveal reveal-delay-1">
-          <div class="testimonial-stars">★★★★★</div>
-          <p class="testimonial-text">"O orçamento com drone foi impressionante — em minutos já tinham o dimensionamento exato do meu telhado. Processo todo muito rápido."</p>
-          <div class="testimonial-footer">
-            <div class="author-avatar">MS</div>
-            <div>
-              <div class="author-name">Marcela S.</div>
-              <div class="author-loc">Itoupava, Blumenau/SC</div>
-            </div>
-          </div>
-        </div>
-        <div class="testimonial-card reveal reveal-delay-2">
-          <div class="testimonial-stars">★★★★★</div>
-          <p class="testimonial-text">"Instalei na empresa e o retorno do investimento veio em menos de 4 anos. Equipe muito profissional e séria em cada etapa."</p>
-          <div class="testimonial-footer">
-            <div class="author-avatar">AM</div>
-            <div>
-              <div class="author-name">André M.</div>
-              <div class="author-loc">Centro, Blumenau/SC</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- WHY US -->
+  <!-- WHY US — BRANCO -->
   <section class="section-why" id="sobre">
-    <div class="why-glow"></div>
     <div class="container">
       <div class="why-inner">
         <div class="why-visual reveal">
-          <img src="assets/post5_manutencao_solar.jpg" alt="Equipe Solar Martins em ação — Blumenau/SC">
+          <img src="assets/post5_manutencao_solar.jpg" alt="Equipe Solar Martins — Blumenau/SC">
         </div>
         <div class="reveal reveal-delay-1">
-          <span class="eyebrow on-dark">Por que escolher a Solar Martins</span>
-          <h2 class="section-heading on-dark">Experiência, qualidade<br>e <em class="hi">tecnologia</em> no serviço</h2>
+          <span class="eyebrow">Por que escolher a Solar Martins</span>
+          <h2 class="section-heading">Experiência, qualidade<br>e <em class="hi">tecnologia</em> no serviço</h2>
           <div class="why-items">
             <div class="why-item">
               <div class="why-icon">
@@ -1270,7 +1203,7 @@
               </div>
               <div>
                 <div class="why-title">Orçamento com tecnologia de drone</div>
-                <p class="why-text">Medição precisa do telhado sem riscos. Dimensionamento correto desde o início do projeto.</p>
+                <p class="why-text">Medição precisa do telhado sem riscos — dimensionamento correto desde o início do projeto.</p>
               </div>
             </div>
             <div class="why-item">
@@ -1279,7 +1212,7 @@
               </div>
               <div>
                 <div class="why-title">Equipe própria capacitada</div>
-                <p class="why-text">Não terceirizamos — profissionais treinados garantem padrão de qualidade em cada projeto entregue.</p>
+                <p class="why-text">Não terceirizamos. Profissionais treinados garantem padrão de qualidade em cada projeto.</p>
               </div>
             </div>
             <div class="why-item">
@@ -1288,7 +1221,7 @@
               </div>
               <div>
                 <div class="why-title">No mercado desde 2017</div>
-                <p class="why-text">Mais de 8 anos de experiência. Solidez e confiança comprovadas na região de Blumenau/SC.</p>
+                <p class="why-text">Mais de 8 anos de experiência em energia solar e serviços elétricos na região de Blumenau/SC.</p>
               </div>
             </div>
           </div>
@@ -1297,7 +1230,7 @@
     </div>
   </section>
 
-  <!-- CTA BAND -->
+  <!-- CTA BAND — LARANJA -->
   <div class="cta-band">
     <div class="container cta-band-inner">
       <div class="reveal">
@@ -1311,17 +1244,17 @@
     </div>
   </div>
 
-  <!-- CTA FINAL -->
+  <!-- CTA FINAL — CREME -->
   <section class="section-cta" id="contato">
     <div class="container">
       <div class="cta-inner reveal">
-        <span class="eyebrow" style="display:block; text-align:center;">Fale Conosco Agora</span>
+        <span class="eyebrow" style="justify-content:center;">Fale Conosco Agora</span>
         <h2 class="section-heading" style="text-align:center;">
           Comece a economizar<br>
           na sua <em class="hi">conta de luz hoje</em>
         </h2>
-        <p class="section-subheading" style="text-align:center; margin: 16px auto 36px;">
-          Entre em contato agora pelo WhatsApp e receba um orçamento personalizado gratuitamente. Atendemos toda a região de Blumenau/SC.
+        <p class="section-sub" style="text-align:center; margin: 16px auto 36px;">
+          Entre em contato agora pelo WhatsApp e receba um orçamento personalizado e gratuito. Atendemos toda a região de Blumenau/SC.
         </p>
         <div style="display:flex; justify-content:center;">
           <a href="https://wa.me/554799489362" class="btn btn-wpp btn-lg" target="_blank" rel="noopener" style="min-width: 300px;">
@@ -1330,8 +1263,7 @@
           </a>
         </div>
         <p class="cta-note" style="text-align:center;">
-          Siga no Instagram:
-          <a href="https://instagram.com/solarmartins_" target="_blank" rel="noopener">@solarmartins_</a>
+          Instagram: <a href="https://instagram.com/solarmartins_" target="_blank" rel="noopener">@solarmartins_</a>
         </p>
       </div>
     </div>
@@ -1341,11 +1273,11 @@
   <footer class="site-footer">
     <div class="container">
       <div class="footer-top">
-        <div class="footer-brand">
+        <div>
           <div class="logo">
             <img src="assets/logo_instagram.jpg" alt="Solar Martins" class="logo-img">
           </div>
-          <div class="logo-name" style="font-size:19px; margin: 10px 0 8px;">Solar <span>Martins</span></div>
+          <div class="footer-logo-name">Solar <span>Martins</span></div>
           <p class="footer-tagline">Instalação & Manutenção de Energia Solar e Serviços Elétricos — Blumenau/SC</p>
         </div>
         <div class="footer-links">
@@ -1377,8 +1309,7 @@
           observer.unobserve(entry.target);
         }
       });
-    }, { threshold: 0.08, rootMargin: '0px 0px -36px 0px' });
-
+    }, { threshold: 0.07, rootMargin: '0px 0px -32px 0px' });
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
     // Smooth scroll
@@ -1387,22 +1318,11 @@
         const target = document.querySelector(this.getAttribute('href'));
         if (target) {
           e.preventDefault();
-          const offset = 72;
-          const top = target.getBoundingClientRect().top + window.scrollY - offset;
+          const top = target.getBoundingClientRect().top + window.scrollY - 70;
           window.scrollTo({ top, behavior: 'smooth' });
         }
       });
     });
-
-    // Header scroll effect
-    const header = document.querySelector('.site-header');
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 48) {
-        header.style.background = 'rgba(12,28,56,0.99)';
-      } else {
-        header.style.background = 'rgba(12,28,56,0.96)';
-      }
-    }, { passive: true });
   </script>
 
 </body>
