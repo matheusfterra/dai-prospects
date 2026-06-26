@@ -869,6 +869,23 @@
       color: rgba(255,255,255,0.15);
       text-align: center;
     }
+    .footer-dev {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 12px;
+      opacity: 0.35;
+      transition: opacity 0.25s;
+    }
+    .footer-dev:hover { opacity: 0.7; }
+    .footer-dev-label {
+      font-size: 10px;
+      color: rgba(255,255,255,0.6);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .footer-dev img { height: 18px; width: auto; }
 
     /* ============================================================
        WPP FLOAT
@@ -1304,7 +1321,11 @@
         </div>
       </div>
       <hr class="footer-divider">
-      <p class="footer-copy">© 2026 Solar Martins. Instalação & Manutenção de Energia Solar — Blumenau/SC &nbsp;·&nbsp; Desenvolvido por <a href="https://instagram.com/digitalai.tech" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;opacity:0.55;transition:opacity .2s,color .2s" onmouseover="this.style.opacity='1';this.style.color='#F5A000'" onmouseout="this.style.opacity='0.55';this.style.color='inherit'">@digitalai.tech</a></p>
+      <p class="footer-copy">© 2026 Solar Martins. Instalação & Manutenção de Energia Solar — Blumenau/SC</p>
+      <a href="https://instagram.com/digitalai.tech" target="_blank" rel="noopener" class="footer-dev">
+        <span class="footer-dev-label">Desenvolvido por</span>
+        <img src="assets/logo-dai-branca.svg" alt="Digital AI">
+      </a>
     </div>
   </footer>
 
