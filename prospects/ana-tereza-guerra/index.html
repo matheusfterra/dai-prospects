@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Guia Gratuito de Harmonização Orofacial — Dra. Ana Tereza Guerra</title>
+  <meta name="description" content="Baixe grátis o guia da Dra. Ana Tereza Guerra e descubra como a harmonização orofacial pode realçar sua beleza natural com resultados discretos e duradouros." />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://ana-tereza-guerra.digital-ai.tech/" />
+  <meta property="og:title" content="Guia Gratuito: Harmonização Orofacial — Dra. Ana Tereza Guerra" />
+  <meta property="og:description" content="Realce sua beleza natural. Baixe grátis o guia completo da especialista em Harmonização Orofacial de Goiânia." />
+  <meta property="og:image" content="https://www.instagram.com/anaterezaguerra/channel/?__a=1" />
+  <meta property="og:locale" content="pt_BR" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ─── TOKENS ─────────────────────────────────────────── */
+    :root {
+      --rose:      #C2947B;
+      --rose-dark: #A57760;
+      --rose-light:#F0E6DC;
+      --cream:     #FAF7F3;
+      --nude:      #EDE5DC;
+      --charcoal:  #2A2218;
+      --warm-gray: #7A6E66;
+      --white:     #FFFFFF;
+      --gold:      #B8945F;
+
+      --font-serif: 'Cormorant Garamond', Georgia, serif;
+      --font-sans:  'DM Sans', system-ui, sans-serif;
+
+      --radius-sm: 6px;
+      --radius-md: 12px;
+      --radius-lg: 20px;
+      --radius-xl: 32px;
+
+      --shadow-soft: 0 4px 24px rgba(42,34,24,.08);
+      --shadow-md:   0 8px 40px rgba(42,34,24,.12);
+    }
+
+    /* ─── RESET ──────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+    body {
+      font-family: var(--font-sans);
+      font-size: 16px;
+      line-height: 1.65;
+      color: var(--charcoal);
+      background: var(--cream);
+      overflow-x: hidden;
+    }
+    img { max-width: 100%; height: auto; display: block; }
+    a   { text-decoration: none; color: inherit; }
+
+    /* ─── UTILITY ────────────────────────────────────────── */
+    .container {
+      width: 100%;
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+    .text-center { text-align: center; }
+    .section { padding: 80px 0; }
+
+    /* ─── TYPOGRAPHY ─────────────────────────────────────── */
+    h1 {
+      font-family: var(--font-serif);
+      font-size: clamp(2.4rem, 5.5vw, 3.8rem);
+      font-weight: 500;
+      line-height: 1.15;
+      letter-spacing: -0.01em;
+    }
+    h2 {
+      font-family: var(--font-serif);
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      font-weight: 500;
+      line-height: 1.2;
+    }
+    h3 {
+      font-family: var(--font-serif);
+      font-size: 1.4rem;
+      font-weight: 500;
+    }
+    .overline {
+      display: inline-block;
+      font-family: var(--font-sans);
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--rose);
+      margin-bottom: 14px;
+    }
+    .lead {
+      font-size: clamp(1rem, 2.2vw, 1.15rem);
+      color: var(--warm-gray);
+      max-width: 560px;
+      line-height: 1.75;
+    }
+
+    /* ─── BADGE ──────────────────────────────────────────── */
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--white);
+      border: 1px solid var(--rose-light);
+      border-radius: 100px;
+      padding: 6px 16px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: var(--rose-dark);
+      margin-bottom: 24px;
+    }
+    .badge-dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--rose);
+      display: inline-block;
+    }
+
+    /* ─── BUTTON ─────────────────────────────────────────── */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      font-family: var(--font-sans);
+      font-size: 0.9375rem;
+      font-weight: 600;
+      border-radius: 100px;
+      padding: 14px 32px;
+      cursor: pointer;
+      transition: all .25s ease;
+      border: none;
+      white-space: nowrap;
+    }
+    .btn-primary {
+      background: var(--rose);
+      color: var(--white);
+      box-shadow: 0 4px 20px rgba(194,148,123,.35);
+    }
+    .btn-primary:hover {
+      background: var(--rose-dark);
+      box-shadow: 0 6px 28px rgba(194,148,123,.45);
+      transform: translateY(-2px);
+    }
+    .btn-outline {
+      background: transparent;
+      color: var(--rose-dark);
+      border: 1.5px solid var(--rose);
+    }
+    .btn-outline:hover {
+      background: var(--rose-light);
+      transform: translateY(-2px);
+    }
+    .btn-lg { padding: 17px 40px; font-size: 1rem; }
+    .btn-wpp {
+      background: #25D366;
+      color: var(--white);
+      box-shadow: 0 4px 20px rgba(37,211,102,.3);
+    }
+    .btn-wpp:hover {
+      background: #1ebe5a;
+      box-shadow: 0 6px 28px rgba(37,211,102,.4);
+      transform: translateY(-2px);
+    }
+
+    /* ─── NAVBAR ─────────────────────────────────────────── */
+    .navbar {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      padding: 18px 0;
+      background: transparent;
+      transition: all .3s ease;
+    }
+    .navbar.scrolled {
+      background: rgba(250,247,243,.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      box-shadow: 0 1px 0 rgba(42,34,24,.08);
+      padding: 12px 0;
+    }
+    .navbar .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .navbar-name {
+      font-family: var(--font-serif);
+      font-size: 1.25rem;
+      font-weight: 500;
+      color: var(--charcoal);
+      letter-spacing: 0.01em;
+    }
+    .navbar-name span { color: var(--rose); }
+    .navbar-cta a { font-size: 0.875rem; }
+
+    /* ─── HERO ───────────────────────────────────────────── */
+    .hero {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      padding-top: 80px;
+      overflow: hidden;
+    }
+    .hero-content {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 80px 60px 80px 0;
+    }
+    .hero-content .lead { margin: 20px 0 36px; }
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      align-items: center;
+    }
+    .hero-visual {
+      position: relative;
+      background: var(--nude);
+      overflow: hidden;
+    }
+    .hero-visual::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg,
+        rgba(194,148,123,.12) 0%,
+        rgba(184,148,95,.06) 100%);
+    }
+    .hero-visual-inner {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+    }
+    .hero-photo {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top;
+    }
+    .hero-photo-placeholder {
+      width: 200px; height: 200px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--rose) 0%, var(--gold) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-serif);
+      font-size: 5rem;
+      font-weight: 300;
+      color: var(--white);
+      opacity: .85;
+    }
+    /* Card de material flutuante */
+    .hero-card {
+      position: absolute;
+      bottom: 48px;
+      left: -24px;
+      background: var(--white);
+      border-radius: var(--radius-md);
+      padding: 20px 24px;
+      box-shadow: var(--shadow-md);
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      min-width: 260px;
+    }
+    .hero-card-icon {
+      width: 48px; height: 48px;
+      border-radius: var(--radius-sm);
+      background: var(--rose-light);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.5rem;
+      flex-shrink: 0;
+    }
+    .hero-card-title {
+      font-family: var(--font-sans);
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--charcoal);
+    }
+    .hero-card-sub {
+      font-size: 0.72rem;
+      color: var(--warm-gray);
+    }
+
+    /* ─── WHAT'S INSIDE ──────────────────────────────────── */
+    .inside-section { background: var(--white); }
+    .inside-header { max-width: 560px; margin: 0 auto 56px; }
+    .inside-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .inside-card {
+      background: var(--cream);
+      border-radius: var(--radius-lg);
+      padding: 36px 28px;
+      transition: all .25s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    .inside-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--rose), var(--gold));
+      opacity: 0;
+      transition: opacity .25s;
+    }
+    .inside-card:hover::before { opacity: 1; }
+    .inside-card:hover {
+      box-shadow: var(--shadow-soft);
+      transform: translateY(-4px);
+    }
+    .inside-num {
+      font-family: var(--font-serif);
+      font-size: 3rem;
+      font-weight: 300;
+      color: var(--rose-light);
+      line-height: 1;
+      margin-bottom: 16px;
+    }
+    .inside-card h3 { margin-bottom: 10px; font-size: 1.15rem; }
+    .inside-card p  { font-size: 0.9rem; color: var(--warm-gray); line-height: 1.65; }
+
+    /* ─── SOBRE ──────────────────────────────────────────── */
+    .about-section { background: var(--nude); }
+    .about-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+    .about-photo-wrap {
+      position: relative;
+    }
+    .about-photo {
+      width: 100%;
+      aspect-ratio: 4/5;
+      border-radius: var(--radius-xl);
+      object-fit: cover;
+      background: linear-gradient(135deg, var(--rose-light), var(--nude));
+    }
+    .about-photo-placeholder {
+      width: 100%;
+      aspect-ratio: 4/5;
+      border-radius: var(--radius-xl);
+      background: linear-gradient(135deg, var(--rose) 0%, var(--gold) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-serif);
+      font-size: 8rem;
+      color: rgba(255,255,255,.7);
+    }
+    .about-accent {
+      position: absolute;
+      bottom: -20px;
+      right: -20px;
+      width: 120px; height: 120px;
+      border-radius: 50%;
+      background: var(--rose);
+      opacity: .12;
+    }
+    .about-content .lead { margin: 20px 0 32px; }
+    .about-stats {
+      display: flex;
+      gap: 40px;
+      margin-top: 36px;
+      padding-top: 36px;
+      border-top: 1px solid rgba(42,34,24,.12);
+    }
+    .about-stat-val {
+      font-family: var(--font-serif);
+      font-size: 2rem;
+      font-weight: 500;
+      color: var(--rose);
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+    .about-stat-lbl {
+      font-size: 0.8rem;
+      color: var(--warm-gray);
+    }
+
+    /* ─── CTA ────────────────────────────────────────────── */
+    .cta-section {
+      background: linear-gradient(135deg, var(--charcoal) 0%, #3A2E24 100%);
+      color: var(--white);
+      position: relative;
+      overflow: hidden;
+    }
+    .cta-section::before {
+      content: '';
+      position: absolute;
+      top: -50%; right: -20%;
+      width: 600px; height: 600px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(194,148,123,.15) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .cta-inner {
+      max-width: 600px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 2;
+    }
+    .cta-inner .overline { color: var(--rose-light); }
+    .cta-inner h2 { color: var(--white); margin-bottom: 16px; }
+    .cta-inner p  {
+      color: rgba(255,255,255,.65);
+      margin-bottom: 40px;
+      font-size: 1.05rem;
+    }
+    .cta-actions {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .cta-note {
+      margin-top: 24px;
+      font-size: 0.8rem;
+      color: rgba(255,255,255,.35);
+    }
+
+    /* ─── DEPOIMENTOS ────────────────────────────────────── */
+    .proof-section { background: var(--cream); }
+    .proof-header { max-width: 560px; margin: 0 auto 56px; }
+    .proof-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    .proof-card {
+      background: var(--white);
+      border-radius: var(--radius-md);
+      padding: 28px 24px;
+      box-shadow: var(--shadow-soft);
+    }
+    .proof-stars {
+      color: var(--gold);
+      font-size: 0.85rem;
+      margin-bottom: 14px;
+    }
+    .proof-quote {
+      font-family: var(--font-serif);
+      font-size: 1rem;
+      line-height: 1.7;
+      color: var(--charcoal);
+      margin-bottom: 20px;
+      font-style: italic;
+    }
+    .proof-author {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--rose-dark);
+    }
+    .proof-detail {
+      font-size: 0.75rem;
+      color: var(--warm-gray);
+    }
+
+    /* ─── FOOTER ─────────────────────────────────────────── */
+    .footer {
+      background: var(--charcoal);
+      color: rgba(255,255,255,.4);
+      padding: 32px 0;
+    }
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+    .footer-brand {
+      font-family: var(--font-serif);
+      font-size: 1rem;
+      color: rgba(255,255,255,.6);
+    }
+    .footer-text {
+      font-size: 0.78rem;
+    }
+    .footer-text a {
+      color: rgba(255,255,255,.5);
+      transition: color .2s;
+    }
+    .footer-text a:hover { color: var(--white); }
+
+    /* ─── FLOATING WPP ───────────────────────────────────── */
+    .wpp-float {
+      position: fixed;
+      bottom: 24px; right: 24px;
+      z-index: 999;
+      width: 58px; height: 58px;
+      border-radius: 50%;
+      background: #25D366;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 4px 20px rgba(37,211,102,.4);
+      transition: all .3s ease;
+      animation: float 3s ease-in-out infinite;
+    }
+    .wpp-float:hover { transform: scale(1.1); }
+    .wpp-float svg { width: 26px; height: 26px; fill: white; }
+    @keyframes float {
+      0%,100% { transform: translateY(0); }
+      50%      { transform: translateY(-6px); }
+    }
+
+    /* ─── RESPONSIVE ─────────────────────────────────────── */
+    @media (max-width: 1024px) {
+      .hero { grid-template-columns: 1fr; min-height: auto; }
+      .hero-content { padding: 100px 0 60px; }
+      .hero-visual { height: 480px; border-radius: 0 0 var(--radius-xl) var(--radius-xl); }
+      .hero-card { bottom: -24px; left: 50%; transform: translateX(-50%); }
+      .inside-grid { grid-template-columns: 1fr; }
+      .about-inner { grid-template-columns: 1fr; }
+      .about-photo-wrap { max-width: 400px; margin: 0 auto; }
+      .proof-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 768px) {
+      .section { padding: 64px 0; }
+      .hero-actions { flex-direction: column; }
+      .hero-actions .btn { width: 100%; }
+      .about-stats { gap: 24px; }
+      .cta-actions { flex-direction: column; }
+      .cta-actions .btn { width: 100%; }
+      .footer-inner { flex-direction: column; text-align: center; }
+    }
+    @media (max-width: 480px) {
+      .container { padding: 0 16px; }
+      .hero-card { min-width: unset; width: calc(100% - 32px); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar" id="navbar">
+    <div class="container">
+      <div class="navbar-name">Dra. <span>Ana Tereza</span> Guerra</div>
+      <div class="navbar-cta">
+        <a href="https://wa.me/5562991401433?text=Ol%C3%A1%20Dra.%20Ana%20Tereza%2C%20vim%20pelo%20site%20e%20quero%20receber%20o%20guia%20gratuito%20de%20Harmoniza%C3%A7%C3%A3o%20Orofacial!" class="btn btn-primary" target="_blank" rel="noopener">Receber Guia Grátis</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" id="hero">
+    <div class="hero-content container" style="padding-right:60px;">
+      <span class="badge"><span class="badge-dot"></span> Material 100% Gratuito</span>
+      <h1>Descubra como a <em style="color:var(--rose);font-style:italic;">Harmonização Orofacial</em> pode realçar sua beleza natural</h1>
+      <p class="lead">Um guia prático e direto da Dra. Ana Tereza Guerra — especialista em Harmonização Orofacial em Goiânia — para você entender os procedimentos, os resultados e como dar o primeiro passo.</p>
+      <div class="hero-actions">
+        <a href="https://wa.me/5562991401433?text=Ol%C3%A1%20Dra.%20Ana%20Tereza%2C%20vim%20pelo%20site%20e%20quero%20receber%20o%20guia%20gratuito%20de%20Harmoniza%C3%A7%C3%A3o%20Orofacial!" class="btn btn-wpp btn-lg" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" width="20" height="20"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" fill="currentColor"/></svg>
+          Quero Receber Grátis
+        </a>
+        <a href="#conteudo" class="btn btn-outline btn-lg">Ver o que tem no guia</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-visual-inner">
+        <!-- Foto do Instagram carregada quando disponível -->
+        <img
+          src="https://ui-avatars.com/api/?name=A+T&size=400&background=C2947B&color=fff&font-size=0.4&bold=true&rounded=true"
+          alt="Dra. Ana Tereza Guerra — Harmonização Orofacial"
+          class="hero-photo"
+          onerror="this.style.display='none'"
+        />
+      </div>
+      <div class="hero-card">
+        <div class="hero-card-icon">📖</div>
+        <div>
+          <div class="hero-card-title">Guia Gratuito</div>
+          <div class="hero-card-sub">Harmonização Orofacial · 12 páginas</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- O QUE VOCÊ VAI RECEBER -->
+  <section class="inside-section section" id="conteudo">
+    <div class="container">
+      <div class="inside-header text-center">
+        <span class="overline">Conteúdo do Guia</span>
+        <h2>O que você vai aprender</h2>
+        <p class="lead" style="margin:16px auto 0;">Um material completo, escrito pela Dra. Ana Tereza, para você entender tudo antes de marcar sua consulta.</p>
+      </div>
+      <div class="inside-grid">
+        <div class="inside-card">
+          <div class="inside-num">01</div>
+          <h3>O que é Harmonização Orofacial</h3>
+          <p>Entenda o que são os procedimentos de harmonização facial, como funcionam e o que os diferencia de cirurgias plásticas convencionais.</p>
+        </div>
+        <div class="inside-card">
+          <div class="inside-num">02</div>
+          <h3>Quais procedimentos existem</h3>
+          <p>Botox, preenchimentos, bioremodeladores e mais — saiba para que serve cada um, quem pode fazer e quais resultados esperar.</p>
+        </div>
+        <div class="inside-card">
+          <div class="inside-num">03</div>
+          <h3>Resultados naturais vs. exagerados</h3>
+          <p>Como identificar um tratamento de qualidade e entender por que um planejamento individualizado faz toda a diferença no resultado final.</p>
+        </div>
+        <div class="inside-card">
+          <div class="inside-num">04</div>
+          <h3>Cuidados antes e depois</h3>
+          <p>Orientações essenciais para o pré e pós-procedimento — o que fazer, o que evitar e como potencializar seus resultados.</p>
+        </div>
+        <div class="inside-card">
+          <div class="inside-num">05</div>
+          <h3>Como funciona a primeira consulta</h3>
+          <p>Um guia passo a passo do que esperar na consulta de avaliação com a Dra. Ana Tereza: mapeamento facial, plano e orçamento transparente.</p>
+        </div>
+        <div class="inside-card">
+          <div class="inside-num">06</div>
+          <h3>Perguntas que você tinha vergonha de fazer</h3>
+          <p>Dói? Quanto tempo dura? Pode fazer com plano de saúde? Parece artificial? Respondemos tudo com honestidade e sem rodeios.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOBRE A DRA. ANA TEREZA -->
+  <section class="about-section section" id="sobre">
+    <div class="container">
+      <div class="about-inner">
+        <div class="about-photo-wrap">
+          <div class="about-photo-placeholder">✦</div>
+          <div class="about-accent"></div>
+        </div>
+        <div class="about-content">
+          <span class="overline">Quem vai te guiar</span>
+          <h2>Dra. Ana Tereza Guerra</h2>
+          <p class="lead">Cirurgiã-dentista especializada em Harmonização Orofacial, com atuação em Goiânia. Referência em resultados naturais e planejamento facial individualizado.</p>
+          <p style="color:var(--warm-gray);font-size:.95rem;line-height:1.75;margin-bottom:24px;">
+            A Dra. Ana Tereza acredita que a harmonização bem feita não muda quem você é — ela apenas revela o melhor da sua expressão natural. Cada procedimento é planejado com base em sua anatomia, harmonia facial e objetivos pessoais.
+          </p>
+          <a href="https://www.instagram.com/anaterezaguerra" target="_blank" rel="noopener" class="btn btn-outline">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/></svg>
+            @anaterezaguerra
+          </a>
+          <div class="about-stats">
+            <div>
+              <div class="about-stat-val">10.8k</div>
+              <div class="about-stat-lbl">Seguidores no Instagram</div>
+            </div>
+            <div>
+              <div class="about-stat-val">100%</div>
+              <div class="about-stat-lbl">Resultados naturais</div>
+            </div>
+            <div>
+              <div class="about-stat-val">Goiânia</div>
+              <div class="about-stat-lbl">Atendimento presencial</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DEPOIMENTOS -->
+  <section class="proof-section section" id="resultados">
+    <div class="container">
+      <div class="proof-header text-center">
+        <span class="overline">Quem já conhece</span>
+        <h2>O que pacientes dizem</h2>
+      </div>
+      <div class="proof-grid">
+        <div class="proof-card">
+          <div class="proof-stars">★★★★★</div>
+          <p class="proof-quote">"Fiquei com medo de ficar com cara de 'feito'. Mas o resultado ficou tão natural que as pessoas apenas dizem que estou bem descansada e radiante."</p>
+          <div class="proof-author">Camila R.</div>
+          <div class="proof-detail">Paciente · Goiânia</div>
+        </div>
+        <div class="proof-card">
+          <div class="proof-stars">★★★★★</div>
+          <p class="proof-quote">"A Dra. Ana Tereza explica cada detalhe antes de fazer qualquer coisa. Senti segurança desde o primeiro contato e o resultado superou todas as minhas expectativas."</p>
+          <div class="proof-author">Fernanda M.</div>
+          <div class="proof-detail">Paciente · Goiânia</div>
+        </div>
+        <div class="proof-card">
+          <div class="proof-stars">★★★★★</div>
+          <p class="proof-quote">"Estava com medo dos preenchimentos pelos resultados que vejo por aí. Com ela, ficou sutil e harmonioso — exatamente o que eu precisava para recuperar minha confiança."</p>
+          <div class="proof-author">Juliana S.</div>
+          <div class="proof-detail">Paciente · Goiânia</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA FINAL -->
+  <section class="cta-section section" id="guia">
+    <div class="container">
+      <div class="cta-inner text-center">
+        <span class="overline">É de graça, sério.</span>
+        <h2>Receba agora o Guia de Harmonização Orofacial</h2>
+        <p>Clique no botão abaixo e receba o material diretamente no seu WhatsApp. Sem cadastro, sem formulário, sem enrolação.</p>
+        <div class="cta-actions">
+          <a href="https://wa.me/5562991401433?text=Ol%C3%A1%20Dra.%20Ana%20Tereza%2C%20vim%20pelo%20site%20e%20quero%20receber%20o%20guia%20gratuito%20de%20Harmoniza%C3%A7%C3%A3o%20Orofacial!" class="btn btn-wpp btn-lg" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" width="22" height="22"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" fill="currentColor"/></svg>
+            Quero Meu Guia Grátis no WhatsApp
+          </a>
+        </div>
+        <p class="cta-note">💌 Enviamos pelo WhatsApp em menos de 1 minuto. Sem spam, prometemos.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">Dra. Ana Tereza Guerra</div>
+        <div class="footer-text">
+          <a href="https://www.instagram.com/anaterezaguerra" target="_blank" rel="noopener">@anaterezaguerra</a>
+          &nbsp;·&nbsp; Harmonização Orofacial · Goiânia
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- FLOATING WPP -->
+  <a href="https://wa.me/5562991401433?text=Ol%C3%A1%20Dra.%20Ana%20Tereza%2C%20vim%20pelo%20site%20e%20quero%20receber%20o%20guia%20gratuito%20de%20Harmoniza%C3%A7%C3%A3o%20Orofacial!" class="wpp-float" target="_blank" rel="noopener" aria-label="WhatsApp">
+    <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  </a>
+
+  <!-- NAVBAR SCROLL -->
+  <script>
+    (function(){
+      var nav = document.getElementById('navbar');
+      window.addEventListener('scroll', function(){
+        nav.classList.toggle('scrolled', window.scrollY > 60);
+      }, {passive:true});
+    })();
+  </script>
+
+</body>
+</html>
