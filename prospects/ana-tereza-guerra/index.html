@@ -3,752 +3,906 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Guia Gratuito de Harmonização Orofacial — Dra. Ana Tereza Guerra</title>
-  <meta name="description" content="Baixe grátis o guia da Dra. Ana Tereza Guerra e descubra como a harmonização orofacial pode realçar sua beleza natural com resultados discretos e duradouros." />
+  <title>Dra. Ana Tereza Guerra | Harmonização Orofacial — Goiânia</title>
+  <meta name="description" content="Dra. Ana Tereza Guerra — especialista em Harmonização Orofacial em Goiânia. Realce sua beleza natural com procedimentos estéticos seguros e personalizados." />
 
+  <!-- Open Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://ana-tereza-guerra.digital-ai.tech/" />
-  <meta property="og:title" content="Guia Gratuito: Harmonização Orofacial — Dra. Ana Tereza Guerra" />
-  <meta property="og:description" content="Realce sua beleza natural. Baixe grátis o guia completo da especialista em Harmonização Orofacial de Goiânia." />
-  <meta property="og:image" content="https://www.instagram.com/anaterezaguerra/channel/?__a=1" />
+  <meta property="og:title" content="Dra. Ana Tereza Guerra | Harmonização Orofacial" />
+  <meta property="og:description" content="Harmonização Orofacial, Botox e Preenchimento em Goiânia com Dra. Ana Tereza Guerra." />
+  <meta property="og:image" content="https://ana-tereza-guerra.digital-ai.tech/img/hero.jpg" />
+  <meta property="og:image:width" content="1080" />
+  <meta property="og:image:height" content="1350" />
   <meta property="og:locale" content="pt_BR" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Dra. Ana Tereza Guerra | Harmonização Orofacial" />
+  <meta name="twitter:description" content="Harmonização Orofacial, Botox e Preenchimento em Goiânia com Dra. Ana Tereza Guerra." />
+  <meta name="twitter:image" content="https://ana-tereza-guerra.digital-ai.tech/img/hero.jpg" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&display=swap" rel="stylesheet" />
 
   <style>
-    /* ─── TOKENS ─────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
     :root {
-      --rose:      #C2947B;
-      --rose-dark: #A57760;
-      --rose-light:#F0E6DC;
-      --cream:     #FAF7F3;
-      --nude:      #EDE5DC;
-      --charcoal:  #2A2218;
-      --warm-gray: #7A6E66;
-      --white:     #FFFFFF;
-      --gold:      #B8945F;
-
-      --font-serif: 'Cormorant Garamond', Georgia, serif;
-      --font-sans:  'DM Sans', system-ui, sans-serif;
-
-      --radius-sm: 6px;
-      --radius-md: 12px;
-      --radius-lg: 20px;
-      --radius-xl: 32px;
-
-      --shadow-soft: 0 4px 24px rgba(42,34,24,.08);
-      --shadow-md:   0 8px 40px rgba(42,34,24,.12);
+      --bg:           #FAF6F3;
+      --surface:      #F3EBE5;
+      --surface-2:    #EBE0D8;
+      --border:       rgba(194,148,123,.18);
+      --gold:         #C2947B;
+      --gold-l:       #D4B09A;
+      --gold-d:       #A07260;
+      --dark:         #1C1610;
+      --dark-2:       #2D2018;
+      --text:         #1C1610;
+      --text-muted:   #6B5040;
+      --text-soft:    #A88060;
+      --white:        #FFFFFF;
+      --wpp:          #25D366;
+      --radius: 14px;
+      --font-h: 'Cormorant Garamond', Georgia, serif;
+      --font-b: 'DM Sans', system-ui, sans-serif;
     }
 
-    /* ─── RESET ──────────────────────────────────────────── */
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+    html { scroll-behavior: smooth; background: var(--dark); overflow-x: hidden; }
     body {
-      font-family: var(--font-sans);
-      font-size: 16px;
+      font-family: var(--font-b);
+      background: var(--bg);
+      color: var(--text);
       line-height: 1.65;
-      color: var(--charcoal);
-      background: var(--cream);
+      -webkit-font-smoothing: antialiased;
       overflow-x: hidden;
     }
-    img { max-width: 100%; height: auto; display: block; }
-    a   { text-decoration: none; color: inherit; }
+    img { display: block; width: 100%; object-fit: cover; }
+    a { text-decoration: none; color: inherit; }
 
-    /* ─── UTILITY ────────────────────────────────────────── */
-    .container {
-      width: 100%;
-      max-width: 1080px;
-      margin: 0 auto;
-      padding: 0 24px;
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(28px); }
+      to   { opacity: 1; transform: translateY(0); }
     }
-    .text-center { text-align: center; }
-    .section { padding: 80px 0; }
+    .reveal {
+      opacity: 0; transform: translateY(22px);
+      transition: opacity .7s ease, transform .7s ease;
+    }
+    .reveal.visible { opacity: 1; transform: none; }
+    .d1 { transition-delay: .1s; }
+    .d2 { transition-delay: .2s; }
+    .d3 { transition-delay: .3s; }
+    .d4 { transition-delay: .4s; }
 
-    /* ─── TYPOGRAPHY ─────────────────────────────────────── */
-    h1 {
-      font-family: var(--font-serif);
-      font-size: clamp(2.4rem, 5.5vw, 3.8rem);
-      font-weight: 500;
-      line-height: 1.15;
-      letter-spacing: -0.01em;
-    }
-    h2 {
-      font-family: var(--font-serif);
-      font-size: clamp(1.8rem, 4vw, 2.8rem);
-      font-weight: 500;
-      line-height: 1.2;
-    }
-    h3 {
-      font-family: var(--font-serif);
-      font-size: 1.4rem;
-      font-weight: 500;
-    }
-    .overline {
-      display: inline-block;
-      font-family: var(--font-sans);
-      font-size: 0.72rem;
-      font-weight: 600;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--rose);
-      margin-bottom: 14px;
-    }
-    .lead {
-      font-size: clamp(1rem, 2.2vw, 1.15rem);
-      color: var(--warm-gray);
-      max-width: 560px;
-      line-height: 1.75;
+    #progress-bar {
+      position: fixed; top: 0; left: 0; z-index: 300;
+      height: 2px; width: 0%;
+      background: linear-gradient(90deg, var(--gold), var(--gold-l));
+      transition: width .1s linear;
     }
 
-    /* ─── BADGE ──────────────────────────────────────────── */
-    .badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: var(--white);
-      border: 1px solid var(--rose-light);
-      border-radius: 100px;
-      padding: 6px 16px;
-      font-size: 0.8rem;
-      font-weight: 500;
-      color: var(--rose-dark);
-      margin-bottom: 24px;
+    .nav {
+      position: sticky; top: 0; z-index: 100;
+      border-bottom: 1px solid transparent;
+      transition: background .3s, border-color .3s, box-shadow .3s;
     }
-    .badge-dot {
-      width: 6px; height: 6px;
-      border-radius: 50%;
-      background: var(--rose);
-      display: inline-block;
+    .nav.scrolled {
+      background: rgba(250, 246, 243, 0.95);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom-color: var(--border);
+      box-shadow: 0 2px 16px rgba(26,23,20,.06);
     }
+    .nav-inner {
+      max-width: 1100px; margin: 0 auto; padding: 0 24px;
+      display: flex; align-items: center; justify-content: space-between;
+      height: 64px;
+    }
+    .nav-brand {
+      font-family: var(--font-h);
+      font-size: 1.15rem; font-weight: 600;
+      letter-spacing: .06em; color: var(--dark);
+    }
+    .nav-brand span { color: var(--gold); }
+    .nav-ig {
+      display: flex; align-items: center; gap: 7px;
+      font-size: .78rem; font-weight: 600; color: var(--text-muted);
+      padding: 9px 16px; border-radius: 100px;
+      border: 1px solid var(--border);
+      transition: all .2s;
+    }
+    .nav-ig:hover { background: var(--dark); color: #fff; border-color: var(--dark); }
+    .nav-ig svg { width: 15px; height: 15px; }
 
-    /* ─── BUTTON ─────────────────────────────────────────── */
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      font-family: var(--font-sans);
-      font-size: 0.9375rem;
-      font-weight: 600;
-      border-radius: 100px;
-      padding: 14px 32px;
-      cursor: pointer;
-      transition: all .25s ease;
-      border: none;
-      white-space: nowrap;
-    }
-    .btn-primary {
-      background: var(--rose);
-      color: var(--white);
-      box-shadow: 0 4px 20px rgba(194,148,123,.35);
-    }
-    .btn-primary:hover {
-      background: var(--rose-dark);
-      box-shadow: 0 6px 28px rgba(194,148,123,.45);
-      transform: translateY(-2px);
-    }
-    .btn-outline {
-      background: transparent;
-      color: var(--rose-dark);
-      border: 1.5px solid var(--rose);
-    }
-    .btn-outline:hover {
-      background: var(--rose-light);
-      transform: translateY(-2px);
-    }
-    .btn-lg { padding: 17px 40px; font-size: 1rem; }
-    .btn-wpp {
-      background: #25D366;
-      color: var(--white);
-      box-shadow: 0 4px 20px rgba(37,211,102,.3);
-    }
-    .btn-wpp:hover {
-      background: #1ebe5a;
-      box-shadow: 0 6px 28px rgba(37,211,102,.4);
-      transform: translateY(-2px);
-    }
-
-    /* ─── NAVBAR ─────────────────────────────────────────── */
-    .navbar {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      z-index: 100;
-      padding: 18px 0;
-      background: transparent;
-      transition: all .3s ease;
-    }
-    .navbar.scrolled {
-      background: rgba(250,247,243,.92);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      box-shadow: 0 1px 0 rgba(42,34,24,.08);
-      padding: 12px 0;
-    }
-    .navbar .container {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-    .navbar-name {
-      font-family: var(--font-serif);
-      font-size: 1.25rem;
-      font-weight: 500;
-      color: var(--charcoal);
-      letter-spacing: 0.01em;
-    }
-    .navbar-name span { color: var(--rose); }
-    .navbar-cta a { font-size: 0.875rem; }
-
-    /* ─── HERO ───────────────────────────────────────────── */
     .hero {
-      min-height: 100vh;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 0;
-      padding-top: 80px;
-      overflow: hidden;
+      position: relative; overflow: hidden;
+      min-height: 100svh;
+      display: flex; align-items: flex-end;
+      padding-top: 0;
+    }
+    @media (min-width: 769px) {
+      .hero { align-items: center; justify-content: center; }
+      .hero-content { text-align: center; max-width: 700px; padding: 120px 40px 80px; margin: 0 auto; }
+      .hero-eyebrow { justify-content: center; }
+      .hero-btns { justify-content: center; }
+      .hero-sub { margin-left: auto; margin-right: auto; }
+    }
+    .hero-bg {
+      position: absolute; inset: 0; z-index: 0;
+    }
+    .hero-bg img {
+      height: 100%; object-position: center center;
+      opacity: 0.78;
+    }
+    .hero-overlay {
+      position: absolute; inset: 0; z-index: 1;
+      background: linear-gradient(
+        to top,
+        rgba(26,23,20,.88) 0%,
+        rgba(26,23,20,.30) 50%,
+        rgba(26,23,20,.10) 100%
+      );
     }
     .hero-content {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      padding: 80px 60px 80px 0;
+      position: relative; z-index: 2;
+      padding: 0 24px 60px;
+      max-width: 600px;
+      animation: fadeUp .9s ease both;
     }
-    .hero-content .lead { margin: 20px 0 36px; }
-    .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 14px;
-      align-items: center;
+    .hero-eyebrow {
+      display: inline-flex; align-items: center; gap: 10px;
+      font-size: .7rem; font-weight: 600; letter-spacing: .16em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 1.4rem;
     }
-    .hero-visual {
-      position: relative;
-      background: var(--nude);
-      overflow: hidden;
+    .hero-eyebrow::before {
+      content: ''; display: block; width: 32px; height: 1px; background: var(--gold);
     }
-    .hero-visual::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(135deg,
-        rgba(194,148,123,.12) 0%,
-        rgba(184,148,95,.06) 100%);
+    .hero-title {
+      font-family: var(--font-h);
+      font-size: clamp(2.6rem, 6vw, 4.2rem);
+      font-weight: 400; line-height: 1.1;
+      color: #fff; margin-bottom: 1rem;
     }
-    .hero-visual-inner {
-      position: absolute;
-      inset: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
+    .hero-title em { font-style: italic; color: var(--gold-l); }
+    .hero-sub {
+      font-size: .95rem; color: rgba(255,255,255,.75);
+      line-height: 1.75; margin-bottom: 2.2rem; max-width: 420px;
     }
-    .hero-photo {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: top;
+    .hero-btns { display: flex; gap: 12px; flex-wrap: wrap; }
+
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 9px;
+      font-family: var(--font-b); font-size: .88rem; font-weight: 600;
+      padding: 14px 26px; border-radius: 100px; cursor: pointer; border: none;
+      transition: transform .2s, box-shadow .2s, background .2s, opacity .2s;
+      letter-spacing: .01em;
     }
-    .hero-photo-placeholder {
-      width: 200px; height: 200px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, var(--rose) 0%, var(--gold) 100%);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: var(--font-serif);
-      font-size: 5rem;
-      font-weight: 300;
-      color: var(--white);
-      opacity: .85;
+    .btn:hover { transform: translateY(-2px); }
+    .btn svg { width: 18px; height: 18px; flex-shrink: 0; }
+    .btn-gold {
+      background: var(--gold); color: #fff;
+      box-shadow: 0 4px 20px rgba(194,148,123,.32);
     }
-    /* Card de material flutuante */
-    .hero-card {
-      position: absolute;
-      bottom: 48px;
-      left: -24px;
-      background: var(--white);
-      border-radius: var(--radius-md);
-      padding: 20px 24px;
-      box-shadow: var(--shadow-md);
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      min-width: 260px;
+    .btn-gold:hover { background: var(--gold-d); box-shadow: 0 6px 28px rgba(194,148,123,.42); }
+    .btn-wpp {
+      background: var(--wpp); color: #fff;
+      box-shadow: 0 4px 20px rgba(37,211,102,.24);
     }
-    .hero-card-icon {
-      width: 48px; height: 48px;
-      border-radius: var(--radius-sm);
-      background: var(--rose-light);
+    .btn-wpp:hover { background: #1db954; box-shadow: 0 6px 28px rgba(37,211,102,.34); }
+    .btn-outline {
+      background: transparent; color: #fff;
+      border: 1.5px solid rgba(255,255,255,.35);
+    }
+    .btn-outline:hover { background: rgba(255,255,255,.1); border-color: rgba(255,255,255,.6); }
+    .btn-dark  { background: var(--dark); color: #fff; }
+    .btn-dark:hover { background: var(--dark-2); }
+    .btn-sub {
+      display: block; text-align: center;
+      font-size: .72rem; color: rgba(255,255,255,.45);
+      margin-top: 8px;
+    }
+
+    .benefits-bar {
+      background: #111009;
+      padding: 0;
+      border-bottom: 1px solid rgba(196,169,110,.12);
+    }
+    .benefits-inner {
+      max-width: 1100px; margin: 0 auto;
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+    }
+    .benefit-item {
+      display: flex; align-items: center; gap: 12px;
+      padding: 18px 20px;
+      border-right: 1px solid rgba(196,169,110,.1);
+    }
+    .benefit-item:last-child { border-right: none; }
+    .benefit-icon {
+      width: 36px; height: 36px; border-radius: 10px;
+      background: rgba(196,169,110,.12);
       display: flex; align-items: center; justify-content: center;
-      font-size: 1.5rem;
       flex-shrink: 0;
     }
-    .hero-card-title {
-      font-family: var(--font-sans);
-      font-size: 0.8rem;
-      font-weight: 600;
-      color: var(--charcoal);
-    }
-    .hero-card-sub {
-      font-size: 0.72rem;
-      color: var(--warm-gray);
-    }
-
-    /* ─── WHAT'S INSIDE ──────────────────────────────────── */
-    .inside-section { background: var(--white); }
-    .inside-header { max-width: 560px; margin: 0 auto 56px; }
-    .inside-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
-    }
-    .inside-card {
-      background: var(--cream);
-      border-radius: var(--radius-lg);
-      padding: 36px 28px;
-      transition: all .25s ease;
-      position: relative;
-      overflow: hidden;
-    }
-    .inside-card::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 3px;
-      background: linear-gradient(90deg, var(--rose), var(--gold));
-      opacity: 0;
-      transition: opacity .25s;
-    }
-    .inside-card:hover::before { opacity: 1; }
-    .inside-card:hover {
-      box-shadow: var(--shadow-soft);
-      transform: translateY(-4px);
-    }
-    .inside-num {
-      font-family: var(--font-serif);
-      font-size: 3rem;
-      font-weight: 300;
-      color: var(--rose-light);
-      line-height: 1;
-      margin-bottom: 16px;
-    }
-    .inside-card h3 { margin-bottom: 10px; font-size: 1.15rem; }
-    .inside-card p  { font-size: 0.9rem; color: var(--warm-gray); line-height: 1.65; }
-
-    /* ─── SOBRE ──────────────────────────────────────────── */
-    .about-section { background: var(--nude); }
-    .about-inner {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 80px;
-      align-items: center;
-    }
-    .about-photo-wrap {
-      position: relative;
-    }
-    .about-photo {
-      width: 100%;
-      aspect-ratio: 4/5;
-      border-radius: var(--radius-xl);
-      object-fit: cover;
-      background: linear-gradient(135deg, var(--rose-light), var(--nude));
-    }
-    .about-photo-placeholder {
-      width: 100%;
-      aspect-ratio: 4/5;
-      border-radius: var(--radius-xl);
-      background: linear-gradient(135deg, var(--rose) 0%, var(--gold) 100%);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: var(--font-serif);
-      font-size: 8rem;
-      color: rgba(255,255,255,.7);
-    }
-    .about-accent {
-      position: absolute;
-      bottom: -20px;
-      right: -20px;
-      width: 120px; height: 120px;
-      border-radius: 50%;
-      background: var(--rose);
-      opacity: .12;
-    }
-    .about-content .lead { margin: 20px 0 32px; }
-    .about-stats {
-      display: flex;
-      gap: 40px;
-      margin-top: 36px;
-      padding-top: 36px;
-      border-top: 1px solid rgba(42,34,24,.12);
-    }
-    .about-stat-val {
-      font-family: var(--font-serif);
-      font-size: 2rem;
-      font-weight: 500;
-      color: var(--rose);
-      line-height: 1;
-      margin-bottom: 4px;
-    }
-    .about-stat-lbl {
-      font-size: 0.8rem;
-      color: var(--warm-gray);
-    }
-
-    /* ─── CTA ────────────────────────────────────────────── */
-    .cta-section {
-      background: linear-gradient(135deg, var(--charcoal) 0%, #3A2E24 100%);
-      color: var(--white);
-      position: relative;
-      overflow: hidden;
-    }
-    .cta-section::before {
-      content: '';
-      position: absolute;
-      top: -50%; right: -20%;
-      width: 600px; height: 600px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(194,148,123,.15) 0%, transparent 70%);
-      pointer-events: none;
-    }
-    .cta-inner {
-      max-width: 600px;
-      margin: 0 auto;
-      position: relative;
-      z-index: 2;
-    }
-    .cta-inner .overline { color: var(--rose-light); }
-    .cta-inner h2 { color: var(--white); margin-bottom: 16px; }
-    .cta-inner p  {
-      color: rgba(255,255,255,.65);
-      margin-bottom: 40px;
-      font-size: 1.05rem;
-    }
-    .cta-actions {
-      display: flex;
-      gap: 16px;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-    .cta-note {
-      margin-top: 24px;
-      font-size: 0.8rem;
-      color: rgba(255,255,255,.35);
-    }
-
-    /* ─── DEPOIMENTOS ────────────────────────────────────── */
-    .proof-section { background: var(--cream); }
-    .proof-header { max-width: 560px; margin: 0 auto 56px; }
-    .proof-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-    }
-    .proof-card {
-      background: var(--white);
-      border-radius: var(--radius-md);
-      padding: 28px 24px;
-      box-shadow: var(--shadow-soft);
-    }
-    .proof-stars {
-      color: var(--gold);
-      font-size: 0.85rem;
-      margin-bottom: 14px;
-    }
-    .proof-quote {
-      font-family: var(--font-serif);
-      font-size: 1rem;
-      line-height: 1.7;
-      color: var(--charcoal);
-      margin-bottom: 20px;
-      font-style: italic;
-    }
-    .proof-author {
-      font-size: 0.8rem;
-      font-weight: 600;
-      color: var(--rose-dark);
-    }
-    .proof-detail {
-      font-size: 0.75rem;
-      color: var(--warm-gray);
-    }
-
-    /* ─── FOOTER ─────────────────────────────────────────── */
-    .footer {
-      background: var(--charcoal);
-      color: rgba(255,255,255,.4);
-      padding: 32px 0;
-    }
-    .footer-inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-    }
-    .footer-brand {
-      font-family: var(--font-serif);
-      font-size: 1rem;
-      color: rgba(255,255,255,.6);
-    }
-    .footer-text {
-      font-size: 0.78rem;
-    }
-    .footer-text a {
-      color: rgba(255,255,255,.5);
-      transition: color .2s;
-    }
-    .footer-text a:hover { color: var(--white); }
-
-    /* ─── FLOATING WPP ───────────────────────────────────── */
-    .wpp-float {
-      position: fixed;
-      bottom: 24px; right: 24px;
-      z-index: 999;
-      width: 58px; height: 58px;
-      border-radius: 50%;
-      background: #25D366;
-      display: flex; align-items: center; justify-content: center;
-      box-shadow: 0 4px 20px rgba(37,211,102,.4);
-      transition: all .3s ease;
-      animation: float 3s ease-in-out infinite;
-    }
-    .wpp-float:hover { transform: scale(1.1); }
-    .wpp-float svg { width: 26px; height: 26px; fill: white; }
-    @keyframes float {
-      0%,100% { transform: translateY(0); }
-      50%      { transform: translateY(-6px); }
-    }
-
-    /* ─── RESPONSIVE ─────────────────────────────────────── */
-    @media (max-width: 1024px) {
-      .hero { grid-template-columns: 1fr; min-height: auto; }
-      .hero-content { padding: 100px 0 60px; }
-      .hero-visual { height: 480px; border-radius: 0 0 var(--radius-xl) var(--radius-xl); }
-      .hero-card { bottom: -24px; left: 50%; transform: translateX(-50%); }
-      .inside-grid { grid-template-columns: 1fr; }
-      .about-inner { grid-template-columns: 1fr; }
-      .about-photo-wrap { max-width: 400px; margin: 0 auto; }
-      .proof-grid { grid-template-columns: 1fr; }
-    }
+    .benefit-icon svg { width: 18px; height: 18px; color: var(--gold); }
+    .benefit-text { display: flex; flex-direction: column; gap: 1px; }
+    .benefit-title { font-size: .78rem; font-weight: 700; color: #fff; }
+    .benefit-sub { font-size: .68rem; color: rgba(255,255,255,.45); }
     @media (max-width: 768px) {
-      .section { padding: 64px 0; }
-      .hero-actions { flex-direction: column; }
-      .hero-actions .btn { width: 100%; }
-      .about-stats { gap: 24px; }
-      .cta-actions { flex-direction: column; }
-      .cta-actions .btn { width: 100%; }
-      .footer-inner { flex-direction: column; text-align: center; }
+      .benefits-inner { grid-template-columns: repeat(2, 1fr); }
+      .benefit-item:nth-child(2) { border-right: none; }
+      .benefit-item { padding: 14px 16px; gap: 10px; }
     }
     @media (max-width: 480px) {
-      .container { padding: 0 16px; }
-      .hero-card { min-width: unset; width: calc(100% - 32px); }
+      .benefits-inner { grid-template-columns: 1fr 1fr; }
+      .benefit-sub { display: none; }
+      .benefit-title { font-size: .72rem; }
+    }
+
+    .links-sec {
+      background: var(--dark);
+      padding: 3.5rem 24px 4rem;
+    }
+    .links-label {
+      text-align: center;
+      font-size: .68rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase;
+      color: var(--text-soft); margin-bottom: 2rem;
+    }
+    .links-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      max-width: 760px; margin: 0 auto;
+    }
+    .link-card {
+      display: flex; flex-direction: column; align-items: center;
+      gap: 12px; padding: 28px 20px 24px;
+      border-radius: 20px;
+      color: #fff;
+      text-align: center;
+      transition: transform .25s, box-shadow .25s;
+      border: 1px solid rgba(255,255,255,.06);
+      cursor: pointer;
+    }
+    .link-card:hover { transform: translateY(-5px); box-shadow: 0 16px 40px rgba(0,0,0,.35); }
+    .link-card-icon {
+      width: 52px; height: 52px; border-radius: 16px;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .link-card-icon svg { width: 26px; height: 26px; }
+    .link-card-title { font-size: .88rem; font-weight: 700; letter-spacing: .01em; line-height: 1.3; }
+    .link-card-sub { font-size: .73rem; color: rgba(255,255,255,.55); line-height: 1.5; }
+    .link-card-arrow { font-size: .72rem; color: rgba(255,255,255,.35); margin-top: 2px; }
+    .lc-wpp  { background: rgba(29,168,81,.15); border-color: rgba(29,168,81,.25); }
+    .lc-wpp .link-card-icon { background: #1da851; }
+    .lc-ig   { background: rgba(131,58,180,.15); border-color: rgba(253,29,29,.15); }
+    .lc-ig .link-card-icon { background: linear-gradient(135deg, #833ab4, #fd1d1d, #fcb045); }
+    .lc-lt   { background: rgba(196,169,110,.08); border-color: rgba(196,169,110,.2); }
+    .lc-lt .link-card-icon { background: rgba(196,169,110,.2); }
+    .lc-lt .link-card-icon svg { color: var(--gold); }
+    @media (max-width: 600px) {
+      .links-grid { grid-template-columns: 1fr; max-width: 360px; gap: 12px; }
+      .link-card { flex-direction: row; text-align: left; padding: 18px 20px; gap: 16px; }
+      .link-card-icon { width: 46px; height: 46px; border-radius: 14px; flex-shrink: 0; }
+      .link-card-title { font-size: .9rem; }
+      .link-card-sub, .link-card-arrow { display: none; }
+    }
+
+    .section { padding: 88px 24px; }
+    .container { max-width: 1100px; margin: 0 auto; }
+    .sec-tag {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: .68rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase;
+      color: var(--gold); padding: 5px 14px; border-radius: 100px;
+      background: rgba(196,169,110,.1); margin-bottom: .9rem;
+    }
+    .sec-title {
+      font-family: var(--font-h);
+      font-size: clamp(1.9rem, 3.5vw, 3rem);
+      font-weight: 400; color: var(--dark); line-height: 1.2;
+      margin-bottom: .75rem;
+    }
+    .sec-title em { font-style: italic; color: var(--gold); }
+    .sec-sub {
+      color: var(--text-muted); font-size: .95rem;
+      max-width: 480px; line-height: 1.75;
+    }
+    .sec-header { margin-bottom: 3.5rem; }
+
+    .produtos-section { background: var(--bg); }
+    .produtos-grid {
+      display: grid; grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem; max-width: 860px; margin: 0 auto;
+    }
+    .prod-card {
+      border-radius: 18px; overflow: hidden;
+      background: var(--white);
+      box-shadow: 0 2px 20px rgba(26,23,20,.06);
+      transition: transform .3s, box-shadow .3s; cursor: pointer;
+    }
+    .prod-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 40px rgba(26,23,20,.12);
+    }
+    .prod-img { position: relative; overflow: hidden; }
+    .prod-img img { aspect-ratio: 3/4; transition: transform .5s; }
+    .prod-card:hover .prod-img img { transform: scale(1.04); }
+    .prod-badge {
+      position: absolute; top: 14px; right: 14px;
+      background: var(--gold); color: #fff;
+      font-size: .62rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase;
+      padding: 4px 10px; border-radius: 100px;
+    }
+    .prod-badge-red   { background: #e53e3e; }
+    .prod-badge-green { background: #1da851; }
+    .prod-badge-dark  { background: #8A6E3A; }
+    .prod-info { padding: 18px 20px 22px; }
+    .prod-name {
+      font-family: var(--font-h);
+      font-size: 1.15rem; font-weight: 500; color: var(--dark);
+      margin-bottom: 6px;
+    }
+    .prod-desc { font-size: .82rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 14px; }
+    .prod-cta {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: .78rem; font-weight: 600; color: var(--gold);
+      padding: 8px 16px; border-radius: 100px;
+      border: 1.5px solid rgba(196,169,110,.3);
+      transition: background .2s, color .2s;
+    }
+    .prod-cta:hover { background: var(--gold); color: #fff; }
+
+    .sobre-section { background: var(--dark); }
+    .sobre-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 3rem; align-items: center; max-width: 1000px; margin: 0 auto;
+    }
+    .sobre-img-wrap {
+      border-radius: 20px; overflow: hidden;
+      box-shadow: 0 8px 48px rgba(0,0,0,.35);
+    }
+    .sobre-img-wrap img { aspect-ratio: 3/4; }
+    .sobre-text .sec-tag { color: var(--gold); background: rgba(196,169,110,.15); }
+    .sobre-text .sec-title { color: #fff; }
+    .sobre-text .sec-title em { color: var(--gold-l); }
+    .sobre-body {
+      color: rgba(255,255,255,.62); font-size: .95rem;
+      line-height: 1.85; margin-bottom: 2rem;
+    }
+    .sobre-stats {
+      display: flex; gap: 2rem; flex-wrap: wrap; margin-bottom: 2rem;
+    }
+    .stat { text-align: center; }
+    .stat-num {
+      font-family: var(--font-h);
+      font-size: 2.2rem; font-weight: 600; color: var(--gold);
+      line-height: 1;
+    }
+    .stat-label {
+      font-size: .72rem; color: rgba(255,255,255,.45);
+      font-weight: 500; letter-spacing: .05em; margin-top: 4px;
+    }
+    .sobre-divider {
+      width: 40px; height: 1px; background: rgba(196,169,110,.4);
+      margin: 1.5rem 0;
+    }
+    @media (max-width: 768px) {
+      .sobre-grid { grid-template-columns: 1fr; }
+      .sobre-img-wrap { max-height: 300px; }
+      .sobre-img-wrap img { aspect-ratio: 4/3; object-position: center top; }
+    }
+
+    .depo-section { background: var(--surface); }
+    .depo-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem; max-width: 1000px; margin: 0 auto;
+    }
+    .depo-card {
+      background: var(--white);
+      border-radius: 18px;
+      padding: 28px 24px;
+      box-shadow: 0 2px 20px rgba(26,23,20,.06);
+      display: flex; flex-direction: column; gap: 16px;
+      position: relative;
+    }
+    .depo-stars { display: flex; gap: 3px; }
+    .depo-stars svg { width: 14px; height: 14px; color: var(--gold); }
+    .depo-quote {
+      font-size: .9rem; color: var(--text-muted);
+      line-height: 1.75; flex: 1;
+      font-style: italic;
+    }
+    .depo-author {
+      display: flex; align-items: center; gap: 10px;
+      padding-top: 14px;
+      border-top: 1px solid var(--border);
+    }
+    .depo-avatar {
+      width: 36px; height: 36px; border-radius: 50%;
+      background: var(--gold);
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--font-h); font-size: 1rem; font-weight: 600; color: #fff;
+      flex-shrink: 0;
+    }
+    .depo-name { font-size: .82rem; font-weight: 700; color: var(--dark); }
+    .depo-city { font-size: .72rem; color: var(--text-soft); }
+    @media (max-width: 768px) { .depo-grid { grid-template-columns: 1fr; max-width: 420px; margin: 0 auto; } }
+
+    .faq-section { background: var(--bg); }
+    .faq-list { max-width: 720px; margin: 0 auto; display: flex; flex-direction: column; gap: 10px; }
+    .faq-item {
+      border: 1px solid var(--border);
+      border-radius: 14px; overflow: hidden;
+      background: var(--white);
+    }
+    .faq-q {
+      width: 100%; text-align: left;
+      display: flex; align-items: center; justify-content: space-between; gap: 12px;
+      padding: 18px 22px;
+      font-size: .9rem; font-weight: 600; color: var(--dark);
+      background: none; border: none; cursor: pointer;
+      transition: color .2s;
+    }
+    .faq-q:hover { color: var(--gold-d); }
+    .faq-q svg { width: 16px; height: 16px; color: var(--gold); flex-shrink: 0; transition: transform .3s; }
+    .faq-item.open .faq-q svg { transform: rotate(180deg); }
+    .faq-a {
+      max-height: 0; overflow: hidden;
+      transition: max-height .35s ease, padding .35s;
+      font-size: .88rem; color: var(--text-muted); line-height: 1.8;
+      padding: 0 22px;
+    }
+    .faq-item.open .faq-a { max-height: 300px; padding: 0 22px 20px; }
+
+    .cta-section {
+      background: var(--dark);
+      padding: 88px 24px;
+      text-align: center;
+      position: relative; overflow: hidden;
+    }
+    .cta-section::before {
+      content: ''; position: absolute; top: -80px; right: -80px;
+      width: 320px; height: 320px; border-radius: 50%;
+      background: rgba(196,169,110,.06);
+    }
+    .cta-section::after {
+      content: ''; position: absolute; bottom: -60px; left: -60px;
+      width: 260px; height: 260px; border-radius: 50%;
+      background: rgba(196,169,110,.04);
+    }
+    .cta-eyebrow {
+      font-size: .68rem; font-weight: 700; letter-spacing: .16em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 1.2rem; position: relative; z-index: 2;
+    }
+    .cta-title {
+      font-family: var(--font-h);
+      font-size: clamp(2.2rem, 4vw, 3.6rem);
+      font-weight: 400; color: #fff; line-height: 1.15;
+      margin-bottom: 1rem; position: relative; z-index: 2;
+    }
+    .cta-title em { font-style: italic; color: var(--gold-l); }
+    .cta-sub {
+      color: rgba(255,255,255,.55); font-size: .95rem;
+      max-width: 420px; margin: 0 auto 2.5rem; position: relative; z-index: 2; line-height: 1.75;
+    }
+    .cta-urgency {
+      font-size: .78rem; color: rgba(196,169,110,.65);
+      margin-top: 1.2rem; position: relative; z-index: 2;
+      font-style: italic;
+    }
+    .cta-btns {
+      display: flex; justify-content: center; gap: 12px; flex-wrap: wrap;
+      position: relative; z-index: 2;
+    }
+
+    footer {
+      background: var(--dark);
+      padding: 24px;
+      text-align: center;
+      border-top: 1px solid rgba(255,255,255,.06);
+    }
+
+    .float-wpp {
+      position: fixed; bottom: 24px; right: 24px; z-index: 200;
+      width: 58px; height: 58px; border-radius: 50%;
+      background: var(--wpp);
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 6px 28px rgba(37,211,102,.40);
+      transition: transform .2s, box-shadow .2s;
+    }
+    .float-wpp:hover { transform: translateY(-3px) scale(1.06); box-shadow: 0 10px 36px rgba(37,211,102,.50); }
+    .float-wpp svg { width: 26px; height: 26px; }
+
+    @media (max-width: 480px) {
+      .section { padding: 64px 16px; }
+      .produtos-grid { grid-template-columns: 1fr; max-width: 340px; margin: 0 auto; }
+      .hero-btns { flex-direction: column; }
+      .hero-btns .btn { width: 100%; max-width: 320px; }
+      .sobre-stats { gap: 1.5rem; }
     }
   </style>
 </head>
 <body>
 
-  <!-- NAVBAR -->
-  <nav class="navbar" id="navbar">
-    <div class="container">
-      <div class="navbar-name">Dra. <span>Ana Tereza</span> Guerra</div>
-      <div class="navbar-cta">
-        <a href="https://wa.me/5562991401433?text=Ol%C3%A1%20Dra.%20Ana%20Tereza%2C%20vim%20pelo%20site%20e%20quero%20receber%20o%20guia%20gratuito%20de%20Harmoniza%C3%A7%C3%A3o%20Orofacial!" class="btn btn-primary" target="_blank" rel="noopener">Receber Guia Grátis</a>
+<!-- PROGRESS BAR -->
+<div id="progress-bar"></div>
+
+<!-- NAV -->
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <span class="nav-brand">Dra. Ana Tereza <span>✦</span> Harmonização</span>
+    <a href="https://www.instagram.com/anaterezaguerra" target="_blank" rel="noopener" class="nav-ig">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+      @anaterezaguerra
+    </a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg">
+    <img src="img/hero.jpg" alt="Dra. Ana Tereza Guerra" loading="eager" />
+  </div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">Harmonização Orofacial • Goiânia</div>
+    <h1 class="hero-title">
+      Realce sua beleza<br><em>de forma natural</em>
+    </h1>
+    <p class="hero-sub">Procedimentos estéticos personalizados para valorizar quem você já é — com segurança, técnica e resultado que dura.</p>
+    <div class="hero-btns">
+      <a href="https://wa.me/5564981337424?text=Ol%C3%A1%2C+Dra.+Ana+Tereza!+Vi+sua+p%C3%A1gina+e+quero+saber+mais+sobre+Harmoniza%C3%A7%C3%A3o+Orofacial." target="_blank" rel="noopener" class="btn btn-wpp">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Agendar minha avaliação
+      </a>
+      <a href="#produtos" class="btn btn-outline">Ver procedimentos ↓</a>
+    </div>
+  </div>
+</section>
+
+<!-- BARRA DE BENEFÍCIOS -->
+<div class="benefits-bar">
+  <div class="benefits-inner">
+    <div class="benefit-item">
+      <div class="benefit-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+      </div>
+      <div class="benefit-text">
+        <span class="benefit-title">Avaliação Personalizada</span>
+        <span class="benefit-sub">Estética feita pra você</span>
       </div>
     </div>
-  </nav>
+    <div class="benefit-item">
+      <div class="benefit-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4"/></svg>
+      </div>
+      <div class="benefit-text">
+        <span class="benefit-title">Procedimentos Seguros</span>
+        <span class="benefit-sub">Protocolos certificados</span>
+      </div>
+    </div>
+    <div class="benefit-item">
+      <div class="benefit-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"/></svg>
+      </div>
+      <div class="benefit-text">
+        <span class="benefit-title">Resultados Naturais</span>
+        <span class="benefit-sub">Beleza sem exageros</span>
+      </div>
+    </div>
+    <div class="benefit-item">
+      <div class="benefit-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
+      </div>
+      <div class="benefit-text">
+        <span class="benefit-title">Pós-Tratamento</span>
+        <span class="benefit-sub">Acompanhamento completo</span>
+      </div>
+    </div>
+  </div>
+</div>
 
-  <!-- HERO -->
-  <section class="hero" id="hero">
-    <div class="hero-content container" style="padding-right:60px;">
-      <span class="badge"><span class="badge-dot"></span> Material 100% Gratuito</span>
-      <h1>Descubra como a <em style="color:var(--rose);font-style:italic;">Harmonização Orofacial</em> pode realçar sua beleza natural</h1>
-      <p class="lead">Um guia prático e direto da Dra. Ana Tereza Guerra — especialista em Harmonização Orofacial em Goiânia — para você entender os procedimentos, os resultados e como dar o primeiro passo.</p>
-      <div class="hero-actions">
-        <a href="https://wa.me/5562991401433?text=Ol%C3%A1%20Dra.%20Ana%20Tereza%2C%20vim%20pelo%20site%20e%20quero%20receber%20o%20guia%20gratuito%20de%20Harmoniza%C3%A7%C3%A3o%20Orofacial!" class="btn btn-wpp btn-lg" target="_blank" rel="noopener">
-          <svg viewBox="0 0 24 24" width="20" height="20"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" fill="currentColor"/></svg>
-          Quero Receber Grátis
+<!-- LINKS RÁPIDOS -->
+<section class="links-sec">
+  <p class="links-label">Acesse direto</p>
+  <div class="links-grid">
+    <a href="https://wa.me/5564981337424?text=Ol%C3%A1%2C+Dra.+Ana+Tereza!+Vi+sua+p%C3%A1gina+e+quero+saber+mais+sobre+Harmoniza%C3%A7%C3%A3o+Orofacial." target="_blank" rel="noopener" class="link-card lc-wpp reveal">
+      <div class="link-card-icon">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      </div>
+      <div class="link-card-title">WhatsApp</div>
+      <div class="link-card-sub">Tire suas dúvidas e agende agora</div>
+      <div class="link-card-arrow">Abrir →</div>
+    </a>
+    <a href="https://www.instagram.com/anaterezaguerra" target="_blank" rel="noopener" class="link-card lc-ig reveal d1">
+      <div class="link-card-icon">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+      </div>
+      <div class="link-card-title">Instagram</div>
+      <div class="link-card-sub">Veja resultados e antes/depois</div>
+      <div class="link-card-arrow">Seguir →</div>
+    </a>
+    <a href="https://www.instagram.com/anaterezaguerra" target="_blank" rel="noopener" class="link-card lc-lt reveal d2">
+      <div class="link-card-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color:var(--gold)"><path d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"/></svg>
+      </div>
+      <div class="link-card-title">Portfólio</div>
+      <div class="link-card-sub">Resultados reais de pacientes</div>
+      <div class="link-card-arrow">Ver tudo →</div>
+    </a>
+  </div>
+</section>
+
+<!-- PRODUTOS / PROCEDIMENTOS -->
+<section class="section produtos-section" id="produtos">
+  <div class="container">
+    <div class="sec-header reveal">
+      <div class="sec-tag">✦ Procedimentos</div>
+      <h2 class="sec-title">Tratamentos que realçam<br><em>sua beleza natural</em></h2>
+      <p class="sec-sub">Cada procedimento é planejado individualmente para harmonizar seus traços com leveza e precisão.</p>
+    </div>
+    <div class="produtos-grid">
+      <div class="prod-card reveal d1">
+        <div class="prod-img">
+          <img src="img/img2.jpg" alt="Toxina Botulínica" loading="lazy" />
+          <span class="prod-badge">Mais Pedido</span>
+        </div>
+        <div class="prod-info">
+          <div class="prod-name">Toxina Botulínica</div>
+          <p class="prod-desc">Suaviza linhas de expressão e previne o envelhecimento precoce com resultado natural. Sem alterar sua expressividade.</p>
+          <a href="https://wa.me/5564981337424?text=Ol%C3%A1%2C+Dra.+Ana+Tereza!+Vi+seus+procedimentos+e+quero+agendar+uma+avalia%C3%A7%C3%A3o." target="_blank" rel="noopener" class="prod-cta">Ver mais →</a>
+        </div>
+      </div>
+      <div class="prod-card reveal d2">
+        <div class="prod-img">
+          <img src="img/img3.jpg" alt="Preenchimento Labial" loading="lazy" />
+          <span class="prod-badge prod-badge-red">Trending</span>
+        </div>
+        <div class="prod-info">
+          <div class="prod-name">Preenchimento Labial</div>
+          <p class="prod-desc">Lábios mais volumosos, definidos e hidratados — respeitando a harmonia do seu rosto. Resultado imediato e duradouro.</p>
+          <a href="https://wa.me/5564981337424?text=Ol%C3%A1%2C+Dra.+Ana+Tereza!+Vi+seus+procedimentos+e+quero+agendar+uma+avalia%C3%A7%C3%A3o." target="_blank" rel="noopener" class="prod-cta">Ver mais →</a>
+        </div>
+      </div>
+      <div class="prod-card reveal d1">
+        <div class="prod-img">
+          <img src="img/img4.jpg" alt="Bioremodelador" loading="lazy" />
+          <span class="prod-badge prod-badge-dark">Top Tratamento</span>
+        </div>
+        <div class="prod-info">
+          <div class="prod-name">Bioremodelador</div>
+          <p class="prod-desc">Hidratação profunda, firmeza e luminosidade para a pele. Ideal para quem busca rejuvenescimento global com toque natural.</p>
+          <a href="https://wa.me/5564981337424?text=Ol%C3%A1%2C+Dra.+Ana+Tereza!+Vi+seus+procedimentos+e+quero+agendar+uma+avalia%C3%A7%C3%A3o." target="_blank" rel="noopener" class="prod-cta">Ver mais →</a>
+        </div>
+      </div>
+      <div class="prod-card reveal d2">
+        <div class="prod-img">
+          <img src="img/img5.jpg" alt="Bioestimulador de Colágeno" loading="lazy" />
+          <span class="prod-badge prod-badge-green">Novidade</span>
+        </div>
+        <div class="prod-info">
+          <div class="prod-name">Bioestimulador de Colágeno</div>
+          <p class="prod-desc">Estimula a produção natural de colágeno para uma pele mais firme e jovem. Resultado progressivo e duradouro.</p>
+          <a href="https://wa.me/5564981337424?text=Ol%C3%A1%2C+Dra.+Ana+Tereza!+Vi+seus+procedimentos+e+quero+agendar+uma+avalia%C3%A7%C3%A3o." target="_blank" rel="noopener" class="prod-cta">Saber mais →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SOBRE -->
+<section class="section sobre-section">
+  <div class="container">
+    <div class="sobre-grid">
+      <div class="sobre-img-wrap reveal">
+        <img src="img/img1.jpg" alt="Dra. Ana Tereza Guerra" loading="lazy" />
+      </div>
+      <div class="sobre-text reveal d2">
+        <div class="sec-tag">✦ Sobre</div>
+        <h2 class="sec-title">Especialista em realçar<br><em>sua beleza única</em></h2>
+        <p class="sobre-body">Dra. Ana Tereza Guerra é cirurgiã-dentista especializada em Harmonização Orofacial, atuando em Goiânia com foco em resultados naturais e personalizados. Cada procedimento é pensado para valorizar quem você já é — sem exageros e com total segurança.</p>
+        <div class="sobre-divider"></div>
+        <p class="sobre-body">Com formação especializada e atualização constante nos melhores protocolos estéticos, a Dra. Ana Tereza combina técnica precisa com escuta ativa, criando tratamentos únicos para cada paciente.</p>
+        <div class="sobre-stats">
+          <div class="stat">
+            <div class="stat-num">5+</div>
+            <div class="stat-label">Anos de experiência</div>
+          </div>
+          <div class="stat">
+            <div class="stat-num">1k+</div>
+            <div class="stat-label">Procedimentos</div>
+          </div>
+          <div class="stat">
+            <div class="stat-num">98%</div>
+            <div class="stat-label">Satisfação</div>
+          </div>
+        </div>
+        <a href="https://wa.me/5564981337424?text=Ol%C3%A1%2C+Dra.+Ana+Tereza!+Quero+agendar+minha+avalia%C3%A7%C3%A3o+de+Harmoniza%C3%A7%C3%A3o+Orofacial." target="_blank" rel="noopener" class="btn btn-gold" style="display:inline-flex">
+          <svg viewBox="0 0 24 24" fill="currentColor" style="width:17px;height:17px"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Agendar avaliação
         </a>
-        <a href="#conteudo" class="btn btn-outline btn-lg">Ver o que tem no guia</a>
       </div>
     </div>
-    <div class="hero-visual">
-      <div class="hero-visual-inner">
-        <!-- Foto do Instagram carregada quando disponível -->
-        <img
-          src="https://ui-avatars.com/api/?name=A+T&size=400&background=C2947B&color=fff&font-size=0.4&bold=true&rounded=true"
-          alt="Dra. Ana Tereza Guerra — Harmonização Orofacial"
-          class="hero-photo"
-          onerror="this.style.display='none'"
-        />
-      </div>
-      <div class="hero-card">
-        <div class="hero-card-icon">📖</div>
-        <div>
-          <div class="hero-card-title">Guia Gratuito</div>
-          <div class="hero-card-sub">Harmonização Orofacial · 12 páginas</div>
-        </div>
-      </div>
-    </div>
-  </section>
+  </div>
+</section>
 
-  <!-- O QUE VOCÊ VAI RECEBER -->
-  <section class="inside-section section" id="conteudo">
-    <div class="container">
-      <div class="inside-header text-center">
-        <span class="overline">Conteúdo do Guia</span>
-        <h2>O que você vai aprender</h2>
-        <p class="lead" style="margin:16px auto 0;">Um material completo, escrito pela Dra. Ana Tereza, para você entender tudo antes de marcar sua consulta.</p>
-      </div>
-      <div class="inside-grid">
-        <div class="inside-card">
-          <div class="inside-num">01</div>
-          <h3>O que é Harmonização Orofacial</h3>
-          <p>Entenda o que são os procedimentos de harmonização facial, como funcionam e o que os diferencia de cirurgias plásticas convencionais.</p>
-        </div>
-        <div class="inside-card">
-          <div class="inside-num">02</div>
-          <h3>Quais procedimentos existem</h3>
-          <p>Botox, preenchimentos, bioremodeladores e mais — saiba para que serve cada um, quem pode fazer e quais resultados esperar.</p>
-        </div>
-        <div class="inside-card">
-          <div class="inside-num">03</div>
-          <h3>Resultados naturais vs. exagerados</h3>
-          <p>Como identificar um tratamento de qualidade e entender por que um planejamento individualizado faz toda a diferença no resultado final.</p>
-        </div>
-        <div class="inside-card">
-          <div class="inside-num">04</div>
-          <h3>Cuidados antes e depois</h3>
-          <p>Orientações essenciais para o pré e pós-procedimento — o que fazer, o que evitar e como potencializar seus resultados.</p>
-        </div>
-        <div class="inside-card">
-          <div class="inside-num">05</div>
-          <h3>Como funciona a primeira consulta</h3>
-          <p>Um guia passo a passo do que esperar na consulta de avaliação com a Dra. Ana Tereza: mapeamento facial, plano e orçamento transparente.</p>
-        </div>
-        <div class="inside-card">
-          <div class="inside-num">06</div>
-          <h3>Perguntas que você tinha vergonha de fazer</h3>
-          <p>Dói? Quanto tempo dura? Pode fazer com plano de saúde? Parece artificial? Respondemos tudo com honestidade e sem rodeios.</p>
-        </div>
-      </div>
+<!-- DEPOIMENTOS -->
+<section class="section depo-section">
+  <div class="container">
+    <div class="sec-header reveal" style="text-align:center">
+      <div class="sec-tag">✦ Depoimentos</div>
+      <h2 class="sec-title">O que nossas pacientes <em>dizem</em></h2>
     </div>
-  </section>
-
-  <!-- SOBRE A DRA. ANA TEREZA -->
-  <section class="about-section section" id="sobre">
-    <div class="container">
-      <div class="about-inner">
-        <div class="about-photo-wrap">
-          <div class="about-photo-placeholder">✦</div>
-          <div class="about-accent"></div>
+    <div class="depo-grid">
+      <div class="depo-card reveal d1">
+        <div class="depo-stars">
+          <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
         </div>
-        <div class="about-content">
-          <span class="overline">Quem vai te guiar</span>
-          <h2>Dra. Ana Tereza Guerra</h2>
-          <p class="lead">Cirurgiã-dentista especializada em Harmonização Orofacial, com atuação em Goiânia. Referência em resultados naturais e planejamento facial individualizado.</p>
-          <p style="color:var(--warm-gray);font-size:.95rem;line-height:1.75;margin-bottom:24px;">
-            A Dra. Ana Tereza acredita que a harmonização bem feita não muda quem você é — ela apenas revela o melhor da sua expressão natural. Cada procedimento é planejado com base em sua anatomia, harmonia facial e objetivos pessoais.
-          </p>
-          <a href="https://www.instagram.com/anaterezaguerra" target="_blank" rel="noopener" class="btn btn-outline">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/></svg>
-            @anaterezaguerra
-          </a>
-          <div class="about-stats">
-            <div>
-              <div class="about-stat-val">10.8k</div>
-              <div class="about-stat-lbl">Seguidores no Instagram</div>
-            </div>
-            <div>
-              <div class="about-stat-val">100%</div>
-              <div class="about-stat-lbl">Resultados naturais</div>
-            </div>
-            <div>
-              <div class="about-stat-val">Goiânia</div>
-              <div class="about-stat-lbl">Atendimento presencial</div>
-            </div>
+        <p class="depo-quote">"Fiz minha harmonização e me sinto uma nova pessoa! O resultado ficou super natural, exatamente o que eu queria. Me sinto mais confiante sem parecer que 'fiz alguma coisa'. Super indico!"</p>
+        <div class="depo-author">
+          <div class="depo-avatar">M</div>
+          <div>
+            <div class="depo-name">Mariana R.</div>
+            <div class="depo-city">Goiânia, GO</div>
+          </div>
+        </div>
+      </div>
+      <div class="depo-card reveal d2">
+        <div class="depo-stars">
+          <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+        </div>
+        <p class="depo-quote">"Estava com muito medo mas fui recebida com toda atenção e cuidado. O procedimento foi rápido, indolor e o resultado superou todas as minhas expectativas. Nunca me senti tão bem comigo mesma!"</p>
+        <div class="depo-author">
+          <div class="depo-avatar">C</div>
+          <div>
+            <div class="depo-name">Camila F.</div>
+            <div class="depo-city">Aparecida de Goiânia, GO</div>
+          </div>
+        </div>
+      </div>
+      <div class="depo-card reveal d3">
+        <div class="depo-stars">
+          <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+        </div>
+        <p class="depo-quote">"Botox foi a melhor decisão que tomei. Resultado natural, sem cara de feito. Sou do tipo que tem medo de ficar artificial e foi exatamente o oposto — valorizou muito meu rosto. Já indico para todas as amigas!"</p>
+        <div class="depo-author">
+          <div class="depo-avatar">J</div>
+          <div>
+            <div class="depo-name">Juliana M.</div>
+            <div class="depo-city">Goiânia, GO</div>
           </div>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- DEPOIMENTOS -->
-  <section class="proof-section section" id="resultados">
-    <div class="container">
-      <div class="proof-header text-center">
-        <span class="overline">Quem já conhece</span>
-        <h2>O que pacientes dizem</h2>
+<!-- FAQ -->
+<section class="section faq-section">
+  <div class="container">
+    <div class="sec-header reveal" style="text-align:center">
+      <div class="sec-tag">✦ Dúvidas</div>
+      <h2 class="sec-title">Perguntas <em>frequentes</em></h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item reveal">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          A harmonização orofacial tem resultado natural?
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <div class="faq-a">Sim! O objetivo da harmonização é realçar seus traços naturais, não mudar seu rosto. Com planejamento individualizado, os procedimentos são feitos com precisão para que o resultado valorize sua beleza de forma sutil e equilibrada.</div>
       </div>
-      <div class="proof-grid">
-        <div class="proof-card">
-          <div class="proof-stars">★★★★★</div>
-          <p class="proof-quote">"Fiquei com medo de ficar com cara de 'feito'. Mas o resultado ficou tão natural que as pessoas apenas dizem que estou bem descansada e radiante."</p>
-          <div class="proof-author">Camila R.</div>
-          <div class="proof-detail">Paciente · Goiânia</div>
-        </div>
-        <div class="proof-card">
-          <div class="proof-stars">★★★★★</div>
-          <p class="proof-quote">"A Dra. Ana Tereza explica cada detalhe antes de fazer qualquer coisa. Senti segurança desde o primeiro contato e o resultado superou todas as minhas expectativas."</p>
-          <div class="proof-author">Fernanda M.</div>
-          <div class="proof-detail">Paciente · Goiânia</div>
-        </div>
-        <div class="proof-card">
-          <div class="proof-stars">★★★★★</div>
-          <p class="proof-quote">"Estava com medo dos preenchimentos pelos resultados que vejo por aí. Com ela, ficou sutil e harmonioso — exatamente o que eu precisava para recuperar minha confiança."</p>
-          <div class="proof-author">Juliana S.</div>
-          <div class="proof-detail">Paciente · Goiânia</div>
-        </div>
+      <div class="faq-item reveal d1">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Quanto tempo dura o resultado do Botox?
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <div class="faq-a">O resultado da toxina botulínica dura em média de 4 a 6 meses, variando de acordo com o metabolismo de cada pessoa, a área tratada e a quantidade aplicada. Com sessões regulares, o resultado tende a durar ainda mais.</div>
+      </div>
+      <div class="faq-item reveal d2">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Os procedimentos de harmonização são dolorosos?
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <div class="faq-a">Os procedimentos são realizados com anestesia tópica e técnicas minimamente invasivas, tornando o desconforto muito pequeno. A maioria das pacientes relata apenas uma leve sensação de pressão durante a aplicação, sem dor significativa.</div>
+      </div>
+      <div class="faq-item reveal d1">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Quanto tempo dura o resultado do preenchimento labial?
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <div class="faq-a">O preenchimento labial com ácido hialurônico dura em média de 6 a 12 meses. A durabilidade varia conforme o produto utilizado, o metabolismo individual e a quantidade aplicada. A avaliação prévia define o protocolo ideal para o seu caso.</div>
+      </div>
+      <div class="faq-item reveal d2">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Preciso de avaliação antes de fazer qualquer procedimento?
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <div class="faq-a">Sim, a avaliação prévia é fundamental e faz parte do nosso protocolo. Cada rosto é único e o planejamento personalizado garante que o resultado seja harmonioso e seguro. Na consulta, analisamos seus traços, entendemos seus objetivos e indicamos os procedimentos mais adequados para você.</div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- CTA FINAL -->
-  <section class="cta-section section" id="guia">
-    <div class="container">
-      <div class="cta-inner text-center">
-        <span class="overline">É de graça, sério.</span>
-        <h2>Receba agora o Guia de Harmonização Orofacial</h2>
-        <p>Clique no botão abaixo e receba o material diretamente no seu WhatsApp. Sem cadastro, sem formulário, sem enrolação.</p>
-        <div class="cta-actions">
-          <a href="https://wa.me/5562991401433?text=Ol%C3%A1%20Dra.%20Ana%20Tereza%2C%20vim%20pelo%20site%20e%20quero%20receber%20o%20guia%20gratuito%20de%20Harmoniza%C3%A7%C3%A3o%20Orofacial!" class="btn btn-wpp btn-lg" target="_blank" rel="noopener">
-            <svg viewBox="0 0 24 24" width="22" height="22"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" fill="currentColor"/></svg>
-            Quero Meu Guia Grátis no WhatsApp
-          </a>
-        </div>
-        <p class="cta-note">💌 Enviamos pelo WhatsApp em menos de 1 minuto. Sem spam, prometemos.</p>
-      </div>
+<!-- CTA FINAL -->
+<section class="cta-section">
+  <p class="cta-eyebrow reveal">Transforme sua autoestima</p>
+  <h2 class="cta-title reveal d1">
+    Agende sua avaliação<br><em>e dê o primeiro passo</em>
+  </h2>
+  <p class="cta-sub reveal d2">Resultados naturais, personalizados e com a segurança que você merece. Atendimento em Goiânia com hora marcada.</p>
+  <div class="cta-btns reveal d3">
+    <div>
+      <a href="https://wa.me/5564981337424?text=Ol%C3%A1%2C+Dra.+Ana+Tereza!+Quero+transformar+minha+autoestima+com+Harmoniza%C3%A7%C3%A3o+Orofacial." target="_blank" rel="noopener" class="btn btn-wpp">
+        <svg viewBox="0 0 24 24" fill="currentColor" style="width:17px;height:17px"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Quero agendar agora
+      </a>
+      <span class="btn-sub">Resposta rápida • Sem compromisso</span>
     </div>
-  </section>
+    <a href="https://www.instagram.com/anaterezaguerra" target="_blank" rel="noopener" class="btn btn-dark">
+      <svg viewBox="0 0 24 24" fill="currentColor" style="width:17px;height:17px"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+      Ver no Instagram
+    </a>
+  </div>
+  <p class="cta-urgency reveal d4">✦ Vagas limitadas por semana — garante seu horário hoje</p>
+</section>
 
-  <!-- FOOTER -->
-  <footer class="footer">
-    <div class="container">
-      <div class="footer-inner">
-        <div class="footer-brand">Dra. Ana Tereza Guerra</div>
-        <div class="footer-text">
-          <a href="https://www.instagram.com/anaterezaguerra" target="_blank" rel="noopener">@anaterezaguerra</a>
-          &nbsp;·&nbsp; Harmonização Orofacial · Goiânia
-        </div>
-      </div>
-    </div>
-  </footer>
-
-  <!-- FLOATING WPP -->
-  <a href="https://wa.me/5562991401433?text=Ol%C3%A1%20Dra.%20Ana%20Tereza%2C%20vim%20pelo%20site%20e%20quero%20receber%20o%20guia%20gratuito%20de%20Harmoniza%C3%A7%C3%A3o%20Orofacial!" class="wpp-float" target="_blank" rel="noopener" aria-label="WhatsApp">
-    <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+<!-- FOOTER -->
+<footer>
+  <a href="https://digital-ai.tech" target="_blank" rel="noopener">
+    <img src="https://s3.amazonaws.com/cdn.digital-ai.tech/uploads/media-cortex/identity/digital-ai/logos/logo-primary.svg"
+         alt="Digital AI"
+         height="20"
+         style="display:inline-block;width:auto;height:20px;filter:brightness(0) invert(1);opacity:0.4;margin:0 auto;" />
   </a>
+</footer>
 
-  <!-- NAVBAR SCROLL -->
-  <script>
-    (function(){
-      var nav = document.getElementById('navbar');
-      window.addEventListener('scroll', function(){
-        nav.classList.toggle('scrolled', window.scrollY > 60);
-      }, {passive:true});
-    })();
-  </script>
+<!-- FLOAT WPP -->
+<a href="https://wa.me/5564981337424?text=Ol%C3%A1%2C+Dra.+Ana+Tereza!+Vim+pelo+seu+site+e+quero+agendar+uma+avalia%C3%A7%C3%A3o." target="_blank" rel="noopener" class="float-wpp" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
 
+<script>
+  // Progress bar
+  const bar = document.getElementById('progress-bar');
+  window.addEventListener('scroll', () => {
+    const total = document.documentElement.scrollHeight - window.innerHeight;
+    bar.style.width = (window.scrollY / total * 100) + '%';
+  }, { passive: true });
+
+  // Navbar scroll effect
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 30);
+  }, { passive: true });
+
+  // Reveal on scroll
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  // FAQ accordion
+  function toggleFaq(btn) {
+    const item = btn.closest('.faq-item');
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  }
+</script>
 </body>
 </html>
