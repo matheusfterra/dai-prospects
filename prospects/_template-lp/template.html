@@ -532,6 +532,24 @@
       position: relative; z-index: 2;
     }
 
+    /* ── MAPA ── */
+    /* INCLUIR apenas quando houver endereço do consultório/empresa ({{CLINIC_ADDRESS}} preenchido) */
+    .mapa-section { background: var(--surface); }
+    .mapa-header { text-align: center; margin-bottom: 2.5rem; }
+    .mapa-address {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: .88rem; color: var(--text-muted);
+      margin-top: .5rem;
+    }
+    .mapa-address svg { width: 15px; height: 15px; color: var(--gold); flex-shrink: 0; }
+    .mapa-embed {
+      border-radius: 18px; overflow: hidden;
+      box-shadow: 0 4px 32px rgba(26,23,20,.10);
+      max-width: 900px; margin: 0 auto;
+    }
+    .mapa-embed iframe { display: block; width: 100%; height: 420px; border: 0; }
+    @media (max-width: 600px) { .mapa-embed iframe { height: 280px; } }
+
     /* ── FOOTER ── */
     footer {
       background: var(--dark);
@@ -935,6 +953,33 @@
   <p class="cta-urgency reveal d4">{{CTA_URGENCY}}</p>
 </section>
 <!-- ▲ BRAND ▲ -->
+
+<!-- ── MAPA ── -->
+<!-- INCLUIR esta seção apenas quando houver endereço do consultório/empresa.
+     Substituir {{CLINIC_ADDRESS}} pelo endereço completo (ex: "Rua das Flores, 123 – Setor Bueno, Goiânia, GO")
+     e {{GOOGLE_MAPS_EMBED_URL}} pela URL de embed gerada no Google Maps ou pela URL de busca:
+     Ex: https://maps.google.com/maps?q=Nome+Empresa+Cidade+UF&output=embed
+     Se não houver endereço: remover toda esta seção. -->
+<section class="section mapa-section" id="localizacao">
+  <div class="container">
+    <div class="mapa-header reveal">
+      <div class="sec-tag">✦ Localização</div>
+      <h2 class="sec-title">Onde <em>nos encontrar</em></h2>
+      <p class="mapa-address">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+        {{CLINIC_ADDRESS}}
+      </p>
+    </div>
+    <div class="mapa-embed reveal d1">
+      <iframe
+        src="{{GOOGLE_MAPS_EMBED_URL}}"
+        width="100%" height="420"
+        style="border:0;" allowfullscreen loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+    </div>
+  </div>
+</section>
 
 <!-- ── FOOTER ── -->
 <!-- Digital AI: apenas logo discreta, branca, opacity 0.4 — NUNCA texto ou pitch B2B -->
