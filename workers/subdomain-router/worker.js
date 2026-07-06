@@ -5,6 +5,8 @@
 
 // Routing map: chave = subdomínio, valor = pasta em dai-prospects
 const ROUTING = {
+  "anatereza": "ana-tereza-guerra",
+  "isabarboza": "isabela-barboza",
   "labexato": "laboratorio-exato-itumbiara",
   "lab-exato": "laboratorio-exato-itumbiara",
   "citti": "citti-imoveis",
