@@ -1,0 +1,831 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dra. Bárbara Reck | Alinhadores Invisíveis — Jataí GO</title>
+  <meta name="description" content="Especialista em alinhadores invisíveis e clareamento dental em Jataí e Rio Verde, GO. CROGO 20205. Agende sua avaliação gratuita." />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://dra-barbarareck.digital-ai.tech/" />
+  <meta property="og:title" content="Dra. Bárbara Reck | Alinhadores Invisíveis" />
+  <meta property="og:description" content="Especialista em alinhadores invisíveis e clareamento dental em Jataí e Rio Verde, GO. Agende sua avaliação." />
+  <meta property="og:image" content="https://dra-barbarareck.digital-ai.tech/img/hero.jpg" />
+  <meta property="og:image:width" content="1080" />
+  <meta property="og:image:height" content="1350" />
+  <meta property="og:locale" content="pt_BR" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Dra. Bárbara Reck | Alinhadores Invisíveis" />
+  <meta name="twitter:description" content="Especialista em alinhadores invisíveis e clareamento dental em Jataí e Rio Verde, GO." />
+  <meta name="twitter:image" content="https://dra-barbarareck.digital-ai.tech/img/hero.jpg" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:           #F7F9FB;
+      --surface:      #EDF3F7;
+      --surface-2:    #E2EBF1;
+      --border:       rgba(74,158,181,0.14);
+
+      --gold:         #3D9BBB;
+      --gold-l:       #62B8D4;
+      --gold-d:       #2A7A96;
+
+      --dark:         #162330;
+      --dark-2:       #1E3040;
+      --text:         #162330;
+      --text-muted:   #3D5A6A;
+      --text-soft:    #7A9CAC;
+      --white:        #FFFFFF;
+      --wpp:          #25D366;
+
+      --radius: 14px;
+      --font-h: 'Cormorant Garamond', Georgia, serif;
+      --font-b: 'DM Sans', system-ui, sans-serif;
+    }
+
+    html { scroll-behavior: smooth; background: var(--dark); overflow-x: hidden; }
+    body {
+      font-family: var(--font-b);
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+    img { display: block; width: 100%; object-fit: cover; }
+    a { text-decoration: none; color: inherit; }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(28px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .reveal {
+      opacity: 0; transform: translateY(22px);
+      transition: opacity .7s ease, transform .7s ease;
+    }
+    .reveal.visible { opacity: 1; transform: none; }
+    .d1 { transition-delay: .1s; }
+    .d2 { transition-delay: .2s; }
+    .d3 { transition-delay: .3s; }
+    .d4 { transition-delay: .4s; }
+
+    /* ── PROGRESS BAR ── */
+    #progress-bar {
+      position: fixed; top: 0; left: 0; z-index: 300;
+      height: 2px; width: 0%;
+      background: linear-gradient(90deg, var(--gold), var(--gold-l));
+      transition: width .1s linear;
+    }
+
+    /* ── NAVBAR ── */
+    .nav {
+      position: sticky; top: 0; z-index: 100;
+      border-bottom: 1px solid transparent;
+      transition: background .3s, border-color .3s, box-shadow .3s;
+    }
+    .nav.scrolled {
+      background: rgba(247,249,251,0.95);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom-color: var(--border);
+      box-shadow: 0 2px 16px rgba(22,35,48,.06);
+    }
+    .nav-inner {
+      max-width: 1100px; margin: 0 auto; padding: 0 24px;
+      display: flex; align-items: center; justify-content: space-between;
+      height: 64px;
+    }
+    .nav-brand {
+      font-family: var(--font-h);
+      font-size: 1.15rem; font-weight: 600;
+      letter-spacing: .06em; color: var(--dark);
+    }
+    .nav-brand span { color: var(--gold); }
+    .nav-ig {
+      display: flex; align-items: center; gap: 7px;
+      font-size: .78rem; font-weight: 600; color: var(--text-muted);
+      padding: 9px 16px; border-radius: 100px;
+      border: 1px solid var(--border);
+      transition: all .2s;
+    }
+    .nav-ig:hover { background: var(--dark); color: #fff; border-color: var(--dark); }
+    .nav-ig svg { width: 15px; height: 15px; }
+
+    /* ── HERO ── */
+    .hero {
+      position: relative; overflow: hidden;
+      min-height: 100svh;
+      display: flex; align-items: flex-end;
+    }
+    @media (min-width: 769px) {
+      .hero { align-items: center; justify-content: center; }
+      .hero-content { text-align: center; max-width: 700px; padding: 120px 40px 80px; margin: 0 auto; }
+      .hero-eyebrow { justify-content: center; }
+      .hero-btns { justify-content: center; }
+      .hero-sub { margin-left: auto; margin-right: auto; }
+    }
+    .hero-bg { position: absolute; inset: 0; z-index: 0; }
+    .hero-bg img { height: 100%; object-position: center top; opacity: 0.80; }
+    .hero-overlay {
+      position: absolute; inset: 0; z-index: 1;
+      background: linear-gradient(
+        to top,
+        rgba(22,35,48,.96) 0%,
+        rgba(22,35,48,.72) 38%,
+        rgba(22,35,48,.52) 58%,
+        rgba(22,35,48,.20) 100%
+      );
+    }
+    .hero-content {
+      position: relative; z-index: 2;
+      padding: 0 24px 60px;
+      max-width: 600px;
+      animation: fadeUp .9s ease both;
+    }
+    .hero-eyebrow {
+      display: inline-flex; align-items: center; gap: 10px;
+      font-size: .7rem; font-weight: 600; letter-spacing: .16em; text-transform: uppercase;
+      color: var(--gold-l); margin-bottom: 1.4rem;
+    }
+    .hero-eyebrow::before {
+      content: ''; display: block; width: 32px; height: 1px; background: var(--gold-l);
+    }
+    .hero-title {
+      font-family: var(--font-h);
+      font-size: clamp(2.6rem, 6vw, 4.2rem);
+      font-weight: 400; line-height: 1.1;
+      color: #fff; margin-bottom: 1rem;
+    }
+    .hero-title em { font-style: italic; color: var(--gold-l); }
+    .hero-sub {
+      font-size: .95rem; color: rgba(255,255,255,.75);
+      line-height: 1.75; margin-bottom: 2.2rem; max-width: 440px;
+    }
+    .hero-btns { display: flex; gap: 12px; flex-wrap: wrap; }
+
+    /* ── BUTTONS ── */
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 9px;
+      font-family: var(--font-b); font-size: .88rem; font-weight: 600;
+      padding: 14px 26px; border-radius: 100px; cursor: pointer; border: none;
+      transition: transform .2s, box-shadow .2s, background .2s;
+      letter-spacing: .01em;
+    }
+    .btn:hover { transform: translateY(-2px); }
+    .btn svg { width: 18px; height: 18px; flex-shrink: 0; }
+    .btn-gold {
+      background: var(--gold); color: #fff;
+      box-shadow: 0 4px 20px rgba(61,155,187,.30);
+    }
+    .btn-gold:hover { background: var(--gold-d); box-shadow: 0 6px 28px rgba(61,155,187,.42); }
+    .btn-wpp {
+      background: var(--wpp); color: #fff;
+      box-shadow: 0 4px 20px rgba(37,211,102,.24);
+    }
+    .btn-wpp:hover { background: #1db954; box-shadow: 0 6px 28px rgba(37,211,102,.34); }
+    .btn-outline {
+      background: transparent; color: #fff;
+      border: 1.5px solid rgba(255,255,255,.35);
+    }
+    .btn-outline:hover { background: rgba(255,255,255,.1); border-color: rgba(255,255,255,.6); }
+
+    /* ── BARRA DE BENEFÍCIOS ── */
+    .benefits-bar {
+      background: #0E1E2A;
+      border-bottom: 1px solid rgba(61,155,187,.12);
+    }
+    .benefits-inner {
+      max-width: 1100px; margin: 0 auto;
+      display: grid; grid-template-columns: repeat(4, 1fr);
+    }
+    .benefit-item {
+      display: flex; align-items: center; gap: 12px;
+      padding: 18px 20px;
+      border-right: 1px solid rgba(61,155,187,.1);
+    }
+    .benefit-item:last-child { border-right: none; }
+    .benefit-icon {
+      width: 36px; height: 36px; border-radius: 10px;
+      background: rgba(61,155,187,.12);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .benefit-icon svg { width: 18px; height: 18px; color: var(--gold-l); }
+    .benefit-text { display: flex; flex-direction: column; gap: 1px; }
+    .benefit-title { font-size: .78rem; font-weight: 700; color: #fff; }
+    .benefit-sub { font-size: .68rem; color: rgba(255,255,255,.45); }
+    @media (max-width: 768px) {
+      .benefits-inner { grid-template-columns: repeat(2, 1fr); }
+      .benefit-item:nth-child(2) { border-right: none; }
+      .benefit-item { padding: 14px 16px; }
+    }
+
+    /* ── LINKS RÁPIDOS ── */
+    .links-sec { background: var(--dark); padding: 3.5rem 24px 4rem; }
+    .links-label {
+      text-align: center;
+      font-size: .68rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase;
+      color: var(--text-soft); margin-bottom: 2rem;
+    }
+    .links-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 14px; max-width: 760px; margin: 0 auto;
+    }
+    .link-card {
+      display: flex; flex-direction: column; align-items: center;
+      gap: 12px; padding: 28px 20px 24px;
+      border-radius: 20px; color: #fff; text-align: center;
+      transition: transform .25s, box-shadow .25s;
+      border: 1px solid rgba(255,255,255,.06); cursor: pointer;
+    }
+    .link-card:hover { transform: translateY(-5px); box-shadow: 0 16px 40px rgba(0,0,0,.35); }
+    .link-card-icon {
+      width: 52px; height: 52px; border-radius: 16px;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .link-card-icon svg { width: 26px; height: 26px; }
+    .link-card-title { font-size: .88rem; font-weight: 700; }
+    .link-card-sub { font-size: .73rem; color: rgba(255,255,255,.55); line-height: 1.5; }
+    .link-card-arrow { font-size: .72rem; color: rgba(255,255,255,.35); }
+    .lc-wpp  { background: rgba(29,168,81,.15); border-color: rgba(29,168,81,.25); }
+    .lc-wpp .link-card-icon { background: #1da851; }
+    .lc-ig   { background: rgba(131,58,180,.15); border-color: rgba(253,29,29,.15); }
+    .lc-ig .link-card-icon { background: linear-gradient(135deg, #833ab4, #fd1d1d, #fcb045); }
+    .lc-lt   { background: rgba(61,155,187,.08); border-color: rgba(61,155,187,.2); }
+    .lc-lt .link-card-icon { background: rgba(61,155,187,.2); }
+    .lc-lt .link-card-icon svg { color: var(--gold-l); }
+    @media (max-width: 600px) {
+      .links-grid { grid-template-columns: 1fr; max-width: 360px; gap: 12px; }
+      .link-card { flex-direction: row; text-align: left; padding: 18px 20px; gap: 16px; }
+      .link-card-icon { width: 46px; height: 46px; border-radius: 14px; flex-shrink: 0; }
+      .link-card-sub, .link-card-arrow { display: none; }
+    }
+
+    /* ── SECTIONS ── */
+    .section { padding: 88px 24px; }
+    .container { max-width: 1100px; margin: 0 auto; }
+    .sec-tag {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: .68rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase;
+      color: var(--gold); padding: 5px 14px; border-radius: 100px;
+      background: rgba(61,155,187,.10); margin-bottom: .9rem;
+    }
+    .sec-title {
+      font-family: var(--font-h);
+      font-size: clamp(1.9rem, 3.5vw, 3rem);
+      font-weight: 400; color: var(--dark); line-height: 1.2;
+      margin-bottom: .75rem;
+    }
+    .sec-title em { font-style: italic; color: var(--gold); }
+    .sec-sub { color: var(--text-muted); font-size: .95rem; max-width: 480px; line-height: 1.75; }
+    .sec-header { margin-bottom: 3.5rem; }
+
+    /* ── SERVIÇOS ── */
+    .produtos-section { background: var(--bg); }
+    .produtos-grid {
+      display: grid; grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem; max-width: 860px; margin: 0 auto;
+    }
+    .prod-card {
+      border-radius: 18px; overflow: hidden;
+      background: var(--white);
+      box-shadow: 0 2px 20px rgba(22,35,48,.06);
+      transition: transform .3s, box-shadow .3s;
+    }
+    .prod-card:hover { transform: translateY(-6px); box-shadow: 0 12px 40px rgba(22,35,48,.12); }
+    .prod-img { position: relative; overflow: hidden; }
+    .prod-img img { aspect-ratio: 4/5; transition: transform .5s; }
+    .prod-card:hover .prod-img img { transform: scale(1.04); }
+    .prod-badge {
+      position: absolute; top: 14px; right: 14px;
+      background: var(--gold); color: #fff;
+      font-size: .62rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase;
+      padding: 4px 10px; border-radius: 100px;
+    }
+    .prod-badge-teal  { background: #2A7A96; }
+    .prod-badge-green { background: #1da851; }
+    .prod-badge-dark  { background: #162330; }
+    .prod-info { padding: 18px 20px 22px; }
+    .prod-name {
+      font-family: var(--font-h);
+      font-size: 1.15rem; font-weight: 500; color: var(--dark);
+      margin-bottom: 6px;
+    }
+    .prod-desc { font-size: .82rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 14px; }
+    .prod-cta {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: .78rem; font-weight: 600; color: var(--gold);
+      padding: 8px 16px; border-radius: 100px;
+      border: 1.5px solid rgba(61,155,187,.3);
+      transition: background .2s, color .2s;
+    }
+    .prod-cta:hover { background: var(--gold); color: #fff; }
+
+    /* ── SOBRE ── */
+    .sobre-section { background: var(--dark); }
+    .sobre-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 3rem; align-items: center; max-width: 1000px; margin: 0 auto;
+    }
+    .sobre-img-wrap { border-radius: 20px; overflow: hidden; box-shadow: 0 8px 48px rgba(0,0,0,.35); }
+    .sobre-img-wrap img { aspect-ratio: 2/3; object-position: center top; }
+    .sobre-text .sec-tag { color: var(--gold-l); background: rgba(61,155,187,.15); }
+    .sobre-text .sec-title { color: #fff; }
+    .sobre-text .sec-title em { color: var(--gold-l); }
+    .sobre-body { color: rgba(255,255,255,.65); font-size: .95rem; line-height: 1.85; margin-bottom: 2rem; }
+    .sobre-stats { display: flex; gap: 2rem; flex-wrap: wrap; margin-bottom: 2rem; }
+    .stat { text-align: center; }
+    .stat-num { font-family: var(--font-h); font-size: 2.2rem; font-weight: 600; color: var(--gold-l); line-height: 1; }
+    .stat-label { font-size: .72rem; color: rgba(255,255,255,.45); font-weight: 500; letter-spacing: .05em; margin-top: 4px; }
+    .sobre-divider { width: 40px; height: 1px; background: rgba(61,155,187,.4); margin: 1.5rem 0; }
+    @media (max-width: 768px) {
+      .sobre-grid { grid-template-columns: 1fr; }
+      .sobre-img-wrap img { aspect-ratio: 3/4; }
+    }
+
+    /* ── DEPOIMENTOS ── */
+    .depo-section { background: var(--surface); }
+    .depo-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem; max-width: 1000px; margin: 0 auto;
+    }
+    .depo-card {
+      background: var(--white); border-radius: 18px; padding: 28px 24px;
+      box-shadow: 0 2px 20px rgba(22,35,48,.06);
+      display: flex; flex-direction: column; gap: 16px;
+    }
+    .depo-stars { display: flex; gap: 3px; }
+    .depo-stars svg { width: 14px; height: 14px; color: var(--gold); }
+    .depo-quote { font-size: .9rem; color: var(--text-muted); line-height: 1.75; flex: 1; font-style: italic; }
+    .depo-author {
+      display: flex; align-items: center; gap: 10px;
+      padding-top: 14px; border-top: 1px solid var(--border);
+    }
+    .depo-avatar {
+      width: 36px; height: 36px; border-radius: 50%;
+      background: var(--gold);
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--font-h); font-size: 1rem; font-weight: 600; color: #fff;
+      flex-shrink: 0;
+    }
+    .depo-name { font-size: .82rem; font-weight: 700; color: var(--dark); }
+    .depo-city { font-size: .72rem; color: var(--text-soft); }
+    @media (max-width: 768px) { .depo-grid { grid-template-columns: 1fr; max-width: 420px; margin: 0 auto; } }
+
+    /* ── FAQ ── */
+    .faq-section { background: var(--bg); }
+    .faq-list { max-width: 720px; margin: 0 auto; display: flex; flex-direction: column; gap: 10px; }
+    .faq-item { border: 1px solid var(--border); border-radius: 14px; overflow: hidden; background: var(--white); }
+    .faq-q {
+      width: 100%; text-align: left;
+      display: flex; align-items: center; justify-content: space-between; gap: 12px;
+      padding: 18px 22px; font-size: .9rem; font-weight: 600; color: var(--dark);
+      background: none; border: none; cursor: pointer; transition: color .2s;
+    }
+    .faq-q:hover { color: var(--gold-d); }
+    .faq-q svg { width: 16px; height: 16px; color: var(--gold); flex-shrink: 0; transition: transform .3s; }
+    .faq-item.open .faq-q svg { transform: rotate(180deg); }
+    .faq-a {
+      max-height: 0; overflow: hidden;
+      transition: max-height .35s ease, padding .35s;
+      font-size: .88rem; color: var(--text-muted); line-height: 1.8; padding: 0 22px;
+    }
+    .faq-item.open .faq-a { max-height: 300px; padding: 0 22px 20px; }
+
+    /* ── CTA FINAL ── */
+    .cta-section {
+      background: var(--dark); padding: 88px 24px;
+      text-align: center; position: relative; overflow: hidden;
+    }
+    .cta-section::before {
+      content: ''; position: absolute; top: -80px; right: -80px;
+      width: 320px; height: 320px; border-radius: 50%;
+      background: rgba(61,155,187,.06);
+    }
+    .cta-section::after {
+      content: ''; position: absolute; bottom: -60px; left: -60px;
+      width: 260px; height: 260px; border-radius: 50%;
+      background: rgba(61,155,187,.04);
+    }
+    .cta-eyebrow {
+      font-size: .68rem; font-weight: 700; letter-spacing: .16em; text-transform: uppercase;
+      color: var(--gold-l); margin-bottom: 1.2rem; position: relative; z-index: 2;
+    }
+    .cta-title {
+      font-family: var(--font-h);
+      font-size: clamp(2.2rem, 4vw, 3.6rem);
+      font-weight: 400; color: #fff; line-height: 1.15;
+      margin-bottom: 1rem; position: relative; z-index: 2;
+    }
+    .cta-title em { font-style: italic; color: var(--gold-l); }
+    .cta-sub {
+      color: rgba(255,255,255,.55); font-size: .95rem;
+      max-width: 420px; margin: 0 auto 2.5rem; position: relative; z-index: 2; line-height: 1.75;
+    }
+    .cta-btns { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; position: relative; z-index: 2; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--dark); padding: 24px;
+      text-align: center; border-top: 1px solid rgba(255,255,255,.06);
+    }
+    footer a { font-size: .72rem; color: rgba(255,255,255,.25); }
+    footer a:hover { color: rgba(255,255,255,.5); }
+
+    /* ── FLOAT WPP ── */
+    .float-wpp {
+      position: fixed; bottom: 24px; right: 24px; z-index: 200;
+      width: 58px; height: 58px; border-radius: 50%;
+      background: var(--wpp);
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 6px 28px rgba(37,211,102,.40);
+      transition: transform .2s, box-shadow .2s;
+    }
+    .float-wpp:hover { transform: translateY(-3px) scale(1.06); box-shadow: 0 10px 36px rgba(37,211,102,.50); }
+    .float-wpp svg { width: 26px; height: 26px; }
+
+    @media (max-width: 480px) {
+      .section { padding: 64px 16px; }
+      .produtos-grid { grid-template-columns: 1fr; max-width: 340px; margin: 0 auto; }
+      .hero-btns { flex-direction: column; }
+      .hero-btns .btn { width: 100%; max-width: 320px; }
+    }
+  </style>
+</head>
+<body>
+
+<div id="progress-bar"></div>
+
+<!-- NAV -->
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <span class="nav-brand">Dra. Bárbara Reck <span>✦</span> Alinhadores</span>
+    <a href="https://www.instagram.com/dra.barbarareck/" target="_blank" rel="noopener" class="nav-ig">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+      @dra.barbarareck
+    </a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg">
+    <img src="img/hero.jpg" alt="Dra. Bárbara Reck" loading="eager" />
+  </div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">Especialista em Alinhadores · CROGO 20205 · Jataí GO</div>
+    <h1 class="hero-title">
+      Seu sorriso alinhado,<br><em>do jeito que você sempre quis</em>
+    </h1>
+    <p class="hero-sub">Tratamento estético com alinhadores invisíveis em Jataí e Rio Verde — discrito, confortável e com resultado que transforma seu sorriso e sua confiança.</p>
+    <div class="hero-btns">
+      <a href="https://wa.me/5562319014333?text=Ol%C3%A1%20Dra.%20B%C3%A1rbara!%20Vi%20seu%20site%20e%20gostaria%20de%20agendar%20uma%20avalia%C3%A7%C3%A3o." target="_blank" rel="noopener" class="btn btn-wpp">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Agendar Avaliação Gratuita
+      </a>
+      <a href="#servicos" class="btn btn-outline">Ver Tratamentos ↓</a>
+    </div>
+  </div>
+</section>
+
+<!-- BARRA DE BENEFÍCIOS -->
+<div class="benefits-bar">
+  <div class="benefits-inner">
+    <div class="benefit-item">
+      <div class="benefit-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+      </div>
+      <div class="benefit-text">
+        <span class="benefit-title">CROGO 20205</span>
+        <span class="benefit-sub">Profissional registrada e habilitada</span>
+      </div>
+    </div>
+    <div class="benefit-item">
+      <div class="benefit-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+      </div>
+      <div class="benefit-text">
+        <span class="benefit-title">Jataí + Rio Verde</span>
+        <span class="benefit-sub">Atendimento em duas cidades</span>
+      </div>
+    </div>
+    <div class="benefit-item">
+      <div class="benefit-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
+      </div>
+      <div class="benefit-text">
+        <span class="benefit-title">100% Invisível</span>
+        <span class="benefit-sub">Ninguém percebe o tratamento</span>
+      </div>
+    </div>
+    <div class="benefit-item">
+      <div class="benefit-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+      </div>
+      <div class="benefit-text">
+        <span class="benefit-title">Resultado Visível</span>
+        <span class="benefit-sub">Transformação desde a 1ª semana</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- LINKS RÁPIDOS -->
+<section class="links-sec">
+  <p class="links-label">Acesse direto</p>
+  <div class="links-grid">
+    <a href="https://wa.me/5562319014333?text=Ol%C3%A1%20Dra.%20B%C3%A1rbara!%20Quero%20agendar%20minha%20avalia%C3%A7%C3%A3o." target="_blank" rel="noopener" class="link-card lc-wpp reveal">
+      <div class="link-card-icon">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      </div>
+      <div class="link-card-title">WhatsApp</div>
+      <div class="link-card-sub">Agende sua avaliação gratuita agora</div>
+      <div class="link-card-arrow">Abrir →</div>
+    </a>
+    <a href="https://www.instagram.com/dra.barbarareck/" target="_blank" rel="noopener" class="link-card lc-ig reveal d1">
+      <div class="link-card-icon">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+      </div>
+      <div class="link-card-title">Instagram</div>
+      <div class="link-card-sub">Conteúdo sobre alinhadores toda semana</div>
+      <div class="link-card-arrow">Seguir →</div>
+    </a>
+    <a href="https://wa.me/5562319014333?text=Ol%C3%A1%20Dra.%20B%C3%A1rbara!%20Gostaria%20de%20saber%20mais%20sobre%20os%20tratamentos." target="_blank" rel="noopener" class="link-card lc-lt reveal d2">
+      <div class="link-card-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color:var(--gold-l)"><path d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+      </div>
+      <div class="link-card-title">Agendar Consulta</div>
+      <div class="link-card-sub">Primeira avaliação sempre gratuita</div>
+      <div class="link-card-arrow">Agendar →</div>
+    </a>
+  </div>
+</section>
+
+<!-- SERVIÇOS -->
+<section class="section produtos-section" id="servicos">
+  <div class="container">
+    <div class="sec-header reveal">
+      <div class="sec-tag">✦ Tratamentos</div>
+      <h2 class="sec-title">Especialidades que vão<br><em>transformar o seu sorriso</em></h2>
+      <p class="sec-sub">Do alinhamento invisível ao clareamento de alto impacto — cada tratamento pensado para você.</p>
+    </div>
+    <div class="produtos-grid">
+      <div class="prod-card reveal d1">
+        <div class="prod-img">
+          <img src="img/img1.jpg" alt="Alinhadores Invisíveis" loading="lazy" />
+          <span class="prod-badge">Mais Procurado</span>
+        </div>
+        <div class="prod-info">
+          <div class="prod-name">Alinhadores Invisíveis</div>
+          <p class="prod-desc">Tratamento discreto com placas removíveis que alinham os dentes progressivamente. Sem fio, sem bráquete — quase ninguém percebe.</p>
+          <a href="https://wa.me/5562319014333?text=Ol%C3%A1!%20Tenho%20interesse%20em%20alinhadores%20invis%C3%ADveis." target="_blank" rel="noopener" class="prod-cta">Saiba mais →</a>
+        </div>
+      </div>
+      <div class="prod-card reveal d2">
+        <div class="prod-img">
+          <img src="img/img2.jpg" alt="Clareamento Dental" loading="lazy" />
+          <span class="prod-badge prod-badge-teal">Alta Procura</span>
+        </div>
+        <div class="prod-info">
+          <div class="prod-name">Clareamento Dental</div>
+          <p class="prod-desc">Clareamento profissional de consultório ou caseiro supervisionado. Resultado visível desde a primeira sessão com segurança e protocolo clínico.</p>
+          <a href="https://wa.me/5562319014333?text=Ol%C3%A1!%20Gostaria%20de%20saber%20sobre%20clareamento%20dental." target="_blank" rel="noopener" class="prod-cta">Saiba mais →</a>
+        </div>
+      </div>
+      <div class="prod-card reveal d1">
+        <div class="prod-img">
+          <img src="img/img3.jpg" alt="Lentes de Contato Dental" loading="lazy" />
+          <span class="prod-badge prod-badge-dark">Premium</span>
+        </div>
+        <div class="prod-info">
+          <div class="prod-name">Lentes de Contato Dental</div>
+          <p class="prod-desc">Facetas ultra-finas de porcelana que transformam forma, cor e simetria do sorriso. Resultado estético de alto impacto com mínimo desgaste.</p>
+          <a href="https://wa.me/5562319014333?text=Ol%C3%A1!%20Tenho%20interesse%20em%20lentes%20de%20contato%20dental." target="_blank" rel="noopener" class="prod-cta">Saiba mais →</a>
+        </div>
+      </div>
+      <div class="prod-card reveal d2">
+        <div class="prod-img">
+          <img src="img/img4.jpg" alt="Avaliação Gratuita" loading="lazy" />
+          <span class="prod-badge prod-badge-green">Gratuita</span>
+        </div>
+        <div class="prod-info">
+          <div class="prod-name">Avaliação Gratuita</div>
+          <p class="prod-desc">Consulta de diagnóstico sem custo. Identificamos o melhor tratamento para seu sorriso e apresentamos todas as opções com transparência.</p>
+          <a href="https://wa.me/5562319014333?text=Ol%C3%A1%20Dra.%20B%C3%A1rbara!%20Gostaria%20de%20agendar%20uma%20avalia%C3%A7%C3%A3o%20gratuita." target="_blank" rel="noopener" class="prod-cta">Agendar →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SOBRE -->
+<section class="section sobre-section">
+  <div class="container">
+    <div class="sobre-grid">
+      <div class="sobre-img-wrap reveal">
+        <img src="img/sobre.jpg" alt="Dra. Bárbara Reck" loading="lazy" />
+      </div>
+      <div class="sobre-text reveal d2">
+        <div class="sec-tag">✦ Sobre</div>
+        <h2 class="sec-title">A especialista por trás<br><em>do seu novo sorriso</em></h2>
+        <p class="sobre-body">Sou a Dra. Bárbara Reck, dentista registrada pelo CROGO 20205 e especialista em odontologia estética com foco em alinhadores invisíveis. Escolhi essa especialidade porque acredito que todo sorriso pode ser transformado — com técnica, cuidado e sem abrir mão do conforto.</p>
+        <div class="sobre-divider"></div>
+        <p class="sobre-body">Atendo em Jataí e Rio Verde, sempre com protocolos clínicos seguros e resultado personalizado. No Instagram, compartilho conteúdo educativo toda semana porque acredito que um paciente bem informado faz escolhas melhores para a própria saúde bucal.</p>
+        <div class="sobre-stats">
+          <div class="stat">
+            <div class="stat-num">365+</div>
+            <div class="stat-label">Conteúdos criados</div>
+          </div>
+          <div class="stat">
+            <div class="stat-num">2</div>
+            <div class="stat-label">Cidades atendidas</div>
+          </div>
+          <div class="stat">
+            <div class="stat-num">100%</div>
+            <div class="stat-label">Foco em estética</div>
+          </div>
+        </div>
+        <a href="https://wa.me/5562319014333?text=Ol%C3%A1%20Dra.%20B%C3%A1rbara!%20Vi%20seu%20site%20e%20quero%20agendar%20uma%20consulta." target="_blank" rel="noopener" class="btn btn-gold" style="display:inline-flex">
+          <svg viewBox="0 0 24 24" fill="currentColor" style="width:17px;height:17px"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Falar com a Dra. Bárbara
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DEPOIMENTOS -->
+<section class="section depo-section">
+  <div class="container">
+    <div class="sec-header reveal" style="text-align:center">
+      <div class="sec-tag">✦ Depoimentos</div>
+      <h2 class="sec-title">O que os pacientes <em>dizem</em></h2>
+    </div>
+    <div class="depo-grid">
+      <div class="depo-card reveal d1">
+        <div class="depo-stars">
+          <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+        </div>
+        <p class="depo-quote">"Fiz o tratamento com alinhadores e me arrependo só de não ter começado antes. Em 9 meses meu sorriso mudou completamente — e ninguém percebeu que eu estava em tratamento!"</p>
+        <div class="depo-author">
+          <div class="depo-avatar">A</div>
+          <div>
+            <div class="depo-name">Ana C.</div>
+            <div class="depo-city">Jataí, GO</div>
+          </div>
+        </div>
+      </div>
+      <div class="depo-card reveal d2">
+        <div class="depo-stars">
+          <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+        </div>
+        <p class="depo-quote">"Sempre tive medo de aparelho fixo. Os alinhadores foram a solução perfeita — confortáveis, discretos e o atendimento foi super acolhedor. Saí da avaliação já com vontade de começar!"</p>
+        <div class="depo-author">
+          <div class="depo-avatar">R</div>
+          <div>
+            <div class="depo-name">Renata M.</div>
+            <div class="depo-city">Rio Verde, GO</div>
+          </div>
+        </div>
+      </div>
+      <div class="depo-card reveal d3">
+        <div class="depo-stars">
+          <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+        </div>
+        <p class="depo-quote">"O clareamento ficou incrível! Em uma sessão já vi resultado. Super indicada — atendimento cuidadoso, explica tudo passo a passo e você sai com o sorriso que sempre quis."</p>
+        <div class="depo-author">
+          <div class="depo-avatar">J</div>
+          <div>
+            <div class="depo-name">Juliana P.</div>
+            <div class="depo-city">Jataí, GO</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section faq-section">
+  <div class="container">
+    <div class="sec-header reveal" style="text-align:center">
+      <div class="sec-tag">✦ Dúvidas</div>
+      <h2 class="sec-title">Perguntas <em>frequentes</em></h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item reveal">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Quanto tempo dura o tratamento com alinhadores?
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <div class="faq-a">O tempo varia de acordo com a complexidade de cada caso. Tratamentos simples podem ser concluídos em 3 a 6 meses, enquanto casos mais complexos podem levar de 12 a 18 meses. Na avaliação gratuita, apresentamos um planejamento detalhado com o tempo estimado para o seu sorriso.</div>
+      </div>
+      <div class="faq-item reveal d1">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Os alinhadores doem? Vou sentir desconforto?
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <div class="faq-a">É normal sentir uma leve pressão nos primeiros dias após trocar para um novo alinhador — isso é sinal que o tratamento está funcionando. Diferente do aparelho fixo, não há fios nem bráquetes que arranhem, e a maioria dos pacientes adapta-se rapidamente sem precisar de medicação.</div>
+      </div>
+      <div class="faq-item reveal d2">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Posso tirar os alinhadores para comer?
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <div class="faq-a">Sim! Essa é uma das grandes vantagens dos alinhadores invisíveis. Você remove as placas para comer, beber qualquer coisa que não seja água, escovar os dentes e passar fio dental. O recomendado é usá-los por pelo menos 22 horas por dia para garantir o resultado no prazo planejado.</div>
+      </div>
+      <div class="faq-item reveal d3">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          O plano de saúde cobre o tratamento com alinhadores?
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <div class="faq-a">Em geral, planos de saúde não cobrem tratamentos odontológicos estéticos como alinhadores e clareamento. Porém, trabalhamos com parcelamento facilitado para que o investimento no seu sorriso caiba no seu orçamento. Consulte as condições durante a avaliação gratuita.</div>
+      </div>
+      <div class="faq-item reveal d4">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Você atende em qual cidade? Preciso marcar com antecedência?
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <div class="faq-a">Atendo em Jataí e Rio Verde, GO. O agendamento é feito pelo WhatsApp e as consultas de avaliação têm horários específicos para evitar espera. Recomendo agendar com pelo menos 3 dias de antecedência para garantir o horário de sua preferência.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<section class="cta-section">
+  <p class="cta-eyebrow">Avaliação Gratuita · Sem Compromisso</p>
+  <h2 class="cta-title">Pronta para começar<br><em>sua transformação?</em></h2>
+  <p class="cta-sub">Agende agora sua avaliação gratuita. Em 30 minutos você sai sabendo exatamente o que precisa para ter o sorriso que sempre quis.</p>
+  <div class="cta-btns">
+    <a href="https://wa.me/5562319014333?text=Ol%C3%A1%20Dra.%20B%C3%A1rbara!%20Quero%20agendar%20minha%20avalia%C3%A7%C3%A3o%20gratuita." target="_blank" rel="noopener" class="btn btn-wpp">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      Agendar Avaliação Gratuita
+    </a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <a href="https://digital-ai.tech" target="_blank" rel="noopener">Desenvolvido por Digital AI</a>
+</footer>
+
+<!-- FLOAT WPP -->
+<a href="https://wa.me/5562319014333?text=Ol%C3%A1%20Dra.%20B%C3%A1rbara!" target="_blank" rel="noopener" class="float-wpp" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<script>
+  // Progress bar
+  window.addEventListener('scroll', () => {
+    const el = document.getElementById('progress-bar');
+    const h = document.documentElement;
+    const pct = (h.scrollTop || document.body.scrollTop) / (h.scrollHeight - h.clientHeight) * 100;
+    el.style.width = pct + '%';
+  });
+
+  // Navbar scroll
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 40);
+  });
+
+  // Reveal on scroll
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+  // FAQ toggle
+  function toggleFaq(btn) {
+    const item = btn.closest('.faq-item');
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  }
+</script>
+</body>
+</html>
