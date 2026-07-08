@@ -393,7 +393,8 @@
       border-radius: 20px; overflow: hidden;
       box-shadow: 0 8px 48px rgba(0,0,0,.35);
     }
-    .sobre-img-wrap img { aspect-ratio: 3/4; }
+    /* REGRA: sobre.jpg SEMPRE foto profissional da doutora — sem texto, sem logo, sem pacientes */
+    .sobre-img-wrap img { aspect-ratio: 2/3; object-position: center top; }
     .sobre-text .sec-tag { color: var(--gold); background: rgba(196,169,110,.15); }
     .sobre-text .sec-title { color: #fff; }
     .sobre-text .sec-title em { color: var(--gold-l); }
@@ -420,8 +421,7 @@
     }
     @media (max-width: 768px) {
       .sobre-grid { grid-template-columns: 1fr; }
-      .sobre-img-wrap { max-height: 300px; }
-      .sobre-img-wrap img { aspect-ratio: 4/3; object-position: center top; }
+      .sobre-img-wrap img { aspect-ratio: 3/4; object-position: center top; }
     }
 
     /* ── DEPOIMENTOS ── */
@@ -776,11 +776,15 @@
 
 <!-- ── SOBRE ── -->
 <!-- ▼ BRAND: Seção sobre com foto, bio e stats ▼ -->
+<!-- ▼ REGRA ABSOLUTA: sobre.jpg = foto profissional da doutora/do profissional.
+     CRITÉRIOS: (1) rostos visíveis sem capuz/toca cirúrgica, (2) sem texto sobreposto,
+     (3) sem logos de terceiros, (4) sem fotos de pacientes ou antes/depois,
+     (5) contexto profissional (consultório, estúdio, jaleco) ▼ -->
 <section class="section sobre-section">
   <div class="container">
     <div class="sobre-grid">
       <div class="sobre-img-wrap reveal">
-        <img src="img/img1.jpg" alt="{{FULL_NAME}}" loading="lazy" />
+        <img src="img/sobre.jpg" alt="{{FULL_NAME}}" loading="lazy" />
       </div>
       <div class="sobre-text reveal d2">
         <div class="sec-tag">✦ Sobre</div>
