@@ -248,8 +248,8 @@
       color: var(--text-soft); margin-bottom: 2rem;
     }
     .links-grid {
-      display: grid; grid-template-columns: repeat(3, 1fr);
-      gap: 14px; max-width: 760px; margin: 0 auto;
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      gap: 14px; max-width: 960px; margin: 0 auto;
     }
     .link-card {
       display: flex; flex-direction: column; align-items: center;
@@ -274,6 +274,8 @@
     .lc-lt   { background: rgba(184,126,106,.08); border-color: rgba(184,126,106,.2); }
     .lc-lt .link-card-icon { background: rgba(184,126,106,.2); }
     .lc-lt .link-card-icon svg { color: var(--gold); }
+    .lc-share { background: rgba(255,255,255,.04); border-color: rgba(255,255,255,.1); cursor: pointer; }
+    .lc-share .link-card-icon { background: rgba(255,255,255,.08); }
     @media (max-width: 600px) {
       .links-grid { grid-template-columns: 1fr; max-width: 360px; gap: 12px; }
       .link-card { flex-direction: row; text-align: left; padding: 18px 20px; gap: 16px; }
@@ -603,8 +605,32 @@
       <div class="link-card-sub">Conheça o método exclusivo</div>
       <div class="link-card-arrow">Ver tudo →</div>
     </a>
+    <button onclick="shareLP()" class="link-card lc-share reveal d3" id="share-btn">
+      <div class="link-card-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z"/></svg>
+      </div>
+      <div class="link-card-title">Compartilhar</div>
+      <div class="link-card-sub">Enviar esta página</div>
+      <div class="link-card-arrow" id="share-arrow">Compartilhar →</div>
+    </button>
   </div>
 </section>
+<script>
+function shareLP() {
+  var url = 'https://dra-laicianecarla.digital-ai.tech/';
+  var title = 'Laiciane Carla — Harmonização Facial';
+  var text = 'Conheça o Protocolo Beauty Essencial da Laiciane Carla em Itumbiara-GO!';
+  if (navigator.share) {
+    navigator.share({ title: title, text: text, url: url });
+  } else {
+    navigator.clipboard.writeText(url).then(function() {
+      var arrow = document.getElementById('share-arrow');
+      arrow.textContent = 'Link copiado! ✓';
+      setTimeout(function() { arrow.textContent = 'Compartilhar →'; }, 2500);
+    });
+  }
+}
+</script>
 
 <!-- ── TRATAMENTOS / SERVIÇOS ── -->
 <section class="section produtos-section" id="tratamentos">
