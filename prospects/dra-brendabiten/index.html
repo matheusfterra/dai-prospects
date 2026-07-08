@@ -109,7 +109,9 @@
       font-family: var(--font-h);
       font-size: 1.15rem; font-weight: 600;
       letter-spacing: .06em; color: var(--dark);
+      white-space: nowrap;
     }
+    @media (max-width: 480px) { .nav-brand { font-size: .9rem; letter-spacing: .03em; } }
     .nav-brand span { color: var(--gold); }
     .nav-ig {
       display: flex; align-items: center; gap: 7px;
@@ -336,7 +338,7 @@
       box-shadow: 0 12px 40px rgba(42,21,32,.12);
     }
     .prod-img { position: relative; overflow: hidden; }
-    .prod-img img { aspect-ratio: 3/4; transition: transform .5s; }
+    .prod-img img { aspect-ratio: 3/4; object-position: top; transition: transform .5s; }
     .prod-card:hover .prod-img img { transform: scale(1.04); }
     .prod-badge {
       position: absolute; top: 14px; right: 14px;
@@ -373,7 +375,7 @@
       border-radius: 20px; overflow: hidden;
       box-shadow: 0 8px 48px rgba(0,0,0,.35);
     }
-    .sobre-img-wrap img { aspect-ratio: 3/4; }
+    .sobre-img-wrap img { aspect-ratio: 2/3; }
     .sobre-text .sec-tag { color: var(--gold-l); background: rgba(160,80,112,.2); }
     .sobre-text .sec-title { color: #fff; }
     .sobre-text .sec-title em { color: var(--gold-l); }
@@ -402,8 +404,8 @@
     }
     @media (max-width: 768px) {
       .sobre-grid { grid-template-columns: 1fr; }
-      .sobre-img-wrap { max-height: 300px; }
-      .sobre-img-wrap img { aspect-ratio: 4/3; object-position: center top; }
+      .sobre-img-wrap { max-height: 520px; }
+      .sobre-img-wrap img { aspect-ratio: 2/3; object-position: center top; }
     }
 
     /* ── DEPOIMENTOS ── */
