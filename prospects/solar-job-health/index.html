@@ -1288,6 +1288,24 @@
     .text-blue   { color: var(--accent-blue); }
     .text-muted  { color: var(--text-muted); }
 
+    /* Responsive breakpoints adicionais */
+  @media (max-width: 600px) {
+    .hero-top { flex-direction: column; align-items: flex-start; }
+    .total-bar { flex-direction: column; }
+    .total-bar-right { width: 100%; }
+    .rec-card { grid-template-columns: auto 1fr; }
+    .rec-impact { grid-column: 2; }
+    .cta-card { padding: 36px 24px; }
+    .proj-scores { gap: 16px; }
+    .proj-num { font-size: 42px; }
+    .pillar-header { flex-direction: column; gap: 12px; }
+  }
+  @media (max-width: 480px) {
+    section { padding: 56px 0; }
+  }
+  @media (max-width: 640px) {
+    .gains-grid { grid-template-columns: repeat(3, 1fr) !important; }
+  }
   </style>
 </head>
 <body>
@@ -1299,11 +1317,10 @@
   <div class="container">
     <div class="hero-top fade-up">
       <div class="company-badge" style="border:1px solid rgba(255,105,0,0.25);background:rgba(255,105,0,0.06)">
-        <div class="company-icon" style="background:transparent;padding:0;overflow:visible">
-          <img src="https://solarjob.com.br/wp-content/uploads/2023/12/logo-contorno-branco.webp"
+        <div style="display:flex;align-items:center;flex-shrink:0">
+          <img src="data:image/webp;base64,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"
                alt="Solar Job"
-               style="height:44px;width:auto;max-width:140px;object-fit:contain;filter:drop-shadow(0 0 6px rgba(255,105,0,0.4))"
-               onerror="this.outerHTML='<div style=\'width:44px;height:44px;background:linear-gradient(135deg,#FF6900,#FCB900);border-radius:10px;display:flex;align-items:center;justify-content:center;font-family:Space Grotesk,sans-serif;font-weight:800;font-size:18px;color:#fff\'>SJ</div>'" />
+               style="height:38px;width:auto;max-width:160px;object-fit:contain;filter:drop-shadow(0 2px 8px rgba(255,105,0,0.5))" />
         </div>
         <div>
           <div class="company-name">Solar Job | Energia Solar</div>
@@ -1543,6 +1560,11 @@
         <div class="stat-chip-dot" style="background:var(--solar-orange)"></div>
         <span class="stat-chip-label">Publicações:&nbsp;</span>
         <span class="stat-chip-value">59 posts</span>
+      </div>
+      <div class="stat-chip">
+        <div class="stat-chip-dot" style="background:var(--accent-blue)"></div>
+        <span class="stat-chip-label">Seguindo:&nbsp;</span>
+        <span class="stat-chip-value">1.223</span>
       </div>
       <div class="stat-chip">
         <div class="stat-chip-dot" style="background:var(--accent-yellow)"></div>
@@ -2030,30 +2052,6 @@
 <!-- Data: Julho 2026 -->
 <!-- Score: 63/100 — Grau B -->
 
-<style>
-  /* Responsive breakpoints adicionais */
-  @media (max-width: 600px) {
-    .hero-top { flex-direction: column; align-items: flex-start; }
-    .total-bar { flex-direction: column; }
-    .total-bar-right { width: 100%; }
-    .rec-card { grid-template-columns: auto 1fr; }
-    .rec-impact { grid-column: 2; }
-    .cta-card { padding: 36px 24px; }
-    .proj-scores { gap: 16px; }
-    .proj-num { font-size: 42px; }
-    .pillar-header { flex-direction: column; gap: 12px; }
-  }
-
-  @media (max-width: 480px) {
-    section { padding: 56px 0; }
-    .pillar-section, .scores-section, .recs-section, .projection-section, .market-section, .cta-section { padding: 56px 0; }
-  }
-
-  /* Grid dos ganhos - mobile */
-  @media (max-width: 640px) {
-    .gains-grid { grid-template-columns: repeat(3, 1fr) !important; }
-  }
-</style>
 
 </body>
 </html>
