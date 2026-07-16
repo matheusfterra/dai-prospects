@@ -1334,7 +1334,8 @@
     ───────────────────────────────────────────────── */
 
     /* Previne overflow horizontal global */
-    body { overflow-x: hidden; }
+    html, body { overflow-x: hidden; max-width: 100%; }
+    * { min-width: 0; }
 
     @media (max-width: 768px) {
       .container { padding: 0 16px; }
@@ -1347,72 +1348,89 @@
     @media (max-width: 640px) {
       /* Hero */
       .hero { padding: 48px 0 64px; }
-      .hero-content {
-        grid-template-columns: 1fr;
-        gap: 32px;
-      }
-      .hero-score-wrap { order: -1; }
+      .hero-content { grid-template-columns: 1fr; gap: 32px; }
+      .hero-score-wrap { order: -1; align-items: center; width: 100%; }
       .hero-top { flex-direction: column; align-items: flex-start; gap: 12px; }
       .report-date { align-self: flex-start; }
-      .hero-title { font-size: clamp(28px, 7vw, 40px); }
+      .hero-title { font-size: clamp(26px, 7vw, 40px); }
+      .hero-desc { max-width: 100%; }
 
-      /* Score ring — centralizado em mobile */
+      /* Score ring centralizado */
       .ring-wrap { margin: 0 auto; }
 
       /* Score overview */
-      .scores-grid { grid-template-columns: 1fr; }
       .total-bar { flex-direction: column; gap: 16px; }
-      .total-bar-right { width: 100%; min-width: 0; }
+      .total-bar-right { width: 100%; }
       .total-bar-left { flex-wrap: wrap; }
 
       /* Pillar */
       .pillar-header { flex-direction: column; gap: 12px; }
       .pillar-stats { flex-direction: column; gap: 8px; }
-      .stat-chip { width: 100%; }
+      .stat-chip { width: 100%; box-sizing: border-box; }
 
       /* Highlight card */
-      .highlight-card { flex-direction: column; gap: 12px; text-align: center; }
+      .highlight-card { flex-direction: column; gap: 12px; text-align: center; padding: 20px 16px; }
       .hl-icon { font-size: 28px; }
 
+      /* Google checklist */
+      .check-right { display: none; }
+
       /* Recommendations */
-      .rec-card {
-        grid-template-columns: auto 1fr;
-        gap: 14px;
-      }
+      .rec-card { grid-template-columns: auto 1fr; gap: 14px; padding: 18px 16px; }
       .rec-impact { display: none; }
 
       /* Projection */
       .proj-card { padding: 32px 20px; }
-      .proj-scores { gap: 16px; }
-      .proj-num { font-size: 42px; }
-      .proj-arrow { font-size: 22px; }
+      .proj-scores { gap: 12px; }
+      .proj-num { font-size: 40px; }
+      .proj-arrow { font-size: 20px; }
       .proj-bar-section { max-width: 100%; }
+      .proj-grade-wrap { flex-wrap: wrap; justify-content: center; gap: 8px; }
+
+      /* Gains grid 5 colunas → 2 colunas wrapping */
+      .gains-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 8px !important;
+      }
 
       /* Market */
-      .market-grid { grid-template-columns: 1fr; }
       .market-stat { font-size: 30px; }
 
       /* CTA */
       .cta-card { padding: 36px 20px; }
       .cta-buttons { flex-direction: column; align-items: stretch; }
-      .btn { justify-content: center; }
+      .btn { justify-content: center; width: 100%; box-sizing: border-box; }
+
+      /* Scores grid */
+      .scores-grid { grid-template-columns: 1fr; }
+      .market-grid { grid-template-columns: 1fr; }
+      .criteria-grid { grid-template-columns: 1fr; }
     }
 
     @media (max-width: 480px) {
-      section { padding: 48px 0; }
-      .container { padding: 0 14px; }
+      section { padding: 40px 0; }
+      .container { padding: 0 12px; }
 
-      /* Hero ring menor em telas muito pequenas */
-      .ring-wrap { width: 160px; height: 160px; }
-      .ring-svg  { width: 160px; height: 160px; }
+      /* Hero ring menor */
+      .ring-wrap  { width: 160px; height: 160px; }
+      .ring-svg   { width: 160px; height: 160px; }
       .ring-inner { width: 160px; height: 160px; }
       .ring-score { font-size: 34px; }
 
-      /* Check items */
-      .check-right { display: none; }
+      /* Gains grid 5 colunas → 1 coluna em telas muito pequenas */
+      .gains-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+      }
 
       /* Proj grade */
-      .proj-grade-wrap { flex-direction: column; gap: 8px; }
+      .proj-grade-wrap { flex-direction: column; align-items: center; gap: 8px; }
+
+      /* Seção de score bar */
+      .total-score { font-size: 28px; }
+      .section-title { font-size: clamp(22px, 6vw, 30px); }
+
+      /* Proj card números menores */
+      .proj-num { font-size: 36px; }
     }
   </style>
 </head>
@@ -2055,7 +2073,7 @@
     </div>
 
     <!-- Breakdown dos ganhos -->
-    <div style="margin-top:20px;display:grid;grid-template-columns:repeat(5,1fr);gap:10px;">
+    <div class="gains-grid" style="margin-top:20px;display:grid;grid-template-columns:repeat(5,1fr);gap:10px;">
       <div style="background:var(--card);border:1px solid var(--border);border-radius:var(--radius-sm);padding:16px;text-align:center;">
         <div style="font-family:'Space Grotesk',sans-serif;font-size:22px;font-weight:800;color:var(--accent-green)">+8</div>
         <div style="font-size:11px;color:var(--text-muted);margin-top:4px">SEO Local<br/>+ GMB</div>
@@ -2146,7 +2164,6 @@
     <p>
       Diagnóstico de Presença Digital — Solar Job | Energia Solar<br/>
       Feito por <a href="https://digital-ai.tech" target="_blank" rel="noopener">Digital AI</a> · Julho de 2026<br/>
-      Score total: 63/100 — Grau B · Confidencial para uso interno e de prospecção
     </p>
   </div>
 </footer>
