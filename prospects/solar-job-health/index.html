@@ -296,15 +296,20 @@
       position: relative;
       width: 190px;
       height: 190px;
+      flex-shrink: 0;
       animation: pulse-ring 2.5s ease infinite;
       border-radius: 50%;
     }
 
+    /* SVG absolutamente posicionado — sem inline gap, sem stacking conflict */
     .ring-svg {
-      display: block;
+      position: absolute;
+      top: 0; left: 0;
       width: 190px;
       height: 190px;
       transform: rotate(-90deg);
+      transform-origin: 50% 50%;
+      z-index: 0;
     }
 
     .ring-track {
@@ -321,24 +326,27 @@
       stroke-dasharray: 503;
       stroke-dashoffset: 503;
       --dash-total: 503;
-      --dash-offset: 186; /* 2π×80≈503; 63%→317 filled; offset=503-317=186 */
+      --dash-offset: 186;
       animation: dashAnim 1.6s cubic-bezier(0.4, 0, 0.2, 1) 0.4s forwards;
     }
 
+    /* Texto do ring — acima do SVG, centralizado via flex */
     .ring-inner {
       position: absolute;
-      inset: 0;
+      top: 0; left: 0;
+      width: 190px;
+      height: 190px;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      text-align: center;
-      gap: 2px;
+      z-index: 2;
+      pointer-events: none;
     }
 
     .ring-score {
       font-family: 'Space Grotesk', sans-serif;
-      font-size: 44px;
+      font-size: 42px;
       font-weight: 800;
       line-height: 1;
       color: var(--text);
@@ -348,10 +356,11 @@
       font-size: 13px;
       color: var(--text-muted);
       line-height: 1;
+      margin-top: 3px;
     }
 
     .ring-grade-pill {
-      margin-top: 6px;
+      margin-top: 8px;
       background: linear-gradient(135deg, var(--solar-orange), #FFAB40);
       color: #000;
       font-family: 'Space Grotesk', sans-serif;
@@ -428,9 +437,13 @@
     }
 
     .mini-ring-svg {
+      position: absolute;
+      top: 0; left: 0;
       width: 110px;
       height: 110px;
       transform: rotate(-90deg);
+      transform-origin: 50% 50%;
+      z-index: 0;
     }
 
     .mini-track {
@@ -454,10 +467,15 @@
 
     .mini-ring-inner {
       position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      text-align: center;
+      top: 0; left: 0;
+      width: 110px;
+      height: 110px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      z-index: 2;
+      pointer-events: none;
     }
 
     .mini-score {
@@ -470,6 +488,7 @@
     .mini-max {
       font-size: 11px;
       color: var(--text-muted);
+      margin-top: 2px;
     }
 
     .score-card-label {
