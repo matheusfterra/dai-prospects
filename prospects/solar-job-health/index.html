@@ -1329,24 +1329,91 @@
     .text-blue   { color: var(--accent-blue); }
     .text-muted  { color: var(--text-muted); }
 
-    /* Responsive breakpoints adicionais */
-  @media (max-width: 600px) {
-    .hero-top { flex-direction: column; align-items: flex-start; }
-    .total-bar { flex-direction: column; }
-    .total-bar-right { width: 100%; }
-    .rec-card { grid-template-columns: auto 1fr; }
-    .rec-impact { grid-column: 2; }
-    .cta-card { padding: 36px 24px; }
-    .proj-scores { gap: 16px; }
-    .proj-num { font-size: 42px; }
-    .pillar-header { flex-direction: column; gap: 12px; }
-  }
-  @media (max-width: 480px) {
-    section { padding: 56px 0; }
-  }
-  @media (max-width: 640px) {
-    .gains-grid { grid-template-columns: repeat(3, 1fr) !important; }
-  }
+    /* ─────────────────────────────────────────────────
+       RESPONSIVE — MOBILE FIRST
+    ───────────────────────────────────────────────── */
+
+    /* Previne overflow horizontal global */
+    body { overflow-x: hidden; }
+
+    @media (max-width: 768px) {
+      .container { padding: 0 16px; }
+      section { padding: 56px 0; }
+      .scores-grid { grid-template-columns: 1fr; }
+      .market-grid { grid-template-columns: 1fr; }
+      .criteria-grid { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 640px) {
+      /* Hero */
+      .hero { padding: 48px 0 64px; }
+      .hero-content {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+      .hero-score-wrap { order: -1; }
+      .hero-top { flex-direction: column; align-items: flex-start; gap: 12px; }
+      .report-date { align-self: flex-start; }
+      .hero-title { font-size: clamp(28px, 7vw, 40px); }
+
+      /* Score ring — centralizado em mobile */
+      .ring-wrap { margin: 0 auto; }
+
+      /* Score overview */
+      .scores-grid { grid-template-columns: 1fr; }
+      .total-bar { flex-direction: column; gap: 16px; }
+      .total-bar-right { width: 100%; min-width: 0; }
+      .total-bar-left { flex-wrap: wrap; }
+
+      /* Pillar */
+      .pillar-header { flex-direction: column; gap: 12px; }
+      .pillar-stats { flex-direction: column; gap: 8px; }
+      .stat-chip { width: 100%; }
+
+      /* Highlight card */
+      .highlight-card { flex-direction: column; gap: 12px; text-align: center; }
+      .hl-icon { font-size: 28px; }
+
+      /* Recommendations */
+      .rec-card {
+        grid-template-columns: auto 1fr;
+        gap: 14px;
+      }
+      .rec-impact { display: none; }
+
+      /* Projection */
+      .proj-card { padding: 32px 20px; }
+      .proj-scores { gap: 16px; }
+      .proj-num { font-size: 42px; }
+      .proj-arrow { font-size: 22px; }
+      .proj-bar-section { max-width: 100%; }
+
+      /* Market */
+      .market-grid { grid-template-columns: 1fr; }
+      .market-stat { font-size: 30px; }
+
+      /* CTA */
+      .cta-card { padding: 36px 20px; }
+      .cta-buttons { flex-direction: column; align-items: stretch; }
+      .btn { justify-content: center; }
+    }
+
+    @media (max-width: 480px) {
+      section { padding: 48px 0; }
+      .container { padding: 0 14px; }
+
+      /* Hero ring menor em telas muito pequenas */
+      .ring-wrap { width: 160px; height: 160px; }
+      .ring-svg  { width: 160px; height: 160px; }
+      .ring-inner { width: 160px; height: 160px; }
+      .ring-score { font-size: 34px; }
+
+      /* Check items */
+      .check-right { display: none; }
+
+      /* Proj grade */
+      .proj-grade-wrap { flex-direction: column; gap: 8px; }
+    }
   </style>
 </head>
 <body>
