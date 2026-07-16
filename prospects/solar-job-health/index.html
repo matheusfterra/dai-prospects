@@ -294,15 +294,16 @@
 
     .ring-wrap {
       position: relative;
-      width: 168px;
-      height: 168px;
+      width: 190px;
+      height: 190px;
       animation: pulse-ring 2.5s ease infinite;
       border-radius: 50%;
     }
 
     .ring-svg {
-      width: 168px;
-      height: 168px;
+      display: block;
+      width: 190px;
+      height: 190px;
       transform: rotate(-90deg);
     }
 
@@ -317,51 +318,54 @@
       stroke: url(#scoreGrad);
       stroke-width: 10;
       stroke-linecap: round;
-      stroke-dasharray: 440;
-      stroke-dashoffset: 440;
-      --dash-total: 440;
-      --dash-offset: 163; /* 63% of 440 ≈ 277 filled → offset = 440-277 = 163 */
+      stroke-dasharray: 503;
+      stroke-dashoffset: 503;
+      --dash-total: 503;
+      --dash-offset: 186; /* 2π×80≈503; 63%→317 filled; offset=503-317=186 */
       animation: dashAnim 1.6s cubic-bezier(0.4, 0, 0.2, 1) 0.4s forwards;
     }
 
     .ring-inner {
       position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
       text-align: center;
+      gap: 2px;
     }
 
     .ring-score {
       font-family: 'Space Grotesk', sans-serif;
-      font-size: 42px;
+      font-size: 44px;
       font-weight: 800;
       line-height: 1;
       color: var(--text);
     }
 
     .ring-max {
-      font-size: 14px;
+      font-size: 13px;
       color: var(--text-muted);
-      margin-top: 2px;
+      line-height: 1;
+    }
+
+    .ring-grade-pill {
+      margin-top: 6px;
+      background: linear-gradient(135deg, var(--solar-orange), #FFAB40);
+      color: #000;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 10px;
+      font-weight: 700;
+      padding: 3px 12px;
+      border-radius: 100px;
+      letter-spacing: 0.08em;
     }
 
     .hero-grade {
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 4px;
-    }
-
-    .grade-badge {
-      background: linear-gradient(135deg, var(--solar-orange), #FFAB40);
-      color: #000;
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 13px;
-      font-weight: 700;
-      padding: 6px 20px;
-      border-radius: 100px;
-      letter-spacing: 0.04em;
     }
 
     .grade-label {
@@ -369,6 +373,7 @@
       color: var(--text-subtle);
       text-transform: uppercase;
       letter-spacing: 0.1em;
+      margin-top: 10px;
     }
 
     @media (max-width: 600px) {
@@ -1359,23 +1364,23 @@
 
       <div class="hero-score-wrap fade-up" style="animation-delay: 0.25s">
         <div class="ring-wrap">
-          <svg class="ring-svg" viewBox="0 0 168 168">
+          <svg class="ring-svg" viewBox="0 0 190 190">
             <defs>
               <linearGradient id="scoreGrad" x1="0%" y1="0%" x2="100%" y2="0%">
                 <stop offset="0%" style="stop-color:#FF6900"/>
                 <stop offset="100%" style="stop-color:#FFAB40"/>
               </linearGradient>
             </defs>
-            <circle class="ring-track" cx="84" cy="84" r="70"/>
-            <circle class="ring-fill" cx="84" cy="84" r="70"/>
+            <circle class="ring-track" cx="95" cy="95" r="80"/>
+            <circle class="ring-fill" cx="95" cy="95" r="80"/>
           </svg>
           <div class="ring-inner">
             <div class="ring-score">63</div>
             <div class="ring-max">/ 100</div>
+            <div class="ring-grade-pill">GRAU B</div>
           </div>
         </div>
         <div class="hero-grade">
-          <div class="grade-badge">GRAU B</div>
           <div class="grade-label">Potencial de Melhora Alto</div>
         </div>
       </div>
