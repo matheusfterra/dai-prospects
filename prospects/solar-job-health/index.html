@@ -24,7 +24,11 @@
       --accent-yellow: #FFD600;
       --accent-red: #FF3D00;
       --accent-blue: #2979FF;
-      --solar-orange: #FF6D00;
+      --solar-orange: #FF6900;
+      --sj-primary: #FF6900;
+      --sj-amber: #FCB900;
+      --sj-green: #045E01;
+      --solar-amber: #FCB900;
       --solar-orange-dim: rgba(255, 109, 0, 0.12);
       --green-dim: rgba(0, 200, 83, 0.1);
       --yellow-dim: rgba(255, 214, 0, 0.1);
@@ -1294,20 +1298,12 @@
 <section class="hero">
   <div class="container">
     <div class="hero-top fade-up">
-      <div class="company-badge">
-        <div class="company-icon">
-          <!-- Sun / Solar icon -->
-          <svg width="26" height="26" viewBox="0 0 24 24" fill="none">
-            <circle cx="12" cy="12" r="4" fill="#FF6D00"/>
-            <line x1="12" y1="2" x2="12" y2="5" stroke="#FF6D00" stroke-width="2" stroke-linecap="round"/>
-            <line x1="12" y1="19" x2="12" y2="22" stroke="#FF6D00" stroke-width="2" stroke-linecap="round"/>
-            <line x1="2" y1="12" x2="5" y2="12" stroke="#FF6D00" stroke-width="2" stroke-linecap="round"/>
-            <line x1="19" y1="12" x2="22" y2="12" stroke="#FF6D00" stroke-width="2" stroke-linecap="round"/>
-            <line x1="4.22" y1="4.22" x2="6.34" y2="6.34" stroke="#FF6D00" stroke-width="2" stroke-linecap="round"/>
-            <line x1="17.66" y1="17.66" x2="19.78" y2="19.78" stroke="#FF6D00" stroke-width="2" stroke-linecap="round"/>
-            <line x1="4.22" y1="19.78" x2="6.34" y2="17.66" stroke="#FF6D00" stroke-width="2" stroke-linecap="round"/>
-            <line x1="17.66" y1="6.34" x2="19.78" y2="4.22" stroke="#FF6D00" stroke-width="2" stroke-linecap="round"/>
-          </svg>
+      <div class="company-badge" style="border:1px solid rgba(255,105,0,0.25);background:rgba(255,105,0,0.06)">
+        <div class="company-icon" style="background:transparent;padding:0;overflow:visible">
+          <img src="https://solarjob.com.br/wp-content/uploads/2023/12/logo-contorno-branco.webp"
+               alt="Solar Job"
+               style="height:44px;width:auto;max-width:140px;object-fit:contain;filter:drop-shadow(0 0 6px rgba(255,105,0,0.4))"
+               onerror="this.outerHTML='<div style=\'width:44px;height:44px;background:linear-gradient(135deg,#FF6900,#FCB900);border-radius:10px;display:flex;align-items:center;justify-content:center;font-family:Space Grotesk,sans-serif;font-weight:800;font-size:18px;color:#fff\'>SJ</div>'" />
         </div>
         <div>
           <div class="company-name">Solar Job | Energia Solar</div>
@@ -1336,7 +1332,7 @@
           <svg class="ring-svg" viewBox="0 0 168 168">
             <defs>
               <linearGradient id="scoreGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-                <stop offset="0%" style="stop-color:#FF6D00"/>
+                <stop offset="0%" style="stop-color:#FF6900"/>
                 <stop offset="100%" style="stop-color:#FFAB40"/>
               </linearGradient>
             </defs>
@@ -1485,7 +1481,7 @@
       <div>
         <div class="section-label" style="margin-bottom:4px">Pilar 1</div>
         <h2 class="pillar-title">Instagram — <span style="color:#E1306C">23 / 40</span></h2>
-        <p class="pillar-subtitle">@solar.job · 3.446 seguidores · 159 publicações</p>
+        <p class="pillar-subtitle">@solar.job · 3.448 seguidores · 59 publicações</p>
       </div>
     </div>
 
@@ -1496,7 +1492,7 @@
           <div class="crit-name">Engajamento</div>
           <div class="score-chip chip-orange">5 / 10</div>
         </div>
-        <p class="crit-desc">3.446 seguidores com 159 posts. Taxa de engajamento abaixo do benchmark para o setor de energia solar (ideal: 2–4%). Oportunidade de crescimento significativa com estratégia de conteúdo focada.</p>
+        <p class="crit-desc">3.448 seguidores com 59 posts. Taxa de engajamento abaixo do benchmark para o setor de energia solar (ideal: 2–4%). Oportunidade de crescimento significativa com estratégia de conteúdo focada.</p>
         <div class="crit-bar-track">
           <div class="crit-bar-fill bar-pink" style="--bar-width:50%"></div>
         </div>
@@ -1541,12 +1537,12 @@
       <div class="stat-chip">
         <div class="stat-chip-dot" style="background:#E1306C"></div>
         <span class="stat-chip-label">Seguidores:&nbsp;</span>
-        <span class="stat-chip-value">3.446</span>
+        <span class="stat-chip-value">3.448</span>
       </div>
       <div class="stat-chip">
         <div class="stat-chip-dot" style="background:var(--solar-orange)"></div>
         <span class="stat-chip-label">Publicações:&nbsp;</span>
-        <span class="stat-chip-value">159 posts</span>
+        <span class="stat-chip-value">59 posts</span>
       </div>
       <div class="stat-chip">
         <div class="stat-chip-dot" style="background:var(--accent-yellow)"></div>
@@ -1955,10 +1951,6 @@
         <div style="font-size:11px;color:var(--text-muted);margin-top:4px">Blog<br/>SEO</div>
       </div>
     </div>
-
-    @media (max-width: 600px) {
-      /* grid já adaptado por CSS mobile abaixo */
-    }
   </div>
 </section>
 
@@ -1990,9 +1982,9 @@
       <div class="market-card">
         <div class="market-icon" style="background:var(--solar-orange-dim)">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
-            <path d="M12 2L2 7l10 5 10-5-10-5z" stroke="#FF6D00" stroke-width="2" stroke-linejoin="round"/>
-            <path d="M2 17l10 5 10-5" stroke="#FF6D00" stroke-width="2" stroke-linejoin="round"/>
-            <path d="M2 12l10 5 10-5" stroke="#FF6D00" stroke-width="2" stroke-linejoin="round"/>
+            <path d="M12 2L2 7l10 5 10-5-10-5z" stroke="#FF6900" stroke-width="2" stroke-linejoin="round"/>
+            <path d="M2 17l10 5 10-5" stroke="#FF6900" stroke-width="2" stroke-linejoin="round"/>
+            <path d="M2 12l10 5 10-5" stroke="#FF6900" stroke-width="2" stroke-linejoin="round"/>
           </svg>
         </div>
         <div class="market-stat text-orange">+25%</div>
@@ -2018,58 +2010,7 @@
 
 <hr class="divider"/>
 
-<!-- ═══════════════════════════════════════════════════
-     SEÇÃO 9: CTA
-══════════════════════════════════════════════════════ -->
-<section class="cta-section">
-  <div class="container">
-    <div class="cta-card">
 
-      <div class="dai-logo">
-        <div class="dai-mark">D</div>
-        <div class="dai-name">Digital AI</div>
-      </div>
-
-      <h2 class="cta-title">
-        Gislene, a Solar Job tem<br/>
-        tudo para chegar ao <span>Grau A</span>.
-      </h2>
-
-      <p class="cta-desc">
-        Com 20 anos de mercado, +1.600 clientes e nota 5/5 no Google, a Solar Job tem a base que a maioria dos concorrentes nunca vai ter.
-        O que falta é visibilidade digital e automação de atendimento. É exatamente isso que a Digital AI implementa.
-      </p>
-
-      <div class="cta-buttons">
-        <a href="https://wa.me/5564999999999?text=Oi%2C%20vi%20o%20diagn%C3%B3stico%20da%20Solar%20Job%20e%20quero%20conversar%20sobre%20as%20solu%C3%A7%C3%B5es" class="btn btn-primary" target="_blank" rel="noopener">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="white">
-            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
-            <path d="M12 0C5.373 0 0 5.373 0 12c0 2.117.549 4.103 1.508 5.84L0 24l6.335-1.508A11.934 11.934 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818c-1.96 0-3.794-.527-5.368-1.446l-.384-.228-3.982.947.964-3.888-.252-.4A9.814 9.814 0 012.182 12C2.182 6.58 6.58 2.182 12 2.182c5.42 0 9.818 4.398 9.818 9.818 0 5.42-4.398 9.818-9.818 9.818z"/>
-          </svg>
-          Falar pelo WhatsApp
-        </a>
-        <a href="mailto:contato@digital-ai.tech" class="btn btn-secondary">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-            <rect x="2" y="4" width="20" height="16" rx="2" stroke="#888" stroke-width="2"/>
-            <path d="M2 7l10 7 10-7" stroke="#888" stroke-width="2"/>
-          </svg>
-          contato@digital-ai.tech
-        </a>
-      </div>
-
-      <div class="cta-contact-info">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
-          <circle cx="12" cy="12" r="9" stroke="#555" stroke-width="2"/>
-          <path d="M12 3c-2.5 3-4 5.7-4 9s1.5 6 4 9" stroke="#555" stroke-width="1.5" fill="none"/>
-          <path d="M12 3c2.5 3 4 5.7 4 9s-1.5 6-4 9" stroke="#555" stroke-width="1.5" fill="none"/>
-          <line x1="3" y1="12" x2="21" y2="12" stroke="#555" stroke-width="1.5"/>
-        </svg>
-        digital-ai.tech · Itumbiara, GO — Atendemos todo o Brasil
-      </div>
-
-    </div>
-  </div>
-</section>
 
 <!-- ═══════════════════════════════════════════════════
      FOOTER
