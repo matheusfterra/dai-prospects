@@ -66,6 +66,7 @@ const ROUTING = {
   "dra-laicianecarla": "dra-laicianecarla",
   "dra-barbarareck": "dra-barbara-reck",
   "draisadora": "draisadora",
+  "solar-job-health": "solar-job-health",
   // LeadKit adiciona entradas aqui automaticamente via Fase 4 do pipeline
 };
 

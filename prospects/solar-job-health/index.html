@@ -1,0 +1,2118 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Diagnóstico de Presença Digital — Solar Job | Energia Solar</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    /* ─────────────────────────────────────────────────
+       TOKENS & RESET
+    ───────────────────────────────────────────────── */
+    :root {
+      --bg: #0A0A0A;
+      --card: #111111;
+      --card-hover: #181818;
+      --border: #222222;
+      --border-subtle: #1A1A1A;
+      --text: #FFFFFF;
+      --text-muted: #888888;
+      --text-subtle: #555555;
+      --accent-green: #00C853;
+      --accent-yellow: #FFD600;
+      --accent-red: #FF3D00;
+      --accent-blue: #2979FF;
+      --solar-orange: #FF6D00;
+      --solar-orange-dim: rgba(255, 109, 0, 0.12);
+      --green-dim: rgba(0, 200, 83, 0.1);
+      --yellow-dim: rgba(255, 214, 0, 0.1);
+      --red-dim: rgba(255, 61, 0, 0.1);
+      --blue-dim: rgba(41, 121, 255, 0.1);
+      --radius: 16px;
+      --radius-sm: 8px;
+      --radius-lg: 24px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    h1, h2, h3, h4, h5 {
+      font-family: 'Space Grotesk', sans-serif;
+      line-height: 1.2;
+    }
+
+    /* ─────────────────────────────────────────────────
+       LAYOUT
+    ───────────────────────────────────────────────── */
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    section {
+      padding: 80px 0;
+    }
+
+    .section-label {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--solar-orange);
+      margin-bottom: 12px;
+    }
+
+    .section-title {
+      font-size: clamp(26px, 4vw, 36px);
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 8px;
+    }
+
+    .section-subtitle {
+      font-size: 16px;
+      color: var(--text-muted);
+      margin-bottom: 48px;
+      max-width: 540px;
+    }
+
+    hr.divider {
+      border: none;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--border), transparent);
+      margin: 0;
+    }
+
+    /* ─────────────────────────────────────────────────
+       ANIMATIONS
+    ───────────────────────────────────────────────── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes scaleIn {
+      from { opacity: 0; transform: scale(0.92); }
+      to   { opacity: 1; transform: scale(1); }
+    }
+
+    @keyframes pulse-ring {
+      0%   { box-shadow: 0 0 0 0 rgba(255, 109, 0, 0.4); }
+      70%  { box-shadow: 0 0 0 16px rgba(255, 109, 0, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(255, 109, 0, 0); }
+    }
+
+    @keyframes countUp {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+    }
+
+    @keyframes dashAnim {
+      from { stroke-dashoffset: var(--dash-total); }
+      to   { stroke-dashoffset: var(--dash-offset); }
+    }
+
+    @keyframes barFill {
+      from { width: 0%; }
+      to   { width: var(--bar-width); }
+    }
+
+    @keyframes shimmer {
+      0%   { background-position: -200% 0; }
+      100% { background-position: 200% 0; }
+    }
+
+    .fade-up {
+      animation: fadeUp 0.7s ease both;
+    }
+
+    /* ─────────────────────────────────────────────────
+       HEADER / COVER
+    ───────────────────────────────────────────────── */
+    .hero {
+      position: relative;
+      padding: 80px 0 100px;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -200px;
+      right: -200px;
+      width: 700px;
+      height: 700px;
+      background: radial-gradient(circle, rgba(255,109,0,0.07) 0%, transparent 65%);
+      pointer-events: none;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--border), transparent);
+    }
+
+    .hero-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 64px;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .company-badge {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .company-icon {
+      width: 52px;
+      height: 52px;
+      background: var(--solar-orange-dim);
+      border: 1px solid rgba(255, 109, 0, 0.2);
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .company-name {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .company-meta {
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    .report-date {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      padding: 6px 16px;
+      font-size: 12px;
+      color: var(--text-muted);
+      letter-spacing: 0.03em;
+    }
+
+    .hero-content {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: center;
+      gap: 48px;
+    }
+
+    .hero-text .eyebrow {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--solar-orange);
+      margin-bottom: 16px;
+    }
+
+    .hero-title {
+      font-size: clamp(32px, 5vw, 52px);
+      font-weight: 800;
+      line-height: 1.08;
+      color: var(--text);
+      margin-bottom: 20px;
+    }
+
+    .hero-title span {
+      background: linear-gradient(135deg, var(--solar-orange), #FFAB40);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero-desc {
+      font-size: 16px;
+      color: var(--text-muted);
+      max-width: 460px;
+      line-height: 1.7;
+    }
+
+    .hero-desc strong {
+      color: var(--text);
+    }
+
+    /* ─── SCORE RING (hero) ─── */
+    .hero-score-wrap {
+      flex-shrink: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .ring-wrap {
+      position: relative;
+      width: 168px;
+      height: 168px;
+      animation: pulse-ring 2.5s ease infinite;
+      border-radius: 50%;
+    }
+
+    .ring-svg {
+      width: 168px;
+      height: 168px;
+      transform: rotate(-90deg);
+    }
+
+    .ring-track {
+      fill: none;
+      stroke: var(--border);
+      stroke-width: 10;
+    }
+
+    .ring-fill {
+      fill: none;
+      stroke: url(#scoreGrad);
+      stroke-width: 10;
+      stroke-linecap: round;
+      stroke-dasharray: 440;
+      stroke-dashoffset: 440;
+      --dash-total: 440;
+      --dash-offset: 163; /* 63% of 440 ≈ 277 filled → offset = 440-277 = 163 */
+      animation: dashAnim 1.6s cubic-bezier(0.4, 0, 0.2, 1) 0.4s forwards;
+    }
+
+    .ring-inner {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+    }
+
+    .ring-score {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 42px;
+      font-weight: 800;
+      line-height: 1;
+      color: var(--text);
+    }
+
+    .ring-max {
+      font-size: 14px;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
+
+    .hero-grade {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .grade-badge {
+      background: linear-gradient(135deg, var(--solar-orange), #FFAB40);
+      color: #000;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      padding: 6px 20px;
+      border-radius: 100px;
+      letter-spacing: 0.04em;
+    }
+
+    .grade-label {
+      font-size: 11px;
+      color: var(--text-subtle);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    @media (max-width: 600px) {
+      .hero-content {
+        grid-template-columns: 1fr;
+      }
+      .hero-score-wrap {
+        order: -1;
+      }
+    }
+
+    /* ─────────────────────────────────────────────────
+       SCORE OVERVIEW
+    ───────────────────────────────────────────────── */
+    .scores-section {
+      padding: 72px 0;
+    }
+
+    .scores-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-bottom: 40px;
+    }
+
+    @media (max-width: 640px) {
+      .scores-grid { grid-template-columns: 1fr; }
+    }
+
+    .score-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px 24px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+      transition: border-color 0.25s, background 0.25s, transform 0.25s;
+    }
+
+    .score-card:hover {
+      background: var(--card-hover);
+      border-color: #333;
+      transform: translateY(-2px);
+    }
+
+    .mini-ring-wrap {
+      position: relative;
+      width: 110px;
+      height: 110px;
+    }
+
+    .mini-ring-svg {
+      width: 110px;
+      height: 110px;
+      transform: rotate(-90deg);
+    }
+
+    .mini-track {
+      fill: none;
+      stroke: var(--border);
+      stroke-width: 9;
+    }
+
+    .mini-fill {
+      fill: none;
+      stroke-width: 9;
+      stroke-linecap: round;
+      stroke-dasharray: 282;
+      stroke-dashoffset: 282;
+      animation: dashAnim 1.4s cubic-bezier(0.4, 0, 0.2, 1) 0.6s forwards;
+    }
+
+    .mini-fill-ig  { stroke: #E1306C; --dash-total: 282; --dash-offset: 120; }
+    .mini-fill-ggl { stroke: var(--accent-blue); --dash-total: 282; --dash-offset: 114; }
+    .mini-fill-web { stroke: var(--accent-green); --dash-total: 282; --dash-offset: 67; }
+
+    .mini-ring-inner {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+    }
+
+    .mini-score {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 26px;
+      font-weight: 800;
+      line-height: 1;
+    }
+
+    .mini-max {
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+
+    .score-card-label {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text);
+      text-align: center;
+    }
+
+    .score-card-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .total-bar {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    .total-bar-left {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .total-label {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .total-score {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 36px;
+      font-weight: 800;
+      color: var(--text);
+    }
+
+    .total-score span {
+      font-size: 18px;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    .total-grade {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      background: var(--solar-orange-dim);
+      color: var(--solar-orange);
+      border: 1px solid rgba(255,109,0,0.2);
+      padding: 6px 18px;
+      border-radius: 100px;
+    }
+
+    .total-bar-right {
+      flex: 1;
+      min-width: 200px;
+    }
+
+    .total-track {
+      height: 8px;
+      background: var(--border);
+      border-radius: 100px;
+      overflow: hidden;
+    }
+
+    .total-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--solar-orange), #FFAB40);
+      border-radius: 100px;
+      --bar-width: 63%;
+      width: 0%;
+      animation: barFill 1.4s cubic-bezier(0.4, 0, 0.2, 1) 0.5s forwards;
+    }
+
+    .track-labels {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 6px;
+      font-size: 11px;
+      color: var(--text-subtle);
+    }
+
+    /* ─────────────────────────────────────────────────
+       PILLAR SECTIONS — shared styles
+    ───────────────────────────────────────────────── */
+    .pillar-section {
+      padding: 72px 0;
+    }
+
+    .pillar-header {
+      display: flex;
+      align-items: flex-start;
+      gap: 20px;
+      margin-bottom: 40px;
+    }
+
+    .pillar-icon-wrap {
+      width: 56px;
+      height: 56px;
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .pillar-icon-ig  { background: rgba(225,48,108,0.12); }
+    .pillar-icon-ggl { background: var(--blue-dim); }
+    .pillar-icon-web { background: var(--green-dim); }
+
+    .pillar-title {
+      font-size: 26px;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .pillar-subtitle {
+      font-size: 14px;
+      color: var(--text-muted);
+    }
+
+    .criteria-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    @media (max-width: 600px) {
+      .criteria-grid { grid-template-columns: 1fr; }
+    }
+
+    .criterion-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 20px 22px;
+      transition: background 0.2s, border-color 0.2s;
+    }
+
+    .criterion-card:hover {
+      background: var(--card-hover);
+      border-color: #2a2a2a;
+    }
+
+    .crit-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 10px;
+    }
+
+    .crit-name {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    .score-chip {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      padding: 3px 10px;
+      border-radius: 100px;
+    }
+
+    .chip-orange { background: var(--solar-orange-dim); color: var(--solar-orange); }
+    .chip-green  { background: var(--green-dim); color: var(--accent-green); }
+    .chip-yellow { background: var(--yellow-dim); color: var(--accent-yellow); }
+    .chip-red    { background: var(--red-dim); color: var(--accent-red); }
+    .chip-blue   { background: var(--blue-dim); color: var(--accent-blue); }
+
+    .crit-desc {
+      font-size: 13px;
+      color: var(--text-muted);
+      line-height: 1.55;
+      margin-bottom: 12px;
+    }
+
+    .crit-bar-track {
+      height: 5px;
+      background: var(--border);
+      border-radius: 100px;
+      overflow: hidden;
+    }
+
+    .crit-bar-fill {
+      height: 100%;
+      border-radius: 100px;
+      --bar-width: 50%;
+      width: 0%;
+      animation: barFill 1.2s cubic-bezier(0.4, 0, 0.2, 1) 0.8s forwards;
+    }
+
+    .bar-orange { background: linear-gradient(90deg, var(--solar-orange), #FFAB40); }
+    .bar-green  { background: var(--accent-green); }
+    .bar-yellow { background: var(--accent-yellow); }
+    .bar-red    { background: var(--accent-red); }
+    .bar-blue   { background: var(--accent-blue); }
+    .bar-pink   { background: #E1306C; }
+
+    /* Stats row below criteria */
+    .pillar-stats {
+      display: flex;
+      gap: 12px;
+      margin-top: 20px;
+      flex-wrap: wrap;
+    }
+
+    .stat-chip {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 10px 16px;
+      font-size: 13px;
+    }
+
+    .stat-chip-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .stat-chip-label { color: var(--text-muted); }
+    .stat-chip-value { color: var(--text); font-weight: 600; }
+
+    /* ─────────────────────────────────────────────────
+       GOOGLE CHECKLIST
+    ───────────────────────────────────────────────── */
+    .checklist {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .check-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 16px 20px;
+      transition: background 0.2s;
+    }
+
+    .check-item:hover { background: var(--card-hover); }
+
+    .check-icon {
+      width: 28px;
+      height: 28px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-size: 14px;
+    }
+
+    .check-ok     { background: var(--green-dim); }
+    .check-warn   { background: var(--yellow-dim); }
+    .check-bad    { background: var(--red-dim); }
+
+    .check-body {
+      flex: 1;
+    }
+
+    .check-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 2px;
+    }
+
+    .check-detail {
+      font-size: 13px;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    .check-right {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-shrink: 0;
+    }
+
+    /* Highlight card for competitive rank */
+    .highlight-card {
+      background: var(--solar-orange-dim);
+      border: 1px solid rgba(255,109,0,0.25);
+      border-radius: var(--radius);
+      padding: 24px 28px;
+      margin-top: 20px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .hl-icon {
+      font-size: 36px;
+      flex-shrink: 0;
+    }
+
+    .hl-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--solar-orange);
+      margin-bottom: 4px;
+    }
+
+    .hl-body {
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.55;
+    }
+
+    .hl-body strong { color: var(--text); }
+
+    /* ─────────────────────────────────────────────────
+       RECOMMENDATIONS
+    ───────────────────────────────────────────────── */
+    .recs-section {
+      padding: 72px 0;
+    }
+
+    .rec-list {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .rec-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px 28px;
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      align-items: start;
+      gap: 20px;
+      transition: background 0.2s, border-color 0.2s, transform 0.2s;
+    }
+
+    .rec-card:hover {
+      background: var(--card-hover);
+      border-color: #2a2a2a;
+      transform: translateX(4px);
+    }
+
+    .rec-num {
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      background: var(--border-subtle);
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--text-muted);
+      flex-shrink: 0;
+    }
+
+    .rec-body {
+      flex: 1;
+    }
+
+    .rec-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 6px;
+      flex-wrap: wrap;
+    }
+
+    .rec-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .priority-badge {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 3px 10px;
+      border-radius: 100px;
+    }
+
+    .priority-urgent { background: var(--red-dim); color: var(--accent-red); border: 1px solid rgba(255,61,0,0.2); }
+    .priority-high   { background: var(--solar-orange-dim); color: var(--solar-orange); border: 1px solid rgba(255,109,0,0.2); }
+    .priority-mid    { background: var(--yellow-dim); color: var(--accent-yellow); border: 1px solid rgba(255,214,0,0.2); }
+
+    .rec-desc {
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    .rec-impact {
+      flex-shrink: 0;
+      text-align: right;
+    }
+
+    .impact-label {
+      font-size: 10px;
+      color: var(--text-subtle);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 2px;
+    }
+
+    .impact-value {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--accent-green);
+    }
+
+    /* ─────────────────────────────────────────────────
+       PROJECTION
+    ───────────────────────────────────────────────── */
+    .projection-section {
+      padding: 72px 0;
+    }
+
+    .proj-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 48px 40px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .proj-card::before {
+      content: '';
+      position: absolute;
+      top: -120px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(0,200,83,0.06) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    .proj-scores {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 32px;
+      margin: 36px 0;
+      flex-wrap: wrap;
+    }
+
+    .proj-score-block {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .proj-num {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 56px;
+      font-weight: 800;
+      line-height: 1;
+    }
+
+    .proj-num-before { color: var(--text-muted); }
+    .proj-num-after  {
+      background: linear-gradient(135deg, var(--accent-green), #69F0AE);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .proj-label {
+      font-size: 12px;
+      color: var(--text-subtle);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .proj-arrow {
+      font-size: 32px;
+      color: var(--accent-green);
+      opacity: 0.6;
+    }
+
+    .proj-bar-section {
+      max-width: 480px;
+      margin: 0 auto 28px;
+    }
+
+    .proj-bar-labels {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 10px;
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    .proj-track {
+      height: 10px;
+      background: var(--border);
+      border-radius: 100px;
+      overflow: visible;
+      position: relative;
+      margin-bottom: 14px;
+    }
+
+    .proj-fill-before {
+      position: absolute;
+      left: 0;
+      top: 0;
+      height: 100%;
+      background: var(--solar-orange);
+      border-radius: 100px;
+      --bar-width: 63%;
+      width: 0%;
+      animation: barFill 1s ease 0.3s forwards;
+    }
+
+    .proj-fill-after {
+      position: absolute;
+      left: 0;
+      top: 0;
+      height: 100%;
+      background: linear-gradient(90deg, var(--solar-orange), var(--accent-green));
+      border-radius: 100px;
+      opacity: 0.25;
+      --bar-width: 85%;
+      width: 0%;
+      animation: barFill 1.2s ease 0.5s forwards;
+    }
+
+    .proj-grade-wrap {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+    }
+
+    .grade-pill {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      padding: 8px 22px;
+      border-radius: 100px;
+    }
+
+    .grade-b {
+      background: var(--solar-orange-dim);
+      color: var(--solar-orange);
+      border: 1px solid rgba(255,109,0,0.2);
+    }
+
+    .grade-a {
+      background: var(--green-dim);
+      color: var(--accent-green);
+      border: 1px solid rgba(0,200,83,0.2);
+    }
+
+    .grade-arrow {
+      color: var(--text-subtle);
+      font-size: 18px;
+    }
+
+    .proj-footnote {
+      font-size: 13px;
+      color: var(--text-subtle);
+      margin-top: 24px;
+    }
+
+    /* ─────────────────────────────────────────────────
+       MARKET STATS
+    ───────────────────────────────────────────────── */
+    .market-section {
+      padding: 72px 0;
+    }
+
+    .market-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+
+    @media (max-width: 640px) {
+      .market-grid { grid-template-columns: 1fr; }
+    }
+
+    .market-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px 24px;
+      transition: background 0.2s, border-color 0.2s, transform 0.2s;
+    }
+
+    .market-card:hover {
+      background: var(--card-hover);
+      border-color: #2a2a2a;
+      transform: translateY(-3px);
+    }
+
+    .market-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 16px;
+    }
+
+    .market-stat {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 38px;
+      font-weight: 800;
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+
+    .market-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 8px;
+    }
+
+    .market-desc {
+      font-size: 13px;
+      color: var(--text-muted);
+      line-height: 1.55;
+    }
+
+    /* ─────────────────────────────────────────────────
+       CTA
+    ───────────────────────────────────────────────── */
+    .cta-section {
+      padding: 72px 0 80px;
+    }
+
+    .cta-card {
+      background: linear-gradient(135deg, #0D0D0D 0%, #111 50%, #141414 100%);
+      border: 1px solid #2a2a2a;
+      border-radius: var(--radius-lg);
+      padding: 56px 48px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-card::before {
+      content: '';
+      position: absolute;
+      top: -150px;
+      right: -100px;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(255,109,0,0.08) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    .cta-card::after {
+      content: '';
+      position: absolute;
+      bottom: -100px;
+      left: -80px;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(41,121,255,0.06) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    .dai-logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 24px;
+    }
+
+    .dai-mark {
+      width: 40px;
+      height: 40px;
+      background: linear-gradient(135deg, var(--solar-orange), #FFAB40);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 16px;
+      font-weight: 800;
+      color: #000;
+    }
+
+    .dai-name {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .cta-title {
+      font-size: clamp(26px, 4vw, 38px);
+      font-weight: 800;
+      margin-bottom: 16px;
+      max-width: 560px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .cta-title span {
+      background: linear-gradient(135deg, var(--solar-orange), #FFAB40);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .cta-desc {
+      font-size: 16px;
+      color: var(--text-muted);
+      max-width: 480px;
+      margin: 0 auto 40px;
+      line-height: 1.7;
+    }
+
+    .cta-buttons {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      padding: 14px 28px;
+      border-radius: 100px;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      transition: opacity 0.2s, transform 0.2s;
+    }
+
+    .btn:hover {
+      opacity: 0.88;
+      transform: translateY(-1px);
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #25D366, #128C7E);
+      color: #fff;
+    }
+
+    .btn-secondary {
+      background: var(--card);
+      border: 1px solid var(--border);
+      color: var(--text);
+    }
+
+    .cta-contact-info {
+      margin-top: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      font-size: 13px;
+      color: var(--text-subtle);
+    }
+
+    /* ─────────────────────────────────────────────────
+       FOOTER
+    ───────────────────────────────────────────────── */
+    .footer {
+      border-top: 1px solid var(--border);
+      padding: 32px 0;
+      text-align: center;
+    }
+
+    .footer p {
+      font-size: 12px;
+      color: var(--text-subtle);
+      line-height: 1.8;
+    }
+
+    .footer a {
+      color: var(--text-muted);
+      text-decoration: none;
+    }
+
+    .footer a:hover { color: var(--solar-orange); }
+
+    /* ─────────────────────────────────────────────────
+       UTILITY CLASSES
+    ───────────────────────────────────────────────── */
+    .text-orange { color: var(--solar-orange); }
+    .text-green  { color: var(--accent-green); }
+    .text-yellow { color: var(--accent-yellow); }
+    .text-red    { color: var(--accent-red); }
+    .text-blue   { color: var(--accent-blue); }
+    .text-muted  { color: var(--text-muted); }
+
+  </style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════════
+     SEÇÃO 1: HERO / COVER
+══════════════════════════════════════════════════════ -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-top fade-up">
+      <div class="company-badge">
+        <div class="company-icon">
+          <!-- Sun / Solar icon -->
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none">
+            <circle cx="12" cy="12" r="4" fill="#FF6D00"/>
+            <line x1="12" y1="2" x2="12" y2="5" stroke="#FF6D00" stroke-width="2" stroke-linecap="round"/>
+            <line x1="12" y1="19" x2="12" y2="22" stroke="#FF6D00" stroke-width="2" stroke-linecap="round"/>
+            <line x1="2" y1="12" x2="5" y2="12" stroke="#FF6D00" stroke-width="2" stroke-linecap="round"/>
+            <line x1="19" y1="12" x2="22" y2="12" stroke="#FF6D00" stroke-width="2" stroke-linecap="round"/>
+            <line x1="4.22" y1="4.22" x2="6.34" y2="6.34" stroke="#FF6D00" stroke-width="2" stroke-linecap="round"/>
+            <line x1="17.66" y1="17.66" x2="19.78" y2="19.78" stroke="#FF6D00" stroke-width="2" stroke-linecap="round"/>
+            <line x1="4.22" y1="19.78" x2="6.34" y2="17.66" stroke="#FF6D00" stroke-width="2" stroke-linecap="round"/>
+            <line x1="17.66" y1="6.34" x2="19.78" y2="4.22" stroke="#FF6D00" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div>
+          <div class="company-name">Solar Job | Energia Solar</div>
+          <div class="company-meta">Indaiatuba, SP · Para: Gislene Bergh, CEO &amp; Fundadora</div>
+        </div>
+      </div>
+      <div class="report-date">Julho de 2026</div>
+    </div>
+
+    <div class="hero-content">
+      <div class="hero-text fade-up" style="animation-delay: 0.1s">
+        <div class="eyebrow">Diagnóstico Gratuito de Presença Digital</div>
+        <h1 class="hero-title">
+          Onde sua empresa<br/>
+          <span>está visível</span> —<br/>
+          e onde está perdendo.
+        </h1>
+        <p class="hero-desc">
+          Analisamos <strong>Instagram, Google e Site</strong> da Solar Job com base em 12 critérios objetivos.
+          Este relatório mostra onde estão os pontos cegos da sua presença digital e o que fazer para resolvê-los.
+        </p>
+      </div>
+
+      <div class="hero-score-wrap fade-up" style="animation-delay: 0.25s">
+        <div class="ring-wrap">
+          <svg class="ring-svg" viewBox="0 0 168 168">
+            <defs>
+              <linearGradient id="scoreGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" style="stop-color:#FF6D00"/>
+                <stop offset="100%" style="stop-color:#FFAB40"/>
+              </linearGradient>
+            </defs>
+            <circle class="ring-track" cx="84" cy="84" r="70"/>
+            <circle class="ring-fill" cx="84" cy="84" r="70"/>
+          </svg>
+          <div class="ring-inner">
+            <div class="ring-score">63</div>
+            <div class="ring-max">/ 100</div>
+          </div>
+        </div>
+        <div class="hero-grade">
+          <div class="grade-badge">GRAU B</div>
+          <div class="grade-label">Potencial de Melhora Alto</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider"/>
+
+<!-- ═══════════════════════════════════════════════════
+     SEÇÃO 2: SCORE OVERVIEW
+══════════════════════════════════════════════════════ -->
+<section class="scores-section">
+  <div class="container">
+    <div class="section-label">Visão Geral</div>
+    <h2 class="section-title">Pontuação por pilar</h2>
+    <p class="section-subtitle">Cada pilar tem peso e critérios próprios. Veja onde estão as maiores oportunidades.</p>
+
+    <div class="scores-grid">
+      <!-- Instagram -->
+      <div class="score-card">
+        <div class="mini-ring-wrap">
+          <svg class="mini-ring-svg" viewBox="0 0 110 110">
+            <circle class="mini-track" cx="55" cy="55" r="45"/>
+            <circle class="mini-fill mini-fill-ig" cx="55" cy="55" r="45"/>
+          </svg>
+          <div class="mini-ring-inner">
+            <div class="mini-score" style="color:#E1306C">23</div>
+            <div class="mini-max">/ 40</div>
+          </div>
+        </div>
+        <div class="score-card-label">
+          <!-- IG icon -->
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" style="display:inline;vertical-align:middle;margin-right:5px">
+            <rect x="2" y="2" width="20" height="20" rx="5" stroke="#E1306C" stroke-width="2"/>
+            <circle cx="12" cy="12" r="4" stroke="#E1306C" stroke-width="2"/>
+            <circle cx="17.5" cy="6.5" r="1" fill="#E1306C"/>
+          </svg>
+          Instagram
+        </div>
+        <div style="font-size:12px;color:var(--text-muted)">57,5% do potencial</div>
+      </div>
+
+      <!-- Google -->
+      <div class="score-card">
+        <div class="mini-ring-wrap">
+          <svg class="mini-ring-svg" viewBox="0 0 110 110">
+            <circle class="mini-track" cx="55" cy="55" r="45"/>
+            <circle class="mini-fill mini-fill-ggl" cx="55" cy="55" r="45"/>
+          </svg>
+          <div class="mini-ring-inner">
+            <div class="mini-score" style="color:var(--accent-blue)">21</div>
+            <div class="mini-max">/ 35</div>
+          </div>
+        </div>
+        <div class="score-card-label">
+          <!-- Google G icon -->
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" style="display:inline;vertical-align:middle;margin-right:5px">
+            <path d="M21.8 12.2c0-.7-.1-1.3-.2-1.9H12v3.6h5.5c-.2 1.3-1 2.4-2.1 3.1v2.6h3.4c2-1.8 3-4.5 3-7.4z" fill="#2979FF"/>
+            <path d="M12 22c2.7 0 5-.9 6.7-2.5l-3.4-2.6c-.9.6-2 1-3.3 1-2.5 0-4.7-1.7-5.5-4H3v2.6C4.8 19.9 8.2 22 12 22z" fill="#34A853"/>
+            <path d="M6.5 13.9c-.2-.6-.3-1.2-.3-1.9s.1-1.3.3-1.9V7.5H3C2.4 8.7 2 10 2 12s.4 3.3 1 4.5l3.5-2.6z" fill="#FBBC05"/>
+            <path d="M12 5.9c1.4 0 2.6.5 3.6 1.4l2.7-2.7C16.7 3.2 14.5 2 12 2 8.2 2 4.8 4.1 3 7.5L6.5 10c.8-2.3 3-4.1 5.5-4.1z" fill="#EA4335"/>
+          </svg>
+          Google
+        </div>
+        <div style="font-size:12px;color:var(--text-muted)">60% do potencial</div>
+      </div>
+
+      <!-- Website -->
+      <div class="score-card">
+        <div class="mini-ring-wrap">
+          <svg class="mini-ring-svg" viewBox="0 0 110 110">
+            <circle class="mini-track" cx="55" cy="55" r="45"/>
+            <circle class="mini-fill mini-fill-web" cx="55" cy="55" r="45"/>
+          </svg>
+          <div class="mini-ring-inner">
+            <div class="mini-score" style="color:var(--accent-green)">19</div>
+            <div class="mini-max">/ 25</div>
+          </div>
+        </div>
+        <div class="score-card-label">
+          <!-- Globe icon -->
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" style="display:inline;vertical-align:middle;margin-right:5px">
+            <circle cx="12" cy="12" r="9" stroke="#00C853" stroke-width="2"/>
+            <path d="M12 3c-2.5 3-4 5.7-4 9s1.5 6 4 9" stroke="#00C853" stroke-width="1.5"/>
+            <path d="M12 3c2.5 3 4 5.7 4 9s-1.5 6-4 9" stroke="#00C853" stroke-width="1.5"/>
+            <line x1="3" y1="12" x2="21" y2="12" stroke="#00C853" stroke-width="1.5"/>
+          </svg>
+          Website
+        </div>
+        <div style="font-size:12px;color:var(--text-muted)">76% do potencial</div>
+      </div>
+    </div>
+
+    <!-- Total bar -->
+    <div class="total-bar">
+      <div class="total-bar-left">
+        <div>
+          <div class="total-label">Score Total</div>
+          <div class="total-score">63 <span>/ 100</span></div>
+        </div>
+        <div class="total-grade">GRAU B</div>
+      </div>
+      <div class="total-bar-right">
+        <div class="total-track">
+          <div class="total-fill"></div>
+        </div>
+        <div class="track-labels">
+          <span>0</span>
+          <span style="color:var(--text-muted)">63 pts</span>
+          <span>100</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider"/>
+
+<!-- ═══════════════════════════════════════════════════
+     SEÇÃO 3: PILAR INSTAGRAM
+══════════════════════════════════════════════════════ -->
+<section class="pillar-section">
+  <div class="container">
+    <div class="pillar-header">
+      <div class="pillar-icon-wrap pillar-icon-ig">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
+          <rect x="2" y="2" width="20" height="20" rx="5" stroke="#E1306C" stroke-width="2"/>
+          <circle cx="12" cy="12" r="4" stroke="#E1306C" stroke-width="2"/>
+          <circle cx="17.5" cy="6.5" r="1.2" fill="#E1306C"/>
+        </svg>
+      </div>
+      <div>
+        <div class="section-label" style="margin-bottom:4px">Pilar 1</div>
+        <h2 class="pillar-title">Instagram — <span style="color:#E1306C">23 / 40</span></h2>
+        <p class="pillar-subtitle">@solar.job · 3.446 seguidores · 159 publicações</p>
+      </div>
+    </div>
+
+    <div class="criteria-grid">
+
+      <div class="criterion-card">
+        <div class="crit-top">
+          <div class="crit-name">Engajamento</div>
+          <div class="score-chip chip-orange">5 / 10</div>
+        </div>
+        <p class="crit-desc">3.446 seguidores com 159 posts. Taxa de engajamento abaixo do benchmark para o setor de energia solar (ideal: 2–4%). Oportunidade de crescimento significativa com estratégia de conteúdo focada.</p>
+        <div class="crit-bar-track">
+          <div class="crit-bar-fill bar-pink" style="--bar-width:50%"></div>
+        </div>
+      </div>
+
+      <div class="criterion-card">
+        <div class="crit-top">
+          <div class="crit-name">Frequência</div>
+          <div class="score-chip chip-orange">6 / 10</div>
+        </div>
+        <p class="crit-desc">Presença de Reels confirmada — bom sinal. Porém frequência nos últimos 30 dias inferior ao recomendado (mínimo 4x/semana). Consistência é um dos principais fatores algorítmicos.</p>
+        <div class="crit-bar-track">
+          <div class="crit-bar-fill bar-pink" style="--bar-width:60%"></div>
+        </div>
+      </div>
+
+      <div class="criterion-card">
+        <div class="crit-top">
+          <div class="crit-name">Sentimento</div>
+          <div class="score-chip chip-green">7 / 10</div>
+        </div>
+        <p class="crit-desc">Depoimentos positivos espontâneos identificados. Clientes satisfeitos comentam sobre a qualidade da instalação e pós-venda. Reputação orgânica favorável — ativo valioso a ser amplificado.</p>
+        <div class="crit-bar-track">
+          <div class="crit-bar-fill bar-pink" style="--bar-width:70%"></div>
+        </div>
+      </div>
+
+      <div class="criterion-card">
+        <div class="crit-top">
+          <div class="crit-name">Consistência de Marca</div>
+          <div class="score-chip chip-yellow">5 / 10</div>
+        </div>
+        <p class="crit-desc">Dois perfis ativos: <strong style="color:var(--text)">@solar.job</strong> (empresa) + <strong style="color:var(--text)">@gislene.mentora</strong> (CEO). Sem estratégia integrada entre as contas. Diluição de audiência e mensagem.</p>
+        <div class="crit-bar-track">
+          <div class="crit-bar-fill bar-pink" style="--bar-width:50%"></div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="pillar-stats">
+      <div class="stat-chip">
+        <div class="stat-chip-dot" style="background:#E1306C"></div>
+        <span class="stat-chip-label">Seguidores:&nbsp;</span>
+        <span class="stat-chip-value">3.446</span>
+      </div>
+      <div class="stat-chip">
+        <div class="stat-chip-dot" style="background:var(--solar-orange)"></div>
+        <span class="stat-chip-label">Publicações:&nbsp;</span>
+        <span class="stat-chip-value">159 posts</span>
+      </div>
+      <div class="stat-chip">
+        <div class="stat-chip-dot" style="background:var(--accent-yellow)"></div>
+        <span class="stat-chip-label">Perfis ativos:&nbsp;</span>
+        <span class="stat-chip-value">2 (sem estratégia integrada)</span>
+      </div>
+      <div class="stat-chip">
+        <div class="stat-chip-dot" style="background:var(--accent-green)"></div>
+        <span class="stat-chip-label">Reels:&nbsp;</span>
+        <span class="stat-chip-value">Presença confirmada ✓</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider"/>
+
+<!-- ═══════════════════════════════════════════════════
+     SEÇÃO 4: PILAR GOOGLE
+══════════════════════════════════════════════════════ -->
+<section class="pillar-section">
+  <div class="container">
+    <div class="pillar-header">
+      <div class="pillar-icon-wrap pillar-icon-ggl">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
+          <path d="M21.8 12.2c0-.7-.1-1.3-.2-1.9H12v3.6h5.5c-.2 1.3-1 2.4-2.1 3.1v2.6h3.4c2-1.8 3-4.5 3-7.4z" fill="#2979FF"/>
+          <path d="M12 22c2.7 0 5-.9 6.7-2.5l-3.4-2.6c-.9.6-2 1-3.3 1-2.5 0-4.7-1.7-5.5-4H3v2.6C4.8 19.9 8.2 22 12 22z" fill="#34A853"/>
+          <path d="M6.5 13.9c-.2-.6-.3-1.2-.3-1.9s.1-1.3.3-1.9V7.5H3C2.4 8.7 2 10 2 12s.4 3.3 1 4.5l3.5-2.6z" fill="#FBBC05"/>
+          <path d="M12 5.9c1.4 0 2.6.5 3.6 1.4l2.7-2.7C16.7 3.2 14.5 2 12 2 8.2 2 4.8 4.1 3 7.5L6.5 10c.8-2.3 3 -4.1 5.5-4.1z" fill="#EA4335"/>
+        </svg>
+      </div>
+      <div>
+        <div class="section-label" style="margin-bottom:4px">Pilar 2</div>
+        <h2 class="pillar-title">Google — <span style="color:var(--accent-blue)">21 / 35</span></h2>
+        <p class="pillar-subtitle">Busca orgânica, Google Meu Negócio e autoridade local</p>
+      </div>
+    </div>
+
+    <div class="checklist">
+
+      <div class="check-item">
+        <div class="check-icon check-ok">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+            <path d="M2.5 7L5.5 10L11.5 4" stroke="#00C853" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <div class="check-body">
+          <div class="check-title">Busca pelo nome da empresa</div>
+          <div class="check-detail">"Solar Job Indaiatuba" → 1º resultado no Google. Marca bem posicionada para buscas diretas.</div>
+        </div>
+        <div class="check-right">
+          <div class="score-chip chip-green">5 / 5</div>
+        </div>
+      </div>
+
+      <div class="check-item">
+        <div class="check-icon check-warn">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+            <path d="M7 5V7.5" stroke="#FFD600" stroke-width="2" stroke-linecap="round"/>
+            <circle cx="7" cy="9.5" r="0.8" fill="#FFD600"/>
+            <path d="M7 1.5L12.5 11H1.5L7 1.5z" stroke="#FFD600" stroke-width="1.5" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <div class="check-body">
+          <div class="check-title">Busca por especialidade + cidade</div>
+          <div class="check-detail">"Energia solar Indaiatuba" → <strong style="color:var(--accent-red)">9º lugar</strong>. Perdendo para Solemax, Enertrend, MRT Energia Solar e outros concorrentes nas buscas de intenção comercial.</div>
+        </div>
+        <div class="check-right">
+          <div class="score-chip chip-yellow">4 / 10</div>
+        </div>
+      </div>
+
+      <div class="check-item">
+        <div class="check-icon check-ok">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+            <path d="M2.5 7L5.5 10L11.5 4" stroke="#00C853" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <div class="check-body">
+          <div class="check-title">Google Meu Negócio — Existência</div>
+          <div class="check-detail">GMB ativo. Site da Solar Job cita "nota 5/5 no Google" — avaliações existem. Porém cadastro não totalmente otimizado (fotos, horários, categorias, posts).</div>
+        </div>
+        <div class="check-right">
+          <div class="score-chip chip-orange">7 / 10</div>
+        </div>
+      </div>
+
+      <div class="check-item">
+        <div class="check-icon check-ok">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+            <path d="M2.5 7L5.5 10L11.5 4" stroke="#00C853" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <div class="check-body">
+          <div class="check-title">Avaliação GMB</div>
+          <div class="check-detail">5/5 estrelas declarado no site. Reputação de excelência. Capital de confiança que pode ser melhor aproveitado em anúncios e landing pages.</div>
+        </div>
+        <div class="check-right">
+          <div class="score-chip chip-green">3 / 5</div>
+        </div>
+      </div>
+
+      <div class="check-item">
+        <div class="check-icon check-warn">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+            <path d="M7 5V7.5" stroke="#FFD600" stroke-width="2" stroke-linecap="round"/>
+            <circle cx="7" cy="9.5" r="0.8" fill="#FFD600"/>
+            <path d="M7 1.5L12.5 11H1.5L7 1.5z" stroke="#FFD600" stroke-width="1.5" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <div class="check-body">
+          <div class="check-title">Gestão de Avaliações GMB</div>
+          <div class="check-detail">Gerenciamento ativo de reviews não confirmado. Sem resposta pública às avaliações = oportunidade perdida de mostrar cuidado e confiabilidade.</div>
+        </div>
+        <div class="check-right">
+          <div class="score-chip chip-yellow">2 / 5</div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="highlight-card">
+      <div class="hl-icon">⚠️</div>
+      <div>
+        <div class="hl-title">Ponto crítico: 9º lugar na busca comercial</div>
+        <div class="hl-body">
+          Para "energia solar Indaiatuba", a Solar Job aparece atrás de <strong>Solemax, Enertrend, MRT Energia Solar</strong> e outros. Clientes com intenção de compra nunca chegam ao seu site.
+          Com +1.600 clientes e 5/5 no Google, a Solar Job tem autoridade para dominar essa busca — mas precisa de SEO local e GMB otimizado.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider"/>
+
+<!-- ═══════════════════════════════════════════════════
+     SEÇÃO 5: PILAR WEBSITE
+══════════════════════════════════════════════════════ -->
+<section class="pillar-section">
+  <div class="container">
+    <div class="pillar-header">
+      <div class="pillar-icon-wrap pillar-icon-web">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
+          <circle cx="12" cy="12" r="9" stroke="#00C853" stroke-width="2"/>
+          <path d="M12 3c-2.5 3-4 5.7-4 9s1.5 6 4 9" stroke="#00C853" stroke-width="1.5" fill="none"/>
+          <path d="M12 3c2.5 3 4 5.7 4 9s-1.5 6-4 9" stroke="#00C853" stroke-width="1.5" fill="none"/>
+          <line x1="3" y1="12" x2="21" y2="12" stroke="#00C853" stroke-width="1.5"/>
+        </svg>
+      </div>
+      <div>
+        <div class="section-label" style="margin-bottom:4px">Pilar 3</div>
+        <h2 class="pillar-title">Website — <span style="color:var(--accent-green)">19 / 25</span></h2>
+        <p class="pillar-subtitle">solarjob.com.br · WordPress + Elementor</p>
+      </div>
+    </div>
+
+    <div class="criteria-grid">
+
+      <div class="criterion-card">
+        <div class="crit-top">
+          <div class="crit-name">Existência e Funcionalidade</div>
+          <div class="score-chip chip-green">10 / 10</div>
+        </div>
+        <p class="crit-desc">solarjob.com.br funcional, com SSL ativo, domínio consolidado. Estrutura de páginas clara: home, sobre, serviços, contato. Base sólida para otimizações.</p>
+        <div class="crit-bar-track">
+          <div class="crit-bar-fill bar-green" style="--bar-width:100%"></div>
+        </div>
+      </div>
+
+      <div class="criterion-card">
+        <div class="crit-top">
+          <div class="crit-name">Mobile-Friendly</div>
+          <div class="score-chip chip-green">5 / 5</div>
+        </div>
+        <p class="crit-desc">Design responsivo com Elementor. Adequado para smartphones — crítico pois 72% das buscas de energia solar no Brasil são feitas via mobile.</p>
+        <div class="crit-bar-track">
+          <div class="crit-bar-fill bar-green" style="--bar-width:100%"></div>
+        </div>
+      </div>
+
+      <div class="criterion-card">
+        <div class="crit-top">
+          <div class="crit-name">Velocidade de Carregamento</div>
+          <div class="score-chip chip-yellow">2 / 5</div>
+        </div>
+        <p class="crit-desc">Impactada por JavaScript excessivo, múltiplos arquivos CSS não minificados e Rocket Lazy Load. Páginas lentas aumentam a taxa de rejeição e prejudicam o ranking no Google.</p>
+        <div class="crit-bar-track">
+          <div class="crit-bar-fill bar-yellow" style="--bar-width:40%"></div>
+        </div>
+      </div>
+
+      <div class="criterion-card">
+        <div class="crit-top">
+          <div class="crit-name">SEO Técnico</div>
+          <div class="score-chip chip-yellow">2 / 5</div>
+        </div>
+        <p class="crit-desc">Title e H1 configurados — boa base. Porém sem <code style="background:#1a1a1a;padding:1px 5px;border-radius:4px;font-size:12px">meta description</code> e sem <code style="background:#1a1a1a;padding:1px 5px;border-radius:4px;font-size:12px">schema markup JSON-LD</code>. Google não consegue exibir rich results para os seus serviços.</p>
+        <div class="crit-bar-track">
+          <div class="crit-bar-fill bar-yellow" style="--bar-width:40%"></div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="pillar-stats">
+      <div class="stat-chip">
+        <div class="stat-chip-dot" style="background:var(--accent-green)"></div>
+        <span class="stat-chip-label">SSL:&nbsp;</span>
+        <span class="stat-chip-value">Ativo ✓</span>
+      </div>
+      <div class="stat-chip">
+        <div class="stat-chip-dot" style="background:var(--accent-green)"></div>
+        <span class="stat-chip-label">Mobile:&nbsp;</span>
+        <span class="stat-chip-value">Responsivo ✓</span>
+      </div>
+      <div class="stat-chip">
+        <div class="stat-chip-dot" style="background:var(--accent-yellow)"></div>
+        <span class="stat-chip-label">Meta description:&nbsp;</span>
+        <span class="stat-chip-value">Ausente ⚠️</span>
+      </div>
+      <div class="stat-chip">
+        <div class="stat-chip-dot" style="background:var(--accent-yellow)"></div>
+        <span class="stat-chip-label">Schema markup:&nbsp;</span>
+        <span class="stat-chip-value">Ausente ⚠️</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider"/>
+
+<!-- ═══════════════════════════════════════════════════
+     SEÇÃO 6: RECOMENDAÇÕES
+══════════════════════════════════════════════════════ -->
+<section class="recs-section">
+  <div class="container">
+    <div class="section-label">Plano de Ação</div>
+    <h2 class="section-title">5 ações para transformar sua presença</h2>
+    <p class="section-subtitle">Priorizadas por impacto e urgência. Implementadas em sequência, levam sua presença digital de Grau B para Grau A.</p>
+
+    <div class="rec-list">
+
+      <!-- 1 -->
+      <div class="rec-card">
+        <div class="rec-num">01</div>
+        <div class="rec-body">
+          <div class="rec-header">
+            <div class="rec-title">SEO Local + Google Meu Negócio Completo</div>
+            <div class="priority-badge priority-urgent">Urgente</div>
+          </div>
+          <div class="rec-desc">
+            Otimizar o GMB com endereço correto, fotos de alta qualidade, horário de funcionamento, categoria primária e posts semanais. Adicionar schema <code style="background:#1a1a1a;padding:1px 5px;border-radius:4px">LocalBusiness</code> no site.
+            Com +1.600 clientes e 5/5 estrelas, a Solar Job tem autoridade para subir do 9º para o top 3 em "energia solar Indaiatuba".
+          </div>
+        </div>
+        <div class="rec-impact">
+          <div class="impact-label">Impacto</div>
+          <div class="impact-value">+8 pts</div>
+        </div>
+      </div>
+
+      <!-- 2 -->
+      <div class="rec-card">
+        <div class="rec-num">02</div>
+        <div class="rec-body">
+          <div class="rec-header">
+            <div class="rec-title">Meta Description + Schema Markup no Site</div>
+            <div class="priority-badge priority-high">Alta</div>
+          </div>
+          <div class="rec-desc">
+            Adicionar meta description única em todas as páginas (máx. 160 caracteres com palavras-chave estratégicas). Implementar JSON-LD com <code style="background:#1a1a1a;padding:1px 5px;border-radius:4px">Organization</code> + <code style="background:#1a1a1a;padding:1px 5px;border-radius:4px">AggregateRating</code> para exibir as estrelas 5/5 diretamente nos resultados do Google. Ação rápida, resultado duradouro.
+          </div>
+        </div>
+        <div class="rec-impact">
+          <div class="impact-label">Impacto</div>
+          <div class="impact-value">+5 pts</div>
+        </div>
+      </div>
+
+      <!-- 3 -->
+      <div class="rec-card" style="border-color: rgba(255,109,0,0.2); background: rgba(255,109,0,0.03);">
+        <div class="rec-num" style="border-color:rgba(255,109,0,0.3);color:var(--solar-orange)">03</div>
+        <div class="rec-body">
+          <div class="rec-header">
+            <div class="rec-title">Agente de IA para Atendimento WhatsApp 24/7</div>
+            <div class="priority-badge priority-high">Alta</div>
+          </div>
+          <div class="rec-desc">
+            A Solar Job funciona seg–sex 08h–18h. Isso significa que <strong style="color:var(--solar-orange)">58% do dia fica sem atendimento</strong> — e leads que chegam à noite ou no fim de semana vão para o concorrente que responde primeiro.
+            Um agente de IA no WhatsApp capta dados, qualifica o interesse e agenda visitas automaticamente, mesmo fora do horário. Concorrentes do setor já usam essa tecnologia.
+          </div>
+        </div>
+        <div class="rec-impact">
+          <div class="impact-label">Impacto</div>
+          <div class="impact-value" style="color:var(--solar-orange)">+9 pts</div>
+        </div>
+      </div>
+
+      <!-- 4 -->
+      <div class="rec-card">
+        <div class="rec-num">04</div>
+        <div class="rec-body">
+          <div class="rec-header">
+            <div class="rec-title">Estratégia de Conteúdo Instagram</div>
+            <div class="priority-badge priority-mid">Média</div>
+          </div>
+          <div class="rec-desc">
+            Frequência mínima de 4 posts/semana com mix de Reels educativos (economia na conta de luz), carrosséis com cases reais de clientes e stories de bastidores. Unificar a estratégia entre @solar.job e @gislene.mentora com narrativas complementares.
+          </div>
+        </div>
+        <div class="rec-impact">
+          <div class="impact-label">Impacto</div>
+          <div class="impact-value">+5 pts</div>
+        </div>
+      </div>
+
+      <!-- 5 -->
+      <div class="rec-card">
+        <div class="rec-num">05</div>
+        <div class="rec-body">
+          <div class="rec-header">
+            <div class="rec-title">Blog + SEO de Cauda Longa</div>
+            <div class="priority-badge priority-mid">Média</div>
+          </div>
+          <div class="rec-desc">
+            Publicar 2–3 artigos/mês otimizados para termos como "energia solar Indaiatuba", "custo instalação solar", "quanto economiza com painel solar" e "financiamento solar 2026". Conteúdo gera tráfego orgânico recorrente sem custo por clique.
+          </div>
+        </div>
+        <div class="rec-impact">
+          <div class="impact-label">Impacto</div>
+          <div class="impact-value">+5 pts</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<hr class="divider"/>
+
+<!-- ═══════════════════════════════════════════════════
+     SEÇÃO 7: PROJEÇÃO
+══════════════════════════════════════════════════════ -->
+<section class="projection-section">
+  <div class="container">
+    <div class="section-label">Projeção</div>
+    <h2 class="section-title">O que acontece depois das 5 ações</h2>
+    <p class="section-subtitle">Projeção conservadora com base nos benchmarks do setor de energia solar no Brasil.</p>
+
+    <div class="proj-card">
+      <h3 style="font-size:15px;color:var(--text-muted);font-weight:500;margin-bottom:8px">Simulação de evolução do score</h3>
+      <div class="proj-scores">
+        <div class="proj-score-block">
+          <div class="proj-num proj-num-before">63</div>
+          <div class="proj-label">Hoje · Grau B</div>
+        </div>
+        <div class="proj-arrow">→</div>
+        <div class="proj-score-block">
+          <div class="proj-num proj-num-after">85</div>
+          <div class="proj-label">Meta · Grau A</div>
+        </div>
+      </div>
+
+      <div class="proj-bar-section">
+        <div class="proj-bar-labels">
+          <span>Score atual (63)</span>
+          <span>Projeção (85)</span>
+        </div>
+        <div class="proj-track">
+          <div class="proj-fill-before"></div>
+          <div class="proj-fill-after"></div>
+        </div>
+        <div class="proj-grade-wrap">
+          <div class="grade-pill grade-b">GRAU B — Hoje</div>
+          <div class="grade-arrow">→</div>
+          <div class="grade-pill grade-a">GRAU A — Pós-implementação</div>
+        </div>
+      </div>
+
+      <p class="proj-footnote">
+        +22 pontos distribuídos entre as 5 ações recomendadas · Prazo estimado: 60–90 dias para implementação completa
+      </p>
+    </div>
+
+    <!-- Breakdown dos ganhos -->
+    <div style="margin-top:20px;display:grid;grid-template-columns:repeat(5,1fr);gap:10px;">
+      <div style="background:var(--card);border:1px solid var(--border);border-radius:var(--radius-sm);padding:16px;text-align:center;">
+        <div style="font-family:'Space Grotesk',sans-serif;font-size:22px;font-weight:800;color:var(--accent-green)">+8</div>
+        <div style="font-size:11px;color:var(--text-muted);margin-top:4px">SEO Local<br/>+ GMB</div>
+      </div>
+      <div style="background:var(--card);border:1px solid var(--border);border-radius:var(--radius-sm);padding:16px;text-align:center;">
+        <div style="font-family:'Space Grotesk',sans-serif;font-size:22px;font-weight:800;color:var(--accent-green)">+5</div>
+        <div style="font-size:11px;color:var(--text-muted);margin-top:4px">Meta desc<br/>+ Schema</div>
+      </div>
+      <div style="background:rgba(255,109,0,0.06);border:1px solid rgba(255,109,0,0.2);border-radius:var(--radius-sm);padding:16px;text-align:center;">
+        <div style="font-family:'Space Grotesk',sans-serif;font-size:22px;font-weight:800;color:var(--solar-orange)">+9</div>
+        <div style="font-size:11px;color:var(--text-muted);margin-top:4px">IA<br/>WhatsApp</div>
+      </div>
+      <div style="background:var(--card);border:1px solid var(--border);border-radius:var(--radius-sm);padding:16px;text-align:center;">
+        <div style="font-family:'Space Grotesk',sans-serif;font-size:22px;font-weight:800;color:var(--accent-green)">+5</div>
+        <div style="font-size:11px;color:var(--text-muted);margin-top:4px">Instagram<br/>Estratégia</div>
+      </div>
+      <div style="background:var(--card);border:1px solid var(--border);border-radius:var(--radius-sm);padding:16px;text-align:center;">
+        <div style="font-family:'Space Grotesk',sans-serif;font-size:22px;font-weight:800;color:var(--accent-green)">+5</div>
+        <div style="font-size:11px;color:var(--text-muted);margin-top:4px">Blog<br/>SEO</div>
+      </div>
+    </div>
+
+    @media (max-width: 600px) {
+      /* grid já adaptado por CSS mobile abaixo */
+    }
+  </div>
+</section>
+
+<hr class="divider"/>
+
+<!-- ═══════════════════════════════════════════════════
+     SEÇÃO 8: DADOS DE MERCADO
+══════════════════════════════════════════════════════ -->
+<section class="market-section">
+  <div class="container">
+    <div class="section-label">Contexto de Mercado</div>
+    <h2 class="section-title">O setor solar já está se digitalizando</h2>
+    <p class="section-subtitle">Quem sair na frente na automação e no digital vai capturar a maior fatia do mercado em Indaiatuba e região.</p>
+
+    <div class="market-grid">
+
+      <div class="market-card">
+        <div class="market-icon" style="background:rgba(0,200,83,0.1)">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+            <path d="M3 3h18v18H3z" stroke="none"/>
+            <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" fill="#00C853"/>
+          </svg>
+        </div>
+        <div class="market-stat text-green">78%</div>
+        <div class="market-title">WhatsApp como canal preferido</div>
+        <div class="market-desc">78% dos consumidores brasileiros preferem WhatsApp para contato inicial com empresas de serviços. Quem não atende no app, perde o lead.</div>
+      </div>
+
+      <div class="market-card">
+        <div class="market-icon" style="background:var(--solar-orange-dim)">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+            <path d="M12 2L2 7l10 5 10-5-10-5z" stroke="#FF6D00" stroke-width="2" stroke-linejoin="round"/>
+            <path d="M2 17l10 5 10-5" stroke="#FF6D00" stroke-width="2" stroke-linejoin="round"/>
+            <path d="M2 12l10 5 10-5" stroke="#FF6D00" stroke-width="2" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <div class="market-stat text-orange">+25%</div>
+        <div class="market-title">Receita com atendimento automatizado</div>
+        <div class="market-desc">PMEs do setor solar com agentes de IA para WhatsApp reportam aumento médio de 25% na receita nos primeiros 90 dias de operação.</div>
+      </div>
+
+      <div class="market-card">
+        <div class="market-icon" style="background:var(--blue-dim)">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+            <circle cx="12" cy="12" r="9" stroke="#2979FF" stroke-width="2"/>
+            <path d="M12 6v6l4 2" stroke="#2979FF" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="market-stat text-blue">1ª</div>
+        <div class="market-title">Quem responde primeiro, converte</div>
+        <div class="market-desc">No setor solar, o cliente pesquisa em múltiplos integradores ao mesmo tempo. Concorrentes como Galtec Energia já usam IA para responder em segundos, 24/7.</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<hr class="divider"/>
+
+<!-- ═══════════════════════════════════════════════════
+     SEÇÃO 9: CTA
+══════════════════════════════════════════════════════ -->
+<section class="cta-section">
+  <div class="container">
+    <div class="cta-card">
+
+      <div class="dai-logo">
+        <div class="dai-mark">D</div>
+        <div class="dai-name">Digital AI</div>
+      </div>
+
+      <h2 class="cta-title">
+        Gislene, a Solar Job tem<br/>
+        tudo para chegar ao <span>Grau A</span>.
+      </h2>
+
+      <p class="cta-desc">
+        Com 20 anos de mercado, +1.600 clientes e nota 5/5 no Google, a Solar Job tem a base que a maioria dos concorrentes nunca vai ter.
+        O que falta é visibilidade digital e automação de atendimento. É exatamente isso que a Digital AI implementa.
+      </p>
+
+      <div class="cta-buttons">
+        <a href="https://wa.me/5564999999999?text=Oi%2C%20vi%20o%20diagn%C3%B3stico%20da%20Solar%20Job%20e%20quero%20conversar%20sobre%20as%20solu%C3%A7%C3%B5es" class="btn btn-primary" target="_blank" rel="noopener">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="white">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+            <path d="M12 0C5.373 0 0 5.373 0 12c0 2.117.549 4.103 1.508 5.84L0 24l6.335-1.508A11.934 11.934 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818c-1.96 0-3.794-.527-5.368-1.446l-.384-.228-3.982.947.964-3.888-.252-.4A9.814 9.814 0 012.182 12C2.182 6.58 6.58 2.182 12 2.182c5.42 0 9.818 4.398 9.818 9.818 0 5.42-4.398 9.818-9.818 9.818z"/>
+          </svg>
+          Falar pelo WhatsApp
+        </a>
+        <a href="mailto:contato@digital-ai.tech" class="btn btn-secondary">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+            <rect x="2" y="4" width="20" height="16" rx="2" stroke="#888" stroke-width="2"/>
+            <path d="M2 7l10 7 10-7" stroke="#888" stroke-width="2"/>
+          </svg>
+          contato@digital-ai.tech
+        </a>
+      </div>
+
+      <div class="cta-contact-info">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
+          <circle cx="12" cy="12" r="9" stroke="#555" stroke-width="2"/>
+          <path d="M12 3c-2.5 3-4 5.7-4 9s1.5 6 4 9" stroke="#555" stroke-width="1.5" fill="none"/>
+          <path d="M12 3c2.5 3 4 5.7 4 9s-1.5 6-4 9" stroke="#555" stroke-width="1.5" fill="none"/>
+          <line x1="3" y1="12" x2="21" y2="12" stroke="#555" stroke-width="1.5"/>
+        </svg>
+        digital-ai.tech · Itumbiara, GO — Atendemos todo o Brasil
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════
+     FOOTER
+══════════════════════════════════════════════════════ -->
+<footer class="footer">
+  <div class="container">
+    <p>
+      Diagnóstico de Presença Digital — Solar Job | Energia Solar<br/>
+      Gerado por <a href="https://digital-ai.tech" target="_blank" rel="noopener">Digital AI</a> · digital-ai.tech · Julho de 2026<br/>
+      Score total: 63/100 — Grau B · Confidencial para uso interno e de prospecção
+    </p>
+  </div>
+</footer>
+
+<!-- Digital Health Report — Solar Job | Energia Solar -->
+<!-- Gerado por: DAI - Digital AI -->
+<!-- Data: Julho 2026 -->
+<!-- Score: 63/100 — Grau B -->
+
+<style>
+  /* Responsive breakpoints adicionais */
+  @media (max-width: 600px) {
+    .hero-top { flex-direction: column; align-items: flex-start; }
+    .total-bar { flex-direction: column; }
+    .total-bar-right { width: 100%; }
+    .rec-card { grid-template-columns: auto 1fr; }
+    .rec-impact { grid-column: 2; }
+    .cta-card { padding: 36px 24px; }
+    .proj-scores { gap: 16px; }
+    .proj-num { font-size: 42px; }
+    .pillar-header { flex-direction: column; gap: 12px; }
+  }
+
+  @media (max-width: 480px) {
+    section { padding: 56px 0; }
+    .pillar-section, .scores-section, .recs-section, .projection-section, .market-section, .cta-section { padding: 56px 0; }
+  }
+
+  /* Grid dos ganhos - mobile */
+  @media (max-width: 640px) {
+    .gains-grid { grid-template-columns: repeat(3, 1fr) !important; }
+  }
+</style>
+
+</body>
+</html>
