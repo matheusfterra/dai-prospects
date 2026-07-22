@@ -54,6 +54,7 @@ routes = [
 { pattern = "odonto-vita-health.digital-ai.tech/*", zone_name = "digital-ai.tech" },
 { pattern = "solar-martins.digital-ai.tech/*", zone_name = "digital-ai.tech" },
 { pattern = "solar-job-health.digital-ai.tech/*", zone_name = "digital-ai.tech" },
+  { pattern = "solarztech-health.digital-ai.tech/*", zone_name = "digital-ai.tech" },
 { pattern = "vie-pratique.digital-ai.tech/*", zone_name = "digital-ai.tech" },
 { pattern = "regina-lasmar.digital-ai.tech/*", zone_name = "digital-ai.tech" },
 { pattern = "dra-ana.digital-ai.tech/*", zone_name = "digital-ai.tech" },
