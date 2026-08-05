@@ -73,13 +73,14 @@
 
     /* ===================== RESET ===================== */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
+    html { scroll-behavior: smooth; overflow-x: hidden; }
     body {
       font-family: var(--font-body);
       background-color: var(--primary);
       color: var(--text-primary);
       line-height: 1.6;
       overflow-x: hidden;
+      width: 100%;
     }
     img { max-width: 100%; display: block; }
     a { text-decoration: none; color: inherit; }
