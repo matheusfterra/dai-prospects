@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Digital AI — Apresentação Exclusiva para Gregório Machado | Dane-se</title>
+  <meta name="description" content="Energético esgotou em horas. Mil pontos de distribuição. R$ 40M de meta. Sem IA gerindo sua operação, você está deixando dinheiro na mesa — e clientes sem resposta." />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://prospects.digital-ai.tech/prospects/dane-se-oficial/" />
+  <meta property="og:title" content="Dane-se: Você Escala o Produto. E a Operação?" />
+  <meta property="og:description" content="R$ 40M de meta, 1.100 pontos de distribuição, lotes que esgotam em horas. A Digital AI automatiza a operação para a Dane-se crescer sem travar." />
+  <meta property="og:locale" content="pt_BR" />
+  <meta property="og:site_name" content="Digital AI" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --primary:         #0d0d1a;
+      --secondary:       #1a1a2e;
+      --card-bg:         #16213e;
+      --accent-blue:     #4361ee;
+      --accent-purple:   #7209b7;
+      --accent-pink:     #e94560;
+      --accent-green:    #10b981;
+      --accent-amber:    #f59e0b;
+      --text-primary:    #ffffff;
+      --text-secondary:  #a0a0b0;
+      --gradient-hero:   linear-gradient(135deg, #0d0d1a 0%, #1a1a2e 50%, #0f3460 100%);
+      --gradient-accent: linear-gradient(135deg, #4361ee, #7209b7);
+      --gradient-card:   linear-gradient(145deg, #16213e, #1a1a2e);
+      --gradient-pink:   linear-gradient(135deg, #e94560, #7209b7);
+      --border-default:  1px solid rgba(67, 97, 238, 0.3);
+      --border-subtle:   1px solid rgba(255,255,255,0.06);
+      --shadow-hover:    0 16px 48px rgba(67, 97, 238, 0.25);
+      --shadow-glow:     0 0 40px rgba(67, 97, 238, 0.3);
+      --shadow-pink:     0 0 30px rgba(233, 69, 96, 0.25);
+      --radius-sm:       6px;
+      --radius-card:     16px;
+      --radius-large:    24px;
+      --radius-pill:     9999px;
+      --space-4:  16px;
+      --space-6:  24px;
+      --space-8:  32px;
+      --space-12: 48px;
+      --space-16: 64px;
+      --space-20: 80px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', system-ui, sans-serif; background: var(--primary); color: var(--text-primary); line-height: 1.6; overflow-x: hidden; }
+    img { max-width: 100%; display: block; }
+    a { text-decoration: none; color: inherit; }
+    h1, h2, h3, h4 { font-weight: 700; line-height: 1.2; }
+
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 var(--space-6); }
+    .gradient-text { background: var(--gradient-accent); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .section-label {
+      display: inline-block; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.12em;
+      text-transform: uppercase; color: #a0b4ff; background: rgba(67,97,238,0.12);
+      border: 1px solid rgba(67,97,238,0.3); padding: 5px 14px; border-radius: var(--radius-pill); margin-bottom: 18px;
+    }
+    .section { padding: var(--space-20) 0; }
+    .section-alt { background: var(--secondary); }
+    .section-dark { background: var(--primary); }
+
+    /* FADE */
+    .fade-in { opacity: 0; transform: translateY(28px); transition: opacity 0.65s ease, transform 0.65s ease; }
+    .fade-in.visible { opacity: 1; transform: translateY(0); }
+    .d1{transition-delay:.1s} .d2{transition-delay:.2s} .d3{transition-delay:.3s}
+    .d4{transition-delay:.4s} .d5{transition-delay:.5s} .d6{transition-delay:.6s}
+
+    /* NAV */
+    nav { position: fixed; top:0; left:0; right:0; z-index:1000; padding: 18px var(--space-6); transition: background .3s, box-shadow .3s; }
+    nav.scrolled { background: rgba(13,13,26,0.92); backdrop-filter: blur(20px); box-shadow: 0 1px 0 rgba(67,97,238,0.2); }
+    .nav-inner { max-width:1100px; margin:0 auto; display:flex; align-items:center; justify-content:space-between; gap:var(--space-4); }
+    .logo-text { font-size:1.35rem; font-weight:700; letter-spacing:-0.02em; white-space:nowrap; }
+    .logo-accent { color: var(--accent-blue); font-weight:800; text-shadow: 0 0 20px rgba(67,97,238,0.5); }
+    .nav-badge { font-size:0.72rem; font-weight:600; color:#a0b4ff; background:rgba(67,97,238,0.18); border:1px solid rgba(67,97,238,0.35); padding:5px 14px; border-radius:var(--radius-pill); flex:1; text-align:center; }
+
+    /* BUTTONS */
+    .btn { display:inline-flex; align-items:center; justify-content:center; gap:8px; font-weight:600; font-size:0.9rem; border-radius:8px; cursor:pointer; transition:all .25s; text-decoration:none; border:none; }
+    .btn-primary { background:var(--gradient-accent); color:#fff; padding:11px 22px; box-shadow:0 4px 18px rgba(67,97,238,0.4); }
+    .btn-primary:hover { transform:translateY(-2px); box-shadow:0 8px 28px rgba(67,97,238,0.55); }
+    .btn-wpp { background:linear-gradient(135deg,#25d366,#128c7e); color:#fff; padding:16px 36px; font-size:1.05rem; border-radius:10px; box-shadow:0 4px 20px rgba(37,211,102,0.35); }
+    .btn-wpp:hover { transform:translateY(-2px); box-shadow:0 8px 32px rgba(37,211,102,0.5); }
+
+    /* HERO */
+    .hero { min-height:100vh; background:var(--gradient-hero); display:flex; align-items:center; padding-top:100px; position:relative; overflow:hidden; }
+    .hero-glow { position:absolute; top:40%; left:50%; transform:translate(-50%,-50%); width:700px; height:700px; border-radius:50%; background:radial-gradient(circle,rgba(67,97,238,0.12) 0%,transparent 70%); pointer-events:none; }
+    .hero-glow-2 { position:absolute; bottom:-10%; right:-5%; width:500px; height:500px; border-radius:50%; background:radial-gradient(circle,rgba(114,9,183,0.08) 0%,transparent 70%); pointer-events:none; }
+    .hero-content { position:relative; z-index:1; max-width:840px; }
+    .hero-eyebrow { display:inline-flex; align-items:center; gap:8px; font-size:0.78rem; font-weight:600; letter-spacing:0.1em; text-transform:uppercase; color:#a0b4ff; background:rgba(67,97,238,0.12); border:1px solid rgba(67,97,238,0.3); padding:7px 16px; border-radius:var(--radius-pill); margin-bottom:28px; }
+    .hero-dot { width:7px; height:7px; border-radius:50%; background:#4361ee; animation:pulse 2s ease-in-out infinite; }
+    @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.5;transform:scale(.8)} }
+    .hero h1 { font-size:clamp(2rem,5vw,3.4rem); font-weight:800; line-height:1.15; margin-bottom:var(--space-6); letter-spacing:-0.02em; }
+    .hero-subtitle { font-size:clamp(1rem,2vw,1.18rem); color:var(--text-secondary); max-width:700px; margin-bottom:var(--space-8); line-height:1.7; }
+    .hero-cta { display:flex; gap:var(--space-4); flex-wrap:wrap; margin-bottom:var(--space-12); }
+    .hero-proof { display:flex; align-items:center; gap:var(--space-6); flex-wrap:wrap; }
+    .hero-proof-item { display:flex; align-items:center; gap:8px; font-size:0.82rem; color:var(--text-secondary); }
+    .hero-proof-icon { color:var(--accent-green); }
+
+    /* STAT BAR */
+    .stat-bar { background:var(--secondary); border-top:1px solid rgba(67,97,238,0.2); border-bottom:1px solid rgba(67,97,238,0.2); padding:var(--space-8) 0; }
+    .stat-bar-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:var(--space-6); text-align:center; }
+    .stat-bar-item { padding:var(--space-4); border-right:1px solid rgba(255,255,255,0.06); }
+    .stat-bar-item:last-child { border-right:none; }
+    .stat-value { font-size:clamp(1.6rem,3vw,2.2rem); font-weight:800; line-height:1; background:var(--gradient-accent); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; margin-bottom:6px; }
+    .stat-label { font-size:0.8rem; color:var(--text-secondary); line-height:1.4; }
+
+    /* CARDS GENÉRICOS */
+    .grid-2 { display:grid; grid-template-columns:repeat(2,1fr); gap:var(--space-6); }
+    .grid-3 { display:grid; grid-template-columns:repeat(3,1fr); gap:var(--space-6); }
+    .grid-4 { display:grid; grid-template-columns:repeat(4,1fr); gap:var(--space-6); }
+
+    .pain-card { background:var(--gradient-card); border:1px solid rgba(233,69,96,0.2); border-radius:var(--radius-card); padding:var(--space-8); transition:all .3s; position:relative; overflow:hidden; }
+    .pain-card::before { content:''; position:absolute; top:0;left:0;right:0; height:3px; background:var(--gradient-pink); opacity:0; transition:opacity .3s; }
+    .pain-card:hover::before { opacity:1; }
+    .pain-card:hover { border-color:rgba(233,69,96,0.45); box-shadow:var(--shadow-pink); transform:translateY(-4px); }
+    .pain-icon { font-size:1.8rem; margin-bottom:14px; }
+    .pain-card h3 { font-size:1rem; font-weight:700; margin-bottom:10px; }
+    .pain-card p { font-size:0.88rem; color:var(--text-secondary); line-height:1.65; }
+
+    .sol-card { background:var(--gradient-card); border:var(--border-default); border-radius:var(--radius-card); padding:var(--space-8); transition:all .3s; position:relative; overflow:hidden; }
+    .sol-card::before { content:''; position:absolute; top:0;left:0;right:0; height:3px; background:var(--gradient-accent); opacity:0; transition:opacity .3s; }
+    .sol-card:hover::before { opacity:1; }
+    .sol-card:hover { border-color:rgba(67,97,238,0.55); box-shadow:var(--shadow-hover); transform:translateY(-4px); }
+    .sol-tag { display:inline-block; font-size:0.7rem; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; color:var(--accent-green); background:rgba(16,185,129,0.1); border:1px solid rgba(16,185,129,0.25); padding:3px 10px; border-radius:var(--radius-pill); margin-bottom:14px; }
+    .sol-icon { font-size:2rem; margin-bottom:16px; }
+    .sol-card h3 { font-size:1.05rem; font-weight:700; margin-bottom:10px; }
+    .sol-card p { font-size:0.88rem; color:var(--text-secondary); line-height:1.65; }
+
+    .metric-card { background:var(--gradient-card); border:var(--border-default); border-radius:var(--radius-card); padding:var(--space-8); text-align:center; transition:all .3s; }
+    .metric-card:hover { border-color:rgba(67,97,238,0.55); box-shadow:var(--shadow-glow); transform:translateY(-3px); }
+    .metric-value { font-size:clamp(1.8rem,4vw,2.6rem); font-weight:800; line-height:1; margin-bottom:8px; background:var(--gradient-accent); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
+    .metric-label { font-size:0.8rem; color:var(--text-secondary); line-height:1.5; }
+
+    /* STEP */
+    .steps-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:var(--space-8); position:relative; }
+    .steps-grid::before { content:''; position:absolute; top:40px; left:calc(16.66% + 24px); right:calc(16.66% + 24px); height:2px; background:linear-gradient(90deg,rgba(67,97,238,0.4),rgba(114,9,183,0.4)); }
+    .step-card { text-align:center; padding:var(--space-8); background:var(--gradient-card); border:var(--border-default); border-radius:var(--radius-card); position:relative; transition:all .3s; }
+    .step-card:hover { border-color:rgba(67,97,238,0.55); box-shadow:var(--shadow-hover); transform:translateY(-4px); }
+    .step-number { width:56px; height:56px; border-radius:50%; background:var(--gradient-accent); display:flex; align-items:center; justify-content:center; font-size:1.3rem; font-weight:800; color:#fff; margin:0 auto 20px; box-shadow:0 0 20px rgba(67,97,238,0.4); }
+    .step-card h3 { font-size:1.02rem; font-weight:700; margin-bottom:10px; }
+    .step-card p { font-size:0.86rem; color:var(--text-secondary); line-height:1.65; }
+
+    /* CTA */
+    .cta-section { padding:var(--space-20) 0; background:linear-gradient(135deg,#0d0d1a 0%,#0f1b3e 50%,#0d0d1a 100%); position:relative; overflow:hidden; text-align:center; }
+    .cta-glow { position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:600px; height:600px; border-radius:50%; background:radial-gradient(circle,rgba(67,97,238,0.15) 0%,transparent 70%); pointer-events:none; }
+    .cta-section .container { position:relative; z-index:1; }
+    .cta-headline { font-size:clamp(1.6rem,3.5vw,2.4rem); font-weight:800; max-width:760px; margin:0 auto var(--space-6); line-height:1.25; }
+    .cta-subtitle { font-size:1rem; color:var(--text-secondary); max-width:580px; margin:0 auto var(--space-8); line-height:1.7; }
+    .cta-buttons { display:flex; gap:var(--space-4); justify-content:center; flex-wrap:wrap; margin-bottom:var(--space-8); }
+    .cta-note { font-size:0.8rem; color:var(--text-secondary); }
+
+    /* HIGHLIGHT BOX */
+    .highlight-box { background:linear-gradient(135deg,rgba(67,97,238,0.08),rgba(114,9,183,0.08)); border:1px solid rgba(67,97,238,0.25); border-radius:var(--radius-large); padding:var(--space-8); display:flex; align-items:flex-start; gap:var(--space-6); flex-wrap:wrap; }
+    .highlight-box-icon { font-size:2.5rem; flex-shrink:0; }
+    .highlight-box h3 { font-size:1.1rem; margin-bottom:8px; }
+    .highlight-box p { color:var(--text-secondary); font-size:0.9rem; line-height:1.7; }
+
+    /* CHAT MOCKUP */
+    .chat-wrap { max-width:440px; margin:var(--space-16) auto 0; }
+    .chat-box { background:#1a1a2e; border:1px solid rgba(67,97,238,0.2); border-radius:20px; padding:var(--space-6); }
+    .chat-header { display:flex; align-items:center; gap:10px; padding-bottom:14px; border-bottom:var(--border-subtle); margin-bottom:16px; }
+    .chat-avatar { width:40px; height:40px; border-radius:50%; background:var(--gradient-accent); display:flex; align-items:center; justify-content:center; font-size:1.1rem; }
+    .chat-name { font-size:.9rem; font-weight:700; }
+    .chat-status { font-size:.72rem; color:var(--accent-green); display:flex; align-items:center; gap:4px; }
+    .chat-status::before { content:''; width:6px; height:6px; border-radius:50%; background:var(--accent-green); display:inline-block; }
+    .chat-msgs { display:flex; flex-direction:column; gap:10px; }
+    .msg { max-width:85%; padding:10px 14px; border-radius:14px; font-size:.84rem; line-height:1.5; }
+    .msg-in { background:rgba(255,255,255,0.07); border-radius:14px 14px 14px 2px; align-self:flex-start; }
+    .msg-out { background:linear-gradient(135deg,rgba(67,97,238,0.25),rgba(114,9,183,0.25)); border:1px solid rgba(67,97,238,0.2); border-radius:14px 14px 2px 14px; align-self:flex-end; }
+    .msg-time { font-size:.65rem; color:rgba(255,255,255,0.35); text-align:right; margin-top:4px; }
+
+    /* FOOTER */
+    footer { background:var(--secondary); border-top:1px solid rgba(67,97,238,0.15); padding:var(--space-8) 0; }
+    .footer-inner { display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:var(--space-4); }
+    .footer-brand { display:flex; align-items:center; gap:14px; }
+    .footer-logo { height:36px; width:auto; filter:brightness(0) invert(1); opacity:.9; }
+    .footer-divider { width:1px; height:28px; background:rgba(255,255,255,0.12); }
+    .footer-copy { font-size:.8rem; color:var(--text-secondary); }
+    .footer-links { display:flex; gap:var(--space-6); }
+    .footer-links a { font-size:.8rem; color:var(--text-secondary); transition:color .2s; }
+    .footer-links a:hover { color:var(--accent-blue); }
+
+    /* RESPONSIVE */
+    @media(max-width:900px) {
+      .stat-bar-grid,.grid-4 { grid-template-columns:repeat(2,1fr); }
+      .grid-2,.grid-3,.steps-grid { grid-template-columns:1fr; }
+      .steps-grid::before { display:none; }
+      .nav-badge { display:none; }
+    }
+    @media(max-width:600px) {
+      .stat-bar-grid { grid-template-columns:repeat(2,1fr); }
+      .grid-4 { grid-template-columns:repeat(2,1fr); }
+      .hero-cta,.cta-buttons { flex-direction:column; align-items:center; }
+      .footer-inner { flex-direction:column; text-align:center; }
+      .footer-links,.footer-brand { justify-content:center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav id="main-nav">
+    <div class="nav-inner">
+      <div class="logo-text">Digital<span class="logo-accent"> AI</span></div>
+      <div class="nav-badge">Apresentação Exclusiva — Gregório Machado · Dane-se</div>
+      <a href="https://wa.me/5562996420201?text=Ol%C3%A1%21+Vi+a+apresenta%C3%A7%C3%A3o+da+Digital+AI+para+a+Dane-se+e+quero+conversar." class="btn btn-primary" target="_blank" rel="noopener">
+        Falar agora
+      </a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-glow"></div>
+    <div class="hero-glow-2"></div>
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-eyebrow">
+          <span class="hero-dot"></span>
+          Apresentação exclusiva para Gregório Machado · Dane-se
+        </div>
+
+        <h1>
+          Você Escala o Produto.<br />
+          <span class="gradient-text">E a Operação, Escala Junto?</span>
+        </h1>
+
+        <p class="hero-subtitle">
+          O energético esgotou em horas. A meta é R$&nbsp;40M em 2026. Você está em 1.100 pontos de distribuição e crescendo.
+          Mas cada pedido não respondido, cada fornecedor sem retorno, cada cliente sem suporte é um gargalo que a sua equipe não consegue mais resolver manualmente.
+          A <strong style="color:#fff;">Digital AI</strong> automatiza a operação da Dane-se — logística, distribuição, fornecedores e clientes — para você crescer sem travar.
+        </p>
+
+        <div class="hero-cta">
+          <a href="https://wa.me/5562996420201?text=Ol%C3%A1%21+Vi+a+apresenta%C3%A7%C3%A3o+da+Digital+AI+para+a+Dane-se+e+quero+conversar." class="btn btn-wpp" style="padding:16px 36px;font-size:1.05rem;border-radius:10px;" target="_blank" rel="noopener">
+            &#128172; Quero automatizar a operação
+          </a>
+        </div>
+
+        <div class="hero-proof">
+          <div class="hero-proof-item"><span class="hero-proof-icon">&#10003;</span> Sem contratar mais uma equipe</div>
+          <div class="hero-proof-item"><span class="hero-proof-icon">&#10003;</span> Integra com Shopify e WhatsApp</div>
+          <div class="hero-proof-item"><span class="hero-proof-icon">&#10003;</span> Escala automática nos picos de demanda</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STAT BAR -->
+  <div class="stat-bar">
+    <div class="container">
+      <div class="stat-bar-grid">
+        <div class="stat-bar-item fade-in">
+          <div class="stat-value">1.100+</div>
+          <div class="stat-label">Pontos de food service e distribuição ativos</div>
+        </div>
+        <div class="stat-bar-item fade-in d1">
+          <div class="stat-value">R$ 40M</div>
+          <div class="stat-label">Meta de faturamento em 2026 — crescimento em escala nacional</div>
+        </div>
+        <div class="stat-bar-item fade-in d2">
+          <div class="stat-value">400K</div>
+          <div class="stat-label">Seguidores no Instagram — comunidade que compra e cobra</div>
+        </div>
+        <div class="stat-bar-item fade-in d3">
+          <div class="stat-value">Horas</div>
+          <div class="stat-label">Tempo para esgotar o primeiro lote de energético no lançamento</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DORES -->
+  <section class="section section-dark">
+    <div class="container">
+      <div style="text-align:center; margin-bottom:var(--space-12);">
+        <div class="section-label">O Gargalo Real</div>
+        <h2 style="font-size:clamp(1.6rem,3vw,2.2rem); font-weight:800; text-align:center; margin-bottom:12px;">
+          Escala de Produto Sem Escala de Operação = Caos
+        </h2>
+        <p style="color:var(--text-secondary); max-width:620px; margin:0 auto; font-size:.95rem; line-height:1.7;">
+          Você dominou o marketing. Construiu uma das marcas mais faladas do Brasil. Mas a operação ainda depende de pessoas respondendo manualmente — e gente não escala como produto.
+        </p>
+      </div>
+
+      <div class="grid-2">
+        <div class="pain-card fade-in">
+          <div class="pain-icon">&#128666;</div>
+          <h3>Logística e Distribuição sem Visibilidade</h3>
+          <p>1.100 pontos de venda. Cada um com pedido, prazo e estoque diferente. Sem automação, sua equipe passa o dia apagando incêndio — e você não sabe em tempo real onde há ruptura, onde há sobra e onde o produto está parado há semanas.</p>
+        </div>
+        <div class="pain-card fade-in d1">
+          <div class="pain-icon">&#128722;</div>
+          <h3>Clientes DTC Sem Suporte Escalável</h3>
+          <p>O e-commerce esgotou em horas — e o suporte explodiu junto. "Meu pedido não chegou." "Posso trocar o sabor?" "Qual o prazo?" Cada mensagem virou uma fila que cresce mais rápido do que sua equipe consegue responder.</p>
+        </div>
+        <div class="pain-card fade-in d2">
+          <div class="pain-icon">&#129340;</div>
+          <h3>Fornecedores Gerenciados por WhatsApp Manual</h3>
+          <p>Embalagem, matéria-prima, guaraná, transportadora. Cada fornecedor é um grupo no WhatsApp, um e-mail, uma planilha. Quando a demanda explode — como no lançamento do energético — a comunicação com fornecedores vira um pesadelo de coordenação.</p>
+        </div>
+        <div class="pain-card fade-in d3">
+          <div class="pain-icon">&#128204;</div>
+          <h3>Distribuidores Sem Processo Padronizado</h3>
+          <p>Cada distribuidor regional negocia, pede e reporta de um jeito. Não há processo único de onboarding, de pedido ou de acompanhamento. Você cresce para novos mercados mas a comunicação com o canal comercial ainda é artesanal.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOLUÇÃO -->
+  <section class="section section-alt">
+    <div class="container">
+      <div style="text-align:center; margin-bottom:var(--space-12);">
+        <div class="section-label">A Solução Digital AI</div>
+        <h2 style="font-size:clamp(1.6rem,3vw,2.2rem); font-weight:800; text-align:center; margin-bottom:12px;">
+          IA que Faz a Operação Escalar com o Produto
+        </h2>
+        <p style="color:var(--text-secondary); max-width:640px; margin:0 auto; font-size:.95rem; line-height:1.7;">
+          Não é software genérico. É um sistema de automação inteligente desenhado para a realidade da Dane-se — marca DTC, distribuição capilarizada, demanda explosiva e equipe enxuta.
+        </p>
+      </div>
+
+      <div class="grid-2">
+        <div class="sol-card fade-in">
+          <div class="sol-tag">Atendimento</div>
+          <div class="sol-icon">&#128172;</div>
+          <h3>Agente de Suporte ao Cliente no WhatsApp e DTC</h3>
+          <p>Um agente inteligente que responde pedidos, rastreia entregas, trata reclamações e qualifica perguntas — integrado ao Shopify em tempo real. Sua equipe só vê os casos que realmente precisam de humano. O resto é automatizado, 24h por dia.</p>
+        </div>
+        <div class="sol-card fade-in d1">
+          <div class="sol-tag">Distribuição</div>
+          <div class="sol-icon">&#128666;</div>
+          <h3>Comunicação Automática com Pontos de Venda</h3>
+          <p>Cada ponto de food service recebe atualizações automáticas de estoque, novos sabores e campanhas via WhatsApp. Pedidos de reposição são registrados e enviados para sua logística sem intervenção humana — padronizado para todos os 1.100+ pontos.</p>
+        </div>
+        <div class="sol-card fade-in d2">
+          <div class="sol-tag">Fornecedores</div>
+          <div class="sol-icon">&#129340;</div>
+          <h3>Automação de Comunicação com Fornecedores</h3>
+          <p>Ordens de compra, confirmações de prazo e alertas de estoque crítico enviados automaticamente para cada fornecedor. Quando o estoque de guaraná cair abaixo do mínimo, seu fornecedor já é notificado — antes de você precisar ligar.</p>
+        </div>
+        <div class="sol-card fade-in d3">
+          <div class="sol-tag">Canal Comercial</div>
+          <div class="sol-icon">&#128204;</div>
+          <h3>Onboarding e Gestão de Distribuidores por IA</h3>
+          <p>Novo distribuidor regional? A IA conduz o onboarding: coleta os dados, explica as condições comerciais, registra o contrato e envia as orientações de estoque. Sem reunião longa, sem e-mail perdido, sem depender de um executivo de contas para cada novo parceiro.</p>
+        </div>
+        <div class="sol-card fade-in d4">
+          <div class="sol-tag">Pós-Venda</div>
+          <div class="sol-icon">&#128200;</div>
+          <h3>Retenção e Recorrência via WhatsApp</h3>
+          <p>Clientes que compraram no e-commerce recebem sequência automatizada: confirmação do pedido, avaliação pós-entrega, oferta de recompra quando estimamos que o produto acabou. Construindo recorrência sem equipe de CRM dedicada.</p>
+        </div>
+        <div class="sol-card fade-in d5">
+          <div class="sol-tag">Operação</div>
+          <div class="sol-icon">&#128196;</div>
+          <h3>Dashboard Operacional com Alertas Inteligentes</h3>
+          <p>Visão consolidada de pedidos, estoque, distribuidores e suporte em um painel único. A IA detecta anomalias — pico de reclamações em determinado estado, estoque crítico, distribuidor sem pedido há 30 dias — e alerta sua equipe antes do problema virar crise.</p>
+        </div>
+      </div>
+
+      <!-- Chat mockup -->
+      <div class="chat-wrap fade-in">
+        <div class="chat-box">
+          <div class="chat-header">
+            <div class="chat-avatar">&#129473;</div>
+            <div>
+              <div class="chat-name">Dane — Atendente Dane-se</div>
+              <div class="chat-status">Online agora</div>
+            </div>
+          </div>
+          <div class="chat-msgs">
+            <div class="msg msg-in">
+              Oi! Comprei o energético de melancia ontem, quando chega?
+              <div class="msg-time">10:42</div>
+            </div>
+            <div class="msg msg-out">
+              Olá! Seu pedido #4821 já foi despachado ontem às 18h. Previsão de entrega: amanhã até as 20h. Quer que eu te mande o link de rastreio? &#128204;
+              <div class="msg-time">10:42</div>
+            </div>
+            <div class="msg msg-in">
+              Pode ser! E já posso comprar o de manga também?
+              <div class="msg-time">10:43</div>
+            </div>
+            <div class="msg msg-out">
+              O energético de manga está disponível no site! &#127865; Se quiser, já deixo o link aqui — e tem combo com os dois sabores com desconto. Vale muito a pena!
+              <div class="msg-time">10:43</div>
+            </div>
+          </div>
+        </div>
+        <p style="text-align:center; color:var(--text-secondary); font-size:.8rem; margin-top:14px;">
+          Rastreio, suporte e cross-sell automáticos — sua equipe só vê o que realmente precisa de atenção.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMO FUNCIONA -->
+  <section class="section section-dark">
+    <div class="container">
+      <div style="text-align:center; margin-bottom:var(--space-12);">
+        <div class="section-label">Como Funciona</div>
+        <h2 style="font-size:clamp(1.6rem,3vw,2.2rem); font-weight:800; text-align:center; margin-bottom:12px;">
+          Da Conversa ao Funcionamento em 3 Passos
+        </h2>
+      </div>
+
+      <div class="steps-grid">
+        <div class="step-card fade-in">
+          <div class="step-number">1</div>
+          <h3>Mapeamos Sua Operação</h3>
+          <p>Em uma sessão de 2h entendemos os fluxos críticos: atendimento DTC, comunicação com distribuidores, gestão de fornecedores e logística. Identificamos os gargalos que mais custam tempo e receita.</p>
+        </div>
+        <div class="step-card fade-in d2">
+          <div class="step-number">2</div>
+          <h3>Construímos os Agentes</h3>
+          <p>Desenvolvemos os agentes de IA específicos para a Dane-se — integrados ao Shopify, WhatsApp Business API e às ferramentas que você já usa. Testamos com cenários reais antes de ativar.</p>
+        </div>
+        <div class="step-card fade-in d4">
+          <div class="step-number">3</div>
+          <h3>Operação em Piloto Automático</h3>
+          <p>A partir da ativação, os agentes assumem as comunicações rotineiras. Sua equipe fica livre para focar em produto, novos mercados e decisões que realmente precisam de um humano.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESULTADOS -->
+  <section class="section section-alt">
+    <div class="container">
+      <div style="text-align:center; margin-bottom:var(--space-12);">
+        <div class="section-label">Resultados</div>
+        <h2 style="font-size:clamp(1.6rem,3vw,2.2rem); font-weight:800; text-align:center; margin-bottom:12px;">
+          O Que Muda na Operação da Dane-se
+        </h2>
+        <p style="color:var(--text-secondary); max-width:600px; margin:0 auto; font-size:.95rem; line-height:1.7;">
+          Operações automatizadas inteligentes entregam resultados mensuráveis — do primeiro mês.
+        </p>
+      </div>
+
+      <div class="grid-4">
+        <div class="metric-card fade-in">
+          <div class="metric-value">&lt; 2 min</div>
+          <div class="metric-label">Resposta ao cliente DTC, 24h por dia, 7 dias por semana</div>
+        </div>
+        <div class="metric-card fade-in d1">
+          <div class="metric-value">-70%</div>
+          <div class="metric-label">Redução de tickets de suporte que chegam ao time humano</div>
+        </div>
+        <div class="metric-card fade-in d2">
+          <div class="metric-value">100%</div>
+          <div class="metric-label">Distribuidores e fornecedores atendidos com processo único</div>
+        </div>
+        <div class="metric-card fade-in d3">
+          <div class="metric-value">Escala</div>
+          <div class="metric-label">Sem contratar mais gente a cada novo pico de demanda</div>
+        </div>
+      </div>
+
+      <div style="margin-top:var(--space-12);" class="fade-in">
+        <div class="highlight-box">
+          <div class="highlight-box-icon">&#128640;</div>
+          <div>
+            <h3>A meta de R$ 40M exige uma operação que sustente esse volume</h3>
+            <p>
+              Você construiu a Dane-se de forma orgânica e inteligente — o "building in public" virou case no Brasil. Mas crescer de 400K seguidores para marca nacional com R$ 40M de faturamento exige <strong style="color:#fff;">uma operação que não dependa de você ou de uma equipe crescente de atendimento manual</strong>.
+              A Digital AI é a infraestrutura invisível que deixa a Dane-se funcionar enquanto você foca no que só você pode fazer: produto, marca e estratégia.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <div class="cta-glow"></div>
+    <div class="container">
+      <div class="section-label" style="margin-bottom:24px;">Próximo Passo</div>
+      <h2 class="cta-headline">
+        Gregório, a Dane-se Pode Chegar nos R$ 40M<br />
+        <span class="gradient-text">Sem a Operação Travar no Meio do Caminho</span>
+      </h2>
+      <p class="cta-subtitle">
+        Uma conversa de 20 minutos é suficiente para mostrar exatamente como a Digital AI se encaixa na operação da Dane-se. Sem pitch genérico, sem PowerPoint de 40 slides.
+      </p>
+      <div class="cta-buttons">
+        <a href="https://wa.me/5562996420201?text=Ol%C3%A1%21+Vi+a+apresenta%C3%A7%C3%A3o+da+Digital+AI+para+a+Dane-se+e+quero+conversar+sobre+automacao+operacional." class="btn btn-wpp" style="font-size:1.05rem;padding:16px 36px;border-radius:10px;" target="_blank" rel="noopener">
+          &#128172; Quero automatizar a operação da Dane-se
+        </a>
+      </div>
+      <p class="cta-note">Resposta em minutos &middot; Sem compromisso &middot; 100% adaptado para a realidade da Dane-se</p>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <img src="dai-logo.png" alt="Digital AI" class="footer-logo" />
+          <div class="footer-divider"></div>
+          <div class="footer-copy">Automação Inteligente para Empresas que Crescem &middot; Goiânia, GO</div>
+        </div>
+        <div class="footer-links">
+          <a href="https://digital-ai.tech" target="_blank" rel="noopener">digital-ai.tech</a>
+          <a href="https://wa.me/5562996420201?text=Oi%21+Quero+saber+mais+sobre+a+Digital+AI." target="_blank" rel="noopener">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const nav = document.getElementById('main-nav');
+    window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 20));
+    const obs = new IntersectionObserver(entries => entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); }), {threshold:.12});
+    document.querySelectorAll('.fade-in').forEach(el => obs.observe(el));
+  </script>
+</body>
+</html>

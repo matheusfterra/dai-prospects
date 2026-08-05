@@ -524,6 +524,84 @@
       margin-bottom: 14px;
     }
 
+    /* ===================== TECH SECTION ===================== */
+    .tech-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-6);
+    }
+    .tech-card {
+      background: var(--gradient-card);
+      border: 1px solid rgba(67, 97, 238, 0.25);
+      border-radius: var(--radius-card);
+      padding: var(--space-8);
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    .tech-card::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 3px;
+      background: var(--gradient-accent);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    .tech-card:hover::after { opacity: 1; }
+    .tech-card:hover {
+      border-color: rgba(67, 97, 238, 0.5);
+      box-shadow: var(--shadow-hover);
+      transform: translateY(-4px);
+    }
+    .tech-icon { font-size: 2rem; margin-bottom: 16px; }
+    .tech-tag {
+      display: inline-block;
+      font-size: 0.68rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #a0b4ff;
+      background: rgba(67, 97, 238, 0.12);
+      border: 1px solid rgba(67, 97, 238, 0.25);
+      padding: 3px 10px;
+      border-radius: var(--radius-pill);
+      margin-bottom: 14px;
+    }
+    .tech-card h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+      color: var(--text-primary);
+    }
+    .tech-card p {
+      font-size: 0.86rem;
+      color: var(--text-secondary);
+      line-height: 1.65;
+    }
+    .tech-highlight {
+      margin-top: var(--space-12);
+      background: linear-gradient(135deg, rgba(67,97,238,0.08), rgba(114,9,183,0.08));
+      border: 1px solid rgba(67, 97, 238, 0.25);
+      border-radius: var(--radius-large);
+      padding: var(--space-8);
+      display: flex;
+      align-items: center;
+      gap: var(--space-6);
+      flex-wrap: wrap;
+    }
+    .tech-highlight-icon { font-size: 3rem; flex-shrink: 0; }
+    .tech-highlight h3 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+    .tech-highlight p {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      line-height: 1.7;
+    }
+
     /* ===================== HOW IT WORKS ===================== */
     .steps-grid {
       display: grid;
@@ -743,6 +821,23 @@
       flex-wrap: wrap;
       gap: var(--space-4);
     }
+    .footer-brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .footer-logo {
+      height: 36px;
+      width: auto;
+      display: block;
+      filter: brightness(0) invert(1);
+      opacity: 0.9;
+    }
+    .footer-divider {
+      width: 1px;
+      height: 28px;
+      background: rgba(255,255,255,0.12);
+    }
     .footer-copy {
       font-size: 0.8rem;
       color: var(--text-secondary);
@@ -764,6 +859,7 @@
       .pain-grid { grid-template-columns: 1fr; }
       .units-grid { grid-template-columns: 1fr; }
       .solution-grid { grid-template-columns: 1fr; }
+      .tech-grid { grid-template-columns: 1fr; }
       .steps-grid { grid-template-columns: 1fr; }
       .steps-grid::before { display: none; }
       .metrics-grid { grid-template-columns: repeat(2, 1fr); }
@@ -776,6 +872,7 @@
       .cta-buttons { flex-direction: column; align-items: center; }
       .footer-inner { flex-direction: column; text-align: center; }
       .footer-links { justify-content: center; }
+      .footer-brand { justify-content: center; }
     }
   </style>
 </head>
@@ -785,7 +882,7 @@
   <nav id="main-nav">
     <div class="nav-inner">
       <div class="logo-text">Digital<span class="logo-accent"> AI</span></div>
-      <div class="nav-badge">Apresentacao Exclusiva — Divaney Lima</div>
+      <div class="nav-badge">Apresentação Exclusiva — Divaney Lima</div>
       <a href="https://wa.me/5562996420201?text=Ol%C3%A1%21+Vi+a+apresenta%C3%A7%C3%A3o+da+Digital+AI+e+quero+saber+mais+sobre+a+Recepcionista+Digital+para+as+minhas+academias." class="btn btn-primary" target="_blank" rel="noopener">
         Falar agora
       </a>
@@ -800,18 +897,18 @@
       <div class="hero-content">
         <div class="hero-eyebrow">
           <span class="hero-dot"></span>
-          Apresentacao exclusiva para Divaney Lima
+          Apresentação exclusiva para Divaney Lima
         </div>
 
         <h1>
           3 Academias. 3 WhatsApps.<br />
-          <span class="gradient-text">Quantos Leads Voce Esta Perdendo Agora?</span>
+          <span class="gradient-text">Quantos Leads Você Está Perdendo Agora?</span>
         </h1>
 
         <p class="hero-subtitle">
-          Você abriu 3 unidades Panobianco em Goiania em menos de 15 meses. Isso e expansao de respeito.
-          Mas cada WhatsApp sem resposta e uma matricula que a concorrencia fecha.
-          A Digital AI coloca uma <strong style="color:#fff;">Recepcionista Digital</strong> inteligente nas 3 unidades — atendendo, qualificando e agendando 24h por dia, sem precisar contratar mais ninguem.
+          Você abriu 3 unidades Panobianco em Goiânia em menos de 15 meses. Isso é expansão de respeito.
+          Mas cada WhatsApp sem resposta é uma matrícula que a concorrência fecha.
+          A Digital AI coloca uma <strong style="color:#fff;">Recepcionista Digital</strong> inteligente nas 3 unidades — atendendo, qualificando e agendando 24h por dia, sem precisar contratar mais ninguém.
         </p>
 
         <div class="hero-cta">
@@ -844,19 +941,19 @@
       <div class="stat-bar-grid">
         <div class="stat-bar-item fade-in">
           <div class="stat-value">5–8%</div>
-          <div class="stat-label">Churn mensal medio em academias low cost</div>
+          <div class="stat-label">Churn mensal médio em academias low cost</div>
         </div>
         <div class="stat-bar-item fade-in d1">
           <div class="stat-value">68%</div>
-          <div class="stat-label">Dos leads no WhatsApp nao recebem follow-up adequado</div>
+          <div class="stat-label">Dos leads no WhatsApp não recebem follow-up adequado</div>
         </div>
         <div class="stat-bar-item fade-in d2">
           <div class="stat-value">5–7x</div>
-          <div class="stat-label">Mais caro captar novo aluno do que reter quem ja e seu</div>
+          <div class="stat-label">Mais caro captar novo aluno do que reter quem já é seu</div>
         </div>
         <div class="stat-bar-item fade-in d3">
           <div class="stat-value">90–150</div>
-          <div class="stat-label">Contatos por dia nas 3 unidades — sem sistema automatico</div>
+          <div class="stat-label">Contatos por dia nas 3 unidades — sem sistema automático</div>
         </div>
       </div>
     </div>
@@ -867,32 +964,32 @@
     <div class="container">
       <div style="text-align:center; margin-bottom: var(--space-12);">
         <div class="section-label">O Problema Real</div>
-        <h2 class="section-title" style="margin-bottom:12px;">Expandir Rapido Cria um Problema que Ninguem Fala</h2>
+        <h2 class="section-title" style="margin-bottom:12px;">Expandir Rápido Cria um Problema que Ninguém Fala</h2>
         <p style="color:var(--text-secondary); max-width:600px; margin:0 auto; font-size:0.95rem; line-height:1.7;">
-          3 unidades em 15 meses e conquista. Mas a mesma expansao que faz voce crescer tambem multiplica o caos de atendimento.
+          3 unidades em 15 meses é conquista. Mas a mesma expansão que faz você crescer também multiplica o caos de atendimento.
         </p>
       </div>
 
       <div class="pain-grid">
         <div class="pain-card fade-in">
           <div class="pain-icon">&#128241;</div>
-          <h3>3 WhatsApps, 1 Voce</h3>
-          <p>Setor Oeste. Patio Vitta. Sao Jose. Cada unidade tem seu proprio numero, sua propria fila de mensagens. Responder tudo em tempo real e impossivel — mas o lead que nao e atendido em minutos vai para a Smart Fit ao lado.</p>
+          <h3>3 WhatsApps, 1 Você</h3>
+          <p>Setor Oeste. Pátio Vitta. São José. Cada unidade tem seu próprio número, sua própria fila de mensagens. Responder tudo em tempo real é impossível — mas o lead que não é atendido em minutos vai para a Smart Fit ao lado.</p>
         </div>
         <div class="pain-card fade-in d1">
           <div class="pain-icon">&#129300;</div>
-          <h3>Lead Chega, Recepcionista Nao Esta</h3>
-          <p>As 22h alguem manda "quanto custa a mensalidade?". De manha, quando sua equipe responde, ele ja foi embora. Academia low cost e decisao de impulso — quem responde rapido, matricula. Quem demora, perde.</p>
+          <h3>Lead Chega, Recepcionista Não Está</h3>
+          <p>Às 22h alguém manda "quanto custa a mensalidade?". De manhã, quando sua equipe responde, ele já foi embora. Academia low cost é decisão de impulso — quem responde rápido, matricula. Quem demora, perde.</p>
         </div>
         <div class="pain-card fade-in d2">
           <div class="pain-icon">&#128683;</div>
-          <h3>Aluno Some e So Aparece Inadimplente</h3>
-          <p>O aluno para de treinar. Nao vem por 2 semanas. Ninguem percebe. Quando sua equipe nota, ele ja cancelou. Um simples "sumiu das treinos, tudo bem?" no momento certo salva a matricula — mas nao tem ninguem para mandar.</p>
+          <h3>Aluno Some e Só Aparece Inadimplente</h3>
+          <p>O aluno para de treinar. Não vem por 2 semanas. Ninguém percebe. Quando sua equipe nota, ele já cancelou. Um simples "sumiu dos treinos, tudo bem?" no momento certo salva a matrícula — mas não tem ninguém para mandar.</p>
         </div>
         <div class="pain-card fade-in d3">
           <div class="pain-icon">&#127891;</div>
           <h3>Aula Experimental Sem Processo</h3>
-          <p>Alguem pede para conhecer a academia. A recepcionista da unidade que ela prefere anotou em papel, ou nao anotou. O agendamento nao tem confirmacao automatica. No dia, o prospect nao aparece — e voce nem sabe por que.</p>
+          <p>Alguém pede para conhecer a academia. A recepcionista da unidade anotou em papel — ou não anotou. O agendamento não tem confirmação automática. No dia, o prospect não aparece — e você nem sabe por quê.</p>
         </div>
       </div>
     </div>
@@ -905,7 +1002,7 @@
         <div class="section-label">Suas Unidades</div>
         <h2 class="section-title" style="margin-bottom:12px;">O Mesmo Problema em Cada Unidade, 3 Vezes ao Dia</h2>
         <p style="color:var(--text-secondary); max-width:600px; margin:0 auto; font-size:0.95rem; line-height:1.7;">
-          Cada uma das suas unidades tem atendimento proprio. Sem padronizacao, cada recepcionista aborda diferente — e o resultado e diferente.
+          Cada uma das suas unidades tem atendimento próprio. Sem padronização, cada recepcionista aborda diferente — e o resultado é diferente.
         </p>
       </div>
 
@@ -913,60 +1010,60 @@
         <div class="unit-card fade-in">
           <div class="unit-number">01</div>
           <div class="unit-name">Panobianco Setor Oeste</div>
-          <div class="unit-address">Av. Republica do Libano, Setor Marechal Rondon &middot; (62) 99642-0201</div>
-          <p class="unit-problem">"O WhatsApp do Setor Oeste fica sem resposta nos horarios de pico e a noite. Cada recepcionista aborda o lead de um jeito."</p>
+          <div class="unit-address">Av. República do Líbano, Setor Marechal Rondon &middot; (62) 99642-0201</div>
+          <p class="unit-problem">"O WhatsApp do Setor Oeste fica sem resposta nos horários de pico e à noite. Cada recepcionista aborda o lead de um jeito diferente."</p>
         </div>
         <div class="unit-card fade-in d1">
           <div class="unit-number">02</div>
-          <div class="unit-name">Panobianco Patio Vitta</div>
-          <div class="unit-address">Av. Republica do Libano, S/N, Setor Oeste &middot; Goiania, GO</div>
-          <p class="unit-problem">"Unidade dentro de shopping — lead entra pelo Instagram, manda DM. DM cai no celular pessoal, WhatsApp e-mail. Quem coordena tudo isso?"</p>
+          <div class="unit-name">Panobianco Pátio Vitta</div>
+          <div class="unit-address">Av. República do Líbano, S/N, Setor Oeste &middot; Goiânia, GO</div>
+          <p class="unit-problem">"Unidade dentro de shopping — lead entra pelo Instagram, manda DM. DM cai no celular pessoal, WhatsApp, e-mail. Quem coordena tudo isso?"</p>
         </div>
         <div class="unit-card fade-in d2">
           <div class="unit-number">03</div>
-          <div class="unit-name">Panobianco Sao Jose</div>
-          <div class="unit-address">Av. Sao Clemente, 1, Setor Sao Jose &middot; (62) 99803-2403</div>
-          <p class="unit-problem">"Unidade mais nova, inaugurada em jun/2026. Fase de captacao intensa. Cada lead perdido nessa fase custa mais caro — a base de alunos ainda esta sendo construida."</p>
+          <div class="unit-name">Panobianco São José</div>
+          <div class="unit-address">Av. São Clemente, 1, Setor São José &middot; (62) 99803-2403</div>
+          <p class="unit-problem">"Unidade mais nova, inaugurada em jun/2026. Fase de captação intensa. Cada lead perdido nessa fase custa mais caro — a base de alunos ainda está sendo construída."</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ===================== SOLUCAO ===================== -->
+  <!-- ===================== SOLUÇÃO ===================== -->
   <section class="section section-dark">
     <div class="container">
       <div style="text-align:center; margin-bottom: var(--space-12);">
-        <div class="section-label">A Solucao</div>
+        <div class="section-label">A Solução</div>
         <h2 class="section-title" style="margin-bottom:12px;">Uma Recepcionista Digital nas Suas 3 Unidades</h2>
         <p style="color:var(--text-secondary); max-width:640px; margin:0 auto; font-size:0.95rem; line-height:1.7;">
-          Nao e chatbot de botao. E um Atendente Inteligente que conhece suas 3 unidades, os planos, os horarios e as objecoes — e atende como sua melhor recepcionista atenderia, sem parar.
+          Não é chatbot de botão. É um Atendente Inteligente que conhece suas 3 unidades, os planos, os horários e as objeções — e atende como sua melhor recepcionista atenderia, sem parar.
         </p>
       </div>
 
       <div class="solution-grid">
         <div class="solution-card fade-in">
-          <div class="solution-tag">Captacao</div>
+          <div class="solution-tag">Captação</div>
           <div class="solution-icon">&#128172;</div>
           <h3>Resposta em Menos de 2 Minutos</h3>
-          <p>Qualquer mensagem no WhatsApp das suas unidades — planos, horarios, localizacao, diferenciais — recebe resposta instantanea, 24h por dia. Sem fila, sem esquecimento, sem depender de horario comercial.</p>
+          <p>Qualquer mensagem no WhatsApp das suas unidades — planos, horários, localização, diferenciais — recebe resposta instantânea, 24h por dia. Sem fila, sem esquecimento, sem depender de horário comercial.</p>
         </div>
         <div class="solution-card fade-in d1">
           <div class="solution-icon">&#128197;</div>
-          <div class="solution-tag">Conversao</div>
+          <div class="solution-tag">Conversão</div>
           <h3>Aula Experimental Agendada Automaticamente</h3>
-          <p>O interessado manifesta vontade de conhecer. O Atendente coleta o nome, o dia preferido e envia confirmacao automatica por WhatsApp. Voce ve tudo em um painel centralizado — sem papel, sem planilha, sem ligacao.</p>
+          <p>O interessado manifesta vontade de conhecer. O Atendente coleta o nome, o dia preferido e envia confirmação automática por WhatsApp. Você vê tudo em um painel centralizado — sem papel, sem planilha, sem ligação.</p>
         </div>
         <div class="solution-card fade-in d2">
           <div class="solution-icon">&#128202;</div>
-          <div class="solution-tag">Retencao</div>
+          <div class="solution-tag">Retenção</div>
           <h3>Reengajamento de Alunos que Sumiram</h3>
-          <p>O Atendente identifica alunos que nao aparecem ha dias e manda uma mensagem humanizada de reengajamento — "sumiu das treinos, tudo bem?". Um simples oi no momento certo evita um cancelamento.</p>
+          <p>O Atendente identifica alunos que não aparecem há dias e manda uma mensagem humanizada de reengajamento — "sumiu dos treinos, tudo bem?". Um simples oi no momento certo evita um cancelamento.</p>
         </div>
         <div class="solution-card fade-in d3">
           <div class="solution-icon">&#127775;</div>
-          <div class="solution-tag">Padronizacao</div>
+          <div class="solution-tag">Padronização</div>
           <h3>Mesma Qualidade de Atendimento nas 3 Unidades</h3>
-          <p>Implementado uma vez, funciona nas 3. Setor Oeste, Patio Vitta e Sao Jose atendem com o mesmo padrao, o mesmo script, o mesmo profissionalismo — independente de qual recepcionista esta de plantao.</p>
+          <p>Implementado uma vez, funciona nas 3. Setor Oeste, Pátio Vitta e São José atendem com o mesmo padrão, o mesmo script, o mesmo profissionalismo — independente de qual recepcionista está de plantão.</p>
         </div>
       </div>
 
@@ -982,40 +1079,102 @@
           </div>
           <div class="chat-messages">
             <div class="msg msg-in">
-              Oi! Quanto custa a mensalidade de voces? Quero comecar na academia
+              Oi! Quanto custa a mensalidade de vocês? Quero começar na academia
               <div class="msg-time">22:14</div>
             </div>
             <div class="msg msg-out">
-              Ola! Que otimo que voce quer comecar! &#128170; Nosso plano Orange e R$ 119,90/mes com acesso completo. Ja o Platinum, R$ 139,90, da acesso a todas as unidades da rede.
+              Olá! Que ótimo que você quer começar! &#128170; Nosso plano Orange é R$&nbsp;119,90/mês com acesso completo. Já o Platinum, R$&nbsp;139,90, dá acesso a todas as unidades da rede.
               <div class="msg-time">22:14</div>
             </div>
             <div class="msg msg-in">
-              Qual e a mais perto do Setor Oeste?
+              Qual é a mais perto do Setor Oeste?
               <div class="msg-time">22:15</div>
             </div>
             <div class="msg msg-out">
-              Temos a unidade do Setor Marechal Rondon, ali na Av. Republica do Libano &#128205; Quer agendar uma aula experimental gratuita? Fico feliz em marcar pra voce!
+              Temos a unidade do Setor Marechal Rondon, ali na Av. República do Líbano &#128205; Quer agendar uma aula experimental gratuita? Fico feliz em marcar pra você!
               <div class="msg-time">22:15</div>
             </div>
             <div class="msg msg-in">
-              Sim! Pode ser amanha as 18h?
+              Sim! Pode ser amanhã às 18h?
               <div class="msg-time">22:16</div>
             </div>
             <div class="msg msg-out">
-              Perfeito! Amanha as 18h, Setor Oeste. Vou te mandar a confirmacao agora. Pode vir de roupa de treino, a primeira vez e por nossa conta! &#127775;
+              Perfeito! Amanhã às 18h, Setor Oeste. Vou te mandar a confirmação agora. Pode vir de roupa de treino, a primeira vez é por nossa conta! &#127775;
               <div class="msg-time">22:16</div>
             </div>
           </div>
         </div>
         <p style="text-align:center; color:var(--text-secondary); font-size:0.8rem; margin-top:14px;">
-          Isso acontece 24h por dia — enquanto voce dorme, a Recepcionista Digital atende.
+          Isso acontece 24h por dia — enquanto você dorme, a Recepcionista Digital atende.
         </p>
       </div>
     </div>
   </section>
 
-  <!-- ===================== COMO FUNCIONA ===================== -->
+  <!-- ===================== TECNOLOGIA NA OPERAÇÃO ===================== -->
   <section class="section section-alt">
+    <div class="container">
+      <div style="text-align:center; margin-bottom: var(--space-12);">
+        <div class="section-label">IA Além do Atendimento</div>
+        <h2 class="section-title" style="margin-bottom:12px;">Tecnologia que Transforma a Experiência do Aluno</h2>
+        <p style="color:var(--text-secondary); max-width:640px; margin:0 auto; font-size:0.95rem; line-height:1.7;">
+          O atendimento é só o começo. IA pode transformar a experiência dentro da academia — engajando o aluno, aumentando a percepção de valor e tornando o cancelamento uma opção cada vez mais difícil.
+        </p>
+      </div>
+
+      <div class="tech-grid">
+        <div class="tech-card fade-in">
+          <div class="tech-icon">&#129345;</div>
+          <div class="tech-tag">Nutrição</div>
+          <h3>Medidor de Calorias e Guia Nutricional por IA</h3>
+          <p>O aluno manda foto da refeição no WhatsApp e recebe análise calórica instantânea. Também pode perguntar "o que comer antes do treino?" e a IA responde com orientações alinhadas ao objetivo dele — emagrecer, ganhar massa ou manutenção.</p>
+        </div>
+        <div class="tech-card fade-in d1">
+          <div class="tech-icon">&#127947;</div>
+          <div class="tech-tag">Treino</div>
+          <h3>Gerador de Treino Personalizado via WhatsApp</h3>
+          <p>O aluno informa objetivo, nível de condicionamento e os dias que pode treinar. A IA monta um plano semanal personalizado com exercícios, séries e cargas — direto no WhatsApp, sem precisar de personal trainer para cada consulta simples.</p>
+        </div>
+        <div class="tech-card fade-in d2">
+          <div class="tech-icon">&#128200;</div>
+          <div class="tech-tag">Progresso</div>
+          <h3>Acompanhamento de Evolução e Metas</h3>
+          <p>O aluno registra medidas ou peso por mensagem. A IA mantém o histórico, calcula a evolução e envia relatórios de progresso semanais — com motivação personalizada baseada nos resultados reais de cada um.</p>
+        </div>
+        <div class="tech-card fade-in d3">
+          <div class="tech-icon">&#128276;</div>
+          <div class="tech-tag">Engajamento</div>
+          <h3>Lembretes Inteligentes de Treino</h3>
+          <p>A IA sabe quais dias o aluno costuma treinar. Se ele não aparecer no horário habitual, recebe um lembrete motivacional — não uma cobrança genérica, mas uma mensagem personalizada baseada no histórico e nas metas dele.</p>
+        </div>
+        <div class="tech-card fade-in d4">
+          <div class="tech-icon">&#127919;</div>
+          <div class="tech-tag">Retenção</div>
+          <h3>Desafios e Gamificação por WhatsApp</h3>
+          <p>Desafios mensais automáticos — "meta de 16 treinos em junho", ranking de frequência nas unidades, conquistas por consistência. A IA gerencia tudo e envia atualizações semanais, criando comunidade e aumentando a aderência.</p>
+        </div>
+        <div class="tech-card fade-in d5">
+          <div class="tech-icon">&#128176;</div>
+          <div class="tech-tag">Operação</div>
+          <h3>Gestão de Renovação e Inadimplência</h3>
+          <p>Antes do vencimento, a IA avisa o aluno e facilita a renovação pelo WhatsApp. Para inadimplentes, dispara sequências humanizadas de renegociação — sem constrangimento, sem ligar, sem perder o aluno por falta de comunicação.</p>
+        </div>
+      </div>
+
+      <div class="tech-highlight fade-in">
+        <div class="tech-highlight-icon">&#128161;</div>
+        <div>
+          <h3>Um ecossistema completo de IA para suas 3 academias</h3>
+          <p style="color:var(--text-secondary); font-size:0.9rem; line-height:1.7;">
+            Academias low cost competem em preço — mas <strong style="color:#fff;">retêm pelo valor percebido</strong>. O aluno que recebe orientação nutricional, treino personalizado, acompanhamento de progresso e lembretes motivacionais pelo WhatsApp não compara sua academia com a concorrente mais barata. Ele compara a <em>experiência</em>. E a Digital AI entrega essa experiência de forma automática, para todas as suas unidades, sem custo de personal trainer ou equipe extra.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== COMO FUNCIONA ===================== -->
+  <section class="section section-dark">
     <div class="container">
       <div style="text-align:center; margin-bottom: var(--space-12);">
         <div class="section-label">Como Funciona</div>
@@ -1026,30 +1185,30 @@
         <div class="step-card fade-in">
           <div class="step-number">1</div>
           <h3>Mapeamos Suas Unidades</h3>
-          <p>Em uma reuniao de 1h levantamos os planos, horarios, objecoes mais comuns e diferenciais de cada unidade. A Recepcionista Digital aprende tudo sobre a Panobianco de voce.</p>
+          <p>Em uma reunião de 1h levantamos os planos, horários, objeções mais comuns e diferenciais de cada unidade. A Recepcionista Digital aprende tudo sobre a Panobianco de você.</p>
         </div>
         <div class="step-card fade-in d2">
           <div class="step-number">2</div>
           <h3>Configuramos e Testamos</h3>
-          <p>Conectamos o Atendente aos WhatsApps das 3 unidades. Testamos cenarios reais — lead novo, aula experimental, cancelamento, aluno sumido — ate tudo funcionar do jeito que voce quer.</p>
+          <p>Conectamos o Atendente aos WhatsApps das 3 unidades. Testamos cenários reais — lead novo, aula experimental, cancelamento, aluno sumido — até tudo funcionar do jeito que você quer.</p>
         </div>
         <div class="step-card fade-in d4">
           <div class="step-number">3</div>
           <h3>Liga e Funciona</h3>
-          <p>A partir do dia de ativacao, todos os contatos nas 3 unidades sao atendidos automaticamente. Sua equipe foca em treinar alunos — a Recepcionista Digital cuida do resto.</p>
+          <p>A partir do dia de ativação, todos os contatos nas 3 unidades são atendidos automaticamente. Sua equipe foca em treinar alunos — a Recepcionista Digital cuida do resto.</p>
         </div>
       </div>
     </div>
   </section>
 
   <!-- ===================== RESULTADOS ===================== -->
-  <section class="section section-dark">
+  <section class="section section-alt">
     <div class="container">
       <div style="text-align:center; margin-bottom: var(--space-12);">
         <div class="section-label">Resultados</div>
         <h2 class="section-title" style="margin-bottom:12px;">O Que Muda Nas Suas Academias</h2>
         <p style="color:var(--text-secondary); max-width:600px; margin:0 auto; font-size:0.95rem; line-height:1.7;">
-          Academias com atendimento automatizado inteligente colhem resultados mensuraveis — do primeiro mes.
+          Academias com atendimento automatizado inteligente colhem resultados mensuráveis — do primeiro mês.
         </p>
       </div>
 
@@ -1060,7 +1219,7 @@
         </div>
         <div class="metric-card fade-in d1">
           <div class="metric-value">-30%</div>
-          <div class="metric-label">Reducao de churn com reengajamento proativo de alunos</div>
+          <div class="metric-label">Redução de churn com reengajamento proativo de alunos</div>
         </div>
         <div class="metric-card fade-in d2">
           <div class="metric-value">3x</div>
@@ -1068,7 +1227,7 @@
         </div>
         <div class="metric-card fade-in d3">
           <div class="metric-value">Zero</div>
-          <div class="metric-label">Leads perdidos por horario fora do expediente</div>
+          <div class="metric-label">Leads perdidos por horário fora do expediente</div>
         </div>
       </div>
 
@@ -1076,9 +1235,9 @@
         <div style="display:flex; gap:var(--space-6); align-items:flex-start; flex-wrap:wrap;">
           <div style="font-size:2.5rem; flex-shrink:0;">&#128640;</div>
           <div>
-            <h3 style="font-size:1.1rem; margin-bottom:10px;">O calculo e simples para quem entende de negocio</h3>
+            <h3 style="font-size:1.1rem; margin-bottom:10px;">O cálculo é simples para quem entende de negócio</h3>
             <p style="color:var(--text-secondary); font-size:0.9rem; line-height:1.7;">
-              Voce investiu <strong style="color:#fff;">mais de R$ 950 mil em cada unidade</strong>. O custo de captar um novo aluno e 5 a 7 vezes maior do que reter quem ja e seu. Com 3 unidades gerando 90–150 contatos por dia, um sistema de atendimento inteligente nao e despesa — e o maior multiplicador de ROI que voce pode ativar agora, sem obras, sem equipamentos, sem contratacao.
+              Você investiu <strong style="color:#fff;">mais de R$&nbsp;950 mil em cada unidade</strong>. O custo de captar um novo aluno é 5 a 7 vezes maior do que reter quem já é seu. Com 3 unidades gerando 90–150 contatos por dia, um sistema de atendimento inteligente não é despesa — é o maior multiplicador de ROI que você pode ativar agora, sem obras, sem equipamentos, sem contratação.
             </p>
           </div>
         </div>
@@ -1090,13 +1249,13 @@
   <section class="cta-section">
     <div class="cta-glow"></div>
     <div class="container">
-      <div class="section-label" style="margin-bottom:24px;">Proximo Passo</div>
+      <div class="section-label" style="margin-bottom:24px;">Próximo Passo</div>
       <h2 class="cta-headline">
         Divaney, Suas 3 Academias Podem Atender<br />
-        <span class="gradient-text">Enquanto Voce Faz o que Importa</span>
+        <span class="gradient-text">Enquanto Você Faz o que Importa</span>
       </h2>
       <p class="cta-subtitle">
-        Uma conversa de 15 minutos e suficiente para mostrar como a Recepcionista Digital funciona nas suas unidades — Setor Oeste, Patio Vitta e Sao Jose. Sem pitch longo, sem contrato na primeira reuniao.
+        Uma conversa de 15 minutos é suficiente para mostrar como a Recepcionista Digital funciona nas suas unidades — Setor Oeste, Pátio Vitta e São José. Sem pitch longo, sem contrato na primeira reunião.
       </p>
       <div class="cta-buttons">
         <a href="https://wa.me/5562996420201?text=Ol%C3%A1%21+Vi+a+apresenta%C3%A7%C3%A3o+da+Digital+AI+e+quero+saber+mais+sobre+a+Recepcionista+Digital+para+as+minhas+academias+Panobianco." class="btn btn-wpp btn-large" target="_blank" rel="noopener">
@@ -1111,9 +1270,10 @@
   <footer>
     <div class="container">
       <div class="footer-inner">
-        <div>
-          <div class="logo-text" style="font-size:1.1rem; margin-bottom:6px;">Digital<span class="logo-accent"> AI</span></div>
-          <div class="footer-copy">Automacao Inteligente para Empresas que Crescem &middot; Goiania, GO</div>
+        <div class="footer-brand">
+          <img src="dai-logo.png" alt="Digital AI" class="footer-logo" />
+          <div class="footer-divider"></div>
+          <div class="footer-copy">Automação Inteligente para Empresas que Crescem &middot; Goiânia, GO</div>
         </div>
         <div class="footer-links">
           <a href="https://digital-ai.tech" target="_blank" rel="noopener">digital-ai.tech</a>
